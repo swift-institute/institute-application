@@ -1,15 +1,24 @@
-private import Build_Coordinator
+public import Institute_Model
+public import Institute_Inventory
+public import Institute_Dependency
+public import Institute_Development
+public import Institute_Lint
+public import Institute_Pages
+public import Institute_Doctor
+public import Institute_Conversion
+public import Institute_Instruments
+public import Institute_GitHub
+
+public import Build_Coordinator
 public import Command
-private import InstituteArchitectureCLI
-private import InstituteArchitectureModel
-private import Environment
-private import File_System
-private import GitHub_App
-private import GitHub_HTTP
-private import Git_Foundation
-private import JSON
-private import Console
-private import Process
+public import Environment
+public import File_System
+public import GitHub_App
+public import GitHub_HTTP
+public import Git_Foundation
+public import JSON
+public import Console
+public import Process
 
 #if canImport(Darwin)
     private import Darwin
@@ -1214,24 +1223,7 @@ extension Institute.Application.CLI {
         }
 
         if case .architecture = operation {
-            let status: Swift.Int32
-            do throws(InstituteArchitectureModel.Institute.Architecture.CLI.Error) {
-                switch modes.first {
-                case .validate:
-                    status = try InstituteArchitectureModel.Institute.Architecture.CLI.validate(
-                        path: workspacePath.isEmpty ? working : workspacePath
-                    )
-                case .index:
-                    status = try InstituteArchitectureModel.Institute.Architecture.CLI.index(
-                        path: workspacePath.isEmpty ? working : workspacePath
-                    )
-                default:
-                    throw .configuration("architecture operation must be validate or index")
-                }
-            } catch {
-                throw .configuration("architecture \(modes.first?.argumentDescription ?? "unknown"): \(error)")
-            }
-            Process.Exit.normal(status)
+            try architecture(mode: modes.first, path: workspacePath.isEmpty ? working : workspacePath)
         }
 
         if case .package = operation, modes.first == .lint {

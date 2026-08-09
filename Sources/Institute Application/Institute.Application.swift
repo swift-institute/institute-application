@@ -1,3 +1,14 @@
+public import Institute_Model
+internal import Institute_Inventory
+internal import Institute_Dependency
+internal import Institute_Development
+internal import Institute_Lint
+internal import Institute_Pages
+internal import Institute_Doctor
+internal import Institute_Conversion
+internal import Institute_Instruments
+internal import Institute_GitHub
+
 extension Institute {
     /// The Institute Application: the composition that operates an Institute
     /// checkout, as distinct from the Institute domain model it composes.

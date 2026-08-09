@@ -1,3 +1,4 @@
+import Institute_Model
 import Command
 import Institute_Application
 
