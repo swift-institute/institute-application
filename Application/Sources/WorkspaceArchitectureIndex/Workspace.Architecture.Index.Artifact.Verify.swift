@@ -1,3 +1,4 @@
+public import WorkspaceArchitectureFacts
 public import WorkspaceArchitectureModel
 
 extension Workspace.Architecture.Index.Artifact {
@@ -18,9 +19,133 @@ extension Workspace.Architecture.Index.Artifact {
         guard lines[3].hasPrefix("measurement\tcomplete\t") else { throw .malformed }
         guard lines[4].hasPrefix("index-digest\t") else { throw .malformed }
         guard lines[5] == "validation\tvalid" else { throw .malformed }
+        let coverage = try coverage(line: Swift.String(lines[3]))
+        let contents = try contents(lines: lines.dropFirst(6))
+        guard
+            coverage.measured == contents.entries.count,
+            coverage.required == contents.entries.count
+        else {
+            throw .malformed
+        }
+        let index = Workspace.Architecture.Index(entries: contents.entries)
+        guard lines[4] == "index-digest\t\(index.digest)" else {
+            throw .digestMismatch(
+                expected: Swift.String(lines[4].dropFirst("index-digest\t".count)),
+                actual: index.digest.description
+            )
+        }
+        let canonicalCoverage = Workspace.Architecture.Facts.Coverage(
+            required: contents.entries.map(\.owner),
+            measured: contents.entries.map(\.owner)
+        )
+        guard payload == Self.payload(
+            index: index,
+            edges: contents.edges,
+            coverage: canonicalCoverage
+        ) else { throw .malformed }
         let actual = Workspace.Architecture.Index.Digest(text: payload).description
         guard claimed == actual else {
             throw .digestMismatch(expected: claimed, actual: actual)
         }
+    }
+
+    private static func coverage(
+        line: Swift.String
+    ) throws(Error) -> (measured: Swift.Int, required: Swift.Int) {
+        let fields = line.split(separator: "\t", omittingEmptySubsequences: false)
+        guard fields.count == 3 else { throw .malformed }
+        let counts = fields[2].split(separator: "/", omittingEmptySubsequences: false)
+        guard
+            counts.count == 2,
+            let measured = Swift.Int(counts[0]),
+            let required = Swift.Int(counts[1]),
+            measured >= 0,
+            required >= 0,
+            measured == required
+        else { throw .malformed }
+        return (measured: measured, required: required)
+    }
+
+    private static func contents(
+        lines: some Collection<Substring>
+    ) throws(Error) -> (
+        entries: [Workspace.Architecture.Index.Entry],
+        edges: [Workspace.Architecture.Edge]
+    ) {
+        var entries: [Workspace.Architecture.Index.Entry] = []
+        var edges: [Workspace.Architecture.Edge] = []
+        var foundEdge = false
+        for line in lines {
+            let fields = line.split(separator: "\t", omittingEmptySubsequences: false)
+            guard let kind = fields.first else { throw .malformed }
+            switch kind {
+            case "entry":
+                guard !foundEdge, let entry = entry(fields: fields) else { throw .malformed }
+                entries.append(entry)
+            case "edge":
+                foundEdge = true
+                guard let edge = edge(fields: fields) else { throw .malformed }
+                edges.append(edge)
+            default:
+                throw .malformed
+            }
+        }
+        guard
+            entries.count == Swift.Set(entries.map(\.owner)).count,
+            Workspace.Architecture.Index(entries: entries).entries == entries,
+            edges.sorted() == edges
+        else { throw .malformed }
+        return (entries: entries, edges: edges)
+    }
+
+    private static func entry(
+        fields: [Substring]
+    ) -> Workspace.Architecture.Index.Entry? {
+        guard
+            fields.count == 7,
+            let owner = owner(Swift.String(fields[1])),
+            let layer = .init(name: Swift.String(fields[2])),
+            Swift.String(fields[3]) == Workspace.Architecture.Concept.Identifier(owner: owner).description,
+            let products = count(Swift.String(fields[4]), prefix: "products="),
+            let targets = count(Swift.String(fields[5]), prefix: "targets="),
+            let edges = count(Swift.String(fields[6]), prefix: "edges=")
+        else { return nil }
+        return .init(
+            owner: owner,
+            layer: layer,
+            concept: .init(owner: owner),
+            productCount: products,
+            targetCount: targets,
+            edgeCount: edges
+        )
+    }
+
+    private static func edge(fields: [Substring]) -> Workspace.Architecture.Edge? {
+        guard
+            fields.count == 4,
+            let kind = Workspace.Architecture.Edge.Kind.allCases.first(
+                where: { $0.name == fields[1] }
+            ),
+            let source = owner(Swift.String(fields[2])),
+            let destination = owner(Swift.String(fields[3]))
+        else { return nil }
+        return .init(source: source, destination: destination, kind: kind)
+    }
+
+    private static func owner(_ coordinate: Swift.String) -> Workspace.Architecture.Owner? {
+        let fields = coordinate.split(separator: "/", omittingEmptySubsequences: false)
+        guard fields.count == 2, !fields[0].isEmpty, !fields[1].isEmpty else { return nil }
+        return .init(organization: Swift.String(fields[0]), name: Swift.String(fields[1]))
+    }
+
+    private static func count(_ field: Swift.String, prefix: Swift.String) -> Swift.Int? {
+        guard
+            field.hasPrefix(prefix),
+            let value = Swift.Int(field.dropFirst(prefix.count)),
+            value >= 0
+        else {
+            return nil
+        }
+        return value
     }
 }

@@ -59,6 +59,100 @@ struct `Workspace Architecture Index Artifact Tests` {
     }
 
     @Test
+    func `refuses a passing report for different derived inputs`() throws {
+        let (facts, graph) = Artifact.inputs()
+        let unrelated = Artifact.fact(
+            organization: "swift-primitives",
+            name: "swift-atom-primitives",
+            layer: .primitives,
+            products: ["Atom Primitives"]
+        )
+        let unrelatedFacts = Workspace.Architecture.Facts(facts: [unrelated], edges: [])
+        let unrelatedGraph = Workspace.Architecture.Graph(
+            facts: unrelatedFacts.facts,
+            edges: unrelatedFacts.edges
+        )
+        let unrelatedValidation = Workspace.Architecture.Validator().validate(
+            derived: unrelatedFacts,
+            graph: unrelatedGraph,
+            today: Artifact.today
+        )
+
+        #expect(unrelatedValidation.passes)
+        #expect(throws: Workspace.Architecture.Index.Artifact.Error.self) {
+            _ = try Workspace.Architecture.Index.Artifact(
+                facts: facts,
+                graph: graph,
+                validation: unrelatedValidation
+            )
+        }
+    }
+
+    @Test
+    func `refuses recomputed digests with tampered coverage`() throws {
+        let artifact = try Artifact.fixture()
+        let tampered = Artifact.recomputingDigest(
+            artifact.rendered.replacingOccurrences(
+                of: "measurement\tcomplete\t2/2",
+                with: "measurement\tcomplete\t1/1"
+            )
+        )
+
+        #expect(throws: Workspace.Architecture.Index.Artifact.Error.self) {
+            try Workspace.Architecture.Index.Artifact.verify(tampered)
+        }
+    }
+
+    @Test
+    func `refuses recomputed digests with an entry index mismatch`() throws {
+        let artifact = try Artifact.fixture()
+        let tampered = Artifact.recomputingDigest(
+            artifact.rendered.replacingOccurrences(
+                of: "products=1",
+                with: "products=9"
+            )
+        )
+
+        #expect(throws: Workspace.Architecture.Index.Artifact.Error.self) {
+            try Workspace.Architecture.Index.Artifact.verify(tampered)
+        }
+    }
+
+    @Test
+    func `refuses coverage that does not name exactly the indexed owners`() {
+        let fact = Artifact.fact(
+            organization: "swift-primitives",
+            name: "swift-byte-primitives",
+            layer: .primitives,
+            products: ["Byte Primitives"]
+        )
+        let unrelated = Workspace.Architecture.Owner(
+            organization: "swift-foundations",
+            name: "swift-console"
+        )
+        let facts = Workspace.Architecture.Facts(
+            facts: [fact],
+            edges: [],
+            coverage: .init(required: [fact.owner], measured: [fact.owner, unrelated])
+        )
+        let graph = Workspace.Architecture.Graph(facts: facts.facts, edges: facts.edges)
+        let validation = Workspace.Architecture.Validator().validate(
+            derived: facts,
+            graph: graph,
+            today: Artifact.today
+        )
+
+        #expect(validation.passes)
+        #expect(throws: Workspace.Architecture.Index.Artifact.Error.self) {
+            _ = try Workspace.Architecture.Index.Artifact(
+                facts: facts,
+                graph: graph,
+                validation: validation
+            )
+        }
+    }
+
+    @Test
     func `refuses incomplete measurement instead of encoding a zero product fact`() {
         let measured = Artifact.fact(
             organization: "swift-primitives",
@@ -193,6 +287,18 @@ private enum Artifact {
     static let today = try! Workspace.Architecture.Exemption.Expiry(rawValue: "2026-08-09")
 
     static func fixture(reversed: Swift.Bool = false) throws -> Workspace.Architecture.Index.Artifact {
+        let (facts, graph) = inputs(reversed: reversed)
+        let validation = Workspace.Architecture.Validator().validate(
+            derived: facts,
+            graph: graph,
+            today: today
+        )
+        return try .init(facts: facts, graph: graph, validation: validation)
+    }
+
+    static func inputs(
+        reversed: Swift.Bool = false
+    ) -> (Workspace.Architecture.Facts, Workspace.Architecture.Graph) {
         let primitive = fact(
             organization: "swift-primitives",
             name: "swift-byte-primitives",
@@ -211,12 +317,15 @@ private enum Artifact {
             edges: [.init(source: foundation.owner, destination: primitive.owner, kind: .runtime)]
         )
         let graph = Workspace.Architecture.Graph(facts: facts.facts, edges: facts.edges)
-        let validation = Workspace.Architecture.Validator().validate(
-            derived: facts,
-            graph: graph,
-            today: today
-        )
-        return try .init(facts: facts, graph: graph, validation: validation)
+        return (facts, graph)
+    }
+
+    static func recomputingDigest(_ rendered: Swift.String) -> Swift.String {
+        let payload = rendered
+            .split(separator: "\n", omittingEmptySubsequences: false)
+            .dropFirst()
+            .joined(separator: "\n")
+        return "digest\t\(Workspace.Architecture.Index.Digest(text: payload))\n\(payload)"
     }
 
     static func fact(

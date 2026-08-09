@@ -8,8 +8,9 @@ extension Workspace.Architecture.Facts {
     /// The inventory is read from `Institute.json` at the checkout root;
     /// manifests are read from sibling organization checkouts
     /// (`<institute>/<organization>/<name>/Package.swift`) where present.
-    /// An absent checkout is not an error — its row still yields a fact
-    /// and a provenance edge; only manifest-derived detail is missing.
+    /// An absent checkout is not a derivation error, but it is an explicit
+    /// coverage gap: no fact or provenance edge is emitted until its
+    /// manifest is measured.
     public static func derive(at root: File.Directory) throws(Error) -> Self {
         let inventoryText = try text(of: root[file: "Institute.json"])
         let inventory: Inventory
@@ -41,8 +42,8 @@ extension Workspace.Architecture.Facts {
                     try text(of: directory[file: "Package.swift"])
                 )
             } catch {
-                // An absent or unreadable manifest is a fact about the local
-                // checkout, not a derivation failure.
+                // An absent or unreadable manifest is an incomplete local
+                // measurement, not a derivation failure.
                 continue
             }
         }

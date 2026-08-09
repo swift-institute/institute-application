@@ -20,7 +20,15 @@ extension Workspace.Architecture.Index {
             guard facts.coverage.complete else {
                 throw .incompleteMeasurement(facts.coverage.unmeasured)
             }
-            guard validation.passes else { throw .invalidValidation }
+            let owners = facts.facts.map(\.owner)
+            guard facts.coverage.required == owners, facts.coverage.measured == owners else {
+                throw .invalidCoverage
+            }
+            guard
+                validation.derived == facts,
+                validation.graph == graph,
+                validation.passes
+            else { throw .invalidValidation }
             let index = Workspace.Architecture.Index.generate(facts: facts.facts, graph: graph)
             let edges = graph.edges
             let coverage = facts.coverage

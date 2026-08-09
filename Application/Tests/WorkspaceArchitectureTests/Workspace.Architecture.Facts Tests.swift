@@ -70,7 +70,7 @@ struct `Workspace Architecture Facts Tests` {
                 inventory: inventory,
                 manifests: [consoleOwner: manifest]
             )
-            #expect(derived.facts.count == 2)
+            #expect(derived.facts.count == 1)
             #expect(
                 derived.edges.contains { (edge) in
                     edge.kind == .provenance

@@ -28,12 +28,16 @@ extension Workspace.Architecture.Validator {
         graph: Workspace.Architecture.Graph,
         today: Workspace.Architecture.Exemption.Expiry
     ) -> Report {
-        let report = validate(facts: derived.facts, graph: graph, today: today)
+        let report = findings(facts: derived.facts, graph: graph, today: today)
         let gaps = derived.coverage.unmeasured.map {
             Workspace.Architecture.Violation.contradiction(.unmeasuredManifest($0))
         }
-        guard !gaps.isEmpty else { return report }
-        return .init(violations: report.violations + gaps, excused: report.excused)
+        return .init(
+            derived: derived,
+            graph: graph,
+            violations: report.violations + gaps,
+            excused: report.excused
+        )
     }
 
     /// Validates the derived model as of `today`.
@@ -42,6 +46,21 @@ extension Workspace.Architecture.Validator {
         graph: Workspace.Architecture.Graph,
         today: Workspace.Architecture.Exemption.Expiry
     ) -> Report {
+        let derived = Workspace.Architecture.Facts(facts: facts, edges: graph.edges)
+        let report = findings(facts: facts, graph: graph, today: today)
+        return .init(
+            derived: derived,
+            graph: graph,
+            violations: report.violations,
+            excused: report.excused
+        )
+    }
+
+    private func findings(
+        facts: [Workspace.Architecture.Fact],
+        graph: Workspace.Architecture.Graph,
+        today: Workspace.Architecture.Exemption.Expiry
+    ) -> (violations: [Workspace.Architecture.Violation], excused: [Workspace.Architecture.Violation]) {
         var violations: [Workspace.Architecture.Violation] = []
 
         var claims:
@@ -106,6 +125,6 @@ extension Workspace.Architecture.Validator {
                 outstanding.append(violation)
             }
         }
-        return .init(violations: outstanding, excused: excused)
+        return (violations: outstanding, excused: excused)
     }
 }
