@@ -41,7 +41,7 @@ extension Workspace.Architecture.CLI {
         } catch {
             throw .derivation("\(error)")
         }
-        let graph = Workspace.Architecture.Graph(facts: derived.facts, edges: derived.edges)
+        let graph = derived.graph
 
         let first = Workspace.Architecture.Index.generate(facts: derived.facts, graph: graph)
         let second = Workspace.Architecture.Index.generate(facts: derived.facts, graph: graph)
@@ -51,7 +51,6 @@ extension Workspace.Architecture.CLI {
 
         let outcome = Workspace.Architecture.Validator().validate(
             derived: derived,
-            graph: graph,
             today: today()
         )
         let candidates = Workspace.Architecture.CandidateDetector().detect(in: derived.facts)

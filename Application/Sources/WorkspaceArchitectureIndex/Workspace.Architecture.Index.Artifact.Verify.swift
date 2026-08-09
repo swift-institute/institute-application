@@ -1,9 +1,24 @@
 public import WorkspaceArchitectureFacts
 public import WorkspaceArchitectureModel
+public import WorkspaceArchitectureValidation
 
 extension Workspace.Architecture.Index.Artifact {
     /// Refuses malformed, incompatible, or tampered canonical bytes.
-    public static func verify(_ rendered: Swift.String) throws(Error) {
+    ///
+    /// The supplied facts and report reconstruct the one graph this artifact
+    /// is allowed to represent. A self-consistent digest is not enough: an
+    /// adversary can recompute it after replacing an edge.
+    public static func verify(
+        _ rendered: Swift.String,
+        facts: Workspace.Architecture.Facts,
+        validation: Workspace.Architecture.Validator.Report
+    ) throws(Error) {
+        try verifyStructure(rendered)
+        let expected = try Self(facts: facts, validation: validation)
+        guard rendered == expected.rendered else { throw .malformed }
+    }
+
+    private static func verifyStructure(_ rendered: Swift.String) throws(Error) {
         let lines = rendered.split(separator: "\n", omittingEmptySubsequences: false)
         guard lines.count >= 6 else { throw .malformed }
         let digest = Swift.String(lines[0])
@@ -93,7 +108,15 @@ extension Workspace.Architecture.Index.Artifact {
         guard
             entries.count == Swift.Set(entries.map(\.owner)).count,
             Workspace.Architecture.Index(entries: entries).entries == entries,
-            edges.sorted() == edges
+            edges.sorted() == edges,
+            edges.count == Swift.Set(edges).count
+        else { throw .malformed }
+        let owners = Swift.Set(entries.map(\.owner))
+        guard edges.allSatisfy({ owners.contains($0.source) && owners.contains($0.destination) })
+        else { throw .malformed }
+        guard entries.allSatisfy { (entry) in
+            entry.edgeCount == edges.filter { $0.source == entry.owner }.count
+        }, entries.reduce(0, { $0 + $1.edgeCount }) == edges.count
         else { throw .malformed }
         return (entries: entries, edges: edges)
     }

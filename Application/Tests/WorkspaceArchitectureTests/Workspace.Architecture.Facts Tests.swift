@@ -93,6 +93,17 @@ struct `Workspace Architecture Facts Tests` {
             let console = derived.facts.first { $0.owner == consoleOwner }
             #expect(console?.products == ["Console"])
             #expect(console?.classification == .exposesPublicAPI)
+            #expect(derived.graph.edges.allSatisfy { $0.kind != .provenance })
+            #expect(derived.graph.edges.contains(
+                .init(
+                    source: consoleOwner,
+                    destination: .init(
+                        organization: "swift-primitives",
+                        name: "swift-byte-primitives"
+                    ),
+                    kind: .runtime
+                )
+            ))
         }
 
         @Test

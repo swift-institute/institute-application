@@ -16,16 +16,13 @@ extension Workspace.Architecture.CLI {
         } catch {
             throw .derivation("\(error)")
         }
-        let graph = Workspace.Architecture.Graph(facts: derived.facts, edges: derived.edges)
         let validation = Workspace.Architecture.Validator().validate(
             derived: derived,
-            graph: graph,
             today: today()
         )
         do throws(Workspace.Architecture.Index.Artifact.Error) {
             let artifact = try Workspace.Architecture.Index.Artifact(
                 facts: derived,
-                graph: graph,
                 validation: validation
             )
             report(artifact.rendered)

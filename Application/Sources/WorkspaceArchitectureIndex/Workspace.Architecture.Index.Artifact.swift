@@ -14,7 +14,6 @@ extension Workspace.Architecture.Index {
 
         public init(
             facts: Workspace.Architecture.Facts,
-            graph: Workspace.Architecture.Graph,
             validation: Workspace.Architecture.Validator.Report
         ) throws(Error) {
             guard facts.coverage.complete else {
@@ -24,10 +23,8 @@ extension Workspace.Architecture.Index {
             guard facts.coverage.required == owners, facts.coverage.measured == owners else {
                 throw .invalidCoverage
             }
-            guard
-                validation.derived == facts,
-                validation.graph == graph,
-                validation.passes
+            let graph = facts.graph
+            guard validation.derived == facts, validation.graph == graph, validation.passes
             else { throw .invalidValidation }
             let index = Workspace.Architecture.Index.generate(facts: facts.facts, graph: graph)
             let edges = graph.edges

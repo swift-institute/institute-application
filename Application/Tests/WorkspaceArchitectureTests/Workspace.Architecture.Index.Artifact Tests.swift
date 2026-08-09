@@ -20,7 +20,14 @@ struct `Workspace Architecture Index Artifact Tests` {
         #expect(artifact.rendered.contains(
             "edge\truntime\tswift-foundations/swift-console\tswift-primitives/swift-byte-primitives"
         ))
-        try Workspace.Architecture.Index.Artifact.verify(artifact.rendered)
+        let owners = Swift.Set(artifact.index.entries.map(\.owner))
+        #expect(artifact.edges.allSatisfy {
+            owners.contains($0.source) && owners.contains($0.destination)
+        })
+        #expect(
+            artifact.index.entries.reduce(0, { $0 + $1.edgeCount }) == artifact.edges.count
+        )
+        try Artifact.verify(artifact.rendered)
     }
 
     @Test
@@ -41,7 +48,7 @@ struct `Workspace Architecture Index Artifact Tests` {
         )
 
         #expect(throws: Workspace.Architecture.Index.Artifact.Error.self) {
-            try Workspace.Architecture.Index.Artifact.verify(tampered)
+            try Artifact.verify(tampered)
         }
     }
 
@@ -54,13 +61,13 @@ struct `Workspace Architecture Index Artifact Tests` {
         )
 
         #expect(throws: Workspace.Architecture.Index.Artifact.Error.self) {
-            try Workspace.Architecture.Index.Artifact.verify(incompatible)
+            try Artifact.verify(incompatible)
         }
     }
 
     @Test
     func `refuses a passing report for different derived inputs`() throws {
-        let (facts, graph) = Artifact.inputs()
+        let facts = Artifact.inputs()
         let unrelated = Artifact.fact(
             organization: "swift-primitives",
             name: "swift-atom-primitives",
@@ -68,13 +75,8 @@ struct `Workspace Architecture Index Artifact Tests` {
             products: ["Atom Primitives"]
         )
         let unrelatedFacts = Workspace.Architecture.Facts(facts: [unrelated], edges: [])
-        let unrelatedGraph = Workspace.Architecture.Graph(
-            facts: unrelatedFacts.facts,
-            edges: unrelatedFacts.edges
-        )
         let unrelatedValidation = Workspace.Architecture.Validator().validate(
             derived: unrelatedFacts,
-            graph: unrelatedGraph,
             today: Artifact.today
         )
 
@@ -82,7 +84,6 @@ struct `Workspace Architecture Index Artifact Tests` {
         #expect(throws: Workspace.Architecture.Index.Artifact.Error.self) {
             _ = try Workspace.Architecture.Index.Artifact(
                 facts: facts,
-                graph: graph,
                 validation: unrelatedValidation
             )
         }
@@ -99,7 +100,7 @@ struct `Workspace Architecture Index Artifact Tests` {
         )
 
         #expect(throws: Workspace.Architecture.Index.Artifact.Error.self) {
-            try Workspace.Architecture.Index.Artifact.verify(tampered)
+            try Artifact.verify(tampered)
         }
     }
 
@@ -114,7 +115,52 @@ struct `Workspace Architecture Index Artifact Tests` {
         )
 
         #expect(throws: Workspace.Architecture.Index.Artifact.Error.self) {
-            try Workspace.Architecture.Index.Artifact.verify(tampered)
+            try Artifact.verify(tampered)
+        }
+    }
+
+    @Test
+    func `refuses recomputed digests with a rewritten edge`() throws {
+        let artifact = try Artifact.fixture()
+        let tampered = Artifact.recomputingDigest(
+            artifact.rendered.replacingOccurrences(
+                of: "edge\truntime\tswift-foundations/swift-console\tswift-primitives/swift-byte-primitives",
+                with: "edge\ttarget\tswift-foundations/swift-console\tswift-primitives/swift-byte-primitives"
+            )
+        )
+
+        #expect(throws: Workspace.Architecture.Index.Artifact.Error.self) {
+            try Artifact.verify(tampered)
+        }
+    }
+
+    @Test
+    func `refuses recomputed digests with a removed edge`() throws {
+        let artifact = try Artifact.fixture()
+        let tampered = Artifact.recomputingDigest(
+            artifact.rendered.replacingOccurrences(
+                of: "\nedge\truntime\tswift-foundations/swift-console\tswift-primitives/swift-byte-primitives",
+                with: ""
+            )
+        )
+
+        #expect(throws: Workspace.Architecture.Index.Artifact.Error.self) {
+            try Artifact.verify(tampered)
+        }
+    }
+
+    @Test
+    func `refuses recomputed digests with an added edge`() throws {
+        let artifact = try Artifact.fixture()
+        let tampered = Artifact.recomputingDigest(
+            artifact.rendered.replacingOccurrences(
+                of: "edge\truntime\tswift-foundations/swift-console\tswift-primitives/swift-byte-primitives",
+                with: "edge\truntime\tswift-foundations/swift-console\tswift-primitives/swift-byte-primitives\nedge\ttarget\tswift-foundations/swift-console\tswift-primitives/swift-byte-primitives"
+            )
+        )
+
+        #expect(throws: Workspace.Architecture.Index.Artifact.Error.self) {
+            try Artifact.verify(tampered)
         }
     }
 
@@ -135,10 +181,8 @@ struct `Workspace Architecture Index Artifact Tests` {
             edges: [],
             coverage: .init(required: [fact.owner], measured: [fact.owner, unrelated])
         )
-        let graph = Workspace.Architecture.Graph(facts: facts.facts, edges: facts.edges)
         let validation = Workspace.Architecture.Validator().validate(
             derived: facts,
-            graph: graph,
             today: Artifact.today
         )
 
@@ -146,7 +190,6 @@ struct `Workspace Architecture Index Artifact Tests` {
         #expect(throws: Workspace.Architecture.Index.Artifact.Error.self) {
             _ = try Workspace.Architecture.Index.Artifact(
                 facts: facts,
-                graph: graph,
                 validation: validation
             )
         }
@@ -169,10 +212,8 @@ struct `Workspace Architecture Index Artifact Tests` {
             edges: [],
             coverage: .init(required: [measured.owner, missing], measured: [measured.owner])
         )
-        let graph = Workspace.Architecture.Graph(facts: facts.facts, edges: facts.edges)
         let validation = Workspace.Architecture.Validator().validate(
             derived: facts,
-            graph: graph,
             today: Artifact.today
         )
 
@@ -181,7 +222,6 @@ struct `Workspace Architecture Index Artifact Tests` {
         #expect(throws: Workspace.Architecture.Index.Artifact.Error.self) {
             _ = try Workspace.Architecture.Index.Artifact(
                 facts: facts,
-                graph: graph,
                 validation: validation
             )
         }
@@ -196,15 +236,12 @@ struct `Workspace Architecture Index Artifact Tests` {
             products: []
         )
         let facts = Workspace.Architecture.Facts(facts: [empty], edges: [])
-        let graph = Workspace.Architecture.Graph(facts: facts.facts, edges: facts.edges)
         let validation = Workspace.Architecture.Validator().validate(
             derived: facts,
-            graph: graph,
             today: Artifact.today
         )
         let artifact = try Workspace.Architecture.Index.Artifact(
             facts: facts,
-            graph: graph,
             validation: validation
         )
 
@@ -214,7 +251,7 @@ struct `Workspace Architecture Index Artifact Tests` {
     }
 
     @Test
-    func `refuses an invalid graph even when coverage is complete`() {
+    func `refuses forbidden fact edges without a caller-supplied graph`() {
         let lower = Artifact.fact(
             organization: "swift-primitives",
             name: "swift-byte-primitives",
@@ -227,14 +264,12 @@ struct `Workspace Architecture Index Artifact Tests` {
             layer: .foundations,
             products: ["Console"]
         )
-        let facts = Workspace.Architecture.Facts(facts: [lower, higher], edges: [])
-        let graph = Workspace.Architecture.Graph(
-            facts: facts.facts,
+        let facts = Workspace.Architecture.Facts(
+            facts: [lower, higher],
             edges: [.init(source: lower.owner, destination: higher.owner, kind: .runtime)]
         )
         let validation = Workspace.Architecture.Validator().validate(
             derived: facts,
-            graph: graph,
             today: Artifact.today
         )
 
@@ -242,7 +277,6 @@ struct `Workspace Architecture Index Artifact Tests` {
         #expect(throws: Workspace.Architecture.Index.Artifact.Error.self) {
             _ = try Workspace.Architecture.Index.Artifact(
                 facts: facts,
-                graph: graph,
                 validation: validation
             )
         }
@@ -263,15 +297,12 @@ struct `Workspace Architecture Index Artifact Tests` {
             products: ["JSON Standard"]
         )
         let facts = Workspace.Architecture.Facts(facts: [primitive, standard], edges: [])
-        let graph = Workspace.Architecture.Graph(facts: facts.facts, edges: facts.edges)
         let validation = Workspace.Architecture.Validator().validate(
             derived: facts,
-            graph: graph,
             today: Artifact.today
         )
         let artifact = try Workspace.Architecture.Index.Artifact(
             facts: facts,
-            graph: graph,
             validation: validation
         )
 
@@ -287,18 +318,30 @@ private enum Artifact {
     static let today = try! Workspace.Architecture.Exemption.Expiry(rawValue: "2026-08-09")
 
     static func fixture(reversed: Swift.Bool = false) throws -> Workspace.Architecture.Index.Artifact {
-        let (facts, graph) = inputs(reversed: reversed)
+        let facts = inputs(reversed: reversed)
         let validation = Workspace.Architecture.Validator().validate(
             derived: facts,
-            graph: graph,
             today: today
         )
-        return try .init(facts: facts, graph: graph, validation: validation)
+        return try .init(facts: facts, validation: validation)
+    }
+
+    static func verify(_ rendered: Swift.String) throws {
+        let facts = inputs()
+        let validation = Workspace.Architecture.Validator().validate(
+            derived: facts,
+            today: today
+        )
+        try Workspace.Architecture.Index.Artifact.verify(
+            rendered,
+            facts: facts,
+            validation: validation
+        )
     }
 
     static func inputs(
         reversed: Swift.Bool = false
-    ) -> (Workspace.Architecture.Facts, Workspace.Architecture.Graph) {
+    ) -> Workspace.Architecture.Facts {
         let primitive = fact(
             organization: "swift-primitives",
             name: "swift-byte-primitives",
@@ -316,8 +359,7 @@ private enum Artifact {
             facts: values,
             edges: [.init(source: foundation.owner, destination: primitive.owner, kind: .runtime)]
         )
-        let graph = Workspace.Architecture.Graph(facts: facts.facts, edges: facts.edges)
-        return (facts, graph)
+        return facts
     }
 
     static func recomputingDigest(_ rendered: Swift.String) -> Swift.String {

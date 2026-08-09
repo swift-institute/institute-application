@@ -94,6 +94,7 @@ let package = Package(
             name: "WorkspaceArchitectureFacts",
             dependencies: [
                 "WorkspaceArchitectureModel",
+                "WorkspaceArchitectureGraph",
                 .product(name: "File System", package: "swift-file-system"),
                 .product(name: "JSON", package: "swift-json"),
             ]

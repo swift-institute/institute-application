@@ -19,15 +19,15 @@ extension Workspace.Architecture {
 }
 
 extension Workspace.Architecture.Validator {
-    /// Validates a complete derived population and its graph.
+    /// Validates a complete derived population and its canonical graph.
     ///
     /// Measurement gaps are never excusable: a missing manifest means the
     /// relevant architecture fact and its dependencies were not observed.
     public func validate(
         derived: Workspace.Architecture.Facts,
-        graph: Workspace.Architecture.Graph,
         today: Workspace.Architecture.Exemption.Expiry
     ) -> Report {
+        let graph = derived.graph
         let report = findings(facts: derived.facts, graph: graph, today: today)
         let gaps = derived.coverage.unmeasured.map {
             Workspace.Architecture.Violation.contradiction(.unmeasuredManifest($0))
@@ -46,13 +46,9 @@ extension Workspace.Architecture.Validator {
         graph: Workspace.Architecture.Graph,
         today: Workspace.Architecture.Exemption.Expiry
     ) -> Report {
-        let derived = Workspace.Architecture.Facts(facts: facts, edges: graph.edges)
-        let report = findings(facts: facts, graph: graph, today: today)
-        return .init(
-            derived: derived,
-            graph: graph,
-            violations: report.violations,
-            excused: report.excused
+        validate(
+            derived: .init(facts: facts, edges: graph.edges),
+            today: today
         )
     }
 
