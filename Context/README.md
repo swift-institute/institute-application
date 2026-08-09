@@ -49,7 +49,7 @@ removed before returning. Agent context points to that typed interface rather
 than to repository-local script collections.
 
 The bare command is established once from a fresh clone with
-`swift run --package-path Application institute install`. That self-hosting
+`swift run institute install`. That self-hosting
 bootstrap copies the executable out of generated SwiftPM build state and links
 it from `$HOME/.local/bin`; every later SwiftPM operation uses
 `institute package`. The installer does not edit shell startup files and

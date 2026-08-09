@@ -14,7 +14,7 @@ extension Workspace {
     /// `swift build` through ``Build/Coordinator``. No Xcode, no
     /// workspace bundle, so it runs identically on Ubuntu.
     ///
-    /// This is the shape `BUILD-AND-GRAPH-FINDINGS.md`'s umbrella-root
+    /// This is the shape the historical BUILD-AND-GRAPH-FINDINGS record's umbrella-root
     /// experiment documents, grown into a supported capability: generated
     /// fresh from the current selection immediately before every build
     /// (never a persisted artifact a later run could find stale), and

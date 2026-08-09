@@ -61,7 +61,7 @@ requires them.
 
 - A fresh Workspace clone has one self-hosting exception. From the Workspace
   checkout, put `$HOME/.local/bin` on the current shell's `PATH`, then run
-  `swift run --package-path Application institute install`. The first run is
+  `swift run institute install`. The first run is
   silent for several minutes while SwiftPM compiles the coordinator. The
   installer never edits shell startup files and refuses unmanaged executables
   or links.

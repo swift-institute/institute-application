@@ -58,7 +58,7 @@ jobs:
             echo "::error::clean runner unexpectedly already exposes an institute command"
             exit 1
           fi
-          swift run --package-path Application institute install
+          swift run institute install
           test "$(command -v institute)" = "$HOME/.local/bin/institute"
           test "$(readlink "$HOME/.local/bin/institute")" = \
             "../share/swift-institute/institute/bin/institute"

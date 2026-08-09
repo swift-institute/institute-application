@@ -23,7 +23,7 @@ extension Workspace.Xcode {
     /// The scheme covers the selected repositories only. `Application` is a
     /// reference in the workspace document so the tool is editable beside the
     /// packages, but it is Workspace's own executable rather than an
-    /// inventory package, and `swift build --package-path Application` is
+    /// inventory package, and `swift build --package-path .` is
     /// what builds it. Putting it in the scheme would make every selection
     /// build rebuild the tool that launched it.
     public struct Build: Sendable {

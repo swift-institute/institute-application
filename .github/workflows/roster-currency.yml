@@ -60,7 +60,7 @@ jobs:
       # this they report `unmeasured` and the run's exit status stops saying
       # anything about currency.
       - name: Materialize the committed selection
-        run: swift run --package-path Application institute sync
+        run: swift run institute sync
 
       # The control perturbs the roster with a repository no organization can
       # own, so the check MUST report it as committed-but-not-discovered. It
@@ -95,7 +95,7 @@ jobs:
         run: |
           set -o pipefail
           status=0
-          swift run --package-path Application institute doctor --institute \
+          swift run institute doctor --institute \
             2>&1 | tee report.txt || status=$?
           echo "status=$status" >> "$GITHUB_OUTPUT"
 

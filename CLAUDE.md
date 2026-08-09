@@ -12,32 +12,32 @@ defect worth reporting.
 All paths are relative to the repository root.
 
 ```sh
-swift run --package-path Application institute sync --dry-run   # plan only, changes nothing
-swift run --package-path Application institute sync             # clone and fast-forward
-swift run --package-path Application institute build            # build the whole selection, one xcodebuild
-swift run --package-path Application institute doctor           # report checkout facts
-swift run --package-path Application institute doctor --institute  # + roster currency (needs gh)
-Application/.build/debug/institute package test --package-path Application --fresh
-Application/.build/debug/institute navigation install
-Application/.build/debug/institute navigation check
-Application/.build/debug/institute lint install                 # pinned swift-linter
-Application/.build/debug/institute lint check                   # parity with CI
-Application/.build/debug/institute lint                         # sweep the ecosystem
-Application/.build/debug/institute package lint                 # one package, no arguments
+swift run institute sync --dry-run   # plan only, changes nothing
+swift run institute sync             # clone and fast-forward
+swift run institute build            # build the whole selection, one xcodebuild
+swift run institute doctor           # report checkout facts
+swift run institute doctor --institute  # + roster currency (needs gh)
+.build/debug/institute package test --package-path . --fresh
+.build/debug/institute navigation install
+.build/debug/institute navigation check
+.build/debug/institute lint install                 # pinned swift-linter
+.build/debug/institute lint check                   # parity with CI
+.build/debug/institute lint                         # sweep the ecosystem
+.build/debug/institute package lint                 # one package, no arguments
 
 # per-organization GitHub App installation token, for high-volume machine reads
 GH_TOKEN=$(institute github token --org <org>) gh api rate_limit
 institute github token --org <org> --permission contents=read   # narrowed
 
 # local-source composition, for changing a package and its consumer together
-swift run --package-path Application institute compose --consumer <c> --dependency <d>
-swift run --package-path Application institute verify  --consumer <c> --dependency <d>
-swift run --package-path Application institute restore --consumer <c> --dependency <d>
+swift run institute compose --consumer <c> --dependency <d>
+swift run institute verify  --consumer <c> --dependency <d>
+swift run institute restore --consumer <c> --dependency <d>
 ```
 
 The first `swift run` in a fresh clone compiles the whole dependency graph and is **silent for
 several minutes**. It is not hung. That invocation bootstraps the executable; after it exists,
-run SwiftPM work only through `Application/.build/debug/institute package`.
+run SwiftPM work only through `.build/debug/institute package`.
 
 `doctor` reports which checks apply to your setup. A check that needs Institute access reports
 that it did not run — that is not a failure of your checkout. `--institute` is the one opt-in
@@ -50,7 +50,7 @@ authenticated `gh` never changes what a plain `doctor` does.
   …) hold independent repositories, not part of this one.** Each has its own history, remote,
   CI, and license. Work on a package inside its own repository and open the pull request there.
   The active layout resolves the checkout physically and places the roots beside it (see
-  ARCHITECTURE.md, "Materialization layout"); invoking through a symlink does not redirect the
+  the generated Architecture Index, "Materialization layout"); invoking through a symlink does not redirect the
   hierarchy. The root names remain ignored here transitionally for checkouts that materialized
   inside the clone, and committing their contents to this repository is always wrong. Doctor
   reports legacy-only and duplicate legacy-plus-sibling materializations as errors, uses only
@@ -97,7 +97,7 @@ authenticated `gh` never changes what a plain `doctor` does.
   silent override is worse than the shared artifact it replaced. That line is a report
   header rather than a `doctor` check on purpose: a check can report `notApplicable`, and a
   check that never ran must never look like one that passed (issue #43). See
-  `Research/Local Resolution/DESIGN-Selection-Override-2026-07-29.md` and issue #46.
+  [DESIGN-Selection-Override-2026-07-29](https://github.com/swift-institute/Research/blob/main/institute-application-historical/Local%20Resolution/DESIGN-Selection-Override-2026-07-29.md) and issue #46.
 - **`institute build` builds the selection in one `xcodebuild`; `institute package build` builds
   one package in one `swift build`. They are not the same measurement.** The package path
   resolves dependencies from *pinned remotes*, so it cannot see a local edit at all — change a

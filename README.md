@@ -154,7 +154,7 @@ passes.
 
 `swiftly` is how the Institute installs and selects Swift toolchains; install it if you do not
 already keep one. If you keep more than one Swift toolchain installed,
-[TOOLCHAINS.md](TOOLCHAINS.md) covers how to select one explicitly and how to determine which
+[TOOLCHAINS.md](https://github.com/swift-institute/Research/blob/main/institute-application-historical/TOOLCHAINS.md) covers how to select one explicitly and how to determine which
 one actually produced a result — machine-local configuration, not committed state.
 
 The optional navigation setup additionally requires Node 18 or newer and Bun.
@@ -170,7 +170,7 @@ git clone https://github.com/swift-institute/institute-application.git
 git clone https://github.com/swift-institute/Skills.git
 cd Workspace
 export PATH="$HOME/.local/bin:$PATH"
-swift run --package-path Application institute install
+swift run institute install
 institute sync
 institute context install
 open institute.xcworkspace
@@ -468,9 +468,9 @@ The bootstrapped executable owns SwiftPM concurrency, job count, and build
 state:
 
 ```sh
-institute package build --package-path Application
-institute package test --package-path Application --fresh
-institute package resolve --package-path Application
+institute package build --package-path .
+institute package test --package-path . --fresh
+institute package resolve --package-path .
 ```
 
 Builds are serialized through a machine-wide advisory lock and compile with
