@@ -1,0 +1,237 @@
+import Foundation
+import Testing
+import WorkspaceArchitectureFacts
+import WorkspaceArchitectureGraph
+import WorkspaceArchitectureIndex
+import WorkspaceArchitectureModel
+import WorkspaceArchitectureValidation
+
+@Suite
+struct `Workspace Architecture Index Artifact Tests` {
+    @Test
+    func `emits complete validated canonical bytes`() throws {
+        let artifact = try Artifact.fixture()
+
+        #expect(artifact.rendered.contains("schema\tworkspace.architecture.index"))
+        #expect(artifact.rendered.contains("version\t1"))
+        #expect(artifact.rendered.contains("measurement\tcomplete\t2/2"))
+        #expect(artifact.rendered.contains("index-digest\t\(artifact.index.digest)"))
+        #expect(artifact.rendered.contains("validation\tvalid"))
+        #expect(artifact.rendered.contains(
+            "edge\truntime\tswift-foundations/swift-console\tswift-primitives/swift-byte-primitives"
+        ))
+        try Workspace.Architecture.Index.Artifact.verify(artifact.rendered)
+    }
+
+    @Test
+    func `regenerates byte-identically from permuted facts`() throws {
+        let first = try Artifact.fixture()
+        let second = try Artifact.fixture(reversed: true)
+
+        #expect(first.digest == second.digest)
+        #expect(first.rendered == second.rendered)
+    }
+
+    @Test
+    func `refuses a tampered digest binding`() throws {
+        let artifact = try Artifact.fixture()
+        let tampered = artifact.rendered.replacingOccurrences(
+            of: "validation\tvalid",
+            with: "validation\tinvalid"
+        )
+
+        #expect(throws: Workspace.Architecture.Index.Artifact.Error.self) {
+            try Workspace.Architecture.Index.Artifact.verify(tampered)
+        }
+    }
+
+    @Test
+    func `refuses an incompatible schema`() throws {
+        let artifact = try Artifact.fixture()
+        let incompatible = artifact.rendered.replacingOccurrences(
+            of: "version\t1",
+            with: "version\t2"
+        )
+
+        #expect(throws: Workspace.Architecture.Index.Artifact.Error.self) {
+            try Workspace.Architecture.Index.Artifact.verify(incompatible)
+        }
+    }
+
+    @Test
+    func `refuses incomplete measurement instead of encoding a zero product fact`() {
+        let measured = Artifact.fact(
+            organization: "swift-primitives",
+            name: "swift-byte-primitives",
+            layer: .primitives,
+            products: ["Byte Primitives"]
+        )
+        let missing = Workspace.Architecture.Owner(
+            organization: "swift-foundations",
+            name: "swift-console"
+        )
+        let facts = Workspace.Architecture.Facts(
+            facts: [measured],
+            edges: [],
+            coverage: .init(required: [measured.owner, missing], measured: [measured.owner])
+        )
+        let graph = Workspace.Architecture.Graph(facts: facts.facts, edges: facts.edges)
+        let validation = Workspace.Architecture.Validator().validate(
+            derived: facts,
+            graph: graph,
+            today: Artifact.today
+        )
+
+        #expect(!validation.passes)
+        #expect(facts.coverage.unmeasured == [missing])
+        #expect(throws: Workspace.Architecture.Index.Artifact.Error.self) {
+            _ = try Workspace.Architecture.Index.Artifact(
+                facts: facts,
+                graph: graph,
+                validation: validation
+            )
+        }
+    }
+
+    @Test
+    func `keeps a measured zero API package distinct from an unmeasured package`() throws {
+        let empty = Artifact.fact(
+            organization: "swift-primitives",
+            name: "swift-internal-only",
+            layer: .primitives,
+            products: []
+        )
+        let facts = Workspace.Architecture.Facts(facts: [empty], edges: [])
+        let graph = Workspace.Architecture.Graph(facts: facts.facts, edges: facts.edges)
+        let validation = Workspace.Architecture.Validator().validate(
+            derived: facts,
+            graph: graph,
+            today: Artifact.today
+        )
+        let artifact = try Workspace.Architecture.Index.Artifact(
+            facts: facts,
+            graph: graph,
+            validation: validation
+        )
+
+        #expect(empty.classification == .internalOnly)
+        #expect(artifact.rendered.contains("products=0"))
+        #expect(artifact.coverage.complete)
+    }
+
+    @Test
+    func `refuses an invalid graph even when coverage is complete`() {
+        let lower = Artifact.fact(
+            organization: "swift-primitives",
+            name: "swift-byte-primitives",
+            layer: .primitives,
+            products: ["Byte Primitives"]
+        )
+        let higher = Artifact.fact(
+            organization: "swift-foundations",
+            name: "swift-console",
+            layer: .foundations,
+            products: ["Console"]
+        )
+        let facts = Workspace.Architecture.Facts(facts: [lower, higher], edges: [])
+        let graph = Workspace.Architecture.Graph(
+            facts: facts.facts,
+            edges: [.init(source: lower.owner, destination: higher.owner, kind: .runtime)]
+        )
+        let validation = Workspace.Architecture.Validator().validate(
+            derived: facts,
+            graph: graph,
+            today: Artifact.today
+        )
+
+        #expect(!validation.passes)
+        #expect(throws: Workspace.Architecture.Index.Artifact.Error.self) {
+            _ = try Workspace.Architecture.Index.Artifact(
+                facts: facts,
+                graph: graph,
+                validation: validation
+            )
+        }
+    }
+
+    @Test
+    func `keeps similarly named concepts distinct`() throws {
+        let primitive = Artifact.fact(
+            organization: "swift-primitives",
+            name: "swift-json-primitives",
+            layer: .primitives,
+            products: ["JSON Primitives"]
+        )
+        let standard = Artifact.fact(
+            organization: "swift-standards",
+            name: "swift-json-standard",
+            layer: .standards,
+            products: ["JSON Standard"]
+        )
+        let facts = Workspace.Architecture.Facts(facts: [primitive, standard], edges: [])
+        let graph = Workspace.Architecture.Graph(facts: facts.facts, edges: facts.edges)
+        let validation = Workspace.Architecture.Validator().validate(
+            derived: facts,
+            graph: graph,
+            today: Artifact.today
+        )
+        let artifact = try Workspace.Architecture.Index.Artifact(
+            facts: facts,
+            graph: graph,
+            validation: validation
+        )
+
+        #expect(validation.passes)
+        #expect(artifact.index.entries.map(\.concept) == [
+            .init(owner: primitive.owner),
+            .init(owner: standard.owner),
+        ])
+    }
+}
+
+private enum Artifact {
+    static let today = try! Workspace.Architecture.Exemption.Expiry(rawValue: "2026-08-09")
+
+    static func fixture(reversed: Swift.Bool = false) throws -> Workspace.Architecture.Index.Artifact {
+        let primitive = fact(
+            organization: "swift-primitives",
+            name: "swift-byte-primitives",
+            layer: .primitives,
+            products: ["Byte Primitives"]
+        )
+        let foundation = fact(
+            organization: "swift-foundations",
+            name: "swift-console",
+            layer: .foundations,
+            products: ["Console"]
+        )
+        let values = reversed ? [foundation, primitive] : [primitive, foundation]
+        let facts = Workspace.Architecture.Facts(
+            facts: values,
+            edges: [.init(source: foundation.owner, destination: primitive.owner, kind: .runtime)]
+        )
+        let graph = Workspace.Architecture.Graph(facts: facts.facts, edges: facts.edges)
+        let validation = Workspace.Architecture.Validator().validate(
+            derived: facts,
+            graph: graph,
+            today: today
+        )
+        return try .init(facts: facts, graph: graph, validation: validation)
+    }
+
+    static func fact(
+        organization: Swift.String,
+        name: Swift.String,
+        layer: Workspace.Architecture.Layer,
+        products: [Swift.String]
+    ) -> Workspace.Architecture.Fact {
+        let owner = Workspace.Architecture.Owner(organization: organization, name: name)
+        return .init(
+            owner: owner,
+            layer: layer,
+            concept: .init(identifier: .init(owner: owner), name: name),
+            products: products,
+            targets: products
+        )
+    }
+}

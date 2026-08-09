@@ -9,5 +9,7 @@ extension Workspace.Architecture {
         /// The inventory and the derived model place one owner in two
         /// different layers.
         case layerDisagreement(owner: Owner, inventory: Layer, derived: Layer)
+        /// A required inventory owner had no readable manifest.
+        case unmeasuredManifest(Owner)
     }
 }

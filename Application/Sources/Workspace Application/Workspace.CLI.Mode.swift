@@ -23,6 +23,7 @@ extension Workspace.CLI {
         case token
         case packet
         case validate
+        case index
 
         public init?(argument: Swift.String) {
             switch argument {
@@ -45,6 +46,7 @@ extension Workspace.CLI {
             case "token": self = .token
             case "packet": self = .packet
             case "validate": self = .validate
+            case "index": self = .index
             default: return nil
             }
         }
@@ -70,6 +72,7 @@ extension Workspace.CLI {
             case .token: "token"
             case .packet: "packet"
             case .validate: "validate"
+            case .index: "index"
             }
         }
     }
@@ -79,7 +82,7 @@ extension Workspace.CLI.Mode {
     var buildAction: Build.Action? {
         switch self {
         case .install, .check, .serve, .regenerate, .effective, .lint, .ledger, .pages, .seal,
-            .token, .packet, .validate:
+            .token, .packet, .validate, .index:
             nil
         case .build: .build
         case .test: .test

@@ -1,3 +1,4 @@
+public import WorkspaceArchitectureIndex
 public import WorkspaceArchitectureModel
 
 extension Workspace.Architecture.CLI {
@@ -6,5 +7,6 @@ extension Workspace.Architecture.CLI {
         case noWorkspaceCheckout(searchedFrom: Swift.String)
         case derivation(Swift.String)
         case unstableIndex(first: Swift.String, second: Swift.String)
+        case artifact(Workspace.Architecture.Index.Artifact.Error)
     }
 }

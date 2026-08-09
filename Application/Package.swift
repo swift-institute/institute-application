@@ -109,6 +109,8 @@ let package = Package(
             dependencies: [
                 "WorkspaceArchitectureModel",
                 "WorkspaceArchitectureGraph",
+                "WorkspaceArchitectureFacts",
+                "WorkspaceArchitectureValidation",
             ]
         ),
         .target(
@@ -116,6 +118,7 @@ let package = Package(
             dependencies: [
                 "WorkspaceArchitectureModel",
                 "WorkspaceArchitectureGraph",
+                "WorkspaceArchitectureFacts",
             ]
         ),
         .target(

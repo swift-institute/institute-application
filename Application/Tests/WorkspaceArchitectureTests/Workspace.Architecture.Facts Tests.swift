@@ -94,6 +94,35 @@ struct `Workspace Architecture Facts Tests` {
             #expect(console?.products == ["Console"])
             #expect(console?.classification == .exposesPublicAPI)
         }
+
+        @Test
+        func `keeps unreadable manifests as coverage gaps instead of empty facts`() {
+            let derived = Workspace.Architecture.Facts.derive(
+                inventory: inventory,
+                manifests: [:]
+            )
+
+            #expect(derived.facts.isEmpty)
+            #expect(!derived.coverage.complete)
+            #expect(derived.coverage.unmeasured == inventory.rows.map(\.owner).sorted())
+        }
+
+        @Test
+        func `records an empty measured manifest as an internal-only fact`() {
+            let owner = Workspace.Architecture.Owner(
+                organization: "swift-primitives",
+                name: "swift-byte-primitives"
+            )
+            let derived = Workspace.Architecture.Facts.derive(
+                inventory: .init(rows: [inventory.rows[0]]),
+                manifests: [
+                    owner: .init(targets: [], products: [], dependencyURLs: [])
+                ]
+            )
+
+            #expect(derived.coverage.complete)
+            #expect(derived.facts.first?.classification == .internalOnly)
+        }
     }
 
     @Suite

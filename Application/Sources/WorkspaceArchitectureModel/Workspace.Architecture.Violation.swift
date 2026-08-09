@@ -31,6 +31,7 @@ extension Workspace.Architecture.Violation {
         case .forbiddenEdge(let edge, _, _): [edge.source]
         case .contradiction(.unknownEdgeEndpoint(let edge, _)): [edge.source]
         case .contradiction(.layerDisagreement(let owner, _, _)): [owner]
+        case .contradiction(.unmeasuredManifest(let owner)): [owner]
         }
     }
 }
