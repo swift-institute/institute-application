@@ -13,44 +13,44 @@ let package = Package(
             targets: ["Build Coordinator"]
         ),
         .library(
-            name: "Workspace Application",
-            targets: ["Workspace Application"]
+            name: "Institute Application",
+            targets: ["Institute Application"]
         ),
         .library(
-            name: "Workspace Architecture Model",
-            targets: ["WorkspaceArchitectureModel"]
+            name: "Institute Architecture Model",
+            targets: ["InstituteArchitectureModel"]
         ),
         .library(
-            name: "Workspace Architecture Facts",
-            targets: ["WorkspaceArchitectureFacts"]
+            name: "Institute Architecture Facts",
+            targets: ["InstituteArchitectureFacts"]
         ),
         .library(
-            name: "Workspace Architecture Graph",
-            targets: ["WorkspaceArchitectureGraph"]
+            name: "Institute Architecture Graph",
+            targets: ["InstituteArchitectureGraph"]
         ),
         .library(
-            name: "Workspace Architecture Index",
-            targets: ["WorkspaceArchitectureIndex"]
+            name: "Institute Architecture Index",
+            targets: ["InstituteArchitectureIndex"]
         ),
         .library(
-            name: "Workspace Architecture Validation",
-            targets: ["WorkspaceArchitectureValidation"]
+            name: "Institute Architecture Validation",
+            targets: ["InstituteArchitectureValidation"]
         ),
         .library(
-            name: "Workspace Architecture Candidates",
-            targets: ["WorkspaceArchitectureCandidates"]
+            name: "Institute Architecture Candidates",
+            targets: ["InstituteArchitectureCandidates"]
         ),
         .library(
-            name: "Workspace Architecture Migration",
-            targets: ["WorkspaceArchitectureMigration"]
+            name: "Institute Architecture Migration",
+            targets: ["InstituteArchitectureMigration"]
         ),
         .library(
-            name: "Workspace Architecture CLI",
-            targets: ["WorkspaceArchitectureCLI"]
+            name: "Institute Architecture CLI",
+            targets: ["InstituteArchitectureCLI"]
         ),
         .executable(
             name: "institute",
-            targets: ["Workspace CLI"]
+            targets: ["Institute Application CLI"]
         )
     ],
     dependencies: [
@@ -88,70 +88,70 @@ let package = Package(
             ]
         ),
         .target(
-            name: "WorkspaceArchitectureModel"
+            name: "InstituteArchitectureModel"
         ),
         .target(
-            name: "WorkspaceArchitectureFacts",
+            name: "InstituteArchitectureFacts",
             dependencies: [
-                "WorkspaceArchitectureModel",
-                "WorkspaceArchitectureGraph",
+                "InstituteArchitectureModel",
+                "InstituteArchitectureGraph",
                 .product(name: "File System", package: "swift-file-system"),
                 .product(name: "JSON", package: "swift-json"),
             ]
         ),
         .target(
-            name: "WorkspaceArchitectureGraph",
+            name: "InstituteArchitectureGraph",
             dependencies: [
-                "WorkspaceArchitectureModel"
+                "InstituteArchitectureModel"
             ]
         ),
         .target(
-            name: "WorkspaceArchitectureIndex",
+            name: "InstituteArchitectureIndex",
             dependencies: [
-                "WorkspaceArchitectureModel",
-                "WorkspaceArchitectureGraph",
-                "WorkspaceArchitectureFacts",
-                "WorkspaceArchitectureValidation",
+                "InstituteArchitectureModel",
+                "InstituteArchitectureGraph",
+                "InstituteArchitectureFacts",
+                "InstituteArchitectureValidation",
             ]
         ),
         .target(
-            name: "WorkspaceArchitectureValidation",
+            name: "InstituteArchitectureValidation",
             dependencies: [
-                "WorkspaceArchitectureModel",
-                "WorkspaceArchitectureGraph",
-                "WorkspaceArchitectureFacts",
+                "InstituteArchitectureModel",
+                "InstituteArchitectureGraph",
+                "InstituteArchitectureFacts",
             ]
         ),
         .target(
-            name: "WorkspaceArchitectureCandidates",
+            name: "InstituteArchitectureCandidates",
             dependencies: [
-                "WorkspaceArchitectureModel"
+                "InstituteArchitectureModel"
             ]
         ),
         .target(
-            name: "WorkspaceArchitectureMigration",
+            name: "InstituteArchitectureMigration",
             dependencies: [
-                "WorkspaceArchitectureModel"
+                "InstituteArchitectureModel"
             ]
         ),
         .target(
-            name: "WorkspaceArchitectureCLI",
+            name: "InstituteArchitectureCLI",
             dependencies: [
-                "WorkspaceArchitectureModel",
-                "WorkspaceArchitectureFacts",
-                "WorkspaceArchitectureGraph",
-                "WorkspaceArchitectureIndex",
-                "WorkspaceArchitectureValidation",
-                "WorkspaceArchitectureCandidates",
-                "WorkspaceArchitectureMigration",
+                "InstituteArchitectureModel",
+                "InstituteArchitectureFacts",
+                "InstituteArchitectureGraph",
+                "InstituteArchitectureIndex",
+                "InstituteArchitectureValidation",
+                "InstituteArchitectureCandidates",
+                "InstituteArchitectureMigration",
                 .product(name: "File System", package: "swift-file-system"),
             ]
         ),
         .target(
-            name: "Workspace Application",
+            name: "Institute Application",
             dependencies: [
                 "Build Coordinator",
-                "WorkspaceArchitectureCLI",
+                "InstituteArchitectureCLI",
                 .product(name: "Skill Validation", package: "swift-agent-skills"),
                 .product(name: "Async Fanout", package: "swift-async"),
                 .product(name: "Command", package: "swift-arguments"),
@@ -178,32 +178,32 @@ let package = Package(
             ]
         ),
         .executableTarget(
-            name: "Workspace CLI",
+            name: "Institute Application CLI",
             dependencies: [
                 "Build Coordinator",
-                "Workspace Application",
+                "Institute Application",
                 .product(name: "Command", package: "swift-arguments")
             ]
         ),
         .testTarget(
-            name: "WorkspaceArchitectureTests",
+            name: "InstituteArchitectureTests",
             dependencies: [
-                "WorkspaceArchitectureModel",
-                "WorkspaceArchitectureFacts",
-                "WorkspaceArchitectureGraph",
-                "WorkspaceArchitectureIndex",
-                "WorkspaceArchitectureValidation",
-                "WorkspaceArchitectureCandidates",
-                "WorkspaceArchitectureMigration",
-                "WorkspaceArchitectureCLI",
+                "InstituteArchitectureModel",
+                "InstituteArchitectureFacts",
+                "InstituteArchitectureGraph",
+                "InstituteArchitectureIndex",
+                "InstituteArchitectureValidation",
+                "InstituteArchitectureCandidates",
+                "InstituteArchitectureMigration",
+                "InstituteArchitectureCLI",
             ],
-            path: "Tests/WorkspaceArchitectureTests"
+            path: "Tests/InstituteArchitectureTests"
         ),
         .testTarget(
-            name: "Workspace Application Tests",
+            name: "Institute Application Tests",
             dependencies: [
                 "Build Coordinator",
-                "Workspace Application",
+                "Institute Application",
                 .product(name: "Skill Validation", package: "swift-agent-skills"),
                 .product(name: "File System", package: "swift-file-system"),
                 .product(name: "GitHub", package: "swift-github"),
@@ -217,7 +217,7 @@ let package = Package(
                     package: "swift-standard-library-extensions"
                 ),
             ],
-            path: "Tests/Workspace Application Tests"
+            path: "Tests/Institute Application Tests"
         ),
     ],
     swiftLanguageModes: [.v6]

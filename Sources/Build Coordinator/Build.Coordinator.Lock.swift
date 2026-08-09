@@ -21,7 +21,7 @@ extension Build.Coordinator {
     /// build compiles every selected package *from the working copy*, so any
     /// coordinated write anywhere in the selection is inside its blast radius.
     /// That has already happened once (issue #7): a whole-workspace build
-    /// failed with `type 'Workspace' has no member 'Lint'` because a
+    /// failed with `type 'Institute' has no member 'Lint'` because a
     /// concurrent session wrote those sources mid-build. Holding the lock
     /// across the compilation is what makes that unreachable through
     /// coordinated paths.

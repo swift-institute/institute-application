@@ -1,2 +1,2 @@
-/// Coordinated build operations owned by the Workspace tool.
+/// Coordinated build operations owned by the Institute tool.
 public enum Build {}

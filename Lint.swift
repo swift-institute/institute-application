@@ -1,9 +1,9 @@
 // swift-linter-tools-version: 0.1
 // ===----------------------------------------------------------------------===//
 //
-// This source file is part of the Swift Institute Workspace open source project
+// This source file is part of the Swift Institute Institute open source project
 //
-// Copyright (c) 2026 Coen ten Thije Boonkkamp and the Swift Institute Workspace project authors
+// Copyright (c) 2026 Coen ten Thije Boonkkamp and the Swift Institute Institute project authors
 // Licensed under Apache License v2.0
 //
 // See LICENSE for license information
