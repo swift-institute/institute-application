@@ -43,14 +43,14 @@ extension Institute.Xcode.Test.Unit {
         let rendered = Institute.Xcode.render(repositories)
         let document = Institute.Xcode.document(repositories)
 
-        #expect(rendered.contains("group:Application"))
+        #expect(rendered.contains("group:."))
         #expect(rendered.contains("group:../swift-primitives/swift-example"))
         #expect(rendered.contains("group:../swift-standards/swift-ietf/swift-rfc-0000"))
         #expect(!rendered.contains("/Users/"))
         #expect(!rendered.contains("absolute:"))
         #expect(
             document.references.map(\.location) == [
-                .group("Application"),
+                .group("."),
                 .group("../swift-primitives/swift-example"),
                 .group("../swift-standards/swift-ietf/swift-rfc-0000"),
             ]
@@ -83,5 +83,32 @@ extension Institute.Xcode.Test.Integration {
         #expect(try Data(contentsOf: generated) == Data(Institute.Xcode.render(repositories).utf8))
         #expect(Institute.Xcode.current(repositories, at: root))
         #expect(try #require(Institute.Xcode.contents(at: root)).contains("../swift-foundations/swift-example"))
+
+        // Every emitted group must resolve to a directory that actually exists,
+        // measured against the filesystem rather than against a literal this
+        // test also supplies. The flatten moved the package root out of
+        // `Application/` while an expectation pinned the old spelling, so the
+        // suite certified a workspace whose first group pointed at a deleted
+        // directory. An expectation that restates the value under test cannot
+        // catch that; this one can.
+        // Group locations are relative to the directory CONTAINING the
+        // .xcworkspace bundle, which is the checkout itself.
+        try FileManager.default.createDirectory(
+            at: base.appending(path: "swift-foundations/swift-example"),
+            withIntermediateDirectories: true
+        )
+        for reference in Institute.Xcode.document(repositories).references {
+            guard case .group(let location) = reference.location else {
+                Issue.record("unexpected non-group reference \(reference.location)")
+                continue
+            }
+            let resolved = checkout.appending(path: location).standardizedFileURL
+            var isDirectory: ObjCBool = false
+            let exists = FileManager.default.fileExists(
+                atPath: resolved.path,
+                isDirectory: &isDirectory
+            )
+            #expect(exists && isDirectory.boolValue, "group \(location) resolves to \(resolved.path), which is not a directory")
+        }
     }
 }

@@ -41,7 +41,7 @@ Before projection, the Swift `Skill Validation` product parses every canonical
 hub, accepts only `name` and `description` metadata, requires the directory and
 declared names to match, and rejects `SKILL.md` files over 500 lines.
 
-Workspace also owns the Swift build coordinator exposed through
+Institute also owns the Swift build coordinator exposed through
 `institute package`. It serializes SwiftPM work, fixes build concurrency at
 three jobs, rejects arguments that would override coordinator-owned state, and
 provides isolated `--fresh` build and test evidence whose scratch state is
@@ -55,9 +55,9 @@ it from `$HOME/.local/bin`; every later SwiftPM operation uses
 `institute package`. The installer does not edit shell startup files and
 refuses to replace any command path it cannot prove it owns.
 
-The cclsp/SourceKit-LSP boundary is likewise Workspace-owned through
+The cclsp/SourceKit-LSP boundary is likewise Institute-owned through
 `institute navigation`. It installs a pinned public cclsp revision into derived
 state, generates machine-local MCP and per-package LSP configuration from the
-physical Workspace layout, and launches only the SourceKit-LSP selected by
+physical Institute layout, and launches only the SourceKit-LSP selected by
 Xcode with `TOOLCHAINS` removed. cclsp remains external developer tooling, not a
 `Institute.json` package.

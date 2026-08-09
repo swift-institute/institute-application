@@ -1,4 +1,4 @@
-# Workspace — agent instructions
+# Institute — agent instructions
 
 The Swift Institute front door: the public package inventory, machine-checked facts about a
 checkout, and an isolated local development checkout for Xcode. Read `README.md` first for
@@ -59,11 +59,11 @@ authenticated `gh` never changes what a plain `doctor` does.
   derived from its inventory entry's `organization` and `layer` fields (authority, vendor, and
   jurisdiction orgs nest under their layer root, e.g. `swift-standards/swift-ietf/<package>`).
   Never infer a location from a package's name and never scan the tree for packages — resolve
-  through the inventory (`Workspace.Layout` in the application). Materialized paths are
+  through the inventory (`Institute.Layout` in the application). Materialized paths are
   regenerable state; nothing durable may reference one as stable. Peer institutes follow the
   same discipline one level up: `Peers.json` registers each peer and the peer's own inventory
   file declares its packages, resolved at `<entry>/<peer>/<organization>/<name>`
-  (`Workspace.Peer.Layout`); adoption is opt-in per checkout, and an unmaterialized peer is a
+  (`Institute.Peer.Layout`); adoption is opt-in per checkout, and an unmaterialized peer is a
   fact, not a finding.
 - **`sync` never rewrites work.** It fast-forwards only a checkout that is clean, on `main`,
   tracking `origin/main`, with no local commits. It never resets, cleans, stashes, rebases, or
@@ -158,7 +158,7 @@ authenticated `gh` never changes what a plain `doctor` does.
   ships rule-pack-agnostic: without a reachable configuration zero rules fire, and a
   directory with no `Lint.swift`, a *file* path, or an empty directory each exit zero
   having printed nothing. Exit status attests that a process ran, never that it was
-  configured. Workspace adjudicates every run against the engine's always-on summary
+  configured. Institute adjudicates every run against the engine's always-on summary
   line and reports `UNMEASURED` — never clean — when the line is absent, no rules
   loaded, or no files were scanned, per package inside the sweep as well as alone.
   Preserve that in any change: a lint path that can report clean without a summary
@@ -176,10 +176,10 @@ authenticated `gh` never changes what a plain `doctor` does.
   on 2026-07-29 for exactly that reason. A package outside every layer root is
   `UNMEASURED`, never defaulted to a guessed bundle. This one path has no CI
   counterpart — CI activates on `Lint.swift` and runs nothing for these packages —
-  so it is Workspace's own measurement and is documented as one.
+  so it is Institute's own measurement and is documented as one.
 - **swift-linter is developer tooling, not an inventory package.** Install it through
   `institute lint install`; never add it to `Institute.json` and never put a machine
-  path in durable configuration. Workspace sets `SWIFT_LINTER_RUNNER` on the child
+  path in durable configuration. Institute sets `SWIFT_LINTER_RUNNER` on the child
   process itself — never a developer's shell profile, which would be machine-specific
   by construction. Parity with CI is the point: same rolling `ci-binaries` release,
   same checksum verification, same `--exit-policy strict`. Do not add a flag that
@@ -190,7 +190,7 @@ authenticated `gh` never changes what a plain `doctor` does.
 - **cclsp is developer tooling, not an inventory package.** Install and verify it through
   `institute navigation`; never add it to `Institute.json`, resolve it from a personal fork,
   or put a fixed machine checkout path in durable configuration. `navigation serve` owns the
-  Xcode/`TOOLCHAINS` boundary. The merged cross-package index remainder is Workspace issue #25.
+  Xcode/`TOOLCHAINS` boundary. The merged cross-package index remainder is Institute issue #25.
 - **The generated Xcode workspace uses relative references only.** Never emit an absolute path
   into `institute.xcworkspace` or into `Institute.json` — `Application` remains
   `group:Application`, while materialized packages use `group:../<inventory-derived-reference>`.

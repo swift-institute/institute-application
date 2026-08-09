@@ -4,14 +4,15 @@ private import JSON
 extension Institute.Navigation {
     /// Package roots represented in the generated cclsp configuration.
     ///
-    /// The Application package is always present. Inventory repositories are
+    /// The Institute Application package is the checkout itself and is always
+    /// present. Inventory repositories are
     /// included only when they are materialized at their Institute-derived
     /// sibling location and contain a manifest. No filesystem scan or name
     /// inference participates in this list.
     public func packageRoots() throws(Institute.Error) -> [File.Directory] {
-        let application = root.checkout[directory: "Application"]
+        let application = root.checkout
         guard application[file: "Package.swift"].stat.isFile else {
-            throw .configuration("Institute Application has no Package.swift at \(application)")
+            throw .configuration("the Institute Application checkout has no Package.swift at \(application)")
         }
 
         var roots = [application]

@@ -31,12 +31,12 @@ extension Institute.Navigation.Test {
             )
         }
         try FileManager.default.createDirectory(
-            at: checkoutURL.appending(path: "Application"),
+            at: checkoutURL,
             withIntermediateDirectories: true
         )
 
         let checkout = try File.Directory(validating: checkoutURL.path)
-        try checkout[directory: "Application"][file: "Package.swift"].write.atomic(
+        try checkout[file: "Package.swift"].write.atomic(
             "// fixture\n"
         )
         let root = try Institute.Root(checkout: checkout)
@@ -73,12 +73,12 @@ extension Institute.Navigation.Test {
 
 extension Institute.Navigation.Test.Unit {
     @Test
-    func `package roots come from Application and materialized inventory only`() throws {
+    func `package roots come from the checkout and materialized inventory only`() throws {
         try Institute.Navigation.Test.fixture { navigation, present, absent in
             let roots = try navigation.packageRoots().map(\.description)
 
             #expect(roots.count == 2)
-            #expect(roots.contains(navigation.root.checkout[directory: "Application"].description))
+            #expect(roots.contains(navigation.root.checkout.description))
             #expect(
                 roots.contains(
                     try navigation.root.materialization(for: present).description

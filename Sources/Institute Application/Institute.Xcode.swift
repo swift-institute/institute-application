@@ -11,7 +11,7 @@ extension Institute.Xcode {
     ) -> Xcode_Workspace.Xcode.Workspace {
         Xcode_Workspace.Xcode.Workspace(
             references: [
-                .init(location: .group("Application"))
+                .init(location: .group("."))
             ]
                 + repositories.map {
                     .init(location: .group("../\(Institute.Layout.reference(for: $0))"))

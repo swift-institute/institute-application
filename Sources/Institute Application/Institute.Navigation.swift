@@ -66,8 +66,6 @@ extension Institute.Navigation {
     }
 
     public var workspaceExecutable: File {
-        root.checkout[directory: "Application"][directory: ".build"][directory: "debug"][
-            file: "institute"
-        ]
+        root.checkout[directory: ".build"][directory: "debug"][file: "institute"]
     }
 }
