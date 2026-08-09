@@ -1,3 +1,4 @@
+public import WorkspaceArchitectureFacts
 public import WorkspaceArchitectureGraph
 public import WorkspaceArchitectureModel
 

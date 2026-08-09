@@ -23,6 +23,13 @@ extension Workspace.Architecture.Index {
             guard facts.coverage.required == owners, facts.coverage.measured == owners else {
                 throw .invalidCoverage
             }
+            guard
+                facts.facts.allSatisfy({ (fact) in
+                    fact.concept.identifier == .init(owner: fact.owner)
+                })
+            else {
+                throw .invalidFact
+            }
             let graph = facts.graph
             guard validation.derived == facts, validation.graph == graph, validation.passes
             else { throw .invalidValidation }

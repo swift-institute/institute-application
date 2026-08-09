@@ -6,6 +6,7 @@ extension Workspace.Architecture.Index.Artifact {
     public enum Error: Swift.Error, Sendable, Equatable {
         case incompleteMeasurement([Workspace.Architecture.Owner])
         case invalidCoverage
+        case invalidFact
         case invalidValidation
         case malformed
         case unsupportedSchema(Swift.String)

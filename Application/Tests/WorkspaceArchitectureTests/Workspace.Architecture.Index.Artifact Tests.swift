@@ -65,6 +65,39 @@ struct `Workspace Architecture Index Artifact Tests` {
     }
 
     @Test
+    func `rejects a fact whose concept identifier differs from its owner`() {
+        let original = Artifact.fact(
+            organization: "swift-primitives",
+            name: "swift-byte-primitives",
+            layer: .primitives,
+            products: ["Byte Primitives"]
+        )
+        let mismatched = Workspace.Architecture.Fact(
+            owner: original.owner,
+            layer: original.layer,
+            concept: .init(
+                identifier: .init(rawValue: "swift-primitives/swift-other-primitives"),
+                name: original.concept.name
+            ),
+            products: original.products,
+            targets: original.targets
+        )
+        let facts = Workspace.Architecture.Facts(facts: [mismatched], edges: [])
+        let validation = Workspace.Architecture.Validator().validate(
+            derived: facts,
+            today: Artifact.today
+        )
+
+        #expect(validation.passes)
+        #expect(throws: Workspace.Architecture.Index.Artifact.Error.self) {
+            _ = try Workspace.Architecture.Index.Artifact(
+                facts: facts,
+                validation: validation
+            )
+        }
+    }
+
+    @Test
     func `refuses a tampered digest binding`() throws {
         let artifact = try Artifact.fixture()
         let tampered = artifact.rendered.replacingOccurrences(
