@@ -20,7 +20,7 @@ extension Institute.Xcode.Test.Unit {
         let rendered = Institute.Xcode.render([])
 
         #expect(Data(rendered.utf8).last == 0x0A)
-        #expect(rendered.hasSuffix("</Institute>\n"))
+        #expect(rendered.hasSuffix("</Workspace>\n"))
     }
 
     @Test
