@@ -1,17 +1,21 @@
-private import GitHub
-private import GitHub_HTTP
-private import HTTP_Standard
-private import JSON
-private import RFC_3986
-private import RFC_4648
+public import Institute_Model
+public import Institute_Inventory
+public import Institute_Dependency
+
+public import GitHub
+public import GitHub_HTTP
+public import HTTP_Standard
+public import JSON
+public import RFC_3986
+public import RFC_4648
 
 extension Institute.Dependency {
     /// GitHub-backed source for the read-only audit.
-    enum Remote: Sendable {}
+    public enum Remote: Sendable {}
 }
 
 extension Institute.Dependency.Remote {
-    static func client() -> Institute.Dependency.Client {
+    public static func client() -> Institute.Dependency.Client {
         .init(
             repository: { key in await repositoryMetadata(key) },
             source: { metadata in await source(metadata) },
@@ -236,18 +240,6 @@ private func repositoryFailure(
         return .unmeasured(
             "GitHub repository lookup failed for \(key.identity)"
         )
-    }
-}
-
-extension Institute.Dependency.Source.Blob {
-    static func isManifest(_ path: Swift.String) -> Swift.Bool {
-        guard let name = path.split(separator: "/").last else { return false }
-        return name == "Package.swift"
-            || (
-                name.hasPrefix("Package@swift-")
-                    && name.hasSuffix(".swift")
-                    && name.count > "Package@swift-.swift".count
-            )
     }
 }
 

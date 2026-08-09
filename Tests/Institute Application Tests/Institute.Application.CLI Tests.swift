@@ -3,6 +3,16 @@ import Command
 import Testing
 
 @testable import Institute_Application
+import Institute_Model
+import Institute_Inventory
+import Institute_Dependency
+import Institute_Development
+import Institute_Lint
+import Institute_Pages
+import Institute_Doctor
+import Institute_Conversion
+import Institute_Instruments
+@testable import Institute_GitHub
 
 extension Institute.Application.CLI {
     @Suite

@@ -3,14 +3,14 @@
 import PackageDescription
 
 let package = Package(
-    name: "institute",
+    name: "institute-application",
     platforms: [
         .macOS(.v26)
     ],
     products: [
         .library(
-            name: "Build Coordinator",
-            targets: ["Build Coordinator"]
+            name: "Institute GitHub",
+            targets: ["Institute GitHub"]
         ),
         .library(
             name: "Institute Application",
@@ -54,6 +54,7 @@ let package = Package(
         )
     ],
     dependencies: [
+        .package(url: "https://github.com/swift-institute/institute.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-agent-skills.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-arguments.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-async.git", branch: "main"),
@@ -79,14 +80,6 @@ let package = Package(
         )
     ],
     targets: [
-        .target(
-            name: "Build Coordinator",
-            dependencies: [
-                .product(name: "File System", package: "swift-file-system"),
-                .product(name: "POSIX Kernel Lock", package: "swift-posix"),
-                .product(name: "Process", package: "swift-process"),
-            ]
-        ),
         .target(
             name: "InstituteArchitectureModel"
         ),
@@ -148,9 +141,31 @@ let package = Package(
             ]
         ),
         .target(
+            name: "Institute GitHub",
+            dependencies: [
+                .product(name: "Institute Model", package: "institute"),
+                .product(name: "Institute Dependency", package: "institute"),
+                .product(name: "GitHub", package: "swift-github"),
+                .product(name: "GitHub HTTP", package: "swift-github-http"),
+                .product(name: "JSON", package: "swift-json"),
+                .product(name: "RFC 3986", package: "swift-rfc-3986"),
+                .product(name: "RFC 4648", package: "swift-rfc-4648"),
+            ]
+        ),
+        .target(
             name: "Institute Application",
             dependencies: [
-                "Build Coordinator",
+                .product(name: "Build Coordinator", package: "institute"),
+                .product(name: "Institute Model", package: "institute"),
+                .product(name: "Institute Inventory", package: "institute"),
+                .product(name: "Institute Dependency", package: "institute"),
+                .product(name: "Institute Development", package: "institute"),
+                .product(name: "Institute Lint", package: "institute"),
+                .product(name: "Institute Pages", package: "institute"),
+                .product(name: "Institute Doctor", package: "institute"),
+                .product(name: "Institute Conversion", package: "institute"),
+                .product(name: "Institute Instruments", package: "institute"),
+                "Institute GitHub",
                 "InstituteArchitectureCLI",
                 .product(name: "Skill Validation", package: "swift-agent-skills"),
                 .product(name: "Async Fanout", package: "swift-async"),
@@ -180,8 +195,9 @@ let package = Package(
         .executableTarget(
             name: "Institute Application CLI",
             dependencies: [
-                "Build Coordinator",
+                .product(name: "Build Coordinator", package: "institute"),
                 "Institute Application",
+                .product(name: "Institute Model", package: "institute"),
                 .product(name: "Command", package: "swift-arguments")
             ]
         ),
@@ -202,8 +218,18 @@ let package = Package(
         .testTarget(
             name: "Institute Application Tests",
             dependencies: [
-                "Build Coordinator",
+                .product(name: "Build Coordinator", package: "institute"),
                 "Institute Application",
+                .product(name: "Institute Model", package: "institute"),
+                .product(name: "Institute Inventory", package: "institute"),
+                .product(name: "Institute Dependency", package: "institute"),
+                .product(name: "Institute Development", package: "institute"),
+                .product(name: "Institute Lint", package: "institute"),
+                .product(name: "Institute Pages", package: "institute"),
+                .product(name: "Institute Doctor", package: "institute"),
+                .product(name: "Institute Conversion", package: "institute"),
+                .product(name: "Institute Instruments", package: "institute"),
+                "Institute GitHub",
                 .product(name: "Skill Validation", package: "swift-agent-skills"),
                 .product(name: "File System", package: "swift-file-system"),
                 .product(name: "GitHub", package: "swift-github"),
