@@ -190,10 +190,11 @@ authenticated `gh` never changes what a plain `doctor` does.
 - **cclsp is developer tooling, not an inventory package.** Install and verify it through
   `institute navigation`; never add it to `Institute.json`, resolve it from a personal fork,
   or put a fixed machine checkout path in durable configuration. `navigation serve` owns the
-  Xcode/`TOOLCHAINS` boundary. The merged cross-package index remainder is Institute issue #25.
+  Xcode/`TOOLCHAINS` boundary. The merged cross-package index remainder is institute-application#25.
 - **The generated Xcode workspace uses relative references only.** Never emit an absolute path
-  into `institute.xcworkspace` or into `Institute.json` — `Application` remains
-  `group:Application`, while materialized packages use `group:../<inventory-derived-reference>`.
+  into `institute.xcworkspace` or into `Institute.json` — the package root is the checkout
+  itself and is emitted as `group:.`, while materialized packages use
+  `group:../<inventory-derived-reference>`.
 - **A composed manifest is uncommittable local state.** `compose` writes a machine-local
   absolute path deliberately: off-machine it must fail loudly at resolution rather than silently
   resolve elsewhere. Never commit one; `restore` before pushing. `restore` returns the declared

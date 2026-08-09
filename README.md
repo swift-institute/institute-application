@@ -538,7 +538,7 @@ roots at the entry sibling `X/../rule-institute/`:
 
 ```text
 entry/
-├── swift-institute/          the hierarchy above: Institute/ and the materialization roots
+├── swift-institute/          the hierarchy above: institute-application/ and the materialization roots
 └── rule-institute/           a peer institute's root — not part of this hierarchy
     ├── .github/              the peer's control plane, carrying its inventory file
     └── swift-nl-wetgever/    the peer's organization directories
