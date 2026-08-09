@@ -2,15 +2,15 @@ import Command
 import Testing
 
 @testable import Institute_Application
-@testable import Institute_Model
-@testable import Institute_Inventory
-@testable import Institute_Dependency
-@testable import Institute_Development
-@testable import Institute_Lint
-@testable import Institute_Pages
-@testable import Institute_Doctor
-@testable import Institute_Conversion
-@testable import Institute_Instruments
+import Institute_Model
+import Institute_Inventory
+import Institute_Dependency
+import Institute_Development
+import Institute_Lint
+import Institute_Pages
+import Institute_Doctor
+import Institute_Conversion
+import Institute_Instruments
 @testable import Institute_GitHub
 
 @Suite
