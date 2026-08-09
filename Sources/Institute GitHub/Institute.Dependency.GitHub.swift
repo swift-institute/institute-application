@@ -243,18 +243,6 @@ private func repositoryFailure(
     }
 }
 
-extension Institute.Dependency.Source.Blob {
-    public static func isManifest(_ path: Swift.String) -> Swift.Bool {
-        guard let name = path.split(separator: "/").last else { return false }
-        return name == "Package.swift"
-            || (
-                name.hasPrefix("Package@swift-")
-                    && name.hasSuffix(".swift")
-                    && name.count > "Package@swift-.swift".count
-            )
-    }
-}
-
 extension Institute.Dependency.Fetch {
     fileprivate func retyping<Other: Sendable>() -> Institute.Dependency.Fetch<Other> {
         switch self {
