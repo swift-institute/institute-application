@@ -127,7 +127,7 @@ extension Workspace.Architecture.Index.Artifact {
         guard
             fields.count == 7,
             let owner = owner(Swift.String(fields[1])),
-            let layer = .init(name: Swift.String(fields[2])),
+            let layer = Workspace.Architecture.Layer(name: Swift.String(fields[2])),
             Swift.String(fields[3]) == Workspace.Architecture.Concept.Identifier(owner: owner).description,
             let products = count(Swift.String(fields[4]), prefix: "products="),
             let targets = count(Swift.String(fields[5]), prefix: "targets="),
@@ -156,9 +156,7 @@ extension Workspace.Architecture.Index.Artifact {
     }
 
     private static func owner(_ coordinate: Swift.String) -> Workspace.Architecture.Owner? {
-        let fields = coordinate.split(separator: "/", omittingEmptySubsequences: false)
-        guard fields.count == 2, !fields[0].isEmpty, !fields[1].isEmpty else { return nil }
-        return .init(organization: Swift.String(fields[0]), name: Swift.String(fields[1]))
+        .init(coordinate: coordinate)
     }
 
     private static func count(_ field: Swift.String, prefix: Swift.String) -> Swift.Int? {

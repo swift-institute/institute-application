@@ -25,7 +25,8 @@ extension Workspace.Architecture.Index {
             }
             guard
                 facts.facts.allSatisfy({ (fact) in
-                    fact.concept.identifier == .init(owner: fact.owner)
+                    fact.owner.isCanonical
+                        && fact.concept.identifier == .init(owner: fact.owner)
                 })
             else {
                 throw .invalidFact

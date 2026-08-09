@@ -1,7 +1,7 @@
 private import WorkspaceArchitectureFacts
 private import WorkspaceArchitectureGraph
 private import WorkspaceArchitectureIndex
-private import WorkspaceArchitectureModel
+public import WorkspaceArchitectureModel
 private import WorkspaceArchitectureValidation
 
 extension Workspace.Architecture.CLI {

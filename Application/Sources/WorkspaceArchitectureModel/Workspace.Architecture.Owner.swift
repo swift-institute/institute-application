@@ -12,6 +12,31 @@ extension Workspace.Architecture {
             self.organization = organization
             self.name = name
         }
+
+        /// Whether this owner can be represented by one canonical artifact
+        /// coordinate.
+        ///
+        /// Coordinates have exactly two non-empty components separated by
+        /// one slash. Components cannot contain an artifact field or line
+        /// delimiter.
+        public var isCanonical: Swift.Bool {
+            !organization.isEmpty
+                && !name.isEmpty
+                && !organization.contains(where: { $0 == "/" || $0 == "\t" || $0.isNewline })
+                && !name.contains(where: { $0 == "/" || $0 == "\t" || $0.isNewline })
+        }
+
+        /// Creates an owner from one canonical artifact coordinate.
+        public init?(coordinate: Swift.String) {
+            let components = coordinate.split(separator: "/", omittingEmptySubsequences: false)
+            guard components.count == 2 else { return nil }
+            let owner = Self(
+                organization: Swift.String(components[0]),
+                name: Swift.String(components[1])
+            )
+            guard owner.isCanonical else { return nil }
+            self = owner
+        }
     }
 }
 

@@ -97,6 +97,77 @@ struct `Workspace Architecture Index Artifact Tests` {
         }
     }
 
+    @Test(arguments: [
+        Workspace.Architecture.Owner(organization: "", name: "swift-byte-primitives"),
+        Workspace.Architecture.Owner(organization: "swift-primitives", name: ""),
+        Workspace.Architecture.Owner(organization: "swift/primitives", name: "swift-byte-primitives"),
+        Workspace.Architecture.Owner(organization: "swift-primitives", name: "swift/byte-primitives"),
+        Workspace.Architecture.Owner(organization: "swift\tprimitives", name: "swift-byte-primitives"),
+        Workspace.Architecture.Owner(organization: "swift-primitives", name: "swift\tbyte-primitives"),
+        Workspace.Architecture.Owner(organization: "swift\rprimitives", name: "swift-byte-primitives"),
+        Workspace.Architecture.Owner(organization: "swift-primitives", name: "swift\rbyte-primitives"),
+        Workspace.Architecture.Owner(organization: "swift\nprimitives", name: "swift-byte-primitives"),
+        Workspace.Architecture.Owner(organization: "swift-primitives", name: "swift\nbyte-primitives"),
+    ])
+    func `rejects owners that cannot form canonical artifact coordinates`(
+        _ owner: Workspace.Architecture.Owner
+    ) {
+        let fact = Workspace.Architecture.Fact(
+            owner: owner,
+            layer: .primitives,
+            concept: .init(identifier: .init(owner: owner), name: "Byte Primitives"),
+            products: ["Byte Primitives"],
+            targets: ["Byte Primitives"]
+        )
+        let facts = Workspace.Architecture.Facts(facts: [fact], edges: [])
+        let validation = Workspace.Architecture.Validator().validate(
+            derived: facts,
+            today: Artifact.today
+        )
+
+        #expect(validation.passes)
+        #expect(!owner.isCanonical)
+        #expect(Workspace.Architecture.Owner(coordinate: owner.description) == nil)
+        #expect(throws: Workspace.Architecture.Index.Artifact.Error.self) {
+            _ = try Workspace.Architecture.Index.Artifact(
+                facts: facts,
+                validation: validation
+            )
+        }
+    }
+
+    @Test
+    func `round trips a canonical owner coordinate through an artifact`() throws {
+        let owner = Workspace.Architecture.Owner(
+            organization: "swift-primitives",
+            name: "swift-byte_primitives.1"
+        )
+        let fact = Workspace.Architecture.Fact(
+            owner: owner,
+            layer: .primitives,
+            concept: .init(identifier: .init(owner: owner), name: "Byte Primitives"),
+            products: ["Byte Primitives"],
+            targets: ["Byte Primitives"]
+        )
+        let facts = Workspace.Architecture.Facts(facts: [fact], edges: [])
+        let validation = Workspace.Architecture.Validator().validate(
+            derived: facts,
+            today: Artifact.today
+        )
+        let artifact = try Workspace.Architecture.Index.Artifact(
+            facts: facts,
+            validation: validation
+        )
+
+        #expect(owner.isCanonical)
+        #expect(Workspace.Architecture.Owner(coordinate: owner.description) == owner)
+        try Workspace.Architecture.Index.Artifact.verify(
+            artifact.rendered,
+            facts: facts,
+            validation: validation
+        )
+    }
+
     @Test
     func `refuses a tampered digest binding`() throws {
         let artifact = try Artifact.fixture()
