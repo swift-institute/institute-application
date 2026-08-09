@@ -1,4 +1,4 @@
-# Swift Institute Workspace
+# Swift Institute
 
 The front door to the Swift Institute: the public package inventory
 ([Institute.json](Institute.json)), the default checkout
@@ -93,7 +93,7 @@ measurement with a timestamp, and it drifts.
 repository's name, owning organization, and inventory-derived relative materialization path;
 it performs no GitHub discovery and cannot write `Institute.json`. Roster maintenance uses the
 explicitly mutating `institute inventory regenerate`. Run it with `--dry-run` to learn whether
-the file would be replaced. Applying the regeneration requires a clean Workspace worktree and
+the file would be replaced. Applying the regeneration requires a clean Institute worktree and
 refuses before discovery otherwise; the final write is atomic and also refuses if
 `Institute.json` changes during discovery.
 
@@ -117,7 +117,7 @@ The human format is a concise diagnosis. The JSON format is deterministic eviden
 the inventory population, source references and revisions, per-manifest and per-edge
 provenance, ownership classifications, excluded path or registry declarations, and every
 unavailable, rate-limited, malformed, or otherwise unmeasured input. Sanctioned exceptions are
-explicit inputs from the governing policy rather than a second policy list in Workspace, and
+explicit inputs from the governing policy rather than a second policy list in Institute, and
 the report records them. A redirect is resolved before ownership is classified. Runtime controls
 drive a finding and a clean input through that same redirect, classification, report, and exit-status
 pipeline before the inventory is measured.
@@ -154,7 +154,7 @@ passes.
 
 `swiftly` is how the Institute installs and selects Swift toolchains; install it if you do not
 already keep one. If you keep more than one Swift toolchain installed,
-[TOOLCHAINS.md](TOOLCHAINS.md) covers how to select one explicitly and how to determine which
+[TOOLCHAINS.md](https://github.com/swift-institute/Research/blob/main/institute-application-historical/TOOLCHAINS.md) covers how to select one explicitly and how to determine which
 one actually produced a result — machine-local configuration, not committed state.
 
 The optional navigation setup additionally requires Node 18 or newer and Bun.
@@ -168,9 +168,9 @@ nothing looks.
 mkdir -p Institute/swift-institute && cd Institute/swift-institute
 git clone https://github.com/swift-institute/institute-application.git
 git clone https://github.com/swift-institute/Skills.git
-cd Workspace
+cd institute-application
 export PATH="$HOME/.local/bin:$PATH"
-swift run --package-path Application institute install
+swift run institute install
 institute sync
 institute context install
 open institute.xcworkspace
@@ -180,7 +180,7 @@ open institute.xcworkspace
 `Institute/swift-institute/institute-application` alongside `Institute/swift-institute/Skills`, the
 materialized roots as further siblings, and the generated agent entry point in `Institute/`.
 
-The `export` changes only the current shell; Workspace never edits a shell
+The `export` changes only the current shell; Institute never edits a shell
 startup file. If your environment already puts `$HOME/.local/bin` on `PATH`, it
 changes nothing. Keep the equivalent setting in whichever environment manager
 owns future shells on your machine.
@@ -189,7 +189,7 @@ owns future shells on your machine.
 as `/tmp`.** It becomes the home of every Institute repository you will work in — the checkout
 root and the materialized organization roots beside it are durable working state, not scratch
 output. `Selection.local.json` is **unrecoverable** if lost: it is gitignored and exists in no
-remote by construction. `Application/.build`, the Xcode workspace and scheme, and a clean
+remote by construction. `.build`, the Xcode workspace and scheme, and a clean
 materialized repository are merely **expensive to rebuild** — regenerable from `sync` and a
 fresh resolve — but any uncommitted or unpushed work inside a materialized repository is not,
 because package work happens in those checkouts, not in this one.
@@ -301,7 +301,7 @@ install, and used to print the same line as one that worked.
 
 ### Install code navigation
 
-Workspace owns the reproducible integration boundary between
+Institute owns the reproducible integration boundary between
 [cclsp](https://github.com/swift-institute/cclsp) and Xcode's SourceKit-LSP:
 
 ```sh
@@ -310,18 +310,18 @@ institute navigation check
 ```
 
 `install` clones the public `sourcekit-lsp-adapter` line at the exact revision
-compiled into Workspace, installs dependencies from cclsp's frozen Bun
+compiled into Institute, installs dependencies from cclsp's frozen Bun
 lockfile, builds its Node executable, and writes two generated files beneath
 the physical organization hierarchy:
 
 - `.workspace/navigation/cclsp.json` — one SourceKit-LSP server for the
-  Workspace Application and each currently materialized `Institute.json`
+  Institute Application and each currently materialized `Institute.json`
   repository;
 - `.workspace/navigation/mcp-server.json` — the command, arguments, and
   environment an MCP client registers.
 
 The command prints the descriptor path. Client applications own their own
-registration format, so Workspace does not rewrite a user's global client
+registration format, so Institute does not rewrite a user's global client
 configuration. The descriptor is the canonical value to translate into that
 format.
 
@@ -335,27 +335,27 @@ from a personal fork or a fixed machine path.
 The current generated configuration is deliberately per-package. A single
 deduplicated Institute-wide index requires a larger IndexStore merge and
 stabilizing acceptance probe; that exact Full-Swift remainder is tracked in
-[issue #25](https://github.com/swift-institute/institute-application/issues/25). Workspace
+[issue #25](https://github.com/swift-institute/institute-application/issues/25). Institute
 does not claim that per-package navigation is equivalent to cross-package
 index coverage.
 
 Any earlier ad hoc merged-index pipeline and any prebuilt index bundle are
 retired, unsupported, and not prerequisites for navigation. A clean machine
 installs from the public cclsp revision and generates its own configuration
-through the Workspace commands above; it does not copy old index artifacts.
+through the Institute commands above; it does not copy old index artifacts.
 
 ### Lint
 
 **Run `lint install` once as part of setting up.** Until you do, `doctor` reports a `linter`
 warning — `swift-linter is not installed` — on every run, so a fresh checkout never comes up
 clean. The warning is honest rather than cosmetic: without the binaries there is no lint
-verdict to have, and Workspace reports the absence instead of counting an unlinted ecosystem
+verdict to have, and Institute reports the absence instead of counting an unlinted ecosystem
 as a clean one. It does not fail your checkout; warnings still exit 0.
 
-Workspace runs the same swift-linter CI gates on: the same binaries from the
+Institute runs the same swift-linter CI gates on: the same binaries from the
 same rolling `ci-binaries` release, verified against that release's
 `SHA256SUMS`, invoked as `swift-linter <package-root> --exit-policy strict`
-with the prebuilt standard runner provisioned on the environment. Workspace
+with the prebuilt standard runner provisioned on the environment. Institute
 sets that environment variable itself; a developer's shell profile is never
 written, which is what makes the setup identical for everyone.
 
@@ -386,7 +386,7 @@ deterministically ordered. A validated inventory containing zero repositories is
 incomplete and exits `2`; it can never render a compliant ledger.
 
 Terminal advisory decisions and qualifying exact-head GitHub Actions runs are
-explicit inputs; Workspace does not infer them from Issue prose, comments, or
+explicit inputs; Institute does not infer them from Issue prose, comments, or
 past CI state:
 
 ```sh
@@ -435,7 +435,7 @@ linted against a guess.
 
 This one path has no CI counterpart: CI's activation signal *is* the presence of
 `Lint.swift`, so for these packages CI runs nothing. The default-bundle run is
-Workspace's own measurement. Nothing here changes what the gating CI legs
+Institute's own measurement. Nothing here changes what the gating CI legs
 require.
 
 **A lint run cannot report clean without having measured something.** The
@@ -468,9 +468,9 @@ The bootstrapped executable owns SwiftPM concurrency, job count, and build
 state:
 
 ```sh
-institute package build --package-path Application
-institute package test --package-path Application --fresh
-institute package resolve --package-path Application
+institute package build --package-path .
+institute package test --package-path . --fresh
+institute package resolve --package-path .
 ```
 
 Builds are serialized through a machine-wide advisory lock and compile with
@@ -494,15 +494,16 @@ institute sync --dry-run
 
 ### Where packages materialize
 
-The org hierarchy materializes **beside** the physical checkout. Workspace resolves the
+The org hierarchy materializes **beside** the physical checkout. Institute resolves the
 checkout through symlinks first, then uses exactly its parent as the organization directory;
 invoking the tool through a symlink does not redirect that hierarchy. For a clone at
-`X/Workspace`:
+`X/institute-application`:
 
 ```text
 X/
-├── Workspace/              this repository: Application/, Institute.json, Selection.json,
-│                            your ignored Selection.local.json if you have one, and the
+├── institute-application/  this repository: the Swift package at its root,
+│                            Institute.json, Selection.json, your ignored
+│                            Selection.local.json if you have one, and the
 │                            generated, untracked institute.xcworkspace
 ├── swift-primitives/       ┐
 ├── swift-standards/        ├ materialization roots: independent repositories,
@@ -517,12 +518,12 @@ The roots sit beside the clone rather than inside it so the checkout stays a pla
 and the hierarchy reads as the organization itself. `sync` creates repositories only beneath
 those inventory-derived roots. Clone and update validation may use collision-resistant
 temporary siblings in the same organization directory, and the generated
-`institute.xcworkspace` remains inside the Workspace checkout. Materialized paths are
+`institute.xcworkspace` remains inside the Institute checkout. Materialized paths are
 regenerable state — if a repository moves between organizations, its inventory entry changes
 and `sync` materializes the new location, so nothing durable should reference one of these
 paths as though it were stable.
 
-Before inspecting or writing a materialized path, Workspace rejects `.` and `..` traversal,
+Before inspecting or writing a materialized path, Institute rejects `.` and `..` traversal,
 symbolic links and non-directories in existing path prefixes, and any prefix that resolves
 outside the physical organization directory. These checks assume a stable local filesystem
 namespace: they are repeated safety snapshots, not a descriptor-relative guarantee against
@@ -532,18 +533,18 @@ another process replacing a directory concurrently.
 
 A peer institute is a sibling ecosystem — the Rule Institute is the first — whose checkout
 root sits **beside** this hierarchy root under the same entry directory, carrying the peer's
-name. For a clone at `X/Workspace` the hierarchy is `X/`, and a peer named `rule-institute`
+name. For a clone at `X/institute-application` the hierarchy is `X/`, and a peer named `rule-institute`
 roots at the entry sibling `X/../rule-institute/`:
 
 ```text
 entry/
-├── swift-institute/          the hierarchy above: Workspace/ and the materialization roots
+├── swift-institute/          the hierarchy above: institute-application/ and the materialization roots
 └── rule-institute/           a peer institute's root — not part of this hierarchy
     ├── .github/              the peer's control plane, carrying its inventory file
     └── swift-nl-wetgever/    the peer's organization directories
 ```
 
-The committed `Peers.json` beside `Institute.json` registers which peers Workspace can
+The committed `Peers.json` beside `Institute.json` registers which peers Institute can
 resolve and where each peer's **own** inventory file lives relative to its root. The peer
 inventory (`{"version", "ecosystem", "repositories"}`, records `{"name", "url",
 "organization"}` — `Institute.json`'s record shape minus `layer`) stays inside the peer's
@@ -645,17 +646,17 @@ as `unmeasured` rather than reporting a green it did not earn.
 ### Materialization states
 
 For each selected repository, `doctor` distinguishes the active sibling location from the
-superseded location inside the Workspace checkout:
+superseded location inside the Institute checkout:
 
 | On-disk state | Result |
 | --- | --- |
 | Git repository only at the sibling location | Canonical and `ok`. |
-| Git repository only inside the Workspace checkout | Legacy and an error. |
+| Git repository only inside the Institute checkout | Legacy and an error. |
 | Git repositories at both locations | An error; the sibling is active and the legacy checkout is left untouched. |
 | No Git repository at either location | Absent and an error. |
 | A location cannot be formed or safely inspected | Invalid and an error. |
 
-Workspace never migrates or deletes a legacy checkout. Only the active sibling repository
+Institute never migrates or deletes a legacy checkout. Only the active sibling repository
 enters the downstream working-state, resolved-pin, and manifest-identity checks; a legacy-only
 tree never satisfies them.
 
