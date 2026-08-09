@@ -10,10 +10,19 @@ extension Workspace.Architecture {
     public struct Facts: Sendable, Equatable {
         public let facts: [Fact]
         public let edges: [Edge]
+        public let coverage: Coverage
 
-        public init(facts: [Fact], edges: [Edge]) {
+        public init(
+            facts: [Fact],
+            edges: [Edge],
+            coverage: Coverage? = nil
+        ) {
             self.facts = facts.sorted()
             self.edges = edges.sorted()
+            self.coverage = coverage ?? .init(
+                required: facts.map(\.owner),
+                measured: facts.map(\.owner)
+            )
         }
     }
 }
@@ -29,9 +38,9 @@ extension Workspace.Architecture.Facts {
     /// Derives the model from a decoded inventory and the manifests that
     /// were locally readable.
     ///
-    /// Every inventory row yields one fact and one provenance edge; a row
-    /// whose manifest was readable additionally yields its runtime edges
-    /// toward other inventory owners.
+    /// Every readable manifest yields one fact and provenance edge. An
+    /// unreadable manifest remains in `Coverage.unmeasured`, never as an
+    /// empty product/target fact.
     public static func derive(
         inventory: Inventory,
         manifests: [Workspace.Architecture.Owner: Manifest]
@@ -43,8 +52,10 @@ extension Workspace.Architecture.Facts {
         )
         var facts: [Workspace.Architecture.Fact] = []
         var edges: [Workspace.Architecture.Edge] = []
+        var measured: [Workspace.Architecture.Owner] = []
         for row in inventory.rows {
-            let manifest = manifests[row.owner]
+            guard let manifest = manifests[row.owner] else { continue }
+            measured.append(row.owner)
             facts.append(
                 .init(
                     owner: row.owner,
@@ -53,14 +64,14 @@ extension Workspace.Architecture.Facts {
                         identifier: .init(owner: row.owner),
                         name: row.name
                     ),
-                    products: manifest?.products ?? [],
-                    targets: manifest?.targets ?? []
+                    products: manifest.products,
+                    targets: manifest.targets
                 )
             )
             edges.append(
                 .init(source: row.owner, destination: inventoryOwner, kind: .provenance)
             )
-            for url in manifest?.dependencyURLs ?? [] {
+            for url in manifest.dependencyURLs {
                 guard
                     let coordinate = Manifest.coordinate(url: url),
                     let destination = owners[coordinate],
@@ -71,6 +82,13 @@ extension Workspace.Architecture.Facts {
                 )
             }
         }
-        return .init(facts: facts, edges: Swift.Array(Swift.Set(edges)))
+        return .init(
+            facts: facts,
+            edges: Swift.Array(Swift.Set(edges)),
+            coverage: .init(
+                required: inventory.rows.map(\.owner),
+                measured: measured
+            )
+        )
     }
 }

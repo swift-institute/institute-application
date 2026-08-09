@@ -94,6 +94,7 @@ let package = Package(
             name: "WorkspaceArchitectureFacts",
             dependencies: [
                 "WorkspaceArchitectureModel",
+                "WorkspaceArchitectureGraph",
                 .product(name: "File System", package: "swift-file-system"),
                 .product(name: "JSON", package: "swift-json"),
             ]
@@ -109,6 +110,8 @@ let package = Package(
             dependencies: [
                 "WorkspaceArchitectureModel",
                 "WorkspaceArchitectureGraph",
+                "WorkspaceArchitectureFacts",
+                "WorkspaceArchitectureValidation",
             ]
         ),
         .target(
@@ -116,6 +119,7 @@ let package = Package(
             dependencies: [
                 "WorkspaceArchitectureModel",
                 "WorkspaceArchitectureGraph",
+                "WorkspaceArchitectureFacts",
             ]
         ),
         .target(

@@ -180,7 +180,7 @@ extension Workspace.CLI {
                 name: "mode",
                 placeholder:
                     "install|check|packet|serve|build|test|run|resolve|update|regenerate|effective|clean|dump-package"
-                    + "|lint|ledger|pages|seal|token",
+                    + "|lint|ledger|pages|seal|token|validate|index",
                 arity: .atMost(1),
                 help: .init(
                     abstract:
@@ -1123,8 +1123,8 @@ extension Workspace.CLI {
                 }
             }
         } else if operation == .architecture {
-            guard modes == [.validate] else {
-                throw .validationFailed(reason: "architecture operation must be validate.")
+            guard modes == [.validate] || modes == [.index] else {
+                throw .validationFailed(reason: "architecture operation must be validate or index.")
             }
             guard consumer.isEmpty, dependency.isEmpty else {
                 throw .validationFailed(
@@ -1134,7 +1134,7 @@ extension Workspace.CLI {
             guard !dry, !fresh, packagePath.isEmpty, arguments.isEmpty else {
                 throw .validationFailed(
                     reason:
-                        "architecture validate takes only --workspace-path."
+                        "architecture validate or index takes only --workspace-path."
                 )
             }
         } else {
@@ -1214,16 +1214,22 @@ extension Workspace.CLI {
         }
 
         if case .architecture = operation {
-            guard modes.first == .validate else {
-                throw .configuration("architecture operation must be validate")
-            }
             let status: Swift.Int32
             do throws(WorkspaceArchitectureModel.Workspace.Architecture.CLI.Error) {
-                status = try WorkspaceArchitectureModel.Workspace.Architecture.CLI.validate(
-                    path: workspacePath.isEmpty ? working : workspacePath
-                )
+                switch modes.first {
+                case .validate:
+                    status = try WorkspaceArchitectureModel.Workspace.Architecture.CLI.validate(
+                        path: workspacePath.isEmpty ? working : workspacePath
+                    )
+                case .index:
+                    status = try WorkspaceArchitectureModel.Workspace.Architecture.CLI.index(
+                        path: workspacePath.isEmpty ? working : workspacePath
+                    )
+                default:
+                    throw .configuration("architecture operation must be validate or index")
+                }
             } catch {
-                throw .configuration("architecture validate: \(error)")
+                throw .configuration("architecture \(modes.first?.argumentDescription ?? "unknown"): \(error)")
             }
             Process.Exit.normal(status)
         }

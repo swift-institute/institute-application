@@ -1,3 +1,4 @@
+public import WorkspaceArchitectureFacts
 public import WorkspaceArchitectureGraph
 public import WorkspaceArchitectureModel
 
@@ -19,12 +20,44 @@ extension Workspace.Architecture {
 }
 
 extension Workspace.Architecture.Validator {
+    /// Validates a complete derived population and its canonical graph.
+    ///
+    /// Measurement gaps are never excusable: a missing manifest means the
+    /// relevant architecture fact and its dependencies were not observed.
+    public func validate(
+        derived: Workspace.Architecture.Facts,
+        today: Workspace.Architecture.Exemption.Expiry
+    ) -> Report {
+        let graph = derived.graph
+        let report = findings(facts: derived.facts, graph: graph, today: today)
+        let gaps = derived.coverage.unmeasured.map {
+            Workspace.Architecture.Violation.contradiction(.unmeasuredManifest($0))
+        }
+        return .init(
+            derived: derived,
+            graph: graph,
+            violations: report.violations + gaps,
+            excused: report.excused
+        )
+    }
+
     /// Validates the derived model as of `today`.
     public func validate(
         facts: [Workspace.Architecture.Fact],
         graph: Workspace.Architecture.Graph,
         today: Workspace.Architecture.Exemption.Expiry
     ) -> Report {
+        validate(
+            derived: .init(facts: facts, edges: graph.edges),
+            today: today
+        )
+    }
+
+    private func findings(
+        facts: [Workspace.Architecture.Fact],
+        graph: Workspace.Architecture.Graph,
+        today: Workspace.Architecture.Exemption.Expiry
+    ) -> (violations: [Workspace.Architecture.Violation], excused: [Workspace.Architecture.Violation]) {
         var violations: [Workspace.Architecture.Violation] = []
 
         var claims:
@@ -89,6 +122,6 @@ extension Workspace.Architecture.Validator {
                 outstanding.append(violation)
             }
         }
-        return .init(violations: outstanding, excused: excused)
+        return (violations: outstanding, excused: excused)
     }
 }

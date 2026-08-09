@@ -70,7 +70,7 @@ struct `Workspace Architecture Facts Tests` {
                 inventory: inventory,
                 manifests: [consoleOwner: manifest]
             )
-            #expect(derived.facts.count == 2)
+            #expect(derived.facts.count == 1)
             #expect(
                 derived.edges.contains { (edge) in
                     edge.kind == .provenance
@@ -93,6 +93,46 @@ struct `Workspace Architecture Facts Tests` {
             let console = derived.facts.first { $0.owner == consoleOwner }
             #expect(console?.products == ["Console"])
             #expect(console?.classification == .exposesPublicAPI)
+            #expect(derived.graph.edges.allSatisfy { $0.kind != .provenance })
+            #expect(derived.graph.edges.contains(
+                .init(
+                    source: consoleOwner,
+                    destination: .init(
+                        organization: "swift-primitives",
+                        name: "swift-byte-primitives"
+                    ),
+                    kind: .runtime
+                )
+            ))
+        }
+
+        @Test
+        func `keeps unreadable manifests as coverage gaps instead of empty facts`() {
+            let derived = Workspace.Architecture.Facts.derive(
+                inventory: inventory,
+                manifests: [:]
+            )
+
+            #expect(derived.facts.isEmpty)
+            #expect(!derived.coverage.complete)
+            #expect(derived.coverage.unmeasured == inventory.rows.map(\.owner).sorted())
+        }
+
+        @Test
+        func `records an empty measured manifest as an internal-only fact`() {
+            let owner = Workspace.Architecture.Owner(
+                organization: "swift-primitives",
+                name: "swift-byte-primitives"
+            )
+            let derived = Workspace.Architecture.Facts.derive(
+                inventory: .init(rows: [inventory.rows[0]]),
+                manifests: [
+                    owner: .init(targets: [], products: [], dependencyURLs: [])
+                ]
+            )
+
+            #expect(derived.coverage.complete)
+            #expect(derived.facts.first?.classification == .internalOnly)
         }
     }
 

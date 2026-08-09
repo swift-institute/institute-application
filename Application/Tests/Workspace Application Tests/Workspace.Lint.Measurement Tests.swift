@@ -188,13 +188,16 @@ struct `Workspace Lint Measurement Tests` {
         )
 
         #expect(measurement.verdict == .clean)
+        let package = try File.System.Canonical.resolve(fixture.package.path).description
+        let sources = try File.System.Canonical.resolve(fixture.sources.path).description
+        let arguments = try fixture.arguments()
         #expect(
-            try fixture.arguments() == [
-                fixture.package.description,
+            arguments == [
+                package,
                 "--exit-policy", "strict",
                 "--fix",
                 "--dry-run",
-                "--target-root", fixture.sources.description,
+                "--target-root", sources,
                 "--fix-excluding", "PLAT-ARCH-022",
             ]
         )
@@ -215,9 +218,11 @@ struct `Workspace Lint Measurement Tests` {
 
         #expect(measurement.verdict == .clean)
         #expect(measurement.structured == [])
+        let package = try File.System.Canonical.resolve(fixture.package.path).description
+        let arguments = try fixture.arguments()
         #expect(
-            try fixture.arguments() == [
-                fixture.package.description,
+            arguments == [
+                package,
                 "--exit-policy", "strict",
                 "--format", "sarif",
             ]
@@ -368,7 +373,9 @@ private struct FixProcessFixture {
         base = FileManager.default.temporaryDirectory.appending(path: UUID().uuidString)
         try FileManager.default.createDirectory(at: base, withIntermediateDirectories: true)
 
-        package = try File.Directory(validating: base.appending(path: "swift-affine-algebra-primitives").path)
+        let packageURL = base.appending(path: "swift-affine-algebra-primitives")
+        try FileManager.default.createDirectory(at: packageURL, withIntermediateDirectories: true)
+        package = try File.Directory(validating: packageURL.path)
         sources = package[directory: "Sources"][directory: "Affine Algebra Primitives"]
         executable = package[directory: ".fixture"][file: "swift-linter"]
         runner = package[directory: ".fixture"][file: "swift-linter-runner"]
@@ -376,6 +383,7 @@ private struct FixProcessFixture {
         formatCapture = package[file: ".swift-linter-format"]
 
         try sources.create.recursive()
+        try package[directory: ".fixture"].create.recursive()
         try package[file: "Package.swift"].write.atomic(
             """
             // swift-tools-version: 6.3
@@ -389,11 +397,13 @@ private struct FixProcessFixture {
         )
         try package[file: "Lint.swift"].write.atomic("// configured fixture\n")
         try sources[file: "Affine.swift"].write.atomic("public enum Affine {}\n")
+        try capture.write.atomic("")
+        try formatCapture.write.atomic("")
         try executable.write.atomic(
             """
             #!/bin/sh
-            printf '%s\\n' "$@" > .swift-linter-arguments
-            printf '%s' "${SWIFT_LINTER_FORMAT:-}" > .swift-linter-format
+            printf '%s\\n' "$@" > '\(capture.description)'
+            printf '%s' "${SWIFT_LINTER_FORMAT:-}" > '\(formatCapture.description)'
             if [ "${SWIFT_LINTER_FORMAT:-}" = sarif ]; then
               printf '%s\\n' '{"version":"2.1.0","runs":[{"results":[]}]}'
             fi
