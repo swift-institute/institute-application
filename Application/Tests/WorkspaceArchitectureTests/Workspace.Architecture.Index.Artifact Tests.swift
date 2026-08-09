@@ -40,6 +40,31 @@ struct `Workspace Architecture Index Artifact Tests` {
     }
 
     @Test
+    func `canonicalizes duplicate edges into self-verifying bytes`() throws {
+        let inputs = Artifact.inputs()
+        let edge = try #require(inputs.edges.first)
+        let facts = Workspace.Architecture.Facts(
+            facts: inputs.facts,
+            edges: [edge, edge]
+        )
+        let validation = Workspace.Architecture.Validator().validate(
+            derived: facts,
+            today: Artifact.today
+        )
+
+        let artifact = try Workspace.Architecture.Index.Artifact(
+            facts: facts,
+            validation: validation
+        )
+
+        #expect(artifact.edges == [edge])
+        #expect(
+            artifact.index.entries.first(where: { $0.owner == edge.source })?.edgeCount == 1
+        )
+        try Artifact.verify(artifact.rendered)
+    }
+
+    @Test
     func `refuses a tampered digest binding`() throws {
         let artifact = try Artifact.fixture()
         let tampered = artifact.rendered.replacingOccurrences(

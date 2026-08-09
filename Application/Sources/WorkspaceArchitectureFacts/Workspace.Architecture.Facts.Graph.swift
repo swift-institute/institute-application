@@ -1,4 +1,5 @@
 public import WorkspaceArchitectureGraph
+public import WorkspaceArchitectureModel
 
 extension Workspace.Architecture.Facts {
     /// The canonical dependency graph reconstructed from these facts.

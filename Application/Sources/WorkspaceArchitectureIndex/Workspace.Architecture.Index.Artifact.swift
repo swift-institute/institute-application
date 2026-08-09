@@ -26,8 +26,11 @@ extension Workspace.Architecture.Index {
             let graph = facts.graph
             guard validation.derived == facts, validation.graph == graph, validation.passes
             else { throw .invalidValidation }
-            let index = Workspace.Architecture.Index.generate(facts: facts.facts, graph: graph)
-            let edges = graph.edges
+            let edges = Swift.Array(Swift.Set(graph.edges)).sorted()
+            let index = Workspace.Architecture.Index.generate(
+                facts: facts.facts,
+                graph: .init(facts: facts.facts, edges: edges)
+            )
             let coverage = facts.coverage
             self.index = index
             self.edges = edges
