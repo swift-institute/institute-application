@@ -1,6 +1,6 @@
 public import File_System
-private import JSON
 public import InstituteArchitectureModel
+private import JSON
 
 extension Institute.Architecture.Facts {
     /// Derives the model from a Institute checkout on disk.
@@ -52,7 +52,7 @@ extension Institute.Architecture.Facts {
 
     private static func text(of file: File) throws(Error) -> Swift.String {
         do throws(Either<File.System.Read.Full.Error, Never>) {
-            let bytes = try file.read.full { (span) in
+            let bytes = try file.read.full { span in
                 var storage = [Byte]()
                 storage.reserveCapacity(span.count)
                 for index in span.indices {

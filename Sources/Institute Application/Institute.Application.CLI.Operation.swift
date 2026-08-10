@@ -1,15 +1,14 @@
-public import Institute_Model
-internal import Institute_Inventory
+public import Command
+internal import Institute_Conversion
 internal import Institute_Dependency
 internal import Institute_Development
-internal import Institute_Lint
-internal import Institute_Pages
 internal import Institute_Doctor
-internal import Institute_Conversion
-internal import Institute_Instruments
 internal import Institute_GitHub
-
-public import Command
+internal import Institute_Instruments
+internal import Institute_Inventory
+internal import Institute_Lint
+public import Institute_Model
+internal import Institute_Pages
 
 extension Institute.Application.CLI {
     public enum Operation: Sendable, Equatable, Argument.Codable {
@@ -96,6 +95,7 @@ extension Institute.Application.CLI.Operation {
         case .install, .sync, .doctor, .inventory, .dependencies, .context, .navigation, .package,
             .lint, .build, .coherence, .conversion, .github, .verification, .architecture:
             false
+
         case .compose, .restore, .verify: true
         }
     }

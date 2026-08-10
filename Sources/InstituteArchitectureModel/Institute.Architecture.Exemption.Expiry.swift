@@ -12,7 +12,7 @@ extension Institute.Architecture.Exemption {
                 characters.count == 10,
                 characters[4] == Swift.UInt8(ascii: "-"),
                 characters[7] == Swift.UInt8(ascii: "-"),
-                characters.enumerated().allSatisfy({ (index, byte) in
+                characters.enumerated().allSatisfy({ index, byte in
                     index == 4 || index == 7
                         || (byte >= Swift.UInt8(ascii: "0") && byte <= Swift.UInt8(ascii: "9"))
                 })

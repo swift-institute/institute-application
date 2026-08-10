@@ -1,10 +1,10 @@
 import Foundation
-import Testing
 import InstituteArchitectureFacts
 import InstituteArchitectureGraph
 import InstituteArchitectureIndex
 import InstituteArchitectureModel
 import InstituteArchitectureValidation
+import Testing
 
 @Suite
 struct `Institute Architecture Index Artifact Tests` {
@@ -17,13 +17,17 @@ struct `Institute Architecture Index Artifact Tests` {
         #expect(artifact.rendered.contains("measurement\tcomplete\t2/2"))
         #expect(artifact.rendered.contains("index-digest\t\(artifact.index.digest)"))
         #expect(artifact.rendered.contains("validation\tvalid"))
-        #expect(artifact.rendered.contains(
-            "edge\truntime\tswift-foundations/swift-console\tswift-primitives/swift-byte-primitives"
-        ))
+        #expect(
+            artifact.rendered.contains(
+                "edge\truntime\tswift-foundations/swift-console\tswift-primitives/swift-byte-primitives"
+            )
+        )
         let owners = Swift.Set(artifact.index.entries.map(\.owner))
-        #expect(artifact.edges.allSatisfy {
-            owners.contains($0.source) && owners.contains($0.destination)
-        })
+        #expect(
+            artifact.edges.allSatisfy {
+                owners.contains($0.source) && owners.contains($0.destination)
+            }
+        )
         #expect(
             artifact.index.entries.reduce(0, { $0 + $1.edgeCount }) == artifact.edges.count
         )
@@ -436,15 +440,17 @@ struct `Institute Architecture Index Artifact Tests` {
         )
 
         #expect(validation.passes)
-        #expect(artifact.index.entries.map(\.concept) == [
-            .init(owner: primitive.owner),
-            .init(owner: standard.owner),
-        ])
+        #expect(
+            artifact.index.entries.map(\.concept) == [
+                .init(owner: primitive.owner),
+                .init(owner: standard.owner),
+            ]
+        )
     }
 }
 
 private enum Artifact {
-    static let today = try! Institute.Architecture.Exemption.Expiry(rawValue: "2026-08-09")
+    static let today = Institute.Architecture.Exemption.Expiry.fixture("2026-08-09")
 
     static func fixture(reversed: Swift.Bool = false) throws -> Institute.Architecture.Index.Artifact {
         let facts = inputs(reversed: reversed)
@@ -484,15 +490,15 @@ private enum Artifact {
             products: ["Console"]
         )
         let values = reversed ? [foundation, primitive] : [primitive, foundation]
-        let facts = Institute.Architecture.Facts(
+        return Institute.Architecture.Facts(
             facts: values,
             edges: [.init(source: foundation.owner, destination: primitive.owner, kind: .runtime)]
         )
-        return facts
     }
 
     static func recomputingDigest(_ rendered: Swift.String) -> Swift.String {
-        let payload = rendered
+        let payload =
+            rendered
             .split(separator: "\n", omittingEmptySubsequences: false)
             .dropFirst()
             .joined(separator: "\n")

@@ -1,7 +1,6 @@
-internal import Institute_Model
-
 private import InstituteArchitectureCLI
 private import InstituteArchitectureModel
+internal import Institute_Model
 private import Process
 
 // The architecture surface is invoked from its own file because
@@ -24,10 +23,12 @@ extension Institute_Model.Institute.Application.CLI {
                 status = try InstituteArchitectureModel.Institute.Architecture.CLI.validate(
                     path: path
                 )
+
             case .index:
                 status = try InstituteArchitectureModel.Institute.Architecture.CLI.index(
                     path: path
                 )
+
             default:
                 throw .configuration("architecture operation must be validate or index")
             }

@@ -1,23 +1,22 @@
-public import Institute_Model
-public import Institute_Inventory
-public import Institute_Dependency
-public import Institute_Development
-public import Institute_Lint
-public import Institute_Pages
-public import Institute_Doctor
-public import Institute_Conversion
-public import Institute_Instruments
-public import Institute_GitHub
-
 public import Build_Coordinator
 public import Command
+public import Console
 public import Environment
 public import File_System
 public import GitHub_App
 public import GitHub_HTTP
 public import Git_Foundation
+public import Institute_Conversion
+public import Institute_Dependency
+public import Institute_Development
+public import Institute_Doctor
+public import Institute_GitHub
+public import Institute_Instruments
+public import Institute_Inventory
+public import Institute_Lint
+public import Institute_Model
+public import Institute_Pages
 public import JSON
-public import Console
 public import Process
 
 #if canImport(Darwin)
@@ -1200,7 +1199,7 @@ extension Institute.Application.CLI {
                 )
                 result = try app.token(
                     organization: organization,
-                    permissions: try permissions.map { (value) throws(GitHub.App.Error) in
+                    permissions: try permissions.map { value throws(GitHub.App.Error) in
                         try .init(argument: value)
                     }
                 )
@@ -1425,6 +1424,7 @@ extension Institute.Application.CLI {
                     + ", digest \(receipt.digest)" + "\n"
                 printToStandardError(summaryLine)
                 Process.Exit.normal(receipt.verdict.fails ? 1 : 0)
+
             case .some(.check):
                 let inputPath: File.Path
                 do throws(File.Path.Error) {
@@ -1459,6 +1459,7 @@ extension Institute.Application.CLI {
                     "verification: current — \(receipt.subject.coordinate.identity) consistent"
                         + ", digest \(receipt.digest)"
                 )
+
             default:
                 throw .configuration("verification operation must be seal or check")
             }
@@ -1500,12 +1501,14 @@ extension Institute.Application.CLI {
                 // what let eight consecutive successful installs leave the
                 // refusing tree untouched.
                 print("lint: installation \(target.manifestFile)")
+
             case .some(.check):
                 let diagnostics = try lint.diagnostics()
                 guard diagnostics.isEmpty else {
                     throw .configuration(diagnostics.joined(separator: "\n"))
                 }
                 print("lint: current — digest \(try lint.installedManifest().digest) matches CI")
+
             case .some(.ledger):
                 let dispositions = self.dispositions.compactMap(
                     Institute.Lint.Ledger.Disposition.init(argument:)
@@ -1524,6 +1527,7 @@ extension Institute.Application.CLI {
                 case .json: print(report.json, terminator: "")
                 }
                 Process.Exit.normal(report.status)
+
             case nil:
                 let fixMode: Institute.Lint.Fix? = fix ? (dry ? .dryRun : .apply) : nil
                 if fixMode != nil {
@@ -1552,6 +1556,7 @@ extension Institute.Application.CLI {
                 ).run(scope: changed ? .changed : .all, fix: fixMode)
                 print(report)
                 Process.Exit.normal(report.status)
+
             default:
                 throw .configuration("lint operation must be install, check, ledger, or absent")
             }
@@ -1569,6 +1574,7 @@ extension Institute.Application.CLI {
                 try navigation.install()
                 print("navigation: installed and verified")
                 print("navigation MCP descriptor: \(navigation.descriptorFile)")
+
             case .some(.check):
                 let configuration = try Institute.Configuration.load(at: root.checkout)
                 let navigation = Institute.Navigation(
@@ -1580,10 +1586,13 @@ extension Institute.Application.CLI {
                     throw .configuration(diagnostics.joined(separator: "\n"))
                 }
                 print("navigation: current")
+
             case .some(.serve):
                 try Institute.Navigation.serve()
+
             case nil:
                 throw .configuration("navigation operation was not provided")
+
             default:
                 throw .configuration("navigation operation must be install, check, or serve")
             }
@@ -1595,12 +1604,14 @@ extension Institute.Application.CLI {
             switch modes.first {
             case .some(.install):
                 print(try context.install().summary)
+
             case .some(.check):
                 let diagnostics = try context.diagnostics()
                 guard diagnostics.isEmpty else {
                     throw .configuration(diagnostics.joined(separator: "\n"))
                 }
                 print("context: current")
+
             case .some(.packet):
                 guard let key = Institute.Context.Packet.Key(argument: issue) else {
                     throw .configuration("context packet requires --issue owner/repository#N.")
@@ -1610,6 +1621,7 @@ extension Institute.Application.CLI {
                 switch result {
                 case .available(let record):
                     report = .init(record: record, diagnostics: [], maxBytes: maxBytes)
+
                 case .unavailable(let reason), .malformed(let reason), .unmeasured(let reason):
                     report = .init(record: nil, diagnostics: [reason], maxBytes: maxBytes)
                 }
@@ -1620,8 +1632,10 @@ extension Institute.Application.CLI {
                 }
                 print(report.render(format), terminator: "")
                 Process.Exit.normal(report.status)
+
             case nil:
                 throw .configuration("context operation was not provided")
+
             default:
                 throw .configuration("context operation must be install, check, or packet")
             }
@@ -1632,15 +1646,18 @@ extension Institute.Application.CLI {
         switch operation {
         case .install:
             return
+
         case .sync:
             let selection = try Institute.Selection.effective(at: root.checkout, in: configuration)
             try Institute.Sync(root: root, selection: selection).run(dry: dry)
+
         case .build:
             let selection = try Institute.Selection.effective(at: root.checkout, in: configuration)
             print(selection.origin)
             let status = try Institute.Xcode.Build(root: root, selection: selection)
                 .run(fresh: fresh, arguments: arguments)
             Process.Exit.normal(status)
+
         case .doctor:
             let selection = try Institute.Selection.effective(at: root.checkout, in: configuration)
             let registry = try Institute.Peer.Registry.load(at: root.checkout)
@@ -1653,6 +1670,7 @@ extension Institute.Application.CLI {
             ).run(access: institute ? .institute() : .contributor)
             print(report)
             Process.Exit.normal(report.status)
+
         case .coherence:
             let selection = try Institute.Selection.effective(at: root.checkout, in: configuration)
             print(selection.origin)
@@ -1667,6 +1685,7 @@ extension Institute.Application.CLI {
                 "coherence: verdict \(receipt.verdict.rawValue), digest \(receipt.digest)"
             )
             Process.Exit.normal(receipt.verdict.status)
+
         case .conversion:
             switch modes.first {
             case .some(.seal):
@@ -1678,6 +1697,7 @@ extension Institute.Application.CLI {
                     + "\(receipt.pages.count) pages"
                     + ", digest \(receipt.digest)" + "\n"
                 printToStandardError(summaryLine)
+
             case .some(.check):
                 let validated: File.Path
                 do throws(File.Path.Error) {
@@ -1709,9 +1729,11 @@ extension Institute.Application.CLI {
                     throw .configuration(diagnostics.joined(separator: "\n"))
                 }
                 print("conversion: current — \(receipt.cohort.count) repositories consistent")
+
             default:
                 throw .configuration("conversion operation must be seal or check")
             }
+
         case .inventory:
             switch modes.first {
             case nil:
@@ -1730,6 +1752,7 @@ extension Institute.Application.CLI {
                     }
                     print(Institute.Peer.Report(peer: peer, presence: presence))
                 }
+
             case .some(.regenerate):
                 let document = try Institute.Configuration.Document.load(at: root.checkout)
                 let http = GitHub.HTTP.Client<
@@ -1758,6 +1781,7 @@ extension Institute.Application.CLI {
                 switch plan {
                 case .current:
                     print("inventory regenerate: Institute.json is current")
+
                 case .replace:
                     print(
                         dry
@@ -1765,6 +1789,7 @@ extension Institute.Application.CLI {
                             : "inventory regenerate: replaced Institute.json"
                     )
                 }
+
             case .some(.effective):
                 guard let scope = Institute.Inventory.Effective.Output.Scope(rawValue: inventoryScope)
                 else {
@@ -1793,7 +1818,7 @@ extension Institute.Application.CLI {
                     guard scope == .effective else {
                         throw .configuration(
                             "inventory effective: --inventory-private-roster requires "
-                            + "--inventory-scope effective."
+                                + "--inventory-scope effective."
                         )
                     }
                     let rosterPath: File.Path
@@ -1802,7 +1827,7 @@ extension Institute.Application.CLI {
                     } catch {
                         throw .configuration(
                             "inventory effective: --inventory-private-roster is not a valid path: "
-                            + "\(error)"
+                                + "\(error)"
                         )
                     }
                     let roster: Institute.Inventory.Effective.Roster
@@ -1842,6 +1867,7 @@ extension Institute.Application.CLI {
                     // limb as not-requested rather than as an empty
                     // measurement.
                     discovery = .init(repositories: [], exclusions: [], unmeasured: [])
+
                 case .effective:
                     let http = GitHub.HTTP.Client<
                         Institute.Inventory.Transport.Error,
@@ -1881,6 +1907,7 @@ extension Institute.Application.CLI {
                     + "\(report.unmeasured.count) unmeasured, wrote \(outputPath)\n"
                 printToStandardError(summary)
                 Process.Exit.normal(report.exitCode)
+
             case .some(.pages):
                 let selection = try Institute.Selection.effective(at: root.checkout, in: configuration)
                 let inventory = await Institute.Pages.enumerate(root: root, selection: selection)
@@ -1898,11 +1925,13 @@ extension Institute.Application.CLI {
                     + ", digest \(digest)" + "\n"
                 printToStandardError(summaryLine)
                 Process.Exit.normal(inventory.isFullyCanonical ? 0 : 1)
+
             default:
                 throw .configuration(
                     "inventory operation must be regenerate, pages, effective, or absent"
                 )
             }
+
         case .dependencies:
             let git = Git.Client()
             let head: Git.Object.ID
@@ -1937,25 +1966,34 @@ extension Institute.Application.CLI {
             case .json: print(report.json, terminator: "")
             }
             Process.Exit.normal(report.status)
+
         case .compose:
             try Institute.Composition(root: root, configuration: configuration)
                 .compose(consumer: consumer, dependency: dependency)
+
         case .restore:
             try Institute.Composition(root: root, configuration: configuration)
                 .restore(consumer: consumer, dependency: dependency)
+
         case .verify:
             try Institute.Composition(root: root, configuration: configuration)
                 .verify(consumer: consumer, dependency: dependency)
+
         case .context:
             return
+
         case .navigation:
             return
+
         case .package:
             return
+
         case .lint:
             return
+
         case .github:
             return
+
         case .verification:
             // Unreachable: `.verification` returns above, before `root`/
             // `configuration` are even resolved, exactly like `.package`.
@@ -1963,6 +2001,7 @@ extension Institute.Application.CLI {
             // exhaustive switch over it must account for that, whether or
             // not this arm can run.
             return
+
         case .architecture:
             // Unreachable: `.architecture` returns above, before `root`/
             // `configuration` are resolved, exactly like `.package`.

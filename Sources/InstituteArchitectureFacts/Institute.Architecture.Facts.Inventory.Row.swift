@@ -1,5 +1,5 @@
-public import JSON
 public import InstituteArchitectureModel
+public import JSON
 
 extension Institute.Architecture.Facts.Inventory {
     /// One inventory row: the coordinate and layer `Institute.json` records

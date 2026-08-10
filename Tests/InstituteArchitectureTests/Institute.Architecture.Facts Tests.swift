@@ -1,9 +1,9 @@
-import JSON
-import Testing
 import InstituteArchitectureFacts
 import InstituteArchitectureGraph
 import InstituteArchitectureIndex
 import InstituteArchitectureModel
+import JSON
+import Testing
 
 private let inventory = Institute.Architecture.Facts.Inventory(rows: [
     .init(
@@ -72,7 +72,7 @@ struct `Institute Architecture Facts Tests` {
             )
             #expect(derived.facts.count == 1)
             #expect(
-                derived.edges.contains { (edge) in
+                derived.edges.contains { edge in
                     edge.kind == .provenance
                         && edge.destination == Institute.Architecture.Facts.inventoryOwner
                 }
@@ -94,16 +94,18 @@ struct `Institute Architecture Facts Tests` {
             #expect(console?.products == ["Console"])
             #expect(console?.classification == .exposesPublicAPI)
             #expect(derived.graph.edges.allSatisfy { $0.kind != .provenance })
-            #expect(derived.graph.edges.contains(
-                .init(
-                    source: consoleOwner,
-                    destination: .init(
-                        organization: "swift-primitives",
-                        name: "swift-byte-primitives"
-                    ),
-                    kind: .runtime
+            #expect(
+                derived.graph.edges.contains(
+                    .init(
+                        source: consoleOwner,
+                        destination: .init(
+                            organization: "swift-primitives",
+                            name: "swift-byte-primitives"
+                        ),
+                        kind: .runtime
+                    )
                 )
-            ))
+            )
         }
 
         @Test

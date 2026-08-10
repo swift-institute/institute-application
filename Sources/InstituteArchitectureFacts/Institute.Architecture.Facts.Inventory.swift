@@ -1,5 +1,5 @@
-public import JSON
 public import InstituteArchitectureModel
+public import JSON
 
 extension Institute.Architecture.Facts {
     /// The `Institute.json` inventory, reduced to what derivation needs.

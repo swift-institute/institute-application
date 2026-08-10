@@ -1,16 +1,15 @@
-public import Institute_Model
-internal import Institute_Inventory
-internal import Institute_Dependency
-internal import Institute_Development
-internal import Institute_Lint
-internal import Institute_Pages
-internal import Institute_Doctor
-internal import Institute_Conversion
-internal import Institute_Instruments
-internal import Institute_GitHub
-
 internal import Build_Coordinator
 public import Command
+internal import Institute_Conversion
+internal import Institute_Dependency
+internal import Institute_Development
+internal import Institute_Doctor
+internal import Institute_GitHub
+internal import Institute_Instruments
+internal import Institute_Inventory
+internal import Institute_Lint
+public import Institute_Model
+internal import Institute_Pages
 
 extension Institute.Application.CLI {
     /// The second positional component of a compound Institute operation.
@@ -95,6 +94,7 @@ extension Institute.Application.CLI.Mode {
         case .install, .check, .serve, .regenerate, .effective, .lint, .ledger, .pages, .seal,
             .token, .packet, .validate, .index:
             nil
+
         case .build: .build
         case .test: .test
         case .run: .run

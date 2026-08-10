@@ -24,7 +24,7 @@ extension Institute.Architecture.Index {
                 throw .invalidCoverage
             }
             guard
-                facts.facts.allSatisfy({ (fact) in
+                facts.facts.allSatisfy({ fact in
                     fact.owner.isCanonical
                         && fact.concept.identifier == .init(owner: fact.owner)
                 })
@@ -43,11 +43,13 @@ extension Institute.Architecture.Index {
             self.index = index
             self.edges = edges
             self.coverage = coverage
-            self.digest = .init(text: Self.payload(
-                index: index,
-                edges: edges,
-                coverage: coverage
-            ))
+            self.digest = .init(
+                text: Self.payload(
+                    index: index,
+                    edges: edges,
+                    coverage: coverage
+                )
+            )
         }
     }
 }
