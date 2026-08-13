@@ -166,7 +166,9 @@ struct `Institute Architecture Tests` {
         // MARK: Near-miss control
 
         @Test
-        func `does not treat a similarly named target as the same concept without a matching concept identifier`() {
+        func
+            `does not treat a similarly named target as the same concept without a matching concept identifier`()
+        {
             let similar = [
                 fact("swift-primitives", "swift-json-primitives", layer: .primitives),
                 fact("swift-standards", "swift-json-standard", layer: .standards),
@@ -190,7 +192,8 @@ struct `Institute Architecture Tests` {
         // MARK: Exemption control
 
         @Test
-        func `accepts only a derived-model exemption with owner, reason, scope and expiry`() throws {
+        func `accepts only a derived-model exemption with owner, reason, scope and expiry`() throws
+        {
             let inverted = [
                 Institute.Architecture.Edge(
                     source: owner("swift-primitives", "swift-byte-primitives"),

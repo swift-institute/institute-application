@@ -104,14 +104,38 @@ struct `Institute Architecture Index Artifact Tests` {
     @Test(arguments: [
         Institute.Architecture.Owner(organization: "", name: "swift-byte-primitives"),
         Institute.Architecture.Owner(organization: "swift-primitives", name: ""),
-        Institute.Architecture.Owner(organization: "swift/primitives", name: "swift-byte-primitives"),
-        Institute.Architecture.Owner(organization: "swift-primitives", name: "swift/byte-primitives"),
-        Institute.Architecture.Owner(organization: "swift\tprimitives", name: "swift-byte-primitives"),
-        Institute.Architecture.Owner(organization: "swift-primitives", name: "swift\tbyte-primitives"),
-        Institute.Architecture.Owner(organization: "swift\rprimitives", name: "swift-byte-primitives"),
-        Institute.Architecture.Owner(organization: "swift-primitives", name: "swift\rbyte-primitives"),
-        Institute.Architecture.Owner(organization: "swift\nprimitives", name: "swift-byte-primitives"),
-        Institute.Architecture.Owner(organization: "swift-primitives", name: "swift\nbyte-primitives"),
+        Institute.Architecture.Owner(
+            organization: "swift/primitives",
+            name: "swift-byte-primitives"
+        ),
+        Institute.Architecture.Owner(
+            organization: "swift-primitives",
+            name: "swift/byte-primitives"
+        ),
+        Institute.Architecture.Owner(
+            organization: "swift\tprimitives",
+            name: "swift-byte-primitives"
+        ),
+        Institute.Architecture.Owner(
+            organization: "swift-primitives",
+            name: "swift\tbyte-primitives"
+        ),
+        Institute.Architecture.Owner(
+            organization: "swift\rprimitives",
+            name: "swift-byte-primitives"
+        ),
+        Institute.Architecture.Owner(
+            organization: "swift-primitives",
+            name: "swift\rbyte-primitives"
+        ),
+        Institute.Architecture.Owner(
+            organization: "swift\nprimitives",
+            name: "swift-byte-primitives"
+        ),
+        Institute.Architecture.Owner(
+            organization: "swift-primitives",
+            name: "swift\nbyte-primitives"
+        ),
     ])
     func `rejects owners that cannot form canonical artifact coordinates`(
         _ owner: Institute.Architecture.Owner
@@ -257,8 +281,10 @@ struct `Institute Architecture Index Artifact Tests` {
         let artifact = try Artifact.fixture()
         let tampered = Artifact.recomputingDigest(
             artifact.rendered.replacingOccurrences(
-                of: "edge\truntime\tswift-foundations/swift-console\tswift-primitives/swift-byte-primitives",
-                with: "edge\ttarget\tswift-foundations/swift-console\tswift-primitives/swift-byte-primitives"
+                of:
+                    "edge\truntime\tswift-foundations/swift-console\tswift-primitives/swift-byte-primitives",
+                with:
+                    "edge\ttarget\tswift-foundations/swift-console\tswift-primitives/swift-byte-primitives"
             )
         )
 
@@ -272,7 +298,8 @@ struct `Institute Architecture Index Artifact Tests` {
         let artifact = try Artifact.fixture()
         let tampered = Artifact.recomputingDigest(
             artifact.rendered.replacingOccurrences(
-                of: "\nedge\truntime\tswift-foundations/swift-console\tswift-primitives/swift-byte-primitives",
+                of:
+                    "\nedge\truntime\tswift-foundations/swift-console\tswift-primitives/swift-byte-primitives",
                 with: ""
             )
         )
@@ -287,8 +314,10 @@ struct `Institute Architecture Index Artifact Tests` {
         let artifact = try Artifact.fixture()
         let tampered = Artifact.recomputingDigest(
             artifact.rendered.replacingOccurrences(
-                of: "edge\truntime\tswift-foundations/swift-console\tswift-primitives/swift-byte-primitives",
-                with: "edge\truntime\tswift-foundations/swift-console\tswift-primitives/swift-byte-primitives\nedge\ttarget\tswift-foundations/swift-console\tswift-primitives/swift-byte-primitives"
+                of:
+                    "edge\truntime\tswift-foundations/swift-console\tswift-primitives/swift-byte-primitives",
+                with:
+                    "edge\truntime\tswift-foundations/swift-console\tswift-primitives/swift-byte-primitives\nedge\ttarget\tswift-foundations/swift-console\tswift-primitives/swift-byte-primitives"
             )
         )
 
@@ -452,7 +481,9 @@ struct `Institute Architecture Index Artifact Tests` {
 private enum Artifact {
     static let today = Institute.Architecture.Exemption.Expiry.fixture("2026-08-09")
 
-    static func fixture(reversed: Swift.Bool = false) throws -> Institute.Architecture.Index.Artifact {
+    static func fixture(
+        reversed: Swift.Bool = false
+    ) throws -> Institute.Architecture.Index.Artifact {
         let facts = inputs(reversed: reversed)
         let validation = Institute.Architecture.Validator().validate(
             derived: facts,

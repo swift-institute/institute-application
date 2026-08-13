@@ -134,7 +134,8 @@ extension Institute.Architecture.Index.Artifact {
             fields.count == 7,
             let owner = owner(Swift.String(fields[1])),
             let layer = Institute.Architecture.Layer(name: Swift.String(fields[2])),
-            Swift.String(fields[3]) == Institute.Architecture.Concept.Identifier(owner: owner).description,
+            Swift.String(fields[3])
+                == Institute.Architecture.Concept.Identifier(owner: owner).description,
             let products = count(Swift.String(fields[4]), prefix: "products="),
             let targets = count(Swift.String(fields[5]), prefix: "targets="),
             let edges = count(Swift.String(fields[6]), prefix: "edges=")

@@ -58,7 +58,9 @@ extension Institute.Architecture.CLI {
         report("architecture: \(derived.facts.count) package roots, \(derived.edges.count) edges")
         report("architecture: index digest \(first.digest) (regenerated twice, identical)")
         if let cycle = graph.cycle() {
-            report("architecture: dependency cycle \(cycle.map(\.description).joined(separator: " -> "))")
+            report(
+                "architecture: dependency cycle \(cycle.map(\.description).joined(separator: " -> "))"
+            )
         }
         for violation in outcome.violations {
             report("architecture: violation \(violation)")

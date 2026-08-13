@@ -259,7 +259,8 @@ extension Institute.Application.CLI.Test.Unit {
                 "--issue", "swift-institute/institute-application#100",
                 "--format", "json",
                 "--max-bytes", "512",
-                "--include-comment", "https://api.github.com/repos/swift-institute/institute-application/issues/comments/1",
+                "--include-comment",
+                "https://api.github.com/repos/swift-institute/institute-application/issues/comments/1",
             ],
             initial: .init()
         )
@@ -345,7 +346,9 @@ extension Institute.Application.CLI.Test.Unit {
     }
 
     @Test
-    func `jobs is nil by default, so the coordinator keeps choosing the machine's core count`() throws {
+    func `jobs is nil by default, so the coordinator keeps choosing the machine's core count`()
+        throws
+    {
         let command = try Command.parse(
             Institute.Application.CLI.self,
             from: ["package", "build"],
@@ -634,7 +637,9 @@ extension Institute.Application.CLI.Test.`Edge Case` {
         #expect(throws: Command.Error.self) {
             _ = try Command.parse(
                 Institute.Application.CLI.self,
-                from: ["sync", "--consumer", "swift-color", "--dependency", "swift-color-standard"],
+                from: [
+                    "sync", "--consumer", "swift-color", "--dependency", "swift-color-standard",
+                ],
                 initial: .init()
             )
         }
@@ -645,7 +650,10 @@ extension Institute.Application.CLI.Test.`Edge Case` {
         #expect(throws: Command.Error.self) {
             _ = try Command.parse(
                 Institute.Application.CLI.self,
-                from: ["compose", "--consumer", "swift-color", "--dependency", "swift-color-standard", "--dry-run"],
+                from: [
+                    "compose", "--consumer", "swift-color", "--dependency", "swift-color-standard",
+                    "--dry-run",
+                ],
                 initial: .init()
             )
         }

@@ -31,7 +31,12 @@ extension Institute.Architecture.Graph {
     /// Dependency direction is downward: a lower layer must never depend
     /// on a higher one. Provenance edges record derivation origin, not a
     /// dependency, and are never forbidden.
-    public var forbiddenEdges: [(edge: Institute.Architecture.Edge, source: Institute.Architecture.Layer, destination: Institute.Architecture.Layer)] {
+    public var forbiddenEdges:
+        [(
+            edge: Institute.Architecture.Edge, source: Institute.Architecture.Layer,
+            destination: Institute.Architecture.Layer
+        )]
+    {
         edges.compactMap { edge in
             guard
                 edge.kind != .provenance,

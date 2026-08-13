@@ -257,19 +257,27 @@ extension Institute.Application.CLI {
                 \.issue,
                 name: .long(.literal("issue")),
                 placeholder: "owner/repository#N",
-                help: .init(abstract: "Issue whose current context is rendered (context packet only).")
+                help: .init(
+                    abstract: "Issue whose current context is rendered (context packet only)."
+                )
             )
             Command.Option(
                 \.maxBytes,
                 name: .long(.literal("max-bytes")),
                 placeholder: "n",
-                help: .init(abstract: "Maximum rendered packet bytes (context packet only; defaults to 24000).")
+                help: .init(
+                    abstract:
+                        "Maximum rendered packet bytes (context packet only; defaults to 24000)."
+                )
             )
             Command.Option<Self, Swift.String>.Many(
                 \.includedComments,
                 name: .long(.literal("include-comment")),
                 placeholder: "URL",
-                help: .init(abstract: "Explicit Issue comment URL to include (context packet only; repeatable).")
+                help: .init(
+                    abstract:
+                        "Explicit Issue comment URL to include (context packet only; repeatable)."
+                )
             )
             Command.Option<Self, Swift.String>.Many(
                 \.dispositions,
@@ -306,7 +314,8 @@ extension Institute.Application.CLI {
                 name: .long(.literal("consumer")),
                 placeholder: "repository",
                 help: .init(
-                    abstract: "Institute repository whose manifest is composed (compose/restore/verify)."
+                    abstract:
+                        "Institute repository whose manifest is composed (compose/restore/verify)."
                 )
             )
             Command.Option(
@@ -314,7 +323,8 @@ extension Institute.Application.CLI {
                 name: .long(.literal("dependency")),
                 placeholder: "repository",
                 help: .init(
-                    abstract: "Institute repository redirected to a local source (compose/restore/verify)."
+                    abstract:
+                        "Institute repository redirected to a local source (compose/restore/verify)."
                 )
             )
             Command.Option(
@@ -524,7 +534,8 @@ extension Institute.Application.CLI {
                 name: .long(.literal("org")),
                 placeholder: "organization",
                 help: .init(
-                    abstract: "GitHub organization whose installation token is minted (github token)."
+                    abstract:
+                        "GitHub organization whose installation token is minted (github token)."
                 )
             )
             Command.Option<Self, Swift.String>.Many(
@@ -578,7 +589,8 @@ extension Institute.Application.CLI {
                 || (issue.isEmpty && maxBytes == 24_000 && includedComments.isEmpty)
         else {
             throw .validationFailed(
-                reason: "--issue, --max-bytes, and --include-comment are valid only with context packet."
+                reason:
+                    "--issue, --max-bytes, and --include-comment are valid only with context packet."
             )
         }
         guard operation == .lint || !changed else {
@@ -625,7 +637,9 @@ extension Institute.Application.CLI {
             )
         }
         guard operation == .dependencies || sanctionedExceptions.isEmpty else {
-            throw .validationFailed(reason: "--sanctioned-exception is valid only with dependencies.")
+            throw .validationFailed(
+                reason: "--sanctioned-exception is valid only with dependencies."
+            )
         }
         guard ledger || (dispositions.isEmpty && verifications.isEmpty) else {
             throw .validationFailed(
@@ -728,15 +742,20 @@ extension Institute.Application.CLI {
                     || (issue.isEmpty && includedComments.isEmpty && maxBytes == 24_000)
             else {
                 throw .validationFailed(
-                    reason: "--issue, --max-bytes, and --include-comment are valid only with context packet."
+                    reason:
+                        "--issue, --max-bytes, and --include-comment are valid only with context packet."
                 )
             }
             if modes.first == .packet {
                 guard Institute.Context.Packet.Key(argument: issue) != nil else {
-                    throw .validationFailed(reason: "context packet requires --issue owner/repository#N.")
+                    throw .validationFailed(
+                        reason: "context packet requires --issue owner/repository#N."
+                    )
                 }
                 guard maxBytes >= 512 else {
-                    throw .validationFailed(reason: "context packet --max-bytes must be at least 512.")
+                    throw .validationFailed(
+                        reason: "context packet --max-bytes must be at least 512."
+                    )
                 }
             }
         } else if operation == .navigation {
@@ -879,10 +898,14 @@ extension Institute.Application.CLI {
                 throw .validationFailed(reason: "install and check are valid only after context.")
             }
             guard !consumer.isEmpty else {
-                throw .validationFailed(reason: "\(operation.argumentDescription) requires --consumer.")
+                throw .validationFailed(
+                    reason: "\(operation.argumentDescription) requires --consumer."
+                )
             }
             guard !dependency.isEmpty else {
-                throw .validationFailed(reason: "\(operation.argumentDescription) requires --dependency.")
+                throw .validationFailed(
+                    reason: "\(operation.argumentDescription) requires --dependency."
+                )
             }
             guard !dry else {
                 throw .validationFailed(
@@ -1020,7 +1043,9 @@ extension Institute.Application.CLI {
                 )
             }
             guard workspacePath.isEmpty else {
-                throw .validationFailed(reason: "--workspace-path is valid only with navigation or lint.")
+                throw .validationFailed(
+                    reason: "--workspace-path is valid only with navigation or lint."
+                )
             }
         } else if operation == .coherence {
             guard modes.isEmpty else {
@@ -1043,11 +1068,14 @@ extension Institute.Application.CLI {
             }
             guard packagePath.isEmpty else {
                 throw .validationFailed(
-                    reason: "--package-path is valid only with package; coherence measures the selection."
+                    reason:
+                        "--package-path is valid only with package; coherence measures the selection."
                 )
             }
             guard workspacePath.isEmpty else {
-                throw .validationFailed(reason: "--workspace-path is valid only with navigation or lint.")
+                throw .validationFailed(
+                    reason: "--workspace-path is valid only with navigation or lint."
+                )
             }
             guard arguments.isEmpty else {
                 throw .validationFailed(reason: "--argument is valid only with package.")
@@ -1068,7 +1096,8 @@ extension Institute.Application.CLI {
             }
             guard !receiptPath.isEmpty else {
                 throw .validationFailed(
-                    reason: "verification requires --receipt (seal's output path, check's input path)."
+                    reason:
+                        "verification requires --receipt (seal's output path, check's input path)."
                 )
             }
             if mode == .seal {
@@ -1078,9 +1107,11 @@ extension Institute.Application.CLI {
                 guard !defaultBranch.isEmpty else {
                     throw .validationFailed(reason: "verification seal requires --default-branch.")
                 }
-                guard Institute.Verification.Visibility(rawValue: verificationVisibility) != nil else {
+                guard Institute.Verification.Visibility(rawValue: verificationVisibility) != nil
+                else {
                     throw .validationFailed(
-                        reason: "verification seal requires --visibility public, private, or unmeasured."
+                        reason:
+                            "verification seal requires --visibility public, private, or unmeasured."
                     )
                 }
                 guard Institute.Layer(rawValue: verificationLayer) != nil else {
@@ -1091,7 +1122,9 @@ extension Institute.Application.CLI {
                     )
                 }
                 guard !inventoryDigest.isEmpty else {
-                    throw .validationFailed(reason: "verification seal requires --inventory-digest.")
+                    throw .validationFailed(
+                        reason: "verification seal requires --inventory-digest."
+                    )
                 }
                 // The digest and its cause are validated together, here, so
                 // an unmeasured digest without a cause is refused before a
@@ -1105,7 +1138,9 @@ extension Institute.Application.CLI {
                     throw .validationFailed(reason: "verification seal: \(error).")
                 }
                 guard !workspaceRevision.isEmpty else {
-                    throw .validationFailed(reason: "verification seal requires --workspace-revision.")
+                    throw .validationFailed(
+                        reason: "verification seal requires --workspace-revision."
+                    )
                 }
                 guard !policyRevision.isEmpty else {
                     throw .validationFailed(reason: "verification seal requires --policy-revision.")
@@ -1136,7 +1171,8 @@ extension Institute.Application.CLI {
             }
             guard consumer.isEmpty, dependency.isEmpty else {
                 throw .validationFailed(
-                    reason: "--consumer and --dependency are valid only with compose, restore, or verify."
+                    reason:
+                        "--consumer and --dependency are valid only with compose, restore, or verify."
                 )
             }
             guard !dry, !fresh, packagePath.isEmpty, arguments.isEmpty else {
@@ -1148,7 +1184,8 @@ extension Institute.Application.CLI {
         } else {
             guard consumer.isEmpty, dependency.isEmpty else {
                 throw .validationFailed(
-                    reason: "--consumer and --dependency are valid only with compose, restore, or verify."
+                    reason:
+                        "--consumer and --dependency are valid only with compose, restore, or verify."
                 )
             }
             guard operation == .sync || !dry else {
@@ -1222,7 +1259,10 @@ extension Institute.Application.CLI {
         }
 
         if case .architecture = operation {
-            try architecture(mode: modes.first, path: workspacePath.isEmpty ? working : workspacePath)
+            try architecture(
+                mode: modes.first,
+                path: workspacePath.isEmpty ? working : workspacePath
+            )
         }
 
         if case .package = operation, modes.first == .lint {
@@ -1311,7 +1351,9 @@ extension Institute.Application.CLI {
                 fix: mode
             )
             print(measurement)
-            Process.Exit.normal(measurement.verdict.fails ? (measurement.verdict.isUnmeasured ? 2 : 1) : 0)
+            Process.Exit.normal(
+                measurement.verdict.fails ? (measurement.verdict.isUnmeasured ? 2 : 1) : 0
+            )
         }
 
         if case .package = operation {
@@ -1340,7 +1382,9 @@ extension Institute.Application.CLI {
                 do throws(Git.Client.Error) {
                     remote = try Git.Client().remote("origin", at: subjectPath)
                 } catch {
-                    throw .process("cannot read the subject's origin remote at \(subjectPath): \(error)")
+                    throw .process(
+                        "cannot read the subject's origin remote at \(subjectPath): \(error)"
+                    )
                 }
                 guard let coordinate = Institute.Repository.Key(url: remote) else {
                     throw .configuration(
@@ -1361,18 +1405,24 @@ extension Institute.Application.CLI {
                 let requested =
                     requestedOperations.isEmpty
                     ? [Institute.Verification.Operation.Kind.build, .test, .lint]
-                    : requestedOperations.compactMap(Institute.Verification.Operation.Kind.init(rawValue:))
+                    : requestedOperations.compactMap(
+                        Institute.Verification.Operation.Kind.init(rawValue:)
+                    )
                 let required =
                     requiredOperations.isEmpty
                     ? requested
-                    : requiredOperations.compactMap(Institute.Verification.Operation.Kind.init(rawValue:))
+                    : requiredOperations.compactMap(
+                        Institute.Verification.Operation.Kind.init(rawValue:)
+                    )
 
                 let run = Institute.Verification.Run(
                     packagePath: subjectPath,
                     claimedHead: claimedHead,
                     coordinate: coordinate,
                     // `validate()` already refused an unrecognised value.
-                    visibility: Institute.Verification.Visibility(rawValue: verificationVisibility)!,
+                    visibility: Institute.Verification.Visibility(
+                        rawValue: verificationVisibility
+                    )!,
                     defaultBranch: defaultBranch,
                     layer: Institute.Layer(rawValue: verificationLayer)!,
                     inventoryDigest: verificationInventoryDigest,
@@ -1434,7 +1484,8 @@ extension Institute.Application.CLI {
                 }
                 let bytes: [Byte]
                 do throws(Either<File.System.Read.Full.Error, Never>) {
-                    bytes = try File.System.Read.Full.read(from: inputPath) { (span: Swift.Span<Byte>) in
+                    bytes = try File.System.Read.Full.read(from: inputPath) {
+                        (span: Swift.Span<Byte>) in
                         var storage = [Byte]()
                         storage.reserveCapacity(span.count)
                         for index in span.indices {
@@ -1447,7 +1498,9 @@ extension Institute.Application.CLI {
                 }
                 let receipt: Institute.Verification.Receipt
                 do throws(JSON.Error) {
-                    receipt = try .init(jsonString: Swift.String(decoding: bytes, as: Swift.UTF8.self))
+                    receipt = try .init(
+                        jsonString: Swift.String(decoding: bytes, as: Swift.UTF8.self)
+                    )
                 } catch {
                     throw .configuration("cannot decode --receipt \(receiptPath): \(error)")
                 }
@@ -1616,7 +1669,10 @@ extension Institute.Application.CLI {
                 guard let key = Institute.Context.Packet.Key(argument: issue) else {
                     throw .configuration("context packet requires --issue owner/repository#N.")
                 }
-                let result = await Institute.Context.Packet.Remote.client().record(key, includedComments)
+                let result = await Institute.Context.Packet.Remote.client().record(
+                    key,
+                    includedComments
+                )
                 let report: Institute.Context.Packet.Report
                 switch result {
                 case .available(let record):
@@ -1689,8 +1745,12 @@ extension Institute.Application.CLI {
         case .conversion:
             switch modes.first {
             case .some(.seal):
-                let selection = try Institute.Selection.effective(at: root.checkout, in: configuration)
-                let receipt = try await Institute.Conversion.Seal(root: root, selection: selection).run()
+                let selection = try Institute.Selection.effective(
+                    at: root.checkout,
+                    in: configuration
+                )
+                let receipt = try await Institute.Conversion.Seal(root: root, selection: selection)
+                    .run()
                 print(receipt.canonical)
                 let summaryLine =
                     "conversion seal: \(receipt.cohort.count) repositories, "
@@ -1707,7 +1767,8 @@ extension Institute.Application.CLI {
                 }
                 let bytes: [Byte]
                 do throws(Either<File.System.Read.Full.Error, Never>) {
-                    bytes = try File.System.Read.Full.read(from: validated) { (span: Swift.Span<Byte>) in
+                    bytes = try File.System.Read.Full.read(from: validated) {
+                        (span: Swift.Span<Byte>) in
                         var storage = [Byte]()
                         storage.reserveCapacity(span.count)
                         for index in span.indices {
@@ -1720,7 +1781,9 @@ extension Institute.Application.CLI {
                 }
                 let receipt: Institute.Conversion.Receipt
                 do throws(JSON.Error) {
-                    receipt = try .init(jsonString: Swift.String(decoding: bytes, as: Swift.UTF8.self))
+                    receipt = try .init(
+                        jsonString: Swift.String(decoding: bytes, as: Swift.UTF8.self)
+                    )
                 } catch {
                     throw .configuration("cannot decode --receipt \(receiptPath): \(error)")
                 }
@@ -1791,7 +1854,8 @@ extension Institute.Application.CLI {
                 }
 
             case .some(.effective):
-                guard let scope = Institute.Inventory.Effective.Output.Scope(rawValue: inventoryScope)
+                guard
+                    let scope = Institute.Inventory.Effective.Output.Scope(rawValue: inventoryScope)
                 else {
                     throw .configuration(
                         "inventory effective: --inventory-scope must be public or effective"
@@ -1909,7 +1973,10 @@ extension Institute.Application.CLI {
                 Process.Exit.normal(report.exitCode)
 
             case .some(.pages):
-                let selection = try Institute.Selection.effective(at: root.checkout, in: configuration)
+                let selection = try Institute.Selection.effective(
+                    at: root.checkout,
+                    in: configuration
+                )
                 let inventory = await Institute.Pages.enumerate(root: root, selection: selection)
                 print(inventory.canonical)
                 let digest = inventory.digest
@@ -1917,7 +1984,9 @@ extension Institute.Application.CLI {
                 let countsDescription =
                     counts.isEmpty
                     ? "0 non-canonical"
-                    : counts.sorted { $0.key < $1.key }.map { "\($1) \($0)" }.joined(separator: ", ")
+                    : counts.sorted { $0.key < $1.key }.map { "\($1) \($0)" }.joined(
+                        separator: ", "
+                    )
                         + " non-canonical"
                 let summaryLine =
                     "inventory pages: \(inventory.repositories.count) repositories, "

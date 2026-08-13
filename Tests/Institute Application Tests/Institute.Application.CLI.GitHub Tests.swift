@@ -22,7 +22,11 @@ struct `Institute Application CLI GitHub Tests` {
 
     @Test
     func `accepts github token with an organization`() throws {
-        var cli = Institute.Application.CLI(operation: .github, modes: [.token], organization: "swift-primitives")
+        var cli = Institute.Application.CLI(
+            operation: .github,
+            modes: [.token],
+            organization: "swift-primitives"
+        )
         try cli.validate()
     }
 
@@ -34,7 +38,11 @@ struct `Institute Application CLI GitHub Tests` {
 
     @Test
     func `requires the token mode after github`() {
-        var cli = Institute.Application.CLI(operation: .github, modes: [], organization: "swift-primitives")
+        var cli = Institute.Application.CLI(
+            operation: .github,
+            modes: [],
+            organization: "swift-primitives"
+        )
         #expect(throws: Command.Error.self) { try cli.validate() }
     }
 
