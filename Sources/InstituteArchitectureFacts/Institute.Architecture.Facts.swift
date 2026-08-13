@@ -19,10 +19,12 @@ extension Institute.Architecture {
         ) {
             self.facts = facts.sorted()
             self.edges = edges.sorted()
-            self.coverage = coverage ?? .init(
-                required: facts.map(\.owner),
-                measured: facts.map(\.owner)
-            )
+            self.coverage =
+                coverage
+                ?? .init(
+                    required: facts.map(\.owner),
+                    measured: facts.map(\.owner)
+                )
         }
     }
 }
@@ -46,7 +48,7 @@ extension Institute.Architecture.Facts {
         manifests: [Institute.Architecture.Owner: Manifest]
     ) -> Self {
         let owners = Swift.Dictionary(
-            uniqueKeysWithValues: inventory.rows.map { (row) in
+            uniqueKeysWithValues: inventory.rows.map { row in
                 ("\(row.organization)/\(row.name)", row.owner)
             }
         )

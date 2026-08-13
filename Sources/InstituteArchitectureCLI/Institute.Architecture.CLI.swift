@@ -58,7 +58,9 @@ extension Institute.Architecture.CLI {
         report("architecture: \(derived.facts.count) package roots, \(derived.edges.count) edges")
         report("architecture: index digest \(first.digest) (regenerated twice, identical)")
         if let cycle = graph.cycle() {
-            report("architecture: dependency cycle \(cycle.map(\.description).joined(separator: " -> "))")
+            report(
+                "architecture: dependency cycle \(cycle.map(\.description).joined(separator: " -> "))"
+            )
         }
         for violation in outcome.violations {
             report("architecture: violation \(violation)")
@@ -85,7 +87,7 @@ extension Institute.Architecture.CLI {
             do throws(File.Path.Error) {
                 let directory = try File.Directory(validating: current)
                 do throws(Either<File.System.Read.Full.Error, Never>) {
-                    _ = try directory[file: "Institute.json"].read.full { (span) in span.count }
+                    _ = try directory[file: "Institute.json"].read.full { span in span.count }
                     return directory
                 } catch {
                     // No readable inventory here; keep ascending.
@@ -121,7 +123,13 @@ extension Institute.Architecture.CLI {
             zeroPadded(civilYear, to: 4) + "-" + zeroPadded(month, to: 2) + "-"
             + zeroPadded(day, to: 2)
         // The canonical form above is valid by construction.
-        return try! .init(rawValue: text)
+        do throws(Institute.Architecture.Exemption.Error) {
+            return try Institute.Architecture.Exemption.Expiry(rawValue: text)
+        } catch {
+            Swift.preconditionFailure(
+                "civil-from-days produced a non-canonical expiry '\(text)': \(error)"
+            )
+        }
     }
 
     private static func zeroPadded(_ value: Swift.Int, to width: Swift.Int) -> Swift.String {

@@ -1,4 +1,3 @@
-import Testing
 import InstituteArchitectureCandidates
 import InstituteArchitectureFacts
 import InstituteArchitectureGraph
@@ -6,10 +5,14 @@ import InstituteArchitectureIndex
 import InstituteArchitectureMigration
 import InstituteArchitectureModel
 import InstituteArchitectureValidation
+import Testing
 
 // MARK: Bounded fixtures
 
-private func owner(_ organization: Swift.String, _ name: Swift.String)
+private func owner(
+    _ organization: Swift.String,
+    _ name: Swift.String
+)
     -> Institute.Architecture.Owner
 {
     .init(organization: organization, name: name)
@@ -35,7 +38,7 @@ private func fact(
     )
 }
 
-private let today = try! Institute.Architecture.Exemption.Expiry(rawValue: "2026-08-07")
+private let today = Institute.Architecture.Exemption.Expiry.fixture("2026-08-07")
 
 /// The bounded positive fixture: derived owner, layer and generated
 /// projection agree.
@@ -104,7 +107,7 @@ struct `Institute Architecture Tests` {
             )
             #expect(!report.passes)
             #expect(
-                report.violations.contains { (violation) in
+                report.violations.contains { violation in
                     if case .duplicateSemanticOwner = violation { true } else { false }
                 }
             )
@@ -112,13 +115,14 @@ struct `Institute Architecture Tests` {
 
         @Test
         func `rejects a forbidden dependency edge`() {
-            let inverted = positiveEdges + [
-                .init(
-                    source: owner("swift-primitives", "swift-byte-primitives"),
-                    destination: owner("swift-foundations", "swift-console"),
-                    kind: .runtime
-                )
-            ]
+            let inverted =
+                positiveEdges + [
+                    .init(
+                        source: owner("swift-primitives", "swift-byte-primitives"),
+                        destination: owner("swift-foundations", "swift-console"),
+                        kind: .runtime
+                    )
+                ]
             let graph = Institute.Architecture.Graph(facts: positive, edges: inverted)
             let report = Institute.Architecture.Validator().validate(
                 facts: positive,
@@ -127,7 +131,7 @@ struct `Institute Architecture Tests` {
             )
             #expect(!report.passes)
             #expect(
-                report.violations.contains { (violation) in
+                report.violations.contains { violation in
                     if case .forbiddenEdge = violation { true } else { false }
                 }
             )
@@ -149,7 +153,7 @@ struct `Institute Architecture Tests` {
                 today: today
             )
             #expect(
-                report.violations.contains { (violation) in
+                report.violations.contains { violation in
                     if case .contradiction(.unknownEdgeEndpoint) = violation {
                         true
                     } else {
@@ -162,7 +166,8 @@ struct `Institute Architecture Tests` {
         // MARK: Near-miss control
 
         @Test
-        func `does not treat a similarly named target as the same concept without a matching concept identifier`()
+        func
+            `does not treat a similarly named target as the same concept without a matching concept identifier`()
         {
             let similar = [
                 fact("swift-primitives", "swift-json-primitives", layer: .primitives),
@@ -187,7 +192,8 @@ struct `Institute Architecture Tests` {
         // MARK: Exemption control
 
         @Test
-        func `accepts only a derived-model exemption with owner, reason, scope and expiry`() throws {
+        func `accepts only a derived-model exemption with owner, reason, scope and expiry`() throws
+        {
             let inverted = [
                 Institute.Architecture.Edge(
                     source: owner("swift-primitives", "swift-byte-primitives"),
@@ -241,7 +247,10 @@ struct `Institute Architecture Tests` {
         @Test
         func `classifies a package with zero public APIs`() {
             let closed = fact(
-                "swift-primitives", "swift-internal-only", layer: .primitives, products: []
+                "swift-primitives",
+                "swift-internal-only",
+                layer: .primitives,
+                products: []
             )
             #expect(closed.classification == .internalOnly)
             #expect(positive[0].classification == .exposesPublicAPI)

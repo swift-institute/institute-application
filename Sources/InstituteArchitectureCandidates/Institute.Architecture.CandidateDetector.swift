@@ -20,12 +20,13 @@ extension Institute.Architecture.CandidateDetector {
         for fact in facts {
             groups[Self.stem(of: fact.owner.name), default: []].append(fact)
         }
-        return groups
-            .filter { (_, members) in
+        return
+            groups
+            .filter { _, members in
                 members.count > 1
                     && Swift.Set(members.map(\.concept.identifier)).count > 1
             }
-            .map { (stem, members) in
+            .map { stem, members in
                 .init(
                     stem: stem,
                     owners: members.map(\.owner).sorted(),

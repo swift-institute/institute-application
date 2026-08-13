@@ -5,11 +5,12 @@ public import InstituteArchitectureModel
 extension Institute.Architecture.Index.Artifact {
     /// The exact canonical bytes represented as UTF-8 text.
     public var rendered: Swift.String {
-        "digest\t\(digest)\n" + Self.payload(
-            index: index,
-            edges: edges,
-            coverage: coverage
-        )
+        "digest\t\(digest)\n"
+            + Self.payload(
+                index: index,
+                edges: edges,
+                coverage: coverage
+            )
     }
 
     static func payload(

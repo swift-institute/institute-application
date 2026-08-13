@@ -14,18 +14,6 @@ extension Institute.Architecture.Validator {
         /// Violations an unexpired, scope- and owner-matching exemption
         /// covers.
         public let excused: [Institute.Architecture.Violation]
-
-        init(
-            derived: Institute.Architecture.Facts,
-            graph: Institute.Architecture.Graph,
-            violations: [Institute.Architecture.Violation],
-            excused: [Institute.Architecture.Violation]
-        ) {
-            self.derived = derived
-            self.graph = graph
-            self.violations = violations
-            self.excused = excused
-        }
     }
 }
 

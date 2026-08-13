@@ -57,11 +57,13 @@ extension Institute.Architecture.Validator {
         facts: [Institute.Architecture.Fact],
         graph: Institute.Architecture.Graph,
         today: Institute.Architecture.Exemption.Expiry
-    ) -> (violations: [Institute.Architecture.Violation], excused: [Institute.Architecture.Violation]) {
+    ) -> (
+        violations: [Institute.Architecture.Violation], excused: [Institute.Architecture.Violation]
+    ) {
         var violations: [Institute.Architecture.Violation] = []
 
-        var claims:
-            [Institute.Architecture.Concept.Identifier: [Institute.Architecture.Owner]] = [:]
+        var claims: [Institute.Architecture.Concept.Identifier: [Institute.Architecture.Owner]] =
+            [:]
         for fact in facts {
             claims[fact.concept.identifier, default: []].append(fact.owner)
         }
@@ -111,7 +113,7 @@ extension Institute.Architecture.Validator {
         var outstanding: [Institute.Architecture.Violation] = []
         var excused: [Institute.Architecture.Violation] = []
         for violation in violations {
-            let covered = exemptions.contains { (exemption) in
+            let covered = exemptions.contains { exemption in
                 exemption.scope == violation.scope
                     && violation.owners.contains(exemption.owner)
                     && exemption.expiry >= today

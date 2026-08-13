@@ -23,7 +23,7 @@ extension Institute.Architecture.Index {
         graph: Institute.Architecture.Graph
     ) -> Self {
         .init(
-            entries: facts.map { (fact) in
+            entries: facts.map { fact in
                 .init(
                     owner: fact.owner,
                     layer: fact.layer,
@@ -38,7 +38,7 @@ extension Institute.Architecture.Index {
 
     /// The canonical text projection: one line per entry, sorted by owner.
     public var rendered: Swift.String {
-        entries.map { (entry) in
+        entries.map { entry in
             "\(entry.owner)\t\(entry.layer.name)\t\(entry.concept)"
                 + "\tproducts=\(entry.productCount)\ttargets=\(entry.targetCount)"
                 + "\tedges=\(entry.edgeCount)"

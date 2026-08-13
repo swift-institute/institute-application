@@ -53,11 +53,14 @@ extension Institute.Architecture.Index.Artifact {
             required: contents.entries.map(\.owner),
             measured: contents.entries.map(\.owner)
         )
-        guard payload == Self.payload(
-            index: index,
-            edges: contents.edges,
-            coverage: canonicalCoverage
-        ) else { throw .malformed }
+        guard
+            payload
+                == Self.payload(
+                    index: index,
+                    edges: contents.edges,
+                    coverage: canonicalCoverage
+                )
+        else { throw .malformed }
         let actual = Institute.Architecture.Index.Digest(text: payload).description
         guard claimed == actual else {
             throw .digestMismatch(expected: claimed, actual: actual)
@@ -97,10 +100,12 @@ extension Institute.Architecture.Index.Artifact {
             case "entry":
                 guard !foundEdge, let entry = entry(fields: fields) else { throw .malformed }
                 entries.append(entry)
+
             case "edge":
                 foundEdge = true
                 guard let edge = edge(fields: fields) else { throw .malformed }
                 edges.append(edge)
+
             default:
                 throw .malformed
             }
@@ -114,9 +119,10 @@ extension Institute.Architecture.Index.Artifact {
         let owners = Swift.Set(entries.map(\.owner))
         guard edges.allSatisfy({ owners.contains($0.source) && owners.contains($0.destination) })
         else { throw .malformed }
-        guard entries.allSatisfy { (entry) in
-            entry.edgeCount == edges.filter { $0.source == entry.owner }.count
-        }, entries.reduce(0, { $0 + $1.edgeCount }) == edges.count
+        guard
+            entries.allSatisfy { entry in
+                entry.edgeCount == edges.filter { $0.source == entry.owner }.count
+            }, entries.reduce(0, { $0 + $1.edgeCount }) == edges.count
         else { throw .malformed }
         return (entries: entries, edges: edges)
     }
@@ -128,7 +134,8 @@ extension Institute.Architecture.Index.Artifact {
             fields.count == 7,
             let owner = owner(Swift.String(fields[1])),
             let layer = Institute.Architecture.Layer(name: Swift.String(fields[2])),
-            Swift.String(fields[3]) == Institute.Architecture.Concept.Identifier(owner: owner).description,
+            Swift.String(fields[3])
+                == Institute.Architecture.Concept.Identifier(owner: owner).description,
             let products = count(Swift.String(fields[4]), prefix: "products="),
             let targets = count(Swift.String(fields[5]), prefix: "targets="),
             let edges = count(Swift.String(fields[6]), prefix: "edges=")

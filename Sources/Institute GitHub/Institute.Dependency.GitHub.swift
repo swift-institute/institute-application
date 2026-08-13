@@ -1,10 +1,9 @@
-public import Institute_Model
-public import Institute_Inventory
-public import Institute_Dependency
-
 public import GitHub
 public import GitHub_HTTP
 public import HTTP_Standard
+public import Institute_Dependency
+public import Institute_Inventory
+public import Institute_Model
 public import JSON
 public import RFC_3986
 public import RFC_4648
@@ -133,10 +132,13 @@ extension Institute.Dependency.Remote {
             } catch {
                 return .malformed("GitHub returned malformed JSON for \(endpoint): \(error)")
             }
+
         case 403, 429:
             return .rateLimited("GitHub rate-limited \(endpoint) (HTTP \(response.status.code))")
+
         case 401, 404:
             return .unavailable("GitHub cannot provide \(endpoint) (HTTP \(response.status.code))")
+
         default:
             return .unmeasured("GitHub returned HTTP \(response.status.code) for \(endpoint)")
         }
@@ -197,45 +199,55 @@ private func repositoryFailure(
         return .unmeasured(
             "GitHub transport failed for repos/\(key.identity): \(failure)"
         )
+
     case .json(let failure):
         return .malformed(
             "\(key.identity): malformed repository metadata: \(failure)"
         )
+
     case .status(let status):
         switch status.code {
         case 403, 429:
             return .rateLimited(
                 "GitHub rate-limited repos/\(key.identity) (HTTP \(status.code))"
             )
+
         case 401, 404:
             return .unavailable(
                 "GitHub cannot provide repos/\(key.identity) (HTTP \(status.code))"
             )
+
         default:
             return .unmeasured(
                 "GitHub returned HTTP \(status.code) for repos/\(key.identity)"
             )
         }
+
     case .header(let failure):
         return .malformed(
             "invalid GitHub repository request for \(key.identity): \(failure)"
         )
+
     case .path(let failure):
         return .malformed(
             "invalid GitHub repository path for \(key.identity): \(failure)"
         )
+
     case .query(let failure):
         return .malformed(
             "invalid GitHub repository query for \(key.identity): \(failure)"
         )
+
     case .scheme(let failure):
         return .malformed(
             "invalid GitHub repository scheme for \(key.identity): \(failure)"
         )
+
     case .pagination:
         return .unmeasured(
             "GitHub repository lookup unexpectedly attempted pagination for \(key.identity)"
         )
+
     @unknown default:
         return .unmeasured(
             "GitHub repository lookup failed for \(key.identity)"
@@ -248,12 +260,16 @@ extension Institute.Dependency.Fetch {
         switch self {
         case .available:
             .unmeasured("internal fetch retyping reached an available value")
+
         case .unavailable(let reason):
             .unavailable(reason)
+
         case .rateLimited(let reason):
             .rateLimited(reason)
+
         case .malformed(let reason):
             .malformed(reason)
+
         case .unmeasured(let reason):
             .unmeasured(reason)
         }
