@@ -368,6 +368,12 @@
     },
     {
       "layer": "primitives",
+      "name": "swift-coproduct-derivation",
+      "organization": "swift-primitives",
+      "url": "https://github.com/swift-primitives/swift-coproduct-derivation.git"
+    },
+    {
+      "layer": "primitives",
       "name": "swift-coproduct-primitives",
       "organization": "swift-primitives",
       "url": "https://github.com/swift-primitives/swift-coproduct-primitives.git"
@@ -407,6 +413,12 @@
       "name": "swift-decimal-primitives",
       "organization": "swift-primitives",
       "url": "https://github.com/swift-primitives/swift-decimal-primitives.git"
+    },
+    {
+      "layer": "primitives",
+      "name": "swift-declaration-derivation",
+      "organization": "swift-primitives",
+      "url": "https://github.com/swift-primitives/swift-declaration-derivation.git"
     },
     {
       "layer": "primitives",
@@ -1220,6 +1232,12 @@
     },
     {
       "layer": "primitives",
+      "name": "swift-witness-derivation",
+      "organization": "swift-primitives",
+      "url": "https://github.com/swift-primitives/swift-witness-derivation.git"
+    },
+    {
+      "layer": "primitives",
       "name": "swift-witness-primitives",
       "organization": "swift-primitives",
       "url": "https://github.com/swift-primitives/swift-witness-primitives.git"
@@ -1700,6 +1718,12 @@
     },
     {
       "layer": "standards",
+      "name": "swift-fips-180-4",
+      "organization": "swift-standards",
+      "url": "https://github.com/swift-standards/swift-fips-180-4.git"
+    },
+    {
+      "layer": "standards",
       "name": "swift-git-standard",
       "organization": "swift-standards",
       "url": "https://github.com/swift-standards/swift-git-standard.git"
@@ -1826,6 +1850,12 @@
     },
     {
       "layer": "standards",
+      "name": "swift-yaml-standard",
+      "organization": "swift-standards",
+      "url": "https://github.com/swift-standards/swift-yaml-standard.git"
+    },
+    {
+      "layer": "standards",
       "name": "swift-w3c-css",
       "organization": "swift-w3c",
       "url": "https://github.com/swift-w3c/swift-w3c-css.git"
@@ -1922,6 +1952,12 @@
     },
     {
       "layer": "foundations",
+      "name": "swift-build-coordinator",
+      "organization": "swift-foundations",
+      "url": "https://github.com/swift-foundations/swift-build-coordinator.git"
+    },
+    {
+      "layer": "foundations",
       "name": "swift-certificate-verification",
       "organization": "swift-foundations",
       "url": "https://github.com/swift-foundations/swift-certificate-verification.git"
@@ -1949,6 +1985,12 @@
       "name": "swift-console",
       "organization": "swift-foundations",
       "url": "https://github.com/swift-foundations/swift-console.git"
+    },
+    {
+      "layer": "foundations",
+      "name": "swift-continuous-integration",
+      "organization": "swift-foundations",
+      "url": "https://github.com/swift-foundations/swift-continuous-integration.git"
     },
     {
       "layer": "foundations",
@@ -2117,6 +2159,12 @@
       "name": "swift-github",
       "organization": "swift-foundations",
       "url": "https://github.com/swift-foundations/swift-github.git"
+    },
+    {
+      "layer": "foundations",
+      "name": "swift-github-continuous-integration",
+      "organization": "swift-foundations",
+      "url": "https://github.com/swift-foundations/swift-github-continuous-integration.git"
     },
     {
       "layer": "foundations",
@@ -2717,6 +2765,12 @@
       "name": "swift-xml",
       "organization": "swift-foundations",
       "url": "https://github.com/swift-foundations/swift-xml.git"
+    },
+    {
+      "layer": "foundations",
+      "name": "swift-yaml",
+      "organization": "swift-foundations",
+      "url": "https://github.com/swift-foundations/swift-yaml.git"
     }
   ],
   "scope": "proof",
