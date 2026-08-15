@@ -138,6 +138,34 @@ extension Institute.Application.CLI.Test.Lint {
         }
     }
 
+    /// The local CI-parity gate: same package-scoped shape as `package
+    /// lint`, alongside `package build` and `package test`.
+    @Test
+    func `package check parses`() throws {
+        let command = try Command.parse(
+            Institute.Application.CLI.self,
+            from: ["package", "check"],
+            initial: .init()
+        )
+        #expect(command.operation == .package)
+        #expect(command.modes == [.check])
+    }
+
+    /// Unlike `package lint`, `check` runs a build and a test step, so
+    /// `--fresh` (fresh scratch state) is meaningful here — the evidence
+    /// run the contribution workflow asks for before opening a PR.
+    @Test
+    func `package check accepts fresh scratch`() throws {
+        let command = try Command.parse(
+            Institute.Application.CLI.self,
+            from: ["package", "check", "--fresh"],
+            initial: .init()
+        )
+        #expect(command.operation == .package)
+        #expect(command.modes == [.check])
+        #expect(command.fresh)
+    }
+
     /// `--changed` on a single package would read as a filter and do
     /// nothing. A flag that silently has no effect is worse than one
     /// that is rejected.
