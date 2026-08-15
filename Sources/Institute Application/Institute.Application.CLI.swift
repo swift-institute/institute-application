@@ -865,14 +865,14 @@ extension Institute.Application.CLI {
             guard modes.count == 1, let mode = modes.first else {
                 throw .validationFailed(
                     reason:
-                        "package requires build, test, run, resolve, update, clean, dump-package, or lint."
+                        "package requires build, test, run, resolve, update, clean, dump-package, lint, or check."
                 )
             }
             let action = mode.buildAction
-            guard action != nil || mode == .lint else {
+            guard action != nil || mode == .lint || mode == .check else {
                 throw .validationFailed(
                     reason:
-                        "package requires build, test, run, resolve, update, clean, dump-package, or lint."
+                        "package requires build, test, run, resolve, update, clean, dump-package, lint, or check."
                 )
             }
             guard consumer.isEmpty, dependency.isEmpty else {
@@ -887,8 +887,10 @@ extension Institute.Application.CLI {
                     reason: "--dry-run is valid only with sync or inventory regenerate."
                 )
             }
-            guard !fresh || action == .build || action == .test else {
-                throw .validationFailed(reason: "--fresh is valid only with package build or test.")
+            guard !fresh || action == .build || action == .test || mode == .check else {
+                throw .validationFailed(
+                    reason: "--fresh is valid only with package build, test, or check."
+                )
             }
             guard workspacePath.isEmpty else {
                 throw .validationFailed(reason: "--workspace-path is valid only with navigation.")
@@ -1354,6 +1356,21 @@ extension Institute.Application.CLI {
             Process.Exit.normal(
                 measurement.verdict.fails ? (measurement.verdict.isUnmeasured ? 2 : 1) : 0
             )
+        }
+
+        if case .package = operation, modes.first == .check {
+            // The local CI-parity gate. Same inner-loop ascent as
+            // `package lint`: no inventory, no `Institute.Root`, just
+            // the package root and the installed swift-linter reached
+            // by walking up from wherever the caller stands.
+            let target = try Institute.Lint.Target.resolve(
+                packagePath.isEmpty ? working : packagePath
+            )
+            let lint = try Institute.Lint.resolve(from: target.package.description)
+            let check = Institute.Lint.Check(lint)
+            let report = check.run(target, jobs: jobs, fresh: fresh)
+            print(report)
+            Process.Exit.normal(report.fails ? 1 : 0)
         }
 
         if case .package = operation {
