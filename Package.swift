@@ -68,6 +68,7 @@ let package = Package(
         .package(url: "https://github.com/swift-foundations/swift-github-http.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-git.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-json.git", branch: "main"),
+        .package(url: "https://github.com/swift-foundations/swift-kernel.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-package-manager.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-console.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-process.git", branch: "main"),
@@ -141,6 +142,7 @@ let package = Package(
                 "InstituteArchitectureCandidates",
                 "InstituteArchitectureMigration",
                 .product(name: "File System", package: "swift-file-system"),
+                .product(name: "Kernel", package: "swift-kernel"),
             ]
         ),
         .target(

@@ -6,13 +6,7 @@ private import InstituteArchitectureIndex
 public import InstituteArchitectureModel
 private import InstituteArchitectureValidation
 
-#if canImport(Darwin)
-    private import Darwin
-#elseif canImport(Glibc)
-    private import Glibc
-#elseif canImport(Musl)
-    private import Musl
-#endif
+private import Kernel
 
 extension Institute.Architecture {
     /// The thin composition root behind `institute architecture validate`.
@@ -105,7 +99,7 @@ extension Institute.Architecture.CLI {
 
     /// Today's UTC calendar day, without Foundation.
     internal static func today() -> Institute.Architecture.Exemption.Expiry {
-        let seconds = time(nil)
+        let seconds = Kernel.Time.realtime().secondsSinceUnixEpoch
         var days = Swift.Int(seconds) / 86_400
         // Civil-from-days (Howard Hinnant's algorithm), epoch 1970-01-01.
         days += 719_468
