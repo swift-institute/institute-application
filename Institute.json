@@ -1892,6 +1892,12 @@
     },
     {
       "layer": "standards",
+      "name": "swift-whatwg",
+      "organization": "swift-whatwg",
+      "url": "https://github.com/swift-whatwg/swift-whatwg.git"
+    },
+    {
+      "layer": "standards",
       "name": "swift-whatwg-html",
       "organization": "swift-whatwg",
       "url": "https://github.com/swift-whatwg/swift-whatwg-html.git"
