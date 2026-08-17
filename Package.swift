@@ -68,8 +68,8 @@ let package = Package(
         .package(url: "https://github.com/swift-foundations/swift-github-http.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-git.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-json.git", branch: "main"),
+        .package(url: "https://github.com/swift-foundations/swift-kernel.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-package-manager.git", branch: "main"),
-        .package(url: "https://github.com/swift-foundations/swift-posix.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-console.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-process.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-xcode.git", branch: "main"),
@@ -142,6 +142,7 @@ let package = Package(
                 "InstituteArchitectureCandidates",
                 "InstituteArchitectureMigration",
                 .product(name: "File System", package: "swift-file-system"),
+                .product(name: "Kernel", package: "swift-kernel"),
             ]
         ),
         .target(
@@ -182,9 +183,7 @@ let package = Package(
                 .product(name: "Git", package: "swift-git"),
                 .product(name: "JSON", package: "swift-json"),
                 .product(name: "Package Manager", package: "swift-package-manager"),
-                .product(name: "POSIX Kernel Process", package: "swift-posix"),
                 .product(name: "Console", package: "swift-console"),
-                .product(name: "POSIX Kernel File", package: "swift-posix"),
                 .product(name: "Process", package: "swift-process"),
                 .product(name: "RFC 3986", package: "swift-rfc-3986"),
                 .product(name: "RFC 4648", package: "swift-rfc-4648"),
