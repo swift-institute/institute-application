@@ -15,11 +15,11 @@ public import Institute_Instruments
 public import Institute_Inventory
 public import Institute_Lint
 public import Institute_Model
-internal import Package_Manager
-internal import SPM_Standard
 public import Institute_Pages
 public import JSON
+internal import Package_Manager
 public import Process
+internal import SPM_Standard
 
 #if canImport(Darwin)
     private import Darwin
@@ -1881,9 +1881,17 @@ extension Institute.Application.CLI {
                 var coverageFailures = fresh ? Self.ephemeralCoverageFailures : 0
                 for identity in fresh ? [] : Set(accounts.map(\.obligation.key)) {
                     guard let repository = repositories[identity.identity] else { continue }
-                    guard
-                        let directory = try? root.materialization(for: repository)
-                    else { continue }
+                    let directory: File.Directory
+                    do throws(Institute.Error) {
+                        directory = try root.materialization(for: repository)
+                    } catch {
+                        printToStandardError(
+                            "closure: \(identity.identity): no readable materialization — "
+                                + "UNMEASURED\n"
+                        )
+                        coverageFailures += 1
+                        continue
+                    }
                     let resolution: Package.Resolution
                     do {
                         resolution = try packages.resolution(at: directory.description)
@@ -2316,6 +2324,23 @@ extension Institute.Application.CLI {
 }
 
 extension Institute.Application.CLI {
+    /// Removes an ephemeral evaluation directory. A failed removal is
+    /// surfaced, never swallowed: leftover scratch is a disk-space defect,
+    /// not an evaluation defect, so it must not fail an account.
+    static func deleteEphemeral(at destination: Swift.String) {
+        let path: File.Path
+        do throws(File.Path.Error) {
+            path = try File.Path(destination)
+        } catch {
+            return
+        }
+        do throws(File.System.Delete.Error) {
+            try File.System.Delete.delete(at: path, recursive: true)
+        } catch {
+            printToStandardError("ephemeral: could not remove \(destination): \(error)\n")
+        }
+    }
+
     // Ephemeral exact-revision fleet evaluation state. `nonisolated(unsafe)`
     // is acceptable: the CLI dispatch is single-threaded per process.
     nonisolated(unsafe) static var ephemeralCoverageFailures = 0
@@ -2356,29 +2381,34 @@ extension Institute.Application.CLI {
                 account(.failed(diagnostic: "\(key.identity): no inventory repository record"))
                 continue
             }
-            guard let source = try? root.materialization(for: repository) else {
+            let source: File.Directory
+            do throws(Institute.Error) {
+                source = try root.materialization(for: repository)
+            } catch {
                 account(.unmeasured(reason: "\(key.identity): no readable materialization"))
                 continue
             }
             let destination = "\(scratch)/\(repository.organization)__\(repository.name)"
-            if let path = try? File.Path(destination) {
-                try? File.System.Delete.delete(at: path, recursive: true)
-            }
+            Self.deleteEphemeral(at: destination)
             do {
                 try git.clone(source.description, branch: "main", to: destination)
             } catch {
                 account(.unmeasured(reason: "\(key.identity): ephemeral clone failed: \(error)"))
                 continue
             }
-            defer {
-                if let path = try? File.Path(destination) {
-                    try? File.System.Delete.delete(at: path, recursive: true)
-                }
+            defer { Self.deleteEphemeral(at: destination) }
+            let head: Git.Object.ID
+            do throws(Git.Client.Error) {
+                head = try git.head("HEAD", at: destination)
+            } catch {
+                account(
+                    .failed(
+                        diagnostic: "\(key.identity): ephemeral head unreadable: \(error)"
+                    )
+                )
+                continue
             }
-            guard
-                let head = try? git.head("HEAD", at: destination),
-                head.rawValue == member.revision.sha
-            else {
+            guard head.rawValue == member.revision.sha else {
                 account(
                     .failed(
                         diagnostic: "\(key.identity): ephemeral clone is not the snapshot "
@@ -2481,7 +2511,13 @@ extension Institute.Application.CLI {
                 }
             }
 
-            if let resolution = try? packages.resolution(at: destination) {
+            let resolved: Package.Resolution?
+            do throws(Package.Manager.Error) {
+                resolved = try packages.resolution(at: destination)
+            } catch {
+                resolved = nil
+            }
+            if let resolution = resolved {
                 let coverage = Institute.Certification.Closure.Coverage(
                     consumer: key,
                     proofs: Institute.Certification.Closure.proofs(
