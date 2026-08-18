@@ -48,6 +48,7 @@ extension Institute.Application {
         public var packagePath: Swift.String
         public var workspacePath: Swift.String
         public var fresh: Bool
+        public var composed: Bool
         public var changed: Bool
         public var fix: Bool
         public var institute: Bool
@@ -90,6 +91,7 @@ extension Institute.Application {
             packagePath: Swift.String = "",
             workspacePath: Swift.String = "",
             fresh: Bool = false,
+            composed: Bool = false,
             changed: Bool = false,
             fix: Bool = false,
             institute: Bool = false,
@@ -131,6 +133,7 @@ extension Institute.Application {
             self.packagePath = packagePath
             self.workspacePath = workspacePath
             self.fresh = fresh
+            self.composed = composed
             self.changed = changed
             self.fix = fix
             self.institute = institute
@@ -215,6 +218,16 @@ extension Institute.Application.CLI {
                     abstract:
                         "Use isolated build state — a scratch directory for a package build or "
                         + "test, a derived-data directory for the workspace build."
+                )
+            )
+            Command.Flag(
+                \.composed,
+                name: .long(.literal("composed")),
+                help: .init(
+                    abstract:
+                        "Certify against the local materializations composed in place — every "
+                        + "internal edge resolves to its exact-snapshot local checkout "
+                        + "(certification run only; mutually exclusive with --fresh)."
                 )
             )
             Command.Flag(
@@ -597,6 +610,12 @@ extension Institute.Application.CLI {
         }
         guard operation == .lint || !changed else {
             throw .validationFailed(reason: "--changed is valid only with the lint sweep.")
+        }
+        // Rejected rather than ignored: a `--composed` silently dropped
+        // would leave the caller reading a per-member remote-exact report
+        // and believing it certified the composed local state.
+        guard operation == .certification || !composed else {
+            throw .validationFailed(reason: "--composed is valid only with certification run.")
         }
         // Rejected rather than ignored, for the reason every flag here is:
         // a `--fix` that was silently dropped would leave the caller reading
@@ -1095,6 +1114,17 @@ extension Institute.Application.CLI {
             }
             guard !fresh || modes.first == .run else {
                 throw .validationFailed(reason: "--fresh is valid only with certification run.")
+            }
+            guard !composed || modes.first == .run else {
+                throw .validationFailed(
+                    reason: "--composed is valid only with certification run."
+                )
+            }
+            guard !fresh || !composed else {
+                throw .validationFailed(
+                    reason:
+                        "--fresh and --composed are mutually exclusive evaluation profiles."
+                )
             }
             guard consumer.isEmpty, dependency.isEmpty else {
                 throw .validationFailed(
@@ -1857,6 +1887,19 @@ extension Institute.Application.CLI {
                         configuration: configuration,
                         platform: platform
                     )
+                } else if composed {
+                    // Composed exact-S evaluation: refuse unless every
+                    // package member's materialization stands at exactly
+                    // its snapshot revision, then verify each member with
+                    // every internal edge redirected to its local checkout
+                    // through one source-map transaction per member.
+                    accounts = try Self.composedAccounts(
+                        obligations: obligations,
+                        snapshot: snapshot,
+                        root: root,
+                        configuration: configuration,
+                        platform: platform
+                    )
                 } else {
                     let execution = Institute.Certification.Execution(
                         root: root,
@@ -1871,15 +1914,19 @@ extension Institute.Application.CLI {
                 // Law-2 closure coverage: read back each selected member's
                 // resolved state and classify every governed edge. Under
                 // --fresh the ephemeral evaluator already emitted coverage
-                // from each clone's own resolution.
+                // from each clone's own resolution; under --composed the
+                // composed evaluator did, from each member's own resolution.
                 var repositories = [Swift.String: Institute.Repository]()
                 for repository in configuration.repositories {
                     repositories["\(repository.organization)/\(repository.name)"] =
                         repository
                 }
                 let packages = Package.Manager()
-                var coverageFailures = fresh ? Self.ephemeralCoverageFailures : 0
-                for identity in fresh ? [] : Set(accounts.map(\.obligation.key)) {
+                var coverageFailures =
+                    fresh
+                    ? Self.ephemeralCoverageFailures
+                    : composed ? Self.composedCoverageFailures : 0
+                for identity in fresh || composed ? [] : Set(accounts.map(\.obligation.key)) {
                     guard let repository = repositories[identity.identity] else { continue }
                     let directory: File.Directory
                     do throws(Institute.Error) {
@@ -2541,6 +2588,277 @@ extension Institute.Application.CLI {
                 )
                 Self.ephemeralCoverageFailures += 1
             }
+        }
+        return accounts
+    }
+}
+
+extension Institute.Application.CLI {
+    // Composed exact-S fleet evaluation state. `nonisolated(unsafe)` is
+    // acceptable for the same reason the ephemeral counter's is: the CLI
+    // dispatch is single-threaded per process.
+    nonisolated(unsafe) static var composedCoverageFailures = 0
+
+    /// Evaluates every owed obligation against the local materializations
+    /// composed in place: one source-map transaction per member redirects
+    /// each Institute dependency the member declares to that dependency's
+    /// local checkout while the coordinator runs, and restores the exact
+    /// manifest preimage bytes afterward — success, typed error, and
+    /// cancellation alike (`Institute.Development.VerificationPlan`).
+    ///
+    /// Exact-S is the whole point: the evaluation refuses — before any
+    /// member is evaluated — unless every snapshot package member's
+    /// materialization exists and stands at exactly its snapshot revision,
+    /// and the refusal reports every skewed or missing member, not just
+    /// the first. Coverage is read from each member's own resolution with
+    /// both `.localPath` and `.remoteExact` acceptable: under composition
+    /// internal edges are file-system states local to S, and a
+    /// remote-exact edge is also lawful; anything else fails per the
+    /// instrument.
+    static func composedAccounts(
+        obligations: [Institute.Certification.Obligation],
+        snapshot: Institute.Certification.Snapshot,
+        root: Institute.Root,
+        configuration: Institute.Configuration,
+        platform: Institute.Certification.Platform
+    ) throws(Institute.Error) -> [Institute.Certification.Account] {
+        let git = Git.Client()
+        let coordinator = Build.Coordinator()
+        let packages = Package.Manager()
+        var repositories = [Swift.String: Institute.Repository]()
+        for repository in configuration.repositories {
+            repositories["\(repository.organization)/\(repository.name)"] = repository
+        }
+
+        // Exact-S gate: composed certification certifies the snapshot only
+        // when the file-system state *is* the snapshot. Every skew is
+        // collected so one refusal names the whole repair.
+        var skews = [Swift.String]()
+        var directories = [Institute.Repository.Key: File.Directory]()
+        for member in snapshot.members.sorted(by: { $0.key.identity < $1.key.identity }) {
+            guard case .package = member.kind else { continue }
+            guard let repository = repositories[member.key.identity] else {
+                skews.append("\(member.key.identity): no inventory repository record")
+                continue
+            }
+            let directory: File.Directory
+            do throws(Institute.Error) {
+                directory = try root.materialization(for: repository)
+            } catch {
+                skews.append("\(member.key.identity): no readable materialization")
+                continue
+            }
+            let head: Git.Object.ID
+            do throws(Git.Client.Error) {
+                head = try git.head("HEAD", at: directory.description)
+            } catch {
+                skews.append("\(member.key.identity): HEAD unreadable: \(error)")
+                continue
+            }
+            guard head.rawValue == member.revision.sha else {
+                skews.append(
+                    "\(member.key.identity): HEAD \(head.rawValue) is not the snapshot "
+                        + "revision \(member.revision.sha)"
+                )
+                continue
+            }
+            directories[member.key] = directory
+        }
+        guard skews.isEmpty else {
+            throw .configuration(
+                "certification run --composed: the local materializations are not exact-S "
+                    + "(\(skews.count) member(s)); refusing before any evaluation:\n"
+                    + skews.joined(separator: "\n")
+            )
+        }
+
+        // The full source map: every Institute.json repository redirects to
+        // its local materialization, whether or not a given member declares
+        // it — the plan applies only the assignments a manifest declares.
+        var assignments = [Institute.Development.VerificationPlan.Assignment]()
+        for repository in configuration.repositories.sorted(by: { $0.name < $1.name }) {
+            let directory: File.Directory
+            do throws(Institute.Error) {
+                directory = try root.materialization(for: repository)
+            } catch {
+                throw .configuration(
+                    "certification run --composed: \(repository.name) has no readable "
+                        + "materialization for the source map: \(error)"
+                )
+            }
+            assignments.append(
+                .init(
+                    reference: repository.name,
+                    url: repository.url,
+                    path: directory.description
+                )
+            )
+        }
+
+        var accounts = [Institute.Certification.Account]()
+        var byMember = [Institute.Repository.Key: [Institute.Certification.Obligation]]()
+        for obligation in obligations {
+            byMember[obligation.key, default: []].append(obligation)
+        }
+        var seeds = [Swift.String]()
+        var keys = [Swift.String: Institute.Repository.Key]()
+        for (key, owed) in byMember.sorted(by: { $0.key.identity < $1.key.identity }) {
+            guard snapshot[key] != nil else {
+                for obligation in owed {
+                    accounts.append(
+                        .init(
+                            obligation: obligation,
+                            outcome: .failed(
+                                diagnostic: "\(key.identity): not an admitted snapshot member"
+                            )
+                        )
+                    )
+                }
+                continue
+            }
+            guard directories[key] != nil, let repository = repositories[key.identity] else {
+                for obligation in owed {
+                    accounts.append(
+                        .init(
+                            obligation: obligation,
+                            outcome: .unmeasured(
+                                reason: "\(key.identity): not a composable package member"
+                            )
+                        )
+                    )
+                }
+                continue
+            }
+            seeds.append(repository.name)
+            keys[repository.name] = key
+        }
+
+        let plan = Institute.Development.VerificationPlan(
+            composition: .init(root: root, configuration: configuration),
+            assignments: assignments
+        )
+        _ = try plan.run(seeds: seeds) {
+            (seed: Swift.String) throws(Institute.Error) in
+            guard
+                let key = keys[seed],
+                let member = snapshot[key],
+                let directory = directories[key]
+            else {
+                return .failed("\(seed): not a prepared composed member")
+            }
+            var failures = 0
+            for obligation in byMember[key] ?? [] {
+                guard obligation.platform == platform else {
+                    accounts.append(
+                        .init(
+                            obligation: obligation,
+                            outcome: .unmeasured(
+                                reason: "owed on \(obligation.platform.rawValue), this "
+                                    + "execution measures \(platform.rawValue)"
+                            )
+                        )
+                    )
+                    continue
+                }
+                let action: Build.Action? =
+                    switch obligation.kind {
+                    case .build: .build
+                    case .test: .test
+                    case .lint, .format: nil
+                    }
+                guard let action else {
+                    accounts.append(
+                        .init(
+                            obligation: obligation,
+                            outcome: .unmeasured(
+                                reason: "quality obligations are executed by the quality "
+                                    + "instruments"
+                            )
+                        )
+                    )
+                    continue
+                }
+                let result: Build.Coordinator.Result
+                do {
+                    result = try coordinator.run(
+                        action,
+                        at: directory.description,
+                        fresh: false,
+                        arguments: [],
+                        capturingDiagnostics: true
+                    )
+                } catch {
+                    accounts.append(
+                        .init(
+                            obligation: obligation,
+                            outcome: .unmeasured(reason: "coordinator error: \(error)")
+                        )
+                    )
+                    continue
+                }
+                if result.exitCode == 0 {
+                    accounts.append(
+                        .init(
+                            obligation: obligation,
+                            outcome: .met(evidence: "composed@\(member.revision.sha):exit:0")
+                        )
+                    )
+                } else {
+                    let captured =
+                        Swift.String(
+                            decoding: (result.standardOutput ?? []) + (result.standardError ?? []),
+                            as: Swift.UTF8.self
+                        )
+                    let lines = captured.split(separator: "\n")
+                    let diagnostic =
+                        lines.first { $0.contains(": error:") }.map(Swift.String.init)
+                        ?? lines.last(where: { !$0.isEmpty }).map(Swift.String.init)
+                        ?? "failed with no captured diagnostic"
+
+                    accounts.append(
+                        .init(
+                            obligation: obligation,
+                            outcome: .failed(diagnostic: "\(key.identity): \(diagnostic)")
+                        )
+                    )
+                    failures += 1
+                }
+            }
+
+            let resolved: Package.Resolution?
+            do throws(Package.Manager.Error) {
+                resolved = try packages.resolution(at: directory.description)
+            } catch {
+                resolved = nil
+            }
+            if let resolution = resolved {
+                do throws(Institute.Error) {
+                    let coverage = try Institute.Certification.Closure.Coverage(
+                        consumer: key,
+                        proofs: Institute.Certification.Closure.proofs(
+                            consumer: key,
+                            resolution: resolution,
+                            snapshot: snapshot,
+                            accepting: [.localPath, .remoteExact]
+                        )
+                    )
+                    print(coverage.json.serialize(sortKeys: true))
+                    if !coverage.passes { Self.composedCoverageFailures += 1 }
+                } catch {
+                    printToStandardError(
+                        "closure: \(key.identity): coverage refused — \(error) — UNMEASURED\n"
+                    )
+                    Self.composedCoverageFailures += 1
+                }
+            } else {
+                printToStandardError(
+                    "closure: \(key.identity): composed resolution unreadable — UNMEASURED\n"
+                )
+                Self.composedCoverageFailures += 1
+            }
+            return failures == 0
+                ? .passed
+                : .failed("\(key.identity): \(failures) obligation(s) failed")
         }
         return accounts
     }
