@@ -1903,7 +1903,7 @@ extension Institute.Application.CLI {
                         coverageFailures += 1
                         continue
                     }
-                    let coverage = Institute.Certification.Closure.Coverage(
+                    let coverage = try Institute.Certification.Closure.Coverage(
                         consumer: identity,
                         proofs: Institute.Certification.Closure.proofs(
                             consumer: identity,
@@ -2518,16 +2518,23 @@ extension Institute.Application.CLI {
                 resolved = nil
             }
             if let resolution = resolved {
-                let coverage = Institute.Certification.Closure.Coverage(
-                    consumer: key,
-                    proofs: Institute.Certification.Closure.proofs(
+                do throws(Institute.Error) {
+                    let coverage = try Institute.Certification.Closure.Coverage(
                         consumer: key,
-                        resolution: resolution,
-                        snapshot: snapshot
+                        proofs: Institute.Certification.Closure.proofs(
+                            consumer: key,
+                            resolution: resolution,
+                            snapshot: snapshot
+                        )
                     )
-                )
-                print(coverage.json.serialize(sortKeys: true))
-                if !coverage.passes { Self.ephemeralCoverageFailures += 1 }
+                    print(coverage.json.serialize(sortKeys: true))
+                    if !coverage.passes { Self.ephemeralCoverageFailures += 1 }
+                } catch {
+                    printToStandardError(
+                        "closure: \(key.identity): coverage refused — \(error) — UNMEASURED\n"
+                    )
+                    Self.ephemeralCoverageFailures += 1
+                }
             } else {
                 printToStandardError(
                     "closure: \(key.identity): ephemeral resolution unreadable — UNMEASURED\n"
