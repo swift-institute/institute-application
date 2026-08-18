@@ -29,6 +29,7 @@ extension Institute.Application.CLI {
         case conversion
         case github
         case verification
+        case certification
         case architecture
 
         public init?(argument: Swift.String) {
@@ -50,6 +51,7 @@ extension Institute.Application.CLI {
             case "conversion": self = .conversion
             case "github": self = .github
             case "verification": self = .verification
+            case "certification": self = .certification
             case "architecture": self = .architecture
             default: return nil
             }
@@ -77,6 +79,7 @@ extension Institute.Application.CLI.Operation {
         case .conversion: "conversion"
         case .github: "github"
         case .verification: "verification"
+        case .certification: "certification"
         case .architecture: "architecture"
         }
     }
@@ -93,7 +96,8 @@ extension Institute.Application.CLI.Operation {
     internal var composesADependency: Swift.Bool {
         switch self {
         case .install, .sync, .doctor, .inventory, .dependencies, .context, .navigation, .package,
-            .lint, .build, .coherence, .conversion, .github, .verification, .architecture:
+            .lint, .build, .coherence, .conversion, .github, .verification, .certification,
+            .architecture:
             false
 
         case .compose, .restore, .verify: true

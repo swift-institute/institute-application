@@ -15,6 +15,8 @@ public import Institute_Instruments
 public import Institute_Inventory
 public import Institute_Lint
 public import Institute_Model
+internal import Package_Manager
+internal import SPM_Standard
 public import Institute_Pages
 public import JSON
 public import Process
@@ -180,7 +182,7 @@ extension Institute.Application.CLI {
                 name: "operation",
                 placeholder:
                     "install|sync|build|doctor|inventory|dependencies|compose|restore|verify|context"
-                    + "|navigation|package|lint|coherence|conversion|github|verification",
+                    + "|navigation|package|lint|coherence|conversion|github|verification|certification",
                 help: .init(abstract: "Operation to perform.")
             )
             Command.Positional<Self, Mode>.Many(
@@ -188,7 +190,7 @@ extension Institute.Application.CLI {
                 name: "mode",
                 placeholder:
                     "install|check|packet|serve|build|test|run|resolve|update|regenerate|effective|clean|dump-package"
-                    + "|lint|ledger|pages|seal|token|validate|index",
+                    + "|lint|ledger|pages|seal|token|validate|index|snapshot",
                 arity: .atMost(1),
                 help: .init(
                     abstract:
@@ -1082,6 +1084,39 @@ extension Institute.Application.CLI {
             guard arguments.isEmpty else {
                 throw .validationFailed(reason: "--argument is valid only with package.")
             }
+        } else if operation == .certification {
+            guard modes.count == 1, modes.first == .snapshot || modes.first == .run else {
+                throw .validationFailed(reason: "certification requires snapshot or run.")
+            }
+            guard modes.first == .snapshot || !receiptPath.isEmpty else {
+                throw .validationFailed(
+                    reason: "certification run requires --receipt (the frozen snapshot path)."
+                )
+            }
+            guard !fresh || modes.first == .run else {
+                throw .validationFailed(reason: "--fresh is valid only with certification run.")
+            }
+            guard consumer.isEmpty, dependency.isEmpty else {
+                throw .validationFailed(
+                    reason: "--consumer and --dependency are not valid with certification."
+                )
+            }
+            guard !dry else {
+                throw .validationFailed(
+                    reason: "--dry-run is valid only with sync or inventory regenerate."
+                )
+            }
+            guard packagePath.isEmpty else {
+                throw .validationFailed(
+                    reason: "--package-path is valid only with package; "
+                        + "certification derives the whole inventory."
+                )
+            }
+            guard workspacePath.isEmpty else {
+                throw .validationFailed(
+                    reason: "--workspace-path is valid only with navigation or lint."
+                )
+            }
         } else if operation == .verification {
             guard modes.count == 1, let mode = modes.first, mode == .seal || mode == .check else {
                 throw .validationFailed(reason: "verification requires seal or check.")
@@ -1759,6 +1794,190 @@ extension Institute.Application.CLI {
             )
             Process.Exit.normal(receipt.verdict.status)
 
+        case .certification:
+            if modes.first == .run {
+                let bytes: [Byte]
+                let validated: File.Path
+                do throws(File.Path.Error) {
+                    validated = try File.Path(receiptPath)
+                } catch {
+                    throw .configuration("invalid --receipt path \(receiptPath): \(error)")
+                }
+                do throws(Either<File.System.Read.Full.Error, Never>) {
+                    bytes = try File.System.Read.Full.read(from: validated) {
+                        (span: Swift.Span<Byte>) in
+                        var storage = [Byte]()
+                        storage.reserveCapacity(span.count)
+                        for index in span.indices { storage.append(span[index]) }
+                        return storage
+                    }
+                } catch {
+                    throw .configuration("cannot read snapshot at \(receiptPath): \(error)")
+                }
+                let snapshot: Institute.Certification.Snapshot
+                do {
+                    snapshot = try Institute.Certification.Snapshot(
+                        jsonString: Swift.String(decoding: bytes, as: Swift.UTF8.self)
+                    )
+                } catch {
+                    throw .configuration("snapshot does not decode: \(error)")
+                }
+
+                let platform: Institute.Certification.Platform =
+                    switch Institute.Coherence.Run.currentPlatform {
+                    case "macos": .macos
+                    case "windows": .windows
+                    default: .linux
+                    }
+                let policy: Institute.Certification.Policy
+                do {
+                    policy = try .init(platforms: [platform], quality: [])
+                } catch {
+                    throw .configuration("cannot form canary policy: \(error)")
+                }
+                var obligations = Institute.Certification.Obligation.derive(
+                    from: snapshot,
+                    policy: policy
+                )
+                if !arguments.isEmpty {
+                    let selected = Set(arguments)
+                    obligations = obligations.filter { selected.contains($0.key.identity) }
+                }
+                let accounts: [Institute.Certification.Account]
+                if fresh {
+                    // Ephemeral exact-revision evaluation: clone each member
+                    // from its local materialization, prove the clone is at
+                    // the snapshot revision, fresh-resolve so internal edges
+                    // pin current tips (= snapshot at freeze time), execute,
+                    // read closure, delete. No shared tree is mutated.
+                    accounts = Self.ephemeralAccounts(
+                        obligations: obligations,
+                        snapshot: snapshot,
+                        root: root,
+                        configuration: configuration,
+                        platform: platform
+                    )
+                } else {
+                    let execution = Institute.Certification.Execution(
+                        root: root,
+                        configuration: configuration,
+                        platform: platform
+                    )
+                    accounts = execution.accounts(for: obligations, in: snapshot)
+                }
+                for account in accounts {
+                    print(account.json.serialize(sortKeys: true))
+                }
+                // Law-2 closure coverage: read back each selected member's
+                // resolved state and classify every governed edge. Under
+                // --fresh the ephemeral evaluator already emitted coverage
+                // from each clone's own resolution.
+                var repositories = [Swift.String: Institute.Repository]()
+                for repository in configuration.repositories {
+                    repositories["\(repository.organization)/\(repository.name)"] =
+                        repository
+                }
+                let packages = Package.Manager()
+                var coverageFailures = fresh ? Self.ephemeralCoverageFailures : 0
+                for identity in fresh ? [] : Set(accounts.map(\.obligation.key)) {
+                    guard let repository = repositories[identity.identity] else { continue }
+                    guard
+                        let directory = try? root.materialization(for: repository)
+                    else { continue }
+                    let resolution: Package.Resolution
+                    do {
+                        resolution = try packages.resolution(at: directory.description)
+                    } catch {
+                        printToStandardError(
+                            "closure: \(identity.identity): resolution unreadable — "
+                                + "UNMEASURED\n"
+                        )
+                        coverageFailures += 1
+                        continue
+                    }
+                    let coverage = Institute.Certification.Closure.Coverage(
+                        consumer: identity,
+                        proofs: Institute.Certification.Closure.proofs(
+                            consumer: identity,
+                            resolution: resolution,
+                            snapshot: snapshot
+                        )
+                    )
+                    print(coverage.json.serialize(sortKeys: true))
+                    if !coverage.passes { coverageFailures += 1 }
+                }
+                let met = accounts.filter {
+                    if case .met = $0.outcome { true } else { false }
+                }.count
+                let failed = accounts.filter {
+                    if case .failed = $0.outcome { true } else { false }
+                }.count
+                printToStandardError(
+                    "certification run: \(accounts.count) obligations, \(met) met, "
+                        + "\(failed) failed, \(accounts.count - met - failed) unmeasured, "
+                        + "\(coverageFailures) closure failures\n"
+                )
+                Process.Exit.normal(
+                    failed == 0 && met == accounts.count && coverageFailures == 0 ? 0 : 1
+                )
+            }
+            let git = Git.Client()
+            let inventoryCommit: Institute.Certification.Revision
+            let inventoryBlob: Swift.String
+            var centrals = [Institute.Repository.Key: Institute.Certification.Revision]()
+            var reading = root.checkout.description
+            do {
+                inventoryCommit = try .init(
+                    git.head("HEAD", at: root.checkout.description).rawValue
+                )
+                inventoryBlob = try git.head(
+                    "HEAD:Institute.json",
+                    at: root.checkout.description
+                ).rawValue
+                // The control-plane member set named on
+                // swift-institute/.github#600 (2026-08-18 population
+                // reconciliation): governance repositories certified by
+                // exact revision, never by implied package obligations.
+                for name in [
+                    ".github", "institute", "institute-application",
+                    "institute-continuous-integration", "Issues", "Research",
+                    "swift-institute.org",
+                ] {
+                    reading = "\(root.hierarchy)/\(name)"
+                    guard
+                        let key = Institute.Repository.Key(
+                            identity: "swift-institute/\(name)"
+                        )
+                    else {
+                        throw Institute.Error.repository(
+                            "swift-institute/\(name) is not a canonical repository key"
+                        )
+                    }
+                    centrals[key] = try .init(
+                        git.head("main", at: "\(root.hierarchy)/\(name)").rawValue
+                    )
+                }
+            } catch {
+                throw .configuration(
+                    "certification snapshot: cannot read exact heads at \(reading): \(error)"
+                )
+            }
+            let snapshot = try Institute.Certification.Derivation(
+                root: root,
+                configuration: configuration
+            ).snapshot(
+                inventoryCommit: inventoryCommit,
+                inventoryBlob: inventoryBlob,
+                centrals: centrals,
+                exclusions: []
+            )
+            print(snapshot.canonical)
+            printToStandardError(
+                "certification snapshot: \(snapshot.members.count) members, "
+                    + "\(snapshot.exclusions.count) exclusions, digest \(snapshot.digest)\n"
+            )
+            Process.Exit.normal(0)
+
         case .conversion:
             switch modes.first {
             case .some(.seal):
@@ -2093,5 +2312,193 @@ extension Institute.Application.CLI {
             // `configuration` are resolved, exactly like `.package`.
             return
         }
+    }
+}
+
+extension Institute.Application.CLI {
+    // Ephemeral exact-revision fleet evaluation state. `nonisolated(unsafe)`
+    // is acceptable: the CLI dispatch is single-threaded per process.
+    nonisolated(unsafe) static var ephemeralCoverageFailures = 0
+
+    static func ephemeralAccounts(
+        obligations: [Institute.Certification.Obligation],
+        snapshot: Institute.Certification.Snapshot,
+        root: Institute.Root,
+        configuration: Institute.Configuration,
+        platform: Institute.Certification.Platform
+    ) -> [Institute.Certification.Account] {
+        let git = Git.Client()
+        let coordinator = Build.Coordinator()
+        let packages = Package.Manager()
+        var repositories = [Swift.String: Institute.Repository]()
+        for repository in configuration.repositories {
+            repositories["\(repository.organization)/\(repository.name)"] = repository
+        }
+        let scratch = "\(root.hierarchy)/.certifier-ephemeral"
+
+        var accounts = [Institute.Certification.Account]()
+        var byMember = [Institute.Repository.Key: [Institute.Certification.Obligation]]()
+        for obligation in obligations {
+            byMember[obligation.key, default: []].append(obligation)
+        }
+
+        for (key, owed) in byMember.sorted(by: { $0.key.identity < $1.key.identity }) {
+            func account(_ outcome: Institute.Certification.Account.Outcome) {
+                for obligation in owed {
+                    accounts.append(.init(obligation: obligation, outcome: outcome))
+                }
+            }
+            guard let member = snapshot[key] else {
+                account(.failed(diagnostic: "\(key.identity): not an admitted snapshot member"))
+                continue
+            }
+            guard let repository = repositories[key.identity] else {
+                account(.failed(diagnostic: "\(key.identity): no inventory repository record"))
+                continue
+            }
+            guard let source = try? root.materialization(for: repository) else {
+                account(.unmeasured(reason: "\(key.identity): no readable materialization"))
+                continue
+            }
+            let destination = "\(scratch)/\(repository.organization)__\(repository.name)"
+            if let path = try? File.Path(destination) {
+                try? File.System.Delete.delete(at: path, recursive: true)
+            }
+            do {
+                try git.clone(source.description, branch: "main", to: destination)
+            } catch {
+                account(.unmeasured(reason: "\(key.identity): ephemeral clone failed: \(error)"))
+                continue
+            }
+            defer {
+                if let path = try? File.Path(destination) {
+                    try? File.System.Delete.delete(at: path, recursive: true)
+                }
+            }
+            guard
+                let head = try? git.head("HEAD", at: destination),
+                head.rawValue == member.revision.sha
+            else {
+                account(
+                    .failed(
+                        diagnostic: "\(key.identity): ephemeral clone is not the snapshot "
+                            + "revision \(member.revision.sha)"
+                    )
+                )
+                continue
+            }
+            // Re-pin the clone's committed Package.resolved to current
+            // branch tips (= the snapshot at freeze time). Without this the
+            // clone compiles whatever the member last committed — the exact
+            // stale-pin class law 2 refuses.
+            do {
+                _ = try coordinator.run(
+                    .update,
+                    at: destination,
+                    fresh: false,
+                    arguments: [],
+                    capturingDiagnostics: true
+                )
+            } catch {
+                account(.unmeasured(reason: "\(key.identity): ephemeral update failed: \(error)"))
+                continue
+            }
+
+            for obligation in owed {
+                guard obligation.platform == platform else {
+                    accounts.append(
+                        .init(
+                            obligation: obligation,
+                            outcome: .unmeasured(
+                                reason: "owed on \(obligation.platform.rawValue), this "
+                                    + "execution measures \(platform.rawValue)"
+                            )
+                        )
+                    )
+                    continue
+                }
+                let action: Build.Action? =
+                    switch obligation.kind {
+                    case .build: .build
+                    case .test: .test
+                    case .lint, .format: nil
+                    }
+                guard let action else {
+                    accounts.append(
+                        .init(
+                            obligation: obligation,
+                            outcome: .unmeasured(
+                                reason: "quality obligations are executed by the quality "
+                                    + "instruments"
+                            )
+                        )
+                    )
+                    continue
+                }
+                let result: Build.Coordinator.Result
+                do {
+                    result = try coordinator.run(
+                        action,
+                        at: destination,
+                        fresh: false,
+                        arguments: [],
+                        capturingDiagnostics: true
+                    )
+                } catch {
+                    accounts.append(
+                        .init(
+                            obligation: obligation,
+                            outcome: .unmeasured(reason: "coordinator error: \(error)")
+                        )
+                    )
+                    continue
+                }
+                if result.exitCode == 0 {
+                    accounts.append(
+                        .init(
+                            obligation: obligation,
+                            outcome: .met(evidence: "ephemeral@\(member.revision.sha):exit:0")
+                        )
+                    )
+                } else {
+                    let captured =
+                        Swift.String(
+                            decoding: (result.standardOutput ?? []) + (result.standardError ?? []),
+                            as: Swift.UTF8.self
+                        )
+                    let lines = captured.split(separator: "\n")
+                    let diagnostic =
+                        lines.first { $0.contains(": error:") }.map(Swift.String.init)
+                        ?? lines.last(where: { !$0.isEmpty }).map(Swift.String.init)
+                        ?? "failed with no captured diagnostic"
+
+                    accounts.append(
+                        .init(
+                            obligation: obligation,
+                            outcome: .failed(diagnostic: "\(key.identity): \(diagnostic)")
+                        )
+                    )
+                }
+            }
+
+            if let resolution = try? packages.resolution(at: destination) {
+                let coverage = Institute.Certification.Closure.Coverage(
+                    consumer: key,
+                    proofs: Institute.Certification.Closure.proofs(
+                        consumer: key,
+                        resolution: resolution,
+                        snapshot: snapshot
+                    )
+                )
+                print(coverage.json.serialize(sortKeys: true))
+                if !coverage.passes { Self.ephemeralCoverageFailures += 1 }
+            } else {
+                printToStandardError(
+                    "closure: \(key.identity): ephemeral resolution unreadable — UNMEASURED\n"
+                )
+                Self.ephemeralCoverageFailures += 1
+            }
+        }
+        return accounts
     }
 }
