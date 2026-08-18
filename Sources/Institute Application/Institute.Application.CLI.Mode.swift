@@ -35,6 +35,7 @@ extension Institute.Application.CLI {
         case validate
         case index
         case snapshot
+        case assemble
 
         public init?(argument: Swift.String) {
             switch argument {
@@ -59,6 +60,7 @@ extension Institute.Application.CLI {
             case "validate": self = .validate
             case "index": self = .index
             case "snapshot": self = .snapshot
+            case "assemble": self = .assemble
             default: return nil
             }
         }
@@ -86,6 +88,7 @@ extension Institute.Application.CLI {
             case .validate: "validate"
             case .index: "index"
             case .snapshot: "snapshot"
+            case .assemble: "assemble"
             }
         }
     }
@@ -95,7 +98,7 @@ extension Institute.Application.CLI.Mode {
     var buildAction: Build.Action? {
         switch self {
         case .install, .check, .serve, .regenerate, .effective, .lint, .ledger, .pages, .seal,
-            .token, .packet, .validate, .index, .snapshot:
+            .token, .packet, .validate, .index, .snapshot, .assemble:
             nil
 
         case .build: .build
