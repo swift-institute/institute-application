@@ -228,9 +228,11 @@ extension Institute.Application.CLI {
                 name: .long(.literal("composed")),
                 help: .init(
                     abstract:
-                        "Certify against the local materializations composed in place — every "
-                        + "internal edge resolves to its exact-snapshot local checkout "
-                        + "(certification run only; mutually exclusive with --fresh)."
+                        "Certify against isolated exact-snapshot checkouts — every package "
+                        + "member is materialized as a certifier-owned detached checkout of "
+                        + "exactly its snapshot revision, and every internal edge resolves "
+                        + "to one of those trees; no developer worktree is an evaluation "
+                        + "source (certification run only; mutually exclusive with --fresh)."
                 )
             )
             Command.Flag(
@@ -2773,10 +2775,12 @@ extension Institute.Application.CLI {
     /// manifest preimage bytes afterward — success, typed error, and
     /// cancellation alike (`Institute.Development.VerificationPlan`).
     ///
-    /// Exact-S is the whole point: the evaluation refuses — before any
-    /// member is evaluated — unless every snapshot package member's
-    /// materialization exists and stands at exactly its snapshot revision,
-    /// and the refusal reports every skewed or missing member, not just
+    /// Exact-S is the whole point: every package member is materialized as
+    /// an isolated certifier-owned detached checkout of exactly its
+    /// snapshot revision (`Institute.Checkout`) — developer worktrees can
+    /// seed the object store but never contribute bytes — and the
+    /// evaluation refuses before any member is evaluated unless every
+    /// materialization verified, reporting every failed member, not just
     /// the first. Coverage is read from each member's own resolution with
     /// both `.localPath` and `.remoteExact` acceptable: under composition
     /// internal edges are file-system states local to S, and a
@@ -2797,62 +2801,100 @@ extension Institute.Application.CLI {
             repositories["\(repository.organization)/\(repository.name)"] = repository
         }
 
-        // Exact-S gate: composed certification certifies the snapshot only
-        // when the file-system state *is* the snapshot. Every skew is
+        // Exact-S by construction: every package member is materialized as
+        // an isolated certifier-owned detached checkout of exactly its
+        // snapshot revision (`Institute.Checkout`). No developer worktree
+        // is an evaluation source — a local materialization may seed the
+        // clone's *object store*, but its worktree bytes are unreachable
+        // by construction, and a store missing the commit falls back to an
+        // exact-object fetch from the canonical remote. Every failure is
         // collected so one refusal names the whole repair.
+        let certifier = File.Directory(
+            File.Path(
+                "\(root.hierarchy)/.certifier-exact/\(snapshot.digest.prefix(12))"
+            )
+        )
+        if File.System.Stat.exists(at: certifier.path) {
+            // Residue of an interrupted run of this same snapshot. The
+            // namespace is certifier-owned scratch; a partially published
+            // prior tree must not be trusted, so start clean.
+            do throws(File.System.Delete.Error) {
+                try certifier.delete.recursive()
+            } catch {
+                throw .filesystem(
+                    "certification run --composed: cannot clear certifier scratch "
+                        + "\(certifier): \(error)"
+                )
+            }
+        }
+        let checkout = Institute.Checkout(client: git)
         var skews = [Swift.String]()
         var directories = [Institute.Repository.Key: File.Directory]()
+        var trees = [Institute.Repository.Key: Swift.String]()
         for member in snapshot.members.sorted(by: { $0.key.identity < $1.key.identity }) {
             guard case .package = member.kind else { continue }
             guard let repository = repositories[member.key.identity] else {
                 skews.append("\(member.key.identity): no inventory repository record")
                 continue
             }
-            let directory: File.Directory
-            do throws(Institute.Error) {
-                directory = try root.materialization(for: repository)
-            } catch {
-                skews.append("\(member.key.identity): no readable materialization")
-                continue
-            }
-            let head: Git.Object.ID
-            do throws(Git.Client.Error) {
-                head = try git.head("HEAD", at: directory.description)
-            } catch {
-                skews.append("\(member.key.identity): HEAD unreadable: \(error)")
-                continue
-            }
-            guard head.rawValue == member.revision.sha else {
+            guard let revision = Git.Object.ID(rawValue: member.revision.sha) else {
                 skews.append(
-                    "\(member.key.identity): HEAD \(head.rawValue) is not the snapshot "
-                        + "revision \(member.revision.sha)"
+                    "\(member.key.identity): snapshot revision is not a Git object "
+                        + "identifier: \(member.revision.sha)"
                 )
                 continue
             }
-            directories[member.key] = directory
+            // The developer materialization, when readable, seeds the
+            // clone's object store so most members materialize without a
+            // network fetch. Its absence is not a failure — the canonical
+            // remote supplies the exact object instead.
+            let objects: Swift.String?
+            do throws(Institute.Error) {
+                objects = try root.materialization(for: repository).description
+            } catch {
+                objects = nil
+            }
+            let destination = certifier[
+                directory: File.Path.Component(
+                    "\(member.key.owner)__\(member.key.name)"
+                )
+            ]
+            let materialized: Institute.Checkout.Materialized
+            do throws(Institute.Error) {
+                materialized = try checkout.materialize(
+                    url: repository.url,
+                    objects: objects,
+                    revision: revision,
+                    to: destination
+                )
+            } catch {
+                skews.append("\(member.key.identity): \(error)")
+                continue
+            }
+            directories[member.key] = materialized.directory
+            trees[member.key] = materialized.tree.rawValue
         }
         guard skews.isEmpty else {
             throw .configuration(
-                "certification run --composed: the local materializations are not exact-S "
+                "certification run --composed: exact-S materialization failed "
                     + "(\(skews.count) member(s)); refusing before any evaluation:\n"
                     + skews.joined(separator: "\n")
             )
         }
 
-        // The full source map: every Institute.json repository redirects to
-        // its local materialization, whether or not a given member declares
-        // it — the plan applies only the assignments a manifest declares.
+        // The source map: every materialized snapshot member redirects to
+        // its exact certifier-owned tree, whether or not a given member
+        // declares it — the plan applies only the assignments a manifest
+        // declares. A governed repository outside the admitted population
+        // is deliberately unmapped: a dependency on it stays remote and
+        // the closure proof attributes the escape.
         var assignments = [Institute.Development.VerificationPlan.Assignment]()
-        for repository in configuration.repositories.sorted(by: { $0.name < $1.name }) {
-            let directory: File.Directory
-            do throws(Institute.Error) {
-                directory = try root.materialization(for: repository)
-            } catch {
-                throw .configuration(
-                    "certification run --composed: \(repository.name) has no readable "
-                        + "materialization for the source map: \(error)"
-                )
-            }
+        var members = [Swift.String: Institute.Repository.Key]()
+        for member in snapshot.members.sorted(by: { $0.key.identity < $1.key.identity }) {
+            guard
+                let directory = directories[member.key],
+                let repository = repositories[member.key.identity]
+            else { continue }
             assignments.append(
                 .init(
                     reference: repository.name,
@@ -2860,6 +2902,7 @@ extension Institute.Application.CLI {
                     path: directory.description
                 )
             )
+            members[repository.name] = member.key
         }
 
         var accounts = [Institute.Certification.Account]()
@@ -2904,7 +2947,7 @@ extension Institute.Application.CLI {
             composition: .init(root: root, configuration: configuration),
             assignments: assignments
         )
-        _ = try plan.run(seeds: seeds) {
+        let results = try plan.run(seeds: seeds) {
             (seed: Swift.String) throws(Institute.Error) in
             guard
                 let key = keys[seed],
@@ -3026,6 +3069,65 @@ extension Institute.Application.CLI {
             return failures == 0
                 ? .passed
                 : .failed("\(key.identity): \(failures) obligation(s) failed")
+        }
+
+        // One evaluation-input receipt per evaluated member: the exact
+        // revision and verified tree that were materialized, plus the
+        // semantic transformation plan the source-map transaction actually
+        // applied to that member's manifest. Emitted as evidence lines for
+        // `certification assemble`, exactly like coverage.
+        for result in results {
+            guard
+                let key = members[result.seed],
+                let member = snapshot[key],
+                let tree = trees[key]
+            else { continue }
+            var transformations = [Institute.Certification.Materialization.Transformation]()
+            var lawful = true
+            for reference in result.composed.sorted() {
+                guard
+                    let dependency = members[reference],
+                    let target = snapshot[dependency]
+                else {
+                    printToStandardError(
+                        "materialization: \(key.identity): composed dependency "
+                            + "\(reference) is not an admitted snapshot member — "
+                            + "receipt withheld\n"
+                    )
+                    lawful = false
+                    break
+                }
+                do throws(Institute.Error) {
+                    transformations.append(
+                        try .init(
+                            file: "Package.swift",
+                            dependency: dependency.identity,
+                            target: target.revision
+                        )
+                    )
+                } catch {
+                    printToStandardError(
+                        "materialization: \(key.identity): \(error) — receipt withheld\n"
+                    )
+                    lawful = false
+                    break
+                }
+            }
+            guard lawful else { continue }
+            do throws(Institute.Error) {
+                let receipt = try Institute.Certification.Materialization(
+                    key: key,
+                    revision: member.revision,
+                    tree: tree,
+                    transformations: transformations
+                )
+                print(receipt.json.serialize(sortKeys: true))
+            } catch {
+                printToStandardError(
+                    "materialization: \(key.identity): receipt construction failed — "
+                        + "\(error)\n"
+                )
+            }
         }
         return accounts
     }
