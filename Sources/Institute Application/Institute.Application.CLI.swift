@@ -57,6 +57,7 @@ extension Institute.Application {
         public var arguments: [Swift.String]
         public var buildPath: Institute.Coherence.BuildPath?
         public var receiptPath: Swift.String
+        public var evidencePath: Swift.String
         public var jobs: Swift.Int?
         public var organization: Swift.String
         public var permissions: [Swift.String]
@@ -100,6 +101,7 @@ extension Institute.Application {
             arguments: [Swift.String] = [],
             buildPath: Institute.Coherence.BuildPath? = nil,
             receiptPath: Swift.String = "",
+            evidencePath: Swift.String = "",
             jobs: Swift.Int? = nil,
             organization: Swift.String = "",
             permissions: [Swift.String] = [],
@@ -142,6 +144,7 @@ extension Institute.Application {
             self.arguments = arguments
             self.buildPath = buildPath
             self.receiptPath = receiptPath
+            self.evidencePath = evidencePath
             self.jobs = jobs
             self.organization = organization
             self.permissions = permissions
@@ -193,7 +196,7 @@ extension Institute.Application.CLI {
                 name: "mode",
                 placeholder:
                     "install|check|packet|serve|build|test|run|resolve|update|regenerate|effective|clean|dump-package"
-                    + "|lint|ledger|pages|seal|token|validate|index|snapshot",
+                    + "|lint|ledger|pages|seal|token|validate|index|snapshot|assemble",
                 arity: .atMost(1),
                 help: .init(
                     abstract:
@@ -398,6 +401,17 @@ extension Institute.Application.CLI {
                         "Conversion receipt file `conversion check` re-reads (issue #83); "
                         + "`verification seal`'s output path or `verification check`'s input path "
                         + "(#253)."
+                )
+            )
+            Command.Option(
+                \.evidencePath,
+                name: .long(.literal("evidence")),
+                placeholder: "path",
+                help: .init(
+                    abstract:
+                        "Evidence JSONL file `certification assemble` reads — one JSON line "
+                        + "per account or closure coverage, as `certification run` prints them "
+                        + "(certification assemble only)."
                 )
             )
             Command.Option(
@@ -616,6 +630,14 @@ extension Institute.Application.CLI {
         // and believing it certified the composed local state.
         guard operation == .certification || !composed else {
             throw .validationFailed(reason: "--composed is valid only with certification run.")
+        }
+        // Rejected rather than ignored: an `--evidence` silently dropped
+        // would leave the caller believing the printed record assembled the
+        // evidence file it named.
+        guard operation == .certification || evidencePath.isEmpty else {
+            throw .validationFailed(
+                reason: "--evidence is valid only with certification assemble."
+            )
         }
         // Rejected rather than ignored, for the reason every flag here is:
         // a `--fix` that was silently dropped would leave the caller reading
@@ -1104,12 +1126,38 @@ extension Institute.Application.CLI {
                 throw .validationFailed(reason: "--argument is valid only with package.")
             }
         } else if operation == .certification {
-            guard modes.count == 1, modes.first == .snapshot || modes.first == .run else {
-                throw .validationFailed(reason: "certification requires snapshot or run.")
+            guard
+                modes.count == 1,
+                modes.first == .snapshot || modes.first == .run || modes.first == .assemble
+            else {
+                throw .validationFailed(
+                    reason: "certification requires snapshot, run, or assemble."
+                )
             }
             guard modes.first == .snapshot || !receiptPath.isEmpty else {
                 throw .validationFailed(
-                    reason: "certification run requires --receipt (the frozen snapshot path)."
+                    reason:
+                        "certification run and assemble require --receipt "
+                        + "(the frozen snapshot path)."
+                )
+            }
+            guard modes.first == .assemble || evidencePath.isEmpty else {
+                throw .validationFailed(
+                    reason: "--evidence is valid only with certification assemble."
+                )
+            }
+            guard modes.first != .assemble || !evidencePath.isEmpty else {
+                throw .validationFailed(
+                    reason:
+                        "certification assemble requires --evidence "
+                        + "(the captured account/coverage JSONL path)."
+                )
+            }
+            guard modes.first != .assemble || arguments.isEmpty else {
+                throw .validationFailed(
+                    reason:
+                        "--argument is not valid with certification assemble; "
+                        + "assembly accounts the whole derived obligation set."
                 )
             }
             guard !fresh || modes.first == .run else {
@@ -1825,46 +1873,105 @@ extension Institute.Application.CLI {
             Process.Exit.normal(receipt.verdict.status)
 
         case .certification:
-            if modes.first == .run {
-                let bytes: [Byte]
-                let validated: File.Path
-                do throws(File.Path.Error) {
-                    validated = try File.Path(receiptPath)
-                } catch {
-                    throw .configuration("invalid --receipt path \(receiptPath): \(error)")
+            if modes.first == .assemble {
+                // Assembly reports; it does not judge. The evidence file is
+                // the captured stdout of one or more `certification run`
+                // invocations over the same frozen snapshot; assembly binds
+                // it into one structurally complete certificate whose
+                // honest verdict may be unmeasured or failed. Obligations
+                // derive exactly as run mode derives them — an obligation
+                // with no evidence is accounted UNMEASURED, never dropped.
+                let snapshot = try Self.certificationSnapshot(atPath: receiptPath)
+                let platform = Self.certificationPlatform
+                let policy = try Self.certificationPolicy(platform: platform)
+                let obligations = Institute.Certification.Obligation.derive(
+                    from: snapshot,
+                    policy: policy
+                )
+                let evidenceText = try Self.certificationFileContents(
+                    atPath: evidencePath,
+                    describedAs: "--evidence"
+                )
+                let evidence = try Evidence.parse(evidenceText)
+                if evidence.replacedCoverage > 0 {
+                    printToStandardError(
+                        "certification assemble: \(evidence.replacedCoverage) closure "
+                            + "coverage record(s) replaced by a later line for the same "
+                            + "consumer\n"
+                    )
                 }
-                do throws(Either<File.System.Read.Full.Error, Never>) {
-                    bytes = try File.System.Read.Full.read(from: validated) {
-                        (span: Swift.Span<Byte>) in
-                        var storage = [Byte]()
-                        storage.reserveCapacity(span.count)
-                        for index in span.indices { storage.append(span[index]) }
-                        return storage
-                    }
-                } catch {
-                    throw .configuration("cannot read snapshot at \(receiptPath): \(error)")
+                var accounts = evidence.accounts
+                let accounted = Set(accounts.map(\.obligation))
+                for obligation in obligations where !accounted.contains(obligation) {
+                    accounts.append(
+                        .init(
+                            obligation: obligation,
+                            outcome: .unmeasured(reason: "no account in assembled evidence")
+                        )
+                    )
                 }
-                let snapshot: Institute.Certification.Snapshot
+                // The control names the producer attributably: the exact
+                // institute-application revision this assembly ran from,
+                // and the observed toolchain. Purely local assembly carries
+                // no hosted CI policy and no runtime receipts.
+                let certifier: Institute.Certification.Revision
                 do {
-                    snapshot = try Institute.Certification.Snapshot(
-                        jsonString: Swift.String(decoding: bytes, as: Swift.UTF8.self)
+                    certifier = try .init(
+                        Git.Client().head("HEAD", at: root.checkout.description).rawValue
                     )
                 } catch {
-                    throw .configuration("snapshot does not decode: \(error)")
+                    throw .configuration(
+                        "certification assemble: cannot read the producing revision at "
+                            + "\(root.checkout): \(error)"
+                    )
                 }
-
-                let platform: Institute.Certification.Platform =
-                    switch Institute.Coherence.Run.currentPlatform {
-                    case "macos": .macos
-                    case "windows": .windows
-                    default: .linux
-                    }
-                let policy: Institute.Certification.Policy
-                do {
-                    policy = try .init(platforms: [platform], quality: [])
+                // Descriptive, never gating: assembly must not fail because
+                // it could not identify its own toolchain string.
+                let toolchain: Swift.String
+                do throws(Institute.Error) {
+                    let observed = try Institute.Doctor.spawn(
+                        "swift",
+                        arguments: ["--version"]
+                    )
+                    toolchain =
+                        observed.split(separator: "\n").first.map(Swift.String.init)
+                        ?? "unknown"
                 } catch {
-                    throw .configuration("cannot form canary policy: \(error)")
+                    toolchain = "unknown"
                 }
+                let certificate: Institute.Certification.Certificate
+                do throws(Institute.Error) {
+                    certificate = try .init(
+                        snapshot: snapshot,
+                        control: .init(
+                            certifier: certifier,
+                            toolchain: toolchain,
+                            policy: nil,
+                            runtimeReceipts: []
+                        ),
+                        policy: policy,
+                        obligations: obligations,
+                        accounts: accounts,
+                        exceptions: [],
+                        closure: evidence.coverage,
+                        coherenceReceipts: []
+                    )
+                } catch {
+                    throw .configuration(
+                        "certification assemble: structurally invalid certificate: \(error)"
+                    )
+                }
+                print(certificate.canonical)
+                printToStandardError(
+                    "certificate digest: \(certificate.digest)"
+                        + "  verdict: \(certificate.verdict.rawValue)\n"
+                )
+                Process.Exit.normal(0)
+            }
+            if modes.first == .run {
+                let snapshot = try Self.certificationSnapshot(atPath: receiptPath)
+                let platform = Self.certificationPlatform
+                let policy = try Self.certificationPolicy(platform: platform)
                 var obligations = Institute.Certification.Obligation.derive(
                     from: snapshot,
                     policy: policy
@@ -2371,6 +2478,66 @@ extension Institute.Application.CLI {
 }
 
 extension Institute.Application.CLI {
+    /// Reads one certification input file completely, as UTF-8 text.
+    static func certificationFileContents(
+        atPath path: Swift.String,
+        describedAs label: Swift.String
+    ) throws(Institute.Error) -> Swift.String {
+        let validated: File.Path
+        do throws(File.Path.Error) {
+            validated = try File.Path(path)
+        } catch {
+            throw .configuration("invalid \(label) path \(path): \(error)")
+        }
+        let bytes: [Byte]
+        do throws(Either<File.System.Read.Full.Error, Never>) {
+            bytes = try File.System.Read.Full.read(from: validated) {
+                (span: Swift.Span<Byte>) in
+                var storage = [Byte]()
+                storage.reserveCapacity(span.count)
+                for index in span.indices { storage.append(span[index]) }
+                return storage
+            }
+        } catch {
+            throw .configuration("cannot read \(label) at \(path): \(error)")
+        }
+        return Swift.String(decoding: bytes, as: Swift.UTF8.self)
+    }
+
+    /// Loads the frozen snapshot `certification run` and `certification
+    /// assemble` evaluate — the `--receipt` input.
+    static func certificationSnapshot(
+        atPath path: Swift.String
+    ) throws(Institute.Error) -> Institute.Certification.Snapshot {
+        let text = try certificationFileContents(atPath: path, describedAs: "--receipt")
+        do {
+            return try Institute.Certification.Snapshot(jsonString: text)
+        } catch {
+            throw .configuration("snapshot does not decode: \(error)")
+        }
+    }
+
+    /// The platform this process evaluates as, for obligation derivation.
+    static var certificationPlatform: Institute.Certification.Platform {
+        switch Institute.Coherence.Run.currentPlatform {
+        case "macos": .macos
+        case "windows": .windows
+        default: .linux
+        }
+    }
+
+    /// The canary policy `certification run` and `certification assemble`
+    /// derive obligations under: the current platform, no quality gates.
+    static func certificationPolicy(
+        platform: Institute.Certification.Platform
+    ) throws(Institute.Error) -> Institute.Certification.Policy {
+        do {
+            return try .init(platforms: [platform], quality: [])
+        } catch {
+            throw .configuration("cannot form canary policy: \(error)")
+        }
+    }
+
     /// Removes an ephemeral evaluation directory. A failed removal is
     /// surfaced, never swallowed: leftover scratch is a disk-space defect,
     /// not an evaluation defect, so it must not fail an account.
