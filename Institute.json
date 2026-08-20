@@ -2780,7 +2780,7 @@
     }
   ],
   "scope": "proof",
-  "swift": "6.3.3",
+  "swift": "6.4",
   "version": 1,
   "xcode": "26.6"
 }
