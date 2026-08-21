@@ -60,19 +60,27 @@ extension Institute.Source.Command.Repair {
         }
 
         public mutating func run() async throws(Institute.Error) {
-            guard !changed else {
-                throw .configuration("changed source scope is not yet mechanically available")
-            }
             let context = try Institute.Source.Command.context(workspace: workspacePath)
-            let selected = try Institute.Source.Command.rows(
-                at: packagePaths,
-                in: context.cohort
-            ) ?? context.cohort.admitted
+            let selection = changed
+                ? await context.cohort.changed()
+                : .init(
+                    rows: try Institute.Source.Command.rows(
+                        at: packagePaths,
+                        in: context.cohort
+                    ) ?? context.cohort.admitted,
+                    reasons: []
+                )
+            guard selection.reasons.isEmpty else {
+                for reason in selection.reasons {
+                    print("UNMEASURED \(reason.code): \(reason.detail)")
+                }
+                Process.Exit.normal(2)
+            }
             let plan = try await Institute.Source.Application().planRepair(
                 workspace: workspacePath,
                 configuration: context.configuration,
                 cohort: context.cohort,
-                members: selected,
+                members: selection.rows,
                 rules: try Institute.Source.Command.rules(rules),
                 preparation: try Institute.Source.Command.preparation(workspace: workspacePath)
             )

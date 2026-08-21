@@ -56,19 +56,24 @@ extension Institute.Source.Command {
         }
 
         public mutating func run() async throws(Institute.Error) {
-            guard !changed else {
-                throw .configuration("changed source scope is not yet mechanically available")
-            }
             let context = try Institute.Source.Command.context(workspace: workspacePath)
-            let selected = try Institute.Source.Command.rows(
-                at: packagePaths,
-                in: context.cohort
-            )
+            let selection = changed
+                ? await context.cohort.changed(jobs: jobs)
+                : .init(
+                    rows: try Institute.Source.Command.rows(
+                        at: packagePaths,
+                        in: context.cohort
+                    ) ?? context.cohort.admitted,
+                    reasons: []
+                )
+            let selected = changed || !packagePaths.isEmpty ? selection.rows : nil
             let selectedEngines = engines.isEmpty ? nil : Set(engines.map(SourceDomain.Engine.ID.init))
             let report = try await Institute.Source.Application().measure(
                 cohort: context.cohort,
                 selected: selected,
                 engines: selectedEngines,
+                jobs: jobs,
+                references: selection.reasons,
                 preparation: try Institute.Source.Command.preparation(workspace: workspacePath)
             )
             try Institute.Source.Command.write(
