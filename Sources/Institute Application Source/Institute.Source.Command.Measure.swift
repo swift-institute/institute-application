@@ -60,18 +60,10 @@ extension Institute.Source.Command {
                 throw .configuration("changed source scope is not yet mechanically available")
             }
             let context = try Institute.Source.Command.context(workspace: workspacePath)
-            let selected: [Institute.Source.Workspace.Row]?
-            if packagePaths.isEmpty { selected = nil }
-            else {
-                var rows: [Institute.Source.Workspace.Row] = []
-                for path in packagePaths {
-                    guard let row = context.cohort.admitted.first(where: { $0.directory == path }) else {
-                        throw .configuration("--package-path is not an admitted direct workspace member: \(path)")
-                    }
-                    rows.append(row)
-                }
-                selected = rows
-            }
+            let selected = try Institute.Source.Command.rows(
+                at: packagePaths,
+                in: context.cohort
+            )
             let selectedEngines = engines.isEmpty ? nil : Set(engines.map(SourceDomain.Engine.ID.init))
             let report = try await Institute.Source.Application().measure(
                 cohort: context.cohort,
@@ -79,8 +71,11 @@ extension Institute.Source.Command {
                 engines: selectedEngines,
                 preparation: try Institute.Source.Command.preparation(workspace: workspacePath)
             )
-            let rendered = format == .json ? report.jsonString(sortKeys: true) + "\n" : report.human
-            try Institute.Source.Command.write(rendered, to: outputPath)
+            try Institute.Source.Command.write(
+                report,
+                format: format,
+                to: outputPath
+            )
             let unmeasured = !report.references.isEmpty || report.measurements.contains {
                 if case .unmeasured = $0.verdict { true } else { false }
             }

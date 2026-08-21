@@ -29,23 +29,3 @@ extension Institute.Source.Command {
         }
     }
 }
-
-extension Institute.Source.Command.Repair {
-    public struct Plan: Sendable, Command.`Protocol` {
-        public init() {}
-        public static var configuration: Command.Configuration { .init(name: "plan") }
-        public static var schema: Command.Schema.Definition<Self> { .init {} }
-        public mutating func run() async throws(Institute.Error) {
-            throw .configuration("source repair planning is not yet available")
-        }
-    }
-
-    public struct Apply: Sendable, Command.`Protocol` {
-        public init() {}
-        public static var configuration: Command.Configuration { .init(name: "apply") }
-        public static var schema: Command.Schema.Definition<Self> { .init {} }
-        public mutating func run() async throws(Institute.Error) {
-            throw .configuration("source repair application is not yet available")
-        }
-    }
-}

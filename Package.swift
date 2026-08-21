@@ -236,6 +236,10 @@ let package = Package(
             path: "Tests/InstituteArchitectureTests"
         ),
         .testTarget(
+            name: "Institute Application Source Tests",
+            dependencies: ["Institute Application Source"]
+        ),
+        .testTarget(
             name: "Institute Application Tests",
             dependencies: [
                 .product(name: "Build Coordinator", package: "institute"),
