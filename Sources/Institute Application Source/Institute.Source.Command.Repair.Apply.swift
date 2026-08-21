@@ -72,15 +72,8 @@ extension Institute.Source.Command.Repair {
                 preparation: preparation
             )
             try Institute.Source.Command.write(report, format: format, to: outputPath)
-            let unmeasured =
-                !report.references.isEmpty
-                || report.measurements.contains {
-                    if case .unmeasured = $0.verdict { true } else { false }
-                }
-            let findings = report.measurements.contains {
-                if case .findings = $0.verdict { true } else { false }
-            }
-            Process.Exit.normal(unmeasured ? 2 : (refusal != nil || findings ? 1 : 0))
+            let status = Source.Report.Status(report, expected: report.commitment)
+            Process.Exit.normal(refusal == nil ? status.code : 1)
         }
     }
 }

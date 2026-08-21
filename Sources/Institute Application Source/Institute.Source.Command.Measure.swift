@@ -111,15 +111,8 @@ extension Institute.Source.Command {
                 format: format,
                 to: outputPath
             )
-            let unmeasured =
-                !report.references.isEmpty
-                || report.measurements.contains {
-                    if case .unmeasured = $0.verdict { true } else { false }
-                }
-            let findings = report.measurements.contains {
-                if case .findings = $0.verdict { true } else { false }
-            }
-            Process.Exit.normal(unmeasured ? 2 : findings ? 1 : 0)
+            let status = SourceDomain.Report.Status(report, expected: report.commitment)
+            Process.Exit.normal(status.code)
         }
     }
 }
