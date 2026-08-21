@@ -1,3 +1,5 @@
+public import Institute_Model
+
 extension Institute {
     /// The derived architecture model of the Institute ecosystem.
     ///

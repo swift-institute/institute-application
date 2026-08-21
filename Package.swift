@@ -89,7 +89,10 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "InstituteArchitectureModel"
+            name: "InstituteArchitectureModel",
+            dependencies: [
+                .product(name: "Institute Model", package: "institute")
+            ]
         ),
         .target(
             name: "InstituteArchitectureFacts",
