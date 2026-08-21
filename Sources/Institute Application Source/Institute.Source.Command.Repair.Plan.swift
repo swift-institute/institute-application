@@ -26,16 +26,35 @@ extension Institute.Source.Command.Repair {
         }
 
         public static var configuration: Command.Configuration {
-            .init(name: "plan", abstract: "Plan a transactional source repair without writing source.")
+            .init(
+                name: "plan",
+                abstract: "Plan a transactional source repair without writing source."
+            )
         }
 
         public static var schema: Command.Schema.Definition<Self> {
             .init {
-                Command.Option(\.workspacePath, name: .long(.literal("workspace-path")), placeholder: "workspace.xcworkspace")
+                Command.Option(
+                    \.workspacePath,
+                    name: .long(.literal("workspace-path")),
+                    placeholder: "workspace.xcworkspace"
+                )
                 Command.Flag(\.changed, name: .long(.literal("changed")))
-                Command.Option<Self, Swift.String>.Many(\.packagePaths, name: .long(.literal("package-path")), placeholder: "member")
-                Command.Option<Self, Swift.String>.Many(\.rules, name: .long(.literal("rule")), placeholder: "engine:rule")
-                Command.Option(\.outputPath, name: .long(.literal("output-path")), placeholder: "plan")
+                Command.Option<Self, Swift.String>.Many(
+                    \.packagePaths,
+                    name: .long(.literal("package-path")),
+                    placeholder: "member"
+                )
+                Command.Option<Self, Swift.String>.Many(
+                    \.rules,
+                    name: .long(.literal("rule")),
+                    placeholder: "engine:rule"
+                )
+                Command.Option(
+                    \.outputPath,
+                    name: .long(.literal("output-path")),
+                    placeholder: "plan"
+                )
             }
         }
 
@@ -61,13 +80,14 @@ extension Institute.Source.Command.Repair {
 
         public mutating func run() async throws(Institute.Error) {
             let context = try Institute.Source.Command.context(workspace: workspacePath)
-            let selection = changed
+            let selection =
+                changed
                 ? await context.cohort.changed()
                 : .init(
                     rows: try Institute.Source.Command.rows(
                         at: packagePaths,
                         in: context.cohort
-                    ) ?? context.cohort.admitted,
+                    ) ?? context.cohort.measurable,
                     reasons: []
                 )
             guard selection.reasons.isEmpty else {

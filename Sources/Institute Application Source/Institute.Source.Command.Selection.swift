@@ -11,8 +11,9 @@ extension Institute.Source.Command {
         var selected: Swift.Set<Swift.String> = []
         for path in paths {
             let parsed: File.Path
-            do throws(File.Path.Error) { parsed = try .init(path) }
-            catch { throw .configuration("invalid --package-path \(path)") }
+            do throws(File.Path.Error) { parsed = try .init(path) } catch {
+                throw .configuration("invalid --package-path \(path)")
+            }
             let canonical: File.Path
             do throws(File.System.Canonical.Error) {
                 canonical = try File.System.Canonical.resolve(parsed)
@@ -23,18 +24,20 @@ extension Institute.Source.Command {
                 throw .configuration("duplicate resolved --package-path \(canonical)")
             }
         }
-        let rows = cohort.admitted.filter { selected.contains($0.directory) }
+        let rows = cohort.measurable.filter { selected.contains($0.directory) }
         guard rows.count == selected.count else {
-            let admitted = Swift.Set(rows.map(\.directory))
-            let unknown = selected.subtracting(admitted).sorted().joined(separator: ", ")
+            let measurable = Swift.Set(rows.map(\.directory))
+            let unknown = selected.subtracting(measurable).sorted().joined(separator: ", ")
             throw .configuration(
-                "--package-path is not an admitted direct workspace member: \(unknown)"
+                "--package-path is not a measurable direct workspace member: \(unknown)"
             )
         }
         return rows
     }
 
-    static func rules(_ values: [Swift.String]) throws(Institute.Error)
+    static func rules(
+        _ values: [Swift.String]
+    ) throws(Institute.Error)
         -> Swift.Set<Source.Rule.ID>?
     {
         guard !values.isEmpty else { return nil }

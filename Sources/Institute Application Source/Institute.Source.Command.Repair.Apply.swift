@@ -28,10 +28,18 @@ extension Institute.Source.Command.Repair {
 
         public static var schema: Command.Schema.Definition<Self> {
             .init {
-                Command.Option(\.workspacePath, name: .long(.literal("workspace-path")), placeholder: "workspace.xcworkspace")
+                Command.Option(
+                    \.workspacePath,
+                    name: .long(.literal("workspace-path")),
+                    placeholder: "workspace.xcworkspace"
+                )
                 Command.Option(\.planPath, name: .long(.literal("plan-path")), placeholder: "plan")
                 Command.Option(\.format, name: .long(.literal("format")), placeholder: "human|json")
-                Command.Option(\.outputPath, name: .long(.literal("output-path")), placeholder: "report")
+                Command.Option(
+                    \.outputPath,
+                    name: .long(.literal("output-path")),
+                    placeholder: "report"
+                )
             }
         }
 
@@ -57,16 +65,18 @@ extension Institute.Source.Command.Repair {
                 preparation: preparation
             )
             let identities = Swift.Set(plan.repairs.map(\.subject.identity))
-            let selected = context.cohort.admitted.filter { identities.contains($0.identity) }
+            let selected = context.cohort.measurable.filter { identities.contains($0.identity) }
             let report = try await application.measure(
                 cohort: context.cohort,
                 selected: selected,
                 preparation: preparation
             )
             try Institute.Source.Command.write(report, format: format, to: outputPath)
-            let unmeasured = !report.references.isEmpty || report.measurements.contains {
-                if case .unmeasured = $0.verdict { true } else { false }
-            }
+            let unmeasured =
+                !report.references.isEmpty
+                || report.measurements.contains {
+                    if case .unmeasured = $0.verdict { true } else { false }
+                }
             let findings = report.measurements.contains {
                 if case .findings = $0.verdict { true } else { false }
             }
