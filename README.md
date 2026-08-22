@@ -836,13 +836,14 @@ of it once the change lands.
 
 ## Scope
 
-The committed selection is the full public roster, so a fresh clone materializes every package
-in `Institute.json`. The inventory and the selection line that `sync` and `doctor` print are the
-authorities; this document does not duplicate their changing counts.
+The committed selection is the canonical public workspace cohort. The broader inventory can
+contain public packages that are deliberately not selected. The inventory and the selection
+line that `sync` and `doctor` print are the authorities; this document does not duplicate their
+changing counts.
 
 The Xcode workspace uses only relative sibling-layout references
-(`../swift-foundations/swift-color`, …); non-selected transitive dependencies still resolve
-from their canonical remote URLs.
+(`../swift-foundations/swift-color`, …). Third-party dependencies remain SwiftPM dependencies
+and resolve from the URLs declared by package manifests.
 
 ## License
 

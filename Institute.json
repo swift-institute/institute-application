@@ -542,6 +542,12 @@
     },
     {
       "layer": "primitives",
+      "name": "swift-foundation-extensions",
+      "organization": "swift-primitives",
+      "url": "https://github.com/swift-primitives/swift-foundation-extensions.git"
+    },
+    {
+      "layer": "primitives",
       "name": "swift-geometry-primitives",
       "organization": "swift-primitives",
       "url": "https://github.com/swift-primitives/swift-geometry-primitives.git"
@@ -2126,6 +2132,12 @@
     },
     {
       "layer": "foundations",
+      "name": "swift-epub-render",
+      "organization": "swift-foundations",
+      "url": "https://github.com/swift-foundations/swift-epub-render.git"
+    },
+    {
+      "layer": "foundations",
       "name": "swift-event-loop-group-dependencies",
       "organization": "swift-foundations",
       "url": "https://github.com/swift-foundations/swift-event-loop-group-dependencies.git"
@@ -2159,12 +2171,6 @@
       "name": "swift-foundation-dependencies",
       "organization": "swift-foundations",
       "url": "https://github.com/swift-foundations/swift-foundation-dependencies.git"
-    },
-    {
-      "layer": "foundations",
-      "name": "swift-foundation-extensions",
-      "organization": "swift-foundations",
-      "url": "https://github.com/swift-foundations/swift-foundation-extensions.git"
     },
     {
       "layer": "foundations",
