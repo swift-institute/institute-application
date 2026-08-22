@@ -19,19 +19,19 @@ extension Institute.Source {
           Command_Schema.Command.Subcommand.Case(
             "prepare",
             help: .init(abstract: "Render and verify the local source profile."),
-            initial: Prepare.init,
+            initial: { .init() },
             map: Self.prepare
           )
           Command_Schema.Command.Subcommand.Case(
             "measure",
             help: .init(abstract: "Measure source without building or testing."),
-            initial: Measure.init,
+            initial: { .init() },
             map: Self.measure
           )
           Command_Schema.Command.Subcommand.Case(
             "repair",
             help: .init(abstract: "Plan or apply a source repair transaction."),
-            initial: Repair.init,
+            initial: { .init() },
             map: Self.repair
           )
         }
