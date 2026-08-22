@@ -1,9 +1,10 @@
 public import Command
+public import Command_Schema
 public import Institute_Model
 public import Institute_Source
 
 extension Institute.Source {
-  public enum Command: Sendable, Command.`Protocol` {
+  public enum Command: Sendable, Command_Schema.Command.`Protocol` {
     case prepare(Prepare)
     case measure(Measure)
     case repair(Repair)

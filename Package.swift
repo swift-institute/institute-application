@@ -178,6 +178,7 @@ let package = Package(
         .product(name: "Institute Model", package: "institute"),
         .product(name: "Institute Source", package: "institute"),
         .product(name: "Command", package: "swift-arguments"),
+        .product(name: "Command Schema", package: "swift-arguments"),
         .product(name: "Environment", package: "swift-environment"),
         .product(name: "File System", package: "swift-file-system"),
         .product(name: "JSON", package: "swift-json"),
