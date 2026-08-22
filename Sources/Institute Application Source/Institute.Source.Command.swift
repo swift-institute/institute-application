@@ -9,26 +9,26 @@ extension Institute.Source {
     case measure(Measure)
     case repair(Repair)
 
-    public static var configuration: Command.Configuration {
+    public static var configuration: Command_Schema.Command.Configuration {
       .init(name: "source", abstract: "Measure and repair the workspace source cohort.")
     }
 
-    public static var schema: Command.Schema.Definition<Self> {
+    public static var schema: Command_Schema.Command.Schema.Definition<Self> {
       .init {
-        Command.Subcommand.Group {
-          Command.Subcommand.Case(
+        Command_Schema.Command.Subcommand.Group {
+          Command_Schema.Command.Subcommand.Case(
             "prepare",
             help: .init(abstract: "Render and verify the local source profile."),
             initial: Prepare.init,
             map: Self.prepare
           )
-          Command.Subcommand.Case(
+          Command_Schema.Command.Subcommand.Case(
             "measure",
             help: .init(abstract: "Measure source without building or testing."),
             initial: Measure.init,
             map: Self.measure
           )
-          Command.Subcommand.Case(
+          Command_Schema.Command.Subcommand.Case(
             "repair",
             help: .init(abstract: "Plan or apply a source repair transaction."),
             initial: Repair.init,

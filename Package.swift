@@ -177,6 +177,7 @@ let package = Package(
       dependencies: [
         .product(name: "Institute Model", package: "institute"),
         .product(name: "Institute Source", package: "institute"),
+        .product(name: "Institute Source Workspace", package: "institute"),
         .product(name: "Command", package: "swift-arguments"),
         .product(name: "Command Schema", package: "swift-arguments"),
         .product(name: "Environment", package: "swift-environment"),
