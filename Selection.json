@@ -192,7 +192,7 @@
     "swift-primitives/swift-tensor-primitives",
     "swift-primitives/swift-terminal-input-primitives",
     "swift-primitives/swift-terminal-primitives",
-    "swift-primitives/swift-test-primitives",
+    "swift-primitives/swift-test",
     "swift-primitives/swift-text-primitives",
     "swift-primitives/swift-time-primitives",
     "swift-primitives/swift-token-primitives",

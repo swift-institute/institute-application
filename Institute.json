@@ -1178,9 +1178,9 @@
     },
     {
       "layer": "primitives",
-      "name": "swift-test-primitives",
+      "name": "swift-test",
       "organization": "swift-primitives",
-      "url": "https://github.com/swift-primitives/swift-test-primitives.git"
+      "url": "https://github.com/swift-primitives/swift-test.git"
     },
     {
       "layer": "primitives",
