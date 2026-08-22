@@ -1,4 +1,4 @@
-internal import Institute_Model
+public import Institute_Model
 
 extension Institute.Architecture.Edge {
   /// The dependency closure records six edge kinds; a graph question is

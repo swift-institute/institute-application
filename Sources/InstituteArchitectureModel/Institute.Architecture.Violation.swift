@@ -1,4 +1,4 @@
-internal import Institute_Model
+public import Institute_Model
 
 extension Institute.Architecture {
   /// A Class I finding: mechanically decidable from the derived model

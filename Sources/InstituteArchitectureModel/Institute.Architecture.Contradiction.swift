@@ -1,4 +1,4 @@
-internal import Institute_Model
+public import Institute_Model
 
 extension Institute.Architecture {
   /// A disagreement between two derived sources.

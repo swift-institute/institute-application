@@ -1,4 +1,4 @@
-internal import Institute_Model
+public import Institute_Model
 
 extension Institute.Architecture.Epoch {
   /// The epoch's identity within its owner's migration history.

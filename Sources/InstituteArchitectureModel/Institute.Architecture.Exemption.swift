@@ -1,4 +1,4 @@
-internal import Institute_Model
+public import Institute_Model
 
 extension Institute.Architecture {
   /// A derived-model exemption: the only exemption form that exists.

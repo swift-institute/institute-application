@@ -1,4 +1,4 @@
-internal import Institute_Model
+public import Institute_Model
 
 extension Institute.Architecture.Fact {
   /// Whether a package root exposes any public API surface.

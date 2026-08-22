@@ -1,4 +1,4 @@
-internal import Institute_Model
+public import Institute_Model
 
 extension Institute.Architecture.Exemption {
   /// A calendar day in `YYYY-MM-DD` form, validated at construction.

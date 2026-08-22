@@ -1,4 +1,4 @@
-internal import Institute_Model
+public import Institute_Model
 
 extension Institute.Architecture.Exemption {
   /// The violation class one exemption excuses; an exemption never
