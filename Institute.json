@@ -950,6 +950,12 @@
     },
     {
       "layer": "primitives",
+      "name": "swift-queue-linked-primitives",
+      "organization": "swift-primitives",
+      "url": "https://github.com/swift-primitives/swift-queue-linked-primitives.git"
+    },
+    {
+      "layer": "primitives",
       "name": "swift-queue-primitives",
       "organization": "swift-primitives",
       "url": "https://github.com/swift-primitives/swift-queue-primitives.git"
@@ -2150,6 +2156,12 @@
     },
     {
       "layer": "foundations",
+      "name": "swift-foundation-dependencies",
+      "organization": "swift-foundations",
+      "url": "https://github.com/swift-foundations/swift-foundation-dependencies.git"
+    },
+    {
+      "layer": "foundations",
       "name": "swift-foundation-extensions",
       "organization": "swift-foundations",
       "url": "https://github.com/swift-foundations/swift-foundation-extensions.git"
@@ -2381,6 +2393,12 @@
       "name": "swift-navigation",
       "organization": "swift-foundations",
       "url": "https://github.com/swift-foundations/swift-navigation.git"
+    },
+    {
+      "layer": "foundations",
+      "name": "swift-numerics",
+      "organization": "swift-foundations",
+      "url": "https://github.com/swift-foundations/swift-numerics.git"
     },
     {
       "layer": "foundations",
@@ -2675,6 +2693,12 @@
       "name": "swift-time-to-live-dependencies",
       "organization": "swift-foundations",
       "url": "https://github.com/swift-foundations/swift-time-to-live-dependencies.git"
+    },
+    {
+      "layer": "foundations",
+      "name": "swift-tls",
+      "organization": "swift-foundations",
+      "url": "https://github.com/swift-foundations/swift-tls.git"
     },
     {
       "layer": "foundations",
