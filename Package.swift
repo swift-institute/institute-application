@@ -185,6 +185,7 @@ let package = Package(
         .product(name: "JSON", package: "swift-json"),
         .product(name: "Process", package: "swift-process"),
         .product(name: "Source Measurement", package: "swift-source"),
+        .product(name: "Source Repair", package: "swift-source"),
         .product(name: "Source Report", package: "swift-source"),
       ]
     ),
