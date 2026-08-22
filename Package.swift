@@ -204,6 +204,7 @@ let package = Package(
         .product(name: "Institute Conversion", package: "institute"),
         .product(name: "Institute Instruments", package: "institute"),
         "Institute GitHub",
+        "InstituteArchitectureModel",
         "InstituteArchitectureCLI",
         .product(name: "Skill Validation", package: "swift-agent-skills"),
         .product(name: "Async Fanout", package: "swift-async"),
