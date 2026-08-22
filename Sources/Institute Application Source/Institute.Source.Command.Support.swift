@@ -5,6 +5,7 @@ public import Institute_Source
 public import Institute_Source_Workspace
 public import JSON
 public import Process
+public import Source_Repair
 public import Source_Report
 
 extension Institute.Source.Command {
