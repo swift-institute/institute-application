@@ -194,9 +194,9 @@ materialized repository are merely **expensive to rebuild** — regenerable from
 fresh resolve — but any uncommitted or unpushed work inside a materialized repository is not,
 because package work happens in those checkouts, not in this one.
 
-The committed `Selection.json` decides that first synchronization. It selects the whole
-public roster, so a fresh clone materializes every package in `Institute.json`. To open
-fewer, `remove` them in `Selection.local.json` below.
+The committed `Selection.json` decides that first synchronization. It selects the canonical
+default workspace cohort from the broader public inventory in `Institute.json`. To adjust
+that cohort for one machine, use `Selection.local.json` below.
 
 **To add packages to your own checkout, do not edit `Selection.json`.** Write
 `Selection.local.json` beside it — the file is gitignored, so it never appears in
