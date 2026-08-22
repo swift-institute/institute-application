@@ -2624,9 +2624,9 @@
     },
     {
       "layer": "foundations",
-      "name": "swift-testing",
+      "name": "swift-test-application",
       "organization": "swift-foundations",
-      "url": "https://github.com/swift-foundations/swift-testing.git"
+      "url": "https://github.com/swift-foundations/swift-test-application.git"
     },
     {
       "layer": "foundations",

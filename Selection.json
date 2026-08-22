@@ -419,7 +419,7 @@
     "swift-foundations/swift-synchronizers",
     "swift-foundations/swift-systems",
     "swift-foundations/swift-tensors",
-    "swift-foundations/swift-testing",
+    "swift-foundations/swift-test-application",
     "swift-foundations/swift-testing-performance",
     "swift-foundations/swift-tests",
     "swift-foundations/swift-threads",
