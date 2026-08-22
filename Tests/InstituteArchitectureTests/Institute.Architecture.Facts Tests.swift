@@ -2,6 +2,7 @@ import InstituteArchitectureFacts
 import InstituteArchitectureGraph
 import InstituteArchitectureIndex
 import InstituteArchitectureModel
+import Institute_Model
 import JSON
 import Testing
 

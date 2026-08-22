@@ -5,6 +5,7 @@ import InstituteArchitectureIndex
 import InstituteArchitectureMigration
 import InstituteArchitectureModel
 import InstituteArchitectureValidation
+import Institute_Model
 import Testing
 
 // MARK: Bounded fixtures

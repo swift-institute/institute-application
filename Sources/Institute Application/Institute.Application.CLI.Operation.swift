@@ -31,6 +31,7 @@ extension Institute.Application.CLI {
         case verification
         case certification
         case architecture
+        case workspace
 
         public init?(argument: Swift.String) {
             switch argument {
@@ -53,6 +54,7 @@ extension Institute.Application.CLI {
             case "verification": self = .verification
             case "certification": self = .certification
             case "architecture": self = .architecture
+            case "workspace": self = .workspace
             default: return nil
             }
         }
@@ -81,6 +83,7 @@ extension Institute.Application.CLI.Operation {
         case .verification: "verification"
         case .certification: "certification"
         case .architecture: "architecture"
+        case .workspace: "workspace"
         }
     }
 }
@@ -98,6 +101,9 @@ extension Institute.Application.CLI.Operation {
         case .install, .sync, .doctor, .inventory, .dependencies, .context, .navigation, .package,
             .lint, .build, .coherence, .conversion, .github, .verification, .certification,
             .architecture:
+            false
+
+        case .workspace:
             false
 
         case .compose, .restore, .verify: true

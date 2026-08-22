@@ -1,4 +1,4 @@
-// swift-tools-version: 6.3.3
+// swift-tools-version: 6.4
 
 import PackageDescription
 
@@ -69,7 +69,6 @@ let package = Package(
     .package(url: "https://github.com/swift-foundations/swift-environment.git", branch: "main"),
     .package(url: "https://github.com/swift-foundations/swift-file-system.git", branch: "main"),
     .package(url: "https://github.com/swift-foundations/swift-github.git", branch: "main"),
-    .package(url: "https://github.com/swift-foundations/swift-github-http.git", branch: "main"),
     .package(url: "https://github.com/swift-foundations/swift-git.git", branch: "main"),
     .package(url: "https://github.com/swift-foundations/swift-json.git", branch: "main"),
     .package(url: "https://github.com/swift-foundations/swift-kernel.git", branch: "main"),
@@ -166,7 +165,6 @@ let package = Package(
         .product(name: "Institute Model", package: "institute"),
         .product(name: "Institute Dependency", package: "institute"),
         .product(name: "GitHub", package: "swift-github"),
-        .product(name: "GitHub HTTP", package: "swift-github-http"),
         .product(name: "JSON", package: "swift-json"),
         .product(name: "RFC 3986", package: "swift-rfc-3986"),
         .product(name: "RFC 4648", package: "swift-rfc-4648"),
@@ -193,7 +191,7 @@ let package = Package(
       name: "Institute Application",
       dependencies: [
         "Institute Application Source",
-        .product(name: "Build Coordinator", package: "institute"),
+        .product(name: "Institute Build Coordinator", package: "institute"),
         .product(name: "Institute Model", package: "institute"),
         .product(name: "Institute Inventory", package: "institute"),
         .product(name: "Institute Dependency", package: "institute"),
@@ -213,7 +211,6 @@ let package = Package(
         .product(name: "File System", package: "swift-file-system"),
         .product(name: "GitHub", package: "swift-github"),
         .product(name: "GitHub App", package: "swift-github"),
-        .product(name: "GitHub HTTP", package: "swift-github-http"),
         .product(name: "Git", package: "swift-git"),
         .product(name: "JSON", package: "swift-json"),
         .product(name: "Package Manager", package: "swift-package-manager"),
@@ -233,7 +230,7 @@ let package = Package(
     .executableTarget(
       name: "Institute Application CLI",
       dependencies: [
-        .product(name: "Build Coordinator", package: "institute"),
+        .product(name: "Institute Build Coordinator", package: "institute"),
         "Institute Application",
         .product(name: "Institute Model", package: "institute"),
         .product(name: "Command", package: "swift-arguments"),
@@ -250,17 +247,23 @@ let package = Package(
         "InstituteArchitectureCandidates",
         "InstituteArchitectureMigration",
         "InstituteArchitectureCLI",
+        .product(name: "Institute Model", package: "institute"),
       ],
       path: "Tests/InstituteArchitectureTests"
     ),
     .testTarget(
       name: "Institute Application Source Tests",
-      dependencies: ["Institute Application Source"]
+      dependencies: [
+        "Institute Application Source",
+        .product(name: "Institute Model", package: "institute"),
+        .product(name: "Institute Source", package: "institute"),
+        .product(name: "Source Repair", package: "swift-source"),
+      ]
     ),
     .testTarget(
       name: "Institute Application Tests",
       dependencies: [
-        .product(name: "Build Coordinator", package: "institute"),
+        .product(name: "Institute Build Coordinator", package: "institute"),
         "Institute Application",
         .product(name: "Institute Model", package: "institute"),
         .product(name: "Institute Inventory", package: "institute"),
@@ -275,7 +278,6 @@ let package = Package(
         .product(name: "Skill Validation", package: "swift-agent-skills"),
         .product(name: "File System", package: "swift-file-system"),
         .product(name: "GitHub", package: "swift-github"),
-        .product(name: "GitHub HTTP", package: "swift-github-http"),
         .product(name: "JSON", package: "swift-json"),
         .product(name: "SPM Standard", package: "swift-spm-standard"),
         .product(name: "Byte Primitives", package: "swift-byte-primitives"),

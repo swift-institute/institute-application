@@ -1,5 +1,5 @@
-internal import Build_Coordinator
 public import Command
+internal import Institute_Build_Coordinator
 internal import Institute_Conversion
 internal import Institute_Dependency
 internal import Institute_Development
@@ -36,6 +36,7 @@ extension Institute.Application.CLI {
         case index
         case snapshot
         case assemble
+        case materialize
 
         public init?(argument: Swift.String) {
             switch argument {
@@ -61,6 +62,7 @@ extension Institute.Application.CLI {
             case "index": self = .index
             case "snapshot": self = .snapshot
             case "assemble": self = .assemble
+            case "materialize": self = .materialize
             default: return nil
             }
         }
@@ -89,6 +91,7 @@ extension Institute.Application.CLI {
             case .index: "index"
             case .snapshot: "snapshot"
             case .assemble: "assemble"
+            case .materialize: "materialize"
             }
         }
     }
@@ -99,6 +102,9 @@ extension Institute.Application.CLI.Mode {
         switch self {
         case .install, .check, .serve, .regenerate, .effective, .lint, .ledger, .pages, .seal,
             .token, .packet, .validate, .index, .snapshot, .assemble:
+            nil
+
+        case .materialize:
             nil
 
         case .build: .build

@@ -1,5 +1,8 @@
 import Command
 import Foundation
+import Institute_Model
+import Institute_Source
+import Source_Repair
 import Testing
 
 @testable import Institute_Application_Source
@@ -42,12 +45,15 @@ func `source repair plan rejects changed and explicit package scope`() {
 
 @Test
 func `source rule selection requires exact engine and rule identity`() throws {
-    let rules = try #require(
-        Institute.Source.Command.rules([
+    guard
+        let rules = try Institute.Source.Command.rules([
             "swift-format:formatting",
             "swift-linter:institute.forbidden-header",
         ])
-    )
+    else {
+        Issue.record("Expected explicit source rules")
+        return
+    }
 
     #expect(rules.count == 2)
     #expect(rules.map(\.engine.token).sorted() == ["swift-format", "swift-linter"])

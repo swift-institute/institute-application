@@ -1,4 +1,5 @@
 import InstituteArchitectureModel
+import Institute_Model
 
 extension Institute.Architecture.Exemption.Expiry {
     /// A canonical `YYYY-MM-DD` literal, for fixtures whose validity is

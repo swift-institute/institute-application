@@ -1,11 +1,10 @@
-public import Build_Coordinator
 public import Command
 public import Console
 public import Environment
 public import File_System
 public import GitHub_App
-public import GitHub_HTTP
 public import Git_Foundation
+public import Institute_Build_Coordinator
 public import Institute_Conversion
 public import Institute_Dependency
 public import Institute_Development
@@ -188,7 +187,8 @@ extension Institute.Application.CLI {
                 name: "operation",
                 placeholder:
                     "install|sync|build|doctor|inventory|dependencies|compose|restore|verify|context"
-                    + "|navigation|package|lint|coherence|conversion|github|verification|certification",
+                    + "|navigation|package|lint|coherence|conversion|github|verification|certification"
+                    + "|workspace",
                 help: .init(abstract: "Operation to perform.")
             )
             Command.Positional<Self, Mode>.Many(
@@ -196,7 +196,7 @@ extension Institute.Application.CLI {
                 name: "mode",
                 placeholder:
                     "install|check|packet|serve|build|test|run|resolve|update|regenerate|effective|clean|dump-package"
-                    + "|lint|ledger|pages|seal|token|validate|index|snapshot|assemble",
+                    + "|lint|ledger|pages|seal|token|validate|index|snapshot|assemble|materialize",
                 arity: .atMost(1),
                 help: .init(
                     abstract:
@@ -665,8 +665,11 @@ extension Institute.Application.CLI {
             jobs == nil
                 || (operation == .package
                     && (modes.first?.buildAction == .build || modes.first?.buildAction == .test))
+                || (operation == .workspace && modes.first == .materialize)
         else {
-            throw .validationFailed(reason: "--jobs is valid only with package build or test.")
+            throw .validationFailed(
+                reason: "--jobs is valid only with package build or test, or workspace materialize."
+            )
         }
         let ledger = operation == .lint && modes.first == .ledger
         guard
@@ -691,7 +694,27 @@ extension Institute.Application.CLI {
                 reason: "--disposition and --verification are valid only with lint ledger."
             )
         }
-        if operation == .dependencies {
+        if operation == .workspace {
+            guard modes == [.materialize] else {
+                throw .validationFailed(reason: "workspace requires materialize.")
+            }
+            guard consumer.isEmpty, dependency.isEmpty else {
+                throw .validationFailed(
+                    reason: "--consumer and --dependency are not valid with workspace materialize."
+                )
+            }
+            guard !dry, !fresh, !composed, !changed, !fix, !institute else {
+                throw .validationFailed(
+                    reason: "workspace materialize accepts no mutation, build, or selection flags."
+                )
+            }
+            guard packagePath.isEmpty, workspacePath.isEmpty, arguments.isEmpty else {
+                throw .validationFailed(
+                    reason:
+                        "workspace materialize accepts no package, workspace, or process arguments."
+                )
+            }
+        } else if operation == .dependencies {
             guard modes.isEmpty else {
                 throw .validationFailed(reason: "dependencies takes no mode.")
             }
@@ -1837,12 +1860,28 @@ extension Institute.Application.CLI {
 
         case .sync:
             let selection = try Institute.Selection.effective(at: root.checkout, in: configuration)
-            try Institute.Sync(root: root, selection: selection).run(dry: dry)
+            try await Institute.Sync(root: root, selection: selection).run(dry: dry)
+
+        case .workspace:
+            let selection = try Institute.Selection.effective(at: root.checkout, in: configuration)
+            let specification = try Institute.Xcode.integration(selection.repositories)
+            let receipt = try await Institute.Workspace.Materialization(
+                root: root,
+                specification: specification,
+                jobs: jobs ?? 32
+            ).run()
+            print(
+                "workspace: \(selection.repositories.count) subjects, "
+                    + "\(specification.members.count) typed members, "
+                    + "\(receipt.buildables.count) buildables, "
+                    + "\(receipt.testables.values.count) testables, "
+                    + "input \(receipt.input.digest)"
+            )
 
         case .build:
             let selection = try Institute.Selection.effective(at: root.checkout, in: configuration)
             print(selection.origin)
-            let status = try Institute.Xcode.Build(root: root, selection: selection)
+            let status = try await Institute.Xcode.Build(root: root, selection: selection)
                 .run(fresh: fresh, arguments: arguments)
             Process.Exit.normal(status)
 
@@ -2217,41 +2256,9 @@ extension Institute.Application.CLI {
                 }
 
             case .some(.regenerate):
-                let document = try Institute.Configuration.Document.load(at: root.checkout)
-                let http = GitHub.HTTP.Client<
-                    Institute.Inventory.Transport.Error,
-                    GitHub.HTTP.Pagination.Error
-                >(
-                    agent: .init(rawValue: "swift-institute-workspace"),
-                    version: .init(rawValue: "2022-11-28"),
-                    execute: Institute.Inventory.Transport.githubCLI()
+                throw .configuration(
+                    "inventory regenerate has no network transport in the Institute application"
                 )
-                let application = Institute.Inventory.Application(
-                    root: root.checkout,
-                    policy: .institute(),
-                    // `gh` supplies the credential; see Institute.Inventory.Transport.
-                    client: Institute.Inventory.client(
-                        http,
-                        authentication: .token(.init(rawValue: ""))
-                    )
-                )
-                let plan: Institute.Inventory.Writer.Plan
-                do {
-                    plan = try await application.run(existing: document, dry: dry)
-                } catch {
-                    throw .configuration("inventory regenerate: \(error)")
-                }
-                switch plan {
-                case .current:
-                    print("inventory regenerate: Institute.json is current")
-
-                case .replace:
-                    print(
-                        dry
-                            ? "inventory regenerate: would replace Institute.json"
-                            : "inventory regenerate: replaced Institute.json"
-                    )
-                }
 
             case .some(.effective):
                 guard
@@ -2333,24 +2340,10 @@ extension Institute.Application.CLI {
                     discovery = .init(repositories: [], exclusions: [], unmeasured: [])
 
                 case .effective:
-                    let http = GitHub.HTTP.Client<
-                        Institute.Inventory.Transport.Error,
-                        GitHub.HTTP.Pagination.Error
-                    >(
-                        agent: .init(rawValue: "swift-institute-workspace"),
-                        version: .init(rawValue: "2022-11-28"),
-                        execute: Institute.Inventory.Transport.githubCLI()
+                    throw .configuration(
+                        "inventory effective requires --inventory-private-roster; "
+                            + "the Institute application has no network transport"
                     )
-                    let client = Institute.Inventory.client(
-                        http,
-                        // `gh` supplies the credential; see Institute.Inventory.Transport.
-                        authentication: .token(.init(rawValue: ""))
-                    )
-                    do {
-                        discovery = try await client.discoverPrivate(.institute())
-                    } catch {
-                        throw .configuration("inventory effective: \(error)")
-                    }
                 }
 
                 let effective: Institute.Inventory.Effective

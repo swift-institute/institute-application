@@ -1,5 +1,5 @@
-import Build_Coordinator
 import Command
+import Institute_Build_Coordinator
 import Institute_Conversion
 import Institute_Dependency
 import Institute_Development
@@ -24,6 +24,30 @@ extension Institute.Application.CLI {
 }
 
 extension Institute.Application.CLI.Test.Unit {
+    @Test
+    func `workspace materialize selects the local publication operation`() throws {
+        let command = try Command.parse(
+            Institute.Application.CLI.self,
+            from: ["workspace", "materialize", "--jobs", "16"],
+            initial: .init()
+        )
+
+        #expect(command.operation == .workspace)
+        #expect(command.modes == [.materialize])
+        #expect(command.jobs == 16)
+    }
+
+    @Test
+    func `workspace materialize rejects synchronization flags`() {
+        #expect(throws: Command.Error.self) {
+            try Command.parse(
+                Institute.Application.CLI.self,
+                from: ["workspace", "materialize", "--dry-run"],
+                initial: .init()
+            )
+        }
+    }
+
     @Test
     func `install selects the command bootstrap`() throws {
         let command = try Command.parse(

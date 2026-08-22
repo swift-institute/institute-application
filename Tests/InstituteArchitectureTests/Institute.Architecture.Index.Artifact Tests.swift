@@ -4,6 +4,7 @@ import InstituteArchitectureGraph
 import InstituteArchitectureIndex
 import InstituteArchitectureModel
 import InstituteArchitectureValidation
+import Institute_Model
 import Testing
 
 @Suite
