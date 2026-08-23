@@ -10,6 +10,8 @@ public import Institute_Dependency
 public import Institute_Development
 public import Institute_Doctor
 public import Institute_GitHub
+internal import Institute_Application_CI
+internal import Institute_Application_Repository
 public import Institute_Instruments
 public import Institute_Inventory
 public import Institute_Lint
@@ -2467,7 +2469,7 @@ extension Institute.Application.CLI {
             Institute.Application.CI.execute(arguments)
 
         case .repository:
-            await Institute.Application.RepositoryPolicyCLI.execute(arguments)
+            await Institute.Application.Repository.execute(arguments)
 
         case .architecture:
             // Unreachable: `.architecture` returns above, before `root`/

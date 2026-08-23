@@ -84,6 +84,9 @@ let package = Package(
     .package(url: "https://github.com/swift-foundations/swift-kernel.git", branch: "main"),
     .package(url: "https://github.com/swift-foundations/swift-package-manager.git", branch: "main"),
     .package(url: "https://github.com/swift-foundations/swift-console.git", branch: "main"),
+    .package(url: "https://github.com/swift-ietf/swift-rfc-4648.git", branch: "main"),
+    .package(url: "https://github.com/swift-ietf/swift-rfc-3339.git", branch: "main"),
+    .package(url: "https://github.com/swift-primitives/swift-time-primitives.git", branch: "main"),
     .package(url: "https://github.com/swift-foundations/swift-process.git", branch: "main"),
     .package(url: "https://github.com/swift-foundations/swift-source.git", branch: "main"),
     .package(url: "https://github.com/swift-primitives/swift-byte-primitives.git", branch: "main"),
@@ -167,12 +170,23 @@ let package = Package(
       dependencies: [
         .product(name: "Institute Model", package: "institute"),
         .product(name: "Institute Dependency", package: "institute"),
+        .product(name: "Byte Primitives", package: "swift-byte-primitives"),
+        .product(
+          name: "Byte Primitives Standard Library Integration",
+          package: "swift-byte-primitives"
+        ),
+        .product(name: "File System", package: "swift-file-system"),
+        .product(name: "Process", package: "swift-process"),
       ]
     ),
     .target(
       name: "Institute Application Model",
       dependencies: [
-        .product(name: "Institute Model", package: "institute")
+        .product(name: "Institute Model", package: "institute"),
+        .product(name: "Institute Repository Policy", package: "institute"),
+        .product(name: "Byte Primitives", package: "swift-byte-primitives"),
+        .product(name: "File System", package: "swift-file-system"),
+        .product(name: "JSON", package: "swift-json"),
       ]
     ),
     .target(
@@ -180,6 +194,12 @@ let package = Package(
       dependencies: [
         "Institute Application Model",
         .product(name: "Institute CI Canon", package: "institute"),
+        .product(name: "Institute Repository Policy", package: "institute"),
+        .product(name: "Console", package: "swift-console"),
+        .product(
+          name: "Byte Primitives Standard Library Integration",
+          package: "swift-byte-primitives"
+        ),
         .product(name: "Institute CI Contract", package: "institute"),
         .product(name: "Institute CI Inventory", package: "institute"),
         .product(name: "Institute CI Model", package: "institute"),
@@ -198,6 +218,16 @@ let package = Package(
       dependencies: [
         "Institute Application Model",
         "Institute GitHub",
+        .product(name: "Console", package: "swift-console"),
+        .product(name: "Environment", package: "swift-environment"),
+        .product(name: "Kernel", package: "swift-kernel"),
+        .product(name: "RFC 4648", package: "swift-rfc-4648"),
+        .product(name: "RFC 3339", package: "swift-rfc-3339"),
+        .product(name: "Time Primitive", package: "swift-time-primitives"),
+        .product(
+          name: "Byte Primitives Standard Library Integration",
+          package: "swift-byte-primitives"
+        ),
         .product(name: "Institute Model", package: "institute"),
         .product(name: "Institute Repository Policy", package: "institute"),
         .product(name: "Byte Primitives", package: "swift-byte-primitives"),
