@@ -346,6 +346,8 @@ let package = Package(
       name: "Institute Application CI Tests",
       dependencies: [
         "Institute Application CI",
+        .product(name: "Institute Model", package: "institute"),
+        .product(name: "Institute Repository Policy", package: "institute"),
         .product(name: "Institute CI Canon", package: "institute"),
         .product(name: "Institute CI Validation", package: "institute"),
       ]
@@ -354,6 +356,14 @@ let package = Package(
       name: "Institute Application Repository Tests",
       dependencies: [
         "Institute Application Repository",
+        "Institute GitHub",
+        .product(name: "Institute Model", package: "institute"),
+        .product(name: "Byte Primitives", package: "swift-byte-primitives"),
+        .product(
+          name: "Byte Primitives Standard Library Integration",
+          package: "swift-byte-primitives"
+        ),
+        .product(name: "JSON", package: "swift-json"),
         .product(name: "Institute Repository Policy", package: "institute"),
         .product(name: "Package Manager", package: "swift-package-manager"),
       ],

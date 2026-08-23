@@ -1,16 +1,20 @@
+public import Institute_Model
 import Institute_Repository_Policy
+import Byte_Primitives
+import Byte_Primitives_Standard_Library_Integration
 import Foundation
-import Institute_Application_Foundation_Integration
+import Institute_Application_Repository
+import JSON
 import Testing
 
 @Suite
 struct RepositoryPolicyCensusTests {
     @Test
     func csvQuotingMatchesMinimalDialect() {
-        #expect(Repository.Policy.Census.quoted("plain") == "plain")
-        #expect(Repository.Policy.Census.quoted("a,b") == "\"a,b\"")
-        #expect(Repository.Policy.Census.quoted("say \"hi\"") == "\"say \"\"hi\"\"\"")
-        #expect(Repository.Policy.Census.quoted("line\nbreak") == "\"line\nbreak\"")
+        #expect(Institute.Repository.Policy.Census.quoted("plain") == "plain")
+        #expect(Institute.Repository.Policy.Census.quoted("a,b") == "\"a,b\"")
+        #expect(Institute.Repository.Policy.Census.quoted("say \"hi\"") == "\"say \"\"hi\"\"\"")
+        #expect(Institute.Repository.Policy.Census.quoted("line\nbreak") == "\"line\nbreak\"")
     }
 
     @Test
@@ -40,12 +44,12 @@ struct RepositoryPolicyCensusTests {
         try Data(yaml.utf8).write(
             to: URL(fileURLWithPath: workflows + "/demo.yml")
         )
-        let census = try Repository.Policy.Census.Generator(
+        let census = try Institute.Application.Repository.Census.Generator(
             repos: [
                 .init(name: "fixture/repo", root: root, headSha: String(repeating: "a", count: 40))
             ]
         ).run()
-        func rows(_ kind: Repository.Policy.Census.Kind) -> [Repository.Policy.Census.Row] {
+        func rows(_ kind: Institute.Repository.Policy.Census.Kind) -> [Institute.Repository.Policy.Census.Row] {
             census.rows.filter { $0.coordinateKind == kind && $0.repository == "fixture/repo" }
         }
         #expect(rows(.file).count == 1)
@@ -62,13 +66,11 @@ struct RepositoryPolicyCensusTests {
 
     @Test
     func capabilityRecordsAreFrozen() throws {
-        #expect(Repository.Policy.Capability.records.count == 12)
-        #expect(Repository.Policy.Capability.records.first?.id == "D-01")
-        let data = try Repository.Policy.Capability.recordsJSON()
-        let decoded = try JSONDecoder().decode(
-            [Repository.Policy.Capability].self,
-            from: data
-        )
-        #expect(decoded == Repository.Policy.Capability.records)
+        #expect(Institute.Repository.Policy.Capability.records.count == 12)
+        #expect(Institute.Repository.Policy.Capability.records.first?.id == "D-01")
+        let rendered = Institute.Repository.Policy.Capability.records
+            .jsonString(pretty: true, sortKeys: true)
+        let decoded = try [Institute.Repository.Policy.Capability](jsonString: rendered)
+        #expect(decoded == Institute.Repository.Policy.Capability.records)
     }
 }

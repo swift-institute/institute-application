@@ -1,5 +1,8 @@
+public import Institute_Model
 import Institute_Repository_Policy
-import Institute_Application_Foundation_Integration
+import Byte_Primitives
+import Byte_Primitives_Standard_Library_Integration
+import Institute_Application_Repository
 import Testing
 
 /// The F14 wave's eligibility predicate, hoisted out of shell
@@ -15,7 +18,7 @@ struct RepositoryPolicyEligibilityTests {
 
     @Test
     func rootManifestWithNoExceptionIsEligible() {
-        let verdict = Repository.Policy.Eligibility.verdict(
+        let verdict = Institute.Repository.Policy.Eligibility.verdict(
             .init(
                 repository: "swift-primitives/swift-percent-primitives",
                 rootManifest: .present
@@ -33,7 +36,7 @@ struct RepositoryPolicyEligibilityTests {
 
     @Test
     func issuesIsExcludedDespiteCarryingARootManifest() {
-        let verdict = Repository.Policy.Eligibility.verdict(
+        let verdict = Institute.Repository.Policy.Eligibility.verdict(
             .init(repository: "swift-institute/Issues", rootManifest: .present)
         )
         guard case .bespoke(let exception) = verdict else {
@@ -50,7 +53,7 @@ struct RepositoryPolicyEligibilityTests {
     /// away. This near-miss must still be excluded.
     @Test
     func theExceptionSetMatchesCaseInsensitively() {
-        let verdict = Repository.Policy.Eligibility.verdict(
+        let verdict = Institute.Repository.Policy.Eligibility.verdict(
             .init(repository: "swift-institute/issues", rootManifest: .present)
         )
         #expect(!verdict.isEligible)
@@ -63,7 +66,7 @@ struct RepositoryPolicyEligibilityTests {
     @Test
     func aRepositoryContainingAnExceptionNameIsStillEligible() {
         #expect(
-            Repository.Policy.Eligibility.verdict(
+            Institute.Repository.Policy.Eligibility.verdict(
                 .init(
                     repository: "swift-institute/Issues-archive",
                     rootManifest: .present
@@ -71,7 +74,7 @@ struct RepositoryPolicyEligibilityTests {
             ) == .eligible
         )
         #expect(
-            Repository.Policy.Eligibility.verdict(
+            Institute.Repository.Policy.Eligibility.verdict(
                 .init(
                     repository: "swift-foundations/Issues",
                     rootManifest: .present
@@ -86,7 +89,7 @@ struct RepositoryPolicyEligibilityTests {
     func skillsAndCclspAreExcludedByTheManifestTerm() {
         for repository in ["swift-institute/Skills", "swift-institute/cclsp"] {
             #expect(
-                Repository.Policy.Eligibility.verdict(
+                Institute.Repository.Policy.Eligibility.verdict(
                     .init(repository: repository, rootManifest: .absent)
                 )
                     == .noManifest,
@@ -101,13 +104,13 @@ struct RepositoryPolicyEligibilityTests {
     @Test
     func skillsReportsNoManifestNowAndBespokeIfItEverGainsOne() {
         #expect(
-            Repository.Policy.Eligibility.verdict(
+            Institute.Repository.Policy.Eligibility.verdict(
                 .init(repository: "swift-institute/Skills", rootManifest: .absent)
             )
                 == .noManifest
         )
         #expect(
-            !Repository.Policy.Eligibility.verdict(
+            !Institute.Repository.Policy.Eligibility.verdict(
                 .init(repository: "swift-institute/Skills", rootManifest: .present)
             )
             .isEligible
@@ -119,7 +122,7 @@ struct RepositoryPolicyEligibilityTests {
     @Test
     func theControlPlaneRepositoryIsNotAWaveSubject() {
         #expect(
-            Repository.Policy.Eligibility.verdict(
+            Institute.Repository.Policy.Eligibility.verdict(
                 .init(repository: "swift-institute/.github", rootManifest: .absent)
             )
                 == .noManifest
@@ -143,7 +146,7 @@ struct RepositoryPolicyEligibilityTests {
         ]
         for repository in created {
             #expect(
-                Repository.Policy.Eligibility.verdict(
+                Institute.Repository.Policy.Eligibility.verdict(
                     .init(repository: repository, rootManifest: .present)
                 )
                     == .eligible,
@@ -156,8 +159,8 @@ struct RepositoryPolicyEligibilityTests {
 
     @Test
     func everyExceptionNamesItsRulingAndAFullCoordinate() {
-        #expect(!Repository.Policy.Eligibility.bespoke.isEmpty)
-        for exception in Repository.Policy.Eligibility.bespoke {
+        #expect(!Institute.Repository.Policy.Eligibility.bespoke.isEmpty)
+        for exception in Institute.Repository.Policy.Eligibility.bespoke {
             #expect(exception.repository.contains("/"), "\(exception.repository)")
             #expect(
                 exception.reason.contains("swift-institute/.github#"),
@@ -168,14 +171,14 @@ struct RepositoryPolicyEligibilityTests {
 
     @Test
     func theExceptionSetHasNoDuplicateCoordinates() {
-        let names = Repository.Policy.Eligibility.bespoke.map(\.repository)
+        let names = Institute.Repository.Policy.Eligibility.bespoke.map(\.repository)
         #expect(names.count == Set(names.map { $0.lowercased() }).count)
     }
 
     @Test
     func lookupReturnsNilForANonException() {
         #expect(
-            Repository.Policy.Eligibility
+            Institute.Repository.Policy.Eligibility
                 .exception("swift-primitives/swift-percent-primitives") == nil
         )
     }

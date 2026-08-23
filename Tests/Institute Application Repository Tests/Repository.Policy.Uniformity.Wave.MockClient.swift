@@ -1,10 +1,13 @@
+public import Institute_Model
 import Institute_Repository_Policy
+import Byte_Primitives
+import Byte_Primitives_Standard_Library_Integration
 import Foundation
-import Institute_Application_Foundation_Integration
+import Institute_Application_Repository
 
-actor RepositoryPolicyUniformityWaveMockClient: Repository.Policy.Uniformity.Wave.Client {
+actor RepositoryPolicyUniformityWaveMockClient: Institute.Repository.Policy.Uniformity.Wave.Client {
     var remainingRequests = 5_000
-    var repository = Repository.Policy.Caller.Wave.Repository(
+    var repository = Institute.Repository.Policy.Caller.Wave.Repository(
         id: 1,
         visibility: "public",
         archived: false,
@@ -12,11 +15,11 @@ actor RepositoryPolicyUniformityWaveMockClient: Repository.Policy.Uniformity.Wav
         defaultBranch: "main"
     )
     var currentHead = "old-head"
-    var oldShape: Repository.Policy.Uniformity.Wave.Shape
-    var committedPayload = Data()
+    var oldShape: Institute.Repository.Policy.Uniformity.Wave.Shape
+    var committedPayload = [Byte]()
     var committedDeletions: [String] = []
     var newBlob = "new-blob"
-    var rulesetData: Data
+    var rulesetData: [Byte]
     var rulesetID: Int64?
     var replacementCount = 0
     var creationCount = 0
@@ -35,8 +38,8 @@ actor RepositoryPolicyUniformityWaveMockClient: Repository.Policy.Uniformity.Wav
     let privateOrganizations: Set<String>
 
     init(
-        ruleset: Data,
-        shape: Repository.Policy.Uniformity.Wave.Shape,
+        ruleset: [Byte],
+        shape: Institute.Repository.Policy.Uniformity.Wave.Shape,
         emptyRepositories: Bool = false,
         rulesetAbsent: Bool = false,
         privateOrganizations: Set<String> = []
@@ -54,37 +57,37 @@ actor RepositoryPolicyUniformityWaveMockClient: Repository.Policy.Uniformity.Wav
         _: String,
         path: String,
         head: String
-    ) async throws(RepositoryPolicy.GitHubClient.Error)
-        -> Repository.Policy.Uniformity.Wave.File?
+    ) async throws(Institute.Repository.Policy.Client.Error)
+        -> Institute.Repository.Policy.Uniformity.Wave.File?
     {
         if head == "new-head" {
             switch path {
-            case Repository.Policy.Uniformity.Wave.Shape.gitignorePath:
+            case Institute.Repository.Policy.Uniformity.Wave.Shape.gitignorePath:
                 if brokenBytesAfterMove {
-                    return .init(blob: newBlob, bytes: Data("broken\n".utf8))
+                    return .init(blob: newBlob, bytes: [Byte]("broken\n".utf8))
                 }
                 return .init(blob: newBlob, bytes: committedPayload)
 
-            case Repository.Policy.Uniformity.Wave.Shape.swiftlintPath:
+            case Institute.Repository.Policy.Uniformity.Wave.Shape.swiftlintPath:
                 return survivingDeletionAfterMove
-                    ? .init(blob: "lint-blob", bytes: Data("lint\n".utf8)) : nil
+                    ? .init(blob: "lint-blob", bytes: [Byte]("lint\n".utf8)) : nil
 
             default:
                 return nil
             }
         }
         switch path {
-        case Repository.Policy.Uniformity.Wave.Shape.gitignorePath:
+        case Institute.Repository.Policy.Uniformity.Wave.Shape.gitignorePath:
             return oldShape.gitignore
 
-        case Repository.Policy.Uniformity.Wave.Shape.swiftlintPath:
-            return oldShape.swiftlint.map { .init(blob: $0, bytes: Data("lint\n".utf8)) }
+        case Institute.Repository.Policy.Uniformity.Wave.Shape.swiftlintPath:
+            return oldShape.swiftlint.map { .init(blob: $0, bytes: [Byte]("lint\n".utf8)) }
 
-        case Repository.Policy.Uniformity.Wave.Shape.swiftFormatPath:
-            return oldShape.swiftFormat.map { .init(blob: $0, bytes: Data("format\n".utf8)) }
+        case Institute.Repository.Policy.Uniformity.Wave.Shape.swiftFormatPath:
+            return oldShape.swiftFormat.map { .init(blob: $0, bytes: [Byte]("format\n".utf8)) }
 
-        case Repository.Policy.Uniformity.Wave.Shape.dependabotPath:
-            return oldShape.dependabot.map { .init(blob: $0, bytes: Data("dependabot\n".utf8)) }
+        case Institute.Repository.Policy.Uniformity.Wave.Shape.dependabotPath:
+            return oldShape.dependabot.map { .init(blob: $0, bytes: [Byte]("dependabot\n".utf8)) }
 
         default:
             return nil
@@ -97,7 +100,7 @@ actor RepositoryPolicyUniformityWaveMockClient: Repository.Policy.Uniformity.Wav
         gitignoreBlob _: String,
         deletions: [String],
         message: String
-    ) async throws(RepositoryPolicy.GitHubClient.Error) -> String {
+    ) async throws(Institute.Repository.Policy.Client.Error) -> String {
         if commitFailure {
             throw .transport(path: "commit", message: "injected process interruption")
         }
@@ -113,16 +116,16 @@ actor RepositoryPolicyUniformityWaveMockClient: Repository.Policy.Uniformity.Wav
 
     func capacity(
         requiredRequests: Int
-    ) async throws(RepositoryPolicy.GitHubClient.Error)
-        -> Repository.Policy.Caller.Wave.Capacity
+    ) async throws(Institute.Repository.Policy.Client.Error)
+        -> Institute.Repository.Policy.Caller.Wave.Capacity
     {
         .init(remaining: remainingRequests, required: requiredRequests, resetAt: 1_787_000_000)
     }
 
     func waveRepositories(
         organization: String
-    ) async throws(RepositoryPolicy.GitHubClient.Error)
-        -> Repository.Policy.Caller.Wave.Listing
+    ) async throws(Institute.Repository.Policy.Client.Error)
+        -> Institute.Repository.Policy.Caller.Wave.Listing
     {
         if emptyRepositories { return .init(repositories: [], expected: 0) }
         return .init(
@@ -146,29 +149,29 @@ actor RepositoryPolicyUniformityWaveMockClient: Repository.Policy.Uniformity.Wav
     func rootManifest(
         _: String,
         head _: String
-    ) async throws(RepositoryPolicy.GitHubClient.Error)
-        -> Repository.Policy.Caller.Wave.Manifest?
+    ) async throws(Institute.Repository.Policy.Client.Error)
+        -> Institute.Repository.Policy.Caller.Wave.Manifest?
     {
         .init(kind: "file", blob: "manifest-blob")
     }
 
     func waveRepository(
         _: String
-    ) async throws(RepositoryPolicy.GitHubClient.Error)
-        -> Repository.Policy.Caller.Wave.Repository
+    ) async throws(Institute.Repository.Policy.Client.Error)
+        -> Institute.Repository.Policy.Caller.Wave.Repository
     {
         repository
     }
 
-    func head(_: String) async throws(RepositoryPolicy.GitHubClient.Error) -> String {
+    func head(_: String) async throws(Institute.Repository.Policy.Client.Error) -> String {
         currentHead
     }
 
     func callerSource(
         _ repository: String,
         head: String
-    ) async throws(RepositoryPolicy.GitHubClient.Error)
-        -> Repository.Policy.Caller.Wave.CallerSource
+    ) async throws(Institute.Repository.Policy.Client.Error)
+        -> Institute.Repository.Policy.Caller.Wave.CallerSource
     {
         guard let source = try await callerSourceIfPresent(repository, head: head) else {
             throw .precondition("caller is absent")
@@ -179,16 +182,16 @@ actor RepositoryPolicyUniformityWaveMockClient: Repository.Policy.Uniformity.Wav
     func callerSourceIfPresent(
         _: String,
         head _: String
-    ) async throws(RepositoryPolicy.GitHubClient.Error)
-        -> Repository.Policy.Caller.Wave.CallerSource?
+    ) async throws(Institute.Repository.Policy.Client.Error)
+        -> Institute.Repository.Policy.Caller.Wave.CallerSource?
     {
-        .init(blob: "caller-blob", bytes: Data("caller\n".utf8))
+        .init(blob: "caller-blob", bytes: [Byte]("caller\n".utf8))
     }
 
     func rulesets(
         _: String
-    ) async throws(RepositoryPolicy.GitHubClient.Error)
-        -> [Repository.Policy.Caller.Wave.RulesetReference]
+    ) async throws(Institute.Repository.Policy.Client.Error)
+        -> [Institute.Repository.Policy.Caller.Wave.RulesetReference]
     {
         rulesetID.map { [.init(id: $0, name: "Institute protected main")] } ?? []
     }
@@ -196,16 +199,16 @@ actor RepositoryPolicyUniformityWaveMockClient: Repository.Policy.Uniformity.Wav
     func ruleset(
         _: String,
         id _: Int64
-    ) async throws(RepositoryPolicy.GitHubClient.Error) -> Data {
+    ) async throws(Institute.Repository.Policy.Client.Error) -> [Byte] {
         rulesetData
     }
 
     func replaceRuleset(
         _: String,
         id _: Int64,
-        payload: Data
-    ) async throws(RepositoryPolicy.GitHubClient.Error) {
-        let object = try? JSONSerialization.jsonObject(with: payload) as? [String: Any]
+        payload: [Byte]
+    ) async throws(Institute.Repository.Policy.Client.Error) {
+        let object = try? JSONSerialization.jsonObject(with: Data(payload.underlying)) as? [String: Any]
         let bypass = object?["bypass_actors"] as? [Any] ?? []
         if bypass.isEmpty, convergenceFailure {
             if !persistentConvergenceFailure { convergenceFailure = false }
@@ -223,8 +226,8 @@ actor RepositoryPolicyUniformityWaveMockClient: Repository.Policy.Uniformity.Wav
 
     func createRuleset(
         _: String,
-        payload: Data
-    ) async throws(RepositoryPolicy.GitHubClient.Error) -> Int64 {
+        payload: [Byte]
+    ) async throws(Institute.Repository.Policy.Client.Error) -> Int64 {
         guard rulesetID == nil else {
             throw .precondition("ruleset already exists")
         }
@@ -236,8 +239,8 @@ actor RepositoryPolicyUniformityWaveMockClient: Repository.Policy.Uniformity.Wav
 
     func createBlob(
         _: String,
-        content: Data
-    ) async throws(RepositoryPolicy.GitHubClient.Error) -> String {
+        content: [Byte]
+    ) async throws(Institute.Repository.Policy.Client.Error) -> String {
         committedPayload = content
         return newBlob
     }
@@ -247,14 +250,14 @@ actor RepositoryPolicyUniformityWaveMockClient: Repository.Policy.Uniformity.Wav
         parent _: String,
         blob _: String,
         message _: String
-    ) async throws(RepositoryPolicy.GitHubClient.Error) -> String {
+    ) async throws(Institute.Repository.Policy.Client.Error) -> String {
         throw .precondition("the uniformity wave never creates a caller commit")
     }
 
     func moveMain(
         _: String,
         to head: String
-    ) async throws(RepositoryPolicy.GitHubClient.Error) {
+    ) async throws(Institute.Repository.Policy.Client.Error) {
         if moveFailure {
             throw .precondition("move failed")
         }
@@ -272,7 +275,7 @@ actor RepositoryPolicyUniformityWaveMockClient: Repository.Policy.Uniformity.Wav
         currentHead = value
     }
 
-    func setShape(_ value: Repository.Policy.Uniformity.Wave.Shape) {
+    func setShape(_ value: Institute.Repository.Policy.Uniformity.Wave.Shape) {
         oldShape = value
     }
 
@@ -306,9 +309,9 @@ actor RepositoryPolicyUniformityWaveMockClient: Repository.Policy.Uniformity.Wav
     }
 
     func openBypass(integrationID: Int64) throws {
-        guard var object = try JSONSerialization.jsonObject(with: rulesetData) as? [String: Any]
+        guard var object = try JSONSerialization.jsonObject(with: Data(rulesetData.underlying)) as? [String: Any]
         else {
-            throw RepositoryPolicy.GitHubClient.Error.precondition("ruleset is not an object")
+            throw Institute.Repository.Policy.Client.Error.precondition("ruleset is not an object")
         }
         object["bypass_actors"] = [
             [
@@ -317,11 +320,11 @@ actor RepositoryPolicyUniformityWaveMockClient: Repository.Policy.Uniformity.Wav
                 "bypass_mode": "always",
             ]
         ]
-        rulesetData = try JSONSerialization.data(withJSONObject: object, options: [.sortedKeys])
+        rulesetData = try [Byte](JSONSerialization.data(withJSONObject: object, options: [.sortedKeys]))
     }
 
     func bypassOpen(integrationID: Int64) -> Bool {
-        Repository.Policy.Caller.Wave.RulesetSnapshot.containsIntegration(
+        Institute.Repository.Policy.Caller.Wave.RulesetSnapshot.containsIntegration(
             rulesetData,
             integrationID: integrationID
         )

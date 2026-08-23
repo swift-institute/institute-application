@@ -1,6 +1,9 @@
+public import Institute_Model
 import Institute_Repository_Policy
+import Byte_Primitives
+import Byte_Primitives_Standard_Library_Integration
 import Foundation
-import Institute_Application_Foundation_Integration
+import Institute_Application_Repository
 import Testing
 
 @Suite
@@ -22,38 +25,23 @@ struct RepositoryPolicyTests {
         }
     }
 
-    @Test
-    func scopeRejectsDeniedOwner() {
-        #expect(throws: RepositoryPolicy.ConfigurationError.self) {
-            try RepositoryPolicy.Scope(
-                organization: nil,
-                repository: "tenthijeboonkkamp/package"
-            )
-        }
+    // The canonical policy contracts ride along as test fixtures; the
+    // live documents are supplied by the control-plane workflows.
+    private func policy(_ name: String) throws -> [Byte] {
+        let url = try #require(Bundle.module.url(forResource: name, withExtension: "json"))
+        return [Byte](try Data(contentsOf: url))
     }
 
-    @Test
-    func scopeRequiresExactlyOneSelector() {
-        #expect(throws: RepositoryPolicy.ConfigurationError.self) {
-            try RepositoryPolicy.Scope(organization: nil, repository: nil)
-        }
-        #expect(throws: RepositoryPolicy.ConfigurationError.self) {
-            try RepositoryPolicy.Scope(
-                organization: "swift-foundations",
-                repository: "swift-foundations/swift-example"
-            )
-        }
+    private func policyText(_ name: String) throws -> String {
+        String(decoding: try policy(name), as: UTF8.self)
     }
 
     @Test
     func protectedMainRulesetFixtureDefinesThePRTransaction() throws {
-        let url = URL(filePath: #filePath)
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
-            .appending(path: "Policy/protected-main-ruleset.json")
-        let payload = try RepositoryPolicy.Ruleset.protectedMainPayload(from: url)
-        let object = try #require(try JSONSerialization.jsonObject(with: payload) as? [String: Any])
+        let payload = try RepositoryPolicy.Ruleset.protectedMainPayload(
+            from: try policy("protected-main-ruleset")
+        )
+        let object = try #require(try JSONSerialization.jsonObject(with: Data(payload.underlying)) as? [String: Any])
         #expect((object["bypass_actors"] as? [Any])?.isEmpty == true)
         #expect((object["enforcement"] as? String) == "active")
         let rules = try #require(object["rules"] as? [[String: Any]])
@@ -104,23 +92,13 @@ struct RepositoryPolicyTests {
     // bare-legacy-name positive control this replaces).
     @Test
     func protectedMainPayloadRejectsTheRetiredCompatibilityContextAlone() throws {
-        let canonical = URL(filePath: #filePath)
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
-            .appending(path: "Policy/protected-main-ruleset.json")
-        let legacy = try String(contentsOf: canonical, encoding: .utf8)
+        let legacy = try policyText("protected-main-ruleset")
             .replacingOccurrences(
                 of: "\"context\": \"ci / matrix / ci-ok\"",
                 with: "\"context\": \"ci / ci-ok\""
             )
-        let url = FileManager.default.temporaryDirectory
-            .appending(path: "protected-main-ruleset-\(UUID().uuidString).json")
-        try Data(legacy.utf8).write(to: url)
-        defer { try? FileManager.default.removeItem(at: url) }
-
-        #expect(throws: RepositoryPolicy.ConfigurationError.self) {
-            try RepositoryPolicy.Ruleset.protectedMainPayload(from: url)
+        #expect(throws: RepositoryPolicy.Ruleset.Error.self) {
+            try RepositoryPolicy.Ruleset.protectedMainPayload(from: [Byte](legacy.utf8))
         }
     }
 
@@ -130,36 +108,23 @@ struct RepositoryPolicyTests {
     // report. The validator must refuse it.
     @Test
     func protectedMainPayloadRejectsTheBareUnprefixedContext() throws {
-        let canonical = URL(filePath: #filePath)
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
-            .appending(path: "Policy/protected-main-ruleset.json")
-        let legacy = try String(contentsOf: canonical, encoding: .utf8)
+        let legacy = try policyText("protected-main-ruleset")
             .replacingOccurrences(
                 of: "\"context\": \"ci / matrix / ci-ok\"",
                 with: "\"context\": \"ci-ok\""
             )
-        let url = FileManager.default.temporaryDirectory
-            .appending(path: "protected-main-ruleset-\(UUID().uuidString).json")
-        try Data(legacy.utf8).write(to: url)
-        defer { try? FileManager.default.removeItem(at: url) }
-
-        #expect(throws: RepositoryPolicy.ConfigurationError.self) {
-            try RepositoryPolicy.Ruleset.protectedMainPayload(from: url)
+        #expect(throws: RepositoryPolicy.Ruleset.Error.self) {
+            try RepositoryPolicy.Ruleset.protectedMainPayload(from: [Byte](legacy.utf8))
         }
     }
 
     // MARK: - Bypass prohibition (TX5, swift-institute/.github#276)
 
-    // Writes `object` to a scratch fixture and returns its URL. Used by the
-    // bypass negative controls below, which need a payload that differs from
-    // a shipped fixture in exactly one field.
-    private func scratchFixture(_ object: [String: Any]) throws -> URL {
-        let url = FileManager.default.temporaryDirectory
-            .appending(path: "protected-main-bypass-\(UUID().uuidString).json")
-        try JSONSerialization.data(withJSONObject: object).write(to: url)
-        return url
+    // Serializes `object` to policy bytes. Used by the bypass negative
+    // controls below, which need a payload that differs from a shipped
+    // fixture in exactly one field.
+    private func scratchFixture(_ object: [String: Any]) throws -> [Byte] {
+        [Byte](try JSONSerialization.data(withJSONObject: object))
     }
 
     // Discriminating negative: no payload class admits a bypass actor. The
@@ -172,22 +137,17 @@ struct RepositoryPolicyTests {
             ["actor_id": 3_543_256, "actor_type": "Integration", "bypass_mode": "always"]
         ]
         for fixture in [
-            "Policy/protected-main-ruleset.json",
-            "Policy/protected-main-private-ruleset.json",
-            "Policy/protected-main-control-ruleset.json",
+            "protected-main-ruleset",
+            "protected-main-private-ruleset",
+            "protected-main-control-ruleset",
         ] {
-            let source = URL(filePath: #filePath)
-                .deletingLastPathComponent()
-                .deletingLastPathComponent()
-                .deletingLastPathComponent()
-                .appending(path: fixture)
+            let source = try policy(fixture)
             var object = try #require(
-                try JSONSerialization.jsonObject(with: Data(contentsOf: source)) as? [String: Any]
+                try JSONSerialization.jsonObject(with: Data(source.underlying)) as? [String: Any]
             )
             object["bypass_actors"] = authorized
             let url = try scratchFixture(object)
-            defer { try? FileManager.default.removeItem(at: url) }
-            #expect(throws: RepositoryPolicy.ConfigurationError.self) {
+            #expect(throws: RepositoryPolicy.Ruleset.Error.self) {
                 if fixture.contains("control") {
                     _ = try RepositoryPolicy.Ruleset.protectedMainControlPayload(from: url)
                 } else if fixture.contains("private") {
@@ -206,13 +166,9 @@ struct RepositoryPolicyTests {
     // compatibility variant exists: no producer preceded it.
     @Test
     func protectedMainPrivatePayloadFixtureRequiresWorkspaceVerification() throws {
-        let url = URL(filePath: #filePath)
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
-            .appending(path: "Policy/protected-main-private-ruleset.json")
+        let url = try policy("protected-main-private-ruleset")
         let payload = try RepositoryPolicy.Ruleset.protectedMainPrivatePayload(from: url)
-        let object = try #require(try JSONSerialization.jsonObject(with: payload) as? [String: Any])
+        let object = try #require(try JSONSerialization.jsonObject(with: Data(payload.underlying)) as? [String: Any])
         let rules = try #require(object["rules"] as? [[String: Any]])
         let checks = try #require(
             rules.first(where: { $0["type"] as? String == "required_status_checks" })?[
@@ -230,20 +186,12 @@ struct RepositoryPolicyTests {
     // required context, not an interchangeable label.
     @Test
     func protectedMainPrivateAndPublicPayloadsRejectEachOthersFixture() throws {
-        let publicFixture = URL(filePath: #filePath)
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
-            .appending(path: "Policy/protected-main-ruleset.json")
-        let privateFixture = URL(filePath: #filePath)
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
-            .appending(path: "Policy/protected-main-private-ruleset.json")
-        #expect(throws: RepositoryPolicy.ConfigurationError.self) {
+        let publicFixture = try policy("protected-main-ruleset")
+        let privateFixture = try policy("protected-main-private-ruleset")
+        #expect(throws: RepositoryPolicy.Ruleset.Error.self) {
             try RepositoryPolicy.Ruleset.protectedMainPrivatePayload(from: publicFixture)
         }
-        #expect(throws: RepositoryPolicy.ConfigurationError.self) {
+        #expect(throws: RepositoryPolicy.Ruleset.Error.self) {
             try RepositoryPolicy.Ruleset.protectedMainPayload(from: privateFixture)
         }
     }
@@ -254,26 +202,19 @@ struct RepositoryPolicyTests {
     // context-set check.
     @Test
     func everyPackageVariantRejectsAPayloadMissingTheRequiredStatusChecksRule() throws {
-        let canonical = URL(filePath: #filePath)
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
-            .appending(path: "Policy/protected-main-ruleset.json")
+        let canonical = try policy("protected-main-ruleset")
         var object = try #require(
-            try JSONSerialization.jsonObject(with: Data(contentsOf: canonical)) as? [String: Any]
+            try JSONSerialization.jsonObject(with: Data(canonical.underlying)) as? [String: Any]
         )
         var rules = try #require(object["rules"] as? [[String: Any]])
         rules.removeAll { $0["type"] as? String == "required_status_checks" }
         object["rules"] = rules
-        let url = FileManager.default.temporaryDirectory
-            .appending(path: "protected-main-ruleset-\(UUID().uuidString).json")
-        try JSONSerialization.data(withJSONObject: object).write(to: url)
-        defer { try? FileManager.default.removeItem(at: url) }
+        let url = try scratchFixture(object)
 
-        #expect(throws: RepositoryPolicy.ConfigurationError.self) {
+        #expect(throws: RepositoryPolicy.Ruleset.Error.self) {
             try RepositoryPolicy.Ruleset.protectedMainPayload(from: url)
         }
-        #expect(throws: RepositoryPolicy.ConfigurationError.self) {
+        #expect(throws: RepositoryPolicy.Ruleset.Error.self) {
             try RepositoryPolicy.Ruleset.protectedMainPrivatePayload(from: url)
         }
     }
@@ -287,27 +228,20 @@ struct RepositoryPolicyTests {
     // top-level shape.
     @Test
     func protectedMainPayloadAcceptsACanonicalReadbackAroundThePinnedContract() throws {
-        let canonical = URL(filePath: #filePath)
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
-            .appending(path: "Policy/protected-main-ruleset.json")
+        let canonical = try policy("protected-main-ruleset")
         var object = try #require(
-            try JSONSerialization.jsonObject(with: Data(contentsOf: canonical)) as? [String: Any]
+            try JSONSerialization.jsonObject(with: Data(canonical.underlying)) as? [String: Any]
         )
         object["id"] = 20_244_631
         object["node_id"] = "RUL_lADummyReadback"
         object["source_type"] = "Repository"
         object["created_at"] = "2026-08-02T00:00:00Z"
         object["updated_at"] = "2026-08-02T00:00:00Z"
-        let url = FileManager.default.temporaryDirectory
-            .appending(path: "protected-main-ruleset-\(UUID().uuidString).json")
-        try JSONSerialization.data(withJSONObject: object).write(to: url)
-        defer { try? FileManager.default.removeItem(at: url) }
+        let url = try scratchFixture(object)
 
         let payload = try RepositoryPolicy.Ruleset.protectedMainPayload(from: url)
         let decoded = try #require(
-            try JSONSerialization.jsonObject(with: payload) as? [String: Any]
+            try JSONSerialization.jsonObject(with: Data(payload.underlying)) as? [String: Any]
         )
         let rules = try #require(decoded["rules"] as? [[String: Any]])
         let review = try #require(
@@ -324,23 +258,16 @@ struct RepositoryPolicyTests {
     // drift, so it must fail closed rather than pass as "close enough".
     @Test
     func protectedMainPayloadRejectsAllMergeMethods() throws {
-        let canonical = URL(filePath: #filePath)
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
-            .appending(path: "Policy/protected-main-ruleset.json")
-        let allMethods = try String(contentsOf: canonical, encoding: .utf8)
+        let canonical = try policy("protected-main-ruleset")
+        let allMethods = String(decoding: canonical, as: UTF8.self)
             .replacingOccurrences(
                 of: "\"allowed_merge_methods\": [\"squash\"]",
                 with: "\"allowed_merge_methods\": [\"merge\", \"squash\", \"rebase\"]"
             )
         #expect(allMethods.contains("\"merge\", \"squash\", \"rebase\""))
-        let url = FileManager.default.temporaryDirectory
-            .appending(path: "protected-main-ruleset-\(UUID().uuidString).json")
-        try Data(allMethods.utf8).write(to: url)
-        defer { try? FileManager.default.removeItem(at: url) }
+        let url = [Byte](allMethods.utf8)
 
-        #expect(throws: RepositoryPolicy.ConfigurationError.self) {
+        #expect(throws: RepositoryPolicy.Ruleset.Error.self) {
             try RepositoryPolicy.Ruleset.protectedMainPayload(from: url)
         }
     }
@@ -352,13 +279,9 @@ struct RepositoryPolicyTests {
     // merge-method default over it.
     @Test
     func protectedMainPayloadRejectsAnUnpinnedMergeMethodContract() throws {
-        let canonical = URL(filePath: #filePath)
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
-            .appending(path: "Policy/protected-main-ruleset.json")
+        let canonical = try policy("protected-main-ruleset")
         let unpinned =
-            try String(contentsOf: canonical, encoding: .utf8)
+            String(decoding: canonical, as: UTF8.self)
             .replacingOccurrences(of: "\"allowed_merge_methods\": [\"squash\"], ", with: "")
             .replacingOccurrences(
                 of: "\"dismissal_restriction\": { \"allowed_actors\": [], \"enabled\": false }, ",
@@ -370,12 +293,9 @@ struct RepositoryPolicyTests {
         #expect(!unpinned.contains("allowed_merge_methods"))
         #expect(!unpinned.contains("dismissal_restriction"))
         #expect(!unpinned.contains("required_reviewers"))
-        let url = FileManager.default.temporaryDirectory
-            .appending(path: "protected-main-ruleset-\(UUID().uuidString).json")
-        try Data(unpinned.utf8).write(to: url)
-        defer { try? FileManager.default.removeItem(at: url) }
+        let url = [Byte](unpinned.utf8)
 
-        #expect(throws: RepositoryPolicy.ConfigurationError.self) {
+        #expect(throws: RepositoryPolicy.Ruleset.Error.self) {
             try RepositoryPolicy.Ruleset.protectedMainPayload(from: url)
         }
     }
@@ -388,13 +308,9 @@ struct RepositoryPolicyTests {
     // pull-request transaction as the package contract.
     @Test
     func protectedMainControlPayloadFixtureDefinesTheControlPlaneTransaction() throws {
-        let url = URL(filePath: #filePath)
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
-            .appending(path: "Policy/protected-main-control-ruleset.json")
+        let url = try policy("protected-main-control-ruleset")
         let payload = try RepositoryPolicy.Ruleset.protectedMainControlPayload(from: url)
-        let object = try #require(try JSONSerialization.jsonObject(with: payload) as? [String: Any])
+        let object = try #require(try JSONSerialization.jsonObject(with: Data(payload.underlying)) as? [String: Any])
         #expect((object["name"] as? String) == "Institute protected main (control)")
         #expect((object["bypass_actors"] as? [Any])?.isEmpty == true)
         #expect((object["enforcement"] as? String) == "active")
@@ -421,23 +337,16 @@ struct RepositoryPolicyTests {
     // isolates the rule-completeness check from the name/identity check.
     @Test
     func protectedMainPayloadRejectsAPayloadMissingTheRequiredStatusChecksRule() throws {
-        let canonical = URL(filePath: #filePath)
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
-            .appending(path: "Policy/protected-main-ruleset.json")
+        let canonical = try policy("protected-main-ruleset")
         var object = try #require(
-            try JSONSerialization.jsonObject(with: Data(contentsOf: canonical)) as? [String: Any]
+            try JSONSerialization.jsonObject(with: Data(canonical.underlying)) as? [String: Any]
         )
         var rules = try #require(object["rules"] as? [[String: Any]])
         rules.removeAll { $0["type"] as? String == "required_status_checks" }
         object["rules"] = rules
-        let url = FileManager.default.temporaryDirectory
-            .appending(path: "protected-main-ruleset-\(UUID().uuidString).json")
-        try JSONSerialization.data(withJSONObject: object).write(to: url)
-        defer { try? FileManager.default.removeItem(at: url) }
+        let url = try scratchFixture(object)
 
-        #expect(throws: RepositoryPolicy.ConfigurationError.self) {
+        #expect(throws: RepositoryPolicy.Ruleset.Error.self) {
             try RepositoryPolicy.Ruleset.protectedMainPayload(from: url)
         }
     }
@@ -447,13 +356,9 @@ struct RepositoryPolicyTests {
     // control contract's rule-type set admits exactly three rules.
     @Test
     func protectedMainControlPayloadRejectsASmuggledRequiredStatusChecksRule() throws {
-        let canonical = URL(filePath: #filePath)
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
-            .appending(path: "Policy/protected-main-control-ruleset.json")
+        let canonical = try policy("protected-main-control-ruleset")
         var object = try #require(
-            try JSONSerialization.jsonObject(with: Data(contentsOf: canonical)) as? [String: Any]
+            try JSONSerialization.jsonObject(with: Data(canonical.underlying)) as? [String: Any]
         )
         var rules = try #require(object["rules"] as? [[String: Any]])
         rules.append([
@@ -465,12 +370,9 @@ struct RepositoryPolicyTests {
             ],
         ])
         object["rules"] = rules
-        let url = FileManager.default.temporaryDirectory
-            .appending(path: "protected-main-control-ruleset-\(UUID().uuidString).json")
-        try JSONSerialization.data(withJSONObject: object).write(to: url)
-        defer { try? FileManager.default.removeItem(at: url) }
+        let url = try scratchFixture(object)
 
-        #expect(throws: RepositoryPolicy.ConfigurationError.self) {
+        #expect(throws: RepositoryPolicy.Ruleset.Error.self) {
             try RepositoryPolicy.Ruleset.protectedMainControlPayload(from: url)
         }
     }
@@ -480,13 +382,9 @@ struct RepositoryPolicyTests {
     // rule-type set does not admit).
     @Test
     func protectedMainControlPayloadRejectsTheRealPackagePayload() throws {
-        let canonical = URL(filePath: #filePath)
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
-            .appending(path: "Policy/protected-main-ruleset.json")
+        let canonical = try policy("protected-main-ruleset")
 
-        #expect(throws: RepositoryPolicy.ConfigurationError.self) {
+        #expect(throws: RepositoryPolicy.Ruleset.Error.self) {
             try RepositoryPolicy.Ruleset.protectedMainControlPayload(from: canonical)
         }
     }
@@ -495,13 +393,9 @@ struct RepositoryPolicyTests {
     // payload (wrong name, and no required_status_checks rule at all).
     @Test
     func protectedMainPayloadRejectsTheRealControlPayload() throws {
-        let canonical = URL(filePath: #filePath)
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
-            .appending(path: "Policy/protected-main-control-ruleset.json")
+        let canonical = try policy("protected-main-control-ruleset")
 
-        #expect(throws: RepositoryPolicy.ConfigurationError.self) {
+        #expect(throws: RepositoryPolicy.Ruleset.Error.self) {
             try RepositoryPolicy.Ruleset.protectedMainPayload(from: canonical)
         }
     }
@@ -556,716 +450,6 @@ struct RepositoryPolicyTests {
     // rulesetsJobReadsVisibilityLiveAndFailsClosedOnAnUnrecognizedValue,
     // botReviewTransactionSourcesCollectionsFromFiles) were removed here.
     // The originals remain in .github and transfer/rebind at TX-APP2Z.
-
-    @Test
-    func surfacePolicyAcceptsAllowlistedThinCaller() throws {
-        let root = try repositoryFixture(
-            files: [
-                ".github/workflows/ci.yml": """
-                name: CI
-                on:
-                  push:
-                  pull_request:
-                  workflow_dispatch:
-                jobs:
-                  ci:
-                    uses: swift-foundations/.github/.github/workflows/swift-ci.yml@main
-                """
-            ]
-        )
-        defer { try? FileManager.default.removeItem(at: root) }
-
-        let report = try RepositoryPolicy.validateSurface(
-            repository: "swift-foundations/swift-example",
-            repositoryClass: .package,
-            root: root,
-            policy: .init(
-                schemaVersion: 1,
-                actionGrants: [
-                    .init(
-                        repositoryClass: .package,
-                        path: ".github/workflows/ci.yml",
-                        kind: .thinCaller,
-                        triggers: ["pull_request", "push", "workflow_dispatch"],
-                        uses: [
-                            "swift-foundations/.github/.github/workflows/swift-ci.yml@main"
-                        ]
-                    )
-                ],
-                exemptions: []
-            )
-        )
-
-        #expect(report.passed)
-        #expect(report.actionFiles == 1)
-        #expect(report.issueFormFiles == 0)
-    }
-
-    // Regression for the nightly org-scope sweep false positive: `branches:`
-    // and `tags:` are filter keys nested under `push:`/`pull_request:`, not
-    // sibling trigger names, and must never be flattened into the scanned
-    // `triggers` set alongside them.
-    @Test
-    func surfacePolicyIgnoresBranchAndTagFiltersNestedUnderATrigger() throws {
-        let root = try repositoryFixture(
-            files: [
-                ".github/workflows/ci.yml": """
-                name: CI
-                on:
-                  push:
-                    branches: [main]
-                    tags: ['v*']
-                  pull_request:
-                    branches: [main]
-                  workflow_dispatch:
-                jobs:
-                  ci:
-                    uses: swift-foundations/.github/.github/workflows/swift-ci.yml@main
-                """
-            ]
-        )
-        defer { try? FileManager.default.removeItem(at: root) }
-
-        let report = try RepositoryPolicy.validateSurface(
-            repository: "swift-foundations/swift-example",
-            repositoryClass: .package,
-            root: root,
-            policy: .init(
-                schemaVersion: 1,
-                actionGrants: [
-                    .init(
-                        repositoryClass: .package,
-                        path: ".github/workflows/ci.yml",
-                        kind: .thinCaller,
-                        triggers: ["pull_request", "push", "workflow_dispatch"],
-                        uses: [
-                            "swift-foundations/.github/.github/workflows/swift-ci.yml@main"
-                        ]
-                    )
-                ],
-                exemptions: []
-            )
-        )
-
-        #expect(report.passed)
-        #expect(report.violations.isEmpty)
-    }
-
-    @Test
-    func surfacePolicyRejectsUnlistedTriggerUseAndInlineJob() throws {
-        let root = try repositoryFixture(
-            files: [
-                ".github/workflows/ci.yml": """
-                name: CI
-                on:
-                  schedule:
-                    - cron: "0 4 * * *"
-                jobs:
-                  ci:
-                    runs-on: ubuntu-latest
-                    steps:
-                      - uses: actions/checkout@v7
-                """
-            ]
-        )
-        defer { try? FileManager.default.removeItem(at: root) }
-
-        let report = try RepositoryPolicy.validateSurface(
-            repository: "swift-foundations/swift-example",
-            repositoryClass: .package,
-            root: root,
-            policy: .init(
-                schemaVersion: 1,
-                actionGrants: [
-                    .init(
-                        repositoryClass: .package,
-                        path: ".github/workflows/ci.yml",
-                        kind: .thinCaller,
-                        triggers: ["push"],
-                        uses: [
-                            "swift-foundations/.github/.github/workflows/swift-ci.yml@main"
-                        ]
-                    )
-                ],
-                exemptions: []
-            )
-        )
-
-        #expect(
-            Set(report.violations.map(\.identifier))
-                == ["REPO-ACTIONS-003", "REPO-ACTIONS-004", "REPO-ACTIONS-005"]
-        )
-    }
-
-    @Test
-    func surfacePolicyAcceptsExplicitToolOwnedWorkflowAndAction() throws {
-        let root = try repositoryFixture(
-            files: [
-                ".github/workflows/lint.yml": """
-                name: Lint
-                on:
-                  workflow_call:
-                jobs:
-                  lint:
-                    runs-on: ubuntu-latest
-                    steps:
-                      - uses: ./.github/actions/install
-                """,
-                ".github/actions/install/action.yml": """
-                name: Install
-                description: Install the tool
-                runs:
-                  using: composite
-                  steps:
-                    - uses: actions/checkout@v7
-                """,
-            ]
-        )
-        defer { try? FileManager.default.removeItem(at: root) }
-
-        let report = try RepositoryPolicy.validateSurface(
-            repository: "swift-foundations/swift-linter",
-            repositoryClass: .tool,
-            root: root,
-            policy: .init(
-                schemaVersion: 1,
-                actionGrants: [
-                    .init(
-                        repositoryClass: .tool,
-                        repository: "swift-foundations/swift-linter",
-                        path: ".github/workflows/lint.yml",
-                        kind: .toolWorkflow,
-                        triggers: ["workflow_call"],
-                        uses: ["./.github/actions/install"]
-                    ),
-                    .init(
-                        repositoryClass: .tool,
-                        repository: "swift-foundations/swift-linter",
-                        path: ".github/actions/install/action.yml",
-                        kind: .toolAction,
-                        triggers: [],
-                        uses: ["actions/checkout@v7"]
-                    ),
-                ],
-                exemptions: []
-            )
-        )
-
-        #expect(report.passed)
-        #expect(report.actionFiles == 2)
-    }
-
-    @Test
-    func surfacePolicyDeniesLocalIssueFormsAndHonorsExactTypedExemptions() throws {
-        let root = try repositoryFixture(
-            files: [
-                ".github/workflows/recovery.yml": """
-                name: Recovery
-                on: workflow_dispatch
-                jobs:
-                  recover:
-                    runs-on: ubuntu-latest
-                    steps:
-                      - uses: actions/checkout@v7
-                """,
-                ".github/ISSUE_TEMPLATE/bug.yml": "name: Bug\n",
-            ]
-        )
-        defer { try? FileManager.default.removeItem(at: root) }
-
-        let denied = try RepositoryPolicy.validateSurface(
-            repository: "swift-foundations/swift-example",
-            repositoryClass: .package,
-            root: root,
-            policy: .init(schemaVersion: 1, actionGrants: [], exemptions: [])
-        )
-        #expect(
-            Set(denied.violations.map(\.identifier))
-                == ["REPO-ACTIONS-001", "REPO-FORMS-001"]
-        )
-
-        let exempted = try RepositoryPolicy.validateSurface(
-            repository: "swift-foundations/swift-example",
-            repositoryClass: .package,
-            root: root,
-            policy: .init(
-                schemaVersion: 1,
-                actionGrants: [],
-                exemptions: [
-                    .init(
-                        surface: .actions,
-                        repository: "swift-foundations/swift-example",
-                        path: ".github/workflows/recovery.yml",
-                        reason: "bounded recovery until the central operation lands"
-                    ),
-                    .init(
-                        surface: .issueForms,
-                        repository: "swift-foundations/swift-example",
-                        path: ".github/ISSUE_TEMPLATE/bug.yml",
-                        reason: "repository requires a typed form unavailable at organization scope"
-                    ),
-                ]
-            )
-        )
-        #expect(exempted.passed)
-        #expect(exempted.exemptionsApplied == 2)
-    }
-
-    @Test
-    func remoteSurfaceSnapshotUsesTheSameTypedPolicy() throws {
-        let report = try RepositoryPolicy.validateSurface(
-            repository: "swift-foundations/swift-example",
-            repositoryClass: .package,
-            files: [
-                ".github/workflows/ci.yml": """
-                name: CI
-                on: [push, pull_request]
-                jobs:
-                  ci:
-                    uses: swift-foundations/.github/.github/workflows/swift-ci.yml@main
-                """,
-                ".github/ISSUE_TEMPLATE/bug.yml": "name: Bug\n",
-                "Sources/Example.swift": "public struct Example {}\n",
-            ],
-            policy: .init(
-                schemaVersion: 1,
-                actionGrants: [
-                    .init(
-                        repositoryClass: .package,
-                        path: ".github/workflows/ci.yml",
-                        kind: .thinCaller,
-                        triggers: ["pull_request", "push"],
-                        uses: [
-                            "swift-foundations/.github/.github/workflows/swift-ci.yml@main"
-                        ]
-                    )
-                ],
-                exemptions: []
-            )
-        )
-
-        #expect(report.actionFiles == 1)
-        #expect(report.issueFormFiles == 1)
-        #expect(report.violations.map(\.identifier) == ["REPO-FORMS-001"])
-    }
-
-    @Test
-    func instituteDefaultSurfacePolicyMatchesTheDesignedFleet() throws {
-        let policy = try RepositoryPolicy.SurfacePolicy.load(
-            from: RepositoryPolicy.SurfacePolicy.instituteDefaultURL
-        )
-
-        #expect(policy.schemaVersion == 1)
-
-        // The generic package thin-caller grant admits only the terminal
-        // one-hop reusable. Layer wrappers, docs wrappers, and leaf-side
-        // notification jobs are superseded architecture.
-        let generic = try #require(
-            policy.actionGrants.first {
-                $0.repository == nil && $0.path == ".github/workflows/ci.yml"
-            }
-        )
-        #expect(generic.repositoryClass == .package)
-        #expect(generic.kind == .thinCaller)
-        #expect(generic.triggers == ["pull_request", "push", "workflow_dispatch"])
-        #expect(
-            generic.uses == [
-                "swift-institute/.github/.github/workflows/swift-ci.yml@main"
-            ]
-        )
-
-        // swift-linter is the tool-host: repository-scoped grants for its own
-        // thin caller and its workflow_call reusable, nothing broader.
-        let linterGrants = policy.actionGrants.filter {
-            $0.repository == "swift-foundations/swift-linter"
-        }
-        #expect(linterGrants.count == 2)
-        #expect(linterGrants.allSatisfy { $0.repositoryClass == .tool })
-        #expect(
-            linterGrants.first { $0.path == ".github/workflows/ci.yml" }?.uses == [
-                "swift-institute/.github/.github/workflows/swift-ci.yml@main"
-            ]
-        )
-        #expect(
-            linterGrants.first { $0.path == ".github/workflows/lint.yml" }?.kind
-                == .toolWorkflow
-        )
-
-        // swift-institute/Issues (#266 follow-up): control-plane class, a
-        // bespoke-kind grant naming exactly its own repository/path so it
-        // never widens any other repository's admissible shape.
-        let issuesGrants = policy.actionGrants.filter {
-            $0.repository == "swift-institute/Issues"
-        }
-        #expect(issuesGrants.count == 1)
-        let issuesGrant = try #require(issuesGrants.first)
-        #expect(issuesGrant.repositoryClass == .controlPlane)
-        #expect(issuesGrant.path == ".github/workflows/ci.yml")
-        #expect(issuesGrant.kind == .bespoke)
-        #expect(
-            issuesGrant.triggers == ["pull_request", "push", "schedule", "workflow_dispatch"]
-        )
-        #expect(
-            issuesGrant.uses == [
-                "actions/checkout@v6",
-                "swift-institute/.github/.github/workflows/swift-ci.yml@main",
-            ]
-        )
-
-        // swift-institute/swift-institute.org (#276 predicate-18, decided
-        // together with the same-day ruleset-class-overrides.json
-        // reclassification): control-plane class, a bespoke-kind grant
-        // naming exactly its own repository/path for its non-reusable
-        // GitHub Pages deployment workflow.
-        let siteGrants = policy.actionGrants.filter {
-            $0.repository == "swift-institute/swift-institute.org"
-        }
-        #expect(siteGrants.count == 1)
-        let siteGrant = try #require(siteGrants.first)
-        #expect(siteGrant.repositoryClass == .controlPlane)
-        #expect(siteGrant.path == ".github/workflows/deploy-docs.yml")
-        #expect(siteGrant.kind == .bespoke)
-        #expect(siteGrant.triggers == ["push", "workflow_dispatch"])
-        #expect(
-            siteGrant.uses == [
-                "actions/checkout@v7",
-                "actions/configure-pages@v6",
-                "actions/deploy-pages@v5",
-                "actions/upload-pages-artifact@v5",
-                "swift-actions/setup-swift@v3",
-            ]
-        )
-
-        #expect(policy.actionGrants.count == 5)
-
-        // Typed exemptions carry exact repository and path scope.
-        #expect(
-            policy.exemptions.map { "\($0.repository):\($0.path)" }.sorted() == [
-                "swift-foundations/swift-linter:.github/workflows/publish-ci-binaries.yml",
-                "swift-foundations/swift-pdf:.github/workflows/windows-6.4-proof.yml",
-                "swift-foundations/swift-pdf:.github/workflows/windows-existential-repro.yml",
-                "swift-iso/swift-iso-32000:.github/workflows/no-verbatim-spec-text.yml",
-            ]
-        )
-        #expect(policy.exemptions.allSatisfy { $0.surface == .actions })
-    }
-
-    // Positive control: the shipped policy must still DENY. A whitelist whose
-    // gate has never been observed to fire is evidence of nothing, so these
-    // fixtures are deliberately non-conformant and the check must flag them.
-    @Test
-    func instituteDefaultSurfacePolicyStillFiresOnNonConformantFixtures() throws {
-        let policy = try RepositoryPolicy.SurfacePolicy.load(
-            from: RepositoryPolicy.SurfacePolicy.instituteDefaultURL
-        )
-
-        // A sha-pinned wrapper ref cannot match the granted `@main` string.
-        let shaPinned = try RepositoryPolicy.validateSurface(
-            repository: "swift-primitives/swift-example",
-            repositoryClass: .package,
-            files: [
-                ".github/workflows/ci.yml": """
-                name: CI
-                on: [push, pull_request, workflow_dispatch]
-                jobs:
-                  ci:
-                    uses: swift-primitives/.github/.github/workflows/swift-ci.yml@0123456789abcdef0123456789abcdef01234567
-                """
-            ],
-            policy: policy
-        )
-        #expect(shaPinned.violations.map(\.identifier) == ["REPO-ACTIONS-004"])
-
-        // The swift-pdf Windows-ICE exemption is repository-exact: the same
-        // path in any other repository stays denied.
-        let windowsFile = """
-            name: Windows 6.4 proof
-            on: [push, workflow_dispatch]
-            jobs:
-              proof:
-                runs-on: windows-2022
-                steps:
-                  - uses: actions/checkout@v7
-            """
-        let wrongRepository = try RepositoryPolicy.validateSurface(
-            repository: "swift-foundations/swift-example",
-            repositoryClass: .package,
-            files: [".github/workflows/windows-6.4-proof.yml": windowsFile],
-            policy: policy
-        )
-        #expect(wrongRepository.violations.map(\.identifier) == ["REPO-ACTIONS-001"])
-        let exemptedRepository = try RepositoryPolicy.validateSurface(
-            repository: "swift-foundations/swift-pdf",
-            repositoryClass: .package,
-            files: [".github/workflows/windows-6.4-proof.yml": windowsFile],
-            policy: policy
-        )
-        #expect(exemptedRepository.passed)
-        #expect(exemptedRepository.exemptionsApplied == 1)
-
-        // A former rule-pack leaf is now a negative control: neither its
-        // layer wrapper nor its notification hop is terminally admitted.
-        let rulePack = try RepositoryPolicy.validateSurface(
-            repository: "swift-primitives/swift-linter-primitives",
-            repositoryClass: .package,
-            files: [
-                ".github/workflows/ci.yml": """
-                name: CI
-                on: [push, pull_request, workflow_dispatch]
-                jobs:
-                  ci:
-                    uses: swift-primitives/.github/.github/workflows/swift-ci.yml@main
-                  notify:
-                    uses: swift-institute/.github/.github/workflows/notify-linter-republish.yml@main
-                """
-            ],
-            policy: policy
-        )
-        #expect(
-            rulePack.violations.map(\.identifier) == [
-                "REPO-ACTIONS-004", "REPO-ACTIONS-004",
-            ]
-        )
-    }
-
-    // The `reviewAfter` key was removed from the exemption schema
-    // ([swift-institute/.github#110]) because it was decoded but read
-    // nowhere. Load-time validation must reject any stray occurrence of it
-    // (or any other unrecognized key) so the schema and the decoder stay in
-    // exact correspondence going forward.
-    @Test
-    func surfacePolicyRejectsUnknownExemptionKeys() throws {
-        let json = """
-            {
-              "schemaVersion": 1,
-              "actionGrants": [],
-              "exemptions": [
-                {
-                  "surface": "actions",
-                  "repository": "swift-primitives/swift-example",
-                  "path": ".github/workflows/legacy.yml",
-                  "reason": "fixture",
-                  "reviewAfter": "2026-01-01"
-                }
-              ]
-            }
-            """
-        let url = FileManager.default.temporaryDirectory
-            .appending(path: "repository-surfaces-\(UUID().uuidString).json")
-        try Data(json.utf8).write(to: url)
-        defer { try? FileManager.default.removeItem(at: url) }
-
-        #expect(throws: RepositoryPolicy.ConfigurationError.self) {
-            try RepositoryPolicy.SurfacePolicy.load(from: url)
-        }
-    }
-
-    // MARK: - REPO-DOCS-001 (SPI publish gate over placeholder DocC catalogues)
-
-    // Positive: `.spi.yml` at the root plus a `.docc` markdown file that still
-    // carries the umbrella placeholder marker produces exactly one
-    // REPO-DOCS-001 advisory, and the advisory channel does not fail `passed`.
-    @Test
-    func docsPlaceholderAdvisoryFiresWhenSPIYMLPublishesAMarkedCatalogue() throws {
-        let root = try repositoryFixture(
-            files: [
-                ".spi.yml": "version: 1\n",
-                "Sources/Example/Example.docc/Example.md": """
-                # ``Example``
-
-                This is the umbrella catalog placeholder. Replace this line with a one-sentence \
-                summary of the module.
-                """,
-            ]
-        )
-        defer { try? FileManager.default.removeItem(at: root) }
-
-        let report = try RepositoryPolicy.validateSurface(
-            repository: "swift-foundations/swift-example",
-            repositoryClass: .package,
-            root: root,
-            policy: .init(schemaVersion: 1, actionGrants: [], exemptions: [])
-        )
-
-        #expect(report.advisories.map(\.identifier) == ["REPO-DOCS-001"])
-        #expect(report.advisories.first?.path == "Sources/Example/Example.docc/Example.md")
-        #expect(report.passed)
-    }
-
-    // Negative: `.spi.yml` present, but the catalogue has been completed (the
-    // marker is gone) — no advisory.
-    @Test
-    func docsPlaceholderAdvisoryIsSilentOnACompletedCatalogue() throws {
-        let root = try repositoryFixture(
-            files: [
-                ".spi.yml": "version: 1\n",
-                "Sources/Example/Example.docc/Example.md": """
-                # ``Example``
-
-                Example provides a typed configuration surface for the repository policy tool.
-                """,
-            ]
-        )
-        defer { try? FileManager.default.removeItem(at: root) }
-
-        let report = try RepositoryPolicy.validateSurface(
-            repository: "swift-foundations/swift-example",
-            repositoryClass: .package,
-            root: root,
-            policy: .init(schemaVersion: 1, actionGrants: [], exemptions: [])
-        )
-
-        #expect(report.advisories.isEmpty)
-    }
-
-    // Edge/fail-closed: a marked catalogue with no `.spi.yml` at the root is
-    // not publication-gated — no advisory. The gate is about publication,
-    // not about placeholders in general.
-    @Test
-    func docsPlaceholderAdvisoryIsSilentWithoutSPIYML() throws {
-        let root = try repositoryFixture(
-            files: [
-                "Sources/Example/Example.docc/Example.md": """
-                # ``Example``
-
-                This is the umbrella catalog placeholder. Replace this line with a one-sentence \
-                summary of the module.
-                """
-            ]
-        )
-        defer { try? FileManager.default.removeItem(at: root) }
-
-        let report = try RepositoryPolicy.validateSurface(
-            repository: "swift-foundations/swift-example",
-            repositoryClass: .package,
-            root: root,
-            policy: .init(schemaVersion: 1, actionGrants: [], exemptions: [])
-        )
-
-        #expect(report.advisories.isEmpty)
-    }
-
-    // MARK: - REPO-README-001 / REPO-README-002 (struck badge, struck platform matrix)
-
-    // Positive: a development-status badge image in root README.md produces
-    // exactly one REPO-README-001 advisory, and only that identifier.
-    @Test
-    func readmeAdvisoryFiresOnDevelopmentStatusBadge() throws {
-        let root = try repositoryFixture(
-            files: [
-                "README.md": """
-                # Example
-
-                ![Status](https://img.shields.io/badge/status-active--development-blue.svg)
-
-                Example is a typed configuration surface.
-                """
-            ]
-        )
-        defer { try? FileManager.default.removeItem(at: root) }
-
-        let report = try RepositoryPolicy.validateSurface(
-            repository: "swift-foundations/swift-example",
-            repositoryClass: .package,
-            root: root,
-            policy: .init(schemaVersion: 1, actionGrants: [], exemptions: [])
-        )
-
-        #expect(report.advisories.map(\.identifier) == ["REPO-README-001"])
-        #expect(report.passed)
-    }
-
-    // Positive: a `## Platform Support` heading in root README.md produces
-    // exactly one REPO-README-002 advisory, and only that identifier.
-    @Test
-    func readmeAdvisoryFiresOnPlatformSupportHeading() throws {
-        let root = try repositoryFixture(
-            files: [
-                "README.md": """
-                # Example
-
-                ## Platform Support
-
-                | Platform | Minimum |
-                | --- | --- |
-                | macOS | 15 |
-                """
-            ]
-        )
-        defer { try? FileManager.default.removeItem(at: root) }
-
-        let report = try RepositoryPolicy.validateSurface(
-            repository: "swift-foundations/swift-example",
-            repositoryClass: .package,
-            root: root,
-            policy: .init(schemaVersion: 1, actionGrants: [], exemptions: [])
-        )
-
-        #expect(report.advisories.map(\.identifier) == ["REPO-README-002"])
-        #expect(report.passed)
-    }
-
-    // Negative: a converted README carrying neither construct — no advisory
-    // from either identifier.
-    @Test
-    func readmeAdvisoriesAreSilentOnAConvertedREADME() throws {
-        let root = try repositoryFixture(
-            files: [
-                "README.md": """
-                # Example
-
-                Example is a typed configuration surface for the repository policy tool.
-
-                ## Installation
-
-                Add the package to your manifest.
-                """
-            ]
-        )
-        defer { try? FileManager.default.removeItem(at: root) }
-
-        let report = try RepositoryPolicy.validateSurface(
-            repository: "swift-foundations/swift-example",
-            repositoryClass: .package,
-            root: root,
-            policy: .init(schemaVersion: 1, actionGrants: [], exemptions: [])
-        )
-
-        #expect(report.advisories.isEmpty)
-    }
-
-    // Edge/fail-closed: both constructs present, but only inside a fenced
-    // code block — the fence-stripped scan (mirroring README-017/026's
-    // fence exclusion) must not see them, so no advisory from either
-    // identifier.
-    @Test
-    func readmeAdvisoriesAreSilentInsideAFencedCodeBlock() throws {
-        let root = try repositoryFixture(
-            files: [
-                "README.md": """
-                # Example
-
-                ```markdown
-                ![Status](https://img.shields.io/badge/status-active--development-blue.svg)
-
-                ## Platform Support
-                ```
-
-                Example is a typed configuration surface for the repository policy tool.
-                """
-            ]
-        )
-        defer { try? FileManager.default.removeItem(at: root) }
-
-        let report = try RepositoryPolicy.validateSurface(
-            repository: "swift-foundations/swift-example",
-            repositoryClass: .package,
-            root: root,
-            policy: .init(schemaVersion: 1, actionGrants: [], exemptions: [])
-        )
-
-        #expect(report.advisories.isEmpty)
-    }
 
     // MARK: - Issue-record grammar
 
@@ -1610,21 +794,6 @@ struct RepositoryPolicyTests {
         #expect(throws: RepositoryPolicy.Issue.Error.self) {
             try RepositoryPolicy.Issue.Compactor.plan(snapshot: terminal, guard: expected)
         }
-    }
-
-    private func repositoryFixture(files: [String: String]) throws -> URL {
-        let root =
-            FileManager.default.temporaryDirectory
-            .appending(path: "repository-policy-\(UUID().uuidString)")
-        for (path, contents) in files {
-            let file = root.appending(path: path)
-            try FileManager.default.createDirectory(
-                at: file.deletingLastPathComponent(),
-                withIntermediateDirectories: true
-            )
-            try Data(contents.utf8).write(to: file)
-        }
-        return root
     }
 
     private func render(_ decision: RepositoryPolicy.Decision) -> String {

@@ -1,11 +1,14 @@
+public import Institute_Model
 import Institute_Repository_Policy
+import Byte_Primitives
+import Byte_Primitives_Standard_Library_Integration
 import Testing
 
-@testable import Institute_Application_Foundation_Integration
+@testable import Institute_Application_Repository
 
 @Suite
 struct RepositoryPolicyMetadataTests {
-    static let titles = Repository.Policy.Metadata.Draft.Titles(
+    static let titles = Institute.Repository.Policy.Metadata.Draft.Titles(
         parsing: """
             # spec-titles.yaml
             rfc:
@@ -23,7 +26,7 @@ struct RepositoryPolicyMetadataTests {
         _ target: String,
         packageDescription: String = ""
     ) throws
-        -> Repository.Policy.Metadata.Draft
+        -> Institute.Repository.Policy.Metadata.Draft
     {
         try .init(target: target, titles: titles, packageDescription: packageDescription)
     }
@@ -47,7 +50,7 @@ struct RepositoryPolicyMetadataTests {
             let draft = try RepositoryPolicyMetadataTests.draft("swift-institute/.github")
             #expect(draft.kind == .organizationDefaults)
             #expect(draft.metadata.homepage.isEmpty)
-            let rendered = Repository.Policy.Metadata.Draft.Render(generatedOn: "2026-08-07")(draft)
+            let rendered = Institute.Repository.Policy.Metadata.Draft.Render(generatedOn: "2026-08-07")(draft)
             #expect(!rendered.contains("homepage"))
             #expect(rendered.contains("topics: []"))
         }
@@ -64,7 +67,7 @@ struct RepositoryPolicyMetadataTests {
         @Test func `the rendered draft carries the review instruction`() throws {
             // What makes a draft a draft. Without it a heuristic seed
             // reads as an authored document.
-            let rendered = Repository.Policy.Metadata.Draft.Render(generatedOn: "2026-08-07")(
+            let rendered = Institute.Repository.Policy.Metadata.Draft.Render(generatedOn: "2026-08-07")(
                 try RepositoryPolicyMetadataTests.draft("swift-ietf/swift-rfc-3986")
             )
             #expect(rendered.contains("# REVIEW BEFORE MERGE"))
@@ -101,8 +104,8 @@ struct RepositoryPolicyMetadataTests {
         }
 
         @Test func `a target that is not owner slash name is refused`() {
-            #expect(throws: Repository.Policy.Metadata.Error.malformedRepository("swift-ietf")) {
-                try Repository.Policy.Metadata.Draft(target: "swift-ietf")
+            #expect(throws: Institute.Repository.Policy.Metadata.Error.malformedRepository("swift-ietf")) {
+                try Institute.Repository.Policy.Metadata.Draft(target: "swift-ietf")
             }
         }
     }

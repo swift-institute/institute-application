@@ -1,6 +1,9 @@
+public import Institute_Model
 import Institute_Repository_Policy
+import Byte_Primitives
+import Byte_Primitives_Standard_Library_Integration
 import Foundation
-import Institute_Application_Foundation_Integration
+import Institute_Application_Repository
 import Testing
 
 /// `Parse` is defined as `Render`'s inverse, so the test is the identity
@@ -48,7 +51,7 @@ struct RepositoryPolicyCallerParseTests {
                   exclude-modules: Internal
                 secrets: inherit
             """
-        let spec = try Repository.Policy.Caller.Parse.caller(
+        let spec = try Institute.Repository.Policy.Caller.Parse.caller(
             text,
             repository: "swift-standards/swift-demo-standard"
         )
@@ -77,11 +80,11 @@ struct RepositoryPolicyCallerParseTests {
                   - uses: actions/checkout@v6
             """
         #expect(
-            throws: Repository.Policy.Caller.Error.unknownCustomization(
+            throws: Institute.Repository.Policy.Caller.Error.unknownCustomization(
                 "`ci` job carries inline steps/runs-on, not a thin caller"
             )
         ) {
-            try Repository.Policy.Caller.Parse.caller(text, repository: "swift-iso/swift-x")
+            try Institute.Repository.Policy.Caller.Parse.caller(text, repository: "swift-iso/swift-x")
         }
     }
 
@@ -95,11 +98,11 @@ struct RepositoryPolicyCallerParseTests {
                   bespoke-knob: yes
             """
         #expect(
-            throws: Repository.Policy.Caller.Error.unknownCustomization(
+            throws: Institute.Repository.Policy.Caller.Error.unknownCustomization(
                 "unapproved with: key bespoke-knob"
             )
         ) {
-            try Repository.Policy.Caller.Parse.caller(text, repository: "swift-iso/swift-x")
+            try Institute.Repository.Policy.Caller.Parse.caller(text, repository: "swift-iso/swift-x")
         }
     }
 
@@ -114,8 +117,8 @@ struct RepositoryPolicyCallerParseTests {
               publish:
                 uses: swift-standards/.github/.github/workflows/swift-publish.yml@main
             """
-        #expect(throws: Repository.Policy.Caller.Error.self) {
-            try Repository.Policy.Caller.Parse.caller(text, repository: "swift-iso/swift-x")
+        #expect(throws: Institute.Repository.Policy.Caller.Error.self) {
+            try Institute.Repository.Policy.Caller.Parse.caller(text, repository: "swift-iso/swift-x")
         }
     }
 
@@ -131,8 +134,8 @@ struct RepositoryPolicyCallerParseTests {
                 uses: swift-primitives/.github/.github/workflows/swift-docs.yml@main
                 secrets: inherit
             """
-        #expect(throws: Repository.Policy.Caller.Error.self) {
-            try Repository.Policy.Caller.Parse.caller(text, repository: "swift-iso/swift-x")
+        #expect(throws: Institute.Repository.Policy.Caller.Error.self) {
+            try Institute.Repository.Policy.Caller.Parse.caller(text, repository: "swift-iso/swift-x")
         }
     }
 
@@ -144,8 +147,8 @@ struct RepositoryPolicyCallerParseTests {
                 uses: some-other-org/.github/.github/workflows/swift-ci.yml@main
                 secrets: inherit
             """
-        #expect(throws: Repository.Policy.Caller.Error.self) {
-            try Repository.Policy.Caller.Parse.caller(text, repository: "swift-iso/swift-x")
+        #expect(throws: Institute.Repository.Policy.Caller.Error.self) {
+            try Institute.Repository.Policy.Caller.Parse.caller(text, repository: "swift-iso/swift-x")
         }
     }
 
@@ -160,8 +163,8 @@ struct RepositoryPolicyCallerParseTests {
                 uses: swift-standards/.github/.github/workflows/swift-ci.yml@v1
                 secrets: inherit
             """
-        #expect(throws: Repository.Policy.Caller.Error.self) {
-            try Repository.Policy.Caller.Parse.caller(text, repository: "swift-iso/swift-x")
+        #expect(throws: Institute.Repository.Policy.Caller.Error.self) {
+            try Institute.Repository.Policy.Caller.Parse.caller(text, repository: "swift-iso/swift-x")
         }
     }
 
@@ -178,11 +181,11 @@ struct RepositoryPolicyCallerParseTests {
                 secrets: inherit
             """
         #expect(
-            throws: Repository.Policy.Caller.Error.unknownCustomization(
+            throws: Institute.Repository.Policy.Caller.Error.unknownCustomization(
                 "integrated-docs is present but not true"
             )
         ) {
-            try Repository.Policy.Caller.Parse.caller(text, repository: "swift-iso/swift-x")
+            try Institute.Repository.Policy.Caller.Parse.caller(text, repository: "swift-iso/swift-x")
         }
     }
 

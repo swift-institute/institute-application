@@ -1,7 +1,11 @@
+public import Institute_Model
 import Institute_Repository_Policy
+import Byte_Primitives
+import Byte_Primitives_Standard_Library_Integration
 import Foundation
 import Package_Manager
-import Institute_Application_Foundation_Integration
+import Institute_Application_Repository
+import Institute_Application_Model
 import Testing
 
 @Suite

@@ -1,6 +1,9 @@
+public import Institute_Model
 import Institute_Repository_Policy
+import Byte_Primitives
+import Byte_Primitives_Standard_Library_Integration
 import Foundation
-import Institute_Application_Foundation_Integration
+import Institute_Application_Repository
 import Testing
 
 #if canImport(FoundationNetworking)
@@ -14,15 +17,15 @@ struct RepositoryPolicyUniformityWaveTests {
     /// 522 UTF-8 bytes — and `canonical()` refuses drift by digest.
     @Test
     func embeddedPayloadCarriesTheExactRatifiedBytes() throws {
-        let payload = try Repository.Policy.Uniformity.Wave.Payload.canonical()
+        let payload = try Institute.Repository.Policy.Uniformity.Wave.Payload.canonical()
 
         #expect(payload.count == 522)
         #expect(
-            Repository.Policy.Caller.Wave.digest(payload)
+            Institute.Repository.Policy.Caller.Wave.digest(payload)
                 == "8e37977a3b8f0a0d9e028e6089172d811eea21e6868a878ab43a1d4875df02f7"
         )
         #expect(
-            Repository.Policy.Uniformity.Wave.Payload.digest
+            Institute.Repository.Policy.Uniformity.Wave.Payload.digest
                 == "8e37977a3b8f0a0d9e028e6089172d811eea21e6868a878ab43a1d4875df02f7"
         )
         #expect(
@@ -38,7 +41,7 @@ struct RepositoryPolicyUniformityWaveTests {
             ruleset: try ruleset(),
             shape: nonterminalShape
         )
-        let population = try await Repository.Policy.Uniformity.Wave.enumerate(
+        let population = try await Institute.Repository.Policy.Uniformity.Wave.enumerate(
             client: client,
             fleet: try fleet(organizations: ["swift-standards", "swift-primitives"])
         )
@@ -52,7 +55,7 @@ struct RepositoryPolicyUniformityWaveTests {
         #expect(
             population.subjects.allSatisfy {
                 $0.shape.presentDeletions
-                    == Repository.Policy.Uniformity.Wave.Shape.deletionPaths
+                    == Institute.Repository.Policy.Uniformity.Wave.Shape.deletionPaths
             }
         )
     }
@@ -64,7 +67,7 @@ struct RepositoryPolicyUniformityWaveTests {
             shape: nonterminalShape,
             privateOrganizations: ["swift-riscv"]
         )
-        let population = try await Repository.Policy.Uniformity.Wave.enumerate(
+        let population = try await Institute.Repository.Policy.Uniformity.Wave.enumerate(
             client: client,
             fleet: try fleet(organizations: ["swift-primitives", "swift-riscv"])
         )
@@ -74,7 +77,7 @@ struct RepositoryPolicyUniformityWaveTests {
             population.organizationExclusions == [
                 .init(
                     organization: "swift-riscv",
-                    reason: Repository.Policy.Uniformity.Wave
+                    reason: Institute.Repository.Policy.Uniformity.Wave
                         .OrganizationExclusion.privateOnly
                 )
             ]
@@ -89,8 +92,8 @@ struct RepositoryPolicyUniformityWaveTests {
             emptyRepositories: true
         )
 
-        await #expect(throws: Repository.Policy.Uniformity.Wave.Error.self) {
-            try await Repository.Policy.Uniformity.Wave.enumerate(
+        await #expect(throws: Institute.Repository.Policy.Uniformity.Wave.Error.self) {
+            try await Institute.Repository.Policy.Uniformity.Wave.enumerate(
                 client: client,
                 fleet: try fleet(organizations: ["swift-primitives"])
             )
@@ -102,12 +105,12 @@ struct RepositoryPolicyUniformityWaveTests {
     /// installation cap, and a short pool still refuses.
     @Test
     func capacityRequirementIsOwnedPricedAndStillRefusesShortPools() {
-        let largest = Repository.Policy.Uniformity.Wave.Capacity.requirement(subjects: 206)
+        let largest = Institute.Repository.Policy.Uniformity.Wave.Capacity.requirement(subjects: 206)
         #expect(largest == 206 * 58 + 160)
         #expect(largest <= 12_500)
-        #expect(Repository.Policy.Uniformity.Wave.Capacity.requirement(subjects: 1) == 218)
+        #expect(Institute.Repository.Policy.Uniformity.Wave.Capacity.requirement(subjects: 1) == 218)
 
-        let short = Repository.Policy.Caller.Wave.Capacity(
+        let short = Institute.Repository.Policy.Caller.Wave.Capacity(
             remaining: largest - 1,
             required: largest,
             resetAt: 1_787_000_000
@@ -125,7 +128,7 @@ struct RepositoryPolicyUniformityWaveTests {
         let request = request(canonical: canonical)
         let evidence = try attestation(fixture: "uniformity-attestation-positive")
 
-        let result = try await Repository.Policy.Uniformity.Wave.preflight(
+        let result = try await Institute.Repository.Policy.Uniformity.Wave.preflight(
             client: client,
             request: request,
             attestation: evidence.attestation,
@@ -139,8 +142,8 @@ struct RepositoryPolicyUniformityWaveTests {
         #expect(result.recovery.rollbackHead == "old-head")
         #expect(
             result.receipt.recoveryDigest
-                == Repository.Policy.Caller.Wave.digest(
-                    try Repository.Policy.Caller.Wave.evidenceData(result.recovery)
+                == Institute.Repository.Policy.Caller.Wave.digest(
+                    Institute.Repository.Policy.Caller.Wave.evidenceBytes(result.recovery)
                 )
         )
     }
@@ -165,8 +168,8 @@ struct RepositoryPolicyUniformityWaveTests {
         let request = request(canonical: canonical)
         let evidence = try attestation(fixture: fixture)
 
-        await #expect(throws: Repository.Policy.Uniformity.Wave.Error.self) {
-            try await Repository.Policy.Uniformity.Wave.preflight(
+        await #expect(throws: Institute.Repository.Policy.Uniformity.Wave.Error.self) {
+            try await Institute.Repository.Policy.Uniformity.Wave.preflight(
                 client: client,
                 request: request,
                 attestation: evidence.attestation,
@@ -183,11 +186,11 @@ struct RepositoryPolicyUniformityWaveTests {
             ruleset: canonical,
             shape: nonterminalShape
         )
-        let request = request(canonical: canonical, payload: Data("drifted\n".utf8))
+        let request = request(canonical: canonical, payload: [Byte]("drifted\n".utf8))
         let evidence = try attestation(fixture: "uniformity-attestation-positive")
 
-        await #expect(throws: Repository.Policy.Uniformity.Wave.Error.self) {
-            try await Repository.Policy.Uniformity.Wave.preflight(
+        await #expect(throws: Institute.Repository.Policy.Uniformity.Wave.Error.self) {
+            try await Institute.Repository.Policy.Uniformity.Wave.preflight(
                 client: client,
                 request: request,
                 attestation: evidence.attestation,
@@ -206,9 +209,9 @@ struct RepositoryPolicyUniformityWaveTests {
         )
         let request = request(canonical: canonical)
         let recovery = try await preflight(client: client, request: request)
-        var events: [Repository.Policy.Uniformity.Wave.Event] = []
+        var events: [Institute.Repository.Policy.Uniformity.Wave.Event] = []
 
-        let receipt = try await Repository.Policy.Uniformity.Wave.run(
+        let receipt = try await Institute.Repository.Policy.Uniformity.Wave.run(
             client: client,
             request: request,
             recovery: recovery,
@@ -223,13 +226,13 @@ struct RepositoryPolicyUniformityWaveTests {
         #expect(receipt.oldGitignore == "old-gitignore")
         #expect(receipt.newGitignore == "new-blob")
         #expect(
-            receipt.deleted == Repository.Policy.Uniformity.Wave.Shape.deletionPaths
+            receipt.deleted == Institute.Repository.Policy.Uniformity.Wave.Shape.deletionPaths
         )
         #expect(receipt.bypassClosed)
         #expect(events.map(\.phase) == ["window-opening", "applied"])
         #expect(
             await client.deletions()
-                == Repository.Policy.Uniformity.Wave.Shape.deletionPaths
+                == Institute.Repository.Policy.Uniformity.Wave.Shape.deletionPaths
         )
         #expect(await client.replacements() == 2)
     }
@@ -240,10 +243,10 @@ struct RepositoryPolicyUniformityWaveTests {
     @Test
     func alreadyTerminalSubjectIsReReceiptedWithoutMutation() async throws {
         let canonical = try ruleset()
-        let terminal = Repository.Policy.Uniformity.Wave.Shape(
+        let terminal = Institute.Repository.Policy.Uniformity.Wave.Shape(
             gitignore: .init(
                 blob: "terminal-gitignore",
-                bytes: Repository.Policy.Uniformity.Wave.Payload.bytes
+                bytes: Institute.Repository.Policy.Uniformity.Wave.Payload.bytes
             ),
             swiftlint: nil,
             swiftFormat: nil,
@@ -255,9 +258,9 @@ struct RepositoryPolicyUniformityWaveTests {
         )
         let request = request(canonical: canonical, shape: terminal)
         let recovery = try await preflight(client: client, request: request)
-        var events: [Repository.Policy.Uniformity.Wave.Event] = []
+        var events: [Institute.Repository.Policy.Uniformity.Wave.Event] = []
 
-        let receipt = try await Repository.Policy.Uniformity.Wave.run(
+        let receipt = try await Institute.Repository.Policy.Uniformity.Wave.run(
             client: client,
             request: request,
             recovery: recovery,
@@ -278,10 +281,10 @@ struct RepositoryPolicyUniformityWaveTests {
     @Test
     func createsMissingRulesetEvenWhenShapeIsAlreadyTerminal() async throws {
         let canonical = try ruleset()
-        let terminal = Repository.Policy.Uniformity.Wave.Shape(
+        let terminal = Institute.Repository.Policy.Uniformity.Wave.Shape(
             gitignore: .init(
                 blob: "terminal-gitignore",
-                bytes: Repository.Policy.Uniformity.Wave.Payload.bytes
+                bytes: Institute.Repository.Policy.Uniformity.Wave.Payload.bytes
             ),
             swiftlint: nil,
             swiftFormat: nil,
@@ -294,9 +297,9 @@ struct RepositoryPolicyUniformityWaveTests {
         )
         let request = request(canonical: canonical, shape: terminal)
         let recovery = try await preflight(client: client, request: request)
-        var events: [Repository.Policy.Uniformity.Wave.Event] = []
+        var events: [Institute.Repository.Policy.Uniformity.Wave.Event] = []
 
-        let receipt = try await Repository.Policy.Uniformity.Wave.run(
+        let receipt = try await Institute.Repository.Policy.Uniformity.Wave.run(
             client: client,
             request: request,
             recovery: recovery,
@@ -322,8 +325,8 @@ struct RepositoryPolicyUniformityWaveTests {
         let recovery = try await preflight(client: client, request: request)
         await client.setHead("other-head")
 
-        await #expect(throws: Repository.Policy.Uniformity.Wave.Error.self) {
-            try await Repository.Policy.Uniformity.Wave.run(
+        await #expect(throws: Institute.Repository.Policy.Uniformity.Wave.Error.self) {
+            try await Institute.Repository.Policy.Uniformity.Wave.run(
                 client: client,
                 request: request,
                 recovery: recovery,
@@ -344,15 +347,15 @@ struct RepositoryPolicyUniformityWaveTests {
         let recovery = try await preflight(client: client, request: request)
         await client.setShape(
             .init(
-                gitignore: .init(blob: "moved-gitignore", bytes: Data("moved\n".utf8)),
+                gitignore: .init(blob: "moved-gitignore", bytes: [Byte]("moved\n".utf8)),
                 swiftlint: "lint-blob",
                 swiftFormat: "format-blob",
                 dependabot: "dependabot-blob"
             )
         )
 
-        await #expect(throws: Repository.Policy.Uniformity.Wave.Error.self) {
-            try await Repository.Policy.Uniformity.Wave.run(
+        await #expect(throws: Institute.Repository.Policy.Uniformity.Wave.Error.self) {
+            try await Institute.Repository.Policy.Uniformity.Wave.run(
                 client: client,
                 request: request,
                 recovery: recovery,
@@ -376,8 +379,8 @@ struct RepositoryPolicyUniformityWaveTests {
         let recovery = try await preflight(client: client, request: request)
         await client.setBrokenBytesAfterMove()
 
-        await #expect(throws: Repository.Policy.Uniformity.Wave.Error.self) {
-            try await Repository.Policy.Uniformity.Wave.run(
+        await #expect(throws: Institute.Repository.Policy.Uniformity.Wave.Error.self) {
+            try await Institute.Repository.Policy.Uniformity.Wave.run(
                 client: client,
                 request: request,
                 recovery: recovery,
@@ -401,8 +404,8 @@ struct RepositoryPolicyUniformityWaveTests {
         let recovery = try await preflight(client: client, request: request)
         await client.setSurvivingDeletionAfterMove()
 
-        await #expect(throws: Repository.Policy.Uniformity.Wave.Error.self) {
-            try await Repository.Policy.Uniformity.Wave.run(
+        await #expect(throws: Institute.Repository.Policy.Uniformity.Wave.Error.self) {
+            try await Institute.Repository.Policy.Uniformity.Wave.run(
                 client: client,
                 request: request,
                 recovery: recovery,
@@ -423,8 +426,8 @@ struct RepositoryPolicyUniformityWaveTests {
         let recovery = try await preflight(client: client, request: request)
         await client.setCommitFailure()
 
-        await #expect(throws: Repository.Policy.Uniformity.Wave.Error.self) {
-            try await Repository.Policy.Uniformity.Wave.run(
+        await #expect(throws: Institute.Repository.Policy.Uniformity.Wave.Error.self) {
+            try await Institute.Repository.Policy.Uniformity.Wave.run(
                 client: client,
                 request: request,
                 recovery: recovery,
@@ -445,8 +448,8 @@ struct RepositoryPolicyUniformityWaveTests {
         let recovery = try await preflight(client: client, request: request)
         await client.setMoveFailure()
 
-        await #expect(throws: Repository.Policy.Uniformity.Wave.Error.self) {
-            try await Repository.Policy.Uniformity.Wave.run(
+        await #expect(throws: Institute.Repository.Policy.Uniformity.Wave.Error.self) {
+            try await Institute.Repository.Policy.Uniformity.Wave.run(
                 client: client,
                 request: request,
                 recovery: recovery,
@@ -468,7 +471,7 @@ struct RepositoryPolicyUniformityWaveTests {
         let recovery = try await preflight(client: client, request: request)
         try await client.openBypass(integrationID: request.integrationID)
 
-        let closure = try await Repository.Policy.Uniformity.Wave.close(
+        let closure = try await Institute.Repository.Policy.Uniformity.Wave.close(
             client: client,
             recovery: recovery,
             payload: request.payload
@@ -483,7 +486,7 @@ struct RepositoryPolicyUniformityWaveTests {
     @Test
     func recensusRequiresTheExactOriginalPopulationAndEvidenceSet() throws {
         let evidence = try recensusEvidence()
-        let receipt = try Repository.Policy.Uniformity.Wave.recensus(
+        let receipt = try Institute.Repository.Policy.Uniformity.Wave.recensus(
             original: evidence.original,
             current: evidence.current,
             evidence: recensusInput(evidence)
@@ -496,7 +499,7 @@ struct RepositoryPolicyUniformityWaveTests {
     @Test
     func recensusRefusesOneMissingClosureFromANonemptyFleet() throws {
         let evidence = try recensusEvidence()
-        let receipt = try Repository.Policy.Uniformity.Wave.recensus(
+        let receipt = try Institute.Repository.Policy.Uniformity.Wave.recensus(
             original: evidence.original,
             current: evidence.current,
             evidence: recensusInput(
@@ -512,7 +515,7 @@ struct RepositoryPolicyUniformityWaveTests {
     func recensusRefusesASubjectWhoseGitignoreBytesDrifted() throws {
         let evidence = try recensusEvidence()
         var subjects = evidence.current.subjects
-        subjects[subjects.count - 1] = Repository.Policy.Uniformity.Wave.Subject(
+        subjects[subjects.count - 1] = Institute.Repository.Policy.Uniformity.Wave.Subject(
             repository: subjects[subjects.count - 1].repository,
             repositoryID: subjects[subjects.count - 1].repositoryID,
             head: subjects[subjects.count - 1].head,
@@ -520,14 +523,14 @@ struct RepositoryPolicyUniformityWaveTests {
             shape: .init(
                 gitignore: .init(
                     blob: subjects[subjects.count - 1].shape.gitignore?.blob ?? "blob",
-                    bytes: Data("drifted\n".utf8)
+                    bytes: [Byte]("drifted\n".utf8)
                 ),
                 swiftlint: nil,
                 swiftFormat: nil,
                 dependabot: nil
             )
         )
-        let current = Repository.Policy.Uniformity.Wave.Population(
+        let current = Institute.Repository.Policy.Uniformity.Wave.Population(
             organizations: evidence.current.organizations,
             examined: evidence.current.examined,
             repositoryCounts: evidence.current.repositoryCounts,
@@ -536,7 +539,7 @@ struct RepositoryPolicyUniformityWaveTests {
             subjects: subjects
         )
 
-        let receipt = try Repository.Policy.Uniformity.Wave.recensus(
+        let receipt = try Institute.Repository.Policy.Uniformity.Wave.recensus(
             original: evidence.original,
             current: current,
             evidence: recensusInput(evidence)
@@ -547,9 +550,9 @@ struct RepositoryPolicyUniformityWaveTests {
 
     // MARK: - Helpers
 
-    private var nonterminalShape: Repository.Policy.Uniformity.Wave.Shape {
+    private var nonterminalShape: Institute.Repository.Policy.Uniformity.Wave.Shape {
         .init(
-            gitignore: .init(blob: "old-gitignore", bytes: Data("old\n".utf8)),
+            gitignore: .init(blob: "old-gitignore", bytes: [Byte]("old\n".utf8)),
             swiftlint: "lint-blob",
             swiftFormat: "format-blob",
             dependabot: "dependabot-blob"
@@ -557,17 +560,17 @@ struct RepositoryPolicyUniformityWaveTests {
     }
 
     private func request(
-        canonical: Data,
-        shape: Repository.Policy.Uniformity.Wave.Shape? = nil,
-        payload: Data? = nil
-    ) -> Repository.Policy.Uniformity.Wave.Request {
+        canonical: [Byte],
+        shape: Institute.Repository.Policy.Uniformity.Wave.Shape? = nil,
+        payload: [Byte]? = nil
+    ) -> Institute.Repository.Policy.Uniformity.Wave.Request {
         .init(
             repository: "swift-institute/example",
             expectedRepositoryID: 1,
             expectedHead: "old-head",
             expectedManifest: .init(kind: "file", blob: "manifest-blob"),
             expectedShape: shape ?? nonterminalShape,
-            payload: payload ?? Repository.Policy.Uniformity.Wave.Payload.bytes,
+            payload: payload ?? Institute.Repository.Policy.Uniformity.Wave.Payload.bytes,
             canonicalRuleset: canonical,
             integrationID: 3_543_256,
             population: .init(
@@ -585,10 +588,10 @@ struct RepositoryPolicyUniformityWaveTests {
 
     private func preflight(
         client: RepositoryPolicyUniformityWaveMockClient,
-        request: Repository.Policy.Uniformity.Wave.Request
-    ) async throws -> Repository.Policy.Uniformity.Wave.Recovery {
+        request: Institute.Repository.Policy.Uniformity.Wave.Request
+    ) async throws -> Institute.Repository.Policy.Uniformity.Wave.Recovery {
         let evidence = try attestation(fixture: "uniformity-attestation-positive")
-        let result = try await Repository.Policy.Uniformity.Wave.preflight(
+        let result = try await Institute.Repository.Policy.Uniformity.Wave.preflight(
             client: client,
             request: request,
             attestation: evidence.attestation,
@@ -599,29 +602,29 @@ struct RepositoryPolicyUniformityWaveTests {
 
     private func attestation(
         fixture: String
-    ) throws -> (attestation: Repository.Policy.Uniformity.Wave.Attestation, digest: String) {
+    ) throws -> (attestation: Institute.Repository.Policy.Uniformity.Wave.Attestation, digest: String) {
         let url = try #require(Bundle.module.url(forResource: fixture, withExtension: "json"))
-        return try Repository.Policy.Uniformity.Wave.Attestation.read(at: url.path)
+        return try Institute.Repository.Policy.Uniformity.Wave.Attestation.read(at: url.path)
     }
 
     private func recensusEvidence() throws -> (
-        original: Repository.Policy.Uniformity.Wave.Population,
-        current: Repository.Policy.Uniformity.Wave.Population,
-        receipts: [Repository.Policy.Uniformity.Wave.Receipt],
-        events: [Repository.Policy.Uniformity.Wave.Event],
-        closures: [Repository.Policy.Uniformity.Wave.Closure]
+        original: Institute.Repository.Policy.Uniformity.Wave.Population,
+        current: Institute.Repository.Policy.Uniformity.Wave.Population,
+        receipts: [Institute.Repository.Policy.Uniformity.Wave.Receipt],
+        events: [Institute.Repository.Policy.Uniformity.Wave.Event],
+        closures: [Institute.Repository.Policy.Uniformity.Wave.Closure]
     ) {
-        let payload = Repository.Policy.Uniformity.Wave.Payload.bytes
-        let payloadDigest = Repository.Policy.Caller.Wave.digest(payload)
+        let payload = Institute.Repository.Policy.Uniformity.Wave.Payload.bytes
+        let payloadDigest = Institute.Repository.Policy.Caller.Wave.digest(payload)
         let repositories = ["swift-primitives/a", "swift-primitives/b"]
         let originalSubjects = repositories.enumerated().map { offset, repository in
-            Repository.Policy.Uniformity.Wave.Subject(
+            Institute.Repository.Policy.Uniformity.Wave.Subject(
                 repository: repository,
                 repositoryID: Int64(offset + 1),
                 head: "old-head-\(offset)",
                 manifest: .init(kind: "file", blob: "manifest-\(offset)"),
                 shape: .init(
-                    gitignore: .init(blob: "old-blob-\(offset)", bytes: Data("old\n".utf8)),
+                    gitignore: .init(blob: "old-blob-\(offset)", bytes: [Byte]("old\n".utf8)),
                     swiftlint: "lint-\(offset)",
                     swiftFormat: nil,
                     dependabot: nil
@@ -629,7 +632,7 @@ struct RepositoryPolicyUniformityWaveTests {
             )
         }
         let currentSubjects = repositories.enumerated().map { offset, repository in
-            Repository.Policy.Uniformity.Wave.Subject(
+            Institute.Repository.Policy.Uniformity.Wave.Subject(
                 repository: repository,
                 repositoryID: Int64(offset + 1),
                 head: "new-head-\(offset)",
@@ -642,7 +645,7 @@ struct RepositoryPolicyUniformityWaveTests {
                 )
             )
         }
-        let original = Repository.Policy.Uniformity.Wave.Population(
+        let original = Institute.Repository.Policy.Uniformity.Wave.Population(
             organizations: ["swift-primitives"],
             examined: 2,
             repositoryCounts: ["swift-primitives": 2],
@@ -650,7 +653,7 @@ struct RepositoryPolicyUniformityWaveTests {
             excluded: [:],
             subjects: originalSubjects
         )
-        let current = Repository.Policy.Uniformity.Wave.Population(
+        let current = Institute.Repository.Policy.Uniformity.Wave.Population(
             organizations: ["swift-primitives"],
             examined: 2,
             repositoryCounts: ["swift-primitives": 2],
@@ -659,13 +662,13 @@ struct RepositoryPolicyUniformityWaveTests {
             subjects: currentSubjects
         )
         let receipts = repositories.indices.map { index in
-            Repository.Policy.Uniformity.Wave.Receipt(
+            Institute.Repository.Policy.Uniformity.Wave.Receipt(
                 repository: repositories[index],
                 oldHead: originalSubjects[index].head,
                 newHead: currentSubjects[index].head,
                 oldGitignore: originalSubjects[index].shape.gitignore?.blob,
                 newGitignore: currentSubjects[index].shape.gitignore?.blob ?? "",
-                deleted: [Repository.Policy.Uniformity.Wave.Shape.swiftlintPath],
+                deleted: [Institute.Repository.Policy.Uniformity.Wave.Shape.swiftlintPath],
                 ruleset: 7,
                 shapeChanged: true,
                 rulesetChanged: false,
@@ -676,14 +679,14 @@ struct RepositoryPolicyUniformityWaveTests {
             )
         }
         let events = repositories.indices.map { index in
-            Repository.Policy.Uniformity.Wave.Event(
+            Institute.Repository.Policy.Uniformity.Wave.Event(
                 phase: "applied",
                 repository: repositories[index],
                 oldHead: originalSubjects[index].head,
                 newHead: currentSubjects[index].head,
                 oldGitignore: originalSubjects[index].shape.gitignore?.blob,
                 newGitignore: currentSubjects[index].shape.gitignore?.blob,
-                deletions: [Repository.Policy.Uniformity.Wave.Shape.swiftlintPath],
+                deletions: [Institute.Repository.Policy.Uniformity.Wave.Shape.swiftlintPath],
                 ruleset: 7,
                 bypassClosed: true,
                 populationDigest: original.commitment.stateDigest,
@@ -692,7 +695,7 @@ struct RepositoryPolicyUniformityWaveTests {
             )
         }
         let closures = repositories.indices.map { index in
-            Repository.Policy.Uniformity.Wave.Closure(
+            Institute.Repository.Policy.Uniformity.Wave.Closure(
                 repository: repositories[index],
                 head: currentSubjects[index].head,
                 gitignore: currentSubjects[index].shape.gitignore?.blob,
@@ -712,16 +715,16 @@ struct RepositoryPolicyUniformityWaveTests {
 
     private func recensusInput(
         _ evidence: (
-            original: Repository.Policy.Uniformity.Wave.Population,
-            current: Repository.Policy.Uniformity.Wave.Population,
-            receipts: [Repository.Policy.Uniformity.Wave.Receipt],
-            events: [Repository.Policy.Uniformity.Wave.Event],
-            closures: [Repository.Policy.Uniformity.Wave.Closure]
+            original: Institute.Repository.Policy.Uniformity.Wave.Population,
+            current: Institute.Repository.Policy.Uniformity.Wave.Population,
+            receipts: [Institute.Repository.Policy.Uniformity.Wave.Receipt],
+            events: [Institute.Repository.Policy.Uniformity.Wave.Event],
+            closures: [Institute.Repository.Policy.Uniformity.Wave.Closure]
         ),
-        closures: [Repository.Policy.Uniformity.Wave.Closure]? = nil
-    ) -> Repository.Policy.Uniformity.Wave.Recensus.Evidence {
+        closures: [Institute.Repository.Policy.Uniformity.Wave.Closure]? = nil
+    ) -> Institute.Repository.Policy.Uniformity.Wave.Recensus.Evidence {
         .init(
-            payload: Repository.Policy.Uniformity.Wave.Payload.bytes,
+            payload: Institute.Repository.Policy.Uniformity.Wave.Payload.bytes,
             receipts: evidence.receipts,
             events: evidence.events,
             closures: closures ?? evidence.closures,
@@ -733,8 +736,8 @@ struct RepositoryPolicyUniformityWaveTests {
     private var policyDigest: String { String(repeating: "b", count: 64) }
     private var policySource: String { String(repeating: "a", count: 40) }
 
-    private func ruleset(enforcement: String = "active") throws -> Data {
-        try JSONSerialization.data(
+    private func ruleset(enforcement: String = "active") throws -> [Byte] {
+        try [Byte](JSONSerialization.data(
             withJSONObject: [
                 "name": "Institute protected main",
                 "target": "branch",
@@ -756,7 +759,7 @@ struct RepositoryPolicyUniformityWaveTests {
                 ],
             ],
             options: [.sortedKeys]
-        )
+        ))
     }
 
     private func fleet(organizations: [String]) throws -> RepositoryPolicy.Fleet {

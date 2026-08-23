@@ -1,10 +1,13 @@
+public import Institute_Model
 import Institute_Repository_Policy
+import Byte_Primitives
+import Byte_Primitives_Standard_Library_Integration
 import Foundation
-import Institute_Application_Foundation_Integration
+import Institute_Application_Repository
 
-actor RepositoryPolicyCallerWaveMockClient: Repository.Policy.Caller.Wave.Client {
+actor RepositoryPolicyCallerWaveMockClient: Institute.Repository.Policy.Caller.Wave.Client {
     var remainingRequests = 5_000
-    var repository = Repository.Policy.Caller.Wave.Repository(
+    var repository = Institute.Repository.Policy.Caller.Wave.Repository(
         id: 1,
         visibility: "public",
         archived: false,
@@ -12,11 +15,11 @@ actor RepositoryPolicyCallerWaveMockClient: Repository.Policy.Caller.Wave.Client
         defaultBranch: "main"
     )
     var currentHead = "old-head"
-    var oldCaller = Data("old\n".utf8)
-    var newCaller = Data("new\n".utf8)
+    var oldCaller = [Byte]("old\n".utf8)
+    var newCaller = [Byte]("new\n".utf8)
     var oldBlob = "old-blob"
     var newBlob = "new-blob"
-    var rulesetData: Data
+    var rulesetData: [Byte]
     var rulesetID: Int64?
     var replacementCount = 0
     var creationCount = 0
@@ -39,7 +42,7 @@ actor RepositoryPolicyCallerWaveMockClient: Repository.Policy.Caller.Wave.Client
     let privateOrganizations: Set<String>
 
     init(
-        ruleset: Data,
+        ruleset: [Byte],
         emptyRepositories: Bool = false,
         callerAbsent: Bool = false,
         rulesetAbsent: Bool = false,
@@ -54,16 +57,16 @@ actor RepositoryPolicyCallerWaveMockClient: Repository.Policy.Caller.Wave.Client
 
     func capacity(
         requiredRequests: Int
-    ) async throws(RepositoryPolicy.GitHubClient.Error)
-        -> Repository.Policy.Caller.Wave.Capacity
+    ) async throws(Institute.Repository.Policy.Client.Error)
+        -> Institute.Repository.Policy.Caller.Wave.Capacity
     {
         .init(remaining: remainingRequests, required: requiredRequests, resetAt: 1_787_000_000)
     }
 
     func waveRepositories(
         organization: String
-    ) async throws(RepositoryPolicy.GitHubClient.Error)
-        -> Repository.Policy.Caller.Wave.Listing
+    ) async throws(Institute.Repository.Policy.Client.Error)
+        -> Institute.Repository.Policy.Caller.Wave.Listing
     {
         if emptyRepositories { return .init(repositories: [], expected: 0) }
         return .init(
@@ -87,8 +90,8 @@ actor RepositoryPolicyCallerWaveMockClient: Repository.Policy.Caller.Wave.Client
     func rootManifest(
         _: String,
         head _: String
-    ) async throws(RepositoryPolicy.GitHubClient.Error)
-        -> Repository.Policy.Caller.Wave.Manifest?
+    ) async throws(Institute.Repository.Policy.Client.Error)
+        -> Institute.Repository.Policy.Caller.Wave.Manifest?
     {
         if moveHeadAfterManifestRead {
             moveHeadAfterManifestRead = false
@@ -99,13 +102,13 @@ actor RepositoryPolicyCallerWaveMockClient: Repository.Policy.Caller.Wave.Client
 
     func waveRepository(
         _: String
-    ) async throws(RepositoryPolicy.GitHubClient.Error)
-        -> Repository.Policy.Caller.Wave.Repository
+    ) async throws(Institute.Repository.Policy.Client.Error)
+        -> Institute.Repository.Policy.Caller.Wave.Repository
     {
         repository
     }
 
-    func head(_: String) async throws(RepositoryPolicy.GitHubClient.Error) -> String {
+    func head(_: String) async throws(Institute.Repository.Policy.Client.Error) -> String {
         if staleHeadReadsAfterMove > 0, let staleHead {
             staleHeadReadsAfterMove -= 1
             return staleHead
@@ -116,8 +119,8 @@ actor RepositoryPolicyCallerWaveMockClient: Repository.Policy.Caller.Wave.Client
     func callerSource(
         _: String,
         head: String
-    ) async throws(RepositoryPolicy.GitHubClient.Error)
-        -> Repository.Policy.Caller.Wave.CallerSource
+    ) async throws(Institute.Repository.Policy.Client.Error)
+        -> Institute.Repository.Policy.Caller.Wave.CallerSource
     {
         head == "new-head"
             ? .init(blob: newBlob, bytes: newCaller)
@@ -127,8 +130,8 @@ actor RepositoryPolicyCallerWaveMockClient: Repository.Policy.Caller.Wave.Client
     func callerSourceIfPresent(
         _ repository: String,
         head: String
-    ) async throws(RepositoryPolicy.GitHubClient.Error)
-        -> Repository.Policy.Caller.Wave.CallerSource?
+    ) async throws(Institute.Repository.Policy.Client.Error)
+        -> Institute.Repository.Policy.Caller.Wave.CallerSource?
     {
         if callerAbsent { return nil }
         return try await callerSource(repository, head: head)
@@ -136,8 +139,8 @@ actor RepositoryPolicyCallerWaveMockClient: Repository.Policy.Caller.Wave.Client
 
     func rulesets(
         _: String
-    ) async throws(RepositoryPolicy.GitHubClient.Error)
-        -> [Repository.Policy.Caller.Wave.RulesetReference]
+    ) async throws(Institute.Repository.Policy.Client.Error)
+        -> [Institute.Repository.Policy.Caller.Wave.RulesetReference]
     {
         rulesetID.map { [.init(id: $0, name: "Institute protected main")] } ?? []
     }
@@ -145,7 +148,7 @@ actor RepositoryPolicyCallerWaveMockClient: Repository.Policy.Caller.Wave.Client
     func ruleset(
         _: String,
         id _: Int64
-    ) async throws(RepositoryPolicy.GitHubClient.Error) -> Data {
+    ) async throws(Institute.Repository.Policy.Client.Error) -> [Byte] {
         if rulesetReadFailures > 0 {
             rulesetReadFailures -= 1
             throw .transport(path: "ruleset", message: "injected read failure")
@@ -156,11 +159,11 @@ actor RepositoryPolicyCallerWaveMockClient: Repository.Policy.Caller.Wave.Client
     func replaceRuleset(
         _: String,
         id _: Int64,
-        payload: Data
-    ) async throws(RepositoryPolicy.GitHubClient.Error) {
-        let object = try? JSONSerialization.jsonObject(with: payload) as? [String: Any]
+        payload: [Byte]
+    ) async throws(Institute.Repository.Policy.Client.Error) {
+        let object = try? JSONSerialization.jsonObject(with: Data(payload.underlying)) as? [String: Any]
         let bypass = object?["bypass_actors"] as? [Any] ?? []
-        let prior = try? JSONSerialization.jsonObject(with: rulesetData) as? [String: Any]
+        let prior = try? JSONSerialization.jsonObject(with: Data(rulesetData.underlying)) as? [String: Any]
         let priorBypass = prior?["bypass_actors"] as? [Any] ?? []
         if bypass.isEmpty, convergenceFailure {
             if !persistentConvergenceFailure { convergenceFailure = false }
@@ -190,8 +193,8 @@ actor RepositoryPolicyCallerWaveMockClient: Repository.Policy.Caller.Wave.Client
 
     func createRuleset(
         _: String,
-        payload: Data
-    ) async throws(RepositoryPolicy.GitHubClient.Error) -> Int64 {
+        payload: [Byte]
+    ) async throws(Institute.Repository.Policy.Client.Error) -> Int64 {
         guard rulesetID == nil else {
             throw .precondition("ruleset already exists")
         }
@@ -203,8 +206,8 @@ actor RepositoryPolicyCallerWaveMockClient: Repository.Policy.Caller.Wave.Client
 
     func createBlob(
         _: String,
-        content: Data
-    ) async throws(RepositoryPolicy.GitHubClient.Error) -> String {
+        content: [Byte]
+    ) async throws(Institute.Repository.Policy.Client.Error) -> String {
         newCaller = content
         return newBlob
     }
@@ -214,7 +217,7 @@ actor RepositoryPolicyCallerWaveMockClient: Repository.Policy.Caller.Wave.Client
         parent _: String,
         blob _: String,
         message _: String
-    ) async throws(RepositoryPolicy.GitHubClient.Error) -> String {
+    ) async throws(Institute.Repository.Policy.Client.Error) -> String {
         if commitFailure {
             throw .transport(path: "commit", message: "injected process interruption")
         }
@@ -224,7 +227,7 @@ actor RepositoryPolicyCallerWaveMockClient: Repository.Policy.Caller.Wave.Client
     func moveMain(
         _: String,
         to head: String
-    ) async throws(RepositoryPolicy.GitHubClient.Error) {
+    ) async throws(Institute.Repository.Policy.Client.Error) {
         if moveFailure {
             throw .precondition("move failed")
         }
@@ -259,7 +262,7 @@ actor RepositoryPolicyCallerWaveMockClient: Repository.Policy.Caller.Wave.Client
         oldBlob = value
     }
 
-    func setCaller(bytes: Data, blob: String) {
+    func setCaller(bytes: [Byte], blob: String) {
         oldCaller = bytes
         oldBlob = blob
     }
@@ -302,9 +305,9 @@ actor RepositoryPolicyCallerWaveMockClient: Repository.Policy.Caller.Wave.Client
     }
 
     func openBypass(integrationID: Int64) throws {
-        guard var object = try JSONSerialization.jsonObject(with: rulesetData) as? [String: Any]
+        guard var object = try JSONSerialization.jsonObject(with: Data(rulesetData.underlying)) as? [String: Any]
         else {
-            throw RepositoryPolicy.GitHubClient.Error.precondition("ruleset is not an object")
+            throw Institute.Repository.Policy.Client.Error.precondition("ruleset is not an object")
         }
         object["bypass_actors"] = [
             [
@@ -313,11 +316,11 @@ actor RepositoryPolicyCallerWaveMockClient: Repository.Policy.Caller.Wave.Client
                 "bypass_mode": "always",
             ]
         ]
-        rulesetData = try JSONSerialization.data(withJSONObject: object, options: [.sortedKeys])
+        rulesetData = try [Byte](JSONSerialization.data(withJSONObject: object, options: [.sortedKeys]))
     }
 
     func bypassOpen(integrationID: Int64) -> Bool {
-        Repository.Policy.Caller.Wave.RulesetSnapshot.containsIntegration(
+        Institute.Repository.Policy.Caller.Wave.RulesetSnapshot.containsIntegration(
             rulesetData,
             integrationID: integrationID
         )

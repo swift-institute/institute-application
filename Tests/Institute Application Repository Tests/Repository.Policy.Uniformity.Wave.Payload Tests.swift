@@ -1,8 +1,11 @@
+public import Institute_Model
 import Institute_Repository_Policy
+import Byte_Primitives
+import Byte_Primitives_Standard_Library_Integration
 import Foundation
 import Testing
 
-@testable import Institute_Application_Foundation_Integration
+@testable import Institute_Application_Repository
 
 /// Shape policy 5 measured the way git will measure it.
 ///
@@ -41,16 +44,16 @@ struct RepositoryPolicyUniformityWavePayloadTests {
         let repository = GitProbeRepository()
         try repository.initialize()
         try repository.write(
-            Repository.Policy.Uniformity.Wave.Payload.canonical(),
+            Institute.Repository.Policy.Uniformity.Wave.Payload.canonical(),
             to: ".gitignore"
         )
         for probe in probes {
-            try repository.write(Data("probe\n".utf8), to: probe)
+            try repository.write([Byte]("probe\n".utf8), to: probe)
         }
         // A Swift source under an ordinary target is the positive control:
         // if it is missing from the tracked set the harness, not the
         // policy, is what failed.
-        try repository.write(Data("// probe\n".utf8), to: "Sources/Foo/Foo.swift")
+        try repository.write([Byte]("// probe\n".utf8), to: "Sources/Foo/Foo.swift")
 
         try repository.run(["add", "-A"])
         let tracked = Set(try repository.trackedPaths())
@@ -94,13 +97,13 @@ private struct GitProbeRepository: ~Copyable {
         try run(["init", "-q"])
     }
 
-    func write(_ contents: Data, to relative: String) throws {
+    func write(_ contents: [Byte], to relative: String) throws {
         let location = root.appending(path: relative)
         try FileManager.default.createDirectory(
             at: location.deletingLastPathComponent(),
             withIntermediateDirectories: true
         )
-        try contents.write(to: location)
+        try Data(contents.underlying).write(to: location)
     }
 
     /// Stage-0 pathnames, NUL-delimited so a path containing a space or a

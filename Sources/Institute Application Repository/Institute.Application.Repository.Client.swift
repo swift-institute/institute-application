@@ -4,7 +4,7 @@ import struct Swift.String
 public import Institute_Repository_Policy
 public import Byte_Primitives
 import Byte_Primitives_Standard_Library_Integration
-import Institute_GitHub
+public import Institute_GitHub
 import JSON
 import RFC_4648
 
@@ -16,12 +16,26 @@ extension Institute.Application.Repository {
     public struct Client: Sendable {
         public typealias Error = Institute.Repository.Policy.Client.Error
 
+        /// One raw request: method, path, body. Defaults to the `gh api`
+        /// transport; tests inject a deterministic seam here.
+        public typealias Execute = @Sendable (
+            Swift.String, Swift.String, [Byte]?
+        ) async throws(Institute.GitHub.Transport.Error) -> Institute.GitHub.Transport.Response
+
         let maximumAttempts: Int
         let delaySeconds: Int
+        let execute: Execute
 
-        public init(maximumAttempts: Int = 4, delaySeconds: Int = 2) {
+        public init(
+            maximumAttempts: Int = 4,
+            delaySeconds: Int = 2,
+            execute: @escaping Execute = { method, path, body in
+                try Institute.GitHub.Transport.request(method: method, path: path, body: body)
+            }
+        ) {
             self.maximumAttempts = maximumAttempts
             self.delaySeconds = delaySeconds
+            self.execute = execute
         }
     }
 }
@@ -40,11 +54,7 @@ extension Institute.Application.Repository.Client {
         while true {
             let response: Response
             do throws(Institute.GitHub.Transport.Error) {
-                response = try Institute.GitHub.Transport.request(
-                    method: method,
-                    path: path,
-                    body: body
-                )
+                response = try await execute(method, path, body)
             } catch {
                 guard mayRetry, attempt < maximumAttempts else {
                     throw .transport(path: path, message: error.description)
