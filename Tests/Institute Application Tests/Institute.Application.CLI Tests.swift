@@ -14,7 +14,9 @@ import Institute_Application_Package
 import Institute_Application_Verification
 import Institute_Application_Workspace
 import Institute_Build_Coordinator
+import Institute_Dependency
 import Institute_Model
+import Institute_Development
 import Testing
 
 @testable import Institute_Application
@@ -301,12 +303,12 @@ extension Institute.Application.CLI.Test.Unit {
     }
 
     @Test(arguments: [
-        ("resolve", Build.Action.resolve),
-        ("dump-package", Build.Action.dumpPackage),
+        ("resolve", Institute.Build.Action.resolve),
+        ("dump-package", Institute.Build.Action.dumpPackage),
     ])
     func `package parses its forwarded operations`(
         argument: Swift.String,
-        expected: Build.Action
+        expected: Institute.Build.Action
     ) throws {
         let command = try parse(["package", argument, "--package-path", "/tmp/example"])
 
@@ -358,9 +360,9 @@ extension Institute.Application.CLI.Test.Unit {
     @Test
     func `the parsed jobs cap reaches the coordinator constructor unchanged`() throws {
         // Plumbing only: `run()` passes `jobs` straight into
-        // `Build.Coordinator(jobs:)` without transforming it, so asserting
+        // `Institute.Build.Coordinator(jobs:)` without transforming it, so asserting
         // the constructor echoes the parsed value is the whole contract —
-        // `Build.Coordinator` and `Build.Action` already prove the rest of
+        // `Institute.Build.Coordinator` and `Institute.Build.Action` already prove the rest of
         // the chain (jobs reaching SwiftPM's `-j`) independently.
         let command = try parse(["package", "test", "--jobs", "5"])
 
@@ -368,7 +370,7 @@ extension Institute.Application.CLI.Test.Unit {
             Issue.record("expected package test, got \(command)")
             return
         }
-        #expect(Build.Coordinator(jobs: execute.jobs).jobs == 5)
+        #expect(Institute.Build.Coordinator(jobs: execute.jobs).jobs == 5)
     }
 
     @Test
@@ -502,7 +504,7 @@ extension Institute.Application.CLI.Test.`Edge Case` {
         }
     }
 
-    // `Build.Action.acceptsJobs` covers run too, but the CLI surface stays
+    // `Institute.Build.Action.acceptsJobs` covers run too, but the CLI surface stays
     // narrower than the API: build and test are the coordinated-build entry
     // points issue #88 asks for, and widening silently to `run` later is a
     // deliberate choice, not a side effect of this guard's shape.

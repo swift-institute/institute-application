@@ -1,7 +1,9 @@
 import Command
 import Institute_Application_Lint
 import Institute_Application_Package
+import Institute_Application_Workspace
 import Institute_Model
+import Institute_Lint
 import Testing
 
 @testable import Institute_Application
