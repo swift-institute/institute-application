@@ -3,7 +3,7 @@ import Institute_Instruments
 import Institute_Model
 import Testing
 
-@testable import Institute_Application
+@testable import Institute_Application_Foundation_Integration
 
 extension Institute.Application.CLI.Test.Unit {
     @Test

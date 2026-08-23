@@ -1,5 +1,5 @@
 private import InstituteArchitectureCLI
-internal import InstituteArchitectureModel
+internal import Institute_Architecture_Model
 internal import Institute_Model
 private import Process
 

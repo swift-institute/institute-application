@@ -1,10 +1,8 @@
-public import Environment
 public import File_System
 public import Institute_Model
 public import Institute_Source
 public import Institute_Source_Workspace
 public import JSON
-public import Process
 public import Source_Repair
 public import Source_Report
 
@@ -52,27 +50,6 @@ extension Institute.Source.Command {
     do throws(JSON.Error) {
       return try .init(jsonString: Swift.String(decoding: bytes, as: Swift.UTF8.self))
     } catch { throw .configuration("source preparation receipt is malformed: \(error)") }
-  }
-
-  static func executable(
-    _ name: Swift.String,
-    resolver: Swift.String,
-    arguments: [Swift.String]
-  ) throws(Institute.Error) -> Swift.String {
-    let output: Process.Output
-    do throws(Process.Error) {
-      output = try Process.Spawn.run(
-        .init(executable: resolver, arguments: arguments, stdout: .pipe, stderr: .pipe)
-      )
-    } catch { throw .configuration("cannot resolve \(name): \(error)") }
-    guard case .exited(0) = output.status else {
-      throw .configuration("cannot resolve \(name)")
-    }
-    guard
-      let line = Swift.String(decoding: output.stdout ?? [], as: Swift.UTF8.self)
-        .split(whereSeparator: \.isNewline).first
-    else { throw .configuration("cannot resolve \(name)") }
-    return Swift.String(line)
   }
 
   static func write(_ contents: Swift.String, to output: Swift.String) throws(Institute.Error) {

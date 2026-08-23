@@ -1,0 +1,1125 @@
+import Institute_Repository_Policy
+import Foundation
+import Institute_Application_Foundation_Integration
+import Testing
+
+#if canImport(FoundationNetworking)
+    import FoundationNetworking
+#endif
+
+@Suite
+struct RepositoryPolicyCallerWaveTests {
+    @Test
+    func enumeratesEveryActiveOrganizationIntoOneSortedPopulation() async throws {
+        let canonical = try ruleset()
+        let client = RepositoryPolicyCallerWaveMockClient(ruleset: canonical)
+        let population = try await Repository.Policy.Caller.Wave.enumerate(
+            client: client,
+            fleet: try fleet(organizations: ["swift-standards", "swift-primitives"])
+        )
+
+        #expect(population.organizations == ["swift-primitives", "swift-standards"])
+        #expect(population.examined == 2)
+        #expect(
+            population.subjects.map(\.repository)
+                == ["swift-primitives/example", "swift-standards/example"]
+        )
+    }
+
+    /// The negative control for wave run 31817391995's swift-riscv
+    /// failure: a fabricated organization whose only repository is
+    /// private yields a typed `private-only` exclusion and no matrix
+    /// row — never a preflight failure.
+    @Test
+    func privateOnlyOrganizationBecomesATypedExclusionNotAMatrixRow() async throws {
+        let canonical = try ruleset()
+        let client = RepositoryPolicyCallerWaveMockClient(
+            ruleset: canonical,
+            privateOrganizations: ["swift-riscv"]
+        )
+        let population = try await Repository.Policy.Caller.Wave.enumerate(
+            client: client,
+            fleet: try fleet(organizations: ["swift-primitives", "swift-riscv"])
+        )
+
+        // The full organization set still records the fleet exactly.
+        #expect(population.organizations == ["swift-primitives", "swift-riscv"])
+        // The matrix set carries only subject-bearing organizations.
+        #expect(population.subjectOrganizations == ["swift-primitives"])
+        #expect(
+            population.organizationExclusions == [
+                .init(
+                    organization: "swift-riscv",
+                    reason: Repository.Policy.Caller.Wave.Population
+                        .OrganizationExclusion.privateOnly
+                )
+            ]
+        )
+        #expect(population.subjects.map(\.repository) == ["swift-primitives/example"])
+        // Positive control: with every organization subject-bearing,
+        // the exclusion list is empty and matrix == organizations.
+        let full = try await Repository.Policy.Caller.Wave.enumerate(
+            client: RepositoryPolicyCallerWaveMockClient(ruleset: canonical),
+            fleet: try fleet(organizations: ["swift-primitives", "swift-riscv"])
+        )
+        #expect(full.subjectOrganizations == full.organizations)
+        #expect(full.organizationExclusions.isEmpty)
+    }
+
+    /// A zero-subject organization that does have public repositories is
+    /// excluded as `no-subjects`, keeping the two reasons distinct.
+    @Test
+    func publicButSubjectlessOrganizationIsExcludedAsNoSubjects() {
+        let subject = Repository.Policy.Caller.Wave.Subject(
+            repository: "swift-primitives/example",
+            repositoryID: 1,
+            head: "head",
+            manifest: .init(kind: "file", blob: "manifest"),
+            caller: .init(blob: "blob", bytes: Data("caller\n".utf8))
+        )
+        let population = Repository.Policy.Caller.Wave.Population(
+            organizations: ["swift-empty", "swift-primitives"],
+            examined: 2,
+            repositoryCounts: ["swift-empty": 1, "swift-primitives": 1],
+            repositories: ["swift-empty/archived", "swift-primitives/example"],
+            excluded: ["archived": 1],
+            subjects: [subject]
+        )
+        #expect(population.subjectOrganizations == ["swift-primitives"])
+        #expect(
+            population.organizationExclusions == [
+                .init(
+                    organization: "swift-empty",
+                    reason: Repository.Policy.Caller.Wave.Population
+                        .OrganizationExclusion.noSubjects
+                )
+            ]
+        )
+    }
+
+    /// The capacity requirement is the Swift owner's arithmetic, priced
+    /// from measurement: 8 requests per preflighted subject (counted
+    /// through an instrumented endpoint), audited apply/close paths,
+    /// and the retry budget. The largest current organization (206
+    /// subjects) must fit GitHub's hard 12,500/h installation cap — the
+    /// former host-side 64/subject estimate did not — while the gate
+    /// still refuses a genuinely short pool.
+    @Test
+    func capacityRequirementIsOwnedPricedAndStillRefusesShortPools() {
+        let largest = Repository.Policy.Caller.Wave.Capacity.requirement(subjects: 206)
+        #expect(largest == 206 * 48 + 160)
+        #expect(largest <= 12_500)
+        #expect(Repository.Policy.Caller.Wave.Capacity.requirement(subjects: 1) == 208)
+
+        // Negative control: the acceptance predicate is untouched — a
+        // pool one request short still refuses.
+        let short = Repository.Policy.Caller.Wave.Capacity(
+            remaining: largest - 1,
+            required: largest,
+            resetAt: 1_787_000_000
+        )
+        #expect(!short.accepted)
+        let exact = Repository.Policy.Caller.Wave.Capacity(
+            remaining: largest,
+            required: largest,
+            resetAt: 1_787_000_000
+        )
+        #expect(exact.accepted)
+    }
+
+    @Test
+    func emptyOrganizationEnumerationRefusesThePopulation() async throws {
+        let canonical = try ruleset()
+        let client = RepositoryPolicyCallerWaveMockClient(
+            ruleset: canonical,
+            emptyRepositories: true
+        )
+
+        await #expect(throws: Repository.Policy.Caller.Wave.Error.self) {
+            try await Repository.Policy.Caller.Wave.enumerate(
+                client: client,
+                fleet: try fleet(organizations: ["swift-primitives"])
+            )
+        }
+    }
+
+    @Test
+    func missingCallerRefusesThePopulation() async throws {
+        let canonical = try ruleset()
+        let client = RepositoryPolicyCallerWaveMockClient(
+            ruleset: canonical,
+            callerAbsent: true
+        )
+
+        await #expect(throws: Repository.Policy.Caller.Wave.Error.self) {
+            try await Repository.Policy.Caller.Wave.enumerate(
+                client: client,
+                fleet: try fleet(organizations: ["swift-primitives"])
+            )
+        }
+    }
+
+    @Test
+    func manifestHeadRaceRefusesThePopulation() async throws {
+        let canonical = try ruleset()
+        let client = RepositoryPolicyCallerWaveMockClient(ruleset: canonical)
+        await client.setMoveHeadAfterManifestRead()
+
+        await #expect(throws: Repository.Policy.Caller.Wave.Error.self) {
+            try await Repository.Policy.Caller.Wave.enumerate(
+                client: client,
+                fleet: try fleet(organizations: ["swift-primitives"])
+            )
+        }
+    }
+
+    @Test
+    func recensusRequiresTheExactOriginalPopulationAndEvidenceSet() throws {
+        let evidence = try recensusEvidence()
+        let receipt = try Repository.Policy.Caller.Wave.recensus(
+            original: evidence.original,
+            current: evidence.current,
+            evidence: recensusInput(evidence)
+        )
+        let allMatch = receipt.observations.allSatisfy { $0.matches }
+
+        #expect(receipt.accepted)
+        #expect(receipt.originalPopulation.subjectDigest == receipt.currentPopulation.subjectDigest)
+        #expect(allMatch)
+    }
+
+    @Test
+    func recensusRefusesOneMissingClosureFromANonemptyFleet() throws {
+        let evidence = try recensusEvidence()
+        let receipt = try Repository.Policy.Caller.Wave.recensus(
+            original: evidence.original,
+            current: evidence.current,
+            evidence: recensusInput(
+                evidence,
+                closures: Array(evidence.closures.dropLast())
+            )
+        )
+
+        #expect(!receipt.accepted)
+    }
+
+    @Test
+    func recensusRefusesAnEqualSizedSubstitutedPopulation() throws {
+        let evidence = try recensusEvidence()
+        let retained = try #require(evidence.current.subjects.first)
+        let substituted = Repository.Policy.Caller.Wave.Subject(
+            repository: "swift-primitives/c",
+            repositoryID: 3,
+            head: "new-head-2",
+            manifest: .init(kind: "file", blob: "manifest-2"),
+            caller: .init(blob: "new-blob-2", bytes: terminalCaller)
+        )
+        let current = Repository.Policy.Caller.Wave.Population(
+            organizations: ["swift-primitives"],
+            examined: 2,
+            repositoryCounts: ["swift-primitives": 2],
+            repositories: [retained.repository, substituted.repository],
+            excluded: [:],
+            subjects: [retained, substituted]
+        )
+
+        let receipt = try Repository.Policy.Caller.Wave.recensus(
+            original: evidence.original,
+            current: current,
+            evidence: recensusInput(evidence)
+        )
+
+        #expect(!receipt.accepted)
+    }
+
+    @Test
+    func appliesForwardCommitAndRestoresRuleset() async throws {
+        let canonical = try ruleset()
+        let client = RepositoryPolicyCallerWaveMockClient(ruleset: canonical)
+        let request = request(canonical: canonical)
+        let recovery = try await preflight(client: client, request: request)
+        var events: [Repository.Policy.Caller.Wave.Event] = []
+        let receipt = try await Repository.Policy.Caller.Wave.run(
+            client: client,
+            request: request,
+            recovery: recovery,
+            record: { events.append($0) }
+        )
+
+        #expect(receipt.changed)
+        #expect(receipt.callerChanged)
+        #expect(!receipt.rulesetChanged)
+        #expect(receipt.oldHead == "old-head")
+        #expect(receipt.newHead == "new-head")
+        #expect(receipt.bypassClosed)
+        #expect(recovery.caller.bytes == Data("old\n".utf8))
+        #expect(recovery.rollbackHead == "old-head")
+        #expect(recovery.ruleset?.id == 7)
+        #expect(events.map(\.phase) == ["window-opening", "applied"])
+        #expect(await client.replacements() == 2)
+    }
+
+    /// GitHub may serve stale ref reads for several seconds after a
+    /// successful move (wave run 31830484954: eleven organizations
+    /// aborted at their second subject while every sampled repository
+    /// already sat at its created commit). A head that converges within
+    /// the bounded backoff verifies; the transaction completes exactly
+    /// as an immediately consistent one does.
+    @Test
+    func applyVerificationToleratesAStaleHeadReadAfterASuccessfulMove() async throws {
+        let canonical = try ruleset()
+        let client = RepositoryPolicyCallerWaveMockClient(ruleset: canonical)
+        await client.setStaleHeadReadsAfterMove(2)
+        let request = request(canonical: canonical)
+        let recovery = try await preflight(client: client, request: request)
+        var events: [Repository.Policy.Caller.Wave.Event] = []
+
+        let receipt = try await Repository.Policy.Caller.Wave.run(
+            client: client,
+            request: request,
+            recovery: recovery,
+            record: { events.append($0) }
+        )
+
+        #expect(receipt.callerChanged)
+        #expect(receipt.oldHead == "old-head")
+        #expect(receipt.newHead == "new-head")
+        #expect(receipt.bypassClosed)
+        #expect(events.map(\.phase) == ["window-opening", "applied"])
+        // The two stale reads cost exactly two backoff pauses.
+        #expect(await client.pauses() == [1, 2])
+    }
+
+    /// The refusal is preserved: a head that never converges exhausts
+    /// the bounded backoff and still throws the typed verification
+    /// error, with the bypass closed on the way out.
+    @Test
+    func applyVerificationStillRefusesAHeadThatNeverConverges() async throws {
+        let canonical = try ruleset()
+        let client = RepositoryPolicyCallerWaveMockClient(ruleset: canonical)
+        await client.setStaleHeadReadsAfterMove(99)
+        let request = request(canonical: canonical)
+        let recovery = try await preflight(client: client, request: request)
+
+        await #expect(throws: Repository.Policy.Caller.Wave.Error.self) {
+            try await Repository.Policy.Caller.Wave.run(
+                client: client,
+                request: request,
+                recovery: recovery,
+                record: { _ in }
+            )
+        }
+        // Bounded: exactly the four backoff attempts, no unbounded poll.
+        #expect(await client.pauses() == [1, 2, 3, 4])
+    }
+
+    @Test
+    func createsMissingRulesetEvenWhenCallerIsAlreadyTerminal() async throws {
+        let canonical = try ruleset()
+        let client = RepositoryPolicyCallerWaveMockClient(
+            ruleset: canonical,
+            rulesetAbsent: true
+        )
+        await client.setCaller(bytes: Data("new\n".utf8), blob: "new-blob")
+        let request = request(canonical: canonical, expectedBlob: "new-blob")
+        let recovery = try await preflight(client: client, request: request)
+        var events: [Repository.Policy.Caller.Wave.Event] = []
+
+        let receipt = try await Repository.Policy.Caller.Wave.run(
+            client: client,
+            request: request,
+            recovery: recovery,
+            record: { events.append($0) }
+        )
+
+        #expect(receipt.changed)
+        #expect(!receipt.callerChanged)
+        #expect(receipt.rulesetChanged)
+        #expect(receipt.newHead == "old-head")
+        #expect(recovery.priorRuleset == nil)
+        #expect(recovery.ruleset == nil)
+        #expect(events.map(\.phase) == ["ruleset-converged", "already-terminal"])
+        #expect(await client.creations() == 1)
+        #expect(await client.replacements() == 0)
+    }
+
+    @Test
+    func movedHeadRefusesBeforeWindow() async throws {
+        let canonical = try ruleset()
+        let client = RepositoryPolicyCallerWaveMockClient(ruleset: canonical)
+        let request = request(canonical: canonical)
+        let recovery = try await preflight(client: client, request: request)
+        await client.setHead("other-head")
+
+        await #expect(throws: Repository.Policy.Caller.Wave.Error.self) {
+            try await Repository.Policy.Caller.Wave.run(
+                client: client,
+                request: request,
+                recovery: recovery,
+                record: { _ in }
+            )
+        }
+        #expect(await client.replacements() == 0)
+    }
+
+    @Test
+    func movedBlobRefusesBeforeWindow() async throws {
+        let canonical = try ruleset()
+        let client = RepositoryPolicyCallerWaveMockClient(ruleset: canonical)
+        let request = request(canonical: canonical)
+        let recovery = try await preflight(client: client, request: request)
+        await client.setBlob("other-blob")
+
+        await #expect(throws: Repository.Policy.Caller.Wave.Error.self) {
+            try await Repository.Policy.Caller.Wave.run(
+                client: client,
+                request: request,
+                recovery: recovery,
+                record: { _ in }
+            )
+        }
+        #expect(await client.replacements() == 0)
+    }
+
+    @Test
+    func noncanonicalRulesetConvergesBeforeWindow() async throws {
+        let canonical = try ruleset()
+        let divergent = try ruleset(enforcement: "disabled")
+        let client = RepositoryPolicyCallerWaveMockClient(ruleset: divergent)
+        let request = request(canonical: canonical)
+        let recovery = try await preflight(client: client, request: request)
+        var events: [Repository.Policy.Caller.Wave.Event] = []
+
+        let receipt = try await Repository.Policy.Caller.Wave.run(
+            client: client,
+            request: request,
+            recovery: recovery,
+            record: { events.append($0) }
+        )
+        let divergentNormalized = try Repository.Policy.Caller.Wave.RulesetSnapshot.normalized(
+            divergent
+        )
+        let canonicalNormalized = try Repository.Policy.Caller.Wave.RulesetSnapshot.normalized(
+            canonical
+        )
+
+        #expect(receipt.callerChanged)
+        #expect(receipt.rulesetChanged)
+        #expect(recovery.priorRuleset?.restore == divergentNormalized)
+        #expect(recovery.ruleset?.restore == divergentNormalized)
+        #expect(receipt.rulesetChanged)
+        #expect(canonicalNormalized != divergentNormalized)
+        #expect(events.map(\.phase) == ["ruleset-converged", "window-opening", "applied"])
+        #expect(await client.replacements() == 3)
+    }
+
+    @Test
+    func failedRulesetConvergenceRestoresThePriorContract() async throws {
+        let canonical = try ruleset()
+        let divergent = try ruleset(enforcement: "disabled")
+        let client = RepositoryPolicyCallerWaveMockClient(ruleset: divergent)
+        let request = request(canonical: canonical)
+        let recovery = try await preflight(client: client, request: request)
+        await client.setConvergenceFailure(persistent: true)
+
+        await #expect(throws: Repository.Policy.Caller.Wave.Error.self) {
+            try await Repository.Policy.Caller.Wave.run(
+                client: client,
+                request: request,
+                recovery: recovery,
+                record: { _ in }
+            )
+        }
+
+        let restored = try await client.ruleset("swift-institute/example", id: 7)
+        let restoredNormalized = try Repository.Policy.Caller.Wave.RulesetSnapshot.normalized(
+            restored
+        )
+        let divergentNormalized = try Repository.Policy.Caller.Wave.RulesetSnapshot.normalized(
+            divergent
+        )
+        #expect(await client.replacements() == 0)
+        #expect(restoredNormalized == divergentNormalized)
+    }
+
+    @Test
+    func failedMoveRestoresRuleset() async throws {
+        let canonical = try ruleset()
+        let client = RepositoryPolicyCallerWaveMockClient(ruleset: canonical)
+        let request = request(canonical: canonical)
+        let recovery = try await preflight(client: client, request: request)
+        await client.setMoveFailure()
+
+        await #expect(throws: Repository.Policy.Caller.Wave.Error.self) {
+            try await Repository.Policy.Caller.Wave.run(
+                client: client,
+                request: request,
+                recovery: recovery,
+                record: { _ in }
+            )
+        }
+        #expect(await client.replacements() == 2)
+    }
+
+    @Test
+    func concurrentHeadMovementInsideWindowRefusesAndRestores() async throws {
+        let canonical = try ruleset()
+        let client = RepositoryPolicyCallerWaveMockClient(ruleset: canonical)
+        let request = request(canonical: canonical)
+        let recovery = try await preflight(client: client, request: request)
+        await client.setMoveHeadOnOpen()
+
+        await #expect(throws: Repository.Policy.Caller.Wave.Error.self) {
+            try await Repository.Policy.Caller.Wave.run(
+                client: client,
+                request: request,
+                recovery: recovery,
+                record: { _ in }
+            )
+        }
+        #expect(await client.replacements() == 2)
+    }
+
+    @Test
+    func failedRestorationSurfacesCombinedFailure() async throws {
+        let canonical = try ruleset()
+        let client = RepositoryPolicyCallerWaveMockClient(ruleset: canonical)
+        let request = request(canonical: canonical)
+        let recovery = try await preflight(client: client, request: request)
+        await client.setMoveFailure()
+        await client.setRestorationFailure()
+
+        await #expect(throws: Repository.Policy.Caller.Wave.Error.self) {
+            try await Repository.Policy.Caller.Wave.run(
+                client: client,
+                request: request,
+                recovery: recovery,
+                record: { _ in }
+            )
+        }
+        #expect(await client.replacements() == 1)
+    }
+
+    @Test
+    func openingAppliedThenResponseLostIsReconciledAndClosed() async throws {
+        let canonical = try ruleset()
+        let client = RepositoryPolicyCallerWaveMockClient(ruleset: canonical)
+        let request = request(canonical: canonical)
+        let recovery = try await preflight(client: client, request: request)
+        await client.setOpeningResponseLost()
+
+        let receipt = try await Repository.Policy.Caller.Wave.run(
+            client: client,
+            request: request,
+            recovery: recovery,
+            record: { _ in }
+        )
+
+        #expect(receipt.bypassClosed)
+        #expect(!(await client.bypassOpen(integrationID: request.integrationID)))
+        #expect(await client.replacements() == 2)
+    }
+
+    @Test
+    func closingAppliedThenResponseLostIsReconciled() async throws {
+        let canonical = try ruleset()
+        let client = RepositoryPolicyCallerWaveMockClient(ruleset: canonical)
+        let request = request(canonical: canonical)
+        let recovery = try await preflight(client: client, request: request)
+        await client.setClosingResponseLost()
+
+        let receipt = try await Repository.Policy.Caller.Wave.run(
+            client: client,
+            request: request,
+            recovery: recovery,
+            record: { _ in }
+        )
+
+        #expect(receipt.bypassClosed)
+        #expect(!(await client.bypassOpen(integrationID: request.integrationID)))
+        #expect(await client.replacements() == 2)
+    }
+
+    @Test
+    func transientRulesetReadFailureRetriesTheBoundedTransition() async throws {
+        let canonical = try ruleset()
+        let client = RepositoryPolicyCallerWaveMockClient(ruleset: canonical)
+        let request = request(canonical: canonical)
+        let recovery = try await preflight(client: client, request: request)
+        await client.setReadFailureAfterOpening()
+
+        let receipt = try await Repository.Policy.Caller.Wave.run(
+            client: client,
+            request: request,
+            recovery: recovery,
+            record: { _ in }
+        )
+
+        #expect(receipt.bypassClosed)
+        #expect(await client.replacements() == 3)
+    }
+
+    @Test
+    func interruptionAfterOpeningStillClosesTheBypass() async throws {
+        let canonical = try ruleset()
+        let client = RepositoryPolicyCallerWaveMockClient(ruleset: canonical)
+        let request = request(canonical: canonical)
+        let recovery = try await preflight(client: client, request: request)
+        await client.setCommitFailure()
+
+        await #expect(throws: Repository.Policy.Caller.Wave.Error.self) {
+            try await Repository.Policy.Caller.Wave.run(
+                client: client,
+                request: request,
+                recovery: recovery,
+                record: { _ in }
+            )
+        }
+
+        #expect(!(await client.bypassOpen(integrationID: request.integrationID)))
+    }
+
+    @Test
+    func durablePreflightEvidenceClosesABypassAfterRunnerLoss() async throws {
+        let canonical = try ruleset()
+        let client = RepositoryPolicyCallerWaveMockClient(ruleset: canonical)
+        let request = request(canonical: canonical)
+        let recovery = try await preflight(client: client, request: request)
+        try await client.openBypass(integrationID: request.integrationID)
+
+        let closure = try await Repository.Policy.Caller.Wave.close(
+            client: client,
+            recovery: recovery,
+            caller: request.caller
+        )
+
+        #expect(closure.bypassClosed)
+        #expect(closure.rulesetCanonical)
+        #expect(!closure.accepted)
+        #expect(!(await client.bypassOpen(integrationID: request.integrationID)))
+    }
+
+    @Test
+    func preflightAcceptsTheExactTokenIssuanceAttestation() async throws {
+        let canonical = try ruleset()
+        let client = RepositoryPolicyCallerWaveMockClient(ruleset: canonical)
+        let request = request(canonical: canonical)
+        let evidence = try attestation(fixture: "attestation-positive")
+
+        let result = try await Repository.Policy.Caller.Wave.preflight(
+            client: client,
+            request: request,
+            attestation: evidence.attestation,
+            attestationDigest: evidence.digest
+        )
+
+        #expect(result.receipt.accepted)
+        #expect(result.receipt.attestationDigest == evidence.digest)
+        #expect(result.receipt.organization == "swift-institute")
+        #expect(
+            result.receipt.recoveryDigest
+                == Repository.Policy.Caller.Wave.digest(
+                    try Repository.Policy.Caller.Wave.evidenceData(result.recovery)
+                )
+        )
+    }
+
+    @Test
+    func preflightRefusesAMissingAttestationBeforeMeasurement() async throws {
+        #expect(throws: Repository.Policy.Caller.Wave.Error.self) {
+            _ = try Repository.Policy.Caller.Wave.Attestation.read(
+                at: "/nonexistent/attestation.json"
+            )
+        }
+    }
+
+    @Test
+    func preflightRefusesAMalformedAttestationBeforeMeasurement() async throws {
+        let url = try #require(
+            Bundle.module.url(forResource: "attestation-malformed", withExtension: "json")
+        )
+
+        #expect(throws: Repository.Policy.Caller.Wave.Error.self) {
+            _ = try Repository.Policy.Caller.Wave.Attestation.read(at: url.path)
+        }
+    }
+
+    /// `attestation-missing-workflows` is the fifth negative control,
+    /// carrying exactly the two grants the pre-fix wave minted: an App
+    /// token without `workflows: write` cannot rewrite a workflow file
+    /// (run 31826746776), so its attestation must refuse at preflight.
+    @Test(arguments: [
+        "attestation-missing-contents",
+        "attestation-missing-administration",
+        "attestation-missing-workflows",
+    ])
+    func preflightRefusesAnAttestationWithoutTheRequiredWriteGrant(
+        fixture: String
+    ) async throws {
+        let canonical = try ruleset()
+        let client = RepositoryPolicyCallerWaveMockClient(ruleset: canonical)
+        let request = request(canonical: canonical)
+        let evidence = try attestation(fixture: fixture)
+
+        await #expect(throws: Repository.Policy.Caller.Wave.Error.self) {
+            try await Repository.Policy.Caller.Wave.preflight(
+                client: client,
+                request: request,
+                attestation: evidence.attestation,
+                attestationDigest: evidence.digest
+            )
+        }
+        #expect(await client.replacements() == 0)
+    }
+
+    @Test
+    func preflightRefusesAnAttestationScopeThatDoesNotCoverTheSubject() async throws {
+        let canonical = try ruleset()
+        let client = RepositoryPolicyCallerWaveMockClient(ruleset: canonical)
+        let request = request(canonical: canonical)
+        let evidence = try attestation(fixture: "attestation-foreign-scope")
+
+        await #expect(throws: Repository.Policy.Caller.Wave.Error.self) {
+            try await Repository.Policy.Caller.Wave.preflight(
+                client: client,
+                request: request,
+                attestation: evidence.attestation,
+                attestationDigest: evidence.digest
+            )
+        }
+        #expect(await client.replacements() == 0)
+    }
+
+    @Test
+    func repositoryPaginationFollowsLinksEvenAfterAShortPage() async throws {
+        let baseURL = try #require(URL(string: "https://api.github.test"))
+        let client = RepositoryPolicy.GitHubClient(
+            token: "test",
+            baseURL: baseURL,
+            delaySeconds: 0,
+            execute: { request in
+                guard let url = request.url else { throw URLError(.badURL) }
+                let page = URLComponents(url: url, resolvingAgainstBaseURL: false)?
+                    .queryItems?.first(where: { $0.name == "page" })?.value
+                switch (url.path, page) {
+                case ("/orgs/swift-primitives", _):
+                    return try Self.http(request, json: ["public_repos": 2])
+
+                case ("/orgs/swift-primitives/repos", "1"):
+                    return try Self.http(
+                        request,
+                        json: [Self.remoteRepository(id: 1, name: "a")],
+                        headers: [
+                            "Link": "<https://api.github.test/orgs/swift-primitives/repos?"
+                                + "type=public&per_page=100&page=2>; rel=\"next\""
+                        ]
+                    )
+
+                case ("/orgs/swift-primitives/repos", "2"):
+                    return try Self.http(
+                        request,
+                        json: [Self.remoteRepository(id: 2, name: "b")]
+                    )
+
+                default:
+                    throw URLError(.badURL)
+                }
+            }
+        )
+
+        let listing = try await client.callerWaveRepositories(
+            organization: "swift-primitives"
+        )
+
+        #expect(listing.expected == 2)
+        #expect(
+            listing.repositories.map(\.fullName) == ["swift-primitives/a", "swift-primitives/b"]
+        )
+    }
+
+    @Test
+    func repositoryPaginationRejectsADroppedMiddlePage() async throws {
+        let baseURL = try #require(URL(string: "https://api.github.test"))
+        let client = RepositoryPolicy.GitHubClient(
+            token: "test",
+            baseURL: baseURL,
+            delaySeconds: 0,
+            execute: { request in
+                guard let url = request.url else { throw URLError(.badURL) }
+                if url.path == "/orgs/swift-primitives" {
+                    return try Self.http(request, json: ["public_repos": 2])
+                }
+                return try Self.http(
+                    request,
+                    json: [Self.remoteRepository(id: 1, name: "a")],
+                    headers: [
+                        "Link": "<https://api.github.test/orgs/swift-primitives/repos?"
+                            + "type=public&per_page=100&page=3>; rel=\"next\""
+                    ]
+                )
+            }
+        )
+
+        await #expect(throws: RepositoryPolicy.GitHubClient.Error.self) {
+            try await client.callerWaveRepositories(organization: "swift-primitives")
+        }
+    }
+
+    @Test
+    func repositoryPaginationRejectsADuplicatedPage() async throws {
+        let baseURL = try #require(URL(string: "https://api.github.test"))
+        let client = RepositoryPolicy.GitHubClient(
+            token: "test",
+            baseURL: baseURL,
+            delaySeconds: 0,
+            execute: { request in
+                guard let url = request.url else { throw URLError(.badURL) }
+                let page = URLComponents(url: url, resolvingAgainstBaseURL: false)?
+                    .queryItems?.first(where: { $0.name == "page" })?.value
+                if url.path == "/orgs/swift-primitives" {
+                    return try Self.http(request, json: ["public_repos": 2])
+                }
+                let headers =
+                    page == "1"
+                    ? [
+                        "Link": "<https://api.github.test/orgs/swift-primitives/repos?"
+                            + "type=public&per_page=100&page=2>; rel=\"next\""
+                    ] : [:]
+                return try Self.http(
+                    request,
+                    json: [Self.remoteRepository(id: 1, name: "a")],
+                    headers: headers
+                )
+            }
+        )
+
+        await #expect(throws: RepositoryPolicy.GitHubClient.Error.self) {
+            try await client.callerWaveRepositories(organization: "swift-primitives")
+        }
+    }
+
+    @Test
+    func capacityRecordsWhetherTheCompleteWaveFits() async throws {
+        for (remaining, required, accepted) in [(100, 80, true), (80, 81, false)] {
+            let baseURL = try #require(URL(string: "https://api.github.test"))
+            let client = RepositoryPolicy.GitHubClient(
+                token: "test",
+                baseURL: baseURL,
+                delaySeconds: 0,
+                execute: { request in
+                    try Self.http(
+                        request,
+                        json: [
+                            "resources": [
+                                "core": ["remaining": remaining, "reset": 1_787_000_000]
+                            ]
+                        ]
+                    )
+                }
+            )
+
+            let capacity = try await client.callerWaveCapacity(requiredRequests: required)
+
+            #expect(capacity.remaining == remaining)
+            #expect(capacity.required == required)
+            #expect(capacity.accepted == accepted)
+        }
+    }
+
+    @Test(arguments: [429, 503])
+    func retryableHTTPStatusIsRetried(status: Int) async throws {
+        let counter = RepositoryPolicyCallerWaveHTTPAttemptCounter()
+        let baseURL = try #require(URL(string: "https://api.github.test"))
+        let client = RepositoryPolicy.GitHubClient(
+            token: "test",
+            baseURL: baseURL,
+            maximumAttempts: 2,
+            delaySeconds: 0,
+            execute: { request in
+                if await counter.next() == 1 {
+                    return try Self.http(
+                        request,
+                        json: ["message": "retry"],
+                        status: status,
+                        headers: ["Retry-After": "0"]
+                    )
+                }
+                guard let url = request.url else { throw URLError(.badURL) }
+                if url.path.hasSuffix("/repos") {
+                    return try Self.http(
+                        request,
+                        json: [Self.remoteRepository(id: 1, name: "a")]
+                    )
+                }
+                return try Self.http(request, json: ["public_repos": 1])
+            }
+        )
+
+        let listing = try await client.callerWaveRepositories(organization: "swift-primitives")
+        #expect(listing.repositories.count == 1)
+        #expect(await counter.count() == 4)
+    }
+
+    @Test
+    func transportFailureIsRetried() async throws {
+        let counter = RepositoryPolicyCallerWaveHTTPAttemptCounter()
+        let baseURL = try #require(URL(string: "https://api.github.test"))
+        let client = RepositoryPolicy.GitHubClient(
+            token: "test",
+            baseURL: baseURL,
+            maximumAttempts: 2,
+            delaySeconds: 0,
+            execute: { request in
+                if await counter.next() == 1 { throw URLError(.timedOut) }
+                guard let url = request.url else { throw URLError(.badURL) }
+                if url.path.hasSuffix("/repos") {
+                    return try Self.http(
+                        request,
+                        json: [Self.remoteRepository(id: 1, name: "a")]
+                    )
+                }
+                return try Self.http(request, json: ["public_repos": 1])
+            }
+        )
+
+        let listing = try await client.callerWaveRepositories(organization: "swift-primitives")
+        #expect(listing.repositories.count == 1)
+        #expect(await counter.count() == 4)
+    }
+
+    private func request(
+        canonical: Data,
+        expectedBlob: String = "old-blob"
+    ) -> Repository.Policy.Caller.Wave.Request {
+        .init(
+            repository: "swift-institute/example",
+            expectedRepositoryID: 1,
+            expectedHead: "old-head",
+            expectedManifest: .init(kind: "file", blob: "manifest-blob"),
+            expectedBlob: expectedBlob,
+            caller: Data("new\n".utf8),
+            canonicalRuleset: canonical,
+            integrationID: 3_543_256,
+            population: .init(
+                repositories: 1,
+                subjects: 1,
+                repositoryDigest: "repositories",
+                subjectDigest: "subjects",
+                stateDigest: "state"
+            ),
+            policyDigest: policyDigest,
+            policySource: policySource,
+            commitMessage: "Adopt terminal caller [skip ci]"
+        )
+    }
+
+    private func preflight(
+        client: RepositoryPolicyCallerWaveMockClient,
+        request: Repository.Policy.Caller.Wave.Request
+    ) async throws -> Repository.Policy.Caller.Wave.Recovery {
+        let evidence = try attestation(fixture: "attestation-positive")
+        let result = try await Repository.Policy.Caller.Wave.preflight(
+            client: client,
+            request: request,
+            attestation: evidence.attestation,
+            attestationDigest: evidence.digest
+        )
+        return result.recovery
+    }
+
+    private func attestation(
+        fixture: String
+    ) throws -> (attestation: Repository.Policy.Caller.Wave.Attestation, digest: String) {
+        let url = try #require(Bundle.module.url(forResource: fixture, withExtension: "json"))
+        return try Repository.Policy.Caller.Wave.Attestation.read(at: url.path)
+    }
+
+    private func recensusEvidence() throws -> (
+        original: Repository.Policy.Caller.Wave.Population,
+        current: Repository.Policy.Caller.Wave.Population,
+        receipts: [Repository.Policy.Caller.Wave.Receipt],
+        events: [Repository.Policy.Caller.Wave.Event],
+        closures: [Repository.Policy.Caller.Wave.Closure]
+    ) {
+        let repositories = ["swift-primitives/a", "swift-primitives/b"]
+        let originalSubjects = repositories.enumerated().map { offset, repository in
+            Repository.Policy.Caller.Wave.Subject(
+                repository: repository,
+                repositoryID: Int64(offset + 1),
+                head: "old-head-\(offset)",
+                manifest: .init(kind: "file", blob: "manifest-\(offset)"),
+                caller: .init(blob: "old-blob-\(offset)", bytes: Data("old\n".utf8))
+            )
+        }
+        let currentSubjects = repositories.enumerated().map { offset, repository in
+            Repository.Policy.Caller.Wave.Subject(
+                repository: repository,
+                repositoryID: Int64(offset + 1),
+                head: "new-head-\(offset)",
+                manifest: .init(kind: "file", blob: "manifest-\(offset)"),
+                caller: .init(blob: "new-blob-\(offset)", bytes: terminalCaller)
+            )
+        }
+        let original = Repository.Policy.Caller.Wave.Population(
+            organizations: ["swift-primitives"],
+            examined: 2,
+            repositoryCounts: ["swift-primitives": 2],
+            repositories: repositories,
+            excluded: [:],
+            subjects: originalSubjects
+        )
+        let current = Repository.Policy.Caller.Wave.Population(
+            organizations: ["swift-primitives"],
+            examined: 2,
+            repositoryCounts: ["swift-primitives": 2],
+            repositories: repositories,
+            excluded: [:],
+            subjects: currentSubjects
+        )
+        let receipts = repositories.indices.map { index in
+            Repository.Policy.Caller.Wave.Receipt(
+                repository: repositories[index],
+                oldHead: originalSubjects[index].head,
+                newHead: currentSubjects[index].head,
+                oldBlob: originalSubjects[index].caller.blob,
+                newBlob: currentSubjects[index].caller.blob,
+                ruleset: 7,
+                callerChanged: true,
+                rulesetChanged: false,
+                bypassClosed: true,
+                population: original.commitment,
+                policyDigest: policyDigest,
+                policySource: policySource
+            )
+        }
+        let events = repositories.indices.map { index in
+            Repository.Policy.Caller.Wave.Event(
+                phase: "applied",
+                repository: repositories[index],
+                oldHead: originalSubjects[index].head,
+                newHead: currentSubjects[index].head,
+                oldBlob: originalSubjects[index].caller.blob,
+                newBlob: currentSubjects[index].caller.blob,
+                ruleset: 7,
+                bypassClosed: true,
+                populationDigest: original.commitment.stateDigest,
+                policyDigest: policyDigest,
+                policySource: policySource
+            )
+        }
+        let closures = repositories.indices.map { index in
+            Repository.Policy.Caller.Wave.Closure(
+                repository: repositories[index],
+                head: currentSubjects[index].head,
+                blob: currentSubjects[index].caller.blob,
+                callerDigest: terminalCallerDigest,
+                callerMatches: true,
+                subjectStable: true,
+                ruleset: 7,
+                rulesetCanonical: true,
+                bypassClosed: true,
+                population: original.commitment,
+                policyDigest: policyDigest,
+                policySource: policySource
+            )
+        }
+        return (original, current, receipts, events, closures)
+    }
+
+    private func recensusInput(
+        _ evidence: (
+            original: Repository.Policy.Caller.Wave.Population,
+            current: Repository.Policy.Caller.Wave.Population,
+            receipts: [Repository.Policy.Caller.Wave.Receipt],
+            events: [Repository.Policy.Caller.Wave.Event],
+            closures: [Repository.Policy.Caller.Wave.Closure]
+        ),
+        closures: [Repository.Policy.Caller.Wave.Closure]? = nil
+    ) -> Repository.Policy.Caller.Wave.Recensus.Evidence {
+        .init(
+            caller: terminalCaller,
+            receipts: evidence.receipts,
+            events: evidence.events,
+            closures: closures ?? evidence.closures,
+            policyDigest: policyDigest,
+            policySource: policySource
+        )
+    }
+
+    private var terminalCaller: Data { Data("terminal\n".utf8) }
+    private var terminalCallerDigest: String {
+        "770b1fadc4019d4de6b2fd32561beaa2c8cffa7837f43c85cbeff1e211c60702"
+    }
+    private var policyDigest: String { String(repeating: "b", count: 64) }
+    private var policySource: String { String(repeating: "a", count: 40) }
+
+    private static func remoteRepository(id: Int64, name: String) -> [String: Any] {
+        [
+            "id": id,
+            "name": name,
+            "full_name": "swift-primitives/\(name)",
+            "visibility": "public",
+            "archived": false,
+            "disabled": false,
+            "fork": false,
+            "size": 1,
+        ]
+    }
+
+    private static func http(
+        _ request: URLRequest,
+        json: Any,
+        status: Int = 200,
+        headers: [String: String] = [:]
+    ) throws -> (Data, URLResponse) {
+        guard let url = request.url,
+            let response = HTTPURLResponse(
+                url: url,
+                statusCode: status,
+                httpVersion: nil,
+                headerFields: headers
+            )
+        else {
+            throw URLError(.badServerResponse)
+        }
+        return (try JSONSerialization.data(withJSONObject: json), response)
+    }
+
+    private func ruleset(enforcement: String = "active") throws -> Data {
+        try JSONSerialization.data(
+            withJSONObject: [
+                "name": "Institute protected main",
+                "target": "branch",
+                "enforcement": enforcement,
+                "bypass_actors": [],
+                "conditions": [
+                    "ref_name": ["include": ["refs/heads/main"], "exclude": []]
+                ],
+                "rules": [
+                    ["type": "deletion"],
+                    ["type": "non_fast_forward"],
+                    ["type": "pull_request", "parameters": ["required_approving_review_count": 1]],
+                    [
+                        "type": "required_status_checks",
+                        "parameters": [
+                            "required_status_checks": [["context": "ci / matrix / ci-ok"]]
+                        ],
+                    ],
+                ],
+            ],
+            options: [.sortedKeys]
+        )
+    }
+
+    private func fleet(organizations: [String]) throws -> RepositoryPolicy.Fleet {
+        let values = organizations.map {
+            ["name": $0, "layer": "L1", "status": "active"]
+        }
+        return try JSONDecoder().decode(
+            RepositoryPolicy.Fleet.self,
+            from: JSONSerialization.data(
+                withJSONObject: ["schemaVersion": 1, "organizations": values]
+            )
+        )
+    }
+}

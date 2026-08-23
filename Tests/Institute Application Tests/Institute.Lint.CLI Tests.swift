@@ -10,7 +10,7 @@ import Institute_Model
 import Institute_Pages
 import Testing
 
-@testable import Institute_Application
+@testable import Institute_Application_Foundation_Integration
 @testable import Institute_GitHub
 
 extension Institute.Application.CLI.Test {

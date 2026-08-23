@@ -320,7 +320,6 @@
     "swift-foundations/swift-arguments",
     "swift-foundations/swift-ascii",
     "swift-foundations/swift-async",
-    "swift-foundations/swift-build-coordinator",
     "swift-foundations/swift-certificate-verification",
     "swift-foundations/swift-clocks",
     "swift-foundations/swift-clocks-dependencies",

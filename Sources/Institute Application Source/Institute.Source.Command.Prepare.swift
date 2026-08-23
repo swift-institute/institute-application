@@ -32,21 +32,7 @@ extension Institute.Source.Command {
 
     public mutating func run() async throws(Institute.Error) {
       _ = try Institute.Source.Command.context(workspace: workspacePath)
-      let swiftFormat = try Institute.Source.Command.executable(
-        "swift-format",
-        resolver: "/usr/bin/xcrun",
-        arguments: ["--find", "swift-format"]
-      )
-      let linter = try Institute.Source.Command.executable(
-        "swift-linter",
-        resolver: "/usr/bin/which",
-        arguments: ["swift-linter"]
-      )
-      let receipt = try Institute.Source.Application().prepare(
-        workspace: workspacePath,
-        swiftFormatExecutable: swiftFormat,
-        linterExecutable: linter
-      )
+      let receipt = try await Institute.Source.Application().prepare(workspace: workspacePath)
       print(receipt.jsonString(sortKeys: true))
     }
   }

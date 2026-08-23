@@ -30,6 +30,8 @@ extension Institute.Application.CLI {
         case github
         case verification
         case certification
+        case ci
+        case repository
         case architecture
         case workspace
 
@@ -53,6 +55,8 @@ extension Institute.Application.CLI {
             case "github": self = .github
             case "verification": self = .verification
             case "certification": self = .certification
+            case "ci": self = .ci
+            case "repository": self = .repository
             case "architecture": self = .architecture
             case "workspace": self = .workspace
             default: return nil
@@ -82,6 +86,8 @@ extension Institute.Application.CLI.Operation {
         case .github: "github"
         case .verification: "verification"
         case .certification: "certification"
+        case .ci: "ci"
+        case .repository: "repository"
         case .architecture: "architecture"
         case .workspace: "workspace"
         }
@@ -100,7 +106,7 @@ extension Institute.Application.CLI.Operation {
         switch self {
         case .install, .sync, .doctor, .inventory, .dependencies, .context, .navigation, .package,
             .lint, .build, .coherence, .conversion, .github, .verification, .certification,
-            .architecture:
+            .ci, .repository, .architecture:
             false
 
         case .workspace:

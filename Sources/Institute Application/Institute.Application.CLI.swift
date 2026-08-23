@@ -188,7 +188,7 @@ extension Institute.Application.CLI {
                 placeholder:
                     "install|sync|build|doctor|inventory|dependencies|compose|restore|verify|context"
                     + "|navigation|package|lint|coherence|conversion|github|verification|certification"
-                    + "|workspace",
+                    + "|ci|repository|workspace",
                 help: .init(abstract: "Operation to perform.")
             )
             Command.Positional<Self, Mode>.Many(
@@ -2142,8 +2142,7 @@ extension Institute.Application.CLI {
                 // reconciliation): governance repositories certified by
                 // exact revision, never by implied package obligations.
                 for name in [
-                    ".github", "institute", "institute-application",
-                    "institute-continuous-integration", "Issues", "Research",
+                    ".github", "institute", "institute-application", "Issues", "Research",
                     "swift-institute.org",
                 ] {
                     reading = "\(root.hierarchy)/\(name)"
@@ -2463,6 +2462,12 @@ extension Institute.Application.CLI {
             // exhaustive switch over it must account for that, whether or
             // not this arm can run.
             return
+
+        case .ci:
+            Institute.Application.CI.execute(arguments)
+
+        case .repository:
+            await Institute.Application.RepositoryPolicyCLI.execute(arguments)
 
         case .architecture:
             // Unreachable: `.architecture` returns above, before `root`/

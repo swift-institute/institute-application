@@ -1970,12 +1970,6 @@
     },
     {
       "layer": "foundations",
-      "name": "swift-build-coordinator",
-      "organization": "swift-foundations",
-      "url": "https://github.com/swift-foundations/swift-build-coordinator.git"
-    },
-    {
-      "layer": "foundations",
       "name": "swift-certificate-verification",
       "organization": "swift-foundations",
       "url": "https://github.com/swift-foundations/swift-certificate-verification.git"
