@@ -1,18 +1,30 @@
 import Command
+import Institute_Application_Certification
+import Institute_Application_Coherence
+import Institute_Application_Composition
+import Institute_Application_Context
+import Institute_Application_Conversion
+import Institute_Application_Dependency
+import Institute_Application_Doctor
+import Institute_Application_GitHub
+import Institute_Application_Inventory
+import Institute_Application_Lint
+import Institute_Application_Navigation
+import Institute_Application_Package
+import Institute_Application_Verification
+import Institute_Application_Workspace
 import Institute_Build_Coordinator
-import Institute_Conversion
-import Institute_Dependency
-import Institute_Development
-import Institute_Doctor
-import Institute_Instruments
-import Institute_Inventory
-import Institute_Lint
 import Institute_Model
-import Institute_Pages
 import Testing
 
 @testable import Institute_Application
-@testable import Institute_GitHub
+
+/// Parses one argv through the typed router, exactly as `main.swift` does.
+private func parse(
+    _ argv: [Swift.String]
+) throws -> Institute.Application.CLI {
+    try Command.parse(Institute.Application.CLI.self, from: argv, initial: .sync(.init()))
+}
 
 extension Institute.Application.CLI {
     @Suite
@@ -26,360 +38,321 @@ extension Institute.Application.CLI {
 extension Institute.Application.CLI.Test.Unit {
     @Test
     func `workspace materialize selects the local publication operation`() throws {
-        let command = try Command.parse(
-            Institute.Application.CLI.self,
-            from: ["workspace", "materialize", "--jobs", "16"],
-            initial: .init()
-        )
+        let command = try parse(["workspace", "materialize", "--jobs", "16"])
 
-        #expect(command.operation == .workspace)
-        #expect(command.modes == [.materialize])
-        #expect(command.jobs == 16)
-    }
-
-    @Test
-    func `workspace materialize rejects synchronization flags`() {
-        #expect(throws: Command.Error.self) {
-            try Command.parse(
-                Institute.Application.CLI.self,
-                from: ["workspace", "materialize", "--dry-run"],
-                initial: .init()
-            )
+        guard case .workspace(.materialize(let materialize)) = command else {
+            Issue.record("expected workspace materialize, got \(command)")
+            return
         }
+        #expect(materialize.jobs == 16)
     }
 
     @Test
     func `install selects the command bootstrap`() throws {
-        let command = try Command.parse(
-            Institute.Application.CLI.self,
-            from: ["install"],
-            initial: .init()
-        )
+        let command = try parse(["install"])
 
-        #expect(command.operation == .install)
-        #expect(command.modes.isEmpty)
+        guard case .install = command else {
+            Issue.record("expected install, got \(command)")
+            return
+        }
     }
 
     @Test
     func `sync selects mutating execution`() throws {
-        let command = try Command.parse(
-            Institute.Application.CLI.self,
-            from: ["sync"],
-            initial: .init()
-        )
+        let command = try parse(["sync"])
 
-        #expect(command.operation == .sync)
-        #expect(!command.dry)
+        guard case .sync(let sync) = command else {
+            Issue.record("expected sync, got \(command)")
+            return
+        }
+        #expect(!sync.dry)
     }
 
     @Test
     func `sync dry run selects nonmutating execution`() throws {
-        let command = try Command.parse(
-            Institute.Application.CLI.self,
-            from: ["sync", "--dry-run"],
-            initial: .init()
-        )
+        let command = try parse(["sync", "--dry-run"])
 
-        #expect(command.operation == .sync)
-        #expect(command.dry)
+        guard case .sync(let sync) = command else {
+            Issue.record("expected sync, got \(command)")
+            return
+        }
+        #expect(sync.dry)
     }
 
     @Test
     func `doctor selects diagnostic execution`() throws {
-        let command = try Command.parse(
-            Institute.Application.CLI.self,
-            from: ["doctor"],
-            initial: .init()
-        )
+        let command = try parse(["doctor"])
 
-        #expect(command.operation == .doctor)
-        #expect(!command.dry)
-        #expect(!command.institute)
+        guard case .doctor(let doctor) = command else {
+            Issue.record("expected doctor, got \(command)")
+            return
+        }
+        #expect(!doctor.institute)
     }
 
     @Test
     func `doctor institute selects the institute-internal checks`() throws {
-        let command = try Command.parse(
-            Institute.Application.CLI.self,
-            from: ["doctor", "--institute"],
-            initial: .init()
-        )
+        let command = try parse(["doctor", "--institute"])
 
-        #expect(command.operation == .doctor)
-        #expect(command.institute)
+        guard case .doctor(let doctor) = command else {
+            Issue.record("expected doctor, got \(command)")
+            return
+        }
+        #expect(doctor.institute)
     }
 
     @Test
     func `inventory selects the read-only register`() throws {
-        let command = try Command.parse(
-            Institute.Application.CLI.self,
-            from: ["inventory"],
-            initial: .init()
-        )
+        let command = try parse(["inventory"])
 
-        #expect(command.operation == .inventory)
-        #expect(command.modes.isEmpty)
-        #expect(!command.dry)
+        guard case .inventory(.register) = command else {
+            Issue.record("expected inventory register, got \(command)")
+            return
+        }
     }
 
     @Test
     func `inventory regenerate selects mutating execution`() throws {
-        let command = try Command.parse(
-            Institute.Application.CLI.self,
-            from: ["inventory", "regenerate"],
-            initial: .init()
-        )
+        let command = try parse(["inventory", "regenerate"])
 
-        #expect(command.operation == .inventory)
-        #expect(command.modes == [.regenerate])
-        #expect(!command.dry)
+        guard case .inventory(.regenerate(let regenerate)) = command else {
+            Issue.record("expected inventory regenerate, got \(command)")
+            return
+        }
+        #expect(!regenerate.dry)
     }
 
     @Test
     func `inventory regenerate dry run selects nonmutating planning`() throws {
-        let command = try Command.parse(
-            Institute.Application.CLI.self,
-            from: ["inventory", "regenerate", "--dry-run"],
-            initial: .init()
-        )
+        let command = try parse(["inventory", "regenerate", "--dry-run"])
 
-        #expect(command.operation == .inventory)
-        #expect(command.modes == [.regenerate])
-        #expect(command.dry)
+        guard case .inventory(.regenerate(let regenerate)) = command else {
+            Issue.record("expected inventory regenerate, got \(command)")
+            return
+        }
+        #expect(regenerate.dry)
     }
 
     @Test
     func `inventory pages selects the read-only page enumeration`() throws {
-        let command = try Command.parse(
-            Institute.Application.CLI.self,
-            from: ["inventory", "pages"],
-            initial: .init()
-        )
+        let command = try parse(["inventory", "pages"])
 
-        #expect(command.operation == .inventory)
-        #expect(command.modes == [.pages])
-        #expect(!command.dry)
+        guard case .inventory(.pages) = command else {
+            Issue.record("expected inventory pages, got \(command)")
+            return
+        }
     }
 
     @Test
     func `inventory pages rejects dry run because enumeration is already read-only`() {
         #expect(throws: Command.Error.self) {
-            try Command.parse(
-                Institute.Application.CLI.self,
-                from: ["inventory", "pages", "--dry-run"],
-                initial: .init()
-            )
+            try parse(["inventory", "pages", "--dry-run"])
         }
     }
 
     @Test
     func `inventory effective parses its scope and output path`() throws {
-        let command = try Command.parse(
-            Institute.Application.CLI.self,
-            from: [
-                "inventory", "effective",
-                "--inventory-scope", "effective",
-                "--inventory-output", "/tmp/effective.json",
-            ],
-            initial: .init()
-        )
+        let command = try parse([
+            "inventory", "effective",
+            "--inventory-scope", "effective",
+            "--inventory-output", "/tmp/effective.json",
+        ])
 
-        #expect(command.operation == .inventory)
-        #expect(command.modes == [.effective])
-        #expect(command.inventoryScope == "effective")
-        #expect(command.inventoryOutput == "/tmp/effective.json")
+        guard case .inventory(.effective(let effective)) = command else {
+            Issue.record("expected inventory effective, got \(command)")
+            return
+        }
+        #expect(effective.inventoryScope == "effective")
+        #expect(effective.inventoryOutput == "/tmp/effective.json")
     }
 
     @Test
     func `inventory effective parses the public-only scope`() throws {
-        let command = try Command.parse(
-            Institute.Application.CLI.self,
-            from: [
-                "inventory", "effective",
-                "--inventory-scope", "public",
-                "--inventory-output", "/tmp/effective.json",
-            ],
-            initial: .init()
-        )
+        let command = try parse([
+            "inventory", "effective",
+            "--inventory-scope", "public",
+            "--inventory-output", "/tmp/effective.json",
+        ])
 
-        #expect(command.modes == [.effective])
-        #expect(command.inventoryScope == "public")
+        guard case .inventory(.effective(let effective)) = command else {
+            Issue.record("expected inventory effective, got \(command)")
+            return
+        }
+        #expect(effective.inventoryScope == "public")
     }
 
     @Test
     func `inventory effective rejects dry run`() {
         #expect(throws: Command.Error.self) {
-            try Command.parse(
-                Institute.Application.CLI.self,
-                from: [
-                    "inventory", "effective",
-                    "--inventory-scope", "public",
-                    "--inventory-output", "/tmp/effective.json",
-                    "--dry-run",
-                ],
-                initial: .init()
-            )
+            try parse([
+                "inventory", "effective",
+                "--inventory-scope", "public",
+                "--inventory-output", "/tmp/effective.json",
+                "--dry-run",
+            ])
         }
     }
 
     @Test
     func `inventory register rejects the effective-only report options`() {
         #expect(throws: Command.Error.self) {
-            try Command.parse(
-                Institute.Application.CLI.self,
-                from: ["inventory", "--inventory-scope", "public"],
-                initial: .init()
-            )
+            try parse(["inventory", "--inventory-scope", "public"])
         }
     }
 
     @Test
     func `dependencies parses deterministic output and policy exception inputs`() throws {
-        let command = try Command.parse(
-            Institute.Application.CLI.self,
-            from: [
-                "dependencies",
-                "--format", "json",
-                "--sanctioned-exception", "apple/swift-crypto",
-                "--sanctioned-exception", "swiftlang/swift-syntax",
-            ],
-            initial: .init()
-        )
+        let command = try parse([
+            "dependencies",
+            "--format", "json",
+            "--sanctioned-exception", "apple/swift-crypto",
+            "--sanctioned-exception", "swiftlang/swift-syntax",
+        ])
 
-        #expect(command.operation == .dependencies)
-        #expect(command.output == .json)
+        guard case .dependencies(let dependencies) = command else {
+            Issue.record("expected dependencies, got \(command)")
+            return
+        }
+        #expect(dependencies.output == .json)
         #expect(
-            command.sanctionedExceptions == [
+            dependencies.sanctionedExceptions == [
                 "apple/swift-crypto",
                 "swiftlang/swift-syntax",
             ]
         )
     }
 
-    @Test(arguments: [
-        ("install", Institute.Application.CLI.Mode.install),
-        ("check", Institute.Application.CLI.Mode.check),
-    ])
-    func `context parses its operation`(
-        argument: Swift.String,
-        expected: Institute.Application.CLI.Mode
-    ) throws {
-        let command = try Command.parse(
-            Institute.Application.CLI.self,
-            from: ["context", argument],
-            initial: .init()
-        )
+    @Test
+    func `context install parses`() throws {
+        let command = try parse(["context", "install"])
+        guard case .context(.install) = command else {
+            Issue.record("expected context install, got \(command)")
+            return
+        }
+    }
 
-        #expect(command.operation == .context)
-        #expect(command.modes == [expected])
+    @Test
+    func `context check parses`() throws {
+        let command = try parse(["context", "check"])
+        guard case .context(.check) = command else {
+            Issue.record("expected context check, got \(command)")
+            return
+        }
     }
 
     @Test
     func `context packet parses its bounded current Issue contract`() throws {
-        let command = try Command.parse(
-            Institute.Application.CLI.self,
-            from: [
-                "context", "packet",
-                "--issue", "swift-institute/institute-application#100",
-                "--format", "json",
-                "--max-bytes", "512",
-                "--include-comment",
-                "https://api.github.com/repos/swift-institute/institute-application/issues/comments/1",
-            ],
-            initial: .init()
-        )
+        let command = try parse([
+            "context", "packet",
+            "--issue", "swift-institute/institute-application#100",
+            "--format", "json",
+            "--max-bytes", "512",
+            "--include-comment",
+            "https://api.github.com/repos/swift-institute/institute-application/issues/comments/1",
+        ])
 
-        #expect(command.modes == [.packet])
-        #expect(command.issue == "swift-institute/institute-application#100")
-        #expect(command.output == .json)
-        #expect(command.maxBytes == 512)
-        #expect(command.includedComments.count == 1)
+        guard case .context(.packet(let packet)) = command else {
+            Issue.record("expected context packet, got \(command)")
+            return
+        }
+        #expect(packet.issue == "swift-institute/institute-application#100")
+        #expect(packet.output == "json")
+        #expect(packet.maxBytes == 512)
+        #expect(packet.includedComments.count == 1)
+    }
+
+    @Test(arguments: ["install", "check", "serve"])
+    func `navigation parses its operation`(argument: Swift.String) throws {
+        let argv: [Swift.String] =
+            argument == "serve"
+            ? ["navigation", argument]
+            : ["navigation", argument, "--workspace-path", "/tmp/Institute"]
+        let command = try parse(argv)
+
+        guard case .navigation(let navigation) = command else {
+            Issue.record("expected navigation, got \(command)")
+            return
+        }
+        switch (argument, navigation) {
+        case ("install", .install(let install)):
+            #expect(install.workspacePath == "/tmp/Institute")
+
+        case ("check", .check(let check)):
+            #expect(check.workspacePath == "/tmp/Institute")
+
+        case ("serve", .serve):
+            break
+
+        default:
+            Issue.record("navigation \(argument) parsed as \(navigation)")
+        }
+    }
+
+    @Test(arguments: ["build", "test"])
+    func `package parses its coordinated operations`(argument: Swift.String) throws {
+        let command = try parse(["package", argument, "--package-path", "/tmp/example"])
+
+        guard case .package(.execute(let execute)) = command else {
+            Issue.record("expected package \(argument), got \(command)")
+            return
+        }
+        #expect(execute.action == (argument == "build" ? .build : .test))
+        #expect(execute.packagePath == "/tmp/example")
     }
 
     @Test(arguments: [
-        ("install", Institute.Application.CLI.Mode.install),
-        ("check", Institute.Application.CLI.Mode.check),
-        ("serve", Institute.Application.CLI.Mode.serve),
+        ("resolve", Build.Action.resolve),
+        ("dump-package", Build.Action.dumpPackage),
     ])
-    func `navigation parses its operation`(
+    func `package parses its forwarded operations`(
         argument: Swift.String,
-        expected: Institute.Application.CLI.Mode
+        expected: Build.Action
     ) throws {
-        let command = try Command.parse(
-            Institute.Application.CLI.self,
-            from: [
-                "navigation",
-                argument,
-                "--workspace-path",
-                "/tmp/Institute",
-            ],
-            initial: .init()
-        )
+        let command = try parse(["package", argument, "--package-path", "/tmp/example"])
 
-        #expect(command.operation == .navigation)
-        #expect(command.modes == [expected])
-        #expect(command.workspacePath == "/tmp/Institute")
-    }
-
-    @Test(arguments: [
-        ("build", Institute.Application.CLI.Mode.build),
-        ("test", Institute.Application.CLI.Mode.test),
-        ("resolve", Institute.Application.CLI.Mode.resolve),
-        ("dump-package", Institute.Application.CLI.Mode.dumpPackage),
-    ])
-    func `package parses its operation`(
-        argument: Swift.String,
-        expected: Institute.Application.CLI.Mode
-    ) throws {
-        let command = try Command.parse(
-            Institute.Application.CLI.self,
-            from: ["package", argument, "--package-path", "/tmp/example"],
-            initial: .init()
-        )
-
-        #expect(command.operation == .package)
-        #expect(command.modes == [expected])
-        #expect(command.packagePath == "/tmp/example")
+        guard case .package(.forward(let forward)) = command else {
+            Issue.record("expected package \(argument), got \(command)")
+            return
+        }
+        #expect(forward.action == expected)
+        #expect(forward.packagePath == "/tmp/example")
     }
 
     @Test
     func `fresh package test parses`() throws {
-        let command = try Command.parse(
-            Institute.Application.CLI.self,
-            from: ["package", "test", "--fresh"],
-            initial: .init()
-        )
+        let command = try parse(["package", "test", "--fresh"])
 
-        #expect(command.fresh)
+        guard case .package(.execute(let execute)) = command else {
+            Issue.record("expected package test, got \(command)")
+            return
+        }
+        #expect(execute.fresh)
     }
 
-    @Test(arguments: [
-        Institute.Application.CLI.Mode.build,
-        Institute.Application.CLI.Mode.test,
-    ])
+    @Test(arguments: ["build", "test"])
     func `jobs caps compile concurrency on package build or test`(
-        mode: Institute.Application.CLI.Mode
+        mode: Swift.String
     ) throws {
-        let command = try Command.parse(
-            Institute.Application.CLI.self,
-            from: ["package", mode.argumentDescription, "--jobs", "2"],
-            initial: .init()
-        )
+        let command = try parse(["package", mode, "--jobs", "2"])
 
-        #expect(command.jobs == 2)
+        guard case .package(.execute(let execute)) = command else {
+            Issue.record("expected package \(mode), got \(command)")
+            return
+        }
+        #expect(execute.jobs == 2)
     }
 
     @Test
     func `jobs is nil by default, so the coordinator keeps choosing the machine's core count`()
         throws
     {
-        let command = try Command.parse(
-            Institute.Application.CLI.self,
-            from: ["package", "build"],
-            initial: .init()
-        )
+        let command = try parse(["package", "build"])
 
-        #expect(command.jobs == nil)
+        guard case .package(.execute(let execute)) = command else {
+            Issue.record("expected package build, got \(command)")
+            return
+        }
+        #expect(execute.jobs == nil)
     }
 
     @Test
@@ -389,28 +362,28 @@ extension Institute.Application.CLI.Test.Unit {
         // the constructor echoes the parsed value is the whole contract —
         // `Build.Coordinator` and `Build.Action` already prove the rest of
         // the chain (jobs reaching SwiftPM's `-j`) independently.
-        let command = try Command.parse(
-            Institute.Application.CLI.self,
-            from: ["package", "test", "--jobs", "5"],
-            initial: .init()
-        )
+        let command = try parse(["package", "test", "--jobs", "5"])
 
-        #expect(Build.Coordinator(jobs: command.jobs).jobs == 5)
+        guard case .package(.execute(let execute)) = command else {
+            Issue.record("expected package test, got \(command)")
+            return
+        }
+        #expect(Build.Coordinator(jobs: execute.jobs).jobs == 5)
     }
 
     @Test
     func `package forwards repeated SwiftPM arguments`() throws {
-        let command = try Command.parse(
-            Institute.Application.CLI.self,
-            from: [
-                "package", "test",
-                "--argument=--filter",
-                "--argument", "Performance",
-            ],
-            initial: .init()
-        )
+        let command = try parse([
+            "package", "test",
+            "--argument=--filter",
+            "--argument", "Performance",
+        ])
 
-        #expect(command.arguments == ["--filter", "Performance"])
+        guard case .package(.execute(let execute)) = command else {
+            Issue.record("expected package test, got \(command)")
+            return
+        }
+        #expect(execute.arguments == ["--filter", "Performance"])
     }
 }
 
@@ -418,77 +391,49 @@ extension Institute.Application.CLI.Test.`Edge Case` {
     @Test
     func `install takes no mode`() {
         #expect(throws: Command.Error.self) {
-            _ = try Command.parse(
-                Institute.Application.CLI.self,
-                from: ["install", "check"],
-                initial: .init()
-            )
+            _ = try parse(["install", "check"])
         }
     }
 
     @Test
     func `install rejects package arguments`() {
         #expect(throws: Command.Error.self) {
-            _ = try Command.parse(
-                Institute.Application.CLI.self,
-                from: ["install", "--package-path", "Application"],
-                initial: .init()
-            )
+            _ = try parse(["install", "--package-path", "Application"])
         }
     }
 
     @Test
     func `doctor rejects dry run`() {
         #expect(throws: Command.Error.self) {
-            _ = try Command.parse(
-                Institute.Application.CLI.self,
-                from: ["doctor", "--dry-run"],
-                initial: .init()
-            )
+            _ = try parse(["doctor", "--dry-run"])
         }
     }
 
     @Test
     func `inventory rejects dry run because the register is already read-only`() {
         #expect(throws: Command.Error.self) {
-            _ = try Command.parse(
-                Institute.Application.CLI.self,
-                from: ["inventory", "--dry-run"],
-                initial: .init()
-            )
+            _ = try parse(["inventory", "--dry-run"])
         }
     }
 
     @Test
     func `inventory rejects a mutating mode that is not regeneration`() {
         #expect(throws: Command.Error.self) {
-            _ = try Command.parse(
-                Institute.Application.CLI.self,
-                from: ["inventory", "update"],
-                initial: .init()
-            )
+            _ = try parse(["inventory", "update"])
         }
     }
 
     @Test
     func `dependencies rejects malformed or duplicate exception inputs`() {
         #expect(throws: Command.Error.self) {
-            _ = try Command.parse(
-                Institute.Application.CLI.self,
-                from: ["dependencies", "--sanctioned-exception", "not-an-identity"],
-                initial: .init()
-            )
+            _ = try parse(["dependencies", "--sanctioned-exception", "not-an-identity"])
         }
         #expect(throws: Command.Error.self) {
-            _ = try Command.parse(
-                Institute.Application.CLI.self,
-                from: [
-                    "dependencies",
-                    "--sanctioned-exception", "apple/swift-crypto",
-                    "--sanctioned-exception", "apple/swift-crypto",
-                ],
-                initial: .init()
-            )
+            _ = try parse([
+                "dependencies",
+                "--sanctioned-exception", "apple/swift-crypto",
+                "--sanctioned-exception", "apple/swift-crypto",
+            ])
         }
     }
 
@@ -497,99 +442,63 @@ extension Institute.Application.CLI.Test.`Edge Case` {
     @Test(arguments: [["sync"], ["inventory"], ["lint"], ["package", "build"]])
     func `institute is rejected outside doctor`(argument: [Swift.String]) {
         #expect(throws: Command.Error.self) {
-            _ = try Command.parse(
-                Institute.Application.CLI.self,
-                from: argument + ["--institute"],
-                initial: .init()
-            )
+            _ = try parse(argument + ["--institute"])
         }
     }
 
     @Test
     func `context requires an operation`() {
         #expect(throws: Command.Error.self) {
-            _ = try Command.parse(
-                Institute.Application.CLI.self,
-                from: ["context"],
-                initial: .init()
-            )
+            _ = try parse(["context"])
         }
     }
 
     @Test
     func `context rejects a package operation`() {
         #expect(throws: Command.Error.self) {
-            _ = try Command.parse(
-                Institute.Application.CLI.self,
-                from: ["context", "build"],
-                initial: .init()
-            )
+            _ = try parse(["context", "build"])
         }
     }
 
     @Test
     func `navigation requires an operation`() {
         #expect(throws: Command.Error.self) {
-            _ = try Command.parse(
-                Institute.Application.CLI.self,
-                from: ["navigation"],
-                initial: .init()
-            )
+            _ = try parse(["navigation"])
         }
     }
 
     @Test
     func `navigation rejects a package operation`() {
         #expect(throws: Command.Error.self) {
-            _ = try Command.parse(
-                Institute.Application.CLI.self,
-                from: ["navigation", "build"],
-                initial: .init()
-            )
+            _ = try parse(["navigation", "build"])
         }
     }
 
     @Test
     func `non-context operation rejects a context operation`() {
         #expect(throws: Command.Error.self) {
-            _ = try Command.parse(
-                Institute.Application.CLI.self,
-                from: ["sync", "install"],
-                initial: .init()
-            )
+            _ = try parse(["sync", "install"])
         }
     }
 
     @Test
     func `package requires an operation`() {
         #expect(throws: Command.Error.self) {
-            _ = try Command.parse(
-                Institute.Application.CLI.self,
-                from: ["package"],
-                initial: .init()
-            )
+            _ = try parse(["package"])
         }
     }
 
     @Test
     func `package rejects a context operation`() {
         #expect(throws: Command.Error.self) {
-            _ = try Command.parse(
-                Institute.Application.CLI.self,
-                from: ["package", "install"],
-                initial: .init()
-            )
+            _ = try parse(["package", "install"])
         }
     }
 
     @Test
     func `fresh rejects package resolve`() {
         #expect(throws: Command.Error.self) {
-            _ = try Command.parse(
-                Institute.Application.CLI.self,
-                from: ["package", "resolve", "--fresh"],
-                initial: .init()
-            )
+            _ = try parse(["package", "resolve", "--fresh"])
         }
     }
 
@@ -607,11 +516,7 @@ extension Institute.Application.CLI.Test.`Edge Case` {
     ])
     func `jobs is rejected outside package build or test`(argument: [Swift.String]) {
         #expect(throws: Command.Error.self) {
-            _ = try Command.parse(
-                Institute.Application.CLI.self,
-                from: argument + ["--jobs", "2"],
-                initial: .init()
-            )
+            _ = try parse(argument + ["--jobs", "2"])
         }
     }
 }
@@ -621,15 +526,23 @@ extension Institute.Application.CLI.Test.Unit {
     func `composition operations parse consumer and dependency`(
         operation: Swift.String
     ) throws {
-        let command = try Command.parse(
-            Institute.Application.CLI.self,
-            from: [operation, "--consumer", "swift-color", "--dependency", "swift-color-standard"],
-            initial: .init()
-        )
+        let command = try parse([
+            operation, "--consumer", "swift-color", "--dependency", "swift-color-standard",
+        ])
 
-        #expect(command.operation.argumentDescription == operation)
-        #expect(command.consumer == "swift-color")
-        #expect(command.dependency == "swift-color-standard")
+        guard case .composition(let composition) = command else {
+            Issue.record("expected \(operation), got \(command)")
+            return
+        }
+        let expected: Institute.Composition.Command.Action =
+            switch operation {
+            case "compose": .compose
+            case "restore": .restore
+            default: .verify
+            }
+        #expect(composition.action == expected)
+        #expect(composition.consumer == "swift-color")
+        #expect(composition.dependency == "swift-color-standard")
     }
 }
 
@@ -637,49 +550,33 @@ extension Institute.Application.CLI.Test.`Edge Case` {
     @Test
     func `compose requires consumer`() {
         #expect(throws: Command.Error.self) {
-            _ = try Command.parse(
-                Institute.Application.CLI.self,
-                from: ["compose", "--dependency", "swift-color-standard"],
-                initial: .init()
-            )
+            _ = try parse(["compose", "--dependency", "swift-color-standard"])
         }
     }
 
     @Test
     func `compose requires dependency`() {
         #expect(throws: Command.Error.self) {
-            _ = try Command.parse(
-                Institute.Application.CLI.self,
-                from: ["compose", "--consumer", "swift-color"],
-                initial: .init()
-            )
+            _ = try parse(["compose", "--consumer", "swift-color"])
         }
     }
 
     @Test
     func `sync rejects consumer and dependency`() {
         #expect(throws: Command.Error.self) {
-            _ = try Command.parse(
-                Institute.Application.CLI.self,
-                from: [
-                    "sync", "--consumer", "swift-color", "--dependency", "swift-color-standard",
-                ],
-                initial: .init()
-            )
+            _ = try parse([
+                "sync", "--consumer", "swift-color", "--dependency", "swift-color-standard",
+            ])
         }
     }
 
     @Test
     func `compose rejects dry run`() {
         #expect(throws: Command.Error.self) {
-            _ = try Command.parse(
-                Institute.Application.CLI.self,
-                from: [
-                    "compose", "--consumer", "swift-color", "--dependency", "swift-color-standard",
-                    "--dry-run",
-                ],
-                initial: .init()
-            )
+            _ = try parse([
+                "compose", "--consumer", "swift-color", "--dependency", "swift-color-standard",
+                "--dry-run",
+            ])
         }
     }
 }
@@ -687,28 +584,26 @@ extension Institute.Application.CLI.Test.`Edge Case` {
 extension Institute.Application.CLI.Test.Unit {
     @Test
     func `build selects the whole selection, not a package`() throws {
-        let command = try Command.parse(
-            Institute.Application.CLI.self,
-            from: ["build"],
-            initial: .init()
-        )
+        let command = try parse(["build"])
 
-        #expect(command.operation == .build)
-        #expect(command.modes.isEmpty)
-        #expect(command.packagePath.isEmpty)
+        guard case .build(let build) = command else {
+            Issue.record("expected build, got \(command)")
+            return
+        }
+        #expect(!build.fresh)
+        #expect(build.arguments.isEmpty)
     }
 
     @Test
     func `build accepts isolated derived data and forwarded xcodebuild arguments`() throws {
-        let command = try Command.parse(
-            Institute.Application.CLI.self,
-            from: ["build", "--fresh", "--argument", "CONFIGURATION=Release"],
-            initial: .init()
-        )
+        let command = try parse(["build", "--fresh", "--argument", "CONFIGURATION=Release"])
 
-        #expect(command.operation == .build)
-        #expect(command.fresh)
-        #expect(command.arguments == ["CONFIGURATION=Release"])
+        guard case .build(let build) = command else {
+            Issue.record("expected build, got \(command)")
+            return
+        }
+        #expect(build.fresh)
+        #expect(build.arguments == ["CONFIGURATION=Release"])
     }
 }
 
@@ -718,16 +613,14 @@ extension Institute.Application.CLI.Test.`Edge Case` {
         // `institute build build` would read as a package operation and is a
         // plausible slip; it must not silently mean the whole selection.
         #expect(throws: Command.Error.self) {
-            var command = Institute.Application.CLI(operation: .build, modes: [.build])
-            try command.validate()
+            _ = try parse(["build", "build"])
         }
     }
 
     @Test
     func `build refuses a package path rather than narrowing to one package`() {
         #expect(throws: Command.Error.self) {
-            var command = Institute.Application.CLI(operation: .build, packagePath: "/tmp/pkg")
-            try command.validate()
+            _ = try parse(["build", "--package-path", "/tmp/pkg"])
         }
     }
 
@@ -736,8 +629,7 @@ extension Institute.Application.CLI.Test.`Edge Case` {
         // There is nothing to plan: the selection and the scheme are already
         // on disk, and a build that changed nothing would still be a build.
         #expect(throws: Command.Error.self) {
-            var command = Institute.Application.CLI(operation: .build, dry: true)
-            try command.validate()
+            _ = try parse(["build", "--dry-run"])
         }
     }
 }

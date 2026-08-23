@@ -44,7 +44,7 @@ struct `Repository Policy Census Tests` {
         try Data(yaml.utf8).write(
             to: URL(fileURLWithPath: workflows + "/demo.yml")
         )
-        let census = try Institute.Application.Repository.Census.Generator(
+        let census = try Institute.Repository.Policy.Command.Census.Generator(
             repos: [
                 .init(name: "fixture/repo", root: root, headSha: String(repeating: "a", count: 40))
             ]

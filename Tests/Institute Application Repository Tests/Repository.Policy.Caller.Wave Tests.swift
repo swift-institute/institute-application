@@ -696,7 +696,7 @@ struct `Repository Policy Caller Wave Tests` {
 
     @Test
     func repositoryPaginationFollowsLinksEvenAfterAShortPage() async throws {
-        let client = Institute.Application.Repository.Client(
+        let client = Institute.Repository.Policy.Command.Client(
             delaySeconds: 0,
             execute: { _, path, _ in
                 if path.hasPrefix("/orgs/swift-primitives/repos") {
@@ -729,7 +729,7 @@ struct `Repository Policy Caller Wave Tests` {
 
     @Test
     func repositoryPaginationRejectsADroppedMiddlePage() async throws {
-        let client = Institute.Application.Repository.Client(
+        let client = Institute.Repository.Policy.Command.Client(
             delaySeconds: 0,
             execute: { _, path, _ in
                 if path == "/orgs/swift-primitives" {
@@ -752,7 +752,7 @@ struct `Repository Policy Caller Wave Tests` {
 
     @Test
     func repositoryPaginationRejectsADuplicatedPage() async throws {
-        let client = Institute.Application.Repository.Client(
+        let client = Institute.Repository.Policy.Command.Client(
             delaySeconds: 0,
             execute: { _, path, _ in
                 if path == "/orgs/swift-primitives" {
@@ -779,7 +779,7 @@ struct `Repository Policy Caller Wave Tests` {
     @Test
     func capacityRecordsWhetherTheCompleteWaveFits() async throws {
         for (remaining, required, accepted) in [(100, 80, true), (80, 81, false)] {
-            let client = Institute.Application.Repository.Client(
+            let client = Institute.Repository.Policy.Command.Client(
                 delaySeconds: 0,
                 execute: { _, _, _ in
                     Self.response(
@@ -803,7 +803,7 @@ struct `Repository Policy Caller Wave Tests` {
     @Test(arguments: [429, 503])
     func retryableHTTPStatusIsRetried(status: Int) async throws {
         let counter = CallerWaveHTTPAttemptCounter()
-        let client = Institute.Application.Repository.Client(
+        let client = Institute.Repository.Policy.Command.Client(
             maximumAttempts: 2,
             delaySeconds: 0,
             execute: { _, path, _ in
@@ -831,7 +831,7 @@ struct `Repository Policy Caller Wave Tests` {
     @Test
     func transportFailureIsRetried() async throws {
         let counter = CallerWaveHTTPAttemptCounter()
-        let client = Institute.Application.Repository.Client(
+        let client = Institute.Repository.Policy.Command.Client(
             maximumAttempts: 2,
             delaySeconds: 0,
             execute: {

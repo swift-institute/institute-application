@@ -6,7 +6,7 @@ import File_System
 extension Institute.Repository.Policy.BrokenSymlink {
     /// Broken symbolic links beneath `root`, in repository-relative order.
     public static func findings(at root: Swift.String) throws(Error) -> [Finding] {
-        guard let initial = Institute.Application.CI.names(atPath: root) else {
+        guard let initial = Institute.CI.Command.names(atPath: root) else {
             throw .unreadableRoot(root)
         }
 
@@ -20,7 +20,7 @@ extension Institute.Repository.Policy.BrokenSymlink {
             let stat = File(filePath).stat
             guard stat.isSymlink else {
                 if stat.isDirectory {
-                    guard let children = Institute.Application.CI.names(atPath: absolute) else {
+                    guard let children = Institute.CI.Command.names(atPath: absolute) else {
                         throw .unreadablePath(path)
                     }
                     pending.append(contentsOf: children.map { path + "/" + $0 })
