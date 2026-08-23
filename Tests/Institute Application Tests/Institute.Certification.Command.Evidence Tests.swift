@@ -1,7 +1,7 @@
 import Command
-import Institute_Application_Certification
+import Institute_Certification_Application
 import Institute_Instruments
-import Institute_Application_Workspace
+import Institute_Workspace_Application
 import Institute_Model
 import Testing
 

@@ -1,7 +1,7 @@
 import Command
-import Institute_Application_Lint
-import Institute_Application_Package
-import Institute_Application_Workspace
+import Institute_Lint_Application
+import Institute_Package_Application
+import Institute_Workspace_Application
 import Institute_Model
 import Institute_Lint
 import Testing

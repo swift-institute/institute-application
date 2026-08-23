@@ -5,7 +5,7 @@ import Byte_Primitives_Standard_Library_Integration
 import Foundation
 import Testing
 
-@testable import Institute_Application_Repository
+@testable import Institute_Repository_Application
 
 /// Shape policy 5 measured the way git will measure it.
 ///

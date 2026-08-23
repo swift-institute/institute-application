@@ -5,7 +5,7 @@ import Institute_Source
 import Source_Repair
 import Testing
 
-@testable import Institute_Application_Source
+@testable import Institute_Source_Application
 
 @Test
 func `source repair plan parses its typed grammar`() throws {

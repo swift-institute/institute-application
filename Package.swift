@@ -21,72 +21,72 @@ let package = Package(
       targets: ["Institute Application"]
     ),
     .library(
-      name: "Institute Application CI",
-      targets: ["Institute Application CI"]
+      name: "Institute CI Application",
+      targets: ["Institute CI Application"]
     ),
     .library(
-      name: "Institute Application Repository",
-      targets: ["Institute Application Repository"]
+      name: "Institute Repository Application",
+      targets: ["Institute Repository Application"]
     ),
     .library(
-      name: "Institute Application Source",
-      targets: ["Institute Application Source"]
+      name: "Institute Source Application",
+      targets: ["Institute Source Application"]
     ),
     .library(
-      name: "Institute Application Certification",
-      targets: ["Institute Application Certification"]
+      name: "Institute Certification Application",
+      targets: ["Institute Certification Application"]
     ),
     .library(
-      name: "Institute Application Coherence",
-      targets: ["Institute Application Coherence"]
+      name: "Institute Coherence Application",
+      targets: ["Institute Coherence Application"]
     ),
     .library(
-      name: "Institute Application Composition",
-      targets: ["Institute Application Composition"]
+      name: "Institute Composition Application",
+      targets: ["Institute Composition Application"]
     ),
     .library(
-      name: "Institute Application Context",
-      targets: ["Institute Application Context"]
+      name: "Institute Context Application",
+      targets: ["Institute Context Application"]
     ),
     .library(
-      name: "Institute Application Conversion",
-      targets: ["Institute Application Conversion"]
+      name: "Institute Conversion Application",
+      targets: ["Institute Conversion Application"]
     ),
     .library(
-      name: "Institute Application Dependency",
-      targets: ["Institute Application Dependency"]
+      name: "Institute Dependency Application",
+      targets: ["Institute Dependency Application"]
     ),
     .library(
-      name: "Institute Application Doctor",
-      targets: ["Institute Application Doctor"]
+      name: "Institute Doctor Application",
+      targets: ["Institute Doctor Application"]
     ),
     .library(
-      name: "Institute Application GitHub",
-      targets: ["Institute Application GitHub"]
+      name: "Institute GitHub Application",
+      targets: ["Institute GitHub Application"]
     ),
     .library(
-      name: "Institute Application Inventory",
-      targets: ["Institute Application Inventory"]
+      name: "Institute Inventory Application",
+      targets: ["Institute Inventory Application"]
     ),
     .library(
-      name: "Institute Application Lint",
-      targets: ["Institute Application Lint"]
+      name: "Institute Lint Application",
+      targets: ["Institute Lint Application"]
     ),
     .library(
-      name: "Institute Application Navigation",
-      targets: ["Institute Application Navigation"]
+      name: "Institute Navigation Application",
+      targets: ["Institute Navigation Application"]
     ),
     .library(
-      name: "Institute Application Package",
-      targets: ["Institute Application Package"]
+      name: "Institute Package Application",
+      targets: ["Institute Package Application"]
     ),
     .library(
-      name: "Institute Application Verification",
-      targets: ["Institute Application Verification"]
+      name: "Institute Verification Application",
+      targets: ["Institute Verification Application"]
     ),
     .library(
-      name: "Institute Application Workspace",
-      targets: ["Institute Application Workspace"]
+      name: "Institute Workspace Application",
+      targets: ["Institute Workspace Application"]
     ),
     .library(
       name: "Institute Architecture Model",
@@ -237,7 +237,7 @@ let package = Package(
       ]
     ),
     .target(
-      name: "Institute Application CI",
+      name: "Institute CI Application",
       dependencies: [
         .product(name: "Command", package: "swift-arguments"),
         .product(name: "Command Schema", package: "swift-arguments"),
@@ -262,7 +262,7 @@ let package = Package(
       ]
     ),
     .target(
-      name: "Institute Application Repository",
+      name: "Institute Repository Application",
       dependencies: [
         "Institute GitHub",
         .product(name: "Command", package: "swift-arguments"),
@@ -290,7 +290,7 @@ let package = Package(
       ]
     ),
     .target(
-      name: "Institute Application Source",
+      name: "Institute Source Application",
       dependencies: [
         .product(name: "Institute Model", package: "institute"),
         .product(name: "Institute Source", package: "institute"),
@@ -307,7 +307,7 @@ let package = Package(
       ]
     ),
     .target(
-      name: "Institute Application Workspace",
+      name: "Institute Workspace Application",
       dependencies: [
         .product(name: "Command", package: "swift-arguments"),
         .product(name: "Command Schema", package: "swift-arguments"),
@@ -319,7 +319,7 @@ let package = Package(
       ]
     ),
     .target(
-      name: "Institute Application Doctor",
+      name: "Institute Doctor Application",
       dependencies: [
         .product(name: "Command", package: "swift-arguments"),
         .product(name: "Command Schema", package: "swift-arguments"),
@@ -331,7 +331,7 @@ let package = Package(
       ]
     ),
     .target(
-      name: "Institute Application Inventory",
+      name: "Institute Inventory Application",
       dependencies: [
         .product(name: "Command", package: "swift-arguments"),
         .product(name: "Command Schema", package: "swift-arguments"),
@@ -346,7 +346,7 @@ let package = Package(
       ]
     ),
     .target(
-      name: "Institute Application Dependency",
+      name: "Institute Dependency Application",
       dependencies: [
         "Institute GitHub",
         .product(name: "Command", package: "swift-arguments"),
@@ -361,7 +361,7 @@ let package = Package(
       ]
     ),
     .target(
-      name: "Institute Application Composition",
+      name: "Institute Composition Application",
       dependencies: [
         .product(name: "Command", package: "swift-arguments"),
         .product(name: "Command Schema", package: "swift-arguments"),
@@ -372,7 +372,7 @@ let package = Package(
       ]
     ),
     .target(
-      name: "Institute Application Context",
+      name: "Institute Context Application",
       dependencies: [
         .product(name: "Command", package: "swift-arguments"),
         .product(name: "Command Schema", package: "swift-arguments"),
@@ -384,7 +384,7 @@ let package = Package(
       ]
     ),
     .target(
-      name: "Institute Application Navigation",
+      name: "Institute Navigation Application",
       dependencies: [
         .product(name: "Command", package: "swift-arguments"),
         .product(name: "Command Schema", package: "swift-arguments"),
@@ -395,7 +395,7 @@ let package = Package(
       ]
     ),
     .target(
-      name: "Institute Application Package",
+      name: "Institute Package Application",
       dependencies: [
         .product(name: "Command", package: "swift-arguments"),
         .product(name: "Command Schema", package: "swift-arguments"),
@@ -408,7 +408,7 @@ let package = Package(
       ]
     ),
     .target(
-      name: "Institute Application Lint",
+      name: "Institute Lint Application",
       dependencies: [
         .product(name: "Command", package: "swift-arguments"),
         .product(name: "Command Schema", package: "swift-arguments"),
@@ -420,7 +420,7 @@ let package = Package(
       ]
     ),
     .target(
-      name: "Institute Application Coherence",
+      name: "Institute Coherence Application",
       dependencies: [
         .product(name: "Command", package: "swift-arguments"),
         .product(name: "Command Schema", package: "swift-arguments"),
@@ -432,7 +432,7 @@ let package = Package(
       ]
     ),
     .target(
-      name: "Institute Application Conversion",
+      name: "Institute Conversion Application",
       dependencies: [
         .product(name: "Command", package: "swift-arguments"),
         .product(name: "Command Schema", package: "swift-arguments"),
@@ -446,7 +446,7 @@ let package = Package(
       ]
     ),
     .target(
-      name: "Institute Application GitHub",
+      name: "Institute GitHub Application",
       dependencies: [
         "Institute GitHub",
         .product(name: "Command", package: "swift-arguments"),
@@ -458,7 +458,7 @@ let package = Package(
       ]
     ),
     .target(
-      name: "Institute Application Verification",
+      name: "Institute Verification Application",
       dependencies: [
         .product(name: "Command", package: "swift-arguments"),
         .product(name: "Command Schema", package: "swift-arguments"),
@@ -474,7 +474,7 @@ let package = Package(
       ]
     ),
     .target(
-      name: "Institute Application Certification",
+      name: "Institute Certification Application",
       dependencies: [
         .product(name: "Command", package: "swift-arguments"),
         .product(name: "Command Schema", package: "swift-arguments"),
@@ -494,23 +494,23 @@ let package = Package(
     .target(
       name: "Institute Application",
       dependencies: [
-        "Institute Application CI",
-        "Institute Application Certification",
-        "Institute Application Coherence",
-        "Institute Application Composition",
-        "Institute Application Context",
-        "Institute Application Conversion",
-        "Institute Application Dependency",
-        "Institute Application Doctor",
-        "Institute Application GitHub",
-        "Institute Application Inventory",
-        "Institute Application Lint",
-        "Institute Application Navigation",
-        "Institute Application Package",
-        "Institute Application Verification",
-        "Institute Application Workspace",
-        "Institute Application Repository",
-        "Institute Application Source",
+        "Institute CI Application",
+        "Institute Certification Application",
+        "Institute Coherence Application",
+        "Institute Composition Application",
+        "Institute Context Application",
+        "Institute Conversion Application",
+        "Institute Dependency Application",
+        "Institute Doctor Application",
+        "Institute GitHub Application",
+        "Institute Inventory Application",
+        "Institute Lint Application",
+        "Institute Navigation Application",
+        "Institute Package Application",
+        "Institute Verification Application",
+        "Institute Workspace Application",
+        "Institute Repository Application",
+        "Institute Source Application",
         "Institute Architecture CLI",
         "Institute Architecture Model",
         "Institute GitHub",
@@ -533,7 +533,7 @@ let package = Package(
       name: "Institute Application CLI",
       dependencies: [
         "Institute Application",
-        "Institute Application Workspace",
+        "Institute Workspace Application",
         .product(name: "Institute Model", package: "institute"),
         .product(name: "Command", package: "swift-arguments"),
       ]
@@ -554,9 +554,9 @@ let package = Package(
       path: "Tests/Institute Architecture Tests"
     ),
     .testTarget(
-      name: "Institute Application Source Tests",
+      name: "Institute Source Application Tests",
       dependencies: [
-        "Institute Application Source",
+        "Institute Source Application",
         .product(name: "Institute Model", package: "institute"),
         .product(name: "Institute Source", package: "institute"),
         .product(name: "Source Repair", package: "swift-source"),
@@ -566,20 +566,20 @@ let package = Package(
       name: "Institute Application Tests",
       dependencies: [
         "Institute Application",
-        "Institute Application Certification",
-        "Institute Application Coherence",
-        "Institute Application Composition",
-        "Institute Application Context",
-        "Institute Application Conversion",
-        "Institute Application Dependency",
-        "Institute Application Doctor",
-        "Institute Application GitHub",
-        "Institute Application Inventory",
-        "Institute Application Lint",
-        "Institute Application Navigation",
-        "Institute Application Package",
-        "Institute Application Verification",
-        "Institute Application Workspace",
+        "Institute Certification Application",
+        "Institute Coherence Application",
+        "Institute Composition Application",
+        "Institute Context Application",
+        "Institute Conversion Application",
+        "Institute Dependency Application",
+        "Institute Doctor Application",
+        "Institute GitHub Application",
+        "Institute Inventory Application",
+        "Institute Lint Application",
+        "Institute Navigation Application",
+        "Institute Package Application",
+        "Institute Verification Application",
+        "Institute Workspace Application",
         .product(name: "Institute Build Coordinator", package: "institute"),
         .product(name: "Institute Model", package: "institute"),
         .product(name: "Institute Instruments", package: "institute"),
@@ -589,9 +589,9 @@ let package = Package(
       path: "Tests/Institute Application Tests"
     ),
     .testTarget(
-      name: "Institute Application CI Tests",
+      name: "Institute CI Application Tests",
       dependencies: [
-        "Institute Application CI",
+        "Institute CI Application",
         .product(name: "Institute Model", package: "institute"),
         .product(name: "Institute Repository Policy", package: "institute"),
         .product(name: "Institute CI Canon", package: "institute"),
@@ -599,9 +599,9 @@ let package = Package(
       ]
     ),
     .testTarget(
-      name: "Institute Application Repository Tests",
+      name: "Institute Repository Application Tests",
       dependencies: [
-        "Institute Application Repository",
+        "Institute Repository Application",
         "Institute GitHub",
         .product(name: "Institute Model", package: "institute"),
         .product(name: "Byte Primitives", package: "swift-byte-primitives"),

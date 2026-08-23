@@ -3,9 +3,9 @@ import Institute_Repository_Policy
 import Byte_Primitives
 import Byte_Primitives_Standard_Library_Integration
 import Foundation
-import Institute_Application_Repository
+import Institute_Repository_Application
 
-actor CallerWaveMockClient: Institute.Repository.Policy.Caller.Wave.Client {
+actor UniformityWaveMockClient: Institute.Repository.Policy.Uniformity.Wave.Client {
     var remainingRequests = 5_000
     var repository = Institute.Repository.Policy.Caller.Wave.Repository(
         id: 1,
@@ -15,45 +15,104 @@ actor CallerWaveMockClient: Institute.Repository.Policy.Caller.Wave.Client {
         defaultBranch: "main"
     )
     var currentHead = "old-head"
-    var oldCaller = [Byte]("old\n".utf8)
-    var newCaller = [Byte]("new\n".utf8)
-    var oldBlob = "old-blob"
+    var oldShape: Institute.Repository.Policy.Uniformity.Wave.Shape
+    var committedPayload = [Byte]()
+    var committedDeletions: [String] = []
     var newBlob = "new-blob"
     var rulesetData: [Byte]
     var rulesetID: Int64?
     var replacementCount = 0
     var creationCount = 0
+    var commitCount = 0
+    var moveCount = 0
     var moveFailure = false
     var restorationFailure = false
     var convergenceFailure = false
     var persistentConvergenceFailure = false
     var moveHeadOnOpen = false
-    var openingResponseLost = false
-    var closingResponseLost = false
     var commitFailure = false
-    var rulesetReadFailures = 0
-    var readFailureAfterOpening = false
-    var moveHeadAfterManifestRead = false
-    var staleHeadReadsAfterMove = 0
-    var staleHead: String?
+    var brokenBytesAfterMove = false
+    var survivingDeletionAfterMove = false
     var pausedAttempts: [Int] = []
     let emptyRepositories: Bool
-    let callerAbsent: Bool
     let privateOrganizations: Set<String>
 
     init(
         ruleset: [Byte],
+        shape: Institute.Repository.Policy.Uniformity.Wave.Shape,
         emptyRepositories: Bool = false,
-        callerAbsent: Bool = false,
         rulesetAbsent: Bool = false,
         privateOrganizations: Set<String> = []
     ) {
         rulesetData = ruleset
+        oldShape = shape
         rulesetID = rulesetAbsent ? nil : 7
         self.emptyRepositories = emptyRepositories
-        self.callerAbsent = callerAbsent
         self.privateOrganizations = privateOrganizations
     }
+
+    // MARK: - Uniformity surface
+
+    func shapeFile(
+        _: String,
+        path: String,
+        head: String
+    ) async throws(Institute.Repository.Policy.Client.Error)
+        -> Institute.Repository.Policy.Uniformity.Wave.File?
+    {
+        if head == "new-head" {
+            switch path {
+            case Institute.Repository.Policy.Uniformity.Wave.Shape.gitignorePath:
+                if brokenBytesAfterMove {
+                    return .init(blob: newBlob, bytes: [Byte]("broken\n".utf8))
+                }
+                return .init(blob: newBlob, bytes: committedPayload)
+
+            case Institute.Repository.Policy.Uniformity.Wave.Shape.swiftlintPath:
+                return survivingDeletionAfterMove
+                    ? .init(blob: "lint-blob", bytes: [Byte]("lint\n".utf8)) : nil
+
+            default:
+                return nil
+            }
+        }
+        switch path {
+        case Institute.Repository.Policy.Uniformity.Wave.Shape.gitignorePath:
+            return oldShape.gitignore
+
+        case Institute.Repository.Policy.Uniformity.Wave.Shape.swiftlintPath:
+            return oldShape.swiftlint.map { .init(blob: $0, bytes: [Byte]("lint\n".utf8)) }
+
+        case Institute.Repository.Policy.Uniformity.Wave.Shape.swiftFormatPath:
+            return oldShape.swiftFormat.map { .init(blob: $0, bytes: [Byte]("format\n".utf8)) }
+
+        case Institute.Repository.Policy.Uniformity.Wave.Shape.dependabotPath:
+            return oldShape.dependabot.map { .init(blob: $0, bytes: [Byte]("dependabot\n".utf8)) }
+
+        default:
+            return nil
+        }
+    }
+
+    func createShapeCommit(
+        _: String,
+        parent _: String,
+        gitignoreBlob _: String,
+        deletions: [String],
+        message: String
+    ) async throws(Institute.Repository.Policy.Client.Error) -> String {
+        if commitFailure {
+            throw .transport(path: "commit", message: "injected process interruption")
+        }
+        guard message.hasSuffix("[skip ci]") else {
+            throw .precondition("commit message must carry the [skip ci] suffix")
+        }
+        committedDeletions = deletions
+        commitCount += 1
+        return "new-head"
+    }
+
+    // MARK: - Reused caller-wave surface
 
     func capacity(
         requiredRequests: Int
@@ -93,11 +152,7 @@ actor CallerWaveMockClient: Institute.Repository.Policy.Caller.Wave.Client {
     ) async throws(Institute.Repository.Policy.Client.Error)
         -> Institute.Repository.Policy.Caller.Wave.Manifest?
     {
-        if moveHeadAfterManifestRead {
-            moveHeadAfterManifestRead = false
-            currentHead = "moved-during-manifest-read"
-        }
-        return .init(kind: "file", blob: "manifest-blob")
+        .init(kind: "file", blob: "manifest-blob")
     }
 
     func waveRepository(
@@ -109,32 +164,28 @@ actor CallerWaveMockClient: Institute.Repository.Policy.Caller.Wave.Client {
     }
 
     func head(_: String) async throws(Institute.Repository.Policy.Client.Error) -> String {
-        if staleHeadReadsAfterMove > 0, let staleHead {
-            staleHeadReadsAfterMove -= 1
-            return staleHead
-        }
-        return currentHead
+        currentHead
     }
 
     func callerSource(
-        _: String,
+        _ repository: String,
         head: String
     ) async throws(Institute.Repository.Policy.Client.Error)
         -> Institute.Repository.Policy.Caller.Wave.CallerSource
     {
-        head == "new-head"
-            ? .init(blob: newBlob, bytes: newCaller)
-            : .init(blob: oldBlob, bytes: oldCaller)
+        guard let source = try await callerSourceIfPresent(repository, head: head) else {
+            throw .precondition("caller is absent")
+        }
+        return source
     }
 
     func callerSourceIfPresent(
-        _ repository: String,
-        head: String
+        _: String,
+        head _: String
     ) async throws(Institute.Repository.Policy.Client.Error)
         -> Institute.Repository.Policy.Caller.Wave.CallerSource?
     {
-        if callerAbsent { return nil }
-        return try await callerSource(repository, head: head)
+        .init(blob: "caller-blob", bytes: [Byte]("caller\n".utf8))
     }
 
     func rulesets(
@@ -149,11 +200,7 @@ actor CallerWaveMockClient: Institute.Repository.Policy.Caller.Wave.Client {
         _: String,
         id _: Int64
     ) async throws(Institute.Repository.Policy.Client.Error) -> [Byte] {
-        if rulesetReadFailures > 0 {
-            rulesetReadFailures -= 1
-            throw .transport(path: "ruleset", message: "injected read failure")
-        }
-        return rulesetData
+        rulesetData
     }
 
     func replaceRuleset(
@@ -163,8 +210,6 @@ actor CallerWaveMockClient: Institute.Repository.Policy.Caller.Wave.Client {
     ) async throws(Institute.Repository.Policy.Client.Error) {
         let object = try? JSONSerialization.jsonObject(with: Data(payload.underlying)) as? [String: Any]
         let bypass = object?["bypass_actors"] as? [Any] ?? []
-        let prior = try? JSONSerialization.jsonObject(with: Data(rulesetData.underlying)) as? [String: Any]
-        let priorBypass = prior?["bypass_actors"] as? [Any] ?? []
         if bypass.isEmpty, convergenceFailure {
             if !persistentConvergenceFailure { convergenceFailure = false }
             throw .precondition("convergence failed")
@@ -177,18 +222,6 @@ actor CallerWaveMockClient: Institute.Repository.Policy.Caller.Wave.Client {
         }
         rulesetData = payload
         replacementCount += 1
-        if !bypass.isEmpty, readFailureAfterOpening {
-            readFailureAfterOpening = false
-            rulesetReadFailures = 1
-        }
-        if !bypass.isEmpty, openingResponseLost {
-            openingResponseLost = false
-            throw .transport(path: "ruleset", message: "opening response lost")
-        }
-        if bypass.isEmpty, !priorBypass.isEmpty, closingResponseLost {
-            closingResponseLost = false
-            throw .transport(path: "ruleset", message: "closing response lost")
-        }
     }
 
     func createRuleset(
@@ -208,7 +241,7 @@ actor CallerWaveMockClient: Institute.Repository.Policy.Caller.Wave.Client {
         _: String,
         content: [Byte]
     ) async throws(Institute.Repository.Policy.Client.Error) -> String {
-        newCaller = content
+        committedPayload = content
         return newBlob
     }
 
@@ -218,10 +251,7 @@ actor CallerWaveMockClient: Institute.Repository.Policy.Caller.Wave.Client {
         blob _: String,
         message _: String
     ) async throws(Institute.Repository.Policy.Client.Error) -> String {
-        if commitFailure {
-            throw .transport(path: "commit", message: "injected process interruption")
-        }
-        return "new-head"
+        throw .precondition("the uniformity wave never creates a caller commit")
     }
 
     func moveMain(
@@ -231,10 +261,7 @@ actor CallerWaveMockClient: Institute.Repository.Policy.Caller.Wave.Client {
         if moveFailure {
             throw .precondition("move failed")
         }
-        // Read-after-write staleness: the move itself succeeds, but the
-        // next `staleHeadReadsAfterMove` head reads serve the previous
-        // value, the way a lagging replica would.
-        if staleHeadReadsAfterMove > 0 { staleHead = currentHead }
+        moveCount += 1
         currentHead = head
     }
 
@@ -242,29 +269,14 @@ actor CallerWaveMockClient: Institute.Repository.Policy.Caller.Wave.Client {
         pausedAttempts.append(attempt)
     }
 
-    func setStaleHeadReadsAfterMove(_ count: Int) {
-        staleHeadReadsAfterMove = count
-    }
-
-    func pauses() -> [Int] {
-        pausedAttempts
-    }
+    // MARK: - Test controls
 
     func setHead(_ value: String) {
         currentHead = value
     }
 
-    func setMoveHeadAfterManifestRead() {
-        moveHeadAfterManifestRead = true
-    }
-
-    func setBlob(_ value: String) {
-        oldBlob = value
-    }
-
-    func setCaller(bytes: [Byte], blob: String) {
-        oldCaller = bytes
-        oldBlob = blob
+    func setShape(_ value: Institute.Repository.Policy.Uniformity.Wave.Shape) {
+        oldShape = value
     }
 
     func setMoveFailure() {
@@ -284,24 +296,16 @@ actor CallerWaveMockClient: Institute.Repository.Policy.Caller.Wave.Client {
         moveHeadOnOpen = true
     }
 
-    func setOpeningResponseLost() {
-        openingResponseLost = true
-    }
-
-    func setClosingResponseLost() {
-        closingResponseLost = true
-    }
-
     func setCommitFailure() {
         commitFailure = true
     }
 
-    func setRulesetReadFailures(_ count: Int) {
-        rulesetReadFailures = count
+    func setBrokenBytesAfterMove() {
+        brokenBytesAfterMove = true
     }
 
-    func setReadFailureAfterOpening() {
-        readFailureAfterOpening = true
+    func setSurvivingDeletionAfterMove() {
+        survivingDeletionAfterMove = true
     }
 
     func openBypass(integrationID: Int64) throws {
@@ -332,5 +336,17 @@ actor CallerWaveMockClient: Institute.Repository.Policy.Caller.Wave.Client {
 
     func creations() -> Int {
         creationCount
+    }
+
+    func commits() -> Int {
+        commitCount
+    }
+
+    func moves() -> Int {
+        moveCount
+    }
+
+    func deletions() -> [String] {
+        committedDeletions
     }
 }

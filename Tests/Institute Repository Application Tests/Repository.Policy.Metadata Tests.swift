@@ -4,7 +4,7 @@ import Byte_Primitives
 import Byte_Primitives_Standard_Library_Integration
 import Testing
 
-@testable import Institute_Application_Repository
+@testable import Institute_Repository_Application
 
 @Suite
 struct `Repository Policy Metadata Tests` {

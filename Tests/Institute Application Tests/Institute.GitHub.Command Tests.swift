@@ -1,6 +1,6 @@
 import Command
-import Institute_Application_GitHub
-import Institute_Application_Workspace
+import Institute_GitHub_Application
+import Institute_Workspace_Application
 import Institute_Model
 import Testing
 

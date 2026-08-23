@@ -4,7 +4,7 @@ import Byte_Primitives
 import Byte_Primitives_Standard_Library_Integration
 import Foundation
 import Package_Manager
-import Institute_Application_Repository
+import Institute_Repository_Application
 import Testing
 
 @Suite
