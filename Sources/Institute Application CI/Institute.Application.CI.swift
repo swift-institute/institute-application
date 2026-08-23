@@ -1,4 +1,3 @@
-public import Institute_Application_Model
 public import Institute_Model
 
 extension Institute.Application {

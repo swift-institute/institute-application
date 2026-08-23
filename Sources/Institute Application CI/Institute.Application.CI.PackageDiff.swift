@@ -1,5 +1,4 @@
 public import Institute_Model
-public import Institute_Application_Model
 public import Institute_CI_Model
 import struct Swift.String
 import Institute_CI_Contract

@@ -7,7 +7,7 @@ import Institute_Application_Repository
 import Testing
 
 @Suite
-struct RepositoryPolicyTests {
+struct `Repository Policy Tests` {
     @Test
     func eligibilityFixtures() throws {
         let url = try #require(Bundle.module.url(forResource: "eligibility", withExtension: "json"))
@@ -15,8 +15,8 @@ struct RepositoryPolicyTests {
 
         #expect(fixtures.count == 9)
         for fixture in fixtures {
-            let state = fixture.pvr.flatMap(RepositoryPolicy.VulnerabilityReporting.init(rawValue:))
-            let decision = RepositoryPolicy.decision(
+            let state = fixture.pvr.flatMap(Institute.Repository.Policy.VulnerabilityReporting.init(rawValue:))
+            let decision = Institute.Repository.Policy.decision(
                 for: fixture.repository,
                 manifestKind: fixture.manifestKind,
                 vulnerabilityReporting: state
@@ -38,7 +38,7 @@ struct RepositoryPolicyTests {
 
     @Test
     func protectedMainRulesetFixtureDefinesThePRTransaction() throws {
-        let payload = try RepositoryPolicy.Ruleset.protectedMainPayload(
+        let payload = try Institute.Repository.Policy.Ruleset.protectedMainPayload(
             from: try policy("protected-main-ruleset")
         )
         let object = try #require(try JSONSerialization.jsonObject(with: Data(payload.underlying)) as? [String: Any])
@@ -97,8 +97,8 @@ struct RepositoryPolicyTests {
                 of: "\"context\": \"ci / matrix / ci-ok\"",
                 with: "\"context\": \"ci / ci-ok\""
             )
-        #expect(throws: RepositoryPolicy.Ruleset.Error.self) {
-            try RepositoryPolicy.Ruleset.protectedMainPayload(from: [Byte](legacy.utf8))
+        #expect(throws: Institute.Repository.Policy.Ruleset.Error.self) {
+            try Institute.Repository.Policy.Ruleset.protectedMainPayload(from: [Byte](legacy.utf8))
         }
     }
 
@@ -113,8 +113,8 @@ struct RepositoryPolicyTests {
                 of: "\"context\": \"ci / matrix / ci-ok\"",
                 with: "\"context\": \"ci-ok\""
             )
-        #expect(throws: RepositoryPolicy.Ruleset.Error.self) {
-            try RepositoryPolicy.Ruleset.protectedMainPayload(from: [Byte](legacy.utf8))
+        #expect(throws: Institute.Repository.Policy.Ruleset.Error.self) {
+            try Institute.Repository.Policy.Ruleset.protectedMainPayload(from: [Byte](legacy.utf8))
         }
     }
 
@@ -147,13 +147,13 @@ struct RepositoryPolicyTests {
             )
             object["bypass_actors"] = authorized
             let url = try scratchFixture(object)
-            #expect(throws: RepositoryPolicy.Ruleset.Error.self) {
+            #expect(throws: Institute.Repository.Policy.Ruleset.Error.self) {
                 if fixture.contains("control") {
-                    _ = try RepositoryPolicy.Ruleset.protectedMainControlPayload(from: url)
+                    _ = try Institute.Repository.Policy.Ruleset.protectedMainControlPayload(from: url)
                 } else if fixture.contains("private") {
-                    _ = try RepositoryPolicy.Ruleset.protectedMainPrivatePayload(from: url)
+                    _ = try Institute.Repository.Policy.Ruleset.protectedMainPrivatePayload(from: url)
                 } else {
-                    _ = try RepositoryPolicy.Ruleset.protectedMainPayload(from: url)
+                    _ = try Institute.Repository.Policy.Ruleset.protectedMainPayload(from: url)
                 }
             }
         }
@@ -167,7 +167,7 @@ struct RepositoryPolicyTests {
     @Test
     func protectedMainPrivatePayloadFixtureRequiresWorkspaceVerification() throws {
         let url = try policy("protected-main-private-ruleset")
-        let payload = try RepositoryPolicy.Ruleset.protectedMainPrivatePayload(from: url)
+        let payload = try Institute.Repository.Policy.Ruleset.protectedMainPrivatePayload(from: url)
         let object = try #require(try JSONSerialization.jsonObject(with: Data(payload.underlying)) as? [String: Any])
         let rules = try #require(object["rules"] as? [[String: Any]])
         let checks = try #require(
@@ -188,11 +188,11 @@ struct RepositoryPolicyTests {
     func protectedMainPrivateAndPublicPayloadsRejectEachOthersFixture() throws {
         let publicFixture = try policy("protected-main-ruleset")
         let privateFixture = try policy("protected-main-private-ruleset")
-        #expect(throws: RepositoryPolicy.Ruleset.Error.self) {
-            try RepositoryPolicy.Ruleset.protectedMainPrivatePayload(from: publicFixture)
+        #expect(throws: Institute.Repository.Policy.Ruleset.Error.self) {
+            try Institute.Repository.Policy.Ruleset.protectedMainPrivatePayload(from: publicFixture)
         }
-        #expect(throws: RepositoryPolicy.Ruleset.Error.self) {
-            try RepositoryPolicy.Ruleset.protectedMainPayload(from: privateFixture)
+        #expect(throws: Institute.Repository.Policy.Ruleset.Error.self) {
+            try Institute.Repository.Policy.Ruleset.protectedMainPayload(from: privateFixture)
         }
     }
 
@@ -211,11 +211,11 @@ struct RepositoryPolicyTests {
         object["rules"] = rules
         let url = try scratchFixture(object)
 
-        #expect(throws: RepositoryPolicy.Ruleset.Error.self) {
-            try RepositoryPolicy.Ruleset.protectedMainPayload(from: url)
+        #expect(throws: Institute.Repository.Policy.Ruleset.Error.self) {
+            try Institute.Repository.Policy.Ruleset.protectedMainPayload(from: url)
         }
-        #expect(throws: RepositoryPolicy.Ruleset.Error.self) {
-            try RepositoryPolicy.Ruleset.protectedMainPrivatePayload(from: url)
+        #expect(throws: Institute.Repository.Policy.Ruleset.Error.self) {
+            try Institute.Repository.Policy.Ruleset.protectedMainPrivatePayload(from: url)
         }
     }
 
@@ -239,7 +239,7 @@ struct RepositoryPolicyTests {
         object["updated_at"] = "2026-08-02T00:00:00Z"
         let url = try scratchFixture(object)
 
-        let payload = try RepositoryPolicy.Ruleset.protectedMainPayload(from: url)
+        let payload = try Institute.Repository.Policy.Ruleset.protectedMainPayload(from: url)
         let decoded = try #require(
             try JSONSerialization.jsonObject(with: Data(payload.underlying)) as? [String: Any]
         )
@@ -267,8 +267,8 @@ struct RepositoryPolicyTests {
         #expect(allMethods.contains("\"merge\", \"squash\", \"rebase\""))
         let url = [Byte](allMethods.utf8)
 
-        #expect(throws: RepositoryPolicy.Ruleset.Error.self) {
-            try RepositoryPolicy.Ruleset.protectedMainPayload(from: url)
+        #expect(throws: Institute.Repository.Policy.Ruleset.Error.self) {
+            try Institute.Repository.Policy.Ruleset.protectedMainPayload(from: url)
         }
     }
 
@@ -295,8 +295,8 @@ struct RepositoryPolicyTests {
         #expect(!unpinned.contains("required_reviewers"))
         let url = [Byte](unpinned.utf8)
 
-        #expect(throws: RepositoryPolicy.Ruleset.Error.self) {
-            try RepositoryPolicy.Ruleset.protectedMainPayload(from: url)
+        #expect(throws: Institute.Repository.Policy.Ruleset.Error.self) {
+            try Institute.Repository.Policy.Ruleset.protectedMainPayload(from: url)
         }
     }
 
@@ -309,7 +309,7 @@ struct RepositoryPolicyTests {
     @Test
     func protectedMainControlPayloadFixtureDefinesTheControlPlaneTransaction() throws {
         let url = try policy("protected-main-control-ruleset")
-        let payload = try RepositoryPolicy.Ruleset.protectedMainControlPayload(from: url)
+        let payload = try Institute.Repository.Policy.Ruleset.protectedMainControlPayload(from: url)
         let object = try #require(try JSONSerialization.jsonObject(with: Data(payload.underlying)) as? [String: Any])
         #expect((object["name"] as? String) == "Institute protected main (control)")
         #expect((object["bypass_actors"] as? [Any])?.isEmpty == true)
@@ -346,8 +346,8 @@ struct RepositoryPolicyTests {
         object["rules"] = rules
         let url = try scratchFixture(object)
 
-        #expect(throws: RepositoryPolicy.Ruleset.Error.self) {
-            try RepositoryPolicy.Ruleset.protectedMainPayload(from: url)
+        #expect(throws: Institute.Repository.Policy.Ruleset.Error.self) {
+            try Institute.Repository.Policy.Ruleset.protectedMainPayload(from: url)
         }
     }
 
@@ -372,8 +372,8 @@ struct RepositoryPolicyTests {
         object["rules"] = rules
         let url = try scratchFixture(object)
 
-        #expect(throws: RepositoryPolicy.Ruleset.Error.self) {
-            try RepositoryPolicy.Ruleset.protectedMainControlPayload(from: url)
+        #expect(throws: Institute.Repository.Policy.Ruleset.Error.self) {
+            try Institute.Repository.Policy.Ruleset.protectedMainControlPayload(from: url)
         }
     }
 
@@ -384,8 +384,8 @@ struct RepositoryPolicyTests {
     func protectedMainControlPayloadRejectsTheRealPackagePayload() throws {
         let canonical = try policy("protected-main-ruleset")
 
-        #expect(throws: RepositoryPolicy.Ruleset.Error.self) {
-            try RepositoryPolicy.Ruleset.protectedMainControlPayload(from: canonical)
+        #expect(throws: Institute.Repository.Policy.Ruleset.Error.self) {
+            try Institute.Repository.Policy.Ruleset.protectedMainControlPayload(from: canonical)
         }
     }
 
@@ -395,8 +395,8 @@ struct RepositoryPolicyTests {
     func protectedMainPayloadRejectsTheRealControlPayload() throws {
         let canonical = try policy("protected-main-control-ruleset")
 
-        #expect(throws: RepositoryPolicy.Ruleset.Error.self) {
-            try RepositoryPolicy.Ruleset.protectedMainPayload(from: canonical)
+        #expect(throws: Institute.Repository.Policy.Ruleset.Error.self) {
+            try Institute.Repository.Policy.Ruleset.protectedMainPayload(from: canonical)
         }
     }
 
@@ -407,8 +407,8 @@ struct RepositoryPolicyTests {
     // mode heals drift exactly like the explicit-apply mode does.
     @Test
     func decideConvergenceReappliesAnExistingRulesetUnderEitherMode() {
-        for mode: RepositoryPolicy.Ruleset.SweepMode in [.scheduledHeal, .explicitApply] {
-            let decision = RepositoryPolicy.Ruleset.decideConvergence(
+        for mode: Institute.Repository.Policy.Ruleset.SweepMode in [.scheduledHeal, .explicitApply] {
+            let decision = Institute.Repository.Policy.Ruleset.decideConvergence(
                 rulesetExists: true,
                 mode: mode
             )
@@ -421,7 +421,7 @@ struct RepositoryPolicyTests {
     // path is unchanged by #204.
     @Test
     func decideConvergenceCreatesAnAbsentRulesetUnderExplicitApply() {
-        let decision = RepositoryPolicy.Ruleset.decideConvergence(
+        let decision = Institute.Repository.Policy.Ruleset.decideConvergence(
             rulesetExists: false,
             mode: .explicitApply
         )
@@ -434,7 +434,7 @@ struct RepositoryPolicyTests {
     // scheduled path (explicit opt-in only).
     @Test
     func decideConvergenceSkipsAnAbsentRulesetUnderScheduledHeal() {
-        let decision = RepositoryPolicy.Ruleset.decideConvergence(
+        let decision = Institute.Repository.Policy.Ruleset.decideConvergence(
             rulesetExists: false,
             mode: .scheduledHeal
         )
@@ -455,7 +455,7 @@ struct RepositoryPolicyTests {
 
     @Test
     func issueRecordParserAcceptsTheCompactTaskProfile() throws {
-        let record = try RepositoryPolicy.Issue.Parser.record(
+        let record = try Institute.Repository.Policy.Issue.Parser.record(
             """
             ### Kind
 
@@ -485,7 +485,7 @@ struct RepositoryPolicyTests {
     // not silently accepted as an otherwise clean record.
     @Test
     func issueRecordReconcilerReportsMalformedCore() {
-        let report = RepositoryPolicy.Issue.reconcile([
+        let report = Institute.Repository.Policy.Issue.reconcile([
             .init(
                 coordinate: "swift-institute/.github#173",
                 body: """
@@ -512,7 +512,7 @@ struct RepositoryPolicyTests {
     // not overwrite a malformed first value with a later conforming one.
     @Test
     func issueRecordReconcilerRejectsAdditionalCoreFieldContent() {
-        let report = RepositoryPolicy.Issue.reconcile([
+        let report = Institute.Repository.Policy.Issue.reconcile([
             .init(
                 coordinate: "swift-institute/.github#173",
                 body: """
@@ -559,13 +559,13 @@ struct RepositoryPolicyTests {
 
             1
             """
-        let decision = try RepositoryPolicy.Issue.Decision(
+        let decision = try Institute.Repository.Policy.Issue.Decision(
             grammarVersion: 1,
             status: "superseded",
             supersededBy: "https://github.com/swift-institute/.github/issues/174"
         )
 
-        let report = RepositoryPolicy.Issue.reconcile([
+        let report = Institute.Repository.Policy.Issue.reconcile([
             .init(coordinate: "z#1", body: nil, native: .init(state: .open)),
             .init(coordinate: "a#1", body: active, native: .init(state: .completed)),
             .init(coordinate: "b#1", body: active, native: .init(state: .open), decision: decision),
@@ -578,7 +578,7 @@ struct RepositoryPolicyTests {
 
     @Test
     func issueRecordReconcilerIncludesEveryPage() {
-        let report = RepositoryPolicy.Issue.reconcile(pages: [
+        let report = Institute.Repository.Policy.Issue.reconcile(pages: [
             .init(
                 inputs: [.init(coordinate: "b#2", body: nil, native: .init(state: .open))],
                 hasNextPage: true
@@ -595,15 +595,15 @@ struct RepositoryPolicyTests {
 
     @Test
     func typedLifecycleRecordsRejectInvalidVersionAndDigest() {
-        #expect(throws: RepositoryPolicy.Issue.Error.self) {
-            try RepositoryPolicy.Issue.CompactionCheckpoint(
+        #expect(throws: Institute.Repository.Policy.Issue.Error.self) {
+            try Institute.Repository.Policy.Issue.CompactionCheckpoint(
                 grammarVersion: 2,
                 source: "https://github.com/swift-institute/.github/issues/173",
                 digest: "0123456789abcdef0123456789abcdef01234567"
             )
         }
-        #expect(throws: RepositoryPolicy.Issue.Error.self) {
-            try RepositoryPolicy.Issue.TerminalReceipt(
+        #expect(throws: Institute.Repository.Policy.Issue.Error.self) {
+            try Institute.Repository.Policy.Issue.TerminalReceipt(
                 grammarVersion: 1,
                 revision: "not-a-revision",
                 verification: "workspace package test"
@@ -621,7 +621,7 @@ struct RepositoryPolicyTests {
         ]
 
         for (body, digest) in vectors {
-            let snapshot = RepositoryPolicy.Issue.Snapshot(
+            let snapshot = Institute.Repository.Policy.Issue.Snapshot(
                 coordinate: "swift-institute/.github#183",
                 revision: "\"known-vector\"",
                 body: body,
@@ -659,19 +659,19 @@ struct RepositoryPolicyTests {
 
             Compact this current body without touching history.
             """
-        let snapshot = RepositoryPolicy.Issue.Snapshot(
+        let snapshot = Institute.Repository.Policy.Issue.Snapshot(
             coordinate: "https://github.com/swift-institute/.github/issues/174",
             revision: "\"issue-174-v1\"",
             body: body,
             native: .init(state: .open)
         )
-        let expected = try RepositoryPolicy.Issue.Guard(
+        let expected = try Institute.Repository.Policy.Issue.Guard(
             revision: snapshot.revision,
             digest: snapshot.digest
         )
 
         let plan = try #require(
-            try RepositoryPolicy.Issue.Compactor.plan(snapshot: snapshot, guard: expected)
+            try Institute.Repository.Policy.Issue.Compactor.plan(snapshot: snapshot, guard: expected)
         )
 
         #expect(
@@ -694,11 +694,11 @@ struct RepositoryPolicyTests {
                 """
         )
         #expect(
-            try RepositoryPolicy.Issue.Parser.checkpoint(plan.checkpoint).source
+            try Institute.Repository.Policy.Issue.Parser.checkpoint(plan.checkpoint).source
                 == snapshot.coordinate
         )
         #expect(
-            try RepositoryPolicy.Issue.Parser.checkpoint(plan.checkpoint).digest == snapshot.digest
+            try Institute.Repository.Policy.Issue.Parser.checkpoint(plan.checkpoint).digest == snapshot.digest
         )
         #expect(!plan.body.contains("Earlier detail"))
         #expect(!plan.checkpoint.contains("Earlier detail"))
@@ -729,26 +729,26 @@ struct RepositoryPolicyTests {
 
             Needs compaction.
             """
-        let snapshot = RepositoryPolicy.Issue.Snapshot(
+        let snapshot = Institute.Repository.Policy.Issue.Snapshot(
             coordinate: "https://github.com/swift-institute/.github/issues/174",
             revision: "\"current\"",
             body: body,
             native: .init(state: .open)
         )
-        let staleRevision = try RepositoryPolicy.Issue.Guard(
+        let staleRevision = try Institute.Repository.Policy.Issue.Guard(
             revision: "\"stale\"",
             digest: snapshot.digest
         )
-        let staleDigest = try RepositoryPolicy.Issue.Guard(
+        let staleDigest = try Institute.Repository.Policy.Issue.Guard(
             revision: snapshot.revision,
             digest: "a9993e364706816aba3e25717850c26c9cd0d89d"
         )
 
-        #expect(throws: RepositoryPolicy.Issue.Error.self) {
-            try RepositoryPolicy.Issue.Compactor.plan(snapshot: snapshot, guard: staleRevision)
+        #expect(throws: Institute.Repository.Policy.Issue.Error.self) {
+            try Institute.Repository.Policy.Issue.Compactor.plan(snapshot: snapshot, guard: staleRevision)
         }
-        #expect(throws: RepositoryPolicy.Issue.Error.self) {
-            try RepositoryPolicy.Issue.Compactor.plan(snapshot: snapshot, guard: staleDigest)
+        #expect(throws: Institute.Repository.Policy.Issue.Error.self) {
+            try Institute.Repository.Policy.Issue.Compactor.plan(snapshot: snapshot, guard: staleDigest)
         }
     }
 
@@ -771,32 +771,32 @@ struct RepositoryPolicyTests {
 
             1
             """
-        let snapshot = RepositoryPolicy.Issue.Snapshot(
+        let snapshot = Institute.Repository.Policy.Issue.Snapshot(
             coordinate: "https://github.com/swift-institute/.github/issues/174",
             revision: "\"current\"",
             body: body,
             native: .init(state: .open)
         )
-        let expected = try RepositoryPolicy.Issue.Guard(
+        let expected = try Institute.Repository.Policy.Issue.Guard(
             revision: snapshot.revision,
             digest: snapshot.digest
         )
 
-        #expect(throws: RepositoryPolicy.Issue.Error.self) {
-            try RepositoryPolicy.Issue.Compactor.plan(snapshot: snapshot, guard: expected)
+        #expect(throws: Institute.Repository.Policy.Issue.Error.self) {
+            try Institute.Repository.Policy.Issue.Compactor.plan(snapshot: snapshot, guard: expected)
         }
-        let terminal = RepositoryPolicy.Issue.Snapshot(
+        let terminal = Institute.Repository.Policy.Issue.Snapshot(
             coordinate: snapshot.coordinate,
             revision: snapshot.revision,
             body: snapshot.body,
             native: .init(state: .completed)
         )
-        #expect(throws: RepositoryPolicy.Issue.Error.self) {
-            try RepositoryPolicy.Issue.Compactor.plan(snapshot: terminal, guard: expected)
+        #expect(throws: Institute.Repository.Policy.Issue.Error.self) {
+            try Institute.Repository.Policy.Issue.Compactor.plan(snapshot: terminal, guard: expected)
         }
     }
 
-    private func render(_ decision: RepositoryPolicy.Decision) -> String {
+    private func render(_ decision: Institute.Repository.Policy.Decision) -> String {
         switch decision {
         case .excluded(let reason): reason.rawValue
         case .converged: "converged"
@@ -806,7 +806,7 @@ struct RepositoryPolicyTests {
 
     private struct Fixture: Decodable {
         let name: String
-        let repository: RepositoryPolicy.Repository
+        let repository: Institute.Repository.Policy.Repository
         let manifestKind: String?
         let pvr: String?
         let decision: String

@@ -1,5 +1,4 @@
 public import Institute_Model
-public import Institute_Application_Model
 import struct Swift.String
 import Console
 import Institute_CI_Contract
@@ -12,12 +11,12 @@ extension Institute.Application.CI {
 
     static func plan(_ rest: [Swift.String]) {
         let policyPath = value("--policy", in: rest)
-        let configuration: RepositoryPolicy.Fleet.Configuration?
+        let configuration: Institute.Repository.Policy.Fleet.Configuration?
         if policyPath.isEmpty {
             configuration = nil
         } else {
             do {
-                let fleet = try RepositoryPolicy.Fleet.read(at: policyPath)
+                let fleet = try Institute.Repository.Policy.Fleet.read(at: policyPath)
                 guard fleet.schemaVersion == 1 else {
                     refuse("plan requires fleet policy schemaVersion 1")
                 }

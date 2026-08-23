@@ -31,7 +31,7 @@ struct `Repository Policy Test Support Tests` {
             ]
         )
 
-        #expect(RepositoryPolicy.TestSupport.findings(in: evaluation).isEmpty)
+        #expect(Institute.Repository.Policy.TestSupport.findings(in: evaluation).isEmpty)
     }
 
     @Test
@@ -54,7 +54,7 @@ struct `Repository Policy Test Support Tests` {
         )
 
         #expect(
-            RepositoryPolicy.TestSupport.findings(in: evaluation) == [
+            Institute.Repository.Policy.TestSupport.findings(in: evaluation) == [
                 .init(
                     target: "Example Test Support",
                     dependency: "Foreign Runtime"

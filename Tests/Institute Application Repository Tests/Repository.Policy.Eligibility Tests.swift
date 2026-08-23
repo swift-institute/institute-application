@@ -13,7 +13,7 @@ import Testing
 /// wave actually measured, and the negative controls are the exact two
 /// directions the wave proved the naive predicates wrong in.
 @Suite
-struct RepositoryPolicyEligibilityTests {
+struct `Repository Policy Eligibility Tests` {
     // MARK: Positive — the ordinary fleet leaf
 
     @Test

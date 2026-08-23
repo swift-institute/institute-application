@@ -7,7 +7,7 @@ import Institute_Application_Repository
 import Testing
 
 @Suite
-struct RepositoryPolicyCallerTests {
+struct `Repository Policy Caller Tests` {
     /// The canonical terminal caller, byte for byte. The wave's census,
     /// digests, and `already-terminal` classification all key on these
     /// exact bytes, so the fixture is the full document rather than a

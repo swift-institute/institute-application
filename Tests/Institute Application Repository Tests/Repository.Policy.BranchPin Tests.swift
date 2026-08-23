@@ -5,17 +5,16 @@ import Byte_Primitives_Standard_Library_Integration
 import Foundation
 import Package_Manager
 import Institute_Application_Repository
-import Institute_Application_Model
 import Testing
 
 @Suite
-struct RepositoryPolicyBranchPinTests {
+struct `Repository Policy BranchPin Tests` {
     @Test
     func `fleet policy decodes active organizations`() throws {
         let path = try #require(
             Bundle.module.url(forResource: "fleet-minimal", withExtension: "json")?.path
         )
-        let fleet = try RepositoryPolicy.Fleet.read(at: path)
+        let fleet = try Institute.Repository.Policy.Fleet.read(at: path)
 
         #expect(fleet.schemaVersion == 1)
         #expect(fleet.activeOrganizationNames == ["swift-institute"])
@@ -47,7 +46,7 @@ struct RepositoryPolicyBranchPinTests {
             .appending(path: "fleet-policy-\(UUID().uuidString).json")
         try data.write(to: path)
 
-        let fleet = try RepositoryPolicy.Fleet.read(at: path.path)
+        let fleet = try Institute.Repository.Policy.Fleet.read(at: path.path)
         #expect(
             try fleet.configuration(for: "swift-primitives/swift-bool-primitives")
                 == .init(lintBundle: "primitives", platforms: "", embeddedTarget: "")
@@ -69,7 +68,7 @@ struct RepositoryPolicyBranchPinTests {
     @Test
     func `fleet policy refuses malformed and ambiguous desired state`() throws {
         #expect(
-            throws: RepositoryPolicy.Fleet.Error.duplicateOrganization("swift-institute")
+            throws: Institute.Repository.Policy.Fleet.Error.duplicateOrganization("swift-institute")
         ) {
             try Self.fleet(
                 organizations: """
@@ -78,19 +77,19 @@ struct RepositoryPolicyBranchPinTests {
                     """
             )
         }
-        #expect(throws: RepositoryPolicy.Fleet.Error.invalidLayer("L4")) {
+        #expect(throws: Institute.Repository.Policy.Fleet.Error.invalidLayer("L4")) {
             try Self.fleet(
                 organizations: #"{"name":"swift-institute","layer":"L4","status":"active"}"#
             )
         }
-        #expect(throws: RepositoryPolicy.Fleet.Error.invalidStatus("enabled")) {
+        #expect(throws: Institute.Repository.Policy.Fleet.Error.invalidStatus("enabled")) {
             try Self.fleet(
                 organizations:
                     #"{"name":"swift-institute","layer":"control","status":"enabled"}"#
             )
         }
         #expect(
-            throws: RepositoryPolicy.Fleet.Error.malformedRepository("swift-institute")
+            throws: Institute.Repository.Policy.Fleet.Error.malformedRepository("swift-institute")
         ) {
             try Self.fleet(
                 organizations:
@@ -99,7 +98,7 @@ struct RepositoryPolicyBranchPinTests {
             )
         }
         #expect(
-            throws: RepositoryPolicy.Fleet.Error.inactiveOrganization("swift-institute")
+            throws: Institute.Repository.Policy.Fleet.Error.inactiveOrganization("swift-institute")
         ) {
             try Self.fleet(
                 organizations:
@@ -108,7 +107,7 @@ struct RepositoryPolicyBranchPinTests {
             )
         }
         #expect(
-            throws: RepositoryPolicy.Fleet.Error.duplicateRepository("swift-institute/example")
+            throws: Institute.Repository.Policy.Fleet.Error.duplicateRepository("swift-institute/example")
         ) {
             try Self.fleet(
                 organizations:
@@ -124,7 +123,7 @@ struct RepositoryPolicyBranchPinTests {
     private static func fleet(
         organizations: String,
         repositories: String? = nil
-    ) throws -> RepositoryPolicy.Fleet {
+    ) throws -> Institute.Repository.Policy.Fleet {
         let repositoryField = repositories.map { ",\"repositories\":[\($0)]" } ?? ""
         let data = Data(
             "{\"schemaVersion\":1,\"organizations\":[\(organizations)]\(repositoryField)}"
@@ -133,7 +132,7 @@ struct RepositoryPolicyBranchPinTests {
         let path = FileManager.default.temporaryDirectory
             .appending(path: "fleet-policy-\(UUID().uuidString).json")
         try data.write(to: path)
-        return try RepositoryPolicy.Fleet.read(at: path.path)
+        return try Institute.Repository.Policy.Fleet.read(at: path.path)
     }
 
     @Test
@@ -156,7 +155,7 @@ struct RepositoryPolicyBranchPinTests {
             ),
         ]
 
-        let findings = RepositoryPolicy.BranchPin.findings(
+        let findings = Institute.Repository.Policy.BranchPin.findings(
             in: dependencies,
             organizations: ["swift-foundations"]
         )

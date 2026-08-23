@@ -1,10 +1,9 @@
 public import Institute_Model
-public import Institute_Application_Model
 public import Institute_CI_Model
 public import Institute_Repository_Policy
 import File_System
 
-extension RepositoryPolicy.BrokenSymlink {
+extension Institute.Repository.Policy.BrokenSymlink {
     /// Broken symbolic links beneath `root`, in repository-relative order.
     public static func findings(at root: Swift.String) throws(Error) -> [Finding] {
         guard let initial = Institute.Application.CI.names(atPath: root) else {

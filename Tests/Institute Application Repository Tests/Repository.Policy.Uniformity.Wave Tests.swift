@@ -11,7 +11,7 @@ import Testing
 #endif
 
 @Suite
-struct RepositoryPolicyUniformityWaveTests {
+struct `Repository Policy Uniformity Wave Tests` {
     /// The embedded payload is the ratification: exactly the bytes the
     /// principal ratified on swift-institute/.github#600 — shape policy 5,
     /// 522 UTF-8 bytes — and `canonical()` refuses drift by digest.
@@ -37,7 +37,7 @@ struct RepositoryPolicyUniformityWaveTests {
 
     @Test
     func enumeratesEveryActiveOrganizationIntoOneSortedPopulation() async throws {
-        let client = RepositoryPolicyUniformityWaveMockClient(
+        let client = UniformityWaveMockClient(
             ruleset: try ruleset(),
             shape: nonterminalShape
         )
@@ -62,7 +62,7 @@ struct RepositoryPolicyUniformityWaveTests {
 
     @Test
     func privateOnlyOrganizationBecomesATypedExclusionNotAMatrixRow() async throws {
-        let client = RepositoryPolicyUniformityWaveMockClient(
+        let client = UniformityWaveMockClient(
             ruleset: try ruleset(),
             shape: nonterminalShape,
             privateOrganizations: ["swift-riscv"]
@@ -86,7 +86,7 @@ struct RepositoryPolicyUniformityWaveTests {
 
     @Test
     func emptyOrganizationEnumerationRefusesThePopulation() async throws {
-        let client = RepositoryPolicyUniformityWaveMockClient(
+        let client = UniformityWaveMockClient(
             ruleset: try ruleset(),
             shape: nonterminalShape,
             emptyRepositories: true
@@ -121,7 +121,7 @@ struct RepositoryPolicyUniformityWaveTests {
     @Test
     func preflightAcceptsTheExactTokenIssuanceAttestation() async throws {
         let canonical = try ruleset()
-        let client = RepositoryPolicyUniformityWaveMockClient(
+        let client = UniformityWaveMockClient(
             ruleset: canonical,
             shape: nonterminalShape
         )
@@ -161,7 +161,7 @@ struct RepositoryPolicyUniformityWaveTests {
         fixture: String
     ) async throws {
         let canonical = try ruleset()
-        let client = RepositoryPolicyUniformityWaveMockClient(
+        let client = UniformityWaveMockClient(
             ruleset: canonical,
             shape: nonterminalShape
         )
@@ -182,7 +182,7 @@ struct RepositoryPolicyUniformityWaveTests {
     @Test
     func preflightRefusesAPayloadThatIsNotTheRatifiedBytes() async throws {
         let canonical = try ruleset()
-        let client = RepositoryPolicyUniformityWaveMockClient(
+        let client = UniformityWaveMockClient(
             ruleset: canonical,
             shape: nonterminalShape
         )
@@ -203,7 +203,7 @@ struct RepositoryPolicyUniformityWaveTests {
     @Test
     func appliesForwardShapeCommitAndClosesTheWindow() async throws {
         let canonical = try ruleset()
-        let client = RepositoryPolicyUniformityWaveMockClient(
+        let client = UniformityWaveMockClient(
             ruleset: canonical,
             shape: nonterminalShape
         )
@@ -252,7 +252,7 @@ struct RepositoryPolicyUniformityWaveTests {
             swiftFormat: nil,
             dependabot: nil
         )
-        let client = RepositoryPolicyUniformityWaveMockClient(
+        let client = UniformityWaveMockClient(
             ruleset: canonical,
             shape: terminal
         )
@@ -290,7 +290,7 @@ struct RepositoryPolicyUniformityWaveTests {
             swiftFormat: nil,
             dependabot: nil
         )
-        let client = RepositoryPolicyUniformityWaveMockClient(
+        let client = UniformityWaveMockClient(
             ruleset: canonical,
             shape: terminal,
             rulesetAbsent: true
@@ -317,7 +317,7 @@ struct RepositoryPolicyUniformityWaveTests {
     @Test
     func movedHeadRefusesBeforeWindow() async throws {
         let canonical = try ruleset()
-        let client = RepositoryPolicyUniformityWaveMockClient(
+        let client = UniformityWaveMockClient(
             ruleset: canonical,
             shape: nonterminalShape
         )
@@ -339,7 +339,7 @@ struct RepositoryPolicyUniformityWaveTests {
     @Test
     func movedShapeRefusesBeforeWindow() async throws {
         let canonical = try ruleset()
-        let client = RepositoryPolicyUniformityWaveMockClient(
+        let client = UniformityWaveMockClient(
             ruleset: canonical,
             shape: nonterminalShape
         )
@@ -371,7 +371,7 @@ struct RepositoryPolicyUniformityWaveTests {
     @Test
     func byteMismatchAfterCommitRefusesAndClosesTheBypass() async throws {
         let canonical = try ruleset()
-        let client = RepositoryPolicyUniformityWaveMockClient(
+        let client = UniformityWaveMockClient(
             ruleset: canonical,
             shape: nonterminalShape
         )
@@ -396,7 +396,7 @@ struct RepositoryPolicyUniformityWaveTests {
     @Test
     func survivingDeletionAfterCommitRefusesAndClosesTheBypass() async throws {
         let canonical = try ruleset()
-        let client = RepositoryPolicyUniformityWaveMockClient(
+        let client = UniformityWaveMockClient(
             ruleset: canonical,
             shape: nonterminalShape
         )
@@ -418,7 +418,7 @@ struct RepositoryPolicyUniformityWaveTests {
     @Test
     func interruptionAfterOpeningStillClosesTheBypass() async throws {
         let canonical = try ruleset()
-        let client = RepositoryPolicyUniformityWaveMockClient(
+        let client = UniformityWaveMockClient(
             ruleset: canonical,
             shape: nonterminalShape
         )
@@ -440,7 +440,7 @@ struct RepositoryPolicyUniformityWaveTests {
     @Test
     func failedMoveClosesTheBypass() async throws {
         let canonical = try ruleset()
-        let client = RepositoryPolicyUniformityWaveMockClient(
+        let client = UniformityWaveMockClient(
             ruleset: canonical,
             shape: nonterminalShape
         )
@@ -463,7 +463,7 @@ struct RepositoryPolicyUniformityWaveTests {
     @Test
     func durablePreflightEvidenceClosesABypassAfterRunnerLoss() async throws {
         let canonical = try ruleset()
-        let client = RepositoryPolicyUniformityWaveMockClient(
+        let client = UniformityWaveMockClient(
             ruleset: canonical,
             shape: nonterminalShape
         )
@@ -587,7 +587,7 @@ struct RepositoryPolicyUniformityWaveTests {
     }
 
     private func preflight(
-        client: RepositoryPolicyUniformityWaveMockClient,
+        client: UniformityWaveMockClient,
         request: Institute.Repository.Policy.Uniformity.Wave.Request
     ) async throws -> Institute.Repository.Policy.Uniformity.Wave.Recovery {
         let evidence = try attestation(fixture: "uniformity-attestation-positive")
@@ -762,12 +762,12 @@ struct RepositoryPolicyUniformityWaveTests {
         ))
     }
 
-    private func fleet(organizations: [String]) throws -> RepositoryPolicy.Fleet {
+    private func fleet(organizations: [String]) throws -> Institute.Repository.Policy.Fleet {
         let values = organizations.map {
             ["name": $0, "layer": "L1", "status": "active"]
         }
         return try JSONDecoder().decode(
-            RepositoryPolicy.Fleet.self,
+            Institute.Repository.Policy.Fleet.self,
             from: JSONSerialization.data(
                 withJSONObject: ["schemaVersion": 1, "organizations": values]
             )

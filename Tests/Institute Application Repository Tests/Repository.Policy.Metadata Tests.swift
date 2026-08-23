@@ -7,7 +7,7 @@ import Testing
 @testable import Institute_Application_Repository
 
 @Suite
-struct RepositoryPolicyMetadataTests {
+struct `Repository Policy Metadata Tests` {
     static let titles = Institute.Repository.Policy.Metadata.Draft.Titles(
         parsing: """
             # spec-titles.yaml
@@ -34,7 +34,7 @@ struct RepositoryPolicyMetadataTests {
     @Suite
     struct Unit {
         @Test func `a numbered spec drafts from the title table`() throws {
-            let draft = try RepositoryPolicyMetadataTests.draft("swift-ietf/swift-rfc-3986")
+            let draft = try `Repository Policy Metadata Tests`.draft("swift-ietf/swift-rfc-3986")
             #expect(draft.kind == .singleSpec)
             #expect(
                 draft.metadata.description
@@ -47,7 +47,7 @@ struct RepositoryPolicyMetadataTests {
         @Test func `an organization defaults repository asserts no homepage`() throws {
             // `homepage: ""` would tell sync-metadata to clear whatever
             // is there; the key is omitted instead.
-            let draft = try RepositoryPolicyMetadataTests.draft("swift-institute/.github")
+            let draft = try `Repository Policy Metadata Tests`.draft("swift-institute/.github")
             #expect(draft.kind == .organizationDefaults)
             #expect(draft.metadata.homepage.isEmpty)
             let rendered = Institute.Repository.Policy.Metadata.Draft.Render(generatedOn: "2026-08-07")(draft)
@@ -56,7 +56,7 @@ struct RepositoryPolicyMetadataTests {
         }
 
         @Test func `a primitive takes its own package description`() throws {
-            let draft = try RepositoryPolicyMetadataTests.draft(
+            let draft = try `Repository Policy Metadata Tests`.draft(
                 "swift-primitives/swift-byte-primitives",
                 packageDescription: "Byte primitives"
             )
@@ -68,7 +68,7 @@ struct RepositoryPolicyMetadataTests {
             // What makes a draft a draft. Without it a heuristic seed
             // reads as an authored document.
             let rendered = Institute.Repository.Policy.Metadata.Draft.Render(generatedOn: "2026-08-07")(
-                try RepositoryPolicyMetadataTests.draft("swift-ietf/swift-rfc-3986")
+                try `Repository Policy Metadata Tests`.draft("swift-ietf/swift-rfc-3986")
             )
             #expect(rendered.contains("# REVIEW BEFORE MERGE"))
             #expect(rendered.contains("# Detected class: L2-single-spec"))
@@ -82,24 +82,24 @@ struct RepositoryPolicyMetadataTests {
             // The one branch that consults the table twice: finding the
             // spec under `iso-iec` changes the authority *and* the topic
             // set, so the second lookup cannot be folded into the first.
-            let draft = try RepositoryPolicyMetadataTests.draft("swift-iso/swift-iso-9945")
+            let draft = try `Repository Policy Metadata Tests`.draft("swift-iso/swift-iso-9945")
             #expect(draft.metadata.description.hasPrefix("Swift implementation of ISO/IEC 9945:"))
             #expect(draft.metadata.topics.contains("iso-iec"))
         }
 
         @Test func `a missing title becomes a visible TODO, not a silent gap`() throws {
-            let draft = try RepositoryPolicyMetadataTests.draft("swift-iso/swift-iso-99999")
+            let draft = try `Repository Policy Metadata Tests`.draft("swift-iso/swift-iso-99999")
             #expect(draft.metadata.description.contains("TODO add title to spec-titles.yaml"))
         }
 
         @Test func `a spec named rather than numbered takes the named branch`() throws {
-            let draft = try RepositoryPolicyMetadataTests.draft("swift-w3c/swift-w3c-webidl")
+            let draft = try `Repository Policy Metadata Tests`.draft("swift-w3c/swift-w3c-webidl")
             #expect(draft.kind == .namedStandard)
             #expect(draft.metadata.topics == ["standards", "w3c", "TODO-domain-tag"])
         }
 
         @Test func `a hyphenated spec number is still a number`() throws {
-            let draft = try RepositoryPolicyMetadataTests.draft("swift-iso/swift-iso-14496-22")
+            let draft = try `Repository Policy Metadata Tests`.draft("swift-iso/swift-iso-14496-22")
             #expect(draft.kind == .singleSpec)
         }
 

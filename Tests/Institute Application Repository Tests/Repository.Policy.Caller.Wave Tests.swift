@@ -12,11 +12,11 @@ import Testing
 #endif
 
 @Suite
-struct RepositoryPolicyCallerWaveTests {
+struct `Repository Policy Caller Wave Tests` {
     @Test
     func enumeratesEveryActiveOrganizationIntoOneSortedPopulation() async throws {
         let canonical = try ruleset()
-        let client = RepositoryPolicyCallerWaveMockClient(ruleset: canonical)
+        let client = CallerWaveMockClient(ruleset: canonical)
         let population = try await Institute.Repository.Policy.Caller.Wave.enumerate(
             client: client,
             fleet: try fleet(organizations: ["swift-standards", "swift-primitives"])
@@ -37,7 +37,7 @@ struct RepositoryPolicyCallerWaveTests {
     @Test
     func privateOnlyOrganizationBecomesATypedExclusionNotAMatrixRow() async throws {
         let canonical = try ruleset()
-        let client = RepositoryPolicyCallerWaveMockClient(
+        let client = CallerWaveMockClient(
             ruleset: canonical,
             privateOrganizations: ["swift-riscv"]
         )
@@ -63,7 +63,7 @@ struct RepositoryPolicyCallerWaveTests {
         // Positive control: with every organization subject-bearing,
         // the exclusion list is empty and matrix == organizations.
         let full = try await Institute.Repository.Policy.Caller.Wave.enumerate(
-            client: RepositoryPolicyCallerWaveMockClient(ruleset: canonical),
+            client: CallerWaveMockClient(ruleset: canonical),
             fleet: try fleet(organizations: ["swift-primitives", "swift-riscv"])
         )
         #expect(full.subjectOrganizations == full.organizations)
@@ -134,7 +134,7 @@ struct RepositoryPolicyCallerWaveTests {
     @Test
     func emptyOrganizationEnumerationRefusesThePopulation() async throws {
         let canonical = try ruleset()
-        let client = RepositoryPolicyCallerWaveMockClient(
+        let client = CallerWaveMockClient(
             ruleset: canonical,
             emptyRepositories: true
         )
@@ -150,7 +150,7 @@ struct RepositoryPolicyCallerWaveTests {
     @Test
     func missingCallerRefusesThePopulation() async throws {
         let canonical = try ruleset()
-        let client = RepositoryPolicyCallerWaveMockClient(
+        let client = CallerWaveMockClient(
             ruleset: canonical,
             callerAbsent: true
         )
@@ -166,7 +166,7 @@ struct RepositoryPolicyCallerWaveTests {
     @Test
     func manifestHeadRaceRefusesThePopulation() async throws {
         let canonical = try ruleset()
-        let client = RepositoryPolicyCallerWaveMockClient(ruleset: canonical)
+        let client = CallerWaveMockClient(ruleset: canonical)
         await client.setMoveHeadAfterManifestRead()
 
         await #expect(throws: Institute.Repository.Policy.Caller.Wave.Error.self) {
@@ -239,7 +239,7 @@ struct RepositoryPolicyCallerWaveTests {
     @Test
     func appliesForwardCommitAndRestoresRuleset() async throws {
         let canonical = try ruleset()
-        let client = RepositoryPolicyCallerWaveMockClient(ruleset: canonical)
+        let client = CallerWaveMockClient(ruleset: canonical)
         let request = request(canonical: canonical)
         let recovery = try await preflight(client: client, request: request)
         var events: [Institute.Repository.Policy.Caller.Wave.Event] = []
@@ -272,7 +272,7 @@ struct RepositoryPolicyCallerWaveTests {
     @Test
     func applyVerificationToleratesAStaleHeadReadAfterASuccessfulMove() async throws {
         let canonical = try ruleset()
-        let client = RepositoryPolicyCallerWaveMockClient(ruleset: canonical)
+        let client = CallerWaveMockClient(ruleset: canonical)
         await client.setStaleHeadReadsAfterMove(2)
         let request = request(canonical: canonical)
         let recovery = try await preflight(client: client, request: request)
@@ -300,7 +300,7 @@ struct RepositoryPolicyCallerWaveTests {
     @Test
     func applyVerificationStillRefusesAHeadThatNeverConverges() async throws {
         let canonical = try ruleset()
-        let client = RepositoryPolicyCallerWaveMockClient(ruleset: canonical)
+        let client = CallerWaveMockClient(ruleset: canonical)
         await client.setStaleHeadReadsAfterMove(99)
         let request = request(canonical: canonical)
         let recovery = try await preflight(client: client, request: request)
@@ -320,7 +320,7 @@ struct RepositoryPolicyCallerWaveTests {
     @Test
     func createsMissingRulesetEvenWhenCallerIsAlreadyTerminal() async throws {
         let canonical = try ruleset()
-        let client = RepositoryPolicyCallerWaveMockClient(
+        let client = CallerWaveMockClient(
             ruleset: canonical,
             rulesetAbsent: true
         )
@@ -350,7 +350,7 @@ struct RepositoryPolicyCallerWaveTests {
     @Test
     func movedHeadRefusesBeforeWindow() async throws {
         let canonical = try ruleset()
-        let client = RepositoryPolicyCallerWaveMockClient(ruleset: canonical)
+        let client = CallerWaveMockClient(ruleset: canonical)
         let request = request(canonical: canonical)
         let recovery = try await preflight(client: client, request: request)
         await client.setHead("other-head")
@@ -369,7 +369,7 @@ struct RepositoryPolicyCallerWaveTests {
     @Test
     func movedBlobRefusesBeforeWindow() async throws {
         let canonical = try ruleset()
-        let client = RepositoryPolicyCallerWaveMockClient(ruleset: canonical)
+        let client = CallerWaveMockClient(ruleset: canonical)
         let request = request(canonical: canonical)
         let recovery = try await preflight(client: client, request: request)
         await client.setBlob("other-blob")
@@ -389,7 +389,7 @@ struct RepositoryPolicyCallerWaveTests {
     func noncanonicalRulesetConvergesBeforeWindow() async throws {
         let canonical = try ruleset()
         let divergent = try ruleset(enforcement: "disabled")
-        let client = RepositoryPolicyCallerWaveMockClient(ruleset: divergent)
+        let client = CallerWaveMockClient(ruleset: divergent)
         let request = request(canonical: canonical)
         let recovery = try await preflight(client: client, request: request)
         var events: [Institute.Repository.Policy.Caller.Wave.Event] = []
@@ -421,7 +421,7 @@ struct RepositoryPolicyCallerWaveTests {
     func failedRulesetConvergenceRestoresThePriorContract() async throws {
         let canonical = try ruleset()
         let divergent = try ruleset(enforcement: "disabled")
-        let client = RepositoryPolicyCallerWaveMockClient(ruleset: divergent)
+        let client = CallerWaveMockClient(ruleset: divergent)
         let request = request(canonical: canonical)
         let recovery = try await preflight(client: client, request: request)
         await client.setConvergenceFailure(persistent: true)
@@ -449,7 +449,7 @@ struct RepositoryPolicyCallerWaveTests {
     @Test
     func failedMoveRestoresRuleset() async throws {
         let canonical = try ruleset()
-        let client = RepositoryPolicyCallerWaveMockClient(ruleset: canonical)
+        let client = CallerWaveMockClient(ruleset: canonical)
         let request = request(canonical: canonical)
         let recovery = try await preflight(client: client, request: request)
         await client.setMoveFailure()
@@ -468,7 +468,7 @@ struct RepositoryPolicyCallerWaveTests {
     @Test
     func concurrentHeadMovementInsideWindowRefusesAndRestores() async throws {
         let canonical = try ruleset()
-        let client = RepositoryPolicyCallerWaveMockClient(ruleset: canonical)
+        let client = CallerWaveMockClient(ruleset: canonical)
         let request = request(canonical: canonical)
         let recovery = try await preflight(client: client, request: request)
         await client.setMoveHeadOnOpen()
@@ -487,7 +487,7 @@ struct RepositoryPolicyCallerWaveTests {
     @Test
     func failedRestorationSurfacesCombinedFailure() async throws {
         let canonical = try ruleset()
-        let client = RepositoryPolicyCallerWaveMockClient(ruleset: canonical)
+        let client = CallerWaveMockClient(ruleset: canonical)
         let request = request(canonical: canonical)
         let recovery = try await preflight(client: client, request: request)
         await client.setMoveFailure()
@@ -507,7 +507,7 @@ struct RepositoryPolicyCallerWaveTests {
     @Test
     func openingAppliedThenResponseLostIsReconciledAndClosed() async throws {
         let canonical = try ruleset()
-        let client = RepositoryPolicyCallerWaveMockClient(ruleset: canonical)
+        let client = CallerWaveMockClient(ruleset: canonical)
         let request = request(canonical: canonical)
         let recovery = try await preflight(client: client, request: request)
         await client.setOpeningResponseLost()
@@ -527,7 +527,7 @@ struct RepositoryPolicyCallerWaveTests {
     @Test
     func closingAppliedThenResponseLostIsReconciled() async throws {
         let canonical = try ruleset()
-        let client = RepositoryPolicyCallerWaveMockClient(ruleset: canonical)
+        let client = CallerWaveMockClient(ruleset: canonical)
         let request = request(canonical: canonical)
         let recovery = try await preflight(client: client, request: request)
         await client.setClosingResponseLost()
@@ -547,7 +547,7 @@ struct RepositoryPolicyCallerWaveTests {
     @Test
     func transientRulesetReadFailureRetriesTheBoundedTransition() async throws {
         let canonical = try ruleset()
-        let client = RepositoryPolicyCallerWaveMockClient(ruleset: canonical)
+        let client = CallerWaveMockClient(ruleset: canonical)
         let request = request(canonical: canonical)
         let recovery = try await preflight(client: client, request: request)
         await client.setReadFailureAfterOpening()
@@ -566,7 +566,7 @@ struct RepositoryPolicyCallerWaveTests {
     @Test
     func interruptionAfterOpeningStillClosesTheBypass() async throws {
         let canonical = try ruleset()
-        let client = RepositoryPolicyCallerWaveMockClient(ruleset: canonical)
+        let client = CallerWaveMockClient(ruleset: canonical)
         let request = request(canonical: canonical)
         let recovery = try await preflight(client: client, request: request)
         await client.setCommitFailure()
@@ -586,7 +586,7 @@ struct RepositoryPolicyCallerWaveTests {
     @Test
     func durablePreflightEvidenceClosesABypassAfterRunnerLoss() async throws {
         let canonical = try ruleset()
-        let client = RepositoryPolicyCallerWaveMockClient(ruleset: canonical)
+        let client = CallerWaveMockClient(ruleset: canonical)
         let request = request(canonical: canonical)
         let recovery = try await preflight(client: client, request: request)
         try await client.openBypass(integrationID: request.integrationID)
@@ -606,7 +606,7 @@ struct RepositoryPolicyCallerWaveTests {
     @Test
     func preflightAcceptsTheExactTokenIssuanceAttestation() async throws {
         let canonical = try ruleset()
-        let client = RepositoryPolicyCallerWaveMockClient(ruleset: canonical)
+        let client = CallerWaveMockClient(ruleset: canonical)
         let request = request(canonical: canonical)
         let evidence = try attestation(fixture: "attestation-positive")
 
@@ -661,7 +661,7 @@ struct RepositoryPolicyCallerWaveTests {
         fixture: String
     ) async throws {
         let canonical = try ruleset()
-        let client = RepositoryPolicyCallerWaveMockClient(ruleset: canonical)
+        let client = CallerWaveMockClient(ruleset: canonical)
         let request = request(canonical: canonical)
         let evidence = try attestation(fixture: fixture)
 
@@ -679,7 +679,7 @@ struct RepositoryPolicyCallerWaveTests {
     @Test
     func preflightRefusesAnAttestationScopeThatDoesNotCoverTheSubject() async throws {
         let canonical = try ruleset()
-        let client = RepositoryPolicyCallerWaveMockClient(ruleset: canonical)
+        let client = CallerWaveMockClient(ruleset: canonical)
         let request = request(canonical: canonical)
         let evidence = try attestation(fixture: "attestation-foreign-scope")
 
@@ -802,7 +802,7 @@ struct RepositoryPolicyCallerWaveTests {
 
     @Test(arguments: [429, 503])
     func retryableHTTPStatusIsRetried(status: Int) async throws {
-        let counter = RepositoryPolicyCallerWaveHTTPAttemptCounter()
+        let counter = CallerWaveHTTPAttemptCounter()
         let client = Institute.Application.Repository.Client(
             maximumAttempts: 2,
             delaySeconds: 0,
@@ -830,7 +830,7 @@ struct RepositoryPolicyCallerWaveTests {
 
     @Test
     func transportFailureIsRetried() async throws {
-        let counter = RepositoryPolicyCallerWaveHTTPAttemptCounter()
+        let counter = CallerWaveHTTPAttemptCounter()
         let client = Institute.Application.Repository.Client(
             maximumAttempts: 2,
             delaySeconds: 0,
@@ -881,7 +881,7 @@ struct RepositoryPolicyCallerWaveTests {
     }
 
     private func preflight(
-        client: RepositoryPolicyCallerWaveMockClient,
+        client: CallerWaveMockClient,
         request: Institute.Repository.Policy.Caller.Wave.Request
     ) async throws -> Institute.Repository.Policy.Caller.Wave.Recovery {
         let evidence = try attestation(fixture: "attestation-positive")
@@ -1070,12 +1070,12 @@ struct RepositoryPolicyCallerWaveTests {
         ))
     }
 
-    private func fleet(organizations: [String]) throws -> RepositoryPolicy.Fleet {
+    private func fleet(organizations: [String]) throws -> Institute.Repository.Policy.Fleet {
         let values = organizations.map {
             ["name": $0, "layer": "L1", "status": "active"]
         }
         return try JSONDecoder().decode(
-            RepositoryPolicy.Fleet.self,
+            Institute.Repository.Policy.Fleet.self,
             from: JSONSerialization.data(
                 withJSONObject: ["schemaVersion": 1, "organizations": values]
             )

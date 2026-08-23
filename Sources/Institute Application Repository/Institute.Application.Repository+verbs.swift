@@ -1,5 +1,4 @@
 public import Institute_Model
-public import Institute_Application_Model
 import struct Swift.String
 import Byte_Primitives
 import Byte_Primitives_Standard_Library_Integration

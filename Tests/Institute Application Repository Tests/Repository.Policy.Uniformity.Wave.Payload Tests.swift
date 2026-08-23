@@ -18,7 +18,7 @@ import Testing
 /// and let `git add` decide — directory pruning and all — rather than
 /// asserting over pattern text.
 @Suite
-struct RepositoryPolicyUniformityWavePayloadTests {
+struct `Repository Policy Uniformity Wave Payload Tests` {
     /// Paths a `* Shims` target needs, which policy 4 denied and policy 5
     /// must admit.
     private static let admitted = [

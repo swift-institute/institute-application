@@ -22,7 +22,7 @@ import Testing
 /// make a second spelling that drifts), so the fixtures and these tests
 /// stay in .github and transfer/rebind at TX-APP2Z.
 @Suite
-struct RepositoryPolicyCallerParseTests {
+struct `Repository Policy Caller Parse Tests` {
     /// The legacy `docs:` job's overrides are recovered, not dropped.
     /// Three of the seven carry a real `platform-support`; this asserts
     /// the docs-side mapping with a caller built for it, since no fixture

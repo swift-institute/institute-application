@@ -7,7 +7,7 @@ import Institute_Application_CI
 import Testing
 
 @Suite
-struct RepositoryPolicyBrokenSymlinkTests {
+struct `Repository Policy BrokenSymlink Tests` {
     @Test
     func `only missing targets are findings`() throws {
         let root = FileManager.default.temporaryDirectory
@@ -26,7 +26,7 @@ struct RepositoryPolicyBrokenSymlinkTests {
             withDestinationPath: "missing"
         )
 
-        let findings = try RepositoryPolicy.BrokenSymlink.findings(at: root.path)
+        let findings = try Institute.Repository.Policy.BrokenSymlink.findings(at: root.path)
 
         #expect(findings == [.init(path: "broken")])
     }

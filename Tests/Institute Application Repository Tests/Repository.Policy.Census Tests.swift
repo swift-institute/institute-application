@@ -8,7 +8,7 @@ import JSON
 import Testing
 
 @Suite
-struct RepositoryPolicyCensusTests {
+struct `Repository Policy Census Tests` {
     @Test
     func csvQuotingMatchesMinimalDialect() {
         #expect(Institute.Repository.Policy.Census.quoted("plain") == "plain")

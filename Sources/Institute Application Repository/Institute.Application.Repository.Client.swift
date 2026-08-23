@@ -1,5 +1,4 @@
 public import Institute_Model
-public import Institute_Application_Model
 import struct Swift.String
 public import Institute_Repository_Policy
 public import Byte_Primitives
@@ -205,7 +204,7 @@ extension Institute.Application.Repository.Client: Institute.Repository.Policy.C
     ) async throws(Error) -> Institute.Repository.Policy.Caller.Wave.Listing {
         let expectedBefore = try await publicRepositoryCount(organization: organization)
         var page = 1
-        var result = [RepositoryPolicy.Repository]()
+        var result = [Institute.Repository.Policy.Repository]()
         var visited: Set<Int> = []
         while true {
             guard visited.insert(page).inserted else {
@@ -219,7 +218,7 @@ extension Institute.Application.Repository.Client: Institute.Repository.Policy.C
                 throw error(method: "GET", path: path, response: response)
             }
             let repositories = try decode(
-                [RepositoryPolicy.Repository].self,
+                [Institute.Repository.Policy.Repository].self,
                 from: response,
                 path: path
             )

@@ -1,5 +1,4 @@
 public import Institute_Model
-public import Institute_Application_Model
 public import Institute_CI_Model
 import struct Swift.String
 import Institute_Repository_Policy
@@ -30,9 +29,9 @@ extension Institute.Application.CI {
             refuse("package validate requires --repository, --root, and --policy")
         }
 
-        let fleet: RepositoryPolicy.Fleet
-        do throws(RepositoryPolicy.Fleet.Error) {
-            fleet = try RepositoryPolicy.Fleet.read(at: policy)
+        let fleet: Institute.Repository.Policy.Fleet
+        do throws(Institute.Repository.Policy.Fleet.Error) {
+            fleet = try Institute.Repository.Policy.Fleet.read(at: policy)
         } catch {
             refuse("package validate could not read fleet policy: \(error)")
         }
@@ -42,7 +41,7 @@ extension Institute.Application.CI {
 
         let dependencies = dependencyFacts(root: root)
         var refused = false
-        for finding in RepositoryPolicy.BranchPin.findings(
+        for finding in Institute.Repository.Policy.BranchPin.findings(
             in: dependencies,
             organizations: fleet.activeOrganizationNames
         ) {
@@ -72,15 +71,15 @@ extension Institute.Application.CI {
         } catch {
             refuse("package validate could not evaluate manifest: \(error)")
         }
-        for finding in RepositoryPolicy.TestSupport.findings(in: evaluation) {
+        for finding in Institute.Repository.Policy.TestSupport.findings(in: evaluation) {
             print(
                 "\(repository)\tTEST-SUPPORT-INTEGRITY\t\(finding.target) depends on "
                     + "non-support product or target \(finding.dependency)"
             )
         }
 
-        do throws(RepositoryPolicy.BrokenSymlink.Error) {
-            for finding in try RepositoryPolicy.BrokenSymlink.findings(at: root) {
+        do throws(Institute.Repository.Policy.BrokenSymlink.Error) {
+            for finding in try Institute.Repository.Policy.BrokenSymlink.findings(at: root) {
                 print("\(repository)\tBROKEN-SYMLINK\t\(finding.path)")
             }
         } catch {

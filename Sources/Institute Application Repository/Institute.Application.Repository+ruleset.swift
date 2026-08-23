@@ -1,5 +1,4 @@
 public import Institute_Model
-public import Institute_Application_Model
 import struct Swift.String
 import Byte_Primitives
 import Byte_Primitives_Standard_Library_Integration
@@ -13,16 +12,16 @@ extension Institute.Application.Repository {
     static func ruleset(_ arguments: RulesetArguments) throws(Error) {
         let policy = try bytes(at: arguments.policy, label: "protected-main ruleset policy")
         let payload: [Byte]
-        do throws(RepositoryPolicy.Ruleset.Error) {
+        do throws(Institute.Repository.Policy.Ruleset.Error) {
             switch (arguments.repositoryClass, arguments.visibility) {
             case (.package, .public):
-                payload = try RepositoryPolicy.Ruleset.protectedMainPayload(from: policy)
+                payload = try Institute.Repository.Policy.Ruleset.protectedMainPayload(from: policy)
 
             case (.package, .private):
-                payload = try RepositoryPolicy.Ruleset.protectedMainPrivatePayload(from: policy)
+                payload = try Institute.Repository.Policy.Ruleset.protectedMainPrivatePayload(from: policy)
 
             case (.controlPlane, _):
-                payload = try RepositoryPolicy.Ruleset.protectedMainControlPayload(from: policy)
+                payload = try Institute.Repository.Policy.Ruleset.protectedMainControlPayload(from: policy)
             }
         } catch {
             throw .ruleset(error)
@@ -37,7 +36,7 @@ extension Institute.Application.Repository {
     static func rulesetConvergence(
         _ arguments: RulesetConvergenceArguments
     ) throws(Error) {
-        let decision = RepositoryPolicy.Ruleset.decideConvergence(
+        let decision = Institute.Repository.Policy.Ruleset.decideConvergence(
             rulesetExists: arguments.rulesetExists,
             mode: arguments.mode
         )
@@ -126,7 +125,7 @@ extension Institute.Application.Repository {
     }
 
     struct RulesetConvergenceArguments {
-        let mode: RepositoryPolicy.Ruleset.SweepMode
+        let mode: Institute.Repository.Policy.Ruleset.SweepMode
         let rulesetExists: Bool
 
         init(_ arguments: [Swift.String]) throws(Error) {
@@ -149,7 +148,7 @@ extension Institute.Application.Repository {
             }
             guard
                 let modeValue = values.removeValue(forKey: "--mode"),
-                let mode = RepositoryPolicy.Ruleset.SweepMode(rawValue: modeValue)
+                let mode = Institute.Repository.Policy.Ruleset.SweepMode(rawValue: modeValue)
             else {
                 throw Institute.Application.Repository.configuration(
                     "ruleset-convergence requires --mode scheduled-heal or explicit-apply"

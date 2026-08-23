@@ -1,5 +1,4 @@
 public import Institute_Model
-public import Institute_Application_Model
 import struct Swift.String
 import Byte_Primitives
 import Environment
@@ -484,8 +483,8 @@ extension Institute.Application.Repository {
 
     static func canonicalRuleset(at path: Swift.String) throws(Error) -> [Byte] {
         let bytes = try bytes(at: path, label: "protected-main ruleset policy")
-        do throws(RepositoryPolicy.Ruleset.Error) {
-            return try RepositoryPolicy.Ruleset.protectedMainPayload(from: bytes)
+        do throws(Institute.Repository.Policy.Ruleset.Error) {
+            return try Institute.Repository.Policy.Ruleset.protectedMainPayload(from: bytes)
         } catch {
             throw .ruleset(error)
         }
@@ -499,9 +498,9 @@ extension Institute.Application.Repository {
         """
     }
 
-    static func fleet(at path: Swift.String) throws(Error) -> RepositoryPolicy.Fleet {
-        do throws(RepositoryPolicy.Fleet.Error) {
-            return try RepositoryPolicy.Fleet.read(at: path)
+    static func fleet(at path: Swift.String) throws(Error) -> Institute.Repository.Policy.Fleet {
+        do throws(Institute.Repository.Policy.Fleet.Error) {
+            return try Institute.Repository.Policy.Fleet.read(at: path)
         } catch {
             throw .io("could not read the wave fleet policy at \(path): \(error)")
         }

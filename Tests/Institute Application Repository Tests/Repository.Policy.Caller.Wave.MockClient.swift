@@ -5,7 +5,7 @@ import Byte_Primitives_Standard_Library_Integration
 import Foundation
 import Institute_Application_Repository
 
-actor RepositoryPolicyCallerWaveMockClient: Institute.Repository.Policy.Caller.Wave.Client {
+actor CallerWaveMockClient: Institute.Repository.Policy.Caller.Wave.Client {
     var remainingRequests = 5_000
     var repository = Institute.Repository.Policy.Caller.Wave.Repository(
         id: 1,

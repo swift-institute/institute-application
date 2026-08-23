@@ -21,10 +21,6 @@ let package = Package(
       targets: ["Institute Application"]
     ),
     .library(
-      name: "Institute Application Model",
-      targets: ["Institute Application Model"]
-    ),
-    .library(
       name: "Institute Application CI",
       targets: ["Institute Application CI"]
     ),
@@ -180,19 +176,8 @@ let package = Package(
       ]
     ),
     .target(
-      name: "Institute Application Model",
-      dependencies: [
-        .product(name: "Institute Model", package: "institute"),
-        .product(name: "Institute Repository Policy", package: "institute"),
-        .product(name: "Byte Primitives", package: "swift-byte-primitives"),
-        .product(name: "File System", package: "swift-file-system"),
-        .product(name: "JSON", package: "swift-json"),
-      ]
-    ),
-    .target(
       name: "Institute Application CI",
       dependencies: [
-        "Institute Application Model",
         .product(name: "Institute CI Canon", package: "institute"),
         .product(name: "Institute Repository Policy", package: "institute"),
         .product(name: "Console", package: "swift-console"),
@@ -216,7 +201,6 @@ let package = Package(
     .target(
       name: "Institute Application Repository",
       dependencies: [
-        "Institute Application Model",
         "Institute GitHub",
         .product(name: "Console", package: "swift-console"),
         .product(name: "Environment", package: "swift-environment"),
@@ -261,7 +245,6 @@ let package = Package(
       name: "Institute Application",
       dependencies: [
         "Institute Application CI",
-        "Institute Application Model",
         "Institute Application Repository",
         "Institute Application Source",
         .product(name: "Institute Build Coordinator", package: "institute"),
