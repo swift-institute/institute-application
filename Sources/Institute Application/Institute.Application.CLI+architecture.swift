@@ -1,4 +1,4 @@
-private import InstituteArchitectureCLI
+private import Institute_Architecture_CLI
 internal import Institute_Architecture_Model
 internal import Institute_Model
 private import Process

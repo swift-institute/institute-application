@@ -21,6 +21,18 @@ let package = Package(
       targets: ["Institute Application"]
     ),
     .library(
+      name: "Institute Application Model",
+      targets: ["Institute Application Model"]
+    ),
+    .library(
+      name: "Institute Application CI",
+      targets: ["Institute Application CI"]
+    ),
+    .library(
+      name: "Institute Application Repository",
+      targets: ["Institute Application Repository"]
+    ),
+    .library(
       name: "Institute Application Source",
       targets: ["Institute Application Source"]
     ),
@@ -38,7 +50,7 @@ let package = Package(
     ),
     .library(
       name: "Institute Architecture Index",
-      targets: ["Institute_Architecture_Index"]
+      targets: ["Institute Architecture Index"]
     ),
     .library(
       name: "Institute Architecture Validation",
@@ -46,7 +58,7 @@ let package = Package(
     ),
     .library(
       name: "Institute Architecture Candidates",
-      targets: ["Institute_Architecture_Candidates"]
+      targets: ["Institute Architecture Candidates"]
     ),
     .library(
       name: "Institute Architecture Migration",
@@ -63,9 +75,7 @@ let package = Package(
   ],
   dependencies: [
     .package(url: "https://github.com/swift-institute/institute.git", branch: "main"),
-    .package(url: "https://github.com/swift-foundations/swift-agent-skills.git", branch: "main"),
     .package(url: "https://github.com/swift-foundations/swift-arguments.git", branch: "main"),
-    .package(url: "https://github.com/swift-foundations/swift-async.git", branch: "main"),
     .package(url: "https://github.com/swift-foundations/swift-environment.git", branch: "main"),
     .package(url: "https://github.com/swift-foundations/swift-file-system.git", branch: "main"),
     .package(url: "https://github.com/swift-foundations/swift-github.git", branch: "main"),
@@ -74,27 +84,11 @@ let package = Package(
     .package(url: "https://github.com/swift-foundations/swift-kernel.git", branch: "main"),
     .package(url: "https://github.com/swift-foundations/swift-package-manager.git", branch: "main"),
     .package(url: "https://github.com/swift-foundations/swift-console.git", branch: "main"),
-    .package(
-      url: "https://github.com/swift-foundations/swift-continuous-integration.git",
-      branch: "main"
-    ),
-    .package(
-      url: "https://github.com/swift-foundations/swift-github-continuous-integration.git",
-      branch: "main"
-    ),
     .package(url: "https://github.com/swift-foundations/swift-process.git", branch: "main"),
     .package(url: "https://github.com/swift-foundations/swift-source.git", branch: "main"),
-    .package(url: "https://github.com/swift-foundations/swift-xcode.git", branch: "main"),
-    .package(url: "https://github.com/swift-ietf/swift-rfc-3986.git", branch: "main"),
-    .package(url: "https://github.com/swift-ietf/swift-rfc-4648.git", branch: "main"),
     .package(url: "https://github.com/swift-primitives/swift-byte-primitives.git", branch: "main"),
     .package(url: "https://github.com/swift-standards/swift-fips-180-4.git", branch: "main"),
-    .package(url: "https://github.com/swift-standards/swift-github-standard.git", branch: "main"),
     .package(url: "https://github.com/swift-standards/swift-spm-standard.git", branch: "main"),
-    .package(
-      url: "https://github.com/swift-primitives/swift-standard-library-extensions.git",
-      branch: "main"
-    ),
   ],
   targets: [
     .target(
@@ -121,7 +115,7 @@ let package = Package(
       ]
     ),
     .target(
-      name: "Institute_Architecture_Index",
+      name: "Institute Architecture Index",
       dependencies: [
         "Institute Architecture Model",
         "Institute Architecture Graph",
@@ -140,7 +134,7 @@ let package = Package(
       ]
     ),
     .target(
-      name: "Institute_Architecture_Candidates",
+      name: "Institute Architecture Candidates",
       dependencies: [
         "Institute Architecture Model",
         .product(name: "Institute Model", package: "institute"),
@@ -159,9 +153,9 @@ let package = Package(
         "Institute Architecture Model",
         "Institute Architecture Facts",
         "Institute Architecture Graph",
-        "Institute_Architecture_Index",
+        "Institute Architecture Index",
         "Institute Architecture Validation",
-        "Institute_Architecture_Candidates",
+        "Institute Architecture Candidates",
         "Institute Architecture Migration",
         .product(name: "File System", package: "swift-file-system"),
         .product(name: "Institute Model", package: "institute"),
@@ -173,10 +167,47 @@ let package = Package(
       dependencies: [
         .product(name: "Institute Model", package: "institute"),
         .product(name: "Institute Dependency", package: "institute"),
-        .product(name: "GitHub", package: "swift-github"),
+      ]
+    ),
+    .target(
+      name: "Institute Application Model",
+      dependencies: [
+        .product(name: "Institute Model", package: "institute")
+      ]
+    ),
+    .target(
+      name: "Institute Application CI",
+      dependencies: [
+        "Institute Application Model",
+        .product(name: "Institute CI Canon", package: "institute"),
+        .product(name: "Institute CI Contract", package: "institute"),
+        .product(name: "Institute CI Inventory", package: "institute"),
+        .product(name: "Institute CI Model", package: "institute"),
+        .product(name: "Institute CI Validation", package: "institute"),
+        .product(name: "Institute Model", package: "institute"),
+        .product(name: "Byte Primitives", package: "swift-byte-primitives"),
+        .product(name: "FIPS 180-4", package: "swift-fips-180-4"),
+        .product(name: "File System", package: "swift-file-system"),
         .product(name: "JSON", package: "swift-json"),
-        .product(name: "RFC 3986", package: "swift-rfc-3986"),
-        .product(name: "RFC 4648", package: "swift-rfc-4648"),
+        .product(name: "Package Manager", package: "swift-package-manager"),
+        .product(name: "Process", package: "swift-process"),
+      ]
+    ),
+    .target(
+      name: "Institute Application Repository",
+      dependencies: [
+        "Institute Application Model",
+        "Institute GitHub",
+        .product(name: "Institute Model", package: "institute"),
+        .product(name: "Institute Repository Policy", package: "institute"),
+        .product(name: "Byte Primitives", package: "swift-byte-primitives"),
+        .product(name: "FIPS 180-4", package: "swift-fips-180-4"),
+        .product(name: "File System", package: "swift-file-system"),
+        .product(name: "GitHub", package: "swift-github"),
+        .product(name: "GitHub App", package: "swift-github"),
+        .product(name: "JSON", package: "swift-json"),
+        .product(name: "Package Manager", package: "swift-package-manager"),
+        .product(name: "Process", package: "swift-process"),
       ]
     ),
     .target(
@@ -199,12 +230,10 @@ let package = Package(
     .target(
       name: "Institute Application",
       dependencies: [
+        "Institute Application CI",
+        "Institute Application Model",
+        "Institute Application Repository",
         "Institute Application Source",
-        .product(name: "Institute CI Canon", package: "institute"),
-        .product(name: "Institute CI Contract", package: "institute"),
-        .product(name: "Institute CI Inventory", package: "institute"),
-        .product(name: "Institute CI Validation", package: "institute"),
-        .product(name: "Institute Repository Policy", package: "institute"),
         .product(name: "Institute Build Coordinator", package: "institute"),
         .product(name: "Institute Model", package: "institute"),
         .product(name: "Institute Inventory", package: "institute"),
@@ -218,63 +247,41 @@ let package = Package(
         "Institute GitHub",
         "Institute Architecture Model",
         "Institute Architecture CLI",
-        .product(name: "Skill Validation", package: "swift-agent-skills"),
-        .product(name: "Async Fanout", package: "swift-async"),
         .product(name: "Command", package: "swift-arguments"),
+        .product(name: "Console", package: "swift-console"),
         .product(name: "Environment", package: "swift-environment"),
         .product(name: "File System", package: "swift-file-system"),
-        .product(name: "GitHub", package: "swift-github"),
         .product(name: "GitHub App", package: "swift-github"),
         .product(name: "Git", package: "swift-git"),
         .product(name: "JSON", package: "swift-json"),
         .product(name: "Package Manager", package: "swift-package-manager"),
-        .product(name: "Console", package: "swift-console"),
-        .product(name: "Continuous Integration", package: "swift-continuous-integration"),
-        .product(
-          name: "GitHub Continuous Integration",
-          package: "swift-github-continuous-integration"
-        ),
-        .product(
-          name: "GitHub Continuous Integration Validation",
-          package: "swift-github-continuous-integration"
-        ),
-        .product(name: "GitHub Standard", package: "swift-github-standard"),
         .product(name: "Process", package: "swift-process"),
-        .product(name: "RFC 3986", package: "swift-rfc-3986"),
-        .product(name: "RFC 4648", package: "swift-rfc-4648"),
-        .product(name: "FIPS 180-4", package: "swift-fips-180-4"),
         .product(name: "SPM Standard", package: "swift-spm-standard"),
-        .product(name: "Byte Primitives", package: "swift-byte-primitives"),
-        .product(
-          name: "Byte Primitives Standard Library Integration", package: "swift-byte-primitives"),
-        .product(name: "Xcode Scheme", package: "swift-xcode"),
-        .product(name: "Xcode Workspace", package: "swift-xcode"),
       ],
       path: "Sources/Institute Application"
     ),
     .executableTarget(
       name: "Institute Application CLI",
       dependencies: [
-        .product(name: "Institute Build Coordinator", package: "institute"),
         "Institute Application",
         .product(name: "Institute Model", package: "institute"),
         .product(name: "Command", package: "swift-arguments"),
       ]
     ),
     .testTarget(
-      name: "InstituteArchitectureTests",
+      name: "Institute Architecture Tests",
       dependencies: [
         "Institute Architecture Model",
         "Institute Architecture Facts",
         "Institute Architecture Graph",
-        "Institute_Architecture_Index",
+        "Institute Architecture Index",
         "Institute Architecture Validation",
-        "Institute_Architecture_Candidates",
+        "Institute Architecture Candidates",
         "Institute Architecture Migration",
         "Institute Architecture CLI",
         .product(name: "Institute Model", package: "institute"),
       ],
-      path: "Tests/InstituteArchitectureTests"
+      path: "Tests/Institute Architecture Tests"
     ),
     .testTarget(
       name: "Institute Application Source Tests",
@@ -300,32 +307,23 @@ let package = Package(
         .product(name: "Institute Conversion", package: "institute"),
         .product(name: "Institute Instruments", package: "institute"),
         "Institute GitHub",
-        .product(name: "Skill Validation", package: "swift-agent-skills"),
-        .product(name: "File System", package: "swift-file-system"),
-        .product(name: "GitHub", package: "swift-github"),
+        .product(name: "Command", package: "swift-arguments"),
         .product(name: "JSON", package: "swift-json"),
-        .product(name: "SPM Standard", package: "swift-spm-standard"),
-        .product(name: "Byte Primitives", package: "swift-byte-primitives"),
-        .product(
-          name: "Byte Primitives Standard Library Integration", package: "swift-byte-primitives"),
-        .product(
-          name: "Standard Library Extensions",
-          package: "swift-standard-library-extensions"
-        ),
       ],
       path: "Tests/Institute Application Tests"
     ),
     .testTarget(
-      name: "Institute CI Command Tests",
+      name: "Institute Application CI Tests",
       dependencies: [
-        "Institute Application",
+        "Institute Application CI",
+        .product(name: "Institute CI Canon", package: "institute"),
         .product(name: "Institute CI Validation", package: "institute"),
       ]
     ),
     .testTarget(
-      name: "Institute Repository Policy Tests",
+      name: "Institute Application Repository Tests",
       dependencies: [
-        "Institute Application",
+        "Institute Application Repository",
         .product(name: "Institute Repository Policy", package: "institute"),
         .product(name: "Package Manager", package: "swift-package-manager"),
       ],
