@@ -8,7 +8,7 @@ import Testing
 @testable import Institute_Source_Application
 
 @Test
-func `source prepare defaults to the published linter and accepts an explicit local executable`() throws {
+func `source prepare defaults to published tools and accepts explicit local executables`() throws {
     let published = try Command.parse(
         Institute.Source.Command.Prepare.self,
         from: [
@@ -20,12 +20,15 @@ func `source prepare defaults to the published linter and accepts an explicit lo
         Institute.Source.Command.Prepare.self,
         from: [
             "--workspace-path", "/workspace/institute interim.xcworkspace",
+            "--swiftlint-executable", "/tmp/swiftlint-local",
             "--linter-executable", "/tmp/swift-linter-local",
         ],
         initial: .init()
     )
 
+    #expect(published.swiftLintExecutable == nil)
     #expect(published.linterExecutable == nil)
+    #expect(local.swiftLintExecutable == "/tmp/swiftlint-local")
     #expect(local.linterExecutable == "/tmp/swift-linter-local")
 }
 

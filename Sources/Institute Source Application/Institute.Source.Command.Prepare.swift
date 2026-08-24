@@ -6,13 +6,16 @@ public import JSON
 extension Institute.Source.Command {
   public struct Prepare: Sendable, Command.`Protocol` {
     public var workspacePath: Swift.String
+    public var swiftLintExecutable: Swift.String?
     public var linterExecutable: Swift.String?
 
     public init(
       workspacePath: Swift.String = "",
+      swiftLintExecutable: Swift.String? = nil,
       linterExecutable: Swift.String? = nil
     ) {
       self.workspacePath = workspacePath
+      self.swiftLintExecutable = swiftLintExecutable
       self.linterExecutable = linterExecutable
     }
 
@@ -27,6 +30,12 @@ extension Institute.Source.Command {
           name: .long(.literal("workspace-path")),
           placeholder: "workspace.xcworkspace",
           help: .init(abstract: "The authoritative Xcode workspace.")
+        )
+        Command.Option(
+          \.swiftLintExecutable,
+          name: .long(.literal("swiftlint-executable")),
+          placeholder: "path",
+          help: .init(abstract: "Local SwiftLint executable to snapshot for this preparation.")
         )
         Command.Option(
           \.linterExecutable,
@@ -45,12 +54,17 @@ extension Institute.Source.Command {
 
     public mutating func run() async throws(Institute.Error) {
       _ = try Institute.Source.Command.context(workspace: workspacePath)
-      let linter: Institute.Source.Application.Linter =
+      let swiftLint: Institute.Source.Application.Executable =
+        swiftLintExecutable.map {
+          .local(executable: $0)
+        } ?? .published
+      let linter: Institute.Source.Application.Executable =
         linterExecutable.map {
           .local(executable: $0)
         } ?? .published
       let receipt = try await Institute.Source.Application().prepare(
         workspace: workspacePath,
+        swiftLint: swiftLint,
         linter: linter
       )
       print(receipt.jsonString(sortKeys: true))
