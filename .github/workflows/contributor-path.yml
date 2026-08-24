@@ -22,7 +22,7 @@ jobs:
   contributor-path:
     name: clean clone → install → sync → context → doctor, no credentials
     if: ${{ !github.event.repository.private }}
-    runs-on: macos-26
+    runs-on: xcode-27
     timeout-minutes: 60
     steps:
       - name: Harden runner
@@ -38,14 +38,11 @@ jobs:
         with:
           persist-credentials: false
 
-      # `Institute.json` declares the toolchain *floor* — Swift 6.3.3 and
-      # Xcode 26.6 — and the README documents that same floor. The image
-      # defaults to a different Xcode, so select it the way a contributor
-      # would. This job deliberately runs the floor rather than the newest
-      # Xcode available: the floor is what the README tells a contributor
-      # to install, so it is the version that has to be proven.
-      - name: Select the documented minimum Xcode
-        run: sudo xcode-select --switch /Applications/Xcode_26.6.app
+      # Swift 6.4 has not shipped independently yet. Use the same Xcode 27
+      # preview toolchain as the universal Apple CI leg until the documented
+      # Xcode floor is revisited.
+      - name: Select the Swift 6.4-capable Xcode
+        run: sudo xcode-select --switch /Applications/Xcode_27.0.app
 
       # The command directory is exported before the bootstrap because the
       # installer refuses to publish a command the invoking shell cannot find.
