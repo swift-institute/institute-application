@@ -50,6 +50,21 @@ extension Institute.Application.CLI.Test.Unit {
     }
 
     @Test
+    func `workspace scheme selects an existing workspace`() throws {
+        let command = try parse([
+            "workspace", "scheme", "--workspace-path", "institute control.xcworkspace",
+            "--jobs", "8",
+        ])
+
+        guard case .workspace(.scheme(let scheme)) = command else {
+            Issue.record("expected workspace scheme, got \(command)")
+            return
+        }
+        #expect(scheme.workspacePath == "institute control.xcworkspace")
+        #expect(scheme.jobs == 8)
+    }
+
+    @Test
     func `install selects the command bootstrap`() throws {
         let command = try parse(["install"])
 

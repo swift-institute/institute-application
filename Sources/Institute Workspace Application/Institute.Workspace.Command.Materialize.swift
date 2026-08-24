@@ -57,6 +57,7 @@ extension Institute.Workspace {
     /// `institute workspace` — the workspace maintenance verbs.
     public enum Command: Sendable, Command_Schema.Command.`Protocol` {
         case materialize(Materialize)
+        case scheme(Scheme)
 
         public static var configuration: Command_Schema.Command.Configuration {
             .init(name: "workspace", abstract: "Maintain the materialized fleet workspace.")
@@ -73,6 +74,14 @@ extension Institute.Workspace {
                         initial: { .init() },
                         map: Self.materialize
                     )
+                    Command_Schema.Command.Subcommand.Case(
+                        "scheme",
+                        help: .init(
+                            abstract: "Generate one aggregate scheme for an existing workspace."
+                        ),
+                        initial: { .init() },
+                        map: Self.scheme
+                    )
                 }
             }
         }
@@ -82,6 +91,9 @@ extension Institute.Workspace {
             case .materialize(var command):
                 try await command.run()
                 self = .materialize(command)
+            case .scheme(var command):
+                try await command.run()
+                self = .scheme(command)
             }
         }
     }
