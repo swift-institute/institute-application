@@ -14,8 +14,6 @@ extension Institute.Package {
     public enum Command: Sendable, Command_Schema.Command.`Protocol` {
         case execute(Execute)
         case forward(Forward)
-        case lint(Lint)
-        case check(Check)
 
         public static var configuration: Command_Schema.Command.Configuration {
             .init(name: "package", abstract: "Operate one package via the build coordinator.")
@@ -66,18 +64,6 @@ extension Institute.Package {
                         initial: { Forward(action: .dumpPackage) },
                         map: Self.forward
                     )
-                    Command_Schema.Command.Subcommand.Case(
-                        "lint",
-                        help: .init(abstract: "Lint one package with the pinned swift-linter."),
-                        initial: { Lint() },
-                        map: Self.lint
-                    )
-                    Command_Schema.Command.Subcommand.Case(
-                        "check",
-                        help: .init(abstract: "Run the local CI-parity gate on one package."),
-                        initial: { Check() },
-                        map: Self.check
-                    )
                 }
             }
         }
@@ -90,12 +76,6 @@ extension Institute.Package {
             case .forward(var command):
                 try await command.run()
                 self = .forward(command)
-            case .lint(var command):
-                try await command.run()
-                self = .lint(command)
-            case .check(var command):
-                try await command.run()
-                self = .check(command)
             }
         }
     }

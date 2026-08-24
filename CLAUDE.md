@@ -20,10 +20,10 @@ swift run institute doctor --institute  # + roster currency (needs gh)
 .build/debug/institute package test --package-path . --fresh
 .build/debug/institute navigation install
 .build/debug/institute navigation check
-.build/debug/institute lint install                 # pinned swift-linter
-.build/debug/institute lint check                   # parity with CI
-.build/debug/institute lint                         # sweep the ecosystem
-.build/debug/institute package lint                 # one package, no arguments
+.build/debug/institute source prepare --workspace-path <workspace.xcworkspace>
+.build/debug/institute source measure --workspace-path <workspace.xcworkspace>
+.build/debug/institute source repair plan --workspace-path <workspace.xcworkspace> --output-path <plan.json>
+.build/debug/institute source repair apply --workspace-path <workspace.xcworkspace> --plan-path <plan.json>
 
 # per-organization GitHub App installation token, for high-volume machine reads
 GH_TOKEN=$(institute github token --org <org>) gh api rate_limit
@@ -154,39 +154,26 @@ authenticated `gh` never changes what a plain `doctor` does.
   when the toolchain is installable without a preview, and move the README in the same commit.
 - **Dependencies are branch-based.** `doctor` warns when a recorded pin lags its branch tip;
   a green over stale pins is not evidence — re-resolve.
-- **A lint verdict of "clean" always means something was measured.** swift-linter
+- **A source verdict of "clean" always means something was measured.** swift-linter
   ships rule-pack-agnostic: without a reachable configuration zero rules fire, and a
   directory with no `Lint.swift`, a *file* path, or an empty directory each exit zero
   having printed nothing. Exit status attests that a process ran, never that it was
-  configured. Institute adjudicates every run against the engine's always-on summary
+  configured. Source measurement adjudicates every run against the engine's always-on summary
   line and reports `UNMEASURED` — never clean — when the line is absent, no rules
-  loaded, or no files were scanned, per package inside the sweep as well as alone.
-  Preserve that in any change: a lint path that can report clean without a summary
-  line is the defect this capability exists to prevent. The sweep likewise fails
+  loaded, or no files were scanned, per package inside the cohort as well as alone.
+  Preserve that in any change: a source path that can report clean without a summary
+  line is the defect this capability exists to prevent. Cohort measurement likewise fails
   rather than reporting an empty ecosystem clean when the inventory materializes
   nothing, which is what a run from the wrong hierarchy root looks like.
-- **There is no way for a package to opt out of being linted.** A package with no
-  `Lint.swift` is linted against the default bundle for its layer — `primitives`,
-  `standards`, or `institute` — spawned through the prebuilt runner directly, because
-  the dispatcher needs a consumer manifest to classify and without one loads zero
-  rules. The default is what that layer's configured packages already activate, so
-  adopting a `Lint.swift` later cannot change the verdict. Do not reintroduce an
-  allowlist, a skip list, or any other record that excuses a package from
-  measurement: the `Lint.json` allowlist and the `unconfigured` verdict were deleted
-  on 2026-07-29 for exactly that reason. A package outside every layer root is
-  `UNMEASURED`, never defaulted to a guessed bundle. This one path has no CI
-  counterpart — CI activates on `Lint.swift` and runs nothing for these packages —
-  so it is Institute's own measurement and is documented as one.
-- **swift-linter is developer tooling, not an inventory package.** Install it through
-  `institute lint install`; never add it to `Institute.json` and never put a machine
-  path in durable configuration. Institute sets `SWIFT_LINTER_RUNNER` on the child
-  process itself — never a developer's shell profile, which would be machine-specific
-  by construction. Parity with CI is the point: same rolling `ci-binaries` release,
-  same checksum verification, same `--exit-policy strict`. Do not add a flag that
-  softens the rule set, the severities, or the exit policy — a local capability that
-  can disagree with CI teaches people to trust whichever answer is convenient.
-  `lint check` compares the installed composite digest against the one CI consumes;
-  a lint run never contacts the network.
+- **There is no opt-out from source measurement.** Every admitted package receives the
+  exact profile for its classified layer. Do not introduce an allowlist, skip list, or other
+  record that excuses a package from measurement. A package that cannot be classified or
+  measured is `UNMEASURED`, never clean or defaulted to a guessed profile.
+- **swift-linter is developer tooling, not an inventory package.** Prepare it through
+  `institute source prepare`; never add it to `Institute.json` and never put a machine
+  path in durable configuration. The source profile and preparation receipt bind the exact
+  executable, tool digest, configuration, and environment; a measurement run is offline.
+  Do not add a flag that softens the rule set, severities, or fail-closed interpretation.
 - **cclsp is developer tooling, not an inventory package.** Install and verify it through
   `institute navigation`; never add it to `Institute.json`, resolve it from a personal fork,
   or put a fixed machine checkout path in durable configuration. `navigation serve` owns the

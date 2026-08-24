@@ -53,6 +53,48 @@ func `source repair plan parses its typed grammar`() throws {
 }
 
 @Test
+func `source measure parses its typed grammar`() throws {
+    let command = try Command.parse(
+        Institute.Source.Command.Measure.self,
+        from: [
+            "--workspace-path", "/workspace/institute interim.xcworkspace",
+            "--package-path", "/workspace/swift-one",
+            "--engine", "swiftlint",
+            "--jobs", "2",
+            "--format", "json",
+            "--output-path", "/tmp/source-report.json",
+        ],
+        initial: .init()
+    )
+
+    #expect(command.workspacePath == "/workspace/institute interim.xcworkspace")
+    #expect(command.packagePaths == ["/workspace/swift-one"])
+    #expect(command.engines == ["swiftlint"])
+    #expect(command.jobs == 2)
+    #expect(command.format == .json)
+    #expect(command.outputPath == "/tmp/source-report.json")
+}
+
+@Test
+func `source repair apply parses its typed grammar`() throws {
+    let command = try Command.parse(
+        Institute.Source.Command.Repair.Apply.self,
+        from: [
+            "--workspace-path", "/workspace/institute interim.xcworkspace",
+            "--plan-path", "/tmp/source-repair-plan.json",
+            "--format", "json",
+            "--output-path", "/tmp/source-repair-report.json",
+        ],
+        initial: .init()
+    )
+
+    #expect(command.workspacePath == "/workspace/institute interim.xcworkspace")
+    #expect(command.planPath == "/tmp/source-repair-plan.json")
+    #expect(command.format == .json)
+    #expect(command.outputPath == "/tmp/source-repair-report.json")
+}
+
+@Test
 func `source repair plan rejects changed and explicit package scope`() {
     #expect(throws: Command.Error.self) {
         _ = try Command.parse(

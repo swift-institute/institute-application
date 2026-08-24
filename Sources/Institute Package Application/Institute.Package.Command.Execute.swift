@@ -3,7 +3,6 @@ public import Command_Schema
 public import Institute_Model
 public import Institute_Build_Coordinator
 import Environment
-import Institute_Lint
 import Process
 
 extension Institute.Package.Command {

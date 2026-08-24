@@ -69,10 +69,6 @@ let package = Package(
       targets: ["Institute Inventory Application"]
     ),
     .library(
-      name: "Institute Lint Application",
-      targets: ["Institute Lint Application"]
-    ),
-    .library(
       name: "Institute Navigation Application",
       targets: ["Institute Navigation Application"]
     ),
@@ -401,21 +397,7 @@ let package = Package(
         .product(name: "Command Schema", package: "swift-arguments"),
         .product(name: "Institute Model", package: "institute"),
         .product(name: "Institute Build Coordinator", package: "institute"),
-        .product(name: "Institute Lint", package: "institute"),
         .product(name: "Environment", package: "swift-environment"),
-        .product(name: "File System", package: "swift-file-system"),
-        .product(name: "Process", package: "swift-process"),
-      ]
-    ),
-    .target(
-      name: "Institute Lint Application",
-      dependencies: [
-        .product(name: "Command", package: "swift-arguments"),
-        .product(name: "Command Schema", package: "swift-arguments"),
-        .product(name: "Institute Model", package: "institute"),
-        .product(name: "Institute Lint", package: "institute"),
-        .product(name: "Environment", package: "swift-environment"),
-        .product(name: "File System", package: "swift-file-system"),
         .product(name: "Process", package: "swift-process"),
       ]
     ),
@@ -504,7 +486,6 @@ let package = Package(
         "Institute Doctor Application",
         "Institute GitHub Application",
         "Institute Inventory Application",
-        "Institute Lint Application",
         "Institute Navigation Application",
         "Institute Package Application",
         "Institute Verification Application",
@@ -523,7 +504,6 @@ let package = Package(
         .product(name: "Institute Doctor", package: "institute"),
         .product(name: "Institute Instruments", package: "institute"),
         .product(name: "Institute Inventory", package: "institute"),
-        .product(name: "Institute Lint", package: "institute"),
         .product(name: "Institute Model", package: "institute"),
         .product(name: "Institute Repository Policy", package: "institute"),
       ],
@@ -575,7 +555,6 @@ let package = Package(
         "Institute Doctor Application",
         "Institute GitHub Application",
         "Institute Inventory Application",
-        "Institute Lint Application",
         "Institute Navigation Application",
         "Institute Package Application",
         "Institute Verification Application",

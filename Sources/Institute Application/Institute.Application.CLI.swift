@@ -9,7 +9,6 @@ public import Institute_Doctor
 public import Institute_GitHub
 public import Institute_Instruments
 public import Institute_Inventory
-public import Institute_Lint
 public import Institute_Repository_Policy
 public import Institute_CI_Application
 public import Institute_Certification_Application
@@ -21,7 +20,6 @@ public import Institute_Dependency_Application
 public import Institute_Doctor_Application
 public import Institute_GitHub_Application
 public import Institute_Inventory_Application
-public import Institute_Lint_Application
 public import Institute_Navigation_Application
 public import Institute_Package_Application
 public import Institute_Repository_Application
@@ -48,7 +46,6 @@ extension Institute.Application {
         case context(Institute.Context.Command)
         case navigation(Institute.Navigation.Command)
         case package(Institute.Package.Command)
-        case lint(Institute.Lint.Command)
         case coherence(Institute.Coherence.Command)
         case conversion(Institute.Conversion.Command)
         case github(Institute.GitHub.Command)
@@ -148,12 +145,6 @@ extension Institute.Application {
                         map: Self.package
                     )
                     Command_Schema.Command.Subcommand.Case(
-                        "lint",
-                        help: .init(abstract: "Sweep the ecosystem with the pinned swift-linter."),
-                        initial: { .init() },
-                        map: Self.lint
-                    )
-                    Command_Schema.Command.Subcommand.Case(
                         "coherence",
                         help: .init(abstract: "Measure the whole selection's coherence."),
                         initial: { .init() },
@@ -246,9 +237,6 @@ extension Institute.Application {
             case .package(var command):
                 try await command.run()
                 self = .package(command)
-            case .lint(var command):
-                try await command.run()
-                self = .lint(command)
             case .coherence(var command):
                 try await command.run()
                 self = .coherence(command)

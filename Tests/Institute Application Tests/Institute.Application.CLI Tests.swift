@@ -8,7 +8,6 @@ import Institute_Dependency_Application
 import Institute_Doctor_Application
 import Institute_GitHub_Application
 import Institute_Inventory_Application
-import Institute_Lint_Application
 import Institute_Navigation_Application
 import Institute_Package_Application
 import Institute_Verification_Application
@@ -456,7 +455,7 @@ extension Institute.Application.CLI.Test.`Edge Case` {
 
     // A dropped `--institute` would print a report indistinguishable from
     // the one that measured the roster. Rejecting it is the point.
-    @Test(arguments: [["sync"], ["inventory"], ["lint"], ["package", "build"]])
+    @Test(arguments: [["sync"], ["inventory"], ["package", "build"]])
     func `institute is rejected outside doctor`(argument: [Swift.String]) {
         #expect(throws: Command.Error.self) {
             _ = try parse(argument + ["--institute"])
@@ -512,6 +511,17 @@ extension Institute.Application.CLI.Test.`Edge Case` {
         }
     }
 
+    @Test(arguments: [
+        ["lint"],
+        ["package", "lint"],
+        ["package", "check"],
+    ])
+    func `obsolete lint command surfaces are rejected`(arguments: [Swift.String]) {
+        #expect(throws: Command.Error.self) {
+            _ = try parse(arguments)
+        }
+    }
+
     @Test
     func `fresh rejects package resolve`() {
         #expect(throws: Command.Error.self) {
@@ -526,7 +536,6 @@ extension Institute.Application.CLI.Test.`Edge Case` {
     @Test(arguments: [
         ["package", "resolve"],
         ["package", "run"],
-        ["package", "lint"],
         ["build"],
         ["sync"],
         ["doctor"],

@@ -23,9 +23,9 @@ and local-source composition for cross-package work (`institute compose` / `rest
 | `context packet` | Render a bounded, read-only current-state packet for one GitHub Issue; ordinary history stays cold unless a comment URL is named explicitly. |
 | `navigation install\|check` | Install or verify the pinned cclsp/SourceKit-LSP integration for this checkout. |
 | `package <action>` | Run SwiftPM build, test, resolution, and administration through the Swift coordinator. |
-| `package lint` | Lint one package with the same binary, rules, and exit policy CI gates on. |
-| `lint` | Lint the whole ecosystem. `install\|check` manage the pinned linter and its parity with CI. |
-| `lint ledger` | Render the complete residual lint census as a human report or deterministic JSON. |
+| `source prepare` | Materialize and verify the exact offline source engines and profiles. |
+| `source measure` | Measure a typed workspace source cohort without building or testing. |
+| `source repair plan\|apply` | Plan or apply a digest-bound mechanical source repair transaction. |
 
 ## What Swift Institute is
 
@@ -344,123 +344,27 @@ retired, unsupported, and not prerequisites for navigation. A clean machine
 installs from the public cclsp revision and generates its own configuration
 through the Institute commands above; it does not copy old index artifacts.
 
-### Lint
+### Source measurement and repair
 
-**Run `lint install` once as part of setting up.** Until you do, `doctor` reports a `linter`
-warning — `swift-linter is not installed` — on every run, so a fresh checkout never comes up
-clean. The warning is honest rather than cosmetic: without the binaries there is no lint
-verdict to have, and Institute reports the absence instead of counting an unlinted ecosystem
-as a clean one. It does not fail your checkout; warnings still exit 0.
-
-Institute runs the same swift-linter CI gates on: the same binaries from the
-same rolling `ci-binaries` release, verified against that release's
-`SHA256SUMS`, invoked as `swift-linter <package-root> --exit-policy strict`
-with the prebuilt standard runner provisioned on the environment. Institute
-sets that environment variable itself; a developer's shell profile is never
-written, which is what makes the setup identical for everyone.
+Source enforcement is one typed, offline path. `source prepare` materializes and verifies the
+exact policy-bound swift-format, swift-linter, and transitional SwiftLint tools. `source
+measure` evaluates a workspace cohort and fails closed when any required file, rule, profile,
+tool, or engine output is missing or inconsistent. Repair is a separate digest-bound plan/apply
+transaction. None of these commands builds, tests, resolves, or otherwise coordinates packages.
 
 ```sh
-institute lint install     # fetch, verify, record the build
-institute lint check       # is it the build CI consumes?
-institute lint             # the whole ecosystem
-institute lint --changed   # only packages with local work
-institute lint ledger      # complete residual compliance ledger
-institute lint ledger --format json
-institute package lint     # one package, from inside it
+institute source prepare --workspace-path institute.xcworkspace
+institute source measure --workspace-path institute.xcworkspace \
+  --package-path ../swift-standards/swift-iso/swift-iso-639 --output-path .source/report.json
+institute source repair plan --workspace-path institute.xcworkspace \
+  --package-path ../swift-standards/swift-iso/swift-iso-639 --output-path .source/repair-plan.json
+institute source repair apply --workspace-path institute.xcworkspace \
+  --plan-path .source/repair-plan.json --output-path .source/repair-report.json
 ```
 
-`package lint` takes no arguments: standing anywhere inside a package it finds
-the package root and the installed binaries by walking up, reads no inventory,
-and enumerates no organization. The whole-ecosystem sweep enumerates from
-`Institute.json` and lints packages concurrently. Both modes go through one
-implementation, so a package's verdict cannot depend on which one asked for it.
-
-`lint ledger` is the read-only machine evidence entry point for the complete
-inventory. Its human and JSON forms come from the same typed report. Every
-`Institute.json` repository appears exactly once with its canonical identity,
-owning organization, layer, measured or `UNMEASURED` state and reason, typed
-prerequisite cause when one blocks measurement, exact unsuppressed error count,
-advisory findings grouped by rule, and a known or explicitly unknown verification
-coordinate. JSON object keys, package rows, findings, and remediation batches are
-deterministically ordered. A validated inventory containing zero repositories is
-incomplete and exits `2`; it can never render a compliant ledger.
-
-Terminal advisory decisions and qualifying exact-head GitHub Actions runs are
-explicit inputs; Institute does not infer them from Issue prose, comments, or
-past CI state:
-
-```sh
-institute lint ledger --format json \
-  --disposition 'PLAT-ARCH-022=remediation@swift-foundations/swift-linter#20' \
-  --verification 'swift-primitives/swift-bytes@<40-hex-sha>=https://github.com/swift-primitives/swift-bytes/actions/runs/<id>'
-```
-
-The verification grammar is
-`owner/repository@<40-hex-sha>=https://github.com/owner/repository/actions/runs/<id>`.
-Disposition states are `promotion`, `retention`, `change`, `removal`, `addition`,
-`relocation`, and `remediation`. Batches combine only the same rule and exact
-supplied owner Issue; missing dispositions remain explicitly unresolved.
-
-The ledger requests swift-linter's existing SARIF result schema and validates
-the result count against the always-on summary. It never parses the human
-diagnostic format or reclassifies findings. Until configured-package and
-prebuilt-runner dispatch propagate that structured-output request, affected
-rows fail closed as `UNMEASURED` and name
-[swift-linter issue #20](https://github.com/swift-foundations/swift-linter/issues/20).
-The typed `sarif` prerequisite field owns that blocked state; human reason prose
-is rendered alongside it but is never parsed to derive machine output.
-Exit `0` means a complete compliant ledger, `1` means complete evidence with
-error-severity findings, and `2` means incomplete evidence or unresolved
-advisory disposition.
-
-**Every package is linted, whether or not it carries a `Lint.swift`.** A package
-with one is dispatched exactly as CI dispatches it. A package without one cannot
-go through the dispatcher at all — with no consumer manifest to classify, the
-dispatcher falls through to a zero-rules configuration and exits clean having
-loaded nothing — so it is handed straight to the prebuilt standard runner with an
-explicit bundle selection on `SWIFT_LINTER_BUNDLE` and the exit policy on
-`SWIFT_LINTER_EXIT_POLICY`, which is the same terminal the dispatched executable
-reads.
-
-The default bundle is the one the package's own layer already uses:
-`primitives` for the primitives layer, `standards` for the standards layer,
-`institute` for everything above them. That is not a second standard — it is
-byte-for-byte what the package's configured peers activate, so writing the
-`Lint.swift` its layer's convention calls for changes nothing about the verdict.
-Picking each layer's own bundle rather than one global choice is what stops a
-primitives-layer package from being measured against a *weaker* set than its
-peers, which would reward staying unconfigured. A package that sits under no
-layer root has no peers to inherit from and is reported `UNMEASURED` rather than
-linted against a guess.
-
-This one path has no CI counterpart: CI's activation signal *is* the presence of
-`Lint.swift`, so for these packages CI runs nothing. The default-bundle run is
-Institute's own measurement. Nothing here changes what the gating CI legs
-require.
-
-**A lint run cannot report clean without having measured something.** The
-engine ships rule-pack-agnostic: without a reachable configuration zero rules
-fire, and three invocations of the dispatcher exit zero having printed nothing at
-all — a directory holding Swift source but no `Lint.swift`, a *file* path rather
-than a package root, and an empty directory. Exit status attests that a process
-ran, never that it was configured. Every run is adjudicated against the engine's
-always-on summary line, and a missing summary, zero active rules, or zero files
-linted reports `UNMEASURED` — never clean, per package inside the sweep as well
-as on its own. A sweep that enumerates the inventory and materializes nothing
-fails rather than reporting an empty ecosystem clean. Exit status follows
-`doctor`: 0 measured and passing, 1 measured with error-severity findings, 2
-something could not be measured.
-
-A file path is resolved to its enclosing package, which is linted whole and
-whose diagnostics are then narrowed to that file — passing a file to the engine
-is one of the silent-zero invocations and is unreachable through this
-capability.
-
-`lint check` compares the installed build's composite digest against the one CI
-consumes. Because `ci-binaries` is a rolling tag, that establishes *you are
-running what CI would install right now*, not what CI ran on any past run. The
-macOS asset publishes on a slower cadence than Linux, so a transient divergence
-is expected rather than a defect. A lint run itself never contacts the network.
+The report is the canonical source evidence. Human and JSON renderings derive from the same
+typed measurement, and a zero-file or zero-rule engine result is `UNMEASURED`, never clean.
+Package build and test verification remains a separate operation.
 
 ### Build and test packages
 
