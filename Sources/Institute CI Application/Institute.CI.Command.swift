@@ -29,7 +29,7 @@ extension Institute.CI {
         }
 
         public mutating func run() async throws(Institute.Error) {
-            Institute.CI.Command.execute(arguments)
+            await Institute.CI.Command.execute(arguments)
         }
     }
 }

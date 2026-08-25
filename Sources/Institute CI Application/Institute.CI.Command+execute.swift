@@ -10,20 +10,20 @@ import JSON
 import Process
 
 extension Institute.CI.Command {
-    public static func execute(_ arguments: [Swift.String]) {
+    public static func execute(_ arguments: [Swift.String]) async {
         do throws(Error) {
-            try run(arguments)
+            try await run(arguments)
         } catch {
             Console.Output.error("institute ci: \(error.message)")
             terminate(2)
         }
     }
 
-    private static func run(_ arguments: [Swift.String]) throws(Error) {
+    private static func run(_ arguments: [Swift.String]) async throws(Error) {
         // The workflow verbs dispatch first and exit on their own verdict;
         // everything else is the gitignore command's argument grammar.
         if let first = arguments.first, let verb = Verb(rawValue: first) {
-            run(verb, Array(arguments.dropFirst()))
+            await run(verb, Array(arguments.dropFirst()))
             return
         }
         let action: Gitignore.Action
@@ -109,10 +109,11 @@ extension Institute.CI.Command {
         return root
     }
 
-    static func run(_ verb: Verb, _ rest: [Swift.String]) {
+    static func run(_ verb: Verb, _ rest: [Swift.String]) async {
         switch verb {
         case .packageCommand: package(rest)
         case .control: control(rest)
+        case .source: await source(rest)
 
         case .bootstrapIdentity, .bootstrapManifest, .bootstrapVerify:
             bootstrap(verb, rest)
@@ -125,6 +126,7 @@ extension Institute.CI.Command {
     enum Verb: Swift.String {
         case packageCommand = "package"
         case control
+        case source
         case bootstrapManifest = "bootstrap-manifest"
         case bootstrapVerify = "bootstrap-verify"
         case bootstrapIdentity = "bootstrap-identity"

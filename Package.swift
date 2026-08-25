@@ -249,12 +249,15 @@ let package = Package(
         .product(name: "Institute CI Model", package: "institute"),
         .product(name: "Institute CI Validation", package: "institute"),
         .product(name: "Institute Model", package: "institute"),
+        .product(name: "Institute Source", package: "institute"),
+        .product(name: "Institute Source Workspace", package: "institute"),
         .product(name: "Byte Primitives", package: "swift-byte-primitives"),
         .product(name: "FIPS 180-4", package: "swift-fips-180-4"),
         .product(name: "File System", package: "swift-file-system"),
         .product(name: "JSON", package: "swift-json"),
         .product(name: "Package Manager", package: "swift-package-manager"),
         .product(name: "Process", package: "swift-process"),
+        .product(name: "Source Report", package: "swift-source"),
       ]
     ),
     .target(

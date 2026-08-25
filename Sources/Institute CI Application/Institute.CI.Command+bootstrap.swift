@@ -120,7 +120,7 @@ extension Institute.CI.Command {
                 """
             )
 
-        case .control, .packageCommand:
+        case .control, .packageCommand, .source:
             refuse("unreachable")
         }
     }
