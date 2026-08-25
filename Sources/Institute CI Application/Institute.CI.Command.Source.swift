@@ -3,6 +3,7 @@ public import Command_Schema
 public import Institute_Model
 public import Institute_CI_Model
 public import Institute_Source
+import Institute_Source_Policy
 public import Institute_Source_Workspace
 public import JSON
 public import Source_Report
