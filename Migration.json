@@ -15244,14 +15244,14 @@
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-boundary.git"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
-          "package resolution blocked at prepared commit 11a7ed4b70021b1c06c41bf493c1a9ccfb4ed81d",
-          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-boundary-primitives --argument=--disable-sandbox",
-          "remote repository not found: https://github.com/swift-molecules/swift-equation.git",
-          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+          "package resolution passed for swift-boundary at live published commit 11a7ed4b70021b1c06c41bf493c1a9ccfb4ed81d",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-boundary-live institute package resolve --package-path /private/tmp/four-layer-swift-boundary-primitives --argument=--disable-sandbox",
+          "resolved swift-boundary direct live dependencies swift-comparison at 094fd624bd55948a2fdfbcc76e53e75ea0ae80a5, swift-equation at 711d6efbd7a6a4041e033dd3daf385828047b878, and swift-hash at addfe7191c52beb9a91a9fbf1157d5e922cd8b01",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 2d6e3158a17de75f9b7f7ab971dc4e36e70e9dfe4056581ef0b64d784f23dee5 and left as generated state"
         ]
       },
       "githubRepositoryID": 1264249470
