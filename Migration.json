@@ -20295,12 +20295,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 83143793c83670f52ab4334c295bac184049c7d5",
           "renamed repository swift-molecules/swift-list-primitives -> swift-molecules/swift-list",
           "verified stable GitHub repository ID 1138059990",
-          "prepared commit f7364ec84a92a919c1ac3113c14968e55aefd26c publication pending"
+          "fast-forward published prepared commit f7364ec84a92a919c1ac3113c14968e55aefd26c",
+          "verified live main f7364ec84a92a919c1ac3113c14968e55aefd26c and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-list.git"
         ]
       },
       "state": "blocked",
