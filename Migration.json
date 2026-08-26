@@ -25413,14 +25413,14 @@
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-text.git"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
-          "package resolution blocked at prepared commit c90ce2f1bae69bc5e36db21d5c8a04ad802baaef",
-          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-text-primitives --argument=--disable-sandbox",
-          "remote repository not found: https://github.com/swift-molecules/swift-affine.git",
-          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+          "package resolution passed for swift-text at live published commit c90ce2f1bae69bc5e36db21d5c8a04ad802baaef",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-text institute package resolve --package-path /private/tmp/four-layer-swift-text-primitives --argument=--disable-sandbox",
+          "resolved swift-text direct live dependencies swift-affine at fffed9e57683fd4973f2ebf414f106fa88ba2354, swift-byte at 21d5194adee27b585f27e01c5c7669f74bb96710, swift-carrier at 428df0eb4e03fe671c4c6da8683b88e6e8534f63, and swift-ownership at 8cbad8f0ae82ba45ee77f00515973426bd6aeb5f",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 f2bb2a33d4c860db52b2a84af8d054fd9cca89fa69bf9cb2c77afd569a65df2e and left as generated state"
         ]
       },
       "githubRepositoryID": 1138063967
