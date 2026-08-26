@@ -21629,7 +21629,10 @@
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 655d6b074954b4407a3a5d7465dfe6956c2231db",
+          "renamed repository swift-molecules/swift-order-primitives -> swift-molecules/swift-order",
+          "verified stable GitHub repository ID 1139271284 and public visibility",
+          "prepared commit publication pending"
         ]
       },
       "state": "blocked",
@@ -21641,7 +21644,8 @@
           "remote repository not found: https://github.com/swift-molecules/swift-comparison.git",
           "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
-      }
+      },
+      "githubRepositoryID": 1139271284
     },
     {
       "current": "swift-primitives/swift-ordinal-primitives",
