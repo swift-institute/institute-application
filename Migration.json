@@ -16519,12 +16519,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 4d975a803e898eeb0b8abd7433c709393823ce25",
           "renamed repository swift-molecules/swift-collection-primitives -> swift-molecules/swift-collection",
-          "verified stable GitHub repository ID 1132373335 and public visibility",
-          "prepared commit publication pending"
+          "verified stable GitHub repository ID 1132373335",
+          "fast-forward published prepared commit 98d65bf4438dd7f19a1590e759fae1fe0481c029",
+          "verified live main 98d65bf4438dd7f19a1590e759fae1fe0481c029 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-collection.git"
         ]
       },
       "state": "blocked",
