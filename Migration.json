@@ -19011,10 +19011,15 @@
           "verified live main 95f2361d7c00ce811977aa98e1a44e2386982f4c with unchanged repository ID, public visibility, non-archived state, default branch main, and clean isolated worktree"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-dictionary at live published commit 95f2361d7c00ce811977aa98e1a44e2386982f4c",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-dictionary-root institute package resolve --package-path /private/tmp/four-layer-swift-dictionary --argument=--disable-sandbox",
+          "resolution exited 0 against all eleven live molecule dependencies and their transitive graph",
+          "HEAD unchanged; tracked worktree clean; Package.resolved changed from absent to ignored uncommitted generated state and stabilized at SHA-256 c848429cc65f5e7a538e42f501f557b7fe3f86b45c52cfeb9960492a37cc5083"
+        ]
       }
     },
     {
