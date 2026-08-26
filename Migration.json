@@ -13620,20 +13620,29 @@
       "observedHead": "f1d13af14b8474bf1df42e931c36b9f41d0682db",
       "observedRemote": "https://github.com/swift-microsoft/swift-windows-32.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit 7a555f122346568fa9080dd836ad6445cae27ec3 from expected parent f1d13af14b8474bf1df42e931c36b9f41d0682db",
+          "isolated worktree /private/tmp/swift-windows-32-publish",
+          "canonical molecule dependency identities, products, modules, imports, and paths applied across 202 changed paths; unchanged repository coordinate preserved"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit f1d13af14b8474bf1df42e931c36b9f41d0682db",
+          "verified stable GitHub repository ID 1206918715 with public visibility and non-archived state",
+          "fast-forward published prepared commit 7a555f122346568fa9080dd836ad6445cae27ec3",
+          "verified live main 7a555f122346568fa9080dd836ad6445cae27ec3 with unchanged public visibility",
+          "verified final origin https://github.com/swift-microsoft/swift-windows-32.git"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
         "records": []
-      }
+      },
+      "githubRepositoryID": 1206918715
     },
     {
       "current": "swift-primitives/swift-affine-algebra-primitives",
