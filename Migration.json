@@ -1151,10 +1151,15 @@
           "verified live main 393bed73710b6300b42555ba78683b9221a9004a with unchanged public visibility and non-archived state"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-copy-on-write at live published commit 393bed73710b6300b42555ba78683b9221a9004a",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-copy-on-write-root institute package resolve --package-path /private/tmp/four-layer-swift-copy-on-write --argument=--disable-sandbox",
+          "resolution exited 0 and resolved the unchanged external swift-syntax dependency at version 602.0.0",
+          "HEAD unchanged; tracked worktree clean; Package.resolved generated as ignored uncommitted state and stabilized at SHA-256 7bd9ff05cb3b4412eb6a01eb0811390ca98afd419326fb0e5b77c329fe71ec26"
+        ]
       },
       "githubRepositoryID": 1119175704
     },
