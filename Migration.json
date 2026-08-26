@@ -19413,14 +19413,14 @@
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-index.git"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
-          "package resolution blocked at prepared commit ea265ffc2efe2c282e494f5e7309d0ea19f2b287",
+          "package resolution passed at live published commit ea265ffc2efe2c282e494f5e7309d0ea19f2b287",
           "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-index-primitives --argument=--disable-sandbox",
-          "remote repository not found: https://github.com/swift-molecules/swift-ordinal.git",
-          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+          "resolved live swift-affine at fffed9e57683fd4973f2ebf414f106fa88ba2354, swift-cardinal at e932d328deff46ef801bab10520354b0da779398, swift-comparison at 094fd624bd55948a2fdfbcc76e53e75ea0ae80a5, swift-ordinal at 92f2aef190ba01b10d606c4991c48c44039e4a69, and swift-tagged at c46829f9ff788f078389b41e0f75a48b14ee6b6b, with their live transitive molecule dependencies",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 2a139c3a69f3707ba9caad2bac7a146cfba1563daa3c30f33a10dce982b7961d and left as generated state"
         ]
       },
       "githubRepositoryID": 1138063557
