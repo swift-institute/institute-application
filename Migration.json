@@ -18991,9 +18991,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit f76fcdec7368e6e67e6e659b0d08f550fa2d3dbe on exact live coordinate swift-molecules/swift-dictionary-primitives after the organization cutover",
+          "verified exact future coordinate swift-molecules/swift-dictionary returned HTTP 404 before repository rename",
+          "renamed repository swift-molecules/swift-dictionary-primitives to swift-molecules/swift-dictionary and verified stable GitHub repository ID 1138063399",
+          "updated isolated worktree fetch and push origin to https://github.com/swift-molecules/swift-dictionary.git",
+          "fast-forward published prepared commit 95f2361d7c00ce811977aa98e1a44e2386982f4c without force or history rewrite",
+          "verified live main 95f2361d7c00ce811977aa98e1a44e2386982f4c with unchanged repository ID, public visibility, non-archived state, default branch main, and clean isolated worktree"
         ]
       },
       "state": "ready",
