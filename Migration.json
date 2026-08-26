@@ -23374,20 +23374,28 @@
       "observedHead": "1df9686839f045733f29768a4a65bc743325c559",
       "observedRemote": "https://github.com/swift-primitives/swift-ownership-shared-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 87fcb40a93b9db9f63bcb6fbef37a4ca878c2081 from expected parent 1df9686839f045733f29768a4a65bc743325c559 through six ordinary child commits",
+          "isolated worktree /private/tmp/swift-ownership-shared-migration.yWysFs/swift-ownership-shared",
+          "canonical plural-to-suffix-free mappings applied while singular Primitive identities were preserved; all direct source and test imports gained exact owning products; 14 future-coordinate dependencies and 24 changed paths passed the release gate"
+        ]
       },
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 1df9686839f045733f29768a4a65bc743325c559",
+          "renamed swift-molecules/swift-ownership-shared-primitives to swift-molecules/swift-ownership-shared",
+          "verified exact destination owns stable GitHub repository ID 1276750149 with public visibility and non-archived state",
+          "publication remains pending at non-force fast-forward push of prepared commit 87fcb40a93b9db9f63bcb6fbef37a4ca878c2081"
         ]
       },
       "state": "ready",
       "validation": {
         "status": "pending",
         "records": []
-      }
+      },
+      "githubRepositoryID": 1276750149
     },
     {
       "current": "swift-primitives/swift-package-primitives",
