@@ -18526,12 +18526,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 78935c4b25595e0686bb09537c51ba6e2938b6d1",
           "renamed repository swift-molecules/swift-finite-primitives -> swift-molecules/swift-finite",
-          "verified stable GitHub repository ID 1138063493 and public visibility",
-          "prepared commit publication pending"
+          "verified stable GitHub repository ID 1138063493",
+          "fast-forward published prepared commit 4493866be8f59c3b2e7a78440d60341493bf254c",
+          "verified live main 4493866be8f59c3b2e7a78440d60341493bf254c and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-finite.git"
         ]
       },
       "state": "blocked",
