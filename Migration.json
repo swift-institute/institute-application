@@ -14506,12 +14506,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 555e0661f3b6cc8266cca0e53a33d6214a49e7f2",
           "renamed repository swift-molecules/swift-bit-algebra-primitives -> swift-molecules/swift-bit-algebra",
-          "verified stable GitHub repository ID 1252381637 and public visibility",
-          "prepared commit publication pending"
+          "verified stable GitHub repository ID 1252381637",
+          "fast-forward published prepared commit c455e479cc26584bdc6c0dfb710df7188727abab",
+          "verified live main c455e479cc26584bdc6c0dfb710df7188727abab and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-bit-algebra.git"
         ]
       },
       "state": "blocked",
