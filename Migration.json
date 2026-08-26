@@ -16509,14 +16509,14 @@
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-clock.git"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
-          "package resolution blocked at prepared commit 4132d4bcea77cd88a21bf3f217c7683ff0117ca9",
-          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-clock-primitives --argument=--disable-sandbox",
-          "remote repository not found: https://github.com/swift-molecules/swift-tagged.git",
-          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+          "package resolution passed for swift-clock at live published commit 4132d4bcea77cd88a21bf3f217c7683ff0117ca9",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-clock-live institute package resolve --package-path /private/tmp/four-layer-swift-clock-primitives --argument=--disable-sandbox",
+          "resolved swift-clock direct live dependencies swift-carrier at 428df0eb4e03fe671c4c6da8683b88e6e8534f63, swift-standard-library-extensions at 28a204ee2c6cf1476cd99dc95b81b59868681ebf, and swift-tagged at c46829f9ff788f078389b41e0f75a48b14ee6b6b",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 db7cb3220faf63c5b234b1416348008af5e5c149472a06d9e9bfffa706dbe1a4 and left as generated state"
         ]
       },
       "githubRepositoryID": 1132373321
