@@ -28238,9 +28238,13 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 7a5da4f069fd270b7b7a0d87aec107f4293d8441",
+          "repository retained exact live coordinate swift-standards/swift-darwin-standard; no repository rename was required",
+          "verified exact coordinate owns stable GitHub repository ID 1206918613 with public visibility, non-archived state, and default branch main",
+          "fast-forward published prepared commit 467dfbfd68a040e1f363e574e1577d81bb7f1448 without force or history rewrite",
+          "verified live main 467dfbfd68a040e1f363e574e1577d81bb7f1448 with unchanged repository ID, public visibility, non-archived state, and clean isolated worktree"
         ]
       },
       "state": "ready",
