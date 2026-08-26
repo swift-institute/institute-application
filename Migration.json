@@ -22573,12 +22573,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 14d71b306c73c500591d91c4a825178c568eef8d",
           "renamed repository swift-molecules/swift-predicate-primitives -> swift-molecules/swift-predicate",
-          "verified stable GitHub repository ID 1132373871 and public visibility",
-          "prepared commit publication pending"
+          "verified stable GitHub repository ID 1132373871",
+          "fast-forward published prepared commit 4d8d1cd473c1176e1d45f95eee4ada7358b04804",
+          "verified live main 4d8d1cd473c1176e1d45f95eee4ada7358b04804 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-predicate.git"
         ]
       },
       "state": "blocked",
