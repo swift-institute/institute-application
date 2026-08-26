@@ -28362,8 +28362,13 @@
       "observedHead": "bc0463e189a14afeeed8c4fcbf30635128b93067",
       "observedRemote": "https://github.com/swift-standards/swift-fips-180-4.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 9ee92d0445f46e39a73a9844b0ecf499758c97bb from expected parent bc0463e189a14afeeed8c4fcbf30635128b93067",
+          "isolated worktree /private/tmp/four-layer-swift-fips-180-4",
+          "updated swift-byte and swift-binary-base to live molecule URLs, products, modules, and imports while preserving standards identities and the external swift-crypto dependency",
+          "added the direct Byte test product declaration; ancestry, diff, import declarations, residuals, public payload, live dependencies, Actions references, and Package.resolved audits passed independently"
+        ]
       },
       "publication": {
         "status": "pending",
