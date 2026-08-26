@@ -18046,12 +18046,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 7a2d4bf3292b99dbfcb6dccaa1a98de2b03d65d8",
           "renamed repository swift-molecules/swift-effect-primitives -> swift-molecules/swift-effect",
-          "verified stable GitHub repository ID 1138063446 and public visibility",
-          "prepared commit publication pending"
+          "verified stable GitHub repository ID 1138063446",
+          "fast-forward published prepared commit d873ca7ddfd7e61df6b3b558d44e5183cf0f97ae",
+          "verified live main d873ca7ddfd7e61df6b3b558d44e5183cf0f97ae and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-effect.git"
         ]
       },
       "state": "blocked",
