@@ -16936,21 +16936,27 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit fd7e956bb6945daa36b5d68806c594a255b6d4b4",
+          "preserved repository identity swift-molecules/swift-coproduct-derivation",
+          "verified stable GitHub repository ID 1327212166",
+          "fast-forward published prepared commit c7463c880b633a7fcedd5bcc183c587e11bb7e21",
+          "verified live main c7463c880b633a7fcedd5bcc183c587e11bb7e21 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-coproduct-derivation.git"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
-          "package resolution blocked at prepared commit c7463c880b633a7fcedd5bcc183c587e11bb7e21",
+          "package resolution passed at live published commit c7463c880b633a7fcedd5bcc183c587e11bb7e21",
           "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-coproduct-derivation --argument=--disable-sandbox",
-          "remote repository not found: https://github.com/swift-molecules/swift-declaration-derivation.git",
-          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+          "resolved live swift-declaration-derivation at bdc9e927ea3f15dc6be27bb271bded5880e9776b and swift-syntax 602.0.0",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 aa51619feec3542b327dbe0690cfdd126a587e48139678d8d722fecd2139aec0 and left as generated state"
         ]
-      }
+      },
+      "githubRepositoryID": 1327212166
     },
     {
       "current": "swift-primitives/swift-coproduct-primitives",
