@@ -24672,10 +24672,15 @@
           "verified live main ad611533fd2b166d950017afc9ace24deb2fcfa1 and final origin https://github.com/swift-molecules/swift-sample.git"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-sample at live commit ad611533fd2b166d950017afc9ace24deb2fcfa1",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-sample-live institute package resolve --package-path /private/tmp/swift-sample-live-fa6d741cfa2b3dd3dddeda6966786ab927ea3090 --argument=--disable-sandbox",
+          "resolved direct live swift-algebra b28bbbb, swift-comparison 094fd62, swift-order 1e15226, swift-time 578f830f95eb5f01ab67e7bf7e059d0aa7fd15bb, and swift-witness cc9780b plus transitive closure",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to SHA-256 fa3860cd24b9e4f39d45dee2daec14dbe2f4e9c85a4fb6407d7ac3023218e418 and remained ignored/uncommitted"
+        ]
       },
       "githubRepositoryID": 1179869757
     },
