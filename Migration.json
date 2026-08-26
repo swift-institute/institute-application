@@ -13687,12 +13687,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit cb1d3233181427c26b653bee5ee4650c0d890312",
           "renamed repository swift-molecules/swift-ascii-serializer-primitives -> swift-molecules/swift-ascii-serializer",
           "verified stable GitHub repository ID 1173223041",
-          "prepared commit 67626f5f7ec933613a4b5b35b7f1c931fbc5d660 publication pending"
+          "fast-forward published prepared commit 67626f5f7ec933613a4b5b35b7f1c931fbc5d660",
+          "verified live main 67626f5f7ec933613a4b5b35b7f1c931fbc5d660 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-ascii-serializer.git"
         ]
       },
       "state": "blocked",
