@@ -14974,21 +14974,27 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 4bc622c5314ed076d4cc8b21917b32f8131c3c61",
+          "renamed repository swift-molecules/swift-bool-algebra-primitives -> swift-molecules/swift-bool-algebra",
+          "verified stable GitHub repository ID 1253231279",
+          "fast-forward published prepared commit 61ac5172a33be9a555da7975cc2d1f906d649284",
+          "verified live main 61ac5172a33be9a555da7975cc2d1f906d649284 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-bool-algebra.git"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
-          "package resolution blocked at prepared commit 61ac5172a33be9a555da7975cc2d1f906d649284",
-          "invocation: institute package resolve --package-path /private/tmp/four-layer-swift-bool-algebra-primitives",
-          "remote repository not found: https://github.com/swift-molecules/swift-algebra.git",
-          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+          "package resolution passed at live published commit 61ac5172a33be9a555da7975cc2d1f906d649284",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-bool-algebra-primitives --argument=--disable-sandbox",
+          "resolved live swift-algebra dependency at b28bbbb72d5f3ffd681960356d44b1cc461e8881",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 f2a75a51e65634f10f48f45e12b2f86060100d4f2421f8545cf5d705e959279c and left as generated state"
         ]
-      }
+      },
+      "githubRepositoryID": 1253231279
     },
     {
       "current": "swift-primitives/swift-boundary-facet-primitives",
