@@ -16073,12 +16073,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 572e022094ae491155d6f9ca541bf3845234bacb",
           "renamed swift-molecules/swift-buffer-linked-primitives to swift-molecules/swift-buffer-linked",
           "verified exact destination owns stable GitHub repository ID 1247830113 with public visibility and non-archived state",
-          "publication remains pending at final-origin update and non-force fast-forward push of prepared commit 90d073006a3b7c8753d337944ec9f1f1b16da251"
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-buffer-linked.git",
+          "fast-forward published prepared commit 90d073006a3b7c8753d337944ec9f1f1b16da251",
+          "publication requires final live main and visibility recheck before validation booking"
         ]
       },
       "state": "ready",
@@ -20325,20 +20327,29 @@
       "observedHead": "7acc82673e3f6700e3aee754712437b1d704c16d",
       "observedRemote": "https://github.com/swift-primitives/swift-hash-table-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 88b74364e25cad452b4ad252c5d8acd205ae8285 from expected parent 7acc82673e3f6700e3aee754712437b1d704c16d",
+          "isolated worktree /private/tmp/swift-hash-table-publish",
+          "canonical terminal and plural Primitives mappings applied across 27 changed paths while singular forms were preserved; exact 16 future-coordinate dependencies and public payload verified"
+        ]
       },
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 7acc82673e3f6700e3aee754712437b1d704c16d",
+          "renamed swift-molecules/swift-hash-table-primitives to swift-molecules/swift-hash-table",
+          "verified exact destination owns stable GitHub repository ID 1142827460 with public visibility and non-archived state",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-hash-table.git",
+          "publication remains pending at non-force fast-forward push of prepared commit 88b74364e25cad452b4ad252c5d8acd205ae8285"
         ]
       },
       "state": "ready",
       "validation": {
         "status": "pending",
         "records": []
-      }
+      },
+      "githubRepositoryID": 1142827460
     },
     {
       "current": "swift-primitives/swift-heap-primitives",
@@ -20415,19 +20426,25 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit ae9c415d3a29da442420cf167c287724ad619867",
           "renamed swift-molecules/swift-heap-primitives to swift-molecules/swift-heap",
           "verified exact destination owns stable GitHub repository ID 1138063543 with public visibility and non-archived state",
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-heap.git",
-          "publication remains pending at non-force fast-forward push of prepared commit 4d2006ca82234cacd3e4e988a7e5a3461923db61"
+          "fast-forward published prepared commit 4d2006ca82234cacd3e4e988a7e5a3461923db61",
+          "verified live main 4d2006ca82234cacd3e4e988a7e5a3461923db61 with unchanged public visibility"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-heap at live published commit 4d2006ca82234cacd3e4e988a7e5a3461923db61",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-heap-live institute package resolve --package-path /private/tmp/swift-heap-publish --argument=--disable-sandbox",
+          "resolved all ten declared direct dependencies at live future coordinates",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent and left uncommitted at sha256 437f25aaaac3de485d60e1613e8e489c610056e88996757da9f95c27c29e6553"
+        ]
       },
       "githubRepositoryID": 1138063543
     },
