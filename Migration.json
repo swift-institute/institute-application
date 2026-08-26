@@ -1852,16 +1852,22 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit aad7713b219cbbdd24eb4bddb53bfd30244b237b",
+          "organization rename established live coordinate swift-compositions/swift-dual without a repository rename",
+          "verified exact destination owns stable GitHub repository ID 1183220105 with public visibility and non-archived state",
+          "updated isolated worktree fetch and push origin to https://github.com/swift-compositions/swift-dual.git",
+          "fast-forward published prepared commit ac3ad5fae1c373029bf11852cb554638621becc4",
+          "verified live main ac3ad5fae1c373029bf11852cb554638621becc4 with unchanged public visibility and non-archived state"
         ]
       },
       "state": "ready",
       "validation": {
         "status": "pending",
         "records": []
-      }
+      },
+      "githubRepositoryID": 1183220105
     },
     {
       "current": "swift-foundations/swift-effects",
