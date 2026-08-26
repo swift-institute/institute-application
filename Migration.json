@@ -17162,7 +17162,10 @@
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit d425c074fabff51e182594a31bd685217d489e70",
+          "renamed repository swift-molecules/swift-coproduct-primitives -> swift-molecules/swift-coproduct",
+          "verified stable GitHub repository ID 1234454937",
+          "prepared commit 7cf918f9165f3411cc2ded06e0f1cd67b4cdd375 publication pending"
         ]
       },
       "state": "blocked",
@@ -17174,7 +17177,8 @@
           "remote repository not found: https://github.com/swift-molecules/swift-equation.git",
           "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
-      }
+      },
+      "githubRepositoryID": 1234454937
     },
     {
       "current": "swift-primitives/swift-cpu-primitives",
