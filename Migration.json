@@ -23870,20 +23870,26 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 12e4c54c669f1605f4e321db209e998bfa2bd454",
+          "renamed repository swift-molecules/swift-single-primitives -> swift-molecules/swift-single",
+          "verified stable GitHub repository ID 1250663809",
+          "fast-forward published prepared commit e7039022699ac0543a7fc897e075c0f797fdbaa6",
+          "verified live main e7039022699ac0543a7fc897e075c0f797fdbaa6 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-single.git"
         ]
       },
       "state": "passed",
       "validation": {
         "status": "passed",
         "records": [
-          "package resolution passed at prepared commit e7039022699ac0543a7fc897e075c0f797fdbaa6",
-          "invocation: institute package resolve --package-path /private/tmp/swift-institute-cutover-single-12e4c54c",
-          "exit 0; HEAD unchanged; worktree clean; Package.resolved unchanged"
+          "package resolution passed at live published commit e7039022699ac0543a7fc897e075c0f797fdbaa6",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/swift-institute-cutover-single-12e4c54c --argument=--disable-sandbox",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved absent before and after"
         ]
-      }
+      },
+      "githubRepositoryID": 1250663809
     },
     {
       "current": "swift-primitives/swift-slab-primitives",
