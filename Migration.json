@@ -21773,10 +21773,15 @@
           "verified live main 518085a7bea5ae9a41f00207ef6ddb4073794726 and final origin https://github.com/swift-molecules/swift-memory-heap.git"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-memory-heap at live commit 518085a7bea5ae9a41f00207ef6ddb4073794726",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-memory-heap-live institute package resolve --package-path /private/tmp/swift-migration-memory-heap-live --argument=--disable-sandbox",
+          "resolved direct live swift-affine, swift-byte, swift-index, swift-memory-allocation, and swift-memory dependencies plus their transitive closure",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to SHA-256 baa06884346b0acbb4a11c42c292ab5b8118ef83744c718aad90ac1f5761e0e2 and remained ignored/uncommitted"
+        ]
       },
       "githubRepositoryID": 1259779682
     },
@@ -26661,10 +26666,15 @@
           "verified live main 578f830f95eb5f01ab67e7bf7e059d0aa7fd15bb and final origin https://github.com/swift-molecules/swift-time.git"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-time at live commit 578f830f95eb5f01ab67e7bf7e059d0aa7fd15bb",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-time-live institute package resolve --package-path /private/tmp/swift-migration-time-live --argument=--disable-sandbox",
+          "resolved direct live swift-dimension 4b7cdaba8f0fa64bbe19d1bd349456704065ab90, swift-format 20f59f07802b82beba085303cd2534432ab55c19, and swift-formatter 1525e1eafa96aca649faa92273f4d417ec83cae7 plus transitive closure",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to SHA-256 cde88cab65d558da5123b9227c4a27e3fc9fcd4ce4c0493dd9c522a3eda187d8 and remained ignored/uncommitted"
+        ]
       },
       "githubRepositoryID": 1132374031
     },
