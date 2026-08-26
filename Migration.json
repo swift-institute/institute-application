@@ -21415,10 +21415,15 @@
           "verified live main 1206aa8323bae24fd8714451608c6190fde5b2dc with unchanged public visibility"
         ]
       },
-      "state": "published",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-list-linked at live published commit 1206aa8323bae24fd8714451608c6190fde5b2dc",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-list-linked-live institute package resolve --package-path /private/tmp/swift-list-linked-prep-9061f4881ea88384efe4f6bfe476ce1966b184d9 --argument=--disable-sandbox",
+          "exit 0; live swift-list, swift-buffer-linked, and remaining future-coordinate dependencies resolved successfully",
+          "HEAD unchanged; tracked worktree clean; Package.resolved generated from absent to SHA-256 3e691134f8958fdcc5be807171626abe8d2c22fc49e72ed38c8b81fe0e95378b and remained ignored/uncommitted"
+        ]
       },
       "githubRepositoryID": 1250662118
     },
