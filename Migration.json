@@ -16148,14 +16148,14 @@
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-byte-serializer.git"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
-          "package resolution blocked at prepared commit 0f8c4a268c3d161442911422d6919fe335027331",
-          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-byte-serializer-primitives --argument=--disable-sandbox",
-          "remote repository not found: https://github.com/swift-molecules/swift-serializer.git",
-          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+          "package resolution passed for swift-byte-serializer at live published commit 0f8c4a268c3d161442911422d6919fe335027331",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-byte-serializer-live institute package resolve --package-path /private/tmp/four-layer-swift-byte-serializer-primitives --argument=--disable-sandbox",
+          "resolved swift-byte-serializer direct live dependencies swift-byte at 21d5194adee27b585f27e01c5c7669f74bb96710 and swift-serializer at 583cc9aad850e07906dbc29aaff4a86e59deb48b",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 f327f4054fc440a9453ac8ed3ce7c3e3a6c7232b3e3eab1483f30c7f7e655463 and left as generated state"
         ]
       },
       "githubRepositoryID": 1242330712
