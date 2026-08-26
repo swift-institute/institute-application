@@ -26031,12 +26031,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 8a7dc47076ebdd3c0b20ca62c0ced602f6a2dd13",
           "renamed repository swift-molecules/swift-witness-primitives -> swift-molecules/swift-witness",
-          "verified stable GitHub repository ID 1138064038 and public visibility",
-          "prepared commit publication pending"
+          "verified stable GitHub repository ID 1138064038",
+          "fast-forward published prepared commit cc9780bf68f038bb2d73607cae0662e1be30b053",
+          "verified live main cc9780bf68f038bb2d73607cae0662e1be30b053 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-witness.git"
         ]
       },
       "state": "blocked",
