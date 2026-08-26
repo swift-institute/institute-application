@@ -14516,14 +14516,14 @@
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-bit-algebra.git"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
-          "package resolution blocked at prepared commit c455e479cc26584bdc6c0dfb710df7188727abab",
-          "invocation: institute package resolve --package-path /private/tmp/four-layer-swift-bit-algebra-primitives",
-          "remote repository not found: https://github.com/swift-molecules/swift-algebra.git",
-          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+          "package resolution passed at live published commit c455e479cc26584bdc6c0dfb710df7188727abab",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-bit-algebra-primitives --argument=--disable-sandbox",
+          "resolved live swift-algebra at b28bbbb72d5f3ffd681960356d44b1cc461e8881 and swift-bit at 4e3e2662e87199948329b8f2e0cd5cd3f26ff0fc, with their live transitive molecule dependencies",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 e795a6ed710ef65350c21e6f771fcc1d4fc0826f82031fb3dcc9cd261264dfac and left as generated state"
         ]
       },
       "githubRepositoryID": 1252381637
