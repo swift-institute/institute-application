@@ -4754,10 +4754,15 @@
           "verified live main 4192d0693d5b8bd87409e4aa959a3c0b0f0643f3 with unchanged public visibility and non-archived state"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-logger-handlers at live published commit 4192d0693d5b8bd87409e4aa959a3c0b0f0643f3",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-logger-handlers-root institute package resolve --package-path /private/tmp/four-layer-swift-logger-handlers --argument=--disable-sandbox",
+          "resolution exited 0 and resolved the unchanged external swift-log dependency at version 1.15.0",
+          "HEAD unchanged; tracked worktree clean; Package.resolved generated as ignored uncommitted state and stabilized at SHA-256 b2c57f014606071c7dc35f05a0781c3c911f75a0e2e0198a8fb13cdeb5a44f95"
+        ]
       },
       "githubRepositoryID": 1032266657
     },
