@@ -23617,20 +23617,28 @@
       "observedHead": "b76c95a112671870bf37d83f24caaf33a7cabb83",
       "observedRemote": "https://github.com/swift-primitives/swift-path-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit d48bdad0dab00fab1dba86d4ad76eb8abc4f4582 from expected parent b76c95a112671870bf37d83f24caaf33a7cabb83",
+          "isolated worktree /private/tmp/swift-path-live-b76c95a112671870bf37d83f24caaf33a7cabb83",
+          "canonical package, path, import, README, metadata, and exact error, memory-heap, ownership, string, and tagged future-coordinate dependency mappings applied; residual and 22-path public-payload scans passed"
+        ]
       },
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit b76c95a112671870bf37d83f24caaf33a7cabb83",
+          "renamed swift-molecules/swift-path-primitives to swift-molecules/swift-path",
+          "verified exact destination owns stable GitHub repository ID 1179869736 with public visibility and non-archived state",
+          "publication remains pending at non-force fast-forward push of prepared commit d48bdad0dab00fab1dba86d4ad76eb8abc4f4582"
         ]
       },
       "state": "ready",
       "validation": {
         "status": "pending",
         "records": []
-      }
+      },
+      "githubRepositoryID": 1179869736
     },
     {
       "current": "swift-primitives/swift-percent-primitives",
