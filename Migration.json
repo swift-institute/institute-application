@@ -16922,12 +16922,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit d2b9351f9b9a5ed3c241b55fe13faaac288a6c0b",
           "renamed repository swift-molecules/swift-compass-primitives -> swift-molecules/swift-compass",
-          "verified stable GitHub repository ID 1264249411 and public visibility",
-          "prepared commit publication pending"
+          "verified stable GitHub repository ID 1264249411",
+          "fast-forward published prepared commit 5625835a00133a7a17f3f9c968a428f802a098df",
+          "verified live main 5625835a00133a7a17f3f9c968a428f802a098df and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-compass.git"
         ]
       },
       "state": "blocked",
