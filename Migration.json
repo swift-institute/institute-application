@@ -14793,12 +14793,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit d84c1817e63be8a6af7ed808fabacef9f54ba1ed",
           "renamed repository swift-molecules/swift-bit-primitives -> swift-molecules/swift-bit",
-          "verified stable GitHub repository ID 1132373283 and public visibility",
-          "prepared commit publication pending"
+          "verified stable GitHub repository ID 1132373283",
+          "fast-forward published prepared commit 4e3e2662e87199948329b8f2e0cd5cd3f26ff0fc",
+          "verified live main 4e3e2662e87199948329b8f2e0cd5cd3f26ff0fc and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-bit.git"
         ]
       },
       "state": "blocked",
