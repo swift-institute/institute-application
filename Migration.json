@@ -7655,8 +7655,13 @@
       "observedHead": "96cffdc68e32d92155ddf6e79ce868ae2d32fcf2",
       "observedRemote": "https://github.com/swift-foundations/swift-tensors.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 3ac0a18092ff849035f5928003c5ccc639c2d5e1 from expected parent 96cffdc68e32d92155ddf6e79ce868ae2d32fcf2",
+          "isolated worktree /private/tmp/four-layer-swift-tensors",
+          "updated metadata, manifest, README, core exports, and test-support exports for the compositions owner and five live future-coordinate dependency URL, product, and module mappings",
+          "ancestry, diff integrity, direct import declarations, residuals, public payload, live dependency, Actions reference, and Package.resolved preflight checks passed"
+        ]
       },
       "publication": {
         "status": "pending",
