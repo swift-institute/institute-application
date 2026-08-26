@@ -13231,11 +13231,13 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "package resolution pending; institute package resolve --package-path <isolated worktree> is the sole acceptance criterion"
+          "package resolution passed at prepared commit b28bbbb72d5f3ffd681960356d44b1cc461e8881",
+          "invocation: institute package resolve --package-path /private/tmp/swift-algebra-cutover",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved unchanged"
         ]
       }
     },
@@ -13272,11 +13274,13 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "package resolution pending; institute package resolve --package-path <isolated worktree> is the sole acceptance criterion"
+          "package resolution passed at prepared commit 5e3e765dc227b82ffb26033fcc8e25ad559f877f",
+          "invocation: institute package resolve --package-path /private/tmp/swift-application-cutover",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved unchanged"
         ]
       }
     },
@@ -14358,11 +14362,14 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
+        "status": "blocked",
         "records": [
-          "package resolution pending; institute package resolve --package-path <isolated worktree> is the sole acceptance criterion"
+          "package resolution blocked at prepared commit c455e479cc26584bdc6c0dfb710df7188727abab",
+          "invocation: institute package resolve --package-path /private/tmp/four-layer-swift-bit-algebra-primitives",
+          "remote repository not found: https://github.com/swift-molecules/swift-algebra.git",
+          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
       }
     },
@@ -14420,11 +14427,14 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
+        "status": "blocked",
         "records": [
-          "package resolution pending; institute package resolve --package-path <isolated worktree> is the sole acceptance criterion"
+          "package resolution blocked at prepared commit 4af9058cd8859402266533082719649256c60cad",
+          "invocation: institute package resolve --package-path /private/tmp/four-layer-swift-bit-finite-primitives",
+          "remote repository not found: https://github.com/swift-molecules/swift-bit.git",
+          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
       }
     },
@@ -14571,11 +14581,14 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
+        "status": "blocked",
         "records": [
-          "package resolution pending; institute package resolve --package-path <isolated worktree> is the sole acceptance criterion"
+          "package resolution blocked at prepared commit 359bd4b5c1ca1427430bb4779a00e2cfbaa1bfbf",
+          "invocation: institute package resolve --package-path /private/tmp/four-layer-swift-bit-pack-primitives",
+          "remote repository not found: https://github.com/swift-molecules/swift-bit.git",
+          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
       }
     },
@@ -14618,11 +14631,14 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
+        "status": "blocked",
         "records": [
-          "package resolution pending; institute package resolve --package-path <isolated worktree> is the sole acceptance criterion"
+          "package resolution blocked at prepared commit 4e3e2662e87199948329b8f2e0cd5cd3f26ff0fc",
+          "invocation: institute package resolve --package-path /private/tmp/four-layer-swift-bit-primitives",
+          "remote repository not found: https://github.com/swift-molecules/swift-hash.git",
+          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
       }
     },
@@ -14695,11 +14711,14 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
+        "status": "blocked",
         "records": [
-          "package resolution pending; institute package resolve --package-path <isolated worktree> is the sole acceptance criterion"
+          "package resolution blocked at prepared commit 957691a2b187ddb2a2e679824d79aa47df131143",
+          "invocation: institute package resolve --package-path /private/tmp/four-layer-swift-bit-vector-primitives",
+          "remote repository not found: https://github.com/swift-molecules/swift-bit.git",
+          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
       }
     },
@@ -14784,11 +14803,14 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
+        "status": "blocked",
         "records": [
-          "package resolution pending; institute package resolve --package-path <isolated worktree> is the sole acceptance criterion"
+          "package resolution blocked at prepared commit 61ac5172a33be9a555da7975cc2d1f906d649284",
+          "invocation: institute package resolve --package-path /private/tmp/four-layer-swift-bool-algebra-primitives",
+          "remote repository not found: https://github.com/swift-molecules/swift-algebra.git",
+          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
       }
     },
@@ -15985,11 +16007,14 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
+        "status": "blocked",
         "records": [
-          "package resolution pending; institute package resolve --package-path <isolated worktree> is the sole acceptance criterion"
+          "package resolution blocked at prepared commit e932d328deff46ef801bab10520354b0da779398",
+          "invocation: institute package resolve --package-path /private/tmp/swift-cardinal-cutover",
+          "remote repository not found: https://github.com/swift-molecules/swift-tagged.git",
+          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
       }
     },
@@ -16026,11 +16051,13 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "package resolution pending; institute package resolve --package-path <isolated worktree> is the sole acceptance criterion"
+          "package resolution passed at prepared commit 428df0eb4e03fe671c4c6da8683b88e6e8534f63",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/swift-carrier-cutover --argument=--disable-sandbox",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved unchanged"
         ]
       }
     },
@@ -16393,11 +16420,14 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
+        "status": "blocked",
         "records": [
-          "package resolution pending; institute package resolve --package-path <isolated worktree> is the sole acceptance criterion"
+          "package resolution blocked at prepared commit 094fd624bd55948a2fdfbcc76e53e75ea0ae80a5",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/swift-comparison-cutover --argument=--disable-sandbox",
+          "sandbox DNS blocked github.com while resolving https://github.com/swift-molecules/swift-equation.git; live remote existence was not determined",
+          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
       }
     },
@@ -16971,11 +17001,13 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "package resolution pending; institute package resolve --package-path <isolated worktree> is the sole acceptance criterion"
+          "package resolution passed at prepared commit 4eb9c7c981b3e10bcd2cea45389d8b4ab4d90d30",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-decimal-primitives --argument=--disable-sandbox",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved unchanged"
         ]
       }
     },
@@ -17649,11 +17681,13 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "package resolution pending; institute package resolve --package-path <isolated worktree> is the sole acceptance criterion"
+          "package resolution passed at prepared commit 9233d230c0402023a84e144536c0a4cfefa1b35a",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/swift-empty-cutover --argument=--disable-sandbox",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved unchanged"
         ]
       }
     },
@@ -17701,11 +17735,14 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
+        "status": "blocked",
         "records": [
-          "package resolution pending; institute package resolve --package-path <isolated worktree> is the sole acceptance criterion"
+          "package resolution blocked at prepared commit 711d6efbd7a6a4041e033dd3daf385828047b878",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/swift-equation-cutover --argument=--disable-sandbox",
+          "sandbox DNS blocked github.com while resolving https://github.com/swift-molecules/swift-property.git; live remote existence was not determined",
+          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
       }
     },
@@ -17742,11 +17779,13 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "package resolution pending; institute package resolve --package-path <isolated worktree> is the sole acceptance criterion"
+          "package resolution passed at prepared commit f34a757c463682fbbf3f7201244a5201f96ce760",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/swift-error-cutover --argument=--disable-sandbox",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved unchanged"
         ]
       }
     },
@@ -18207,11 +18246,13 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "package resolution pending; institute package resolve --package-path <isolated worktree> is the sole acceptance criterion"
+          "package resolution passed at prepared commit 5c4b3d2faa208d3cb05dc34118795c9cf652de9a",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/swift-institute-cutover-foundation-extensions-5e219717 --argument=--disable-sandbox",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved unchanged"
         ]
       }
     },
@@ -18896,11 +18937,13 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "package resolution pending; institute package resolve --package-path <isolated worktree> is the sole acceptance criterion"
+          "package resolution passed at prepared commit 6e6e1ae7c53cdd078e293286889df3866bdede95",
+          "invocation: institute package resolve --package-path /private/tmp/swift-initialization-cutover",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved unchanged"
         ]
       }
     },
@@ -19103,11 +19146,13 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "package resolution pending; institute package resolve --package-path <isolated worktree> is the sole acceptance criterion"
+          "package resolution passed at prepared commit 87026ee6c9fbd2f835365f11af4ad1c2f1d56c4e",
+          "invocation: institute package resolve --package-path /private/tmp/swift-institute-cutover-io-ff0cb47e",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved unchanged"
         ]
       }
     },
@@ -20726,11 +20771,13 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "package resolution pending; institute package resolve --package-path <isolated worktree> is the sole acceptance criterion"
+          "package resolution passed at prepared commit 316396271a41556c622fddc6e673f07a6ac10412",
+          "invocation: institute package resolve --package-path /private/tmp/swift-institute-cutover-optic-21d93d60",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved unchanged"
         ]
       }
     },
@@ -20902,11 +20949,14 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
+        "status": "blocked",
         "records": [
-          "package resolution pending; institute package resolve --package-path <isolated worktree> is the sole acceptance criterion"
+          "package resolution blocked at prepared commit 92f2aef190ba01b10d606c4991c48c44039e4a69",
+          "invocation: institute package resolve --package-path /private/tmp/swift-ordinal-cutover",
+          "remote repository not found: https://github.com/swift-molecules/swift-tagged.git",
+          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
       }
     },
@@ -21540,11 +21590,13 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "package resolution pending; institute package resolve --package-path <isolated worktree> is the sole acceptance criterion"
+          "package resolution passed at prepared commit b1a8d6cd1b2d7abb960221fe8fb00b838895eccf",
+          "invocation: institute package resolve --package-path /private/tmp/four-layer-swift-percent-primitives",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved unchanged"
         ]
       }
     },
@@ -21745,11 +21797,13 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "package resolution pending; institute package resolve --package-path <isolated worktree> is the sole acceptance criterion"
+          "package resolution passed at prepared commit de52d7e3dc73147799dcbe9f48079b931b291204",
+          "invocation: institute package resolve --package-path /private/tmp/four-layer-swift-position-primitives",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved unchanged"
         ]
       }
     },
@@ -21938,11 +21992,14 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
+        "status": "blocked",
         "records": [
-          "package resolution pending; institute package resolve --package-path <isolated worktree> is the sole acceptance criterion"
+          "package resolution blocked at prepared commit 766700fb5f44026c2f8f1d4c33b49ce934487802",
+          "invocation: institute package resolve --package-path /private/tmp/swift-property-cutover",
+          "remote repository not found: https://github.com/swift-molecules/swift-ownership.git",
+          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
       }
     },
@@ -22175,11 +22232,13 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "package resolution pending; institute package resolve --package-path <isolated worktree> is the sole acceptance criterion"
+          "package resolution passed at prepared commit 079804f166ef5a5cae05d8208060ee96889e1e6f",
+          "invocation: institute package resolve --package-path /private/tmp/four-layer-swift-radix-primitives",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved unchanged"
         ]
       }
     },
@@ -22216,11 +22275,13 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "package resolution pending; institute package resolve --package-path <isolated worktree> is the sole acceptance criterion"
+          "package resolution passed at prepared commit 46f35afbf38a4894af976039678e8e99c2efc664",
+          "invocation: institute package resolve --package-path /private/tmp/four-layer-swift-random-primitives",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved unchanged"
         ]
       }
     },
@@ -22294,11 +22355,13 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "package resolution pending; institute package resolve --package-path <isolated worktree> is the sole acceptance criterion"
+          "package resolution passed at prepared commit 6d3c38ee478c6310bbb37c5d5d3c25797021cb1b",
+          "invocation: institute package resolve --package-path /private/tmp/four-layer-swift-reference-primitives",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved unchanged"
         ]
       }
     },
@@ -22382,11 +22445,13 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "package resolution pending; institute package resolve --package-path <isolated worktree> is the sole acceptance criterion"
+          "package resolution passed at prepared commit 103e3c1b98f8442b5c7116aec8a4a06e3102f83c",
+          "invocation: institute package resolve --package-path /private/tmp/swift-institute-cutover-render-c18f47e1",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved unchanged"
         ]
       }
     },
@@ -22993,11 +23058,13 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "package resolution pending; institute package resolve --package-path <isolated worktree> is the sole acceptance criterion"
+          "package resolution passed at prepared commit e7039022699ac0543a7fc897e075c0f797fdbaa6",
+          "invocation: institute package resolve --package-path /private/tmp/swift-institute-cutover-single-12e4c54c",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved unchanged"
         ]
       }
     },
@@ -23359,11 +23426,13 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "package resolution pending; institute package resolve --package-path <isolated worktree> is the sole acceptance criterion"
+          "package resolution passed at prepared commit 28a204ee2c6cf1476cd99dc95b81b59868681ebf",
+          "invocation: institute package resolve --package-path /private/tmp/swift-institute-cutover-standard-library-extensions-1c6c5428",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved unchanged"
         ]
       }
     },
@@ -23899,11 +23968,14 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
+        "status": "blocked",
         "records": [
-          "package resolution pending; institute package resolve --package-path <isolated worktree> is the sole acceptance criterion"
+          "package resolution blocked at prepared commit c46829f9ff788f078389b41e0f75a48b14ee6b6b",
+          "invocation: institute package resolve --package-path /private/tmp/swift-tagged-cutover",
+          "remote repository not found: https://github.com/swift-molecules/swift-carrier.git",
+          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
       }
     },
