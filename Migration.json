@@ -17340,20 +17340,26 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 893bee308117fd8733f067417018f7f5ba0ea3f6",
+          "renamed repository swift-molecules/swift-decimal-primitives -> swift-molecules/swift-decimal",
+          "verified stable GitHub repository ID 1132373393",
+          "fast-forward published prepared commit 4eb9c7c981b3e10bcd2cea45389d8b4ab4d90d30",
+          "verified live main 4eb9c7c981b3e10bcd2cea45389d8b4ab4d90d30 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-decimal.git"
         ]
       },
       "state": "passed",
       "validation": {
         "status": "passed",
         "records": [
-          "package resolution passed at prepared commit 4eb9c7c981b3e10bcd2cea45389d8b4ab4d90d30",
+          "package resolution passed at live published commit 4eb9c7c981b3e10bcd2cea45389d8b4ab4d90d30",
           "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-decimal-primitives --argument=--disable-sandbox",
-          "exit 0; HEAD unchanged; worktree clean; Package.resolved unchanged"
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved absent before and after"
         ]
-      }
+      },
+      "githubRepositoryID": 1132373393
     },
     {
       "current": "swift-primitives/swift-declaration-derivation",
