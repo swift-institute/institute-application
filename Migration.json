@@ -24655,20 +24655,28 @@
       "observedHead": "fa6d741cfa2b3dd3dddeda6966786ab927ea3090",
       "observedRemote": "https://github.com/swift-primitives/swift-sample-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit ad611533fd2b166d950017afc9ace24deb2fcfa1 from expected parent fa6d741cfa2b3dd3dddeda6966786ab927ea3090",
+          "isolated worktree /private/tmp/swift-sample-live-fa6d741cfa2b3dd3dddeda6966786ab927ea3090",
+          "canonical package, products, targets, modules, imports, paths, README, metadata, and algebra/comparison/order/time/witness dependency mappings applied; worktree clean"
+        ]
       },
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit fa6d741cfa2b3dd3dddeda6966786ab927ea3090",
+          "renamed swift-molecules/swift-sample-primitives to swift-molecules/swift-sample",
+          "verified exact destination owns stable GitHub repository ID 1179869757 with public visibility and non-archived state",
+          "prepared commit publication remains pending"
         ]
       },
       "state": "ready",
       "validation": {
         "status": "pending",
         "records": []
-      }
+      },
+      "githubRepositoryID": 1179869757
     },
     {
       "current": "swift-primitives/swift-sector-cyclic-primitives",
