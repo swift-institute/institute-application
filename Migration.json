@@ -7,9 +7,10 @@
       "future": "swift-mol-rsv",
       "kind": "reservation",
       "collisionCheck": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "live GitHub destination collision check required"
+          "live GitHub check: https://github.com/swift-mol-rsv returned Page not found",
+          "reservation destination swift-mol-rsv is unclaimed"
         ]
       },
       "publication": {
@@ -22,9 +23,10 @@
       "future": "swift-molecules",
       "kind": "layer",
       "collisionCheck": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "live GitHub destination collision check required"
+          "live GitHub check: swift-molecules exists as the intended empty placeholder organization",
+          "destination becomes available after the prerequisite swift-molecules -> swift-mol-rsv rename"
         ]
       },
       "publication": {
@@ -37,9 +39,10 @@
       "future": "swift-comp-rsv",
       "kind": "reservation",
       "collisionCheck": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "live GitHub destination collision check required"
+          "live GitHub check: https://github.com/swift-comp-rsv returned Page not found",
+          "reservation destination swift-comp-rsv is unclaimed"
         ]
       },
       "publication": {
@@ -52,9 +55,10 @@
       "future": "swift-compositions",
       "kind": "layer",
       "collisionCheck": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "live GitHub destination collision check required"
+          "live GitHub check: swift-compositions exists as the intended empty placeholder organization",
+          "destination becomes available after the prerequisite swift-compositions -> swift-comp-rsv rename"
         ]
       },
       "publication": {
