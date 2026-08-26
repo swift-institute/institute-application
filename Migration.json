@@ -25843,20 +25843,29 @@
       "observedHead": "5b088d6c9c5daa866eba3242c365eaaa5edb9078",
       "observedRemote": "https://github.com/swift-primitives/swift-storage-generational-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 5f223a53c52adc562c5080185f9ae50c2c636f89 from expected parent 5b088d6c9c5daa866eba3242c365eaaa5edb9078",
+          "isolated worktree /private/tmp/swift-storage-generational-live-5b088d6c9c5daa866eba3242c365eaaa5edb9078",
+          "canonical identity and exact buffer, index, memory-allocation, memory-heap, memory, ordinal, and storage future-coordinate dependency mappings applied; residual and 14-path public-payload scans passed"
+        ]
       },
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 5b088d6c9c5daa866eba3242c365eaaa5edb9078",
+          "renamed swift-molecules/swift-storage-generational-primitives to swift-molecules/swift-storage-generational",
+          "verified exact destination owns stable GitHub repository ID 1247425615 with public visibility and non-archived state",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-storage-generational.git",
+          "publication remains pending at non-force fast-forward push of prepared commit 5f223a53c52adc562c5080185f9ae50c2c636f89"
         ]
       },
       "state": "ready",
       "validation": {
         "status": "pending",
         "records": []
-      }
+      },
+      "githubRepositoryID": 1247425615
     },
     {
       "current": "swift-primitives/swift-storage-primitives",
