@@ -24072,14 +24072,14 @@
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-single-iterator.git"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
-          "package resolution blocked at prepared commit 0fade9b5ff7b2b775993d0fe763c2effcb5b11a1",
-          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-single-iterator-primitives --argument=--disable-sandbox",
-          "remote repository not found: https://github.com/swift-molecules/swift-single.git",
-          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+          "package resolution passed for swift-single-iterator at live published commit 0fade9b5ff7b2b775993d0fe763c2effcb5b11a1",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-single-iterator institute package resolve --package-path /private/tmp/four-layer-swift-single-iterator-primitives --argument=--disable-sandbox",
+          "resolved swift-single-iterator direct live dependencies swift-iterator at ce7c77a6fdd9c2a1a3aeacf390786225f33d6a67 and swift-single at e7039022699ac0543a7fc897e075c0f797fdbaa6",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved absent before and after resolution"
         ]
       },
       "githubRepositoryID": 1250663778
