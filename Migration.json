@@ -22162,7 +22162,10 @@
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit f1a0cefa7b32b9f664570f382ae150549590aac3",
+          "renamed repository swift-molecules/swift-parity-algebra-primitives -> swift-molecules/swift-parity-algebra",
+          "verified stable GitHub repository ID 1253317209",
+          "prepared commit 18f461f739bef65eeade9a8e8c53c94f11dd3a41 publication pending"
         ]
       },
       "state": "blocked",
@@ -22174,7 +22177,8 @@
           "remote repository not found: https://github.com/swift-molecules/swift-parity.git",
           "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
-      }
+      },
+      "githubRepositoryID": 1253317209
     },
     {
       "current": "swift-primitives/swift-parity-primitives",
