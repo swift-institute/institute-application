@@ -17351,12 +17351,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit bff7e8552222c1bd0f6176a33c1ea0b0858d9e85",
           "renamed repository swift-molecules/swift-cyclic-iterator-primitives -> swift-molecules/swift-cyclic-iterator",
           "verified stable GitHub repository ID 1254149146",
-          "prepared commit a8e25b069ba3dabfffd7e03f41ddf8267651eb7b publication pending"
+          "fast-forward published prepared commit a8e25b069ba3dabfffd7e03f41ddf8267651eb7b",
+          "verified live main a8e25b069ba3dabfffd7e03f41ddf8267651eb7b and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-cyclic-iterator.git"
         ]
       },
       "state": "blocked",
