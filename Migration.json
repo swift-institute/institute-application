@@ -17547,15 +17547,17 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 546c3d6d73428df1b771cbf2828eb49cd77d4c6f",
           "renamed swift-molecules/swift-column-primitives to swift-molecules/swift-column",
           "verified exact destination owns stable GitHub repository ID 1276749998 with public visibility and non-archived state",
-          "publication remains pending at non-force fast-forward push of prepared commit 71623b0d81027078d4ac90066d6bfc9ed945e299"
+          "updated isolated worktree fetch and push origin to https://github.com/swift-molecules/swift-column.git",
+          "fast-forward published prepared commit 71623b0d81027078d4ac90066d6bfc9ed945e299",
+          "verified live main 71623b0d81027078d4ac90066d6bfc9ed945e299 with unchanged public visibility"
         ]
       },
-      "state": "ready",
+      "state": "published",
       "validation": {
         "status": "pending",
         "records": []
