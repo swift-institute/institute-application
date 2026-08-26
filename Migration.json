@@ -1141,16 +1141,22 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 1859a3b6fb43d67ee5fd4ca643ff33e73b104658",
+          "organization rename established live coordinate swift-compositions/swift-copy-on-write without a repository rename",
+          "verified exact destination owns stable GitHub repository ID 1119175704 with public visibility and non-archived state",
+          "updated isolated worktree fetch and push origin to https://github.com/swift-compositions/swift-copy-on-write.git",
+          "fast-forward published prepared commit 393bed73710b6300b42555ba78683b9221a9004a",
+          "verified live main 393bed73710b6300b42555ba78683b9221a9004a with unchanged public visibility and non-archived state"
         ]
       },
       "state": "ready",
       "validation": {
         "status": "pending",
         "records": []
-      }
+      },
+      "githubRepositoryID": 1119175704
     },
     {
       "current": "swift-foundations/swift-cpu",
