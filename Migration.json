@@ -13243,7 +13243,10 @@
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit d178ae1432424ea1c35a0f29d75a0dbc9fcc52e9",
+          "renamed repository swift-molecules/swift-algebra-modular-primitives -> swift-molecules/swift-algebra-modular",
+          "verified stable GitHub repository ID 1179869694",
+          "prepared commit 93b36110e29ef7fe28c59dd3984eb74cbe65ce31 publication pending"
         ]
       },
       "state": "blocked",
@@ -13255,7 +13258,8 @@
           "remote repository not found: https://github.com/swift-molecules/swift-algebra.git",
           "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
-      }
+      },
+      "githubRepositoryID": 1179869694
     },
     {
       "current": "swift-primitives/swift-algebra-primitives",
