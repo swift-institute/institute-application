@@ -5149,15 +5149,18 @@
           "verified repaired live main ffc7f8dce12a4ba63c4671840062bb2e764cec60 with stable GitHub repository ID 1318265790 and unchanged public visibility"
         ]
       },
-      "state": "published",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "package resolution blocked for composition swift-navigation at live published commit 3e19d51ec1568f7bb6bc4f6c453302ec117a71c2",
           "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-navigation-composition-live institute package resolve --package-path /private/tmp/four-layer-swift-navigation-composition --argument=--disable-sandbox",
           "resolved molecule dependency swift-navigation at f2d6ba1e11f0827529eed57cb6e66268a19e1ec3 before identity validation",
           "exit 1; SwiftPM rejected the root and dependency identity collision: package swift-navigation versus local override directory identity four-layer-swift-navigation-composition; publication preserved for deterministic identity repair",
-          "identity repair publication completed; post-publication package resolution pending at live ffc7f8dce12a4ba63c4671840062bb2e764cec60"
+          "identity repair publication completed; post-publication package resolution pending at live ffc7f8dce12a4ba63c4671840062bb2e764cec60",
+          "package resolution recovery passed after root manifest identity changed to swift-navigation-composition at live repair ffc7f8dce12a4ba63c4671840062bb2e764cec60",
+          "recovery invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-navigation-postpublish institute package resolve --package-path /private/tmp/four-layer-swift-navigation-composition --argument=--disable-sandbox",
+          "recovery exit 0; Package.resolved remained SHA-256 54937b88c3d1c2c16c7c3a07274f9c182786e5dd11ef136acb4d5cdc9eef87be; HEAD and tracked worktree clean"
         ]
       },
       "githubRepositoryID": 1318265790
