@@ -12845,20 +12845,33 @@
       "observedHead": "14901ceb36a67a6ede7a37d69da5bebb3bdfd705",
       "observedRemote": "https://github.com/swift-iso/swift-iso-32000.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit 59a0e9dcec0c13812785010a007540727a893e81 from expected parent 14901ceb36a67a6ede7a37d69da5bebb3bdfd705",
+          "isolated worktree /private/tmp/four-layer-swift-iso-32000",
+          "canonical mappings for all 18 ledger dependencies and matching products, modules, imports, README references, sources, and tests applied across 50 files"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified all 18 future dependency coordinates live and pre-publication main at expected commit 14901ceb36a67a6ede7a37d69da5bebb3bdfd705",
+          "verified stable GitHub repository ID 1113620147 with public visibility and non-archived state",
+          "fast-forward published prepared commit 59a0e9dcec0c13812785010a007540727a893e81",
+          "verified live main 59a0e9dcec0c13812785010a007540727a893e81 and final origin https://github.com/swift-iso/swift-iso-32000.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-iso-32000 at live commit 59a0e9dcec0c13812785010a007540727a893e81",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-iso-32000-live institute package resolve --package-path /private/tmp/four-layer-swift-iso-32000 --argument=--disable-sandbox",
+          "resolved the complete live 18-dependency graph including swift-geometry 267c767f5da69a6b0b6b8fc99d527a517a21f16d and swift-w3c-png e30b9e84a896a5942e58c5f91abd2a9845b5835d",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved SHA-256 46625c4b37a7fe27ecbe02c56d7fa54ad1759c171578b5b14319fa606cea4057 unchanged across the final resolution recheck and remained ignored/uncommitted"
+        ]
+      },
+      "githubRepositoryID": 1113620147
     },
     {
       "current": "swift-iso/swift-iso-639",
@@ -20843,20 +20856,33 @@
       "observedHead": "9439aaf1aa34ad1c9d53c09f78de53ddcacb3261",
       "observedRemote": "https://github.com/swift-primitives/swift-layout-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit e926cebb2e260f275a1e412bb2334aec3565ae8e from expected parent 9439aaf1aa34ad1c9d53c09f78de53ddcacb3261",
+          "isolated worktree /private/tmp/four-layer-swift-layout-primitives",
+          "canonical package, products, targets, modules, imports, source/test/support paths, README, and axis/boundary/dimension/geometry dependency mappings applied across 30 files; residual and payload scans clean"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 9439aaf1aa34ad1c9d53c09f78de53ddcacb3261",
+          "renamed swift-molecules/swift-layout-primitives to swift-molecules/swift-layout while preserving GitHub repository ID 1132373494",
+          "fast-forward published prepared commit e926cebb2e260f275a1e412bb2334aec3565ae8e",
+          "verified live main e926cebb2e260f275a1e412bb2334aec3565ae8e, public visibility, non-archived state, and final origin https://github.com/swift-molecules/swift-layout.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-layout at live commit e926cebb2e260f275a1e412bb2334aec3565ae8e",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-layout-live institute package resolve --package-path /private/tmp/four-layer-swift-layout-primitives --argument=--disable-sandbox",
+          "resolved direct swift-axis 007acacc21d146981cab7129c7aeefe3313bdc3a, swift-boundary 11a7ed4b70021b1c06c41bf493c1a9ccfb4ed81d, swift-dimension 4b7cdaba8f0fa64bbe19d1bd349456704065ab90, and swift-geometry 267c767f5da69a6b0b6b8fc99d527a517a21f16d plus transitive closure",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to SHA-256 c412097be55a951631dff0e3715befe37dd0a7b316ba0e3ba3f90995df227e92 and remained ignored/uncommitted"
+        ]
+      },
+      "githubRepositoryID": 1132373494
     },
     {
       "current": "swift-primitives/swift-lexer-primitives",
