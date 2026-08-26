@@ -22482,15 +22482,17 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 98cc1bbaaf6086f0af04d6867543014fe6a49a42",
           "renamed swift-molecules/swift-memory-sequence-primitives to swift-molecules/swift-memory-sequence",
           "verified exact destination owns stable GitHub repository ID 1257335029 with public visibility and non-archived state",
-          "publication remains pending at non-force fast-forward push of prepared commit 1a45a47c1f2021672ae01300306ed7262cf37a5a"
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-memory-sequence.git",
+          "fast-forward published prepared commit 1a45a47c1f2021672ae01300306ed7262cf37a5a",
+          "verified live main 1a45a47c1f2021672ae01300306ed7262cf37a5a with unchanged public visibility"
         ]
       },
-      "state": "ready",
+      "state": "published",
       "validation": {
         "status": "pending",
         "records": []
