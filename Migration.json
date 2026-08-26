@@ -19095,12 +19095,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit c242325bb6e080019c9f0d94d1360ac5ba023439",
           "renamed repository swift-molecules/swift-hash-primitives -> swift-molecules/swift-hash",
-          "verified stable GitHub repository ID 1139271130 and public visibility",
-          "prepared commit publication pending"
+          "verified stable GitHub repository ID 1139271130",
+          "fast-forward published prepared commit addfe7191c52beb9a91a9fbf1157d5e922cd8b01",
+          "verified live main addfe7191c52beb9a91a9fbf1157d5e922cd8b01 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-hash.git"
         ]
       },
       "state": "blocked",
