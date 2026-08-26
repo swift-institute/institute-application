@@ -6697,10 +6697,15 @@
           "verified live main 9667227e9eeeb765675487b64d1a28a1173e6932 with unchanged public visibility and non-archived state"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-signature at live published commit 9667227e9eeeb765675487b64d1a28a1173e6932",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-signature-root institute package resolve --package-path /private/tmp/four-layer-swift-signature --argument=--disable-sandbox",
+          "resolution exited 0 against live RFC 4648, Byte, FIPS 180-4, and their transitive graph",
+          "HEAD unchanged; tracked worktree clean; Package.resolved generated as ignored uncommitted state and stabilized at SHA-256 645af9f3e2c518d6d59e22b33c5f007896e84f917291f5a0a606e9e5f875e39e"
+        ]
       },
       "githubRepositoryID": 1327138976
     },
