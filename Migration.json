@@ -19403,12 +19403,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit e54fd978c79b45f201b36d6eff555f597d35ef0d",
           "renamed repository swift-molecules/swift-index-primitives -> swift-molecules/swift-index",
-          "verified stable GitHub repository ID 1138063557 and public visibility",
-          "prepared commit publication pending"
+          "verified stable GitHub repository ID 1138063557",
+          "fast-forward published prepared commit ea265ffc2efe2c282e494f5e7309d0ea19f2b287",
+          "verified live main ea265ffc2efe2c282e494f5e7309d0ea19f2b287 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-index.git"
         ]
       },
       "state": "blocked",
