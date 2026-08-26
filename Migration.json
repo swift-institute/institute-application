@@ -13026,20 +13026,33 @@
       "observedHead": "6fdec6f4d99a74cd2382e4e04c1717324780422a",
       "observedRemote": "https://github.com/swift-iso/swift-iso-8825.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit 2fc730eae6c3cecea0cf86975c0b155c22394733 from expected parent 6fdec6f4d99a74cd2382e4e04c1717324780422a",
+          "isolated worktree /private/tmp/four-layer-swift-iso-8825",
+          "changed Package.swift only; mapped byte and standard-library-extensions dependencies to live molecule identities and products"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 6fdec6f4d99a74cd2382e4e04c1717324780422a",
+          "fast-forward published prepared commit 2fc730eae6c3cecea0cf86975c0b155c22394733",
+          "verified live main 2fc730eae6c3cecea0cf86975c0b155c22394733",
+          "verified stable GitHub repository ID 1310245095, public visibility, non-archived state, and final origin https://github.com/swift-iso/swift-iso-8825.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-iso-8825 at live commit 2fc730eae6c3cecea0cf86975c0b155c22394733",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-iso-8825-live institute package resolve --package-path /private/tmp/four-layer-swift-iso-8825 --argument=--disable-sandbox",
+          "resolved swift-iso-8824 fc2b892b97c8577bcc88747c95fb03f497d818fe, swift-byte 21d5194adee27b585f27e01c5c7669f74bb96710, and swift-standard-library-extensions 28a204ee2c6cf1476cd99dc95b81b59868681ebf",
+          "exit 0; HEAD unchanged; worktree clean; generated Package.resolved SHA-256 9a7004fb6d0d293ed0a9fdefd79f39621d46c6d5028a02f33d07e76e3cd9decf remained untracked/generated and unmodified after resolution"
+        ]
+      },
+      "githubRepositoryID": 1310245095
     },
     {
       "current": "swift-iso/swift-iso-9899",
