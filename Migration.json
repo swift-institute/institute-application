@@ -14339,8 +14339,12 @@
       "observedHead": "555e0661f3b6cc8266cca0e53a33d6214a49e7f2",
       "observedRemote": "https://github.com/swift-primitives/swift-bit-algebra-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit c455e479cc26584bdc6c0dfb710df7188727abab",
+          "isolated worktree /private/tmp/four-layer-swift-bit-algebra-primitives",
+          "changed paths 14"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -14348,10 +14352,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "manifest evaluation passed",
+          "declared local target and source paths exist",
+          "active removed-identity residual scan passed",
+          "consumed singular Bit Primitive retained"
+        ]
       }
     },
     {
@@ -14391,8 +14400,12 @@
       "observedHead": "b9e222bff62530c912570fbc178ba536dd923b46",
       "observedRemote": "https://github.com/swift-primitives/swift-bit-finite-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 4af9058cd8859402266533082719649256c60cad",
+          "isolated worktree /private/tmp/four-layer-swift-bit-finite-primitives",
+          "changed paths 9"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -14400,10 +14413,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "manifest evaluation passed",
+          "declared local target and source paths exist",
+          "active removed-identity residual scan passed",
+          "consumed singular Bit Primitive retained"
+        ]
       }
     },
     {
@@ -14532,8 +14550,12 @@
       "observedHead": "2221de74d51af9de4d437a424fd4b56f2497c2b4",
       "observedRemote": "https://github.com/swift-primitives/swift-bit-pack-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 359bd4b5c1ca1427430bb4779a00e2cfbaa1bfbf",
+          "isolated worktree /private/tmp/four-layer-swift-bit-pack-primitives",
+          "changed paths 14"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -14541,10 +14563,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "manifest evaluation passed",
+          "declared local target and source paths exist",
+          "active removed-identity residual scan passed",
+          "none"
+        ]
       }
     },
     {
@@ -14569,8 +14596,12 @@
       "observedHead": "d84c1817e63be8a6af7ed808fabacef9f54ba1ed",
       "observedRemote": "https://github.com/swift-primitives/swift-bit-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 4e3e2662e87199948329b8f2e0cd5cd3f26ff0fc",
+          "isolated worktree /private/tmp/four-layer-swift-bit-primitives",
+          "changed paths 26"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -14578,10 +14609,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "manifest evaluation passed",
+          "declared local target and source paths exist",
+          "active removed-identity residual scan passed",
+          "singular Bit Primitive retained"
+        ]
       }
     },
     {
@@ -14636,8 +14672,12 @@
       "observedHead": "647abdf0fbc6b15c10899f7fd872c78799e18d20",
       "observedRemote": "https://github.com/swift-primitives/swift-bit-vector-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 957691a2b187ddb2a2e679824d79aa47df131143",
+          "isolated worktree /private/tmp/four-layer-swift-bit-vector-primitives",
+          "changed paths 96"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -14645,10 +14685,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "manifest evaluation passed",
+          "declared local target and source paths exist",
+          "active removed-identity residual scan passed",
+          "singular Iterator Primitive retained"
+        ]
       }
     },
     {
@@ -14715,8 +14760,12 @@
       "observedHead": "4bc622c5314ed076d4cc8b21917b32f8131c3c61",
       "observedRemote": "https://github.com/swift-primitives/swift-bool-algebra-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 61ac5172a33be9a555da7975cc2d1f906d649284",
+          "isolated worktree /private/tmp/four-layer-swift-bool-algebra-primitives",
+          "changed paths 12"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -14724,10 +14773,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "manifest evaluation passed",
+          "declared local target and source paths exist",
+          "active removed-identity residual scan passed",
+          "none"
+        ]
       }
     },
     {
@@ -15906,8 +15960,12 @@
       "observedHead": "6a36939a2285c00e380ffb4486ade109ba430ccc",
       "observedRemote": "https://github.com/swift-primitives/swift-cardinal-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit e932d328deff46ef801bab10520354b0da779398",
+          "isolated worktree /private/tmp/swift-cardinal-cutover",
+          "changed paths 105"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -15915,10 +15973,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "manifest evaluation passed",
+          "declared local target and source paths exist",
+          "active removed-identity residual scan passed",
+          "none"
+        ]
       }
     },
     {
@@ -16303,8 +16366,12 @@
       "observedHead": "7b49b9eeb52724899c5148a2c09aa330c1ae5ce3",
       "observedRemote": "https://github.com/swift-primitives/swift-comparison-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 094fd624bd55948a2fdfbcc76e53e75ea0ae80a5",
+          "isolated worktree /private/tmp/swift-comparison-cutover",
+          "changed paths 37"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -16312,10 +16379,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "manifest evaluation passed",
+          "declared local target and source paths exist",
+          "active removed-identity residual scan passed",
+          "none"
+        ]
       }
     },
     {
@@ -17599,8 +17671,12 @@
       "observedHead": "6e531b64782af0b21ee065af232962d38a765648",
       "observedRemote": "https://github.com/swift-primitives/swift-equation-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 711d6efbd7a6a4041e033dd3daf385828047b878",
+          "isolated worktree /private/tmp/swift-equation-cutover",
+          "changed paths 18"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -17608,10 +17684,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "manifest evaluation passed",
+          "declared local target and source paths exist",
+          "active removed-identity residual scan passed",
+          "none"
+        ]
       }
     },
     {
@@ -20785,8 +20866,12 @@
       "observedHead": "f5ef5edd9b09e8c62d36556ab28b22e2cc1f2bb8",
       "observedRemote": "https://github.com/swift-primitives/swift-ordinal-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 92f2aef190ba01b10d606c4991c48c44039e4a69",
+          "isolated worktree /private/tmp/swift-ordinal-cutover",
+          "changed paths 109"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -20794,10 +20879,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "manifest evaluation passed",
+          "declared local target and source paths exist",
+          "active removed-identity residual scan passed",
+          "none"
+        ]
       }
     },
     {
@@ -21809,8 +21899,12 @@
       "observedHead": "a589c0c269b6cf0c3fbddaf287b31557f0bb67ff",
       "observedRemote": "https://github.com/swift-primitives/swift-property-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 766700fb5f44026c2f8f1d4c33b49ce934487802",
+          "isolated worktree /private/tmp/swift-property-cutover",
+          "changed paths 59"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -21818,10 +21912,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "manifest evaluation passed",
+          "declared local target and source paths exist",
+          "active removed-identity residual scan passed",
+          "none"
+        ]
       }
     },
     {
@@ -23754,8 +23853,12 @@
       "observedHead": "57996561debfc5a8c2a0195393155c9d5fb1879d",
       "observedRemote": "https://github.com/swift-primitives/swift-tagged-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit c46829f9ff788f078389b41e0f75a48b14ee6b6b",
+          "isolated worktree /private/tmp/swift-tagged-cutover",
+          "changed paths 47"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -23763,10 +23866,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "manifest evaluation passed",
+          "declared local target and source paths exist",
+          "active removed-identity residual scan passed",
+          "none"
+        ]
       }
     },
     {
