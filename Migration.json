@@ -14722,14 +14722,14 @@
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-bit-index.git"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
-          "package resolution blocked at prepared commit 68ef5e71940fbf27447e1752ac79ea3d3b43f1ad",
-          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-bit-index-primitives --argument=--disable-sandbox",
-          "remote repository not found: https://github.com/swift-molecules/swift-bit.git",
-          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+          "package resolution passed for swift-bit-index at live published commit 68ef5e71940fbf27447e1752ac79ea3d3b43f1ad",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-bit-index institute package resolve --package-path /private/tmp/four-layer-swift-bit-index-primitives --argument=--disable-sandbox",
+          "resolved swift-bit-index direct live dependencies swift-affine at fffed9e57683fd4973f2ebf414f106fa88ba2354, swift-bit at 4e3e2662e87199948329b8f2e0cd5cd3f26ff0fc, swift-byte at 21d5194adee27b585f27e01c5c7669f74bb96710, swift-index at ea265ffc2efe2c282e494f5e7309d0ea19f2b287, and swift-ordinal at 92f2aef190ba01b10d606c4991c48c44039e4a69",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 93e08c44e0f8c72441203f410283c876f0ebe8b663683934a5b0d28fbd66abef and left as generated state"
         ]
       },
       "githubRepositoryID": 1149823144
