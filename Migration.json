@@ -15236,7 +15236,10 @@
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 1d727db438bcf2dbad6ec6bc8f7fe6c4543f1e32",
+          "renamed repository swift-molecules/swift-boundary-primitives -> swift-molecules/swift-boundary",
+          "verified stable GitHub repository ID 1264249470",
+          "prepared commit 11a7ed4b70021b1c06c41bf493c1a9ccfb4ed81d publication pending"
         ]
       },
       "state": "blocked",
@@ -15248,7 +15251,8 @@
           "remote repository not found: https://github.com/swift-molecules/swift-equation.git",
           "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
-      }
+      },
+      "githubRepositoryID": 1264249470
     },
     {
       "current": "swift-primitives/swift-buffer-linear-primitives",
