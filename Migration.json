@@ -18192,20 +18192,26 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 6af43442f3871f13827b55f888850c9795756dca",
+          "renamed repository swift-molecules/swift-error-primitives -> swift-molecules/swift-error",
+          "verified stable GitHub repository ID 1138063468",
+          "fast-forward published prepared commit f34a757c463682fbbf3f7201244a5201f96ce760",
+          "verified live main f34a757c463682fbbf3f7201244a5201f96ce760 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-error.git"
         ]
       },
       "state": "passed",
       "validation": {
         "status": "passed",
         "records": [
-          "package resolution passed at prepared commit f34a757c463682fbbf3f7201244a5201f96ce760",
+          "package resolution passed at live published commit f34a757c463682fbbf3f7201244a5201f96ce760",
           "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/swift-error-cutover --argument=--disable-sandbox",
-          "exit 0; HEAD unchanged; worktree clean; Package.resolved unchanged"
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved absent before and after"
         ]
-      }
+      },
+      "githubRepositoryID": 1138063468
     },
     {
       "current": "swift-primitives/swift-executor-primitives",
