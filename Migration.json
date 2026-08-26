@@ -28382,16 +28382,22 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit bc0463e189a14afeeed8c4fcbf30635128b93067",
+          "repository coordinate remained swift-standards/swift-fips-180-4 without a rename",
+          "verified stable GitHub repository ID 1324724535 with public visibility and non-archived state",
+          "verified isolated worktree fetch and push origin at https://github.com/swift-standards/swift-fips-180-4.git",
+          "fast-forward published prepared commit 9ee92d0445f46e39a73a9844b0ecf499758c97bb",
+          "verified live main 9ee92d0445f46e39a73a9844b0ecf499758c97bb with unchanged public visibility and non-archived state"
         ]
       },
       "state": "ready",
       "validation": {
         "status": "pending",
         "records": []
-      }
+      },
+      "githubRepositoryID": 1324724535
     },
     {
       "current": "swift-standards/swift-git-standard",
