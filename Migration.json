@@ -1591,16 +1591,22 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit c84769554dba065469a7e4b76d1f7711556ac71a",
+          "organization rename established live coordinate swift-compositions/swift-defunctionalize without a repository rename",
+          "verified exact destination owns stable GitHub repository ID 1183220184 with public visibility and non-archived state",
+          "updated isolated worktree fetch and push origin to https://github.com/swift-compositions/swift-defunctionalize.git",
+          "fast-forward published prepared commit adf2391128a3bd417f2913b7d430985456737ab9",
+          "verified live main adf2391128a3bd417f2913b7d430985456737ab9 with unchanged public visibility and non-archived state"
         ]
       },
       "state": "ready",
       "validation": {
         "status": "pending",
         "records": []
-      }
+      },
+      "githubRepositoryID": 1183220184
     },
     {
       "current": "swift-foundations/swift-dependencies",
