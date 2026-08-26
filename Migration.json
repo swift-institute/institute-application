@@ -1132,8 +1132,13 @@
       "observedHead": "1859a3b6fb43d67ee5fd4ca643ff33e73b104658",
       "observedRemote": "https://github.com/swift-foundations/swift-copy-on-write.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 393bed73710b6300b42555ba78683b9221a9004a from expected parent 1859a3b6fb43d67ee5fd4ca643ff33e73b104658",
+          "isolated worktree /private/tmp/four-layer-swift-copy-on-write",
+          "updated README installation URL and metadata ownership from foundations to compositions while preserving suffix-free package, product, target, macro, and module identities and the external swift-syntax dependency",
+          "ancestry, diff integrity, import declarations, residuals, public payload, Actions references, external dependency tag, and Package.resolved preflight checks passed independently"
+        ]
       },
       "publication": {
         "status": "pending",
