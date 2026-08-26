@@ -16686,7 +16686,10 @@
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 7b49b9eeb52724899c5148a2c09aa330c1ae5ce3",
+          "renamed repository swift-molecules/swift-comparison-primitives -> swift-molecules/swift-comparison",
+          "verified stable GitHub repository ID 1139270953 and public visibility",
+          "prepared commit publication pending"
         ]
       },
       "state": "blocked",
@@ -23130,7 +23133,8 @@
           "remote repository not found: https://github.com/swift-molecules/swift-property.git",
           "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
-      }
+      },
+      "githubRepositoryID": 1139270953
     },
     {
       "current": "swift-primitives/swift-reference-primitives",
