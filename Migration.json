@@ -20956,12 +20956,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit c88d8c6a2c46d13b7a004bbbc20bcf153f90d00b",
           "renamed repository swift-molecules/swift-memory-iterator-primitives -> swift-molecules/swift-memory-iterator",
           "verified stable GitHub repository ID 1250537618",
-          "prepared commit e74d198336a0d6f03e8524f2a5cf26f706f15ebf publication pending"
+          "fast-forward published prepared commit e74d198336a0d6f03e8524f2a5cf26f706f15ebf",
+          "verified live main e74d198336a0d6f03e8524f2a5cf26f706f15ebf and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-memory-iterator.git"
         ]
       },
       "state": "blocked",
