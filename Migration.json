@@ -16357,19 +16357,25 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit f63483ea7fb4d1e22437c0d255ab58270a457a49",
           "renamed swift-molecules/swift-buffer-slab-primitives to swift-molecules/swift-buffer-slab",
           "verified exact destination owns stable GitHub repository ID 1247830081 with public visibility and non-archived state",
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-buffer-slab.git",
-          "publication remains pending at non-force fast-forward push of prepared commit 514c6c7d2c1be31c8bab287013858872ea6bb71d"
+          "fast-forward published prepared commit 514c6c7d2c1be31c8bab287013858872ea6bb71d",
+          "verified live main 514c6c7d2c1be31c8bab287013858872ea6bb71d with unchanged public visibility"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-buffer-slab at live published commit 514c6c7d2c1be31c8bab287013858872ea6bb71d",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-buffer-slab-live institute package resolve --package-path /private/tmp/swift-buffer-slab-live-f63483ea7fb4d1e22437c0d255ab58270a457a49 --argument=--disable-sandbox",
+          "resolved all 16 declared direct dependencies at live future coordinates, including swift-buffer 38b506198baee45cfe060d9fd716abd482bfb262, swift-memory-inline 7cb35c249694f33ad9129053d2e8479207b52012, and swift-storage 31b816f046554d8ba45b8be2a84b9eb478b2545d",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent and left uncommitted at sha256 52ba52eb6b61530566d5a4712c2fa29a7d8d8555e411afd39372381c14ae68cb"
+        ]
       },
       "githubRepositoryID": 1247830081
     },
@@ -21223,20 +21229,29 @@
       "observedHead": "b7e59eaff1d8d5f50965ba78397add1ef19700ea",
       "observedRemote": "https://github.com/swift-primitives/swift-linter-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 8337af02e7c7c499e98519a8a5ae9a65fae60a95 from expected parent b7e59eaff1d8d5f50965ba78397add1ef19700ea",
+          "isolated worktree /private/tmp/swift-linter-publish",
+          "canonical terminal and plural Primitives mappings applied across 48 changed paths while singular Primitive identities and historical LICENSE attribution were preserved; exact seven molecule dependencies plus unchanged swiftlang/swift-syntax verified"
+        ]
       },
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit b7e59eaff1d8d5f50965ba78397add1ef19700ea",
+          "renamed swift-molecules/swift-linter-primitives to swift-molecules/swift-linter",
+          "verified exact destination owns stable GitHub repository ID 1230911411 with public visibility and non-archived state",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-linter.git",
+          "publication remains pending at non-force fast-forward push of prepared commit 8337af02e7c7c499e98519a8a5ae9a65fae60a95"
         ]
       },
       "state": "ready",
       "validation": {
         "status": "pending",
         "records": []
-      }
+      },
+      "githubRepositoryID": 1230911411
     },
     {
       "current": "swift-primitives/swift-list-linked-primitives",
