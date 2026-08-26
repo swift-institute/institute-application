@@ -26118,12 +26118,13 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 37711a38c432575b58d3e436d8e976f3f22b262c",
           "renamed swift-molecules/swift-structured-queries-primitives to swift-molecules/swift-structured-queries",
           "verified exact destination owns stable GitHub repository ID 1217844841 with public visibility and non-archived state",
-          "prepared commit publication remains pending"
+          "fast-forward published prepared commit 5bafc336f634f15b38c0f89f9bbeeac131c73eff",
+          "verified live main 5bafc336f634f15b38c0f89f9bbeeac131c73eff and final origin https://github.com/swift-molecules/swift-structured-queries.git"
         ]
       },
       "state": "ready",
@@ -27593,11 +27594,17 @@
           "verified live main 440ccfc24424c56aadccc7d35e0d6b7c50e9944c and final origin https://github.com/swift-standards/swift-css-standard.git"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-css-standard at live published commit 440ccfc24424c56aadccc7d35e0d6b7c50e9944c",
+          "post-publication invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-css-standard-live institute package resolve --package-path /private/tmp/swift-css-standard-live.tbwYHt/repo --argument=--disable-sandbox",
+          "resolved live IEC 61966, swift-byte, swift-color-standard, and W3C CSS 3928a392fea7eb30ab8a865c0abf8e3bb9487454 dependency graph",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved SHA-256 2d78ede504f986ada8b4d75a67ac77570cde996bc397f94d2b0acaae269a1f1d remained ignored/uncommitted"
+        ]
+      },
+      "githubRepositoryID": 1108564035
     },
     {
       "current": "swift-standards/swift-darwin-standard",
