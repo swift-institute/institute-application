@@ -16097,14 +16097,17 @@
           "verified live main 90d073006a3b7c8753d337944ec9f1f1b16da251 with unchanged public visibility"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
           "package resolution blocked for swift-buffer-linked at live published commit 90d073006a3b7c8753d337944ec9f1f1b16da251",
           "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-buffer-linked-live institute package resolve --package-path /private/tmp/swift-buffer-linked-live-572e022094ae491155d6f9ca541bf3845234bacb --argument=--disable-sandbox",
           "exit 1; SwiftPM could not clone unpublished future dependency https://github.com/swift-molecules/swift-ownership-shared.git because the repository was not found",
-          "publication preserved; Package.resolved remained absent; HEAD and tracked worktree remained clean; swift-ownership-shared is the next dependency-unblock target"
+          "publication preserved; Package.resolved remained absent; HEAD and tracked worktree remained clean; swift-ownership-shared became the next dependency-unblock target",
+          "package resolution recovery passed after swift-ownership-shared was published and resolution-passed at 87fcb40a93b9db9f63bcb6fbef37a4ca878c2081",
+          "recovery invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-buffer-linked-recovery institute package resolve --package-path /private/tmp/swift-buffer-linked-live-572e022094ae491155d6f9ca541bf3845234bacb --argument=--disable-sandbox",
+          "recovery exit 0; HEAD unchanged; tracked worktree clean; Package.resolved generated from absent to SHA-256 f07dd32268e394784ff9fa8e420cc91d71d3055bdefa6f691e6deeae235879b4 and remained ignored/uncommitted"
         ]
       },
       "githubRepositoryID": 1247830113
