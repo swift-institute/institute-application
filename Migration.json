@@ -28252,10 +28252,15 @@
           "verified live main 467dfbfd68a040e1f363e574e1577d81bb7f1448 with unchanged repository ID, public visibility, non-archived state, and clean isolated worktree"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-darwin-standard at live published commit 467dfbfd68a040e1f363e574e1577d81bb7f1448",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-darwin-standard-root institute package resolve --package-path /private/tmp/four-layer-swift-darwin-standard --argument=--disable-sandbox",
+          "resolution exited 0 against live ISO 9945 and all eight molecule dependencies and their transitive graph",
+          "HEAD unchanged; tracked worktree clean; Package.resolved changed from absent to ignored uncommitted generated state and stabilized at SHA-256 188f4e914ef134ebcb7938580fa599837eed2a32d71a8b0d24c81b1282bf8677"
+        ]
       }
     },
     {
