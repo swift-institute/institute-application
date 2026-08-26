@@ -14300,12 +14300,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 8fd186ac63502c54d9fad4ed0d7e628e60da2ace",
           "renamed repository swift-molecules/swift-binary-leb128-primitives -> swift-molecules/swift-binary-leb128",
           "verified stable GitHub repository ID 1246631643",
-          "prepared commit 37bd36bb487229fd1b6e36192ce5c0cac5ab4fa8 publication pending"
+          "fast-forward published prepared commit 37bd36bb487229fd1b6e36192ce5c0cac5ab4fa8",
+          "verified live main 37bd36bb487229fd1b6e36192ce5c0cac5ab4fa8 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-binary-leb128.git"
         ]
       },
       "state": "blocked",
