@@ -14132,14 +14132,14 @@
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-binary-cursor.git"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
-          "package resolution blocked at prepared commit 9f6ff637bf0ac0ef7667920d3ddd5128d1cc39ee",
-          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-binary-cursor-primitives --argument=--disable-sandbox",
-          "remote repository not found: https://github.com/swift-molecules/swift-binary.git",
-          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+          "package resolution passed for swift-binary-cursor at live published commit 9f6ff637bf0ac0ef7667920d3ddd5128d1cc39ee",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-binary-cursor-live institute package resolve --package-path /private/tmp/four-layer-swift-binary-cursor-primitives --argument=--disable-sandbox",
+          "resolved swift-binary-cursor direct live dependencies swift-binary at 8f9159a3470f7992b54b2ac74b1ffbb1e244fa62, swift-byte at 21d5194adee27b585f27e01c5c7669f74bb96710, swift-index at ea265ffc2efe2c282e494f5e7309d0ea19f2b287, and swift-span at 8c76670f76b7982f128e3e7b7fc80f43f05200ff",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 3c76faf71985502bead5fcc327ce1d115f1294a7dcfd6a2f3747c2dddc87fe2b and left as generated state"
         ]
       },
       "githubRepositoryID": 1246635485
