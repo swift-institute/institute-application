@@ -18166,12 +18166,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 6e531b64782af0b21ee065af232962d38a765648",
           "renamed repository swift-molecules/swift-equation-primitives -> swift-molecules/swift-equation",
-          "verified stable GitHub repository ID 1139271036 and public visibility",
-          "prepared commit publication pending"
+          "verified stable GitHub repository ID 1139271036",
+          "fast-forward published prepared commit 711d6efbd7a6a4041e033dd3daf385828047b878",
+          "verified live main 711d6efbd7a6a4041e033dd3daf385828047b878 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-equation.git"
         ]
       },
       "state": "blocked",
