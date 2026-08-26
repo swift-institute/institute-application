@@ -8,16 +8,16 @@ import Testing
 
 private let inventory = Institute.Architecture.Facts.Inventory(rows: [
     .init(
-        organization: "swift-primitives",
-        name: "swift-byte-primitives",
-        layer: .primitives,
-        url: "https://github.com/swift-primitives/swift-byte-primitives.git"
+        organization: "swift-molecules",
+        name: "swift-byte",
+        layer: .atoms,
+        url: "https://github.com/swift-molecules/swift-byte.git"
     ),
     .init(
-        organization: "swift-foundations",
+        organization: "swift-compositions",
         name: "swift-console",
-        layer: .foundations,
-        url: "https://github.com/swift-foundations/swift-console.git"
+        layer: .compositions,
+        url: "https://github.com/swift-compositions/swift-console.git"
     ),
 ])
 
@@ -32,7 +32,7 @@ private let manifest = Institute.Architecture.Facts.Manifest.scan(
             ),
         ],
         dependencies: [
-            .package(url: "https://github.com/swift-primitives/swift-byte-primitives.git", branch: "main"),
+            .package(url: "https://github.com/swift-molecules/swift-byte.git", branch: "main"),
         ],
         targets: [
             .target(
@@ -57,14 +57,14 @@ struct `Institute Architecture Facts Tests` {
             #expect(manifest.targets == ["Console"])
             #expect(
                 manifest.dependencyURLs
-                    == ["https://github.com/swift-primitives/swift-byte-primitives.git"]
+                    == ["https://github.com/swift-molecules/swift-byte.git"]
             )
         }
 
         @Test
         func `derives facts, provenance edges and runtime edges`() {
             let consoleOwner = Institute.Architecture.Owner(
-                organization: "swift-foundations",
+                organization: "swift-compositions",
                 name: "swift-console"
             )
             let derived = Institute.Architecture.Facts.derive(
@@ -83,8 +83,8 @@ struct `Institute Architecture Facts Tests` {
                     .init(
                         source: consoleOwner,
                         destination: .init(
-                            organization: "swift-primitives",
-                            name: "swift-byte-primitives"
+                            organization: "swift-molecules",
+                            name: "swift-byte"
                         ),
                         kind: .runtime
                     )
@@ -100,8 +100,8 @@ struct `Institute Architecture Facts Tests` {
                     .init(
                         source: consoleOwner,
                         destination: .init(
-                            organization: "swift-primitives",
-                            name: "swift-byte-primitives"
+                            organization: "swift-molecules",
+                            name: "swift-byte"
                         ),
                         kind: .runtime
                     )
@@ -124,8 +124,8 @@ struct `Institute Architecture Facts Tests` {
         @Test
         func `records an empty measured manifest as an internal-only fact`() {
             let owner = Institute.Architecture.Owner(
-                organization: "swift-primitives",
-                name: "swift-byte-primitives"
+                organization: "swift-molecules",
+                name: "swift-byte"
             )
             let derived = Institute.Architecture.Facts.derive(
                 inventory: .init(rows: [inventory.rows[0]]),
@@ -141,6 +141,16 @@ struct `Institute Architecture Facts Tests` {
 
     @Suite
     struct `Edge Case` {
+        @Test
+        func `accepts exactly the four current layer wire tokens`() {
+            #expect(Institute.Architecture.Layer(name: "atoms") == .atoms)
+            #expect(Institute.Architecture.Layer(name: "molecules") == .molecules)
+            #expect(Institute.Architecture.Layer(name: "standards") == .standards)
+            #expect(Institute.Architecture.Layer(name: "compositions") == .compositions)
+            #expect(Institute.Architecture.Layer(name: "primitives") == nil)
+            #expect(Institute.Architecture.Layer(name: "foundations") == nil)
+        }
+
         @Test
         func `decodes an inventory document and ignores unrelated keys`() throws {
             let decoded = try Institute.Architecture.Facts.Inventory(
@@ -175,7 +185,7 @@ struct `Institute Architecture Facts Tests` {
         @Test
         func `derivation is deterministic across repeated runs`() {
             let consoleOwner = Institute.Architecture.Owner(
-                organization: "swift-foundations",
+                organization: "swift-compositions",
                 name: "swift-console"
             )
             let first = Institute.Architecture.Facts.derive(

@@ -20,7 +20,7 @@ struct `Institute Architecture Index Artifact Tests` {
         #expect(artifact.rendered.contains("validation\tvalid"))
         #expect(
             artifact.rendered.contains(
-                "edge\truntime\tswift-foundations/swift-console\tswift-primitives/swift-byte-primitives"
+                "edge\truntime\tswift-compositions/swift-console\tswift-molecules/swift-byte"
             )
         )
         let owners = Swift.Set(artifact.index.entries.map(\.owner))
@@ -72,16 +72,16 @@ struct `Institute Architecture Index Artifact Tests` {
     @Test
     func `rejects a fact whose concept identifier differs from its owner`() {
         let original = Artifact.fact(
-            organization: "swift-primitives",
-            name: "swift-byte-primitives",
-            layer: .primitives,
-            products: ["Byte Primitives"]
+            organization: "swift-molecules",
+            name: "swift-byte",
+            layer: .atoms,
+            products: ["Byte"]
         )
         let mismatched = Institute.Architecture.Fact(
             owner: original.owner,
             layer: original.layer,
             concept: .init(
-                identifier: .init(rawValue: "swift-primitives/swift-other-primitives"),
+                identifier: .init(rawValue: "swift-molecules/swift-other"),
                 name: original.concept.name
             ),
             products: original.products,
@@ -103,39 +103,39 @@ struct `Institute Architecture Index Artifact Tests` {
     }
 
     @Test(arguments: [
-        Institute.Architecture.Owner(organization: "", name: "swift-byte-primitives"),
-        Institute.Architecture.Owner(organization: "swift-primitives", name: ""),
+        Institute.Architecture.Owner(organization: "", name: "swift-byte"),
+        Institute.Architecture.Owner(organization: "swift-molecules", name: ""),
         Institute.Architecture.Owner(
-            organization: "swift/primitives",
-            name: "swift-byte-primitives"
+            organization: "swift/atoms",
+            name: "swift-byte"
         ),
         Institute.Architecture.Owner(
-            organization: "swift-primitives",
-            name: "swift/byte-primitives"
+            organization: "swift-molecules",
+            name: "swift/byte-atoms"
         ),
         Institute.Architecture.Owner(
-            organization: "swift\tprimitives",
-            name: "swift-byte-primitives"
+            organization: "swift\tatoms",
+            name: "swift-byte"
         ),
         Institute.Architecture.Owner(
-            organization: "swift-primitives",
-            name: "swift\tbyte-primitives"
+            organization: "swift-molecules",
+            name: "swift\tbyte-atoms"
         ),
         Institute.Architecture.Owner(
-            organization: "swift\rprimitives",
-            name: "swift-byte-primitives"
+            organization: "swift\ratoms",
+            name: "swift-byte"
         ),
         Institute.Architecture.Owner(
-            organization: "swift-primitives",
-            name: "swift\rbyte-primitives"
+            organization: "swift-molecules",
+            name: "swift\rbyte-atoms"
         ),
         Institute.Architecture.Owner(
-            organization: "swift\nprimitives",
-            name: "swift-byte-primitives"
+            organization: "swift\natoms",
+            name: "swift-byte"
         ),
         Institute.Architecture.Owner(
-            organization: "swift-primitives",
-            name: "swift\nbyte-primitives"
+            organization: "swift-molecules",
+            name: "swift\nbyte-atoms"
         ),
     ])
     func `rejects owners that cannot form canonical artifact coordinates`(
@@ -143,10 +143,10 @@ struct `Institute Architecture Index Artifact Tests` {
     ) {
         let fact = Institute.Architecture.Fact(
             owner: owner,
-            layer: .primitives,
-            concept: .init(identifier: .init(owner: owner), name: "Byte Primitives"),
-            products: ["Byte Primitives"],
-            targets: ["Byte Primitives"]
+            layer: .atoms,
+            concept: .init(identifier: .init(owner: owner), name: "Byte"),
+            products: ["Byte"],
+            targets: ["Byte"]
         )
         let facts = Institute.Architecture.Facts(facts: [fact], edges: [])
         let validation = Institute.Architecture.Validator().validate(
@@ -168,15 +168,15 @@ struct `Institute Architecture Index Artifact Tests` {
     @Test
     func `round trips a canonical owner coordinate through an artifact`() throws {
         let owner = Institute.Architecture.Owner(
-            organization: "swift-primitives",
-            name: "swift-byte_primitives.1"
+            organization: "swift-molecules",
+            name: "swift-byte-component.1"
         )
         let fact = Institute.Architecture.Fact(
             owner: owner,
-            layer: .primitives,
-            concept: .init(identifier: .init(owner: owner), name: "Byte Primitives"),
-            products: ["Byte Primitives"],
-            targets: ["Byte Primitives"]
+            layer: .atoms,
+            concept: .init(identifier: .init(owner: owner), name: "Byte"),
+            products: ["Byte"],
+            targets: ["Byte"]
         )
         let facts = Institute.Architecture.Facts(facts: [fact], edges: [])
         let validation = Institute.Architecture.Validator().validate(
@@ -227,10 +227,10 @@ struct `Institute Architecture Index Artifact Tests` {
     func `refuses a passing report for different derived inputs`() throws {
         let facts = Artifact.inputs()
         let unrelated = Artifact.fact(
-            organization: "swift-primitives",
-            name: "swift-atom-primitives",
-            layer: .primitives,
-            products: ["Atom Primitives"]
+            organization: "swift-molecules",
+            name: "swift-atom",
+            layer: .atoms,
+            products: ["Atom"]
         )
         let unrelatedFacts = Institute.Architecture.Facts(facts: [unrelated], edges: [])
         let unrelatedValidation = Institute.Architecture.Validator().validate(
@@ -283,9 +283,9 @@ struct `Institute Architecture Index Artifact Tests` {
         let tampered = Artifact.recomputingDigest(
             artifact.rendered.replacingOccurrences(
                 of:
-                    "edge\truntime\tswift-foundations/swift-console\tswift-primitives/swift-byte-primitives",
+                    "edge\truntime\tswift-compositions/swift-console\tswift-molecules/swift-byte",
                 with:
-                    "edge\ttarget\tswift-foundations/swift-console\tswift-primitives/swift-byte-primitives"
+                    "edge\ttarget\tswift-compositions/swift-console\tswift-molecules/swift-byte"
             )
         )
 
@@ -300,7 +300,7 @@ struct `Institute Architecture Index Artifact Tests` {
         let tampered = Artifact.recomputingDigest(
             artifact.rendered.replacingOccurrences(
                 of:
-                    "\nedge\truntime\tswift-foundations/swift-console\tswift-primitives/swift-byte-primitives",
+                    "\nedge\truntime\tswift-compositions/swift-console\tswift-molecules/swift-byte",
                 with: ""
             )
         )
@@ -316,9 +316,9 @@ struct `Institute Architecture Index Artifact Tests` {
         let tampered = Artifact.recomputingDigest(
             artifact.rendered.replacingOccurrences(
                 of:
-                    "edge\truntime\tswift-foundations/swift-console\tswift-primitives/swift-byte-primitives",
+                    "edge\truntime\tswift-compositions/swift-console\tswift-molecules/swift-byte",
                 with:
-                    "edge\truntime\tswift-foundations/swift-console\tswift-primitives/swift-byte-primitives\nedge\ttarget\tswift-foundations/swift-console\tswift-primitives/swift-byte-primitives"
+                    "edge\truntime\tswift-compositions/swift-console\tswift-molecules/swift-byte\nedge\ttarget\tswift-compositions/swift-console\tswift-molecules/swift-byte"
             )
         )
 
@@ -330,13 +330,13 @@ struct `Institute Architecture Index Artifact Tests` {
     @Test
     func `refuses coverage that does not name exactly the indexed owners`() {
         let fact = Artifact.fact(
-            organization: "swift-primitives",
-            name: "swift-byte-primitives",
-            layer: .primitives,
-            products: ["Byte Primitives"]
+            organization: "swift-molecules",
+            name: "swift-byte",
+            layer: .atoms,
+            products: ["Byte"]
         )
         let unrelated = Institute.Architecture.Owner(
-            organization: "swift-foundations",
+            organization: "swift-compositions",
             name: "swift-console"
         )
         let facts = Institute.Architecture.Facts(
@@ -361,13 +361,13 @@ struct `Institute Architecture Index Artifact Tests` {
     @Test
     func `refuses incomplete measurement instead of encoding a zero product fact`() {
         let measured = Artifact.fact(
-            organization: "swift-primitives",
-            name: "swift-byte-primitives",
-            layer: .primitives,
-            products: ["Byte Primitives"]
+            organization: "swift-molecules",
+            name: "swift-byte",
+            layer: .atoms,
+            products: ["Byte"]
         )
         let missing = Institute.Architecture.Owner(
-            organization: "swift-foundations",
+            organization: "swift-compositions",
             name: "swift-console"
         )
         let facts = Institute.Architecture.Facts(
@@ -393,9 +393,9 @@ struct `Institute Architecture Index Artifact Tests` {
     @Test
     func `keeps a measured zero API package distinct from an unmeasured package`() throws {
         let empty = Artifact.fact(
-            organization: "swift-primitives",
+            organization: "swift-molecules",
             name: "swift-internal-only",
-            layer: .primitives,
+            layer: .atoms,
             products: []
         )
         let facts = Institute.Architecture.Facts(facts: [empty], edges: [])
@@ -416,15 +416,15 @@ struct `Institute Architecture Index Artifact Tests` {
     @Test
     func `refuses forbidden fact edges without a caller-supplied graph`() {
         let lower = Artifact.fact(
-            organization: "swift-primitives",
-            name: "swift-byte-primitives",
-            layer: .primitives,
-            products: ["Byte Primitives"]
+            organization: "swift-molecules",
+            name: "swift-byte",
+            layer: .atoms,
+            products: ["Byte"]
         )
         let higher = Artifact.fact(
-            organization: "swift-foundations",
+            organization: "swift-compositions",
             name: "swift-console",
-            layer: .foundations,
+            layer: .compositions,
             products: ["Console"]
         )
         let facts = Institute.Architecture.Facts(
@@ -447,11 +447,11 @@ struct `Institute Architecture Index Artifact Tests` {
 
     @Test
     func `keeps similarly named concepts distinct`() throws {
-        let primitive = Artifact.fact(
-            organization: "swift-primitives",
-            name: "swift-json-primitives",
-            layer: .primitives,
-            products: ["JSON Primitives"]
+        let atom = Artifact.fact(
+            organization: "swift-molecules",
+            name: "swift-json",
+            layer: .atoms,
+            products: ["JSON"]
         )
         let standard = Artifact.fact(
             organization: "swift-standards",
@@ -459,7 +459,7 @@ struct `Institute Architecture Index Artifact Tests` {
             layer: .standards,
             products: ["JSON Standard"]
         )
-        let facts = Institute.Architecture.Facts(facts: [primitive, standard], edges: [])
+        let facts = Institute.Architecture.Facts(facts: [atom, standard], edges: [])
         let validation = Institute.Architecture.Validator().validate(
             derived: facts,
             today: Artifact.today
@@ -472,7 +472,7 @@ struct `Institute Architecture Index Artifact Tests` {
         #expect(validation.passes)
         #expect(
             artifact.index.entries.map(\.concept) == [
-                .init(owner: primitive.owner),
+                .init(owner: atom.owner),
                 .init(owner: standard.owner),
             ]
         )
@@ -509,22 +509,22 @@ private enum Artifact {
     static func inputs(
         reversed: Swift.Bool = false
     ) -> Institute.Architecture.Facts {
-        let primitive = fact(
-            organization: "swift-primitives",
-            name: "swift-byte-primitives",
-            layer: .primitives,
-            products: ["Byte Primitives"]
+        let atom = fact(
+            organization: "swift-molecules",
+            name: "swift-byte",
+            layer: .atoms,
+            products: ["Byte"]
         )
-        let foundation = fact(
-            organization: "swift-foundations",
+        let composition = fact(
+            organization: "swift-compositions",
             name: "swift-console",
-            layer: .foundations,
+            layer: .compositions,
             products: ["Console"]
         )
-        let values = reversed ? [foundation, primitive] : [primitive, foundation]
+        let values = reversed ? [composition, atom] : [atom, composition]
         return Institute.Architecture.Facts(
             facts: values,
-            edges: [.init(source: foundation.owner, destination: primitive.owner, kind: .runtime)]
+            edges: [.init(source: composition.owner, destination: atom.owner, kind: .runtime)]
         )
     }
 

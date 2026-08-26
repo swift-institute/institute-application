@@ -1,15 +1,16 @@
 public import Institute_Model
 
 extension Institute.Architecture {
-  /// One of the three realised Institute layers.
+  /// One of the four realized Institute layers.
   ///
   /// Dependency edges point from higher layers to lower layers; the
   /// ``rank`` orders the layers so an edge's legality is a single
   /// comparison.
   public enum Layer: Sendable, Equatable, Hashable, CaseIterable {
-    case primitives
+    case atoms
+    case molecules
     case standards
-    case foundations
+    case compositions
   }
 }
 
@@ -18,26 +19,29 @@ extension Institute.Architecture.Layer {
   /// less than or equal to its own.
   public var rank: Swift.Int {
     switch self {
-    case .primitives: 1
-    case .standards: 2
-    case .foundations: 3
+    case .atoms: 1
+    case .molecules: 2
+    case .standards: 3
+    case .compositions: 4
     }
   }
 
   /// The inventory spelling, exactly as `Institute.json` records it.
   public var name: Swift.String {
     switch self {
-    case .primitives: "primitives"
+    case .atoms: "atoms"
+    case .molecules: "molecules"
     case .standards: "standards"
-    case .foundations: "foundations"
+    case .compositions: "compositions"
     }
   }
 
   public init?(name: Swift.String) {
     switch name {
-    case "primitives": self = .primitives
+    case "atoms": self = .atoms
+    case "molecules": self = .molecules
     case "standards": self = .standards
-    case "foundations": self = .foundations
+    case "compositions": self = .compositions
     default: return nil
     }
   }
