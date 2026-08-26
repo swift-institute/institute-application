@@ -7664,16 +7664,22 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 96cffdc68e32d92155ddf6e79ce868ae2d32fcf2",
+          "organization rename established live coordinate swift-compositions/swift-tensors without a repository rename",
+          "verified exact destination owns stable GitHub repository ID 1257228624 with public visibility and non-archived state",
+          "updated isolated worktree fetch and push origin to https://github.com/swift-compositions/swift-tensors.git",
+          "fast-forward published prepared commit 3ac0a18092ff849035f5928003c5ccc639c2d5e1",
+          "verified live main 3ac0a18092ff849035f5928003c5ccc639c2d5e1 with unchanged public visibility and non-archived state"
         ]
       },
       "state": "ready",
       "validation": {
         "status": "pending",
         "records": []
-      }
+      },
+      "githubRepositoryID": 1257228624
     },
     {
       "current": "swift-foundations/swift-test-application",
