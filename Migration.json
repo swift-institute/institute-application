@@ -21737,14 +21737,14 @@
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-order-finite.git"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
-          "package resolution blocked at prepared commit c2861f5b7b36a93cedc8472f3c51d2e92aa6227b",
-          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-order-finite-primitives --argument=--disable-sandbox",
-          "remote repository not found: https://github.com/swift-molecules/swift-finite.git",
-          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+          "package resolution passed for swift-order-finite at live published commit c2861f5b7b36a93cedc8472f3c51d2e92aa6227b",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-order-finite-live institute package resolve --package-path /private/tmp/four-layer-swift-order-finite-primitives --argument=--disable-sandbox",
+          "resolved swift-order-finite direct live dependencies swift-cardinal at e932d328deff46ef801bab10520354b0da779398, swift-finite at 4493866be8f59c3b2e7a78440d60341493bf254c, swift-order at 1e15226f884a5ce3d1edf54cdab0f30e2f58dfd6, and swift-ordinal at 92f2aef190ba01b10d606c4991c48c44039e4a69",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 116c77b5ae28b00538f165129fbb75c91a5c57ae767133317def672588864c17 and left as generated state"
         ]
       },
       "githubRepositoryID": 1253857771
