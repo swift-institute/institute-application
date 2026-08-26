@@ -25880,12 +25880,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 88418e8d6c218a24a73a10d5bdcc583c714f8da5",
           "renamed swift-molecules/swift-slot-map-primitives to swift-molecules/swift-slot-map",
           "verified exact destination owns stable GitHub repository ID 1276750203 with public visibility and non-archived state",
-          "publication remains pending at non-force fast-forward push of prepared commit de88d952fa6c740df4c96ae9b83f706078510382"
+          "updated isolated worktree fetch and push origin to https://github.com/swift-molecules/swift-slot-map.git",
+          "fast-forward published prepared commit de88d952fa6c740df4c96ae9b83f706078510382",
+          "verified live main de88d952fa6c740df4c96ae9b83f706078510382 with unchanged public visibility and non-archived state"
         ]
       },
       "state": "ready",
