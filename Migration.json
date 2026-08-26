@@ -1572,20 +1572,35 @@
       "observedHead": "19197ff39fe463464ec4bf0d8ae32c4a3def85ce",
       "observedRemote": "https://github.com/swift-foundations/swift-diagnostics.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit 27a4001ad381984b512fecd494ce8111cbbddc59",
+          "isolated worktree /private/tmp/four-layer-swift-diagnostics",
+          "changed paths Package.swift, README.md, and Sources/Diagnostics/exports.swift; canonical owner, dependency, product, and module mapping applied"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 19197ff39fe463464ec4bf0d8ae32c4a3def85ce",
+          "organization rename established live coordinate swift-compositions/swift-diagnostics without a repository rename",
+          "verified stable GitHub repository ID 1132378219",
+          "fast-forward published prepared commit 27a4001ad381984b512fecd494ce8111cbbddc59",
+          "verified live main 27a4001ad381984b512fecd494ce8111cbbddc59 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-compositions/swift-diagnostics.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-diagnostics at live published commit 27a4001ad381984b512fecd494ce8111cbbddc59",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-diagnostics-composition-live institute package resolve --package-path /private/tmp/four-layer-swift-diagnostics --argument=--disable-sandbox",
+          "resolved swift-diagnostics direct live dependencies swift-diagnostic at f728f4fb9537b435df4384894bd78320344dd89d and swift-source at 4a126e8a0698f5e412ff67821507c4cf9d15a2dc",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 5866b180862a6fb749b3e0857a9102701aff7f29b0757edb06f6909ea50b402c and left as generated state"
+        ]
+      },
+      "githubRepositoryID": 1132378219
     },
     {
       "current": "swift-foundations/swift-domain-name-system",
@@ -6152,20 +6167,33 @@
       "observedHead": "91b68208509bf0349df3622e3691333c95252ae9",
       "observedRemote": "https://github.com/swift-foundations/swift-scheduler.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "canonical four-layer transformation was a no-op at expected commit 91b68208509bf0349df3622e3691333c95252ae9",
+          "isolated worktree /private/tmp/four-layer-swift-scheduler",
+          "no tracked canonical mapping matched; changed paths none"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified live main already at expected unchanged commit 91b68208509bf0349df3622e3691333c95252ae9; no push required",
+          "organization rename established live coordinate swift-compositions/swift-scheduler without a repository rename",
+          "verified stable GitHub repository ID 1144636199 and public visibility",
+          "verified final origin https://github.com/swift-compositions/swift-scheduler.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-scheduler at live commit 91b68208509bf0349df3622e3691333c95252ae9",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-scheduler-live institute package resolve --package-path /private/tmp/four-layer-swift-scheduler --argument=--disable-sandbox",
+          "resolved no direct package dependencies",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved absent before and after"
+        ]
+      },
+      "githubRepositoryID": 1144636199
     },
     {
       "current": "swift-foundations/swift-server",
@@ -6473,20 +6501,33 @@
       "observedHead": "505b99f50af18439b9b1de13cffac001ef510129",
       "observedRemote": "https://github.com/swift-foundations/swift-sitemap.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "canonical four-layer transformation was a no-op at expected commit 505b99f50af18439b9b1de13cffac001ef510129",
+          "isolated worktree /private/tmp/four-layer-swift-sitemap",
+          "no tracked canonical mapping matched; changed paths none"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified live main already at expected unchanged commit 505b99f50af18439b9b1de13cffac001ef510129; no push required",
+          "organization rename established live coordinate swift-compositions/swift-sitemap without a repository rename",
+          "verified stable GitHub repository ID 1026720193 and public visibility",
+          "verified final origin https://github.com/swift-compositions/swift-sitemap.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-sitemap at live commit 505b99f50af18439b9b1de13cffac001ef510129",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-sitemap-live institute package resolve --package-path /private/tmp/four-layer-swift-sitemap --argument=--disable-sandbox",
+          "resolved no direct package dependencies",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved absent before and after"
+        ]
+      },
+      "githubRepositoryID": 1026720193
     },
     {
       "current": "swift-foundations/swift-sockets",
@@ -12204,20 +12245,34 @@
       "observedHead": "43740c85273d7695c8849d2f7ab0095744a4db59",
       "observedRemote": "https://github.com/swift-intel/swift-x86-standard.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit 8be8c2a0cc367fd1f1eea51c37d3a01413cd89fc",
+          "isolated worktree /private/tmp/four-layer-swift-x86-standard",
+          "changed paths Package.swift and Sources/X86 Standard/CPU.X86.swift; canonical swift-cpu URL, identity, product, and import migrated"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 43740c85273d7695c8849d2f7ab0095744a4db59",
+          "verified stable GitHub repository ID 1206918746",
+          "fast-forward published prepared commit 8be8c2a0cc367fd1f1eea51c37d3a01413cd89fc",
+          "verified live main 8be8c2a0cc367fd1f1eea51c37d3a01413cd89fc and public visibility",
+          "verified final origin https://github.com/swift-intel/swift-x86-standard.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-x86-standard at live published commit 8be8c2a0cc367fd1f1eea51c37d3a01413cd89fc",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-x86-standard-live institute package resolve --package-path /private/tmp/four-layer-swift-x86-standard --argument=--disable-sandbox",
+          "resolved swift-x86-standard direct live dependency swift-cpu at c23d13f67bb95bee63b442b0420ca5fdcc2c4c0a",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 3318c922e1e53abb5a9594579bedf4ebefc467a35f747c5eaba09502e495c640 and left as generated state"
+        ]
+      },
+      "githubRepositoryID": 1206918746
     },
     {
       "current": "swift-iso/swift-iso-14496-22",
@@ -12307,20 +12362,34 @@
       "observedHead": "341bbdf31556e8031b2388084a5a275f67260333",
       "observedRemote": "https://github.com/swift-iso/swift-iso-15924.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit 090538bc090fcbbcfc40b4f1b452b6c13984214e",
+          "isolated worktree /private/tmp/four-layer-swift-iso-15924",
+          "changed paths Package.swift and two source files; canonical package URLs, identity, product, and imports migrated"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 341bbdf31556e8031b2388084a5a275f67260333e",
+          "verified stable GitHub repository ID 1107707084",
+          "fast-forward published prepared commit 090538bc090fcbbcfc40b4f1b452b6c13984214e",
+          "verified live main 090538bc090fcbbcfc40b4f1b452b6c13984214e and public visibility",
+          "verified final origin https://github.com/swift-iso/swift-iso-15924.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-iso-15924 at live published commit 090538bc090fcbbcfc40b4f1b452b6c13984214e",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-iso-15924-live institute package resolve --package-path /private/tmp/four-layer-swift-iso-15924 --argument=--disable-sandbox",
+          "resolved swift-iso-15924 direct live dependencies swift-ascii at c85e57796aa0a6f05144980d7ff30fee57051d82 and swift-standard-library-extensions at 28a204ee2c6cf1476cd99dc95b81b59868681ebf",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 7370f4913f3ddf0093aeb47eb5dc4935efd8e180ad060366a88b6976b4de94df and left as generated state"
+        ]
+      },
+      "githubRepositoryID": 1107707084
     },
     {
       "current": "swift-iso/swift-iso-21320",
@@ -12396,20 +12465,34 @@
       "observedHead": "7b0ec6a325cdda662d17cbd52772cebfa5aceadb",
       "observedRemote": "https://github.com/swift-iso/swift-iso-3166.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit 928e6f7b9f4f2ba56b70870e695077ea1307776c",
+          "isolated worktree /private/tmp/four-layer-swift-iso-3166",
+          "changed paths Package.swift and four source files; canonical package URLs, identity, product, and imports migrated"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 7b0ec6a325cdda662d17cbd52772cebfa5aceadb",
+          "verified stable GitHub repository ID 1105384985",
+          "fast-forward published prepared commit 928e6f7b9f4f2ba56b70870e695077ea1307776c",
+          "verified live main 928e6f7b9f4f2ba56b70870e695077ea1307776c and public visibility",
+          "verified final origin https://github.com/swift-iso/swift-iso-3166.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-iso-3166 at live published commit 928e6f7b9f4f2ba56b70870e695077ea1307776c",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-iso-3166-live institute package resolve --package-path /private/tmp/four-layer-swift-iso-3166 --argument=--disable-sandbox",
+          "resolved swift-iso-3166 direct live dependencies swift-ascii at c85e57796aa0a6f05144980d7ff30fee57051d82 and swift-standard-library-extensions at 28a204ee2c6cf1476cd99dc95b81b59868681ebf",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 8eeb172beec0a829039baeed59e8d2492c979378bbfb9291c0b98c48cbab2171 and left as generated state"
+        ]
+      },
+      "githubRepositoryID": 1105384985
     },
     {
       "current": "swift-iso/swift-iso-32000",
@@ -12560,20 +12643,34 @@
       "observedHead": "21b97b98179c36972321287c220d7a4ebe97d6e8",
       "observedRemote": "https://github.com/swift-iso/swift-iso-639.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit f859dadecfc7795dc8a4941b9b4f74518c077b29",
+          "isolated worktree /private/tmp/four-layer-swift-iso-639",
+          "changed paths Package.swift and three source files; canonical package URLs, identity, product, and imports migrated"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 21b97b98179c36972321287c220d7a4ebe97d6e8",
+          "verified stable GitHub repository ID 1105447813",
+          "fast-forward published prepared commit f859dadecfc7795dc8a4941b9b4f74518c077b29",
+          "verified live main f859dadecfc7795dc8a4941b9b4f74518c077b29 and public visibility",
+          "verified final origin https://github.com/swift-iso/swift-iso-639.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-iso-639 at live published commit f859dadecfc7795dc8a4941b9b4f74518c077b29",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-iso-639-live institute package resolve --package-path /private/tmp/four-layer-swift-iso-639 --argument=--disable-sandbox",
+          "resolved swift-iso-639 direct live dependencies swift-ascii at c85e57796aa0a6f05144980d7ff30fee57051d82 and swift-standard-library-extensions at 28a204ee2c6cf1476cd99dc95b81b59868681ebf",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 ba8e116d3a2b9dd85ea69f4a218a724da41a9a39338c045b14a161dfd106e4f1 and left as generated state"
+        ]
+      },
+      "githubRepositoryID": 1105447813
     },
     {
       "current": "swift-iso/swift-iso-80000-1",
@@ -19513,20 +19610,35 @@
       "observedHead": "e950014a6bdae6e84c999844465134d0f8d535f0",
       "observedRemote": "https://github.com/swift-primitives/swift-growth-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit 7d673904d84416046c34061ca4ab046b5d3e16ee",
+          "isolated worktree /private/tmp/four-layer-swift-growth-primitives",
+          "canonical repository, package, dependency, product, target, module, import, path, README, and metadata mapping applied"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit e950014a6bdae6e84c999844465134d0f8d535f0",
+          "renamed repository swift-molecules/swift-growth-primitives -> swift-molecules/swift-growth",
+          "verified stable GitHub repository ID 1259220792",
+          "fast-forward published prepared commit 7d673904d84416046c34061ca4ab046b5d3e16ee",
+          "verified live main 7d673904d84416046c34061ca4ab046b5d3e16ee and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-growth.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-growth at live published commit 7d673904d84416046c34061ca4ab046b5d3e16ee",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-growth-live institute package resolve --package-path /private/tmp/four-layer-swift-growth-primitives --argument=--disable-sandbox",
+          "resolved swift-growth direct live dependencies swift-affine at fffed9e57683fd4973f2ebf414f106fa88ba2354, swift-index at ea265ffc2efe2c282e494f5e7309d0ea19f2b287, and swift-memory at 4e875ebe3c6de287b3ed00410c2d77b27c20172b",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 8f508f85a2f00b569ea0b9bc575f65ec8924ccc49c05c2b22c24586d5460ea82 and left as generated state"
+        ]
+      },
+      "githubRepositoryID": 1259220792
     },
     {
       "current": "swift-primitives/swift-hash-primitives",
@@ -19888,20 +20000,35 @@
       "observedHead": "886f9c2149477cfd206737dd1a4da77aad2a8d89",
       "observedRemote": "https://github.com/swift-primitives/swift-infinite-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit 6e103738ff3cad8eb61400cbc11d70560da4311b",
+          "isolated worktree /private/tmp/four-layer-swift-infinite-primitives",
+          "changed paths 27; canonical repository, package, dependency, product, target, module, import, path, and README mapping applied"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 886f9c2149477cfd206737dd1a4da77aad2a8d89",
+          "renamed repository swift-molecules/swift-infinite-primitives -> swift-molecules/swift-infinite",
+          "verified stable GitHub repository ID 1138063579",
+          "fast-forward published prepared commit 6e103738ff3cad8eb61400cbc11d70560da4311b",
+          "verified live main 6e103738ff3cad8eb61400cbc11d70560da4311b and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-infinite.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-infinite at live published commit 6e103738ff3cad8eb61400cbc11d70560da4311b",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-infinite-live institute package resolve --package-path /private/tmp/four-layer-swift-infinite-primitives --argument=--disable-sandbox",
+          "resolved swift-infinite direct live dependencies swift-collection at 98d65bf4438dd7f19a1590e759fae1fe0481c029, swift-input at d6d4ae19ab48b1a36c757b9a54bbc690dce89095, and swift-iterator at ce7c77a6fdd9c2a1a3aeacf390786225f33d6a67",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 26a9144ec1521628946ab115e26c3790519edac614536a8101b913f37794e5bf and left as generated state"
+        ]
+      },
+      "githubRepositoryID": 1138063579
     },
     {
       "current": "swift-primitives/swift-initialization-primitives",
