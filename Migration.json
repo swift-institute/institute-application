@@ -14787,7 +14787,10 @@
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 2221de74d51af9de4d437a424fd4b56f2497c2b4",
+          "renamed repository swift-molecules/swift-bit-pack-primitives -> swift-molecules/swift-bit-pack",
+          "verified stable GitHub repository ID 1149823170 and public visibility",
+          "prepared commit publication pending"
         ]
       },
       "state": "blocked",
@@ -14799,7 +14802,8 @@
           "remote repository not found: https://github.com/swift-molecules/swift-bit.git",
           "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
-      }
+      },
+      "githubRepositoryID": 1149823170
     },
     {
       "current": "swift-primitives/swift-bit-primitives",
