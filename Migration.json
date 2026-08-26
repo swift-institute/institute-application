@@ -14122,12 +14122,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 40dffe0088369d591df850d7294a49734723ea26",
           "renamed repository swift-molecules/swift-binary-cursor-primitives -> swift-molecules/swift-binary-cursor",
           "verified stable GitHub repository ID 1246635485",
-          "prepared commit 9f6ff637bf0ac0ef7667920d3ddd5128d1cc39ee publication pending"
+          "fast-forward published prepared commit 9f6ff637bf0ac0ef7667920d3ddd5128d1cc39ee",
+          "verified live main 9f6ff637bf0ac0ef7667920d3ddd5128d1cc39ee and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-binary-cursor.git"
         ]
       },
       "state": "blocked",
