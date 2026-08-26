@@ -20958,7 +20958,10 @@
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit c88d8c6a2c46d13b7a004bbbc20bcf153f90d00b",
+          "renamed repository swift-molecules/swift-memory-iterator-primitives -> swift-molecules/swift-memory-iterator",
+          "verified stable GitHub repository ID 1250537618",
+          "prepared commit e74d198336a0d6f03e8524f2a5cf26f706f15ebf publication pending"
         ]
       },
       "state": "blocked",
@@ -20970,7 +20973,8 @@
           "remote repository not found: https://github.com/swift-molecules/swift-span.git",
           "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
-      }
+      },
+      "githubRepositoryID": 1250537618
     },
     {
       "current": "swift-primitives/swift-memory-lock-primitives",
