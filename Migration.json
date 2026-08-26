@@ -1165,20 +1165,35 @@
       "observedHead": "94bf98e457daa95603e618f37b3815143d573ab2",
       "observedRemote": "https://github.com/swift-foundations/swift-cpu.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit f3cad89f538025b7d72cb45ada9dcc05dd46f4a4 from expected parent 94bf98e457daa95603e618f37b3815143d573ab2",
+          "isolated worktree /private/tmp/four-layer-swift-cpu-composition",
+          "changed Package.swift, Sources/CPU/exports.swift, and README.md; mapped CPU molecule dependency URL, product, and import with clean canonical residual and public payload scans"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 94bf98e457daa95603e618f37b3815143d573ab2",
+          "organization rename established live coordinate swift-compositions/swift-cpu without a repository rename",
+          "verified stable GitHub repository ID 1257228477 and public visibility before and after publication",
+          "fast-forward published prepared commit f3cad89f538025b7d72cb45ada9dcc05dd46f4a4",
+          "verified live main f3cad89f538025b7d72cb45ada9dcc05dd46f4a4 and final origin https://github.com/swift-compositions/swift-cpu.git"
+        ]
+      },
+      "state": "blocked",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "blocked",
+        "records": [
+          "package resolution blocked for composition swift-cpu at live published commit f3cad89f538025b7d72cb45ada9dcc05dd46f4a4",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-cpu-composition-live institute package resolve --package-path /private/tmp/four-layer-swift-cpu-composition --argument=--disable-sandbox",
+          "resolved molecule swift-cpu c23d13f67bb95bee63b442b0420ca5fdcc2c4c0a, swift-arm-standard 1972294ba8e394dbdf16c24a2e4e74253383b4ae, and swift-x86-standard 8be8c2a0cc367fd1f1eea51c37d3a01413cd89fc before identity validation",
+          "exit nonzero; SwiftPM rejected root/dependency identity collision: package swift-cpu versus override directory four-layer-swift-cpu-composition; publication preserved for deterministic identity repair",
+          "Package.resolved generated from absent to SHA-256 2fe779944da2eecc74338d14c1d013f3ef978b9507f1e1586e091d3d91c09146 and remained ignored/uncommitted; HEAD and tracked worktree clean"
+        ]
+      },
+      "githubRepositoryID": 1257228477
     },
     {
       "current": "swift-foundations/swift-css",
@@ -21864,20 +21879,33 @@
       "observedHead": "6457d87acf2bb13c493b183d0924b241ba0e4132",
       "observedRemote": "https://github.com/swift-primitives/swift-memory-map-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit f3318dcc30b787f89b4a490ee4a7b3feb812aaba from expected parent 6457d87acf2bb13c493b183d0924b241ba0e4132",
+          "isolated worktree /private/tmp/four-layer-swift-memory-map-primitives",
+          "canonical package, product, targets, modules, imports, source and test paths, README, metadata, and five dependency mappings applied across 21 files; residual and public payload scans clean"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 6457d87acf2bb13c493b183d0924b241ba0e4132",
+          "renamed swift-molecules/swift-memory-map-primitives to swift-molecules/swift-memory-map while preserving GitHub repository ID 1246734789",
+          "fast-forward published prepared commit f3318dcc30b787f89b4a490ee4a7b3feb812aaba",
+          "verified live main f3318dcc30b787f89b4a490ee4a7b3feb812aaba, public visibility, non-archived state, and final origin https://github.com/swift-molecules/swift-memory-map.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-memory-map at live commit f3318dcc30b787f89b4a490ee4a7b3feb812aaba",
+          "coordinator recheck invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-memory-map-live institute package resolve --package-path /private/tmp/four-layer-swift-memory-map-primitives --argument=--disable-sandbox",
+          "resolved live molecule dependencies swift-memory, swift-memory-lock, swift-byte, swift-error, and swift-span",
+          "exit 0; HEAD unchanged; tracked worktree clean; Package.resolved SHA-256 remained 11ba327814dfa3641c22313847df2c18727e957301409610a95fb8b0c34478a6 across the coordinator resolution recheck and remained ignored/uncommitted"
+        ]
+      },
+      "githubRepositoryID": 1246734789
     },
     {
       "current": "swift-primitives/swift-memory-primitives",
