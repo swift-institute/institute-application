@@ -22474,20 +22474,28 @@
       "observedHead": "98cc1bbaaf6086f0af04d6867543014fe6a49a42",
       "observedRemote": "https://github.com/swift-primitives/swift-memory-sequence-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 1a45a47c1f2021672ae01300306ed7262cf37a5a from expected parent 98cc1bbaaf6086f0af04d6867543014fe6a49a42",
+          "isolated worktree /private/tmp/swift-memory-sequence-live-98cc1bbaaf6086f0af04d6867543014fe6a49a42",
+          "canonical repository, package, product, target, module, import, path, and future-coordinate dependency mappings applied across 7 changed paths"
+        ]
       },
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 98cc1bbaaf6086f0af04d6867543014fe6a49a42",
+          "renamed swift-molecules/swift-memory-sequence-primitives to swift-molecules/swift-memory-sequence",
+          "verified exact destination owns stable GitHub repository ID 1257335029 with public visibility and non-archived state",
+          "publication remains pending at non-force fast-forward push of prepared commit 1a45a47c1f2021672ae01300306ed7262cf37a5a"
         ]
       },
       "state": "ready",
       "validation": {
         "status": "pending",
         "records": []
-      }
+      },
+      "githubRepositoryID": 1257335029
     },
     {
       "current": "swift-primitives/swift-memory-shared-primitives",
