@@ -106,20 +106,34 @@
       "observedHead": "bb119394552a90e29fc353c6ca0513fcaff91e25",
       "observedRemote": "https://github.com/swift-arm-ltd/swift-arm-standard.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit 1972294ba8e394dbdf16c24a2e4e74253383b4ae",
+          "isolated worktree /private/tmp/four-layer-swift-arm-standard",
+          "changed paths Package.swift, source import, and metadata; canonical swift-cpu URL, identity, product, and module mapping applied"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit bb119394552a90e29fc353c6ca0513fcaff91e25",
+          "verified stable GitHub repository ID 1206926845",
+          "fast-forward published prepared commit 1972294ba8e394dbdf16c24a2e4e74253383b4ae",
+          "verified live main 1972294ba8e394dbdf16c24a2e4e74253383b4ae and public visibility",
+          "verified final origin https://github.com/swift-arm-ltd/swift-arm-standard.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-arm-standard at live published commit 1972294ba8e394dbdf16c24a2e4e74253383b4ae",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-arm-standard-live institute package resolve --package-path /private/tmp/four-layer-swift-arm-standard --argument=--disable-sandbox",
+          "resolved direct live dependency swift-cpu at c23d13f67bb95bee63b442b0420ca5fdcc2c4c0a",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 cff20b8defc020ac0122bd597c79fd65547d50a17b0c1fdcf28a0c37fe828118 and left as generated state"
+        ]
+      },
+      "githubRepositoryID": 1206926845
     },
     {
       "current": "swift-ecma/swift-ecma-48",
@@ -7902,20 +7916,33 @@
       "observedHead": "0cbd148bae1111f3d028f064179157d106744ff4",
       "observedRemote": "https://github.com/swift-foundations/swift-throttling.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "canonical four-layer transformation was a no-op at expected commit 0cbd148bae1111f3d028f064179157d106744ff4",
+          "isolated worktree /private/tmp/four-layer-swift-throttling",
+          "no tracked canonical mapping matched; changed paths none"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified live main already at expected unchanged commit 0cbd148bae1111f3d028f064179157d106744ff4; no push required",
+          "organization rename established live coordinate swift-compositions/swift-throttling without a repository rename",
+          "verified stable GitHub repository ID 1028864095 and public visibility",
+          "verified final origin https://github.com/swift-compositions/swift-throttling.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-throttling at live commit 0cbd148bae1111f3d028f064179157d106744ff4",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-throttling-live institute package resolve --package-path /private/tmp/four-layer-swift-throttling --argument=--disable-sandbox",
+          "resolved no direct package dependencies",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved absent before and after"
+        ]
+      },
+      "githubRepositoryID": 1028864095
     },
     {
       "current": "swift-foundations/swift-throttling-dependencies",
@@ -12688,20 +12715,32 @@
       "observedHead": "25b8fde9acde616238cabfb2c009b88b2f1c1c28",
       "observedRemote": "https://github.com/swift-iso/swift-iso-80000-1.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "canonical four-layer transformation was a no-op at expected commit 25b8fde9acde616238cabfb2c009b88b2f1c1c28",
+          "isolated worktree /private/tmp/four-layer-swift-iso-80000-1",
+          "no tracked canonical mapping matched; changed paths none"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified live main already at expected unchanged commit 25b8fde9acde616238cabfb2c009b88b2f1c1c28; no push required",
+          "verified stable GitHub repository ID 1283814409 and public visibility",
+          "verified final origin https://github.com/swift-iso/swift-iso-80000-1.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-iso-80000-1 at live commit 25b8fde9acde616238cabfb2c009b88b2f1c1c28",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-iso-80000-1-live institute package resolve --package-path /private/tmp/four-layer-swift-iso-80000-1 --argument=--disable-sandbox",
+          "resolved no direct package dependencies",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved absent before and after"
+        ]
+      },
+      "githubRepositoryID": 1283814409
     },
     {
       "current": "swift-iso/swift-iso-8601",
@@ -12781,20 +12820,32 @@
       "observedHead": "fc2b892b97c8577bcc88747c95fb03f497d818fe",
       "observedRemote": "https://github.com/swift-iso/swift-iso-8824.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "canonical four-layer transformation was a no-op at expected commit fc2b892b97c8577bcc88747c95fb03f497d818fe",
+          "verified clean checkout /Users/coen/Developer/coenttb/swift-institute/swift-standards/swift-iso/swift-iso-8824",
+          "no tracked canonical mapping matched; changed paths none"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified live main already at expected unchanged commit fc2b892b97c8577bcc88747c95fb03f497d818fe; no push required",
+          "verified stable GitHub repository ID 1310185363, public visibility, and non-archived state",
+          "verified final origin https://github.com/swift-iso/swift-iso-8824.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-iso-8824 at live commit fc2b892b97c8577bcc88747c95fb03f497d818fe",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-iso-8824-live institute package resolve --package-path /Users/coen/Developer/coenttb/swift-institute/swift-standards/swift-iso/swift-iso-8824 --argument=--disable-sandbox",
+          "resolved no direct package dependencies",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved absent before and after"
+        ]
+      },
+      "githubRepositoryID": 1310185363
     },
     {
       "current": "swift-iso/swift-iso-8825",
@@ -28393,20 +28444,32 @@
       "observedHead": "1bebcc657d646d5774128f932f846a146e33f6cf",
       "observedRemote": "https://github.com/swift-w3c/swift-w3c-cssom.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "canonical four-layer transformation was a no-op at expected commit 1bebcc657d646d5774128f932f846a146e33f6cf",
+          "isolated worktree /private/tmp/four-layer-swift-w3c-cssom",
+          "no tracked canonical mapping matched; changed paths none"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified live main already at expected unchanged commit 1bebcc657d646d5774128f932f846a146e33f6cf; no push required",
+          "verified stable GitHub repository ID 1107699637 and public visibility",
+          "verified final origin https://github.com/swift-w3c/swift-w3c-cssom.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-w3c-cssom at live commit 1bebcc657d646d5774128f932f846a146e33f6cf",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-w3c-cssom-live institute package resolve --package-path /private/tmp/four-layer-swift-w3c-cssom --argument=--disable-sandbox",
+          "resolved no direct package dependencies",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved absent before and after"
+        ]
+      },
+      "githubRepositoryID": 1107699637
     },
     {
       "current": "swift-w3c/swift-w3c-epub",
@@ -28642,20 +28705,32 @@
       "observedHead": "032bc8f8c1ea2945c5e9ec24efa5d8734bd69667",
       "observedRemote": "https://github.com/swift-whatwg/swift-whatwg.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "canonical four-layer transformation was a no-op at expected commit 032bc8f8c1ea2945c5e9ec24efa5d8734bd69667",
+          "verified clean checkout /Users/coen/Developer/coenttb/swift-institute/swift-standards/swift-whatwg/swift-whatwg",
+          "no tracked canonical mapping matched; changed paths none"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified live main already at expected unchanged commit 032bc8f8c1ea2945c5e9ec24efa5d8734bd69667; no push required",
+          "verified stable GitHub repository ID 1336748089, public visibility, and non-archived state",
+          "verified final origin https://github.com/swift-whatwg/swift-whatwg.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-whatwg at live commit 032bc8f8c1ea2945c5e9ec24efa5d8734bd69667",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-whatwg-live institute package resolve --package-path /Users/coen/Developer/coenttb/swift-institute/swift-standards/swift-whatwg/swift-whatwg --argument=--disable-sandbox",
+          "resolved no direct package dependencies",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved absent before and after"
+        ]
+      },
+      "githubRepositoryID": 1336748089
     },
     {
       "current": "swift-whatwg/swift-whatwg-html",
