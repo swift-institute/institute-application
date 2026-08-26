@@ -4310,10 +4310,15 @@
           "verified live main 638b4bdcffad3200c78906139595877d3906e9fc with unchanged public visibility"
         ]
       },
-      "state": "published",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-compositions/swift-lexer at live published commit 638b4bdcffad3200c78906139595877d3906e9fc",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-composition-lexer-watch institute package resolve --package-path /private/tmp/swift-lexer-composition-d5d5d924.fwSQDQ --argument=--disable-sandbox",
+          "initial sandbox-only attempt failed DNS resolving github.com; approved network retry exited 0 and resolved live swift-lexer and swift-diagnostic dependencies",
+          "HEAD unchanged; tracked worktree clean; Package.resolved generated from absent to SHA-256 ca29429485ad90b9324e4abb5379770eefd1340455a40339fddab4850f7b3658 and remained ignored/uncommitted"
+        ]
       },
       "githubRepositoryID": 1144635812
     },
