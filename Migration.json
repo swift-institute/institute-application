@@ -15234,12 +15234,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 1d727db438bcf2dbad6ec6bc8f7fe6c4543f1e32",
           "renamed repository swift-molecules/swift-boundary-primitives -> swift-molecules/swift-boundary",
           "verified stable GitHub repository ID 1264249470",
-          "prepared commit 11a7ed4b70021b1c06c41bf493c1a9ccfb4ed81d publication pending"
+          "fast-forward published prepared commit 11a7ed4b70021b1c06c41bf493c1a9ccfb4ed81d",
+          "verified live main 11a7ed4b70021b1c06c41bf493c1a9ccfb4ed81d and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-boundary.git"
         ]
       },
       "state": "blocked",
