@@ -17356,12 +17356,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit a3f7df660fcab79631020b11e9e332749c1fa011",
           "renamed repository swift-molecules/swift-cyclic-primitives -> swift-molecules/swift-cyclic",
-          "verified stable GitHub repository ID 1142827431 and public visibility",
-          "prepared commit publication pending"
+          "verified stable GitHub repository ID 1142827431",
+          "fast-forward published prepared commit cd82d1b748090aef0fec201023e0b7b5d1f0ec16",
+          "verified live main cd82d1b748090aef0fec201023e0b7b5d1f0ec16 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-cyclic.git"
         ]
       },
       "state": "blocked",
