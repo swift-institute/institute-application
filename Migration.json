@@ -15026,12 +15026,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit aa12e9c7fd236cd14986f3b89ac750082dc6422d",
           "renamed repository swift-molecules/swift-bitset-primitives -> swift-molecules/swift-bitset",
           "verified stable GitHub repository ID 1154397612",
-          "prepared commit 2da93c06156e1f19785f23761bcc518c44744f9c publication pending"
+          "fast-forward published prepared commit 2da93c06156e1f19785f23761bcc518c44744f9c",
+          "verified live main 2da93c06156e1f19785f23761bcc518c44744f9c and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-bitset.git"
         ]
       },
       "state": "blocked",
