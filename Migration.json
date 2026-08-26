@@ -18262,7 +18262,10 @@
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 2cb801edd5c02cefbcb57174392c484172eca295",
+          "renamed repository swift-molecules/swift-empty-iterator-primitives -> swift-molecules/swift-empty-iterator",
+          "verified stable GitHub repository ID 1250663706",
+          "prepared commit a876939ccf5028d6e6b7bd90bd8007679a950c7e publication pending"
         ]
       },
       "state": "blocked",
@@ -18274,7 +18277,8 @@
           "sandbox DNS blocked github.com while resolving https://github.com/swift-molecules/swift-empty.git; live remote existence was not determined",
           "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
-      }
+      },
+      "githubRepositoryID": 1250663706
     },
     {
       "current": "swift-primitives/swift-empty-primitives",
