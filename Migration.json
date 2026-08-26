@@ -6907,10 +6907,15 @@
           "verified live main d1c40e5553e77693c3e31631fb44576b2e16bf27 with unchanged public visibility and non-archived state"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-splat at live published commit d1c40e5553e77693c3e31631fb44576b2e16bf27",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-splat-root institute package resolve --package-path /private/tmp/four-layer-swift-splat --argument=--disable-sandbox",
+          "resolution exited 0; direct externals resolved swift-syntax at 602.0.0 and swift-macro-testing at 0.7.0, with nonblocking deprecation warnings emitted only while evaluating a transitive external manifest",
+          "HEAD unchanged; tracked worktree clean; Package.resolved generated as ignored uncommitted state and stabilized at SHA-256 62d3be8b7a34314b3bae7698c388bc743702b1cd316cb06584396cc28b2a471a"
+        ]
       },
       "githubRepositoryID": 1091624794
     },
