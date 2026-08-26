@@ -16268,12 +16268,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 6a36939a2285c00e380ffb4486ade109ba430ccc",
           "renamed repository swift-molecules/swift-cardinal-primitives -> swift-molecules/swift-cardinal",
-          "verified stable GitHub repository ID 1142827391 and public visibility",
-          "prepared commit publication pending"
+          "verified stable GitHub repository ID 1142827391",
+          "fast-forward published prepared commit e932d328deff46ef801bab10520354b0da779398",
+          "verified live main e932d328deff46ef801bab10520354b0da779398 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-cardinal.git"
         ]
       },
       "state": "blocked",
