@@ -1843,8 +1843,13 @@
       "observedHead": "aad7713b219cbbdd24eb4bddb53bfd30244b237b",
       "observedRemote": "https://github.com/swift-foundations/swift-dual.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit ac3ad5fae1c373029bf11852cb554638621becc4 from expected parent aad7713b219cbbdd24eb4bddb53bfd30244b237b",
+          "isolated worktree /private/tmp/four-layer-swift-dual",
+          "mapped Finite and Optic dependency URLs, products, modules, reexports, and generated spellings to live molecule coordinates while preserving suffix-free public products, targets, macro semantics, and the external swift-syntax range",
+          "updated README, related URLs, and metadata ownership to compositions; ancestry, diff, imports, residuals, public payload, Actions references, live dependencies, and Package.resolved audits passed independently"
+        ]
       },
       "publication": {
         "status": "pending",
