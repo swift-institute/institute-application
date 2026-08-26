@@ -14302,7 +14302,10 @@
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 8fd186ac63502c54d9fad4ed0d7e628e60da2ace",
+          "renamed repository swift-molecules/swift-binary-leb128-primitives -> swift-molecules/swift-binary-leb128",
+          "verified stable GitHub repository ID 1246631643",
+          "prepared commit 37bd36bb487229fd1b6e36192ce5c0cac5ab4fa8 publication pending"
         ]
       },
       "state": "blocked",
@@ -14314,7 +14317,8 @@
           "remote repository not found: https://github.com/swift-molecules/swift-binary.git",
           "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
-      }
+      },
+      "githubRepositoryID": 1246631643
     },
     {
       "current": "swift-primitives/swift-binary-parser-primitives",
