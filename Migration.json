@@ -5079,20 +5079,35 @@
       "observedHead": "b36889a3ea9459b98a7e6cca98d78b6de8928f0f",
       "observedRemote": "https://github.com/swift-foundations/swift-navigation.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit 3e19d51ec1568f7bb6bc4f6c453302ec117a71c2",
+          "isolated worktree /private/tmp/four-layer-swift-navigation-composition",
+          "changed paths four; canonical molecule dependency, product, import, composition owner, README, and documentation mapping applied"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit b36889a3ea9459b98a7e6cca98d78b6de8928f0f",
+          "organization rename established live coordinate swift-compositions/swift-navigation without a repository rename",
+          "verified stable composition GitHub repository ID 1318265790 distinct from molecule repository ID 1318234813",
+          "fast-forward published prepared commit 3e19d51ec1568f7bb6bc4f6c453302ec117a71c2",
+          "verified live main 3e19d51ec1568f7bb6bc4f6c453302ec117a71c2 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-compositions/swift-navigation.git"
+        ]
+      },
+      "state": "blocked",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "blocked",
+        "records": [
+          "package resolution blocked for composition swift-navigation at live published commit 3e19d51ec1568f7bb6bc4f6c453302ec117a71c2",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-navigation-composition-live institute package resolve --package-path /private/tmp/four-layer-swift-navigation-composition --argument=--disable-sandbox",
+          "resolved molecule dependency swift-navigation at f2d6ba1e11f0827529eed57cb6e66268a19e1ec3 before identity validation",
+          "exit 1; SwiftPM rejected the root and dependency identity collision: package swift-navigation versus local override directory identity four-layer-swift-navigation-composition; publication preserved for deterministic identity repair"
+        ]
+      },
+      "githubRepositoryID": 1318265790
     },
     {
       "current": "swift-foundations/swift-numerics",
