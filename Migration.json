@@ -19767,7 +19767,10 @@
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit cb94cfc238f447384a0133efc7bd8caf76690f87",
+          "renamed repository swift-molecules/swift-input-primitives -> swift-molecules/swift-input",
+          "verified stable GitHub repository ID 1138063597",
+          "prepared commit d6d4ae19ab48b1a36c757b9a54bbc690dce89095 publication pending"
         ]
       },
       "state": "blocked",
@@ -19779,7 +19782,8 @@
           "sandbox DNS blocked github.com while resolving https://github.com/swift-molecules/swift-collection.git; live remote existence was not determined",
           "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
-      }
+      },
+      "githubRepositoryID": 1138063597
     },
     {
       "current": "swift-primitives/swift-interval-finite-primitives",
