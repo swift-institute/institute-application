@@ -13637,10 +13637,15 @@
           "verified final origin https://github.com/swift-microsoft/swift-windows-32.git"
         ]
       },
-      "state": "published",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-windows-32 at live published commit 7a555f122346568fa9080dd836ad6445cae27ec3",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-windows-32-postpublish-2 institute package resolve --package-path /private/tmp/swift-windows-32-publish --argument=--disable-sandbox",
+          "exit 0; all 24 live future-coordinate dependencies resolved successfully",
+          "HEAD unchanged; tracked worktree clean; Package.resolved generated and ignored at SHA-256 cd41176599272ae0ab4c39e763ebe562d678d43e88c75119656f7d4bb1748766"
+        ]
       },
       "githubRepositoryID": 1206918715
     },
