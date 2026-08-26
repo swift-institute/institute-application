@@ -14385,12 +14385,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit dbbafe12ea425e93ce6ebd524bb793b5f1b126a0",
           "renamed repository swift-molecules/swift-binary-primitives -> swift-molecules/swift-binary",
-          "verified stable GitHub repository ID 1132373269 and public visibility",
-          "prepared commit publication pending"
+          "verified stable GitHub repository ID 1132373269",
+          "fast-forward published prepared commit 8f9159a3470f7992b54b2ac74b1ffbb1e244fa62",
+          "verified live main 8f9159a3470f7992b54b2ac74b1ffbb1e244fa62 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-binary.git"
         ]
       },
       "state": "blocked",
