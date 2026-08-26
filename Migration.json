@@ -23382,15 +23382,17 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 1df9686839f045733f29768a4a65bc743325c559",
           "renamed swift-molecules/swift-ownership-shared-primitives to swift-molecules/swift-ownership-shared",
           "verified exact destination owns stable GitHub repository ID 1276750149 with public visibility and non-archived state",
-          "publication remains pending at non-force fast-forward push of prepared commit 87fcb40a93b9db9f63bcb6fbef37a4ca878c2081"
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-ownership-shared.git",
+          "fast-forward published prepared commit 87fcb40a93b9db9f63bcb6fbef37a4ca878c2081",
+          "verified live main 87fcb40a93b9db9f63bcb6fbef37a4ca878c2081 with unchanged public visibility"
         ]
       },
-      "state": "ready",
+      "state": "published",
       "validation": {
         "status": "pending",
         "records": []
