@@ -22492,10 +22492,15 @@
           "verified live main 1a45a47c1f2021672ae01300306ed7262cf37a5a with unchanged public visibility"
         ]
       },
-      "state": "published",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-memory-sequence at live published commit 1a45a47c1f2021672ae01300306ed7262cf37a5a",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-memory-sequence-live institute package resolve --package-path /private/tmp/swift-memory-sequence-live-98cc1bbaaf6086f0af04d6867543014fe6a49a42 --argument=--disable-sandbox",
+          "exit 0; live future-coordinate dependencies resolved successfully",
+          "HEAD unchanged; tracked worktree clean; Package.resolved generated from absent to SHA-256 f392048cdcd8d1fbd1ca25ca9552a6d88b8db7604516e0878a5064db90f1eff2 and remained ignored/uncommitted"
+        ]
       },
       "githubRepositoryID": 1257335029
     },
