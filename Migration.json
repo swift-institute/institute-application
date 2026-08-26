@@ -17277,14 +17277,14 @@
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-cyclic-index.git"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
-          "package resolution blocked at prepared commit 9b67b94730b6ab53d459930e057cd89d805f3ea5",
-          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-cyclic-index-primitives --argument=--disable-sandbox",
-          "sandbox DNS blocked github.com while resolving https://github.com/swift-molecules/swift-cyclic.git; live remote existence was not determined",
-          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+          "package resolution passed for swift-cyclic-index at live published commit 9b67b94730b6ab53d459930e057cd89d805f3ea5",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-cyclic-index-live institute package resolve --package-path /private/tmp/four-layer-swift-cyclic-index-primitives --argument=--disable-sandbox",
+          "resolved swift-cyclic-index direct live dependencies swift-cyclic at cd82d1b748090aef0fec201023e0b7b5d1f0ec16 and swift-index at ea265ffc2efe2c282e494f5e7309d0ea19f2b287",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 661a2aadc47d7c04764d910010ff07b78d605f7002d9a43ac343b0ee3c093b9c and left as generated state"
         ]
       },
       "githubRepositoryID": 1145453857
