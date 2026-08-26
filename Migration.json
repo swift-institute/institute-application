@@ -21627,12 +21627,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 655d6b074954b4407a3a5d7465dfe6956c2231db",
           "renamed repository swift-molecules/swift-order-primitives -> swift-molecules/swift-order",
-          "verified stable GitHub repository ID 1139271284 and public visibility",
-          "prepared commit publication pending"
+          "verified stable GitHub repository ID 1139271284",
+          "fast-forward published prepared commit 1e15226f884a5ce3d1edf54cdab0f30e2f58dfd6",
+          "verified live main 1e15226f884a5ce3d1edf54cdab0f30e2f58dfd6 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-order.git"
         ]
       },
       "state": "blocked",
