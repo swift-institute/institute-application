@@ -16263,14 +16263,14 @@
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-cardinal-algebra.git"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
-          "package resolution blocked at prepared commit da603dbd32b06ba46b8387f9ab30d9ad92dde7f8",
-          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-cardinal-algebra-primitives --argument=--disable-sandbox",
-          "remote repository not found: https://github.com/swift-molecules/swift-algebra.git",
-          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+          "package resolution passed for swift-cardinal-algebra at live published commit da603dbd32b06ba46b8387f9ab30d9ad92dde7f8",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-cardinal-algebra-live institute package resolve --package-path /private/tmp/four-layer-swift-cardinal-algebra-primitives --argument=--disable-sandbox",
+          "resolved swift-cardinal-algebra direct live dependencies swift-algebra at b28bbbb72d5f3ffd681960356d44b1cc461e8881 and swift-cardinal at e932d328deff46ef801bab10520354b0da779398",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 3c02907c04d6242a488323d6c2a62b980a31ac23e99bbb73c9914e4c7212f112 and left as generated state"
         ]
       },
       "githubRepositoryID": 1151411750
