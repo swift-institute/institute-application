@@ -16379,20 +16379,29 @@
       "observedHead": "ca1b556d4d871579953b8b35d8859dafd2d47c9a",
       "observedRemote": "https://github.com/swift-primitives/swift-buffer-slots-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 8efd0858b4a4ff1997453c243bbc97536789b42f from expected parent ca1b556d4d871579953b8b35d8859dafd2d47c9a",
+          "isolated worktree /private/tmp/swift-buffer-slots-live.UDs7nQ/repo",
+          "canonical package, target, module, import, path, README, metadata, and exact nine future-coordinate dependency mappings applied; residual and 13-path public-payload scans passed"
+        ]
       },
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit ca1b556d4d871579953b8b35d8859dafd2d47c9a",
+          "renamed swift-molecules/swift-buffer-slots-primitives to swift-molecules/swift-buffer-slots",
+          "verified exact destination owns stable GitHub repository ID 1247830133 with public visibility and non-archived state",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-buffer-slots.git",
+          "publication remains pending at non-force fast-forward push of prepared commit 8efd0858b4a4ff1997453c243bbc97536789b42f"
         ]
       },
       "state": "ready",
       "validation": {
         "status": "pending",
         "records": []
-      }
+      },
+      "githubRepositoryID": 1247830133
     },
     {
       "current": "swift-primitives/swift-builder-primitives",
