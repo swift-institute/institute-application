@@ -14508,7 +14508,10 @@
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 555e0661f3b6cc8266cca0e53a33d6214a49e7f2",
+          "renamed repository swift-molecules/swift-bit-algebra-primitives -> swift-molecules/swift-bit-algebra",
+          "verified stable GitHub repository ID 1252381637 and public visibility",
+          "prepared commit publication pending"
         ]
       },
       "state": "blocked",
@@ -14520,7 +14523,8 @@
           "remote repository not found: https://github.com/swift-molecules/swift-algebra.git",
           "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
-      }
+      },
+      "githubRepositoryID": 1252381637
     },
     {
       "current": "swift-primitives/swift-bit-finite-primitives",
