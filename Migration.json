@@ -19169,20 +19169,28 @@
       "observedHead": "4555a8b9235e4fa6ea54dd61c36d8f8f0a971147",
       "observedRemote": "https://github.com/swift-primitives/swift-facet-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit eb3dfc4514fe25b22fc3f78820b96e7cbe1e0a05 from expected parent 4555a8b9235e4fa6ea54dd61c36d8f8f0a971147",
+          "isolated worktree /private/tmp/four-layer-swift-facet-primitives",
+          "canonical package, products, targets, modules, imports, paths, README, and seven dependency mappings applied; residual scan clean"
+        ]
       },
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 4555a8b9235e4fa6ea54dd61c36d8f8f0a971147",
+          "renamed swift-molecules/swift-facet-primitives to swift-molecules/swift-facet",
+          "verified exact destination owns stable GitHub repository ID 1264249311 with public visibility and non-archived state",
+          "prepared commit publication remains pending"
         ]
       },
       "state": "ready",
       "validation": {
         "status": "pending",
         "records": []
-      }
+      },
+      "githubRepositoryID": 1264249311
     },
     {
       "current": "swift-primitives/swift-finite-algebra-primitives",
@@ -20870,20 +20878,28 @@
       "observedHead": "dccfb73988f7b74d74edb7e09c47cb6ce3168ac7",
       "observedRemote": "https://github.com/swift-primitives/swift-link-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 360a0678866aca739ca79af65722c9a6dfc9a0b1 from expected parent dccfb73988f7b74d74edb7e09c47cb6ce3168ac7",
+          "isolated worktree /private/tmp/swift-migration-link-live",
+          "canonical package, products, targets, modules, imports, paths, README, and index/vector dependency mappings applied across 13 files; residual and public payload scans clean"
+        ]
       },
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit dccfb73988f7b74d74edb7e09c47cb6ce3168ac7",
+          "renamed swift-molecules/swift-link-primitives to swift-molecules/swift-link",
+          "verified exact destination owns stable GitHub repository ID 1217845780 with public visibility and non-archived state",
+          "prepared commit publication remains pending"
         ]
       },
       "state": "ready",
       "validation": {
         "status": "pending",
         "records": []
-      }
+      },
+      "githubRepositoryID": 1217845780
     },
     {
       "current": "swift-primitives/swift-linter-primitives",
