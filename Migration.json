@@ -28397,10 +28397,15 @@
           "verified live main 9ee92d0445f46e39a73a9844b0ecf499758c97bb with unchanged public visibility and non-archived state"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-fips-180-4 at live published commit 9ee92d0445f46e39a73a9844b0ecf499758c97bb",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-fips-180-4-root institute package resolve --package-path /private/tmp/four-layer-swift-fips-180-4 --argument=--disable-sandbox",
+          "resolution exited 0 against live swift-byte, swift-binary-base, external swift-crypto, and their transitive graph",
+          "HEAD unchanged; tracked worktree clean; Package.resolved generated as ignored uncommitted state and stabilized at SHA-256 1614771d1bbc539e0e2fd452645aebc7ee214b875fb3c4b96d81486b4342f93d"
+        ]
       },
       "githubRepositoryID": 1324724535
     },
