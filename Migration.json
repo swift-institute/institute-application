@@ -18982,8 +18982,13 @@
       "observedHead": "f76fcdec7368e6e67e6e659b0d08f550fa2d3dbe",
       "observedRemote": "https://github.com/swift-primitives/swift-dictionary-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 95f2361d7c00ce811977aa98e1a44e2386982f4c from expected parent f76fcdec7368e6e67e6e659b0d08f550fa2d3dbe",
+          "isolated worktree /private/tmp/four-layer-swift-dictionary",
+          "mapped all eleven dependency URLs, products, modules, imports, paths, README references, and repository metadata to their live molecule coordinates while preserving the singular Dictionary Primitive identity",
+          "ancestry, clean worktree, intended diff, dependency readiness, residual, public payload, workflow, and Package.resolved audits passed independently; exact future coordinate remains absent pending publication-time rename"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -28224,8 +28229,13 @@
       "observedHead": "7a5da4f069fd270b7b7a0d87aec107f4293d8441",
       "observedRemote": "https://github.com/swift-standards/swift-darwin-standard.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 467dfbfd68a040e1f363e574e1577d81bb7f1448 from expected parent 7a5da4f069fd270b7b7a0d87aec107f4293d8441",
+          "isolated worktree /private/tmp/four-layer-swift-darwin-standard",
+          "mapped eight primitive dependency URLs, products, modules, and imports to their live molecule coordinates while preserving the unchanged ISO 9945 dependency and suffix-free Darwin Standard identities",
+          "ancestry, clean worktree, intended diff, dependency readiness, residual, public payload, workflow, and Package.resolved audits passed independently; live destination retains stable repository ID 1206918613"
+        ]
       },
       "publication": {
         "status": "pending",
