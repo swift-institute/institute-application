@@ -19416,20 +19416,26 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 86cc6b1622275faa61c69c65c7a9beeaf7cdaa5e",
+          "renamed repository swift-molecules/swift-initialization-primitives -> swift-molecules/swift-initialization",
+          "verified stable GitHub repository ID 1253355281",
+          "fast-forward published prepared commit 6e6e1ae7c53cdd078e293286889df3866bdede95",
+          "verified live main 6e6e1ae7c53cdd078e293286889df3866bdede95 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-initialization.git"
         ]
       },
       "state": "passed",
       "validation": {
         "status": "passed",
         "records": [
-          "package resolution passed at prepared commit 6e6e1ae7c53cdd078e293286889df3866bdede95",
-          "invocation: institute package resolve --package-path /private/tmp/swift-initialization-cutover",
-          "exit 0; HEAD unchanged; worktree clean; Package.resolved unchanged"
+          "package resolution passed at live published commit 6e6e1ae7c53cdd078e293286889df3866bdede95",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/swift-initialization-cutover --argument=--disable-sandbox",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved absent before and after"
         ]
-      }
+      },
+      "githubRepositoryID": 1253355281
     },
     {
       "current": "swift-primitives/swift-input-primitives",
