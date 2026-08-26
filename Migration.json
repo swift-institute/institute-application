@@ -21764,12 +21764,13 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 208194f45d73b6b634e65c365084b64aebe02c1d",
           "renamed swift-molecules/swift-memory-heap-primitives to swift-molecules/swift-memory-heap",
           "verified exact destination owns stable GitHub repository ID 1259779682 with public visibility and non-archived state",
-          "prepared commit publication remains pending"
+          "fast-forward published prepared commit 518085a7bea5ae9a41f00207ef6ddb4073794726",
+          "verified live main 518085a7bea5ae9a41f00207ef6ddb4073794726 and final origin https://github.com/swift-molecules/swift-memory-heap.git"
         ]
       },
       "state": "ready",
@@ -26651,12 +26652,13 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 127babbae4d215b3cfddde56d3097cfcb41d1e92",
           "renamed swift-molecules/swift-time-primitives to swift-molecules/swift-time",
           "verified exact destination owns stable GitHub repository ID 1132374031 with public visibility and non-archived state",
-          "prepared commit publication remains pending"
+          "fast-forward published prepared commit 578f830f95eb5f01ab67e7bf7e059d0aa7fd15bb",
+          "verified live main 578f830f95eb5f01ab67e7bf7e059d0aa7fd15bb and final origin https://github.com/swift-molecules/swift-time.git"
         ]
       },
       "state": "ready",
