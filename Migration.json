@@ -24064,7 +24064,10 @@
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit e63c0b7af66a3fa3edd4ba114680fb20f361df75",
+          "renamed repository swift-molecules/swift-single-iterator-primitives -> swift-molecules/swift-single-iterator",
+          "verified stable GitHub repository ID 1250663778",
+          "prepared commit 0fade9b5ff7b2b775993d0fe763c2effcb5b11a1 publication pending"
         ]
       },
       "state": "blocked",
@@ -24076,7 +24079,8 @@
           "remote repository not found: https://github.com/swift-molecules/swift-single.git",
           "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
-      }
+      },
+      "githubRepositoryID": 1250663778
     },
     {
       "current": "swift-primitives/swift-single-primitives",
