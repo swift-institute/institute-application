@@ -19177,12 +19177,13 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 4555a8b9235e4fa6ea54dd61c36d8f8f0a971147",
           "renamed swift-molecules/swift-facet-primitives to swift-molecules/swift-facet",
           "verified exact destination owns stable GitHub repository ID 1264249311 with public visibility and non-archived state",
-          "prepared commit publication remains pending"
+          "fast-forward published prepared commit eb3dfc4514fe25b22fc3f78820b96e7cbe1e0a05",
+          "verified live main eb3dfc4514fe25b22fc3f78820b96e7cbe1e0a05 and final origin https://github.com/swift-molecules/swift-facet.git"
         ]
       },
       "state": "ready",
@@ -20886,12 +20887,13 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit dccfb73988f7b74d74edb7e09c47cb6ce3168ac7",
           "renamed swift-molecules/swift-link-primitives to swift-molecules/swift-link",
           "verified exact destination owns stable GitHub repository ID 1217845780 with public visibility and non-archived state",
-          "prepared commit publication remains pending"
+          "fast-forward published prepared commit 360a0678866aca739ca79af65722c9a6dfc9a0b1",
+          "verified live main 360a0678866aca739ca79af65722c9a6dfc9a0b1 and final origin https://github.com/swift-molecules/swift-link.git"
         ]
       },
       "state": "ready",
