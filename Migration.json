@@ -13241,12 +13241,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit d178ae1432424ea1c35a0f29d75a0dbc9fcc52e9",
           "renamed repository swift-molecules/swift-algebra-modular-primitives -> swift-molecules/swift-algebra-modular",
           "verified stable GitHub repository ID 1179869694",
-          "prepared commit 93b36110e29ef7fe28c59dd3984eb74cbe65ce31 publication pending"
+          "fast-forward published prepared commit 93b36110e29ef7fe28c59dd3984eb74cbe65ce31",
+          "verified live main 93b36110e29ef7fe28c59dd3984eb74cbe65ce31 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-algebra-modular.git"
         ]
       },
       "state": "blocked",
