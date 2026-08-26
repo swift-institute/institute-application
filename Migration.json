@@ -13273,20 +13273,26 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 0cbf9fe17b36f88b9025421435721e8ba84d8434",
+          "renamed repository swift-molecules/swift-algebra-primitives -> swift-molecules/swift-algebra",
+          "verified stable GitHub repository ID 1132373220",
+          "fast-forward published prepared commit b28bbbb72d5f3ffd681960356d44b1cc461e8881",
+          "verified live main b28bbbb72d5f3ffd681960356d44b1cc461e8881 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-algebra.git"
         ]
       },
       "state": "passed",
       "validation": {
         "status": "passed",
         "records": [
-          "package resolution passed at prepared commit b28bbbb72d5f3ffd681960356d44b1cc461e8881",
-          "invocation: institute package resolve --package-path /private/tmp/swift-algebra-cutover",
-          "exit 0; HEAD unchanged; worktree clean; Package.resolved unchanged"
+          "package resolution passed at live published commit b28bbbb72d5f3ffd681960356d44b1cc461e8881",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/swift-algebra-cutover --argument=--disable-sandbox",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved absent before and after"
         ]
-      }
+      },
+      "githubRepositoryID": 1132373220
     },
     {
       "current": "swift-primitives/swift-application-primitives",
