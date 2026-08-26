@@ -21288,20 +21288,35 @@
       "observedHead": "e67a2d7309201b3eb88ab848ba75a57777e99042",
       "observedRemote": "https://github.com/swift-primitives/swift-memory-foreign-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit 77e759e6dfbb8dfd6787d01d4bf8a83ef0d3cf11",
+          "isolated worktree /private/tmp/four-layer-swift-memory-foreign-primitives",
+          "canonical package, repository, dependency, product, target, module, import, source/test path, README, and metadata mapping applied"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit e67a2d7309201b3eb88ab848ba75a57777e99042",
+          "renamed repository swift-molecules/swift-memory-foreign-primitives -> swift-molecules/swift-memory-foreign",
+          "verified stable GitHub repository ID 1267189499",
+          "fast-forward published prepared commit 77e759e6dfbb8dfd6787d01d4bf8a83ef0d3cf11",
+          "verified live main 77e759e6dfbb8dfd6787d01d4bf8a83ef0d3cf11 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-memory-foreign.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed after publication for swift-memory-foreign at live published commit 77e759e6dfbb8dfd6787d01d4bf8a83ef0d3cf11",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-memory-foreign-live-published institute package resolve --package-path /private/tmp/four-layer-swift-memory-foreign-primitives --argument=--disable-sandbox",
+          "resolved swift-memory-foreign direct live dependencies swift-memory at 4e875ebe3c6de287b3ed00410c2d77b27c20172b and swift-span at 8c76670f76b7982f128e3e7b7fc80f43f05200ff",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved sha256 b77ff1c5e4f14546408eace4396879331f774a5fbbb1b9852c5f45c284933c99 and left as generated state"
+        ]
+      },
+      "githubRepositoryID": 1267189499
     },
     {
       "current": "swift-primitives/swift-memory-heap-primitives",
@@ -21491,20 +21506,35 @@
       "observedHead": "4f66c6e570221179a349c6314c3ed41566adac7a",
       "observedRemote": "https://github.com/swift-primitives/swift-memory-lock-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit dcb0d7591ceaee9894e96cf86c9cad16e960d384",
+          "isolated worktree /private/tmp/four-layer-swift-memory-lock-primitives",
+          "changed paths 10; canonical package, repository, product, target, module, import, path, README, metadata, error, and memory test-support mapping applied"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 4f66c6e570221179a349c6314c3ed41566adac7a",
+          "renamed repository swift-molecules/swift-memory-lock-primitives -> swift-molecules/swift-memory-lock",
+          "verified stable GitHub repository ID 1246724170",
+          "fast-forward published prepared commit dcb0d7591ceaee9894e96cf86c9cad16e960d384",
+          "verified live main dcb0d7591ceaee9894e96cf86c9cad16e960d384 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-memory-lock.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-memory-lock at live published commit dcb0d7591ceaee9894e96cf86c9cad16e960d384",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-memory-lock-live institute package resolve --package-path /private/tmp/four-layer-swift-memory-lock-primitives --argument=--disable-sandbox",
+          "resolved swift-memory-lock direct live dependencies swift-error at f34a757c463682fbbf3f7201244a5201f96ce760 and swift-memory at 4e875ebe3c6de287b3ed00410c2d77b27c20172b",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 2b44572f3cf5954e2429f1c7816885a6ab6a3634697150e2fb6653d90d969f51 and left as generated state"
+        ]
+      },
+      "githubRepositoryID": 1246724170
     },
     {
       "current": "swift-primitives/swift-memory-map-primitives",
@@ -21729,20 +21759,35 @@
       "observedHead": "802b7cb51aece2f6d693f48c1459d480180e6d4a",
       "observedRemote": "https://github.com/swift-primitives/swift-memory-shared-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit 89b6e00a6a6a795f87cb8c84cc4fcefe7e86613c",
+          "isolated worktree /private/tmp/four-layer-swift-memory-shared-primitives",
+          "changed paths eight; canonical package, repository, dependency, product, target, module, import, source/test path, README, and metadata mapping applied"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 802b7cb51aece2f6d693f48c1459d480180e6d4a",
+          "renamed repository swift-molecules/swift-memory-shared-primitives -> swift-molecules/swift-memory-shared",
+          "verified stable GitHub repository ID 1246731167",
+          "fast-forward published prepared commit 89b6e00a6a6a795f87cb8c84cc4fcefe7e86613c",
+          "verified live main 89b6e00a6a6a795f87cb8c84cc4fcefe7e86613c and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-memory-shared.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-memory-shared at live published commit 89b6e00a6a6a795f87cb8c84cc4fcefe7e86613c",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-memory-shared-live institute package resolve --package-path /private/tmp/four-layer-swift-memory-shared-primitives --argument=--disable-sandbox",
+          "resolved swift-memory-shared direct live dependencies swift-error at f34a757c463682fbbf3f7201244a5201f96ce760 and swift-memory at 4e875ebe3c6de287b3ed00410c2d77b27c20172b",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 b0ea0d6dbeb6bce5883267e34edb0fb0da02c6e36d15e33ac1c39a58797bde4a and left as generated state"
+        ]
+      },
+      "githubRepositoryID": 1246731167
     },
     {
       "current": "swift-primitives/swift-memory-small-primitives",
@@ -25583,20 +25628,35 @@
       "observedHead": "fa76b6e89ff365a0f8aeb96007ca4b2829a616db",
       "observedRemote": "https://github.com/swift-primitives/swift-system-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit aea004b315cd78bf37faf144dd8c5e4c0900cd20",
+          "isolated worktree /private/tmp/four-layer-swift-system-primitives",
+          "changed paths 18; canonical package, repository, product, target, module, import, path, and README mapping applied"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit fa76b6e89ff365a0f8aeb96007ca4b2829a616db",
+          "renamed repository swift-molecules/swift-system-primitives -> swift-molecules/swift-system",
+          "verified stable GitHub repository ID 1132373973",
+          "fast-forward published prepared commit aea004b315cd78bf37faf144dd8c5e4c0900cd20",
+          "verified live main aea004b315cd78bf37faf144dd8c5e4c0900cd20 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-system.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-system at live published commit aea004b315cd78bf37faf144dd8c5e4c0900cd20",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-system-live institute package resolve --package-path /private/tmp/four-layer-swift-system-primitives --argument=--disable-sandbox",
+          "resolved swift-system direct live dependencies swift-cardinal at e932d328deff46ef801bab10520354b0da779398, swift-memory at 4e875ebe3c6de287b3ed00410c2d77b27c20172b, and swift-ordinal at 92f2aef190ba01b10d606c4991c48c44039e4a69",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 9cb3073d9ff19ca6e0a8479cfa649f89eea22a408e57164cf92cd1e0fde1a37d and left as generated state"
+        ]
+      },
+      "githubRepositoryID": 1132373973
     },
     {
       "current": "swift-primitives/swift-tagged-collection-primitives",
