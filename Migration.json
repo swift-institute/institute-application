@@ -22498,20 +22498,26 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit d20e34833aa63d11de6165429815fd3435ee20e5",
+          "renamed repository swift-molecules/swift-position-primitives -> swift-molecules/swift-position",
+          "verified stable GitHub repository ID 1132373829",
+          "fast-forward published prepared commit de52d7e3dc73147799dcbe9f48079b931b291204",
+          "verified live main de52d7e3dc73147799dcbe9f48079b931b291204 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-position.git"
         ]
       },
       "state": "passed",
       "validation": {
         "status": "passed",
         "records": [
-          "package resolution passed at prepared commit de52d7e3dc73147799dcbe9f48079b931b291204",
-          "invocation: institute package resolve --package-path /private/tmp/four-layer-swift-position-primitives",
-          "exit 0; HEAD unchanged; worktree clean; Package.resolved unchanged"
+          "package resolution passed at live published commit de52d7e3dc73147799dcbe9f48079b931b291204",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-position-primitives --argument=--disable-sandbox",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved absent before and after"
         ]
-      }
+      },
+      "githubRepositoryID": 1132373829
     },
     {
       "current": "swift-primitives/swift-predicate-primitives",
