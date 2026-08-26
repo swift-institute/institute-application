@@ -25731,10 +25731,15 @@
           "verified live main 8276b72641edcdf7a0980bcb30c39464bc936759 with unchanged public visibility"
         ]
       },
-      "state": "published",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-slab at live published commit 8276b72641edcdf7a0980bcb30c39464bc936759",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-slab-live institute package resolve --package-path /private/tmp/swift-slab-live-bcbed7d47f39fb88ade80d99710b3d7fd0ca7776 --argument=--disable-sandbox",
+          "initial sandbox-only attempt failed DNS resolving github.com; approved network retry exited 0 and resolved all live future-coordinate dependencies",
+          "HEAD unchanged; tracked worktree clean; Package.resolved generated from absent to SHA-256 3c19d7e9de91a68369c84c58ae41918cd7d75471c5cfa17782735aa02685445c and remained ignored/uncommitted"
+        ]
       },
       "githubRepositoryID": 1179770292
     },
