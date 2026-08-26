@@ -1862,10 +1862,15 @@
           "verified live main ac3ad5fae1c373029bf11852cb554638621becc4 with unchanged public visibility and non-archived state"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-dual at live published commit ac3ad5fae1c373029bf11852cb554638621becc4",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-dual-root institute package resolve --package-path /private/tmp/four-layer-swift-dual --argument=--disable-sandbox",
+          "resolution exited 0 against live future-coordinate Finite and Optic dependencies, external swift-syntax 602.0.0, and their transitive graph",
+          "HEAD unchanged; tracked worktree clean; Package.resolved generated as ignored uncommitted state and stabilized at SHA-256 64f2279a83e83f87b07d9e1a955c9a7b3c9796e1de18ac7ecad95e00a7745160"
+        ]
       },
       "githubRepositoryID": 1183220105
     },
