@@ -14658,12 +14658,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit a8e4efefded4f58092c470e8790c9f1e90674a78",
           "renamed repository swift-molecules/swift-bit-formatter-primitives -> swift-molecules/swift-bit-formatter",
-          "verified stable GitHub repository ID 1283905097 and public visibility",
-          "prepared commit publication pending"
+          "verified stable GitHub repository ID 1283905097",
+          "fast-forward published prepared commit 476ea84154a18183f5d2bbbb93f3c98f394fc0ee",
+          "verified live main 476ea84154a18183f5d2bbbb93f3c98f394fc0ee and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-bit-formatter.git"
         ]
       },
       "state": "blocked",
