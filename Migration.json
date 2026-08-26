@@ -25713,20 +25713,28 @@
       "observedHead": "bcbed7d47f39fb88ade80d99710b3d7fd0ca7776",
       "observedRemote": "https://github.com/swift-primitives/swift-slab-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 8276b72641edcdf7a0980bcb30c39464bc936759 from expected parent bcbed7d47f39fb88ade80d99710b3d7fd0ca7776",
+          "isolated worktree /private/tmp/swift-slab-live-bcbed7d47f39fb88ade80d99710b3d7fd0ca7776",
+          "canonical repository, package, product, target, module, import, path, and future-coordinate dependency mappings applied across 18 changed paths"
+        ]
       },
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit bcbed7d47f39fb88ade80d99710b3d7fd0ca7776",
+          "renamed swift-molecules/swift-slab-primitives to swift-molecules/swift-slab",
+          "verified exact destination owns stable GitHub repository ID 1179770292 with public visibility and non-archived state",
+          "publication remains pending at non-force fast-forward push of prepared commit 8276b72641edcdf7a0980bcb30c39464bc936759"
         ]
       },
       "state": "ready",
       "validation": {
         "status": "pending",
         "records": []
-      }
+      },
+      "githubRepositoryID": 1179770292
     },
     {
       "current": "swift-primitives/swift-slot-map-primitives",
