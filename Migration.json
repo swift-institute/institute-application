@@ -22336,12 +22336,13 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 47ec5c25820fd5e0fd69afa4586c76487bb72d9e",
           "renamed swift-molecules/swift-memory-small-primitives to swift-molecules/swift-memory-small",
           "verified exact destination owns stable GitHub repository ID 1276750105 with public visibility and non-archived state",
-          "prepared commit publication remains pending"
+          "fast-forward published prepared commit 280ccbd9b9ad4c0fc7328b73aba7b059aaf227e0",
+          "verified live main 280ccbd9b9ad4c0fc7328b73aba7b059aaf227e0 and final origin https://github.com/swift-molecules/swift-memory-small.git"
         ]
       },
       "state": "ready",
