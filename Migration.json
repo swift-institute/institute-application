@@ -17391,20 +17391,26 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit c09a05577149389e43f20c629eafa72a1b77b244",
+          "preserved repository identity swift-molecules/swift-declaration-derivation",
+          "verified stable GitHub repository ID 1327212132",
+          "fast-forward published prepared commit bdc9e927ea3f15dc6be27bb271bded5880e9776b",
+          "verified live main bdc9e927ea3f15dc6be27bb271bded5880e9776b and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-declaration-derivation.git"
         ]
       },
       "state": "passed",
       "validation": {
         "status": "passed",
         "records": [
-          "package resolution passed at prepared commit bdc9e927ea3f15dc6be27bb271bded5880e9776b",
+          "package resolution passed at live published commit bdc9e927ea3f15dc6be27bb271bded5880e9776b",
           "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-declaration-derivation --argument=--disable-sandbox",
-          "exit 0; HEAD unchanged; worktree clean; Package.resolved unchanged"
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved unchanged at sha256 c2935459d9b149f38fb268603c3c1e3d176af6958bba580605691f152d42a0c6"
         ]
-      }
+      },
+      "githubRepositoryID": 1327212132
     },
     {
       "current": "swift-primitives/swift-dependency-primitives",
