@@ -24311,12 +24311,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 9c32795f56531fe9236a243be21fda9945e01d03",
           "renamed repository swift-molecules/swift-span-primitives -> swift-molecules/swift-span",
-          "verified stable GitHub repository ID 1259220718 and public visibility",
-          "prepared commit publication pending"
+          "verified stable GitHub repository ID 1259220718",
+          "fast-forward published prepared commit 8c76670f76b7982f128e3e7b7fc80f43f05200ff",
+          "verified live main 8c76670f76b7982f128e3e7b7fc80f43f05200ff and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-span.git"
         ]
       },
       "state": "blocked",
