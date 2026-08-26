@@ -15836,12 +15836,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit b84d7aefb37b9e25c20621e615ac0aa9f1ed157f",
           "renamed repository swift-molecules/swift-byte-formatter-primitives -> swift-molecules/swift-byte-formatter",
           "verified stable GitHub repository ID 1283920679",
-          "prepared commit 589ad54132d48ef51973b00c137001d91e3c0cb4 publication pending"
+          "fast-forward published prepared commit 589ad54132d48ef51973b00c137001d91e3c0cb4",
+          "verified live main 589ad54132d48ef51973b00c137001d91e3c0cb4 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-byte-formatter.git"
         ]
       },
       "state": "blocked",
