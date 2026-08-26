@@ -23642,7 +23642,10 @@
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 2e4df1dd46316b3753f04712cd07ffb47a645bba",
+          "renamed repository swift-molecules/swift-sequence-primitives -> swift-molecules/swift-sequence",
+          "verified stable GitHub repository ID 1139271497 and public visibility",
+          "prepared commit publication pending"
         ]
       },
       "state": "blocked",
@@ -23654,7 +23657,8 @@
           "sandbox DNS blocked github.com while resolving https://github.com/swift-molecules/swift-iterator.git; live remote existence was not determined",
           "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
-      }
+      },
+      "githubRepositoryID": 1139271497
     },
     {
       "current": "swift-primitives/swift-serializer-primitives",
