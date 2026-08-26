@@ -1582,8 +1582,13 @@
       "observedHead": "c84769554dba065469a7e4b76d1f7711556ac71a",
       "observedRemote": "https://github.com/swift-foundations/swift-defunctionalize.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit adf2391128a3bd417f2913b7d430985456737ab9 from expected parent c84769554dba065469a7e4b76d1f7711556ac71a",
+          "isolated worktree /private/tmp/four-layer-swift-defunctionalize",
+          "mapped Finite and Optic dependency URLs, products, modules, imports, and generated spellings to live molecule coordinates while preserving suffix-free public products, targets, macro semantics, and the external swift-syntax range",
+          "updated README and metadata ownership to compositions; ancestry, diff, imports, residuals, public payload, Actions references, live dependencies, and Package.resolved audits passed independently"
+        ]
       },
       "publication": {
         "status": "pending",
