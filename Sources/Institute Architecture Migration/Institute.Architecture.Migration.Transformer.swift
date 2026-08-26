@@ -12,7 +12,10 @@ extension Institute.Architecture.Migration {
       self.mapping = mapping
     }
 
-    public func text(_ current: Swift.String) -> Swift.String {
+    public func text(
+      _ current: Swift.String,
+      productRenames: [Swift.String: Swift.String] = [:]
+    ) -> Swift.String {
       var result = current
       for repository in ledger.repositories.sorted(by: {
         $0.current.count == $1.current.count
@@ -51,8 +54,13 @@ extension Institute.Architecture.Migration {
       )
       result = replacing("topic: primitives", with: "topic: molecules", in: result)
       result = replacing("topic: foundations", with: "topic: compositions", in: result)
+      for currentProduct in productRenames.keys.sorted(by: {
+        $0.count == $1.count ? $0 < $1 : $0.count > $1.count
+      }) {
+        guard let futureProduct = productRenames[currentProduct] else { continue }
+        result = replacing(currentProduct, with: futureProduct, in: result)
+      }
       result = mapping.module(result)
-      result = mapping.product(result)
       return result
     }
 
@@ -61,10 +69,13 @@ extension Institute.Architecture.Migration {
     }
 
     public func plan(files: [Swift.String: Swift.String?]) -> [Edit] {
+      let productRenames = productRenames(in: files)
       files.keys.sorted().compactMap { currentPath in
         let futurePath = path(currentPath)
         let currentText = files[currentPath] ?? nil
-        let futureText = currentText.map(text)
+        let futureText = currentText.map {
+          text($0, productRenames: productRenames)
+        }
         let edit = Edit(
           currentPath: currentPath,
           futurePath: futurePath,
@@ -73,6 +84,41 @@ extension Institute.Architecture.Migration {
         )
         return edit.changesPath || edit.changesText ? edit : nil
       }
+    }
+
+    private func productRenames(
+      in files: [Swift.String: Swift.String?]
+    ) -> [Swift.String: Swift.String] {
+      var result: [Swift.String: Swift.String] = [:]
+      for (path, source) in files where path.hasSuffix("Package.swift") {
+        guard let source else { continue }
+        for value in Self.quotedValues(in: source) where value.contains(" Primitives") {
+          result[value] = mapping.product(value)
+        }
+      }
+      return result
+    }
+
+    private static func quotedValues(in source: Swift.String) -> [Swift.String] {
+      var result: [Swift.String] = []
+      var value = ""
+      var isQuoted = false
+      var isEscaped = false
+      for character in source {
+        if isEscaped {
+          if isQuoted { value.append(character) }
+          isEscaped = false
+        } else if character == "\\", isQuoted {
+          isEscaped = true
+        } else if character == "\"" {
+          if isQuoted { result.append(value) }
+          value = ""
+          isQuoted.toggle()
+        } else if isQuoted {
+          value.append(character)
+        }
+      }
+      return result
     }
 
     private static func name(in coordinate: Swift.String) -> Swift.String {

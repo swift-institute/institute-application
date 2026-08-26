@@ -128,7 +128,7 @@ struct `Institute Architecture Migration Mapping Tests` {
     )
     #expect(transformed.contains("swift-molecules/swift-byte.git"))
     #expect(transformed.contains("package: \"swift-byte\""))
-    #expect(transformed.contains("Byte Standard Library Integration"))
+    #expect(transformed.contains("Byte Primitives Standard Library Integration"))
     #expect(transformed.contains("Byte_Standard_Library_Integration"))
     #expect(
       transformed.contains("swift-molecules/swift-primitives-linter-rules")
@@ -139,13 +139,32 @@ struct `Institute Architecture Migration Mapping Tests` {
         == "Sources/Byte Standard Library Integration/exports.swift"
     )
     let plan = transformer.plan(files: [
+      "Package.swift":
+        #".product(name: "Byte Primitives", targets: ["Byte Primitives"])"#,
+      "README.md": "Primitives are the old layer. Use Byte Primitives.",
       "Sources/Byte Primitives/exports.swift": "public import Byte_Primitives",
       "logo.png": nil,
     ])
-    #expect(plan.count == 1)
-    #expect(plan[0].currentPath == "Sources/Byte Primitives/exports.swift")
-    #expect(plan[0].futurePath == "Sources/Byte/exports.swift")
-    #expect(plan[0].futureText == "public import Byte")
+    #expect(plan.count == 3)
+    #expect(
+      plan.contains {
+        $0.currentPath == "Package.swift"
+          && $0.futureText == #".product(name: "Byte", targets: ["Byte"])"#
+      }
+    )
+    #expect(
+      plan.contains {
+        $0.currentPath == "README.md"
+          && $0.futureText == "Primitives are the old layer. Use Byte."
+      }
+    )
+    #expect(
+      plan.contains {
+        $0.currentPath == "Sources/Byte Primitives/exports.swift"
+          && $0.futurePath == "Sources/Byte/exports.swift"
+          && $0.futureText == "public import Byte"
+      }
+    )
   }
 
   private func repository(
