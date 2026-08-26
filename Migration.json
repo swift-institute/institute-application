@@ -22146,12 +22146,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit d18932048b0492ee96e2d168adc3dc38d56e327e",
           "renamed repository swift-molecules/swift-parity-primitives -> swift-molecules/swift-parity",
-          "verified stable GitHub repository ID 1253310323 and public visibility",
-          "prepared commit publication pending"
+          "verified stable GitHub repository ID 1253310323",
+          "fast-forward published prepared commit 61128dca3f08f0675e16187e086c64ed8e7c42d3",
+          "verified live main 61128dca3f08f0675e16187e086c64ed8e7c42d3 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-parity.git"
         ]
       },
       "state": "blocked",
