@@ -16080,13 +16080,18 @@
           "verified exact destination owns stable GitHub repository ID 1247830113 with public visibility and non-archived state",
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-buffer-linked.git",
           "fast-forward published prepared commit 90d073006a3b7c8753d337944ec9f1f1b16da251",
-          "publication requires final live main and visibility recheck before validation booking"
+          "verified live main 90d073006a3b7c8753d337944ec9f1f1b16da251 with unchanged public visibility"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "blocked",
+        "records": [
+          "package resolution blocked for swift-buffer-linked at live published commit 90d073006a3b7c8753d337944ec9f1f1b16da251",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-buffer-linked-live institute package resolve --package-path /private/tmp/swift-buffer-linked-live-572e022094ae491155d6f9ca541bf3845234bacb --argument=--disable-sandbox",
+          "exit 1; SwiftPM could not clone unpublished future dependency https://github.com/swift-molecules/swift-ownership-shared.git because the repository was not found",
+          "publication preserved; Package.resolved remained absent; HEAD and tracked worktree remained clean; swift-ownership-shared is the next dependency-unblock target"
+        ]
       },
       "githubRepositoryID": 1247830113
     },
@@ -20335,19 +20340,25 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 7acc82673e3f6700e3aee754712437b1d704c16d",
           "renamed swift-molecules/swift-hash-table-primitives to swift-molecules/swift-hash-table",
           "verified exact destination owns stable GitHub repository ID 1142827460 with public visibility and non-archived state",
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-hash-table.git",
-          "publication remains pending at non-force fast-forward push of prepared commit 88b74364e25cad452b4ad252c5d8acd205ae8285"
+          "fast-forward published prepared commit 88b74364e25cad452b4ad252c5d8acd205ae8285",
+          "verified live main 88b74364e25cad452b4ad252c5d8acd205ae8285 with unchanged public visibility"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-hash-table at live published commit 88b74364e25cad452b4ad252c5d8acd205ae8285",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-hash-table-live institute package resolve --package-path /private/tmp/swift-hash-table-publish --argument=--disable-sandbox",
+          "resolved all 16 declared direct dependencies at live future coordinates",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent and left uncommitted at sha256 d636371fa6434f0e49bfea849ed0eca02e23cf790dc428dea4ced5a236c2ea75"
+        ]
       },
       "githubRepositoryID": 1142827460
     },
@@ -26759,19 +26770,25 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit dc52372a068d97cb5c025da8e104b5de89e49089",
           "renamed swift-molecules/swift-tensor-primitives to swift-molecules/swift-tensor",
           "verified exact destination owns stable GitHub repository ID 1242120595 with public visibility and non-archived state",
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-tensor.git",
-          "publication remains pending at non-force fast-forward push of prepared commit 9f72918631838130d1a4cf5c3f6399b2c05288eb"
+          "fast-forward published prepared commit 9f72918631838130d1a4cf5c3f6399b2c05288eb",
+          "verified live main 9f72918631838130d1a4cf5c3f6399b2c05288eb with unchanged public visibility"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-tensor at live published commit 9f72918631838130d1a4cf5c3f6399b2c05288eb",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-tensor-live institute package resolve --package-path /private/tmp/swift-tensor-publish --argument=--disable-sandbox",
+          "resolved all 20 declared direct dependencies at live future coordinates",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent and left uncommitted at sha256 f7ffa8481c28c4a7180954d00dfb95aa1dfc7b270e4b5261c38811152c23ea57"
+        ]
       },
       "githubRepositoryID": 1242120595
     },
