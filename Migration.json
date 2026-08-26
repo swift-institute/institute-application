@@ -18741,12 +18741,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 6dc2f220da3062064ea429c3935a8a52a4083cce",
           "renamed repository swift-molecules/swift-formatter-primitives -> swift-molecules/swift-formatter",
-          "verified stable GitHub repository ID 1237544086 and public visibility",
-          "prepared commit publication pending"
+          "verified stable GitHub repository ID 1237544086",
+          "fast-forward published prepared commit 1525e1eafa96aca649faa92273f4d417ec83cae7",
+          "verified live main 1525e1eafa96aca649faa92273f4d417ec83cae7 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-formatter.git"
         ]
       },
       "state": "blocked",
