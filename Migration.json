@@ -19673,20 +19673,34 @@
       "observedHead": "dfbf731107494ad4aecf6b475e16cfcb93026401",
       "observedRemote": "https://github.com/swift-primitives/swift-fixed-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit 8613d681d55a76212da3dd5d9b8b3cecbd6cfec7 from expected parent dfbf731107494ad4aecf6b475e16cfcb93026401",
+          "isolated worktree /private/tmp/swift-fixed-live-dfbf731107494ad4aecf6b475e16cfcb93026401",
+          "canonical repository, package, product, target, module, import, path, and future-coordinate dependency mappings applied across 12 changed paths"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit dfbf731107494ad4aecf6b475e16cfcb93026401",
+          "renamed swift-molecules/swift-fixed-primitives to swift-molecules/swift-fixed",
+          "verified exact destination owns stable GitHub repository ID 1276750054 with public visibility and non-archived state",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-fixed.git",
+          "fast-forward published prepared commit 8613d681d55a76212da3dd5d9b8b3cecbd6cfec7",
+          "verified live main 8613d681d55a76212da3dd5d9b8b3cecbd6cfec7 with unchanged public visibility"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-fixed at live published commit 8613d681d55a76212da3dd5d9b8b3cecbd6cfec7",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-fixed institute package resolve --package-path /private/tmp/swift-fixed-live-dfbf731107494ad4aecf6b475e16cfcb93026401 --argument=--disable-sandbox",
+          "exit 0; HEAD unchanged; tracked worktree clean; Package.resolved generated from absent to SHA-256 655b102a45efdebd2185d177435eabb6d0b8f95b4c8fd0c4ba244a3aaefe73e4 and remained ignored/uncommitted"
+        ]
+      },
+      "githubRepositoryID": 1276750054
     },
     {
       "current": "swift-primitives/swift-format-primitives",
