@@ -22755,12 +22755,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit a589c0c269b6cf0c3fbddaf287b31557f0bb67ff",
           "renamed repository swift-molecules/swift-property-primitives -> swift-molecules/swift-property",
-          "verified stable GitHub repository ID 1139292560 and public visibility",
-          "prepared commit publication pending"
+          "verified stable GitHub repository ID 1139292560",
+          "fast-forward published prepared commit 766700fb5f44026c2f8f1d4c33b49ce934487802",
+          "verified live main 766700fb5f44026c2f8f1d4c33b49ce934487802 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-property.git"
         ]
       },
       "state": "blocked",
