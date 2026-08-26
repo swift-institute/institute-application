@@ -21727,12 +21727,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit e18afe7f2dbcadcb9c3cae916c440080b11df6e1",
           "renamed repository swift-molecules/swift-order-finite-primitives -> swift-molecules/swift-order-finite",
           "verified stable GitHub repository ID 1253857771",
-          "prepared commit c2861f5b7b36a93cedc8472f3c51d2e92aa6227b publication pending"
+          "fast-forward published prepared commit c2861f5b7b36a93cedc8472f3c51d2e92aa6227b",
+          "verified live main c2861f5b7b36a93cedc8472f3c51d2e92aa6227b and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-order-finite.git"
         ]
       },
       "state": "blocked",
