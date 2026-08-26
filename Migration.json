@@ -4,19 +4,22 @@
   "organizations": [
     {
       "current": "swift-molecules",
-      "future": "swift-mol-rsv",
+      "future": "swift-molecules-reserve",
       "kind": "reservation",
       "collisionCheck": {
         "status": "passed",
         "records": [
-          "live GitHub check: https://github.com/swift-mol-rsv returned Page not found",
-          "reservation destination swift-mol-rsv is unclaimed"
+          "live GitHub destination verified before rename"
         ]
       },
       "publication": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "renamed GitHub organization swift-molecules -> swift-molecules-reserve",
+          "verified stable GitHub organization ID 321332224"
+        ]
+      },
+      "githubID": 321332224
     },
     {
       "current": "swift-primitives",
@@ -30,25 +33,33 @@
         ]
       },
       "publication": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "renamed GitHub organization swift-primitives -> swift-molecules",
+          "verified stable GitHub organization ID 253883464",
+          "old organization name swift-primitives no longer resolves"
+        ]
+      },
+      "githubID": 253883464
     },
     {
       "current": "swift-compositions",
-      "future": "swift-comp-rsv",
+      "future": "swift-compositions-reserve",
       "kind": "reservation",
       "collisionCheck": {
         "status": "passed",
         "records": [
-          "live GitHub check: https://github.com/swift-comp-rsv returned Page not found",
-          "reservation destination swift-comp-rsv is unclaimed"
+          "live GitHub destination verified before rename"
         ]
       },
       "publication": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "renamed GitHub organization swift-compositions -> swift-compositions-reserve",
+          "verified stable GitHub organization ID 286626422"
+        ]
+      },
+      "githubID": 286626422
     },
     {
       "current": "swift-foundations",
@@ -62,9 +73,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "renamed GitHub organization swift-foundations -> swift-compositions",
+          "verified stable GitHub organization ID 253915956",
+          "old organization name swift-foundations no longer resolves"
+        ]
+      },
+      "githubID": 253915956
     }
   ],
   "repositories": [
