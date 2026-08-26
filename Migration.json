@@ -21659,12 +21659,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit f5ef5edd9b09e8c62d36556ab28b22e2cc1f2bb8",
           "renamed repository swift-molecules/swift-ordinal-primitives -> swift-molecules/swift-ordinal",
-          "verified stable GitHub repository ID 1139270588 and public visibility",
-          "prepared commit publication pending"
+          "verified stable GitHub repository ID 1139270588",
+          "fast-forward published prepared commit 92f2aef190ba01b10d606c4991c48c44039e4a69",
+          "verified live main 92f2aef190ba01b10d606c4991c48c44039e4a69 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-ordinal.git"
         ]
       },
       "state": "blocked",
