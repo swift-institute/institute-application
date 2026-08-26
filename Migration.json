@@ -19766,20 +19766,33 @@
       "observedHead": "18bd9922f5f67ef0e2faa9791dd98f6a184d6c1f",
       "observedRemote": "https://github.com/swift-primitives/swift-geometry-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit 267c767f5da69a6b0b6b8fc99d527a517a21f16d from expected parent 18bd9922f5f67ef0e2faa9791dd98f6a184d6c1f",
+          "isolated worktree /private/tmp/four-layer-swift-geometry-primitives",
+          "canonical package, products, targets, modules, imports, source/test/support paths, README, and seven dependency mappings applied across 39 files; residual and payload scans clean"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 18bd9922f5f67ef0e2faa9791dd98f6a184d6c1f",
+          "renamed swift-molecules/swift-geometry-primitives to swift-molecules/swift-geometry while preserving GitHub repository ID 1132373446",
+          "fast-forward published prepared commit 267c767f5da69a6b0b6b8fc99d527a517a21f16d",
+          "verified live main 267c767f5da69a6b0b6b8fc99d527a517a21f16d, public visibility, non-archived state, and final origin https://github.com/swift-molecules/swift-geometry.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-geometry at live commit 267c767f5da69a6b0b6b8fc99d527a517a21f16d",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-geometry-live institute package resolve --package-path /private/tmp/four-layer-swift-geometry-primitives --argument=--disable-sandbox",
+          "resolved swift-affine-geometry d91ee6d29ce4b14d425b7ed7f8af87bd5e5ec777, swift-affine fffed9e57683fd4973f2ebf414f106fa88ba2354, swift-boundary 11a7ed4b70021b1c06c41bf493c1a9ccfb4ed81d, swift-dimension 4b7cdaba8f0fa64bbe19d1bd349456704065ab90, swift-linear 8af9f58bfcf4e4fbb757b2c3ddd9fe358e81bc56, swift-numeric c81428e32f6074e63f8325584a2966a6ed99d73e, and swift-pair 626bcabc76913ab71b3467d89ac3849163c38d4b",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to SHA-256 f48bbd0e52ed15526c24a35570b4fc39c97093cf0538fe02133989f428604cb9 and remained ignored/uncommitted"
+        ]
+      },
+      "githubRepositoryID": 1132373446
     },
     {
       "current": "swift-primitives/swift-glob-primitives",
@@ -25832,20 +25845,33 @@
       "observedHead": "16d73a85e7baaea585587c2d4a3b69cdedf15862",
       "observedRemote": "https://github.com/swift-primitives/swift-storage-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared mechanical cutover from expected parent 16d73a85e7baaea585587c2d4a3b69cdedf15862 and corrected derived owner URLs in a narrow follow-up",
+          "isolated worktree /private/tmp/four-layer-swift-storage-primitives",
+          "final prepared commit 31b816f046554d8ba45b8be2a84b9eb478b2545d maps canonical package, products, targets, modules, imports, paths, README, metadata, and seven dependencies; erroneous github.com/swift/swift-* residual scan zero"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 16d73a85e7baaea585587c2d4a3b69cdedf15862",
+          "renamed swift-molecules/swift-storage-primitives to swift-molecules/swift-storage while preserving GitHub repository ID 1132373940",
+          "non-force published the mechanical cutover and narrow URL correction sequence ending at 31b816f046554d8ba45b8be2a84b9eb478b2545d",
+          "verified live main 31b816f046554d8ba45b8be2a84b9eb478b2545d, public visibility, non-archived state, and final origin https://github.com/swift-molecules/swift-storage.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-storage at live commit 31b816f046554d8ba45b8be2a84b9eb478b2545d",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-storage-live institute package resolve --package-path /private/tmp/four-layer-swift-storage-primitives --argument=--disable-sandbox",
+          "resolved direct live swift-affine, swift-index, swift-memory-allocation, swift-memory-heap 518085a7bea5ae9a41f00207ef6ddb4073794726, swift-memory, swift-ordinal, and swift-span dependencies plus transitive closure",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved SHA-256 06dfc3e2eae3756ba32123f7b2a95e7ae45e227ff2cf20a1c634174f0777b5f3 unchanged across final resolution recheck and remained ignored/uncommitted"
+        ]
+      },
+      "githubRepositoryID": 1132373940
     },
     {
       "current": "swift-primitives/swift-storage-split-primitives",
@@ -26112,20 +26138,33 @@
       "observedHead": "05d8716afc10de222a38ed8a20e9d49fe2662f23",
       "observedRemote": "https://github.com/swift-primitives/swift-symmetry-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit bb50f40b9a90fd13b36fa24e2c3eff99d95e0303 from expected parent 05d8716afc10de222a38ed8a20e9d49fe2662f23",
+          "isolated worktree /private/tmp/four-layer-swift-symmetry-primitives",
+          "canonical package, products, targets, modules, imports, source/test/support paths, README, metadata, and ten dependency mappings applied across 19 files; residual and payload scans clean"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 05d8716afc10de222a38ed8a20e9d49fe2662f23",
+          "renamed swift-molecules/swift-symmetry-primitives to swift-molecules/swift-symmetry while preserving GitHub repository ID 1132373953",
+          "fast-forward published prepared commit bb50f40b9a90fd13b36fa24e2c3eff99d95e0303",
+          "verified live main bb50f40b9a90fd13b36fa24e2c3eff99d95e0303, public visibility, non-archived state, and final origin https://github.com/swift-molecules/swift-symmetry.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-symmetry at live commit bb50f40b9a90fd13b36fa24e2c3eff99d95e0303",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-symmetry-live institute package resolve --package-path /private/tmp/four-layer-swift-symmetry-primitives --argument=--disable-sandbox",
+          "resolved swift-affine-geometry d91ee6d29ce4b14d425b7ed7f8af87bd5e5ec777 and all nine other direct live molecule dependencies plus transitive closure",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to SHA-256 6f2d666209d64b317d20a429cb295fbeb1bfc23a51a4b9ffd42ad184e41b29bb and remained ignored/uncommitted"
+        ]
+      },
+      "githubRepositoryID": 1132373953
     },
     {
       "current": "swift-primitives/swift-system-primitives",
