@@ -17361,14 +17361,14 @@
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-cyclic-iterator.git"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
-          "package resolution blocked at prepared commit a8e25b069ba3dabfffd7e03f41ddf8267651eb7b",
-          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-cyclic-iterator-primitives --argument=--disable-sandbox",
-          "sandbox DNS blocked github.com while resolving https://github.com/swift-molecules/swift-cyclic.git; live remote existence was not determined",
-          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+          "package resolution passed for swift-cyclic-iterator at live published commit a8e25b069ba3dabfffd7e03f41ddf8267651eb7b",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-cyclic-iterator-live institute package resolve --package-path /private/tmp/four-layer-swift-cyclic-iterator-primitives --argument=--disable-sandbox",
+          "resolved swift-cyclic-iterator direct live dependencies swift-cardinal at e932d328deff46ef801bab10520354b0da779398, swift-cyclic at cd82d1b748090aef0fec201023e0b7b5d1f0ec16, swift-iterator at ce7c77a6fdd9c2a1a3aeacf390786225f33d6a67, swift-ordinal at 92f2aef190ba01b10d606c4991c48c44039e4a69, and swift-sequence at f8eb1593305debb7f2f96ef5e65eadd24c267af5",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 af19c90fcbfe78299d936ac65a2ae930317c123f2520821e61dae526253e8f8e and left as generated state"
         ]
       },
       "githubRepositoryID": 1254149146
