@@ -14660,7 +14660,10 @@
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit a8e4efefded4f58092c470e8790c9f1e90674a78",
+          "renamed repository swift-molecules/swift-bit-formatter-primitives -> swift-molecules/swift-bit-formatter",
+          "verified stable GitHub repository ID 1283905097 and public visibility",
+          "prepared commit publication pending"
         ]
       },
       "state": "blocked",
@@ -14672,7 +14675,8 @@
           "remote repository not found: https://github.com/swift-molecules/swift-bit.git",
           "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
-      }
+      },
+      "githubRepositoryID": 1283905097
     },
     {
       "current": "swift-primitives/swift-bit-index-primitives",
