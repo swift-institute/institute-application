@@ -21379,20 +21379,26 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 21d93d60d83cefcd275800f3477dc52452b5ac8d",
+          "renamed repository swift-molecules/swift-optic-primitives -> swift-molecules/swift-optic",
+          "verified stable GitHub repository ID 1138063720",
+          "fast-forward published prepared commit 316396271a41556c622fddc6e673f07a6ac10412",
+          "verified live main 316396271a41556c622fddc6e673f07a6ac10412 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-optic.git"
         ]
       },
       "state": "passed",
       "validation": {
         "status": "passed",
         "records": [
-          "package resolution passed at prepared commit 316396271a41556c622fddc6e673f07a6ac10412",
-          "invocation: institute package resolve --package-path /private/tmp/swift-institute-cutover-optic-21d93d60",
-          "exit 0; HEAD unchanged; worktree clean; Package.resolved unchanged"
+          "package resolution passed at live published commit 316396271a41556c622fddc6e673f07a6ac10412",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/swift-institute-cutover-optic-21d93d60 --argument=--disable-sandbox",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved absent before and after"
         ]
-      }
+      },
+      "githubRepositoryID": 1138063720
     },
     {
       "current": "swift-primitives/swift-order-finite-primitives",
