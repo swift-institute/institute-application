@@ -17286,14 +17286,14 @@
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-cursor.git"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
-          "package resolution blocked at prepared commit 1ea0b89f0a0b1b695c790b02ef973e06d8025902",
-          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-cursor-primitives --argument=--disable-sandbox",
-          "sandbox DNS blocked github.com while resolving https://github.com/swift-molecules/swift-tagged.git; live remote existence was not determined",
-          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+          "package resolution passed for swift-cursor at live published commit 1ea0b89f0a0b1b695c790b02ef973e06d8025902",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-cursor-live institute package resolve --package-path /private/tmp/four-layer-swift-cursor-primitives --argument=--disable-sandbox",
+          "resolved swift-cursor direct live dependencies swift-cardinal at e932d328deff46ef801bab10520354b0da779398, swift-index at ea265ffc2efe2c282e494f5e7309d0ea19f2b287, swift-ordinal at 92f2aef190ba01b10d606c4991c48c44039e4a69, swift-ownership at 8cbad8f0ae82ba45ee77f00515973426bd6aeb5f, and swift-tagged at c46829f9ff788f078389b41e0f75a48b14ee6b6b",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 05295dd3d71e6f99f469017edc51edbc8929f56fc2faf8c0eb3687ac85e84db9 and left as generated state"
         ]
       },
       "githubRepositoryID": 1241776966
