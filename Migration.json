@@ -13946,7 +13946,10 @@
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit d55f6c9b737f748704c700541c601efa920469cc",
+          "renamed repository swift-molecules/swift-bifunctor-primitives -> swift-molecules/swift-bifunctor",
+          "verified stable GitHub repository ID 1234476076",
+          "prepared commit 8dce0ac2de4a95376b029a0cfa87d41c0d221085 publication pending"
         ]
       },
       "state": "blocked",
@@ -13958,7 +13961,8 @@
           "sandbox DNS blocked github.com while resolving https://github.com/swift-molecules/swift-pair.git; live remote existence was not determined",
           "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
-      }
+      },
+      "githubRepositoryID": 1234476076
     },
     {
       "current": "swift-primitives/swift-binary-base-primitives",
