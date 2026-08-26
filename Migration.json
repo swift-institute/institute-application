@@ -14712,12 +14712,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 5c427bd795c8c5cb260bcad7323b687bee9a6dc6",
           "renamed repository swift-molecules/swift-bit-index-primitives -> swift-molecules/swift-bit-index",
-          "verified stable GitHub repository ID 1149823144 and public visibility",
-          "prepared commit publication pending"
+          "verified stable GitHub repository ID 1149823144",
+          "fast-forward published prepared commit 68ef5e71940fbf27447e1752ac79ea3d3b43f1ad",
+          "verified live main 68ef5e71940fbf27447e1752ac79ea3d3b43f1ad and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-bit-index.git"
         ]
       },
       "state": "blocked",
