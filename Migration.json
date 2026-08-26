@@ -21112,12 +21112,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 000dd495f2632f8e4a0497a0a7a43161ecd72786",
           "renamed repository swift-molecules/swift-memory-primitives -> swift-molecules/swift-memory",
-          "verified stable GitHub repository ID 1132373559 and public visibility",
-          "prepared commit publication pending"
+          "verified stable GitHub repository ID 1132373559",
+          "fast-forward published prepared commit 4e875ebe3c6de287b3ed00410c2d77b27c20172b",
+          "verified live main 4e875ebe3c6de287b3ed00410c2d77b27c20172b and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-memory.git"
         ]
       },
       "state": "blocked",
