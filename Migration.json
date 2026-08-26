@@ -25871,8 +25871,13 @@
       "observedHead": "88418e8d6c218a24a73a10d5bdcc583c714f8da5",
       "observedRemote": "https://github.com/swift-primitives/swift-slot-map-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit de88d952fa6c740df4c96ae9b83f706078510382 through ordinary child 73cd3431530d015f80fb47a6279fafadfdc964e9 from expected parent 88418e8d6c218a24a73a10d5bdcc583c714f8da5",
+          "isolated worktree /private/tmp/four-layer-swift-slot-map",
+          "canonical repository, package, plural umbrella product, target, module, test, path, README, metadata, and 9 future-coordinate dependency mappings applied while preserving singular Primitive identities",
+          "direct import and target product declarations, residuals, diff integrity, and public payload passed independent release audit; removed two unavailable related-package links while retaining live swift-store"
+        ]
       },
       "publication": {
         "status": "pending",
