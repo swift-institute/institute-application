@@ -21405,15 +21405,17 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 9061f4881ea88384efe4f6bfe476ce1966b184d9",
           "renamed swift-molecules/swift-list-linked-primitives to swift-molecules/swift-list-linked",
           "verified exact destination owns stable GitHub repository ID 1250662118 with public visibility and non-archived state",
-          "publication remains pending at non-force fast-forward push of prepared commit 1206aa8323bae24fd8714451608c6190fde5b2dc"
+          "updated isolated worktree fetch and push origin to https://github.com/swift-molecules/swift-list-linked.git",
+          "fast-forward published prepared commit 1206aa8323bae24fd8714451608c6190fde5b2dc",
+          "verified live main 1206aa8323bae24fd8714451608c6190fde5b2dc with unchanged public visibility"
         ]
       },
-      "state": "ready",
+      "state": "published",
       "validation": {
         "status": "pending",
         "records": []
