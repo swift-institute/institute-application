@@ -174,20 +174,35 @@
       "observedHead": "6d5352392b2d8b1dff66fb66c3c0f43f25f22e7d",
       "observedRemote": "https://github.com/swift-foundations/swift-agent-skills.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit 3acb370aa87641dcb992e278d23d1657527231f8",
+          "isolated worktree /private/tmp/four-layer-swift-agent-skills",
+          "changed path README.md; canonical self URL moved from swift-foundations to swift-compositions"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 6d5352392b2d8b1dff66fb66c3c0f43f25f22e7d",
+          "organization rename established live coordinate swift-compositions/swift-agent-skills without a repository rename",
+          "verified stable GitHub repository ID 1327338259",
+          "fast-forward published prepared commit 3acb370aa87641dcb992e278d23d1657527231f8",
+          "verified live main 3acb370aa87641dcb992e278d23d1657527231f8 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-compositions/swift-agent-skills.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-agent-skills at live published commit 3acb370aa87641dcb992e278d23d1657527231f8",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-agent-skills-live institute package resolve --package-path /private/tmp/four-layer-swift-agent-skills --argument=--disable-sandbox",
+          "resolved no direct package dependencies",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved absent before and after"
+        ]
+      },
+      "githubRepositoryID": 1327338259
     },
     {
       "current": "swift-foundations/swift-application",
