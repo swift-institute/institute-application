@@ -16694,14 +16694,14 @@
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-comparison.git"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
-          "package resolution blocked at prepared commit 094fd624bd55948a2fdfbcc76e53e75ea0ae80a5",
+          "package resolution passed at live published commit 094fd624bd55948a2fdfbcc76e53e75ea0ae80a5",
           "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/swift-comparison-cutover --argument=--disable-sandbox",
-          "sandbox DNS blocked github.com while resolving https://github.com/swift-molecules/swift-equation.git; live remote existence was not determined",
-          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+          "resolved live swift-equation at 711d6efbd7a6a4041e033dd3daf385828047b878, swift-property at 766700fb5f44026c2f8f1d4c33b49ce934487802, and swift-tagged at c46829f9ff788f078389b41e0f75a48b14ee6b6b, with transitive swift-ownership at 8cbad8f0ae82ba45ee77f00515973426bd6aeb5f and swift-carrier at 428df0eb4e03fe671c4c6da8683b88e6e8534f63",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 9856dcb544622efaeb3eba50750b1b00c9bf622d70ac333ac259eb88981946ac and left as generated state"
         ]
       },
       "githubRepositoryID": 1139270953
