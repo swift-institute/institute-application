@@ -17276,12 +17276,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 060da5e78c171107e848a524dff57ce034fa1230",
           "renamed repository swift-molecules/swift-cursor-primitives -> swift-molecules/swift-cursor",
           "verified stable GitHub repository ID 1241776966",
-          "prepared commit 1ea0b89f0a0b1b695c790b02ef973e06d8025902 publication pending"
+          "fast-forward published prepared commit 1ea0b89f0a0b1b695c790b02ef973e06d8025902",
+          "verified live main 1ea0b89f0a0b1b695c790b02ef973e06d8025902 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-cursor.git"
         ]
       },
       "state": "blocked",
