@@ -18069,14 +18069,14 @@
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-either.git"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
-          "package resolution blocked at prepared commit b4ce5035ed21a3cfcd7d70a51495c62277c0a0a0",
+          "package resolution passed at live published commit b4ce5035ed21a3cfcd7d70a51495c62277c0a0a0",
           "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-either-primitives --argument=--disable-sandbox",
-          "sandbox DNS blocked github.com while resolving https://github.com/swift-molecules/swift-equation.git; live remote existence was not determined",
-          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+          "resolved live swift-comparison at 094fd624bd55948a2fdfbcc76e53e75ea0ae80a5, swift-equation at 711d6efbd7a6a4041e033dd3daf385828047b878, swift-hash at addfe7191c52beb9a91a9fbf1157d5e922cd8b01, and swift-standard-library-extensions at 28a204ee2c6cf1476cd99dc95b81b59868681ebf, with their live transitive molecule dependencies",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 ce3d36ad2c86db0d641e737895af77bee463aa6c4e4a2a5c45e053c3f42754e3 and left as generated state"
         ]
       },
       "githubRepositoryID": 1232911534
