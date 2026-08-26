@@ -13045,12 +13045,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 1547e0fc92ddec5a967966da9ecad7765e8cefb1",
           "renamed repository swift-molecules/swift-affine-algebra-primitives -> swift-molecules/swift-affine-algebra",
           "verified stable GitHub repository ID 1151411769",
-          "prepared commit 63a28f82536fc9ab264e047a775ba9d26ff2eb13 publication pending"
+          "fast-forward published prepared commit 63a28f82536fc9ab264e047a775ba9d26ff2eb13",
+          "verified live main 63a28f82536fc9ab264e047a775ba9d26ff2eb13 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-affine-algebra.git"
         ]
       },
       "state": "blocked",
