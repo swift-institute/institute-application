@@ -18743,7 +18743,10 @@
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 6dc2f220da3062064ea429c3935a8a52a4083cce",
+          "renamed repository swift-molecules/swift-formatter-primitives -> swift-molecules/swift-formatter",
+          "verified stable GitHub repository ID 1237544086 and public visibility",
+          "prepared commit publication pending"
         ]
       },
       "state": "blocked",
@@ -18755,7 +18758,8 @@
           "sandbox DNS blocked github.com while resolving https://github.com/swift-molecules/swift-either.git; live remote existence was not determined",
           "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
-      }
+      },
+      "githubRepositoryID": 1237544086
     },
     {
       "current": "swift-primitives/swift-foundation-extensions",
