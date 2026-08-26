@@ -21734,14 +21734,14 @@
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-ownership.git"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
-          "package resolution blocked at prepared commit cbe0c015fb20b9cc2dac75a38f072a8903a89928",
+          "package resolution passed at live published commit 8cbad8f0ae82ba45ee77f00515973426bd6aeb5f",
           "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-ownership-primitives --argument=--disable-sandbox",
-          "sandbox DNS blocked github.com while resolving https://github.com/swift-molecules/swift-tagged.git; live remote existence was not determined",
-          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+          "resolved live swift-tagged dependency at c46829f9ff788f078389b41e0f75a48b14ee6b6b and transitive swift-carrier at 428df0eb4e03fe671c4c6da8683b88e6e8534f63",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 a92e61c002cd16be944acbecbe1504c1878f7b655244db296be7c312038b48c5 and left as generated state"
         ]
       },
       "githubRepositoryID": 1145453383
