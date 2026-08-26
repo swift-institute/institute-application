@@ -22156,14 +22156,14 @@
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-parity.git"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
-          "package resolution blocked at prepared commit 61128dca3f08f0675e16187e086c64ed8e7c42d3",
-          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-parity-primitives --argument=--disable-sandbox",
-          "remote repository not found: https://github.com/swift-molecules/swift-pair.git",
-          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+          "package resolution passed for swift-parity at live published commit 61128dca3f08f0675e16187e086c64ed8e7c42d3",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-parity institute package resolve --package-path /private/tmp/four-layer-swift-parity-primitives --argument=--disable-sandbox",
+          "resolved swift-parity direct live dependency swift-pair at 626bcabc76913ab71b3467d89ac3849163c38d4b",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 ce8bf18192507e03c69aec0913fb1f788cc1639ffbd24fe8bc066717a10f7016 and left as generated state"
         ]
       },
       "githubRepositoryID": 1253310323
