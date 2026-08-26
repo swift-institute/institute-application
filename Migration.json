@@ -22345,10 +22345,15 @@
           "verified live main 280ccbd9b9ad4c0fc7328b73aba7b059aaf227e0 and final origin https://github.com/swift-molecules/swift-memory-small.git"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-memory-small at live commit 280ccbd9b9ad4c0fc7328b73aba7b059aaf227e0",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-memory-small-live institute package resolve --package-path /private/tmp/swift-memory-small-live-47ec5c25820fd5e0fd69afa4586c76487bb72d9e --argument=--disable-sandbox",
+          "resolved direct live swift-memory-allocation e7e377301958af7e049c7cc2d7f37844baf431af, swift-memory-heap 518085a7bea5ae9a41f00207ef6ddb4073794726, swift-memory-inline 7cb35c249694f33ad9129053d2e8479207b52012, and swift-memory 4e875ebe3c6de287b3ed00410c2d77b27c20172b plus transitive closure",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to SHA-256 f2fe452a1b1e3e4e9de06b4cf68ec40743f5d842b07948c5f5c37bee347798b6 and remained ignored/uncommitted"
+        ]
       },
       "githubRepositoryID": 1276750105
     },
