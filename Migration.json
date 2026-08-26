@@ -13349,20 +13349,29 @@
       "observedHead": "907578dbc0143384ba223326263801b5eb2bb5ba",
       "observedRemote": "https://github.com/swift-iso/swift-iso-9945.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit af5d6339142bbd169017eca7022e5634486da790 from expected parent 907578dbc0143384ba223326263801b5eb2bb5ba",
+          "isolated worktree /private/tmp/swift-iso-9945-live-907578dbc0143384ba223326263801b5eb2bb5ba",
+          "canonical dependency identities, products, modules, imports, and paths applied across 297 changed paths; unchanged repository coordinate preserved"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 907578dbc0143384ba223326263801b5eb2bb5ba",
+          "verified stable GitHub repository ID 1217888724 with public visibility and non-archived state",
+          "fast-forward published prepared commit af5d6339142bbd169017eca7022e5634486da790",
+          "verified live main af5d6339142bbd169017eca7022e5634486da790 with unchanged public visibility",
+          "verified final origin https://github.com/swift-iso/swift-iso-9945.git"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
         "records": []
-      }
+      },
+      "githubRepositoryID": 1217888724
     },
     {
       "current": "swift-linux-foundation/swift-linux-standard",
