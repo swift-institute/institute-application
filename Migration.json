@@ -18059,12 +18059,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit f0ad660879396a388c56250d545998f1b953fd99",
           "renamed repository swift-molecules/swift-either-primitives -> swift-molecules/swift-either",
-          "verified stable GitHub repository ID 1232911534 and public visibility",
-          "prepared commit publication pending"
+          "verified stable GitHub repository ID 1232911534",
+          "fast-forward published prepared commit b4ce5035ed21a3cfcd7d70a51495c62277c0a0a0",
+          "verified live main b4ce5035ed21a3cfcd7d70a51495c62277c0a0a0 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-either.git"
         ]
       },
       "state": "blocked",
