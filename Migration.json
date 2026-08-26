@@ -20966,14 +20966,14 @@
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-memory-iterator.git"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
-          "package resolution blocked at prepared commit e74d198336a0d6f03e8524f2a5cf26f706f15ebf",
-          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-memory-iterator-primitives --argument=--disable-sandbox",
-          "remote repository not found: https://github.com/swift-molecules/swift-span.git",
-          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+          "package resolution passed for swift-memory-iterator at live published commit e74d198336a0d6f03e8524f2a5cf26f706f15ebf",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-memory-iterator-live institute package resolve --package-path /private/tmp/four-layer-swift-memory-iterator-primitives --argument=--disable-sandbox",
+          "resolved swift-memory-iterator direct live dependencies swift-iterator at ce7c77a6fdd9c2a1a3aeacf390786225f33d6a67 and swift-span at 8c76670f76b7982f128e3e7b7fc80f43f05200ff",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 f14ca121837819e89a87f7c5c35781446a7091f17a49a74eb84129858d4e53ed and left as generated state"
         ]
       },
       "githubRepositoryID": 1250537618
