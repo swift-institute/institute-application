@@ -14668,14 +14668,14 @@
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-bit-formatter.git"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
-          "package resolution blocked at prepared commit 476ea84154a18183f5d2bbbb93f3c98f394fc0ee",
-          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-bit-formatter-primitives --argument=--disable-sandbox",
-          "remote repository not found: https://github.com/swift-molecules/swift-bit.git",
-          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+          "package resolution passed for swift-bit-formatter at live published commit 476ea84154a18183f5d2bbbb93f3c98f394fc0ee",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-bit-formatter institute package resolve --package-path /private/tmp/four-layer-swift-bit-formatter-primitives --argument=--disable-sandbox",
+          "resolved swift-bit-formatter direct live dependencies swift-bit at 4e3e2662e87199948329b8f2e0cd5cd3f26ff0fc and swift-formatter at 1525e1eafa96aca649faa92273f4d417ec83cae7",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 8aa5e5d46967ca85bd68d5b971194ab9540642ae849e2ec1155067ae2d85973a and left as generated state"
         ]
       },
       "githubRepositoryID": 1283905097
