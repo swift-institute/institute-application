@@ -19765,12 +19765,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit cb94cfc238f447384a0133efc7bd8caf76690f87",
           "renamed repository swift-molecules/swift-input-primitives -> swift-molecules/swift-input",
           "verified stable GitHub repository ID 1138063597",
-          "prepared commit d6d4ae19ab48b1a36c757b9a54bbc690dce89095 publication pending"
+          "fast-forward published prepared commit d6d4ae19ab48b1a36c757b9a54bbc690dce89095",
+          "verified live main d6d4ae19ab48b1a36c757b9a54bbc690dce89095 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-input.git"
         ]
       },
       "state": "blocked",
