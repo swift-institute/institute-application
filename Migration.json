@@ -23392,10 +23392,15 @@
           "verified live main 87fcb40a93b9db9f63bcb6fbef37a4ca878c2081 with unchanged public visibility"
         ]
       },
-      "state": "published",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-ownership-shared at live published commit 87fcb40a93b9db9f63bcb6fbef37a4ca878c2081",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-ownership-shared-live institute package resolve --package-path /private/tmp/swift-ownership-shared-migration.yWysFs/swift-ownership-shared --argument=--disable-sandbox",
+          "exit 0; all 14 live future-coordinate dependencies resolved successfully",
+          "HEAD unchanged; tracked worktree clean; Package.resolved generated from absent to SHA-256 f444c668e7e12d7206bad7ada51a294e6374b9ed719d56e9f154158ee7c7b34b and remained ignored/uncommitted"
+        ]
       },
       "githubRepositoryID": 1276750149
     },
