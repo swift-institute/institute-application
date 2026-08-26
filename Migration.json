@@ -25918,20 +25918,34 @@
       "observedHead": "48e890591fcd44807ab2e88aef36c2d6da4221f1",
       "observedRemote": "https://github.com/swift-primitives/swift-stack-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit 6dc739933b695f8319910c72939c99df93a89163 from expected parent 48e890591fcd44807ab2e88aef36c2d6da4221f1",
+          "isolated worktree /private/tmp/swift-stack-live-48e890591fcd44807ab2e88aef36c2d6da4221f1",
+          "canonical repository, package, product, target, module, import, path, and future-coordinate dependency mappings applied across 13 changed paths"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 48e890591fcd44807ab2e88aef36c2d6da4221f1",
+          "renamed swift-molecules/swift-stack-primitives to swift-molecules/swift-stack",
+          "verified exact destination owns stable GitHub repository ID 1138063876 with public visibility and non-archived state",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-stack.git",
+          "fast-forward published prepared commit 6dc739933b695f8319910c72939c99df93a89163",
+          "verified live main 6dc739933b695f8319910c72939c99df93a89163 with unchanged public visibility"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-stack at live published commit 6dc739933b695f8319910c72939c99df93a89163",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-stack institute package resolve --package-path /private/tmp/swift-stack-live-48e890591fcd44807ab2e88aef36c2d6da4221f1 --argument=--disable-sandbox",
+          "exit 0; HEAD unchanged; tracked worktree clean; Package.resolved generated from absent to SHA-256 e11454f02a10cb3868626082a0bf2e71b7fa21a5ba8303b5ed2c8a2d0258d936 and remained ignored/uncommitted"
+        ]
+      },
+      "githubRepositoryID": 1138063876
     },
     {
       "current": "swift-primitives/swift-standard-library-extensions",
