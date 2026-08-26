@@ -22170,14 +22170,14 @@
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-parity-algebra.git"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
-          "package resolution blocked at prepared commit 18f461f739bef65eeade9a8e8c53c94f11dd3a41",
-          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-parity-algebra-primitives --argument=--disable-sandbox",
-          "remote repository not found: https://github.com/swift-molecules/swift-parity.git",
-          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+          "package resolution passed for swift-parity-algebra at live published commit 18f461f739bef65eeade9a8e8c53c94f11dd3a41",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-parity-algebra-live institute package resolve --package-path /private/tmp/four-layer-swift-parity-algebra-primitives --argument=--disable-sandbox",
+          "resolved swift-parity-algebra direct live dependencies swift-algebra at b28bbbb72d5f3ffd681960356d44b1cc461e8881, swift-optic at 316396271a41556c622fddc6e673f07a6ac10412, and swift-parity at 61128dca3f08f0675e16187e086c64ed8e7c42d3",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 e077e2914a014e8fee0f060207a481b5d4309a0b41730b3f60add93b34524f13 and left as generated state"
         ]
       },
       "githubRepositoryID": 1253317209
