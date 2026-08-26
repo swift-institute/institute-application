@@ -6888,8 +6888,13 @@
       "observedHead": "5e0502ad70217912326790db955c86a3a2960c40",
       "observedRemote": "https://github.com/swift-foundations/swift-splat.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit d1c40e5553e77693c3e31631fb44576b2e16bf27 through ordinary child 83c4b83396483d2b3a59365fe5c37cd5cff591a2 from expected parent 5e0502ad70217912326790db955c86a3a2960c40",
+          "isolated worktree /private/tmp/four-layer-swift-splat",
+          "updated metadata, README, CI badge, issue coordinates, and installation URL from historical owners to compositions while preserving suffix-free public macro identities and both external dependency ranges",
+          "added direct SwiftSyntaxBuilder and SwiftSyntax product declarations required by SplatPlugin imports; ancestry, diff, imports, residuals, public payload, Actions references, external tags, and Package.resolved audits passed independently"
+        ]
       },
       "publication": {
         "status": "pending",
