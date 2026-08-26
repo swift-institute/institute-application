@@ -13609,9 +13609,13 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 4d9daa0cc53a3e155e5be9eecf266e85dd663fbf",
+          "repository retained exact live coordinate swift-linux-foundation/swift-linux-standard; no repository rename or origin change was required",
+          "verified exact coordinate owns stable GitHub repository ID 1206909850 with public visibility, non-archived state, and default branch main",
+          "fast-forward published prepared commit 8bc8075ca84dd067ebb8ab30fe2adaff046d6f75 without force or history rewrite",
+          "verified live main 8bc8075ca84dd067ebb8ab30fe2adaff046d6f75 with unchanged repository ID, public visibility, non-archived state, default branch main, and clean isolated worktree"
         ]
       },
       "state": "ready",
