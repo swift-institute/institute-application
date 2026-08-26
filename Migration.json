@@ -19819,14 +19819,14 @@
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-iterator.git"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
-          "package resolution blocked at prepared commit ce7c77a6fdd9c2a1a3aeacf390786225f33d6a67",
+          "package resolution passed at live published commit ce7c77a6fdd9c2a1a3aeacf390786225f33d6a67",
           "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-iterator-primitives --argument=--disable-sandbox",
-          "sandbox DNS blocked github.com while resolving https://github.com/swift-molecules/swift-carrier.git; live remote existence was not determined",
-          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+          "resolved live swift-cardinal at e932d328deff46ef801bab10520354b0da779398, swift-carrier at 428df0eb4e03fe671c4c6da8683b88e6e8534f63, and swift-either at b4ce5035ed21a3cfcd7d70a51495c62277c0a0a0, with their live transitive molecule dependencies",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 9704bf8665319dd9c2f85d8de25859e05e10ac94bb7d4b322a84a169e74e39b1 and left as generated state"
         ]
       },
       "githubRepositoryID": 1250663734
