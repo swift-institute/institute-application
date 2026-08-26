@@ -13618,10 +13618,15 @@
           "verified live main 8bc8075ca84dd067ebb8ab30fe2adaff046d6f75 with unchanged repository ID, public visibility, non-archived state, default branch main, and clean isolated worktree"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-linux-standard at live published commit 8bc8075ca84dd067ebb8ab30fe2adaff046d6f75",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-linux-standard-root institute package resolve --package-path /private/tmp/four-layer-swift-linux-standard --argument=--disable-sandbox",
+          "resolution exited 0 against live ISO 9945, all twelve inventoried molecule dependencies, the added direct Binary dependency, and their transitive graph",
+          "HEAD unchanged; tracked worktree clean; Package.resolved changed from absent to ignored uncommitted generated state and stabilized at SHA-256 7c164d379b871c0dea3bc263108e310a4cbb64caf1d52ea67de75331768272b3"
+        ]
       }
     },
     {
