@@ -26049,20 +26049,28 @@
       "observedHead": "903cbf5de173097713cf2009a0bc7feb71f16abc",
       "observedRemote": "https://github.com/swift-primitives/swift-string-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 2e3ec71fb41c145b164348c17b673a690e2c3b42 from expected parent 903cbf5de173097713cf2009a0bc7feb71f16abc",
+          "isolated worktree /private/tmp/swift-string-live-903cbf5de173097713cf2009a0bc7feb71f16abc",
+          "canonical package, products, targets, modules, imports, paths, README, metadata, and memory-heap/ownership/span/tagged dependency mappings applied; staged residual and payload scans passed"
+        ]
       },
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 903cbf5de173097713cf2009a0bc7feb71f16abc",
+          "renamed swift-molecules/swift-string-primitives to swift-molecules/swift-string",
+          "verified exact destination owns stable GitHub repository ID 1138063892 with public visibility and non-archived state",
+          "prepared commit publication remains pending"
         ]
       },
       "state": "ready",
       "validation": {
         "status": "pending",
         "records": []
-      }
+      },
+      "githubRepositoryID": 1138063892
     },
     {
       "current": "swift-primitives/swift-structured-queries-primitives",
@@ -29029,13 +29037,20 @@
       "observedHead": "9875de8c5d5d1f8c4c59e8b5eca4b2abf322b057",
       "observedRemote": "https://github.com/swift-w3c/swift-w3c-css.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 3928a392fea7eb30ab8a865c0abf8e3bb9487454 from expected parent 9875de8c5d5d1f8c4c59e8b5eca4b2abf322b057",
+          "isolated worktree /private/tmp/swift-w3c-css-live.1MpTOz/repo",
+          "canonical ASCII, Format, and Geometry dependency URLs, identities, products, modules, and imports applied across Package.swift and 16 source files; worktree clean"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 9875de8c5d5d1f8c4c59e8b5eca4b2abf322b057",
+          "verified stable GitHub repository ID 963822346 with public visibility and non-archived state",
+          "fast-forward published prepared commit 3928a392fea7eb30ab8a865c0abf8e3bb9487454",
+          "verified live main 3928a392fea7eb30ab8a865c0abf8e3bb9487454 and final origin https://github.com/swift-w3c/swift-w3c-css.git"
         ]
       },
       "state": "ready",
