@@ -13047,7 +13047,10 @@
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 1547e0fc92ddec5a967966da9ecad7765e8cefb1",
+          "renamed repository swift-molecules/swift-affine-algebra-primitives -> swift-molecules/swift-affine-algebra",
+          "verified stable GitHub repository ID 1151411769",
+          "prepared commit 63a28f82536fc9ab264e047a775ba9d26ff2eb13 publication pending"
         ]
       },
       "state": "blocked",
@@ -13059,7 +13062,8 @@
           "remote repository not found: https://github.com/swift-molecules/swift-algebra.git",
           "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
-      }
+      },
+      "githubRepositoryID": 1151411769
     },
     {
       "current": "swift-primitives/swift-affine-geometry-primitives",
