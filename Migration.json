@@ -21134,20 +21134,35 @@
       "observedHead": "b7dddcf83b5039ec64abaad477a3a3d0b40f2adb",
       "observedRemote": "https://github.com/swift-primitives/swift-lexer-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit 87119fd684e57d5f7cfb4c64867405a391542ea0 from expected parent b7dddcf83b5039ec64abaad477a3a3d0b40f2adb",
+          "isolated worktree /private/tmp/swift-lexer-live-b7dddcf83b5039ec64abaad477a3a3d0b40f2adb",
+          "canonical repository, package, product, target, module, import, path, and future-coordinate dependency mappings applied across 22 rename-aware changed paths"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit b7dddcf83b5039ec64abaad477a3a3d0b40f2adb",
+          "renamed swift-molecules/swift-lexer-primitives to swift-molecules/swift-lexer",
+          "verified exact destination owns stable GitHub repository ID 1138063657 with public visibility and non-archived state",
+          "updated isolated worktree fetch and push origin to https://github.com/swift-molecules/swift-lexer.git",
+          "fast-forward published prepared commit 87119fd684e57d5f7cfb4c64867405a391542ea0",
+          "verified live main 87119fd684e57d5f7cfb4c64867405a391542ea0 with unchanged public visibility"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-lexer at live published commit 87119fd684e57d5f7cfb4c64867405a391542ea0",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-lexer-booking institute package resolve --package-path /private/tmp/swift-lexer-live-b7dddcf83b5039ec64abaad477a3a3d0b40f2adb --argument=--disable-sandbox",
+          "exit 0; live future-coordinate dependencies resolved successfully",
+          "HEAD unchanged; tracked worktree clean; Package.resolved remained generated and ignored at SHA-256 9034292ccc9747692035c235f8848d5817f0e544379d7d618a0e9ca5c8d02632"
+        ]
+      },
+      "githubRepositoryID": 1138063657
     },
     {
       "current": "swift-primitives/swift-linear-primitives",
