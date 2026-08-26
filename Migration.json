@@ -13697,14 +13697,14 @@
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-ascii-serializer.git"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
-          "package resolution blocked at prepared commit 67626f5f7ec933613a4b5b35b7f1c931fbc5d660",
-          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-ascii-serializer-primitives --argument=--disable-sandbox",
-          "remote repository not found: https://github.com/swift-molecules/swift-ascii.git",
-          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+          "package resolution passed for swift-ascii-serializer at live published commit 67626f5f7ec933613a4b5b35b7f1c931fbc5d660",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-ascii-serializer-live institute package resolve --package-path /private/tmp/four-layer-swift-ascii-serializer-primitives --argument=--disable-sandbox",
+          "resolved swift-ascii-serializer direct live dependencies swift-ascii at c85e57796aa0a6f05144980d7ff30fee57051d82, swift-binary-serializer at 29b9a86729f88a3be4a63e9dd22311afe2872e19, and swift-serializer at 583cc9aad850e07906dbc29aaff4a86e59deb48b",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 2e9a757aa0464b35f2e7acd4f416a4140cf44eca8ad5fd587c4416968ee48174 and left as generated state"
         ]
       },
       "githubRepositoryID": 1173223041
