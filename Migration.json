@@ -24331,14 +24331,14 @@
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-span.git"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
-          "package resolution blocked at prepared commit 8c76670f76b7982f128e3e7b7fc80f43f05200ff",
-          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-span-primitives --argument=--disable-sandbox",
-          "remote repository not found: https://github.com/swift-molecules/swift-index.git",
-          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+          "package resolution passed for swift-span at live published commit 8c76670f76b7982f128e3e7b7fc80f43f05200ff",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-span institute package resolve --package-path /private/tmp/four-layer-swift-span-primitives --argument=--disable-sandbox",
+          "resolved swift-span direct live dependencies swift-byte at 21d5194adee27b585f27e01c5c7669f74bb96710, swift-cardinal at e932d328deff46ef801bab10520354b0da779398, and swift-index at ea265ffc2efe2c282e494f5e7309d0ea19f2b287",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 fc47c999eb9b52622fb45c6b0f1ecdbbfd5a7143f9c86e5b85d25d261ad6f569 and left as generated state"
         ]
       },
       "githubRepositoryID": 1259220718
