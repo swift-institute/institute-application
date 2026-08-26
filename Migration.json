@@ -157,20 +157,35 @@
       "observedHead": "00e202481afa4edfdaf0cf6ed41bcf4a577ac0ff",
       "observedRemote": "https://github.com/swift-ecma/swift-ecma-48.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit 8e794393518b117cb211f57e8312f18d8bbb6a5c",
+          "isolated or verified clean worktree /private/tmp/four-layer-swift-ecma-48",
+          "changed path Package.swift; canonical standard-library-extensions URL migrated"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 00e202481afa4edfdaf0cf6ed41bcf4a577ac0ff",
+          "repository coordinate unchanged at swift-ecma/swift-ecma-48",
+          "verified stable GitHub repository ID 1132375188",
+          "fast-forward published prepared commit 8e794393518b117cb211f57e8312f18d8bbb6a5c",
+          "verified live main 8e794393518b117cb211f57e8312f18d8bbb6a5c and public visibility",
+          "verified final origin https://github.com/swift-ecma/swift-ecma-48.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-ecma-48 at live published commit 8e794393518b117cb211f57e8312f18d8bbb6a5c",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-ecma-48-live institute package resolve --package-path /private/tmp/four-layer-swift-ecma-48 --argument=--disable-sandbox",
+          "resolved swift-ecma-48 direct live dependencies swift-standard-library-extensions at 28a204ee2c6cf1476cd99dc95b81b59868681ebf",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved sha256 bbd72802d525b06eb728a7ed27fd6cd80f25099899c1f48ff2c585d95e194035 and left as generated state"
+        ]
+      },
+      "githubRepositoryID": 1132375188
     },
     {
       "current": "swift-foundations/swift-agent-skills",
@@ -3403,20 +3418,35 @@
       "observedHead": "78f0f95b3263364aecf9951d622bf5c76b6f98f8",
       "observedRemote": "https://github.com/swift-foundations/swift-http-session.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit f2e314937e33848ab3d09c019650f166a4184e46",
+          "isolated or verified clean worktree /private/tmp/four-layer-swift-http-session-composition",
+          "changed paths Package.swift, README.md, and metadata; canonical composition owner mapping applied"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 78f0f95b3263364aecf9951d622bf5c76b6f98f8",
+          "repository coordinate unchanged at swift-compositions/swift-http-session",
+          "verified stable GitHub repository ID 1304790529",
+          "fast-forward published prepared commit f2e314937e33848ab3d09c019650f166a4184e46",
+          "verified live main f2e314937e33848ab3d09c019650f166a4184e46 and public visibility",
+          "verified final origin https://github.com/swift-compositions/swift-http-session.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-http-session at live published commit f2e314937e33848ab3d09c019650f166a4184e46",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-http-session-composition-live institute package resolve --package-path /private/tmp/four-layer-swift-http-session-composition --argument=--disable-sandbox",
+          "resolved swift-http-session direct live dependencies swift-http-cookies at a4e0cc02b881af834d599a51d6f6ec11f67d0365",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved sha256 c18dd035de534c6ac6a4f70dfe44c8af5c6066a5c8c022b3b1b11b7a33970549 and left as generated state"
+        ]
+      },
+      "githubRepositoryID": 1304790529
     },
     {
       "current": "swift-foundations/swift-identities",
@@ -7636,20 +7666,35 @@
       "observedHead": "ba4372f2ae6c42da4e9819990ecb280e9063bfea",
       "observedRemote": "https://github.com/swift-foundations/swift-testing-performance.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit 33071a0cc7c5dbd2ec8079930abfa6e3e9cbc7e0",
+          "isolated or verified clean worktree /private/tmp/four-layer-swift-testing-performance-composition",
+          "changed manifest, four source files, README, and metadata; canonical numeric and composition mapping applied"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit ba4372f2ae6c42da4e9819990ecb280e9063bfea",
+          "repository coordinate unchanged at swift-compositions/swift-testing-performance",
+          "verified stable GitHub repository ID 1098873331",
+          "fast-forward published prepared commit 33071a0cc7c5dbd2ec8079930abfa6e3e9cbc7e0",
+          "verified live main 33071a0cc7c5dbd2ec8079930abfa6e3e9cbc7e0 and public visibility",
+          "verified final origin https://github.com/swift-compositions/swift-testing-performance.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-testing-performance at live published commit 33071a0cc7c5dbd2ec8079930abfa6e3e9cbc7e0",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-testing-performance-composition-live institute package resolve --package-path /private/tmp/four-layer-swift-testing-performance-composition --argument=--disable-sandbox",
+          "resolved swift-testing-performance direct live dependencies swift-numeric at c81428e32f6074e63f8325584a2966a6ed99d73e",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved sha256 135824e99d77b1e6624dda72c8c1c487ab0450f198ec9b70aa59cf70bb6c9185 and left as generated state"
+        ]
+      },
+      "githubRepositoryID": 1098873331
     },
     {
       "current": "swift-foundations/swift-tests",
@@ -9272,20 +9317,35 @@
       "observedHead": "487b7b6949294c9c701e7645e13045b2615f9c3b",
       "observedRemote": "https://github.com/swift-iec/swift-iec-80000-13.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit 8ea254d81a6eb1f8acd347ed5d59e66097b779e5",
+          "isolated or verified clean worktree /private/tmp/four-layer-swift-iec-80000-13",
+          "changed paths five; canonical Byte Formatter molecule mapping applied"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 487b7b6949294c9c701e7645e13045b2615f9c3b",
+          "repository coordinate unchanged at swift-iec/swift-iec-80000-13",
+          "verified stable GitHub repository ID 1283811725",
+          "fast-forward published prepared commit 8ea254d81a6eb1f8acd347ed5d59e66097b779e5",
+          "verified live main 8ea254d81a6eb1f8acd347ed5d59e66097b779e5 and public visibility",
+          "verified final origin https://github.com/swift-iec/swift-iec-80000-13.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-iec-80000-13 at live published commit 8ea254d81a6eb1f8acd347ed5d59e66097b779e5",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-iec-80000-13-live institute package resolve --package-path /private/tmp/four-layer-swift-iec-80000-13 --argument=--disable-sandbox",
+          "resolved swift-iec-80000-13 direct live dependencies swift-byte-formatter at 589ad54132d48ef51973b00c137001d91e3c0cb4 and swift-iso-80000-1 at 25b8fde9acde616238cabfb2c009b88b2f1c1c28",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved sha256 1814c3de3347e184bee48ecffcd530abe1d7fe56aca34cdf12a1d3507fd440e0 and left as generated state"
+        ]
+      },
+      "githubRepositoryID": 1283811725
     },
     {
       "current": "swift-ieee/swift-ieee-1003",
@@ -9376,20 +9436,35 @@
       "observedHead": "29f93c653147d8c3c272b898c6a95a8d21b3073b",
       "observedRemote": "https://github.com/swift-ieee/swift-ieee-754.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit e226f68a3b410299b599f9928afe1f353c4a307c",
+          "isolated or verified clean worktree /Users/coen/Developer/coenttb/swift-institute/swift-standards/swift-ieee/swift-ieee-754",
+          "changed manifest and nine source files; canonical binary, decimal, dependency, and extension mapping applied"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 29f93c653147d8c3c272b898c6a95a8d21b3073b",
+          "repository coordinate unchanged at swift-ieee/swift-ieee-754",
+          "verified stable GitHub repository ID 1100879463",
+          "fast-forward published prepared commit e226f68a3b410299b599f9928afe1f353c4a307c",
+          "verified live main e226f68a3b410299b599f9928afe1f353c4a307c and public visibility",
+          "verified final origin https://github.com/swift-ieee/swift-ieee-754.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-ieee-754 at live published commit e226f68a3b410299b599f9928afe1f353c4a307c",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-ieee-754-live institute package resolve --package-path /Users/coen/Developer/coenttb/swift-institute/swift-standards/swift-ieee/swift-ieee-754 --argument=--disable-sandbox",
+          "resolved swift-ieee-754 direct live dependencies swift-binary at 8f9159a3470f7992b54b2ac74b1ffbb1e244fa62, swift-decimal at 4eb9c7c981b3e10bcd2cea45389d8b4ab4d90d30, swift-dependency at e5f7f3b559e0c967a9f8e9b79ef5c33e44faa78d, and swift-standard-library-extensions at 28a204ee2c6cf1476cd99dc95b81b59868681ebf",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved sha256 2b64cb1588dccb4ad37443acd04e179afc42f2e5cf630ac01f2a0b757d4cc971 and left as generated state"
+        ]
+      },
+      "githubRepositoryID": 1100879463
     },
     {
       "current": "swift-ietf/swift-bcp-47",
@@ -9574,20 +9649,35 @@
       "observedHead": "7f719b9499342ba4c6a3a548ea3d39443623d13f",
       "observedRemote": "https://github.com/swift-ietf/swift-rfc-1950.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit b2c9a98480e1bc6b9dea8bd10a6fcdf13cfe1c32",
+          "isolated or verified clean worktree /private/tmp/four-layer-swift-rfc-1950",
+          "changed paths 10; canonical molecule dependency URLs, identities, products, and imports migrated"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 7f719b9499342ba4c6a3a548ea3d39443623d13f",
+          "repository coordinate unchanged at swift-ietf/swift-rfc-1950",
+          "verified stable GitHub repository ID 1113600509",
+          "fast-forward published prepared commit b2c9a98480e1bc6b9dea8bd10a6fcdf13cfe1c32",
+          "verified live main b2c9a98480e1bc6b9dea8bd10a6fcdf13cfe1c32 and public visibility",
+          "verified final origin https://github.com/swift-ietf/swift-rfc-1950.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-rfc-1950 at live published commit b2c9a98480e1bc6b9dea8bd10a6fcdf13cfe1c32",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-rfc-1950-live institute package resolve --package-path /private/tmp/four-layer-swift-rfc-1950 --argument=--disable-sandbox",
+          "resolved swift-rfc-1950 direct live dependencies swift-rfc-1951 at ea82ca6b227355b993dac677743d6d4485282b8c, swift-binary at 8f9159a3470f7992b54b2ac74b1ffbb1e244fa62, swift-byte at 21d5194adee27b585f27e01c5c7669f74bb96710, and swift-standard-library-extensions at 28a204ee2c6cf1476cd99dc95b81b59868681ebf",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved sha256 797c44adb6dda5db555652dd6c10813edb5ea6ac32fa62b8a3909902a385c01b and left as generated state"
+        ]
+      },
+      "githubRepositoryID": 1113600509
     },
     {
       "current": "swift-ietf/swift-rfc-1951",
@@ -12183,20 +12273,35 @@
       "observedHead": "6a455366072827abbc48f292f8e68d12d4da62ec",
       "observedRemote": "https://github.com/swift-ietf/swift-rfc-9562.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit cb6f13ddc5ea6fa645d7a88967a6ca2c3c4b08c2",
+          "isolated or verified clean worktree /Users/coen/Developer/coenttb/swift-institute/swift-standards/swift-ietf/swift-rfc-9562",
+          "changed paths Package.swift and RFC_9562.UUID+Dependency.swift; canonical Dependency molecule mapping applied"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 6a455366072827abbc48f292f8e68d12d4da62ec",
+          "repository coordinate unchanged at swift-ietf/swift-rfc-9562",
+          "verified stable GitHub repository ID 1164798619",
+          "fast-forward published prepared commit cb6f13ddc5ea6fa645d7a88967a6ca2c3c4b08c2",
+          "verified live main cb6f13ddc5ea6fa645d7a88967a6ca2c3c4b08c2 and public visibility",
+          "verified final origin https://github.com/swift-ietf/swift-rfc-9562.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-rfc-9562 at live published commit cb6f13ddc5ea6fa645d7a88967a6ca2c3c4b08c2",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-rfc-9562-live institute package resolve --package-path /Users/coen/Developer/coenttb/swift-institute/swift-standards/swift-ietf/swift-rfc-9562 --argument=--disable-sandbox",
+          "resolved swift-rfc-9562 direct live dependencies swift-rfc-4122 at 9cd6a64d3daa463e29179d89038b61216f82030b and swift-dependency at e5f7f3b559e0c967a9f8e9b79ef5c33e44faa78d",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved sha256 495169fdc80be66dbc5d1c28c2a8d427aaf56791b93156feee26fa6a0964a972 and left as generated state"
+        ]
+      },
+      "githubRepositoryID": 1164798619
     },
     {
       "current": "swift-incits/swift-incits-4-1986",
@@ -21205,20 +21310,35 @@
       "observedHead": "cb044573c900a1447735788b16ae3231bb2b386c",
       "observedRemote": "https://github.com/swift-primitives/swift-memory-allocation-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit e7e377301958af7e049c7cc2d7f37844baf431af",
+          "isolated or verified clean worktree /private/tmp/four-layer-swift-memory-allocation-primitives",
+          "canonical package, repository, product, target, module, import, path, SPI, README, and metadata mapping applied"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit cb044573c900a1447735788b16ae3231bb2b386c",
+          "renamed repository swift-molecules/swift-memory-allocation-primitives -> swift-molecules/swift-memory-allocation",
+          "verified stable GitHub repository ID 1098905631",
+          "fast-forward published prepared commit e7e377301958af7e049c7cc2d7f37844baf431af",
+          "verified live main e7e377301958af7e049c7cc2d7f37844baf431af and public visibility",
+          "verified final origin https://github.com/swift-molecules/swift-memory-allocation.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-memory-allocation at live published commit e7e377301958af7e049c7cc2d7f37844baf431af",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-memory-allocation-live-evidence institute package resolve --package-path /private/tmp/four-layer-swift-memory-allocation-primitives --argument=--disable-sandbox",
+          "resolved swift-memory-allocation direct live dependencies swift-affine at fffed9e57683fd4973f2ebf414f106fa88ba2354, swift-bit-vector at 957691a2b187ddb2a2e679824d79aa47df131143, swift-index at ea265ffc2efe2c282e494f5e7309d0ea19f2b287, swift-memory at 4e875ebe3c6de287b3ed00410c2d77b27c20172b, and swift-tagged at c46829f9ff788f078389b41e0f75a48b14ee6b6b",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved sha256 eeccd285bf14d347377d5325b6b87d5dc15d1a3bae933c479d7325f878d29e2a and left as generated state"
+        ]
+      },
+      "githubRepositoryID": 1098905631
     },
     {
       "current": "swift-primitives/swift-memory-cursor-primitives",
@@ -24281,20 +24401,35 @@
       "observedHead": "39070d32b67dd36b5185de07f338cbda6affe3ba",
       "observedRemote": "https://github.com/swift-primitives/swift-sector-orthant-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit 9048478868355238f2aba1d6b50bbf6e3bf832ce",
+          "isolated or verified clean worktree /private/tmp/four-layer-swift-sector-orthant-primitives",
+          "canonical package, repository, product, target, module, import, path, README, and metadata mapping applied"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 39070d32b67dd36b5185de07f338cbda6affe3ba",
+          "renamed repository swift-molecules/swift-sector-orthant-primitives -> swift-molecules/swift-sector-orthant",
+          "verified stable GitHub repository ID 1264249803",
+          "fast-forward published prepared commit 9048478868355238f2aba1d6b50bbf6e3bf832ce",
+          "verified live main 9048478868355238f2aba1d6b50bbf6e3bf832ce and public visibility",
+          "verified final origin https://github.com/swift-molecules/swift-sector-orthant.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-sector-orthant at live published commit 9048478868355238f2aba1d6b50bbf6e3bf832ce",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-sector-orthant-live institute package resolve --package-path /private/tmp/four-layer-swift-sector-orthant-primitives --argument=--disable-sandbox",
+          "resolved swift-sector-orthant direct live dependencies swift-orthant at 6998ca6fa8ea270b27b217b42744ee27ed1bf462 and swift-sector at 771ec9337b5169525e9825ed6f8a0209dc9f07ff",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved sha256 53d449baca100f40a680364ab81c0481ee66efaddad8ddbd6f9f58f55c59479a and left as generated state"
+        ]
+      },
+      "githubRepositoryID": 1264249803
     },
     {
       "current": "swift-primitives/swift-sector-primitives",
@@ -25991,20 +26126,35 @@
       "observedHead": "346b0a32b4a16de2eaeb83a18d23fc9646677404",
       "observedRemote": "https://github.com/swift-primitives/swift-terminal-input-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit 545d0f195320ffc68e5bc471d68435fee1b01c4c",
+          "isolated or verified clean worktree /private/tmp/four-layer-swift-terminal-input-primitives",
+          "changed paths 27; full canonical package, repository, product, target, module, import, path, README, and metadata mapping applied"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 346b0a32b4a16de2eaeb83a18d23fc9646677404",
+          "renamed repository swift-molecules/swift-terminal-input-primitives -> swift-molecules/swift-terminal-input",
+          "verified stable GitHub repository ID 1246634381",
+          "fast-forward published prepared commit 545d0f195320ffc68e5bc471d68435fee1b01c4c",
+          "verified live main 545d0f195320ffc68e5bc471d68435fee1b01c4c and public visibility",
+          "verified final origin https://github.com/swift-molecules/swift-terminal-input.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-terminal-input at live published commit 545d0f195320ffc68e5bc471d68435fee1b01c4c",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-terminal-input-live-evidence institute package resolve --package-path /private/tmp/four-layer-swift-terminal-input-primitives --argument=--disable-sandbox",
+          "resolved swift-terminal-input direct live dependencies swift-ascii at c85e57796aa0a6f05144980d7ff30fee57051d82, swift-input at d6d4ae19ab48b1a36c757b9a54bbc690dce89095, and swift-terminal at 6c76ad734a7ee9b4c59ffd8327a3f642cd31ff5c",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved sha256 e77d53b979a7db89188324aa590e0cb733d2ce89bac647263ed3b3b7cd2f11d0 and left as generated state"
+        ]
+      },
+      "githubRepositoryID": 1246634381
     },
     {
       "current": "swift-primitives/swift-terminal-primitives",
@@ -26639,20 +26789,35 @@
       "observedHead": "6c40481291d9d059c5e17bd6b2a46eb2a5990a4b",
       "observedRemote": "https://github.com/swift-primitives/swift-vector-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit 873798b99a45080d68664b8a81253d50a08fa4d2",
+          "isolated or verified clean worktree /private/tmp/four-layer-swift-vector-primitives",
+          "full canonical package, repository, dependency, product, target, module, import, source/test path, README, and metadata mapping applied"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 6c40481291d9d059c5e17bd6b2a46eb2a5990a4b",
+          "renamed repository swift-molecules/swift-vector-primitives -> swift-molecules/swift-vector",
+          "verified stable GitHub repository ID 1139270685",
+          "fast-forward published prepared commit 873798b99a45080d68664b8a81253d50a08fa4d2",
+          "verified live main 873798b99a45080d68664b8a81253d50a08fa4d2 and public visibility",
+          "verified final origin https://github.com/swift-molecules/swift-vector.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-vector at live published commit 873798b99a45080d68664b8a81253d50a08fa4d2",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-vector-live-evidence institute package resolve --package-path /private/tmp/four-layer-swift-vector-primitives --argument=--disable-sandbox",
+          "resolved swift-vector direct live dependencies swift-index at ea265ffc2efe2c282e494f5e7309d0ea19f2b287, swift-iterator at ce7c77a6fdd9c2a1a3aeacf390786225f33d6a67, swift-property at 766700fb5f44026c2f8f1d4c33b49ce934487802, and swift-sequence at f8eb1593305debb7f2f96ef5e65eadd24c267af5",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved sha256 cf67c7af6b7c489d1a177bdd5bfccfa514c8e82fe27477ca979e7e700c9bbe1d and left as generated state"
+        ]
+      },
+      "githubRepositoryID": 1139270685
     },
     {
       "current": "swift-primitives/swift-version-primitives",
