@@ -59,8 +59,8 @@ extension Institute.Architecture.CLI {
     let paths = try trackedFiles(at: directory)
     var files: [Swift.String: Swift.String?] = [:]
     for path in paths {
-      // The ledger deliberately retains both sides of every rename.
-      guard path != "Migration.json" else {
+      // The cutover control plane deliberately retains both sides of every rename.
+      guard !cutoverControlPlane(path) else {
         files[path] = .some(nil)
         continue
       }
@@ -152,6 +152,14 @@ extension Institute.Architecture.CLI {
       ".zsh", ".toml", ".xcconfig", ".pbxproj", ".xcscheme", ".xml", ".plist",
       ".csv", ".tsv", ".html", ".css", ".js", ".ts",
     ].contains { name.hasSuffix($0) }
+  }
+
+  private static func cutoverControlPlane(_ path: Swift.String) -> Swift.Bool {
+    path == "Migration.json"
+      || path.hasPrefix("Sources/Institute Architecture Migration/")
+      || path.hasPrefix(
+        "Tests/Institute Architecture Tests/Institute.Architecture.Migration."
+      )
   }
 
   private static func write(_ text: Swift.String, at path: Swift.String) throws(Error) {
