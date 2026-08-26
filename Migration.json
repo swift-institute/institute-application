@@ -16231,18 +16231,24 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit d77dd3cd43cda8459fca3199c073c648cdd36d96",
           "renamed swift-molecules/swift-buffer-ring-primitives to swift-molecules/swift-buffer-ring",
           "verified exact destination owns stable GitHub repository ID 1247830053 with public visibility and non-archived state",
-          "publication remains pending at non-force fast-forward push of prepared commit f0af0266b66c7f2cde18d6b7c75d70b804c94915"
+          "fast-forward published prepared commit f0af0266b66c7f2cde18d6b7c75d70b804c94915",
+          "verified live main f0af0266b66c7f2cde18d6b7c75d70b804c94915 and final origin https://github.com/swift-molecules/swift-buffer-ring.git"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-buffer-ring at live published commit f0af0266b66c7f2cde18d6b7c75d70b804c94915",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-buffer-ring institute package resolve --package-path /private/tmp/swift-buffer-ring-publish --argument=--disable-sandbox",
+          "resolved all 13 declared direct dependencies at live future coordinates, including swift-buffer 38b506198baee45cfe060d9fd716abd482bfb262 and swift-storage 31b816f046554d8ba45b8be2a84b9eb478b2545d",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent and left uncommitted at sha256 9d2233a095bce3ca89ede78c0bc2697189888c91b35b88daab12fd4f01f9fb10"
+        ]
       },
       "githubRepositoryID": 1247830053
     },
@@ -16343,20 +16349,29 @@
       "observedHead": "f63483ea7fb4d1e22437c0d255ab58270a457a49",
       "observedRemote": "https://github.com/swift-primitives/swift-buffer-slab-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 514c6c7d2c1be31c8bab287013858872ea6bb71d from expected parent f63483ea7fb4d1e22437c0d255ab58270a457a49",
+          "isolated worktree /private/tmp/swift-buffer-slab-live-f63483ea7fb4d1e22437c0d255ab58270a457a49",
+          "canonical plural Primitives identities, modules, imports, and paths removed while singular Primitive forms were preserved; exact 16 future-coordinate dependencies and 51-path public payload verified"
+        ]
       },
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit f63483ea7fb4d1e22437c0d255ab58270a457a49",
+          "renamed swift-molecules/swift-buffer-slab-primitives to swift-molecules/swift-buffer-slab",
+          "verified exact destination owns stable GitHub repository ID 1247830081 with public visibility and non-archived state",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-buffer-slab.git",
+          "publication remains pending at non-force fast-forward push of prepared commit 514c6c7d2c1be31c8bab287013858872ea6bb71d"
         ]
       },
       "state": "ready",
       "validation": {
         "status": "pending",
         "records": []
-      }
+      },
+      "githubRepositoryID": 1247830081
     },
     {
       "current": "swift-primitives/swift-buffer-slots-primitives",
@@ -16428,19 +16443,25 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit ca1b556d4d871579953b8b35d8859dafd2d47c9a",
           "renamed swift-molecules/swift-buffer-slots-primitives to swift-molecules/swift-buffer-slots",
           "verified exact destination owns stable GitHub repository ID 1247830133 with public visibility and non-archived state",
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-buffer-slots.git",
-          "publication remains pending at non-force fast-forward push of prepared commit 8efd0858b4a4ff1997453c243bbc97536789b42f"
+          "fast-forward published prepared commit 8efd0858b4a4ff1997453c243bbc97536789b42f",
+          "verified live main 8efd0858b4a4ff1997453c243bbc97536789b42f with unchanged public visibility"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-buffer-slots at live published commit 8efd0858b4a4ff1997453c243bbc97536789b42f",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-buffer-slots institute package resolve --package-path /private/tmp/swift-buffer-slots-live.UDs7nQ/repo --argument=--disable-sandbox",
+          "resolved all nine declared direct dependencies at live future coordinates, including swift-buffer 38b506198baee45cfe060d9fd716abd482bfb262, swift-storage 31b816f046554d8ba45b8be2a84b9eb478b2545d, and swift-storage-split f37734c088311b0dc58a9f3578b7eb6a2f05353b",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent and left uncommitted at sha256 aa806a1183cda474c7644d98ac74a00bb8a62460d8bf801e347395c8279f67e7"
+        ]
       },
       "githubRepositoryID": 1247830133
     },
@@ -16494,19 +16515,25 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 374b00261b821e75608845259a0376d2fa735574",
           "renamed swift-molecules/swift-builder-primitives to swift-molecules/swift-builder",
           "verified exact destination owns stable GitHub repository ID 1028370980 with public visibility and non-archived state",
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-builder.git",
-          "publication remains pending at non-force fast-forward push of prepared commit 77a46faff14b0b9966348e72d5d3fbf07f027f8f"
+          "fast-forward published prepared commit 77a46faff14b0b9966348e72d5d3fbf07f027f8f",
+          "verified live main 77a46faff14b0b9966348e72d5d3fbf07f027f8f with unchanged public visibility"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-builder at live published commit 77a46faff14b0b9966348e72d5d3fbf07f027f8f",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-builder-live institute package resolve --package-path /private/tmp/swift-builder-publish --argument=--disable-sandbox",
+          "resolved direct live dependencies swift-buffer-linear 436fa2e8e1a309500d668abd6d0cc203bcba3628, swift-initialization 6e6e1ae7c53cdd078e293286889df3866bdede95, swift-memory-allocation e7e377301958af7e049c7cc2d7f37844baf431af, swift-memory-heap 518085a7bea5ae9a41f00207ef6ddb4073794726, and swift-storage 31b816f046554d8ba45b8be2a84b9eb478b2545d",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent and left uncommitted at sha256 c90aea63b71bef3c56447e99575b5db07a2e6730e6660c3b976ed25a4d85db22"
+        ]
       },
       "githubRepositoryID": 1028370980
     },
@@ -23698,18 +23725,24 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit b76c95a112671870bf37d83f24caaf33a7cabb83",
           "renamed swift-molecules/swift-path-primitives to swift-molecules/swift-path",
           "verified exact destination owns stable GitHub repository ID 1179869736 with public visibility and non-archived state",
-          "publication remains pending at non-force fast-forward push of prepared commit d48bdad0dab00fab1dba86d4ad76eb8abc4f4582"
+          "fast-forward published prepared commit d48bdad0dab00fab1dba86d4ad76eb8abc4f4582",
+          "verified live main d48bdad0dab00fab1dba86d4ad76eb8abc4f4582 and final origin https://github.com/swift-molecules/swift-path.git"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-path at live published commit d48bdad0dab00fab1dba86d4ad76eb8abc4f4582",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-path-live institute package resolve --package-path /private/tmp/swift-path-live-b76c95a112671870bf37d83f24caaf33a7cabb83 --argument=--disable-sandbox",
+          "resolved direct live dependencies swift-error f34a757c463682fbbf3f7201244a5201f96ce760, swift-memory-heap 518085a7bea5ae9a41f00207ef6ddb4073794726, swift-ownership 8cbad8f0ae82ba45ee77f00515973426bd6aeb5f, swift-string 2e3ec71fb41c145b164348c17b673a690e2c3b42, and swift-tagged c46829f9ff788f078389b41e0f75a48b14ee6b6b",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent and left uncommitted at sha256 ff61fa019def7ba749451487dc71b6f4626d375911b8bc5e3455b4c964a9602e"
+        ]
       },
       "githubRepositoryID": 1179869736
     },
@@ -25915,19 +25948,25 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 5b088d6c9c5daa866eba3242c365eaaa5edb9078",
           "renamed swift-molecules/swift-storage-generational-primitives to swift-molecules/swift-storage-generational",
           "verified exact destination owns stable GitHub repository ID 1247425615 with public visibility and non-archived state",
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-storage-generational.git",
-          "publication remains pending at non-force fast-forward push of prepared commit 5f223a53c52adc562c5080185f9ae50c2c636f89"
+          "fast-forward published prepared commit 5f223a53c52adc562c5080185f9ae50c2c636f89",
+          "verified live main 5f223a53c52adc562c5080185f9ae50c2c636f89 with unchanged public visibility"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-storage-generational at live published commit 5f223a53c52adc562c5080185f9ae50c2c636f89",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-storage-generational-live institute package resolve --package-path /private/tmp/swift-storage-generational-live-5b088d6c9c5daa866eba3242c365eaaa5edb9078 --argument=--disable-sandbox",
+          "resolved direct live dependencies swift-buffer 38b506198baee45cfe060d9fd716abd482bfb262, swift-index ea265ffc2efe2c282e494f5e7309d0ea19f2b287, swift-memory-allocation e7e377301958af7e049c7cc2d7f37844baf431af, swift-memory-heap 518085a7bea5ae9a41f00207ef6ddb4073794726, swift-memory 4e875ebe3c6de287b3ed00410c2d77b27c20172b, swift-ordinal 92f2aef190ba01b10d606c4991c48c44039e4a69, and swift-storage 31b816f046554d8ba45b8be2a84b9eb478b2545d",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent and left uncommitted at sha256 811b0674530d994c822ed96666abe7d3cc743f97e11485294d89104020f05620"
+        ]
       },
       "githubRepositoryID": 1247425615
     },
