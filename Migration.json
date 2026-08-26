@@ -16276,20 +16276,26 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 7f029f0ecfe37021f2d8c0aea43a1ae7f221cb73",
+          "renamed repository swift-molecules/swift-carrier-primitives -> swift-molecules/swift-carrier",
+          "verified stable GitHub repository ID 1221732056",
+          "fast-forward published prepared commit 428df0eb4e03fe671c4c6da8683b88e6e8534f63",
+          "verified live main 428df0eb4e03fe671c4c6da8683b88e6e8534f63 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-carrier.git"
         ]
       },
       "state": "passed",
       "validation": {
         "status": "passed",
         "records": [
-          "package resolution passed at prepared commit 428df0eb4e03fe671c4c6da8683b88e6e8534f63",
+          "package resolution passed at live published commit 428df0eb4e03fe671c4c6da8683b88e6e8534f63",
           "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/swift-carrier-cutover --argument=--disable-sandbox",
-          "exit 0; HEAD unchanged; worktree clean; Package.resolved unchanged"
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved absent before and after"
         ]
-      }
+      },
+      "githubRepositoryID": 1221732056
     },
     {
       "current": "swift-primitives/swift-clock-primitives",
