@@ -25054,14 +25054,14 @@
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-tagged-collection.git"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
-          "package resolution blocked at prepared commit 714ad7aa2ab55465a7057b05fb79bbf971a5ced9",
-          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-tagged-collection-primitives --argument=--disable-sandbox",
-          "remote repository not found: https://github.com/swift-molecules/swift-tagged.git",
-          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+          "package resolution passed for swift-tagged-collection at live published commit 714ad7aa2ab55465a7057b05fb79bbf971a5ced9",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-tagged-collection-live institute package resolve --package-path /private/tmp/four-layer-swift-tagged-collection-primitives --argument=--disable-sandbox",
+          "resolved swift-tagged-collection direct live dependencies swift-collection at 98d65bf4438dd7f19a1590e759fae1fe0481c029, swift-index at ea265ffc2efe2c282e494f5e7309d0ea19f2b287, and swift-tagged at c46829f9ff788f078389b41e0f75a48b14ee6b6b",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 f176d80e67f4022f01603076634f59c07b5e0a4cc19867daac8c9ce4c9f9346a and left as generated state"
         ]
       },
       "githubRepositoryID": 1256091976
