@@ -17353,7 +17353,10 @@
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit bff7e8552222c1bd0f6176a33c1ea0b0858d9e85",
+          "renamed repository swift-molecules/swift-cyclic-iterator-primitives -> swift-molecules/swift-cyclic-iterator",
+          "verified stable GitHub repository ID 1254149146",
+          "prepared commit a8e25b069ba3dabfffd7e03f41ddf8267651eb7b publication pending"
         ]
       },
       "state": "blocked",
@@ -17365,7 +17368,8 @@
           "sandbox DNS blocked github.com while resolving https://github.com/swift-molecules/swift-cyclic.git; live remote existence was not determined",
           "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
-      }
+      },
+      "githubRepositoryID": 1254149146
     },
     {
       "current": "swift-primitives/swift-cyclic-primitives",
