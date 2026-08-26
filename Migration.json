@@ -23718,14 +23718,14 @@
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-serializer.git"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
-          "package resolution blocked at prepared commit 583cc9aad850e07906dbc29aaff4a86e59deb48b",
-          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-serializer-primitives --argument=--disable-sandbox",
-          "sandbox DNS blocked github.com while resolving https://github.com/swift-molecules/swift-either.git; live remote existence was not determined",
-          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+          "package resolution passed for swift-serializer at live published commit 583cc9aad850e07906dbc29aaff4a86e59deb48b",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-serializer institute package resolve --package-path /private/tmp/four-layer-swift-serializer-primitives --argument=--disable-sandbox",
+          "resolved swift-serializer direct live dependencies swift-byte at 21d5194adee27b585f27e01c5c7669f74bb96710, swift-either at b4ce5035ed21a3cfcd7d70a51495c62277c0a0a0, and swift-tagged at c46829f9ff788f078389b41e0f75a48b14ee6b6b",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 dd754fbb9eb67dfcf30944787036e2854c59d43b1011d5f1cea87460179e17b3 and left as generated state"
         ]
       },
       "githubRepositoryID": 1138063798
