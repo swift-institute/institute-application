@@ -21716,7 +21716,9 @@
       "preparation": {
         "status": "passed",
         "records": [
-          "prepared commit cbe0c015fb20b9cc2dac75a38f072a8903a89928",
+          "prepared commit 8cbad8f0ae82ba45ee77f00515973426bd6aeb5f",
+          "preserved original preparation commit cbe0c015fb20b9cc2dac75a38f072a8903a89928 as its parent",
+          "just-in-time correction removed residual Ownership Shared Primitives product spelling and old layer metadata",
           "isolated worktree /private/tmp/four-layer-swift-ownership-primitives",
           "changed paths 62"
         ]
