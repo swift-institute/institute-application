@@ -21724,12 +21724,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 9cc7cbb27044c5e9cfeb1446fd42f4702b54fd92",
           "renamed repository swift-molecules/swift-ownership-primitives -> swift-molecules/swift-ownership",
-          "verified stable GitHub repository ID 1145453383 and public visibility",
-          "prepared commit publication pending"
+          "verified stable GitHub repository ID 1145453383",
+          "fast-forward published prepared commit 8cbad8f0ae82ba45ee77f00515973426bd6aeb5f",
+          "verified live main 8cbad8f0ae82ba45ee77f00515973426bd6aeb5f and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-ownership.git"
         ]
       },
       "state": "blocked",
