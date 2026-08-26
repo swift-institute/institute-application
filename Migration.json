@@ -26114,17 +26114,11 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "passed",
+      "state": "ready",
       "validation": {
-        "status": "passed",
-        "records": [
-          "package resolution passed for swift-w3c-css at live published commit 3928a392fea7eb30ab8a865c0abf8e3bb9487454",
-          "post-publication invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-w3c-css-live institute package resolve --package-path /private/tmp/swift-w3c-css-live.1MpTOz/repo --argument=--disable-sandbox",
-          "resolved live IEC 61966, IEEE 754, RFC 4648, swift-ascii, swift-format, swift-geometry 267c767f5da69a6b0b6b8fc99d527a517a21f16d, and W3C CSSOM dependency graph",
-          "exit 0; HEAD unchanged; worktree clean; Package.resolved SHA-256 37e68611a3f53e62520dc295073793c3353dc9fb54e73c860874ec569fe3e86a remained ignored/uncommitted"
-        ]
-      },
-      "githubRepositoryID": 963822346
+        "status": "pending",
+        "records": []
+      }
     },
     {
       "current": "swift-primitives/swift-symmetry-primitives",
@@ -29072,11 +29066,17 @@
           "verified live main 3928a392fea7eb30ab8a865c0abf8e3bb9487454 and final origin https://github.com/swift-w3c/swift-w3c-css.git"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-w3c-css at live published commit 3928a392fea7eb30ab8a865c0abf8e3bb9487454",
+          "post-publication invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-w3c-css-live institute package resolve --package-path /private/tmp/swift-w3c-css-live.1MpTOz/repo --argument=--disable-sandbox",
+          "resolved live IEC 61966, IEEE 754, RFC 4648, swift-ascii, swift-format, swift-geometry 267c767f5da69a6b0b6b8fc99d527a517a21f16d, and W3C CSSOM dependency graph",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved SHA-256 37e68611a3f53e62520dc295073793c3353dc9fb54e73c860874ec569fe3e86a remained ignored/uncommitted"
+        ]
+      },
+      "githubRepositoryID": 963822346
     },
     {
       "current": "swift-w3c/swift-w3c-cssom",
