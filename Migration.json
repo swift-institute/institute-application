@@ -16138,12 +16138,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit fb2a90259e3fbeea327e395b0efeb6467142b65b",
           "renamed repository swift-molecules/swift-byte-serializer-primitives -> swift-molecules/swift-byte-serializer",
           "verified stable GitHub repository ID 1242330712",
-          "prepared commit 0f8c4a268c3d161442911422d6919fe335027331 publication pending"
+          "fast-forward published prepared commit 0f8c4a268c3d161442911422d6919fe335027331",
+          "verified live main 0f8c4a268c3d161442911422d6919fe335027331 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-byte-serializer.git"
         ]
       },
       "state": "blocked",
