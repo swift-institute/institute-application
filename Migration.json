@@ -18094,8 +18094,12 @@
       "observedHead": "5e2197175e25dc1245cb85ec57c89213209878da",
       "observedRemote": "https://github.com/swift-primitives/swift-foundation-extensions.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 5c4b3d2faa208d3cb05dc34118795c9cf652de9a",
+          "isolated worktree /private/tmp/swift-institute-cutover-foundation-extensions-5e219717",
+          "changed paths 1"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -18103,10 +18107,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "manifest evaluation passed",
+          "declared local target and source paths exist",
+          "active removed-identity residual scan passed",
+          "package, product, target, and module identities unchanged; organization coordinates only"
+        ]
       }
     },
     {
@@ -18979,8 +18988,12 @@
       "observedHead": "ff0cb47ee156acbec0056bd9974104b7a3d046d2",
       "observedRemote": "https://github.com/swift-primitives/swift-io-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 87026ee6c9fbd2f835365f11af4ad1c2f1d56c4e",
+          "isolated worktree /private/tmp/swift-institute-cutover-io-ff0cb47e",
+          "changed paths 12"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -18988,10 +19001,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "manifest evaluation passed",
+          "declared local target and source paths exist",
+          "active removed-identity residual scan passed",
+          "none"
+        ]
       }
     },
     {
@@ -20592,8 +20610,12 @@
       "observedHead": "21d93d60d83cefcd275800f3477dc52452b5ac8d",
       "observedRemote": "https://github.com/swift-primitives/swift-optic-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 316396271a41556c622fddc6e673f07a6ac10412",
+          "isolated worktree /private/tmp/swift-institute-cutover-optic-21d93d60",
+          "changed paths 19"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -20601,10 +20623,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "manifest evaluation passed",
+          "declared local target and source paths exist",
+          "active removed-identity residual scan passed",
+          "none"
+        ]
       }
     },
     {
@@ -22213,8 +22240,12 @@
       "observedHead": "c18f47e16f7bae0ff5717aeae93164402674a4a2",
       "observedRemote": "https://github.com/swift-primitives/swift-render-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 103e3c1b98f8442b5c7116aec8a4a06e3102f83c",
+          "isolated worktree /private/tmp/swift-institute-cutover-render-c18f47e1",
+          "changed paths 14"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -22222,10 +22253,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "manifest evaluation passed",
+          "declared local target and source paths exist",
+          "active removed-identity residual scan passed",
+          "singular Render Primitive retained"
+        ]
       }
     },
     {
@@ -22814,8 +22850,12 @@
       "observedHead": "12e4c54c669f1605f4e321db209e998bfa2bd454",
       "observedRemote": "https://github.com/swift-primitives/swift-single-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit e7039022699ac0543a7fc897e075c0f797fdbaa6",
+          "isolated worktree /private/tmp/swift-institute-cutover-single-12e4c54c",
+          "changed paths 4"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -22823,10 +22863,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "manifest evaluation passed",
+          "declared local target and source paths exist",
+          "active removed-identity residual scan passed",
+          "none"
+        ]
       }
     },
     {
@@ -23170,8 +23215,12 @@
       "observedHead": "1c6c54284ea52b2250a9274c910585dd8d143df5",
       "observedRemote": "https://github.com/swift-primitives/swift-standard-library-extensions.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 28a204ee2c6cf1476cd99dc95b81b59868681ebf",
+          "isolated worktree /private/tmp/swift-institute-cutover-standard-library-extensions-1c6c5428",
+          "changed paths 1"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -23179,10 +23228,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "manifest evaluation passed",
+          "declared local target and source paths exist",
+          "active removed-identity residual scan passed",
+          "package, product, target, and module identities unchanged; organization coordinates only"
+        ]
       }
     },
     {
