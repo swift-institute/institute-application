@@ -13689,7 +13689,10 @@
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit cb1d3233181427c26b653bee5ee4650c0d890312",
+          "renamed repository swift-molecules/swift-ascii-serializer-primitives -> swift-molecules/swift-ascii-serializer",
+          "verified stable GitHub repository ID 1173223041",
+          "prepared commit 67626f5f7ec933613a4b5b35b7f1c931fbc5d660 publication pending"
         ]
       },
       "state": "blocked",
@@ -13701,7 +13704,8 @@
           "remote repository not found: https://github.com/swift-molecules/swift-ascii.git",
           "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
-      }
+      },
+      "githubRepositoryID": 1173223041
     },
     {
       "current": "swift-primitives/swift-async-primitives",
