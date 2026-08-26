@@ -16182,20 +16182,28 @@
       "observedHead": "d77dd3cd43cda8459fca3199c073c648cdd36d96",
       "observedRemote": "https://github.com/swift-primitives/swift-buffer-ring-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit f0af0266b66c7f2cde18d6b7c75d70b804c94915 from expected parent d77dd3cd43cda8459fca3199c073c648cdd36d96",
+          "isolated worktree /private/tmp/swift-buffer-ring-publish",
+          "canonical plural Primitives identity, module, and path mapping applied while singular Primitive names were preserved; exact 13 future-coordinate dependencies, metadata, residual scan, and 54-path payload verified"
+        ]
       },
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit d77dd3cd43cda8459fca3199c073c648cdd36d96",
+          "renamed swift-molecules/swift-buffer-ring-primitives to swift-molecules/swift-buffer-ring",
+          "verified exact destination owns stable GitHub repository ID 1247830053 with public visibility and non-archived state",
+          "publication remains pending at non-force fast-forward push of prepared commit f0af0266b66c7f2cde18d6b7c75d70b804c94915"
         ]
       },
       "state": "ready",
       "validation": {
         "status": "pending",
         "records": []
-      }
+      },
+      "githubRepositoryID": 1247830053
     },
     {
       "current": "swift-primitives/swift-buffer-slab-primitives",
