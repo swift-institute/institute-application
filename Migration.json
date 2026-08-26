@@ -24325,14 +24325,14 @@
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-source.git"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
-          "package resolution blocked at prepared commit 4a126e8a0698f5e412ff67821507c4cf9d15a2dc",
-          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-source-primitives --argument=--disable-sandbox",
-          "remote repository not found: https://github.com/swift-molecules/swift-byte.git",
-          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+          "package resolution passed for swift-source at live published commit 4a126e8a0698f5e412ff67821507c4cf9d15a2dc",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-source institute package resolve --package-path /private/tmp/four-layer-swift-source-primitives --argument=--disable-sandbox",
+          "resolved swift-source direct live dependencies swift-byte at 21d5194adee27b585f27e01c5c7669f74bb96710 and swift-text at c90ce2f1bae69bc5e36db21d5c8a04ad802baaef",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 3d790ec66094926ad83e01edd370873fe991021d24e7bc4ac09beae092c2b36c and left as generated state"
         ]
       },
       "githubRepositoryID": 1138063850
