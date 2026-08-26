@@ -13625,12 +13625,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit cb10de54a4105776c9b8fbd240f63daad625ed52",
           "renamed repository swift-molecules/swift-ascii-primitives -> swift-molecules/swift-ascii",
-          "verified stable GitHub repository ID 1139270854 and public visibility",
-          "prepared commit publication pending"
+          "verified stable GitHub repository ID 1139270854",
+          "fast-forward published prepared commit c85e57796aa0a6f05144980d7ff30fee57051d82",
+          "verified live main c85e57796aa0a6f05144980d7ff30fee57051d82 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-ascii.git"
         ]
       },
       "state": "blocked",
