@@ -6678,8 +6678,13 @@
       "observedHead": "d1d4ff5ba2a5e60ff16390ba65627e7fa9bd091f",
       "observedRemote": "https://github.com/swift-foundations/swift-signature.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 9667227e9eeeb765675487b64d1a28a1173e6932 from expected parent d1d4ff5ba2a5e60ff16390ba65627e7fa9bd091f",
+          "isolated worktree /private/tmp/four-layer-swift-signature",
+          "mapped Byte dependency URL, product, module, imports, and direct test declaration to the live molecule coordinate while preserving suffix-free public identities and unchanged RFC 4648 and FIPS 180-4 coordinates",
+          "updated README ownership to compositions; ancestry, diff, import declarations, residuals, public payload, dependency readiness, and Package.resolved audits passed independently; repository has no metadata file or README badge"
+        ]
       },
       "publication": {
         "status": "pending",
