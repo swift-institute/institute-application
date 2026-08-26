@@ -15036,14 +15036,14 @@
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-bitset.git"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
-          "package resolution blocked at prepared commit 2da93c06156e1f19785f23761bcc518c44744f9c",
-          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-bitset-primitives --argument=--disable-sandbox",
-          "remote repository not found: https://github.com/swift-molecules/swift-sequence.git",
-          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+          "package resolution passed for swift-bitset at live published commit 2da93c06156e1f19785f23761bcc518c44744f9c",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-bitset-live institute package resolve --package-path /private/tmp/four-layer-swift-bitset-primitives --argument=--disable-sandbox",
+          "resolved swift-bitset direct live dependencies swift-iterator at ce7c77a6fdd9c2a1a3aeacf390786225f33d6a67 and swift-sequence at f8eb1593305debb7f2f96ef5e65eadd24c267af5",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 5a0587b70b743250f19afc306fd215b8951a5e24183c0dc052a5e306aa995027 and left as generated state"
         ]
       },
       "githubRepositoryID": 1154397612
