@@ -15840,12 +15840,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 2e695ae9fe5a636b70cc25e308c8101426086580",
           "renamed repository swift-molecules/swift-byte-collection-primitives -> swift-molecules/swift-byte-collection",
           "verified stable GitHub repository ID 1257334843",
-          "prepared commit 28f72b0af93312611c781cf9b8c7d09730457c49 publication pending"
+          "fast-forward published prepared commit 28f72b0af93312611c781cf9b8c7d09730457c49",
+          "verified live main 28f72b0af93312611c781cf9b8c7d09730457c49 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-byte-collection.git"
         ]
       },
       "state": "blocked",
