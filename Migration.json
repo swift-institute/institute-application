@@ -19809,12 +19809,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 70df5a3d6a63e2dcb123efb02b0cf3ef19fc1af9",
           "renamed repository swift-molecules/swift-iterator-primitives -> swift-molecules/swift-iterator",
-          "verified stable GitHub repository ID 1250663734 and public visibility",
-          "prepared commit publication pending"
+          "verified stable GitHub repository ID 1250663734",
+          "fast-forward published prepared commit ce7c77a6fdd9c2a1a3aeacf390786225f33d6a67",
+          "verified live main ce7c77a6fdd9c2a1a3aeacf390786225f33d6a67 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-iterator.git"
         ]
       },
       "state": "blocked",
