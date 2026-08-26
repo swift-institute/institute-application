@@ -22583,14 +22583,14 @@
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-predicate.git"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
-          "package resolution blocked at prepared commit 4d8d1cd473c1176e1d45f95eee4ada7358b04804",
+          "package resolution passed at live published commit 4d8d1cd473c1176e1d45f95eee4ada7358b04804",
           "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-predicate-primitives --argument=--disable-sandbox",
-          "sandbox DNS blocked github.com while resolving https://github.com/swift-molecules/swift-logic.git; live remote existence was not determined",
-          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+          "resolved live swift-logic dependency at 608ed4fb9793c9f4091f45b7aefab428b26980db",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 a62fac238e48cad2b766c9452210e15f3ac4ebb007fb07f45a8e9afa540c48fa and left as generated state"
         ]
       },
       "githubRepositoryID": 1132373871
