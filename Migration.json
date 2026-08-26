@@ -24858,12 +24858,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 57996561debfc5a8c2a0195393155c9d5fb1879d",
           "renamed repository swift-molecules/swift-tagged-primitives -> swift-molecules/swift-tagged",
-          "verified stable GitHub repository ID 1225649812 and public visibility",
-          "prepared commit publication pending"
+          "verified stable GitHub repository ID 1225649812",
+          "fast-forward published prepared commit c46829f9ff788f078389b41e0f75a48b14ee6b6b",
+          "verified live main c46829f9ff788f078389b41e0f75a48b14ee6b6b and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-tagged.git"
         ]
       },
       "state": "blocked",
