@@ -6897,16 +6897,22 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 5e0502ad70217912326790db955c86a3a2960c40",
+          "organization rename established live coordinate swift-compositions/swift-splat without a repository rename",
+          "verified exact destination owns stable GitHub repository ID 1091624794 with public visibility and non-archived state",
+          "updated isolated worktree fetch and push origin to https://github.com/swift-compositions/swift-splat.git",
+          "fast-forward published prepared commit d1c40e5553e77693c3e31631fb44576b2e16bf27",
+          "verified live main d1c40e5553e77693c3e31631fb44576b2e16bf27 with unchanged public visibility and non-archived state"
         ]
       },
       "state": "ready",
       "validation": {
         "status": "pending",
         "records": []
-      }
+      },
+      "githubRepositoryID": 1091624794
     },
     {
       "current": "swift-foundations/swift-sql",
