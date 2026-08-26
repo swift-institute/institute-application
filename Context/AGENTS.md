@@ -11,10 +11,12 @@ requires them.
 - `swift-institute/institute-application` is the Swift Institute front door. Its
   `Institute.json` is the package inventory; `institute doctor` reports
   machine-checked checkout facts.
-- Swift Institute libraries form three realised layers:
-  **L1 primitives → L2 standards → L3 foundations**.
-- Package families live below `swift-institute/` (`swift-primitives`,
-  `swift-standards`, `swift-foundations`, and authority-specific roots).
+- Swift Institute libraries form four realized layers:
+  **L1 atoms → L2 molecules → L3 standards → L4 compositions**. Dependencies
+  point downward and remain acyclic.
+- Package families live below `swift-institute/` (`swift-atoms`,
+  `swift-molecules`, `swift-standards`, `swift-compositions`, and
+  authority-specific roots).
   Rule and legal work lives in the sibling Rule Institute trees.
 - Open work belongs in public GitHub issues on the repository that owns it.
   Durable rulings belong in that domain's canonical ruling store, not in
