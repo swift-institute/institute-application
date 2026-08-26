@@ -17557,10 +17557,15 @@
           "verified live main 71623b0d81027078d4ac90066d6bfc9ed945e299 with unchanged public visibility"
         ]
       },
-      "state": "published",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-column at live published commit 71623b0d81027078d4ac90066d6bfc9ed945e299",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-column-watch institute package resolve --package-path /private/tmp/swift-column-molecule-546c3d6d --argument=--disable-sandbox",
+          "initial sandbox-only attempt failed DNS resolving github.com; approved network retry exited 0 and resolved all 11 live future-coordinate dependencies",
+          "HEAD unchanged; tracked worktree clean; Package.resolved remained absent and uncommitted"
+        ]
       },
       "githubRepositoryID": 1276749998
     },
