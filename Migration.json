@@ -16253,12 +16253,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit c91634e26e6c5e50b7e7cd4a1a23ceeb9913b87d",
           "renamed repository swift-molecules/swift-cardinal-algebra-primitives -> swift-molecules/swift-cardinal-algebra",
           "verified stable GitHub repository ID 1151411750",
-          "prepared commit da603dbd32b06ba46b8387f9ab30d9ad92dde7f8 publication pending"
+          "fast-forward published prepared commit da603dbd32b06ba46b8387f9ab30d9ad92dde7f8",
+          "verified live main da603dbd32b06ba46b8387f9ab30d9ad92dde7f8 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-cardinal-algebra.git"
         ]
       },
       "state": "blocked",
