@@ -21756,20 +21756,28 @@
       "observedHead": "208194f45d73b6b634e65c365084b64aebe02c1d",
       "observedRemote": "https://github.com/swift-primitives/swift-memory-heap-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 518085a7bea5ae9a41f00207ef6ddb4073794726 from expected parent 208194f45d73b6b634e65c365084b64aebe02c1d",
+          "isolated worktree /private/tmp/swift-migration-memory-heap-live",
+          "canonical package, products, targets, modules, imports, source/test paths, README, and five dependency mappings applied; residual scan clean"
+        ]
       },
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 208194f45d73b6b634e65c365084b64aebe02c1d",
+          "renamed swift-molecules/swift-memory-heap-primitives to swift-molecules/swift-memory-heap",
+          "verified exact destination owns stable GitHub repository ID 1259779682 with public visibility and non-archived state",
+          "prepared commit publication remains pending"
         ]
       },
       "state": "ready",
       "validation": {
         "status": "pending",
         "records": []
-      }
+      },
+      "githubRepositoryID": 1259779682
     },
     {
       "current": "swift-primitives/swift-memory-inline-primitives",
@@ -26635,20 +26643,28 @@
       "observedHead": "127babbae4d215b3cfddde56d3097cfcb41d1e92",
       "observedRemote": "https://github.com/swift-primitives/swift-time-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 578f830f95eb5f01ab67e7bf7e059d0aa7fd15bb from expected parent 127babbae4d215b3cfddde56d3097cfcb41d1e92",
+          "isolated worktree /private/tmp/swift-migration-time-live",
+          "canonical package, products, targets, modules, imports, source/test paths, README, metadata, and dimension/format/formatter dependency mappings applied; residual scan clean"
+        ]
       },
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 127babbae4d215b3cfddde56d3097cfcb41d1e92",
+          "renamed swift-molecules/swift-time-primitives to swift-molecules/swift-time",
+          "verified exact destination owns stable GitHub repository ID 1132374031 with public visibility and non-archived state",
+          "prepared commit publication remains pending"
         ]
       },
       "state": "ready",
       "validation": {
         "status": "pending",
         "records": []
-      }
+      },
+      "githubRepositoryID": 1132374031
     },
     {
       "current": "swift-primitives/swift-token-primitives",
