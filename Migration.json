@@ -13178,12 +13178,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit ddee2a3f7163e6d16e7f1e636136d8eef7ee0eb1",
           "renamed repository swift-molecules/swift-affine-primitives -> swift-molecules/swift-affine",
-          "verified stable GitHub repository ID 1132373178 and public visibility",
-          "prepared commit publication pending"
+          "verified stable GitHub repository ID 1132373178",
+          "fast-forward published prepared commit fffed9e57683fd4973f2ebf414f106fa88ba2354",
+          "verified live main fffed9e57683fd4973f2ebf414f106fa88ba2354 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-affine.git"
         ]
       },
       "state": "blocked",
