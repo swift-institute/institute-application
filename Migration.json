@@ -22983,12 +22983,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 9d97eb181c695018dfd365f1376cbdf2afb1925a",
           "renamed repository swift-molecules/swift-product-primitives -> swift-molecules/swift-product",
           "verified stable GitHub repository ID 1232915226",
-          "prepared commit e8bb085c426316a8841dc86935b6df0d9efcbf35 publication pending"
+          "fast-forward published prepared commit e8bb085c426316a8841dc86935b6df0d9efcbf35",
+          "verified live main e8bb085c426316a8841dc86935b6df0d9efcbf35 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-product.git"
         ]
       },
       "state": "blocked",
