@@ -13529,6 +13529,11 @@
         },
         {
           "manifest": "Package.swift",
+          "current": "swift-primitives/swift-binary-primitives",
+          "future": "swift-molecules/swift-binary"
+        },
+        {
+          "manifest": "Package.swift",
           "current": "swift-primitives/swift-cpu-primitives",
           "future": "swift-molecules/swift-cpu"
         },
@@ -13595,8 +13600,13 @@
       "observedHead": "4d9daa0cc53a3e155e5be9eecf266e85dd663fbf",
       "observedRemote": "https://github.com/swift-linux-foundation/swift-linux-standard.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 8bc8075ca84dd067ebb8ab30fe2adaff046d6f75 from expected parent 4d9daa0cc53a3e155e5be9eecf266e85dd663fbf",
+          "isolated worktree /private/tmp/four-layer-swift-linux-standard",
+          "mapped all twelve inventoried primitive dependencies to live molecule coordinates and added the required direct swift-molecules/swift-binary product dependency for two pre-existing direct Binary imports; preserved unchanged ISO 9945 and suffix-free Linux Standard identities",
+          "ancestry, clean worktree, 89-path intended diff, dependency readiness, import/product coverage, residual, public payload, workflow absence, and Package.resolved audits passed independently; live destination retains stable repository ID 1206909850"
+        ]
       },
       "publication": {
         "status": "pending",
