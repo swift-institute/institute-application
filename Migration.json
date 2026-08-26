@@ -18260,12 +18260,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 2cb801edd5c02cefbcb57174392c484172eca295",
           "renamed repository swift-molecules/swift-empty-iterator-primitives -> swift-molecules/swift-empty-iterator",
           "verified stable GitHub repository ID 1250663706",
-          "prepared commit a876939ccf5028d6e6b7bd90bd8007679a950c7e publication pending"
+          "fast-forward published prepared commit a876939ccf5028d6e6b7bd90bd8007679a950c7e",
+          "verified live main a876939ccf5028d6e6b7bd90bd8007679a950c7e and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-empty-iterator.git"
         ]
       },
       "state": "blocked",
