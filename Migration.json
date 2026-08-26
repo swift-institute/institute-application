@@ -25391,12 +25391,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit f103b2ba4502ad0fb7fc99647da7bd7d965605d2",
           "renamed repository swift-molecules/swift-text-primitives -> swift-molecules/swift-text",
-          "verified stable GitHub repository ID 1138063967 and public visibility",
-          "prepared commit publication pending"
+          "verified stable GitHub repository ID 1138063967",
+          "fast-forward published prepared commit c90ce2f1bae69bc5e36db21d5c8a04ad802baaef",
+          "verified live main c90ce2f1bae69bc5e36db21d5c8a04ad802baaef and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-text.git"
         ]
       },
       "state": "blocked",
