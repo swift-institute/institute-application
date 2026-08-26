@@ -11,5 +11,6 @@ extension Institute.Architecture.CLI {
     case derivation(Swift.String)
     case unstableIndex(first: Swift.String, second: Swift.String)
     case artifact(Institute.Architecture.Index.Artifact.Error)
+    case ledger(Swift.String)
   }
 }

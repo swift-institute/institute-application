@@ -120,6 +120,10 @@ let package = Package(
       name: "institute",
       targets: ["Institute Application CLI"]
     ),
+    .executable(
+      name: "institute-architecture-migration",
+      targets: ["Institute Architecture Migration CLI"]
+    ),
   ],
   dependencies: [
     .package(url: "https://github.com/swift-institute/institute.git", branch: "main"),
@@ -197,6 +201,7 @@ let package = Package(
       dependencies: [
         "Institute Architecture Model",
         .product(name: "Institute Model", package: "institute"),
+        .product(name: "JSON", package: "swift-json"),
       ]
     ),
     .target(
@@ -213,7 +218,9 @@ let package = Package(
         .product(name: "Command Schema", package: "swift-arguments"),
         .product(name: "Environment", package: "swift-environment"),
         .product(name: "File System", package: "swift-file-system"),
+        .product(name: "Git", package: "swift-git"),
         .product(name: "Institute Model", package: "institute"),
+        .product(name: "JSON", package: "swift-json"),
         .product(name: "Kernel", package: "swift-kernel"),
         .product(name: "Process", package: "swift-process"),
       ]
@@ -522,6 +529,14 @@ let package = Package(
         .product(name: "Command", package: "swift-arguments"),
       ]
     ),
+    .executableTarget(
+      name: "Institute Architecture Migration CLI",
+      dependencies: [
+        "Institute Architecture CLI",
+        .product(name: "Command", package: "swift-arguments"),
+        .product(name: "Institute Model", package: "institute"),
+      ]
+    ),
     .testTarget(
       name: "Institute Architecture Tests",
       dependencies: [
@@ -534,6 +549,7 @@ let package = Package(
         "Institute Architecture Migration",
         "Institute Architecture CLI",
         .product(name: "Institute Model", package: "institute"),
+        .product(name: "JSON", package: "swift-json"),
       ],
       path: "Tests/Institute Architecture Tests"
     ),
