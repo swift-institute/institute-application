@@ -59,6 +59,11 @@ extension Institute.Architecture.CLI {
     let paths = try trackedFiles(at: directory)
     var files: [Swift.String: Swift.String?] = [:]
     for path in paths {
+      // The ledger deliberately retains both sides of every rename.
+      guard path != "Migration.json" else {
+        files[path] = .some(nil)
+        continue
+      }
       guard textCandidate(path) else {
         files[path] = .some(nil)
         continue
