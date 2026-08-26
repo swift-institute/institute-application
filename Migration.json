@@ -13954,14 +13954,14 @@
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-bifunctor.git"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
-          "package resolution blocked at prepared commit 8dce0ac2de4a95376b029a0cfa87d41c0d221085",
-          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-bifunctor-primitives --argument=--disable-sandbox",
-          "sandbox DNS blocked github.com while resolving https://github.com/swift-molecules/swift-pair.git; live remote existence was not determined",
-          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+          "package resolution passed for swift-bifunctor at live published commit 8dce0ac2de4a95376b029a0cfa87d41c0d221085",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-bifunctor-live institute package resolve --package-path /private/tmp/four-layer-swift-bifunctor-primitives --argument=--disable-sandbox",
+          "resolved swift-bifunctor direct live dependencies swift-either at b4ce5035ed21a3cfcd7d70a51495c62277c0a0a0 and swift-pair at 626bcabc76913ab71b3467d89ac3849163c38d4b",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 f9de639eed916d4ce5257562932df6bd605f2a8e86ae7383c071d5125a914091 and left as generated state"
         ]
       },
       "githubRepositoryID": 1234476076
