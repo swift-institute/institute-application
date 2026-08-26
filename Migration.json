@@ -21397,20 +21397,28 @@
       "observedHead": "9061f4881ea88384efe4f6bfe476ce1966b184d9",
       "observedRemote": "https://github.com/swift-primitives/swift-list-linked-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 1206aa8323bae24fd8714451608c6190fde5b2dc from expected parent 9061f4881ea88384efe4f6bfe476ce1966b184d9",
+          "isolated worktree /private/tmp/swift-list-linked-prep-9061f4881ea88384efe4f6bfe476ce1966b184d9",
+          "canonical repository, package, product, target, module, import, path, and nine future-coordinate dependency mappings applied across 15 changed paths"
+        ]
       },
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 9061f4881ea88384efe4f6bfe476ce1966b184d9",
+          "renamed swift-molecules/swift-list-linked-primitives to swift-molecules/swift-list-linked",
+          "verified exact destination owns stable GitHub repository ID 1250662118 with public visibility and non-archived state",
+          "publication remains pending at non-force fast-forward push of prepared commit 1206aa8323bae24fd8714451608c6190fde5b2dc"
         ]
       },
       "state": "ready",
       "validation": {
         "status": "pending",
         "records": []
-      }
+      },
+      "githubRepositoryID": 1250662118
     },
     {
       "current": "swift-primitives/swift-list-primitives",
