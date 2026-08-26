@@ -26110,20 +26110,28 @@
       "observedHead": "37711a38c432575b58d3e436d8e976f3f22b262c",
       "observedRemote": "https://github.com/swift-primitives/swift-structured-queries-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 5bafc336f634f15b38c0f89f9bbeeac131c73eff from expected parent 37711a38c432575b58d3e436d8e976f3f22b262c",
+          "isolated worktree /private/tmp/swift-structured-queries-live-37711a38c432575b58d3e436d8e976f3f22b262c",
+          "canonical package identities, paths, README, metadata, imports, and swift-byte/swift-tagged/swift-time dependency mappings applied; residual and payload scans passed"
+        ]
       },
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 37711a38c432575b58d3e436d8e976f3f22b262c",
+          "renamed swift-molecules/swift-structured-queries-primitives to swift-molecules/swift-structured-queries",
+          "verified exact destination owns stable GitHub repository ID 1217844841 with public visibility and non-archived state",
+          "prepared commit publication remains pending"
         ]
       },
       "state": "ready",
       "validation": {
         "status": "pending",
         "records": []
-      }
+      },
+      "githubRepositoryID": 1217844841
     },
     {
       "current": "swift-primitives/swift-symmetry-primitives",
@@ -27569,13 +27577,20 @@
       "observedHead": "762201d589c9ad8145cdfe60da6aaf42c263c0c7",
       "observedRemote": "https://github.com/swift-standards/swift-css-standard.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 440ccfc24424c56aadccc7d35e0d6b7c50e9944c from expected parent 762201d589c9ad8145cdfe60da6aaf42c263c0c7",
+          "isolated worktree /private/tmp/swift-css-standard-live.tbwYHt/repo",
+          "canonical swift-byte URL, identity, product, and import mapping applied; IEC 61966, Color Standard, and W3C CSS dependencies were already canonical"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 762201d589c9ad8145cdfe60da6aaf42c263c0c7",
+          "verified stable GitHub repository ID 1108564035 with public visibility and non-archived state",
+          "fast-forward published prepared commit 440ccfc24424c56aadccc7d35e0d6b7c50e9944c",
+          "verified live main 440ccfc24424c56aadccc7d35e0d6b7c50e9944c and final origin https://github.com/swift-standards/swift-css-standard.git"
         ]
       },
       "state": "ready",
