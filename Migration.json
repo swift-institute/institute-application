@@ -19105,14 +19105,14 @@
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-hash.git"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
-          "package resolution blocked at prepared commit addfe7191c52beb9a91a9fbf1157d5e922cd8b01",
+          "package resolution passed at live published commit addfe7191c52beb9a91a9fbf1157d5e922cd8b01",
           "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-hash-primitives --argument=--disable-sandbox",
-          "remote repository not found: https://github.com/swift-molecules/swift-equation.git",
-          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+          "resolved live swift-equation at 711d6efbd7a6a4041e033dd3daf385828047b878, swift-property at 766700fb5f44026c2f8f1d4c33b49ce934487802, and swift-tagged at c46829f9ff788f078389b41e0f75a48b14ee6b6b, with transitive swift-ownership at 8cbad8f0ae82ba45ee77f00515973426bd6aeb5f and swift-carrier at 428df0eb4e03fe671c4c6da8683b88e6e8534f63",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 b4b894d839ac8f18ecad04d5e8f2984251223eea54c8e2778c4d54ed638a63e7 and left as generated state"
         ]
       },
       "githubRepositoryID": 1139271130
