@@ -16499,12 +16499,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 82b807028797e6a1477880a112344d9c52a1b95f",
           "renamed repository swift-molecules/swift-clock-primitives -> swift-molecules/swift-clock",
           "verified stable GitHub repository ID 1132373321",
-          "prepared commit 4132d4bcea77cd88a21bf3f217c7683ff0117ca9 publication pending"
+          "fast-forward published prepared commit 4132d4bcea77cd88a21bf3f217c7683ff0117ca9",
+          "verified live main 4132d4bcea77cd88a21bf3f217c7683ff0117ca9 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-clock.git"
         ]
       },
       "state": "blocked",
