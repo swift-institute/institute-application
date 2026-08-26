@@ -16932,7 +16932,7 @@
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-compass.git"
         ]
       },
-      "state": "prepared",
+      "state": "passed",
       "validation": {
         "status": "passed",
         "records": [
