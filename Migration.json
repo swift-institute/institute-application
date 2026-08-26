@@ -23015,20 +23015,26 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 4847884fcc75bffa9655ef07c08e15c7ac41f0de",
+          "renamed repository swift-molecules/swift-random-primitives -> swift-molecules/swift-random",
+          "verified stable GitHub repository ID 1138063754",
+          "fast-forward published prepared commit 46f35afbf38a4894af976039678e8e99c2efc664",
+          "verified live main 46f35afbf38a4894af976039678e8e99c2efc664 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-random.git"
         ]
       },
       "state": "passed",
       "validation": {
         "status": "passed",
         "records": [
-          "package resolution passed at prepared commit 46f35afbf38a4894af976039678e8e99c2efc664",
-          "invocation: institute package resolve --package-path /private/tmp/four-layer-swift-random-primitives",
-          "exit 0; HEAD unchanged; worktree clean; Package.resolved unchanged"
+          "package resolution passed at live published commit 46f35afbf38a4894af976039678e8e99c2efc664",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-random-primitives --argument=--disable-sandbox",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved absent before and after"
         ]
-      }
+      },
+      "githubRepositoryID": 1138063754
     },
     {
       "current": "swift-primitives/swift-range-primitives",
