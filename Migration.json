@@ -5170,20 +5170,34 @@
       "observedHead": "777cf4d225dc8e729f886ce415e5bb9983fdf2ae",
       "observedRemote": "https://github.com/swift-foundations/swift-numerics.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit b8af760b1056d3bcada8dcddeebd8c97bbdc6a1b from expected parent 777cf4d225dc8e729f886ce415e5bb9983fdf2ae",
+          "isolated worktree /private/tmp/four-layer-swift-numerics-composition",
+          "canonical numeric molecule URL, identity, products, modules, imports, README, and composition metadata mapping applied; own swift-numerics identity preserved and residual scan clean"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 777cf4d225dc8e729f886ce415e5bb9983fdf2ae",
+          "organization rename established live coordinate swift-compositions/swift-numerics without a repository rename",
+          "verified stable GitHub repository ID 1132378344 with public visibility and non-archived state",
+          "fast-forward published prepared commit b8af760b1056d3bcada8dcddeebd8c97bbdc6a1b",
+          "verified live main b8af760b1056d3bcada8dcddeebd8c97bbdc6a1b and final origin https://github.com/swift-compositions/swift-numerics.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-numerics at live commit b8af760b1056d3bcada8dcddeebd8c97bbdc6a1b",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-numerics-composition-live institute package resolve --package-path /private/tmp/four-layer-swift-numerics-composition --argument=--disable-sandbox",
+          "resolved swift-numeric c81428e32f6074e63f8325584a2966a6ed99d73e, swift-ieee-754 e226f68a3b410299b599f9928afe1f353c4a307c, and swift-iso-9899 e2ea6f447fbf0da9261ff8e48a51c3780c25c80b plus transitive closure",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to SHA-256 3912abf80c428db784e8c8fa3248dfb008ec03428e87e5d3f1bacf931dc3478a and remained ignored/uncommitted"
+        ]
+      },
+      "githubRepositoryID": 1132378344
     },
     {
       "current": "swift-foundations/swift-observations",
@@ -17649,20 +17663,33 @@
       "observedHead": "59672273229a5ac8a633e4f7a0952011e3627ba8",
       "observedRemote": "https://github.com/swift-primitives/swift-complex-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit 422e7691ada1d6c732e7fc71cea99738a9a1500b from expected parent 59672273229a5ac8a633e4f7a0952011e3627ba8",
+          "isolated worktree /private/tmp/four-layer-swift-complex-primitives",
+          "canonical package, products, targets, modules, imports, source/test/support paths, README, metadata, and dimension/numeric/tagged dependency mappings applied across 39 files; residual and payload scans clean"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 59672273229a5ac8a633e4f7a0952011e3627ba8",
+          "renamed swift-molecules/swift-complex-primitives to swift-molecules/swift-complex while preserving GitHub repository ID 1132373571",
+          "fast-forward published prepared commit 422e7691ada1d6c732e7fc71cea99738a9a1500b",
+          "verified live main 422e7691ada1d6c732e7fc71cea99738a9a1500b, public visibility, non-archived state, and final origin https://github.com/swift-molecules/swift-complex.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-complex at live commit 422e7691ada1d6c732e7fc71cea99738a9a1500b",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-complex-live institute package resolve --package-path /private/tmp/four-layer-swift-complex-primitives --argument=--disable-sandbox",
+          "resolved swift-numeric c81428e32f6074e63f8325584a2966a6ed99d73e, swift-dimension 4b7cdaba8f0fa64bbe19d1bd349456704065ab90, and swift-tagged c46829f9ff788f078389b41e0f75a48b14ee6b6b plus transitive closure",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to SHA-256 910dee8466400a60f54092e9d49ef1ddb7dad4b657c6a28bb11a8016780db809 and remained ignored/uncommitted"
+        ]
+      },
+      "githubRepositoryID": 1132373571
     },
     {
       "current": "swift-primitives/swift-coproduct-derivation",
@@ -20869,20 +20896,33 @@
       "observedHead": "62c930990f70acc5c291287eccaeaf6b0eb0ddf5",
       "observedRemote": "https://github.com/swift-primitives/swift-linear-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit 8af9f58bfcf4e4fbb757b2c3ddd9fe358e81bc56 from expected parent 62c930990f70acc5c291287eccaeaf6b0eb0ddf5",
+          "isolated worktree /private/tmp/four-layer-swift-linear-primitives",
+          "canonical package, products, targets, modules, imports, source/test/support paths, README, and dimension/format/numeric/tagged dependency mappings applied across 15 files; residual and payload scans clean"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 62c930990f70acc5c291287eccaeaf6b0eb0ddf5",
+          "renamed swift-molecules/swift-linear-primitives to swift-molecules/swift-linear while preserving GitHub repository ID 1132373204",
+          "fast-forward published prepared commit 8af9f58bfcf4e4fbb757b2c3ddd9fe358e81bc56",
+          "verified live main 8af9f58bfcf4e4fbb757b2c3ddd9fe358e81bc56, public visibility, non-archived state, and final origin https://github.com/swift-molecules/swift-linear.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-linear at live commit 8af9f58bfcf4e4fbb757b2c3ddd9fe358e81bc56",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-linear-live institute package resolve --package-path /private/tmp/four-layer-swift-linear-primitives --argument=--disable-sandbox",
+          "resolved swift-dimension 4b7cdaba8f0fa64bbe19d1bd349456704065ab90, swift-format 20f59f07802b82beba085303cd2534432ab55c19, swift-numeric c81428e32f6074e63f8325584a2966a6ed99d73e, and swift-tagged c46829f9ff788f078389b41e0f75a48b14ee6b6b",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to SHA-256 34f32c4dedea311db716e52e6d84f1a88ba255fa1a99f0ba6f86294acc666a96 and remained ignored/uncommitted"
+        ]
+      },
+      "githubRepositoryID": 1132373204
     },
     {
       "current": "swift-primitives/swift-link-primitives",
