@@ -17539,20 +17539,28 @@
       "observedHead": "546c3d6d73428df1b771cbf2828eb49cd77d4c6f",
       "observedRemote": "https://github.com/swift-primitives/swift-column-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 71623b0d81027078d4ac90066d6bfc9ed945e299 from expected parent 546c3d6d73428df1b771cbf2828eb49cd77d4c6f",
+          "isolated worktree /private/tmp/swift-column-molecule-546c3d6d",
+          "canonical repository, package, product, target, module, test, path, README, metadata, and 11 future-coordinate dependency mappings applied across 6 rename-aware changed paths"
+        ]
       },
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 546c3d6d73428df1b771cbf2828eb49cd77d4c6f",
+          "renamed swift-molecules/swift-column-primitives to swift-molecules/swift-column",
+          "verified exact destination owns stable GitHub repository ID 1276749998 with public visibility and non-archived state",
+          "publication remains pending at non-force fast-forward push of prepared commit 71623b0d81027078d4ac90066d6bfc9ed945e299"
         ]
       },
       "state": "ready",
       "validation": {
         "status": "pending",
         "records": []
-      }
+      },
+      "githubRepositoryID": 1276749998
     },
     {
       "current": "swift-primitives/swift-comparison-finite-primitives",
