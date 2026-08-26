@@ -17532,12 +17532,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 4522c50b6944de334ed32b111b363bbad3e018ce",
           "renamed repository swift-molecules/swift-dependency-primitives -> swift-molecules/swift-dependency",
-          "verified stable GitHub repository ID 1138063326 and public visibility",
-          "prepared commit publication pending"
+          "verified stable GitHub repository ID 1138063326",
+          "fast-forward published prepared commit e5f7f3b559e0c967a9f8e9b79ef5c33e44faa78d",
+          "verified live main e5f7f3b559e0c967a9f8e9b79ef5c33e44faa78d and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-dependency.git"
         ]
       },
       "state": "blocked",
