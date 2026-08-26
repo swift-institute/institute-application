@@ -16278,14 +16278,14 @@
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-cardinal.git"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
-          "package resolution blocked at prepared commit e932d328deff46ef801bab10520354b0da779398",
-          "invocation: institute package resolve --package-path /private/tmp/swift-cardinal-cutover",
-          "remote repository not found: https://github.com/swift-molecules/swift-tagged.git",
-          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+          "package resolution passed at live published commit e932d328deff46ef801bab10520354b0da779398",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/swift-cardinal-cutover --argument=--disable-sandbox",
+          "resolved live swift-carrier at 428df0eb4e03fe671c4c6da8683b88e6e8534f63, swift-comparison at 094fd624bd55948a2fdfbcc76e53e75ea0ae80a5, swift-equation at 711d6efbd7a6a4041e033dd3daf385828047b878, swift-hash at addfe7191c52beb9a91a9fbf1157d5e922cd8b01, swift-property at 766700fb5f44026c2f8f1d4c33b49ce934487802, and swift-tagged at c46829f9ff788f078389b41e0f75a48b14ee6b6b, with transitive swift-ownership at 8cbad8f0ae82ba45ee77f00515973426bd6aeb5f",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 8ae4be339b13f987c2eb8a79c033f69a9148da3f718375ad9b8aa8af3e667cef and left as generated state"
         ]
       },
       "githubRepositoryID": 1142827391
