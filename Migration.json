@@ -4292,20 +4292,30 @@
       "observedHead": "d5d5d9242475b47df5b9a46638d9714a4cf5a3e4",
       "observedRemote": "https://github.com/swift-foundations/swift-lexer.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit 638b4bdcffad3200c78906139595877d3906e9fc from expected parent d5d5d9242475b47df5b9a46638d9714a4cf5a3e4",
+          "isolated worktree /private/tmp/swift-lexer-composition-d5d5d924.fwSQDQ",
+          "changed .github/metadata.yaml, Package.swift, README.md, and Sources/Lexer/exports.swift; mapped composition owner/layer, root package identity, exact live molecule dependencies, products, and imports with clean residual and public-payload gates"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit d5d5d9242475b47df5b9a46638d9714a4cf5a3e4",
+          "organization rename established live coordinate swift-compositions/swift-lexer without a repository rename",
+          "verified stable GitHub repository ID 1144635812 with public visibility and non-archived state",
+          "updated isolated worktree fetch and push origin to https://github.com/swift-compositions/swift-lexer.git",
+          "fast-forward published prepared commit 638b4bdcffad3200c78906139595877d3906e9fc",
+          "verified live main 638b4bdcffad3200c78906139595877d3906e9fc with unchanged public visibility"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
         "records": []
-      }
+      },
+      "githubRepositoryID": 1144635812
     },
     {
       "current": "swift-foundations/swift-linter",
