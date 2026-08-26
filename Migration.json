@@ -980,20 +980,34 @@
       "observedHead": "77d86b9db0b47dbcf5f84851a62c4f2be995ed07",
       "observedRemote": "https://github.com/swift-foundations/swift-color.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit 98fcd38f9f1eadd6afc7a98b39b5b18cf2d4d3d4 from expected parent 77d86b9db0b47dbcf5f84851a62c4f2be995ed07",
+          "isolated worktree /private/tmp/four-layer-swift-color-composition",
+          "updated README installation URL and metadata ownership from foundations to compositions; package and Color Standard dependency identities were already canonical"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 77d86b9db0b47dbcf5f84851a62c4f2be995ed07",
+          "organization rename established live coordinate swift-compositions/swift-color without a repository rename",
+          "verified stable GitHub repository ID 1217845862 with public visibility and non-archived state",
+          "fast-forward published prepared commit 98fcd38f9f1eadd6afc7a98b39b5b18cf2d4d3d4",
+          "verified live main 98fcd38f9f1eadd6afc7a98b39b5b18cf2d4d3d4 and final origin https://github.com/swift-compositions/swift-color.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for composition swift-color at live commit 98fcd38f9f1eadd6afc7a98b39b5b18cf2d4d3d4",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-color-composition-live institute package resolve --package-path /private/tmp/four-layer-swift-color-composition --argument=--disable-sandbox",
+          "resolved direct swift-color-standard dependency at 80d0070f53478c64215c2635b0efb430fa681b15 and its live transitive closure",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to SHA-256 a70574560917b53ea779474b76f05f5e94565880162b4da6591d6fbe243fc3aa and remained ignored/uncommitted"
+        ]
+      },
+      "githubRepositoryID": 1217845862
     },
     {
       "current": "swift-foundations/swift-console",
@@ -13667,20 +13681,33 @@
       "observedHead": "95b934dd12c742281cc17335d92b1ce431591013",
       "observedRemote": "https://github.com/swift-primitives/swift-affine-geometry-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit d91ee6d29ce4b14d425b7ed7f8af87bd5e5ec777 from expected parent 95b934dd12c742281cc17335d92b1ce431591013",
+          "isolated worktree /private/tmp/four-layer-swift-affine-geometry-primitives",
+          "canonical package, products, targets, modules, imports, source/test/support paths, README, and five dependency mappings applied across 16 files; residual and payload scans clean"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 95b934dd12c742281cc17335d92b1ce431591013",
+          "renamed swift-molecules/swift-affine-geometry-primitives to swift-molecules/swift-affine-geometry while preserving GitHub repository ID 1139270562",
+          "fast-forward published prepared commit d91ee6d29ce4b14d425b7ed7f8af87bd5e5ec777",
+          "verified live main d91ee6d29ce4b14d425b7ed7f8af87bd5e5ec777, public visibility, non-archived state, and final origin https://github.com/swift-molecules/swift-affine-geometry.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-affine-geometry at live commit d91ee6d29ce4b14d425b7ed7f8af87bd5e5ec777",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-affine-geometry-live institute package resolve --package-path /private/tmp/four-layer-swift-affine-geometry-primitives --argument=--disable-sandbox",
+          "resolved swift-affine fffed9e57683fd4973f2ebf414f106fa88ba2354, swift-dimension 4b7cdaba8f0fa64bbe19d1bd349456704065ab90, swift-linear 8af9f58bfcf4e4fbb757b2c3ddd9fe358e81bc56, swift-numeric c81428e32f6074e63f8325584a2966a6ed99d73e, and swift-tagged c46829f9ff788f078389b41e0f75a48b14ee6b6b",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to SHA-256 4af78db1f7c68a378483ceb5324d4cedd80dbdabdb17d2d8ac6ed94f04ed53a8 and remained ignored/uncommitted"
+        ]
+      },
+      "githubRepositoryID": 1139270562
     },
     {
       "current": "swift-primitives/swift-affine-primitives",
@@ -15707,20 +15734,33 @@
       "observedHead": "132776e953d88ca6db2e333909e9d85046ad3b21",
       "observedRemote": "https://github.com/swift-primitives/swift-boundary-facet-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit 9fe244ada5ee88e3f0aa4d66b3d5ffa6383b179d from expected parent 132776e953d88ca6db2e333909e9d85046ad3b21",
+          "isolated worktree /private/tmp/four-layer-swift-boundary-facet-primitives",
+          "canonical package, products, targets, modules, imports, source/test/support paths, README, metadata, and boundary/facet dependency mappings applied across nine files; residual and payload scans clean"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 132776e953d88ca6db2e333909e9d85046ad3b21",
+          "renamed swift-molecules/swift-boundary-facet-primitives to swift-molecules/swift-boundary-facet while preserving GitHub repository ID 1264249693",
+          "fast-forward published prepared commit 9fe244ada5ee88e3f0aa4d66b3d5ffa6383b179d",
+          "verified live main 9fe244ada5ee88e3f0aa4d66b3d5ffa6383b179d, public visibility, non-archived state, and final origin https://github.com/swift-molecules/swift-boundary-facet.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-boundary-facet at live commit 9fe244ada5ee88e3f0aa4d66b3d5ffa6383b179d",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-boundary-facet-live institute package resolve --package-path /private/tmp/four-layer-swift-boundary-facet-primitives --argument=--disable-sandbox",
+          "resolved direct swift-boundary 11a7ed4 and swift-facet eb3dfc4514fe25b22fc3f78820b96e7cbe1e0a05 plus transitive closure",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to SHA-256 d7237f99ed61a15da4d954b7daf623f1e45a30f752556269a261a362883bb958 and remained ignored/uncommitted"
+        ]
+      },
+      "githubRepositoryID": 1264249693
     },
     {
       "current": "swift-primitives/swift-boundary-orthant-primitives",
@@ -17554,20 +17594,33 @@
       "observedHead": "46131372a484d8e0d97a759738ee98949b37fc13",
       "observedRemote": "https://github.com/swift-primitives/swift-compass-facet-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit ce0f49760f0c8935dcc2f0e168ace8d5d9018b8d from expected parent 46131372a484d8e0d97a759738ee98949b37fc13",
+          "isolated worktree /private/tmp/four-layer-swift-compass-facet-primitives",
+          "canonical package, products, targets, modules, imports, source/test/support paths, README, and compass/facet dependency mappings applied across eight files; residual and payload scans clean"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 46131372a484d8e0d97a759738ee98949b37fc13",
+          "renamed swift-molecules/swift-compass-facet-primitives to swift-molecules/swift-compass-facet while preserving GitHub repository ID 1264249582",
+          "fast-forward published prepared commit ce0f49760f0c8935dcc2f0e168ace8d5d9018b8d",
+          "verified live main ce0f49760f0c8935dcc2f0e168ace8d5d9018b8d, public visibility, non-archived state, and final origin https://github.com/swift-molecules/swift-compass-facet.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-compass-facet at live commit ce0f49760f0c8935dcc2f0e168ace8d5d9018b8d",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-compass-facet-live institute package resolve --package-path /private/tmp/four-layer-swift-compass-facet-primitives --argument=--disable-sandbox",
+          "resolved direct swift-compass 5625835a00133a7a17f3f9c968a428f802a098df and swift-facet eb3dfc4514fe25b22fc3f78820b96e7cbe1e0a05 plus transitive closure",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to SHA-256 808b9faec3ff83714d5405f2c052b55f40ca1b3b48990137a8ba7257a25f9092 and remained ignored/uncommitted"
+        ]
+      },
+      "githubRepositoryID": 1264249582
     },
     {
       "current": "swift-primitives/swift-compass-primitives",
@@ -21396,20 +21449,33 @@
       "observedHead": "175a2cae7367f593f7bbcae7dc07cc208276f051",
       "observedRemote": "https://github.com/swift-primitives/swift-matrix-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit 8ea2a2bc7e21a70fc4a180b1eb2efe0382380625 from expected parent 175a2cae7367f593f7bbcae7dc07cc208276f051",
+          "isolated worktree /private/tmp/four-layer-swift-matrix-primitives",
+          "canonical package, product, target, module, test path, README, metadata, and dimension/index/linear/vector dependency mappings applied across five files; residual scan clean"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 175a2cae7367f593f7bbcae7dc07cc208276f051",
+          "renamed swift-molecules/swift-matrix-primitives to swift-molecules/swift-matrix while preserving GitHub repository ID 1139271159",
+          "fast-forward published prepared commit 8ea2a2bc7e21a70fc4a180b1eb2efe0382380625",
+          "verified live main 8ea2a2bc7e21a70fc4a180b1eb2efe0382380625, public visibility, non-archived state, and final origin https://github.com/swift-molecules/swift-matrix.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-matrix at live commit 8ea2a2bc7e21a70fc4a180b1eb2efe0382380625",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-matrix-live institute package resolve --package-path /private/tmp/four-layer-swift-matrix-primitives --argument=--disable-sandbox",
+          "resolved direct live swift-dimension, swift-index, swift-linear, and swift-vector dependencies plus transitive closure",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to SHA-256 d301c41224e90f5deb2fb0417a4bd9e91ccfd42d8d1ce66c8d888f096d002b3e and remained ignored/uncommitted"
+        ]
+      },
+      "githubRepositoryID": 1139271159
     },
     {
       "current": "swift-primitives/swift-memory-aligned-primitives",
@@ -27331,20 +27397,33 @@
       "observedHead": "edd2481d822f6d88c18093c1066191cdcec94fdd",
       "observedRemote": "https://github.com/swift-standards/swift-color-standard.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit 80d0070f53478c64215c2635b0efb430fa681b15 from expected parent edd2481d822f6d88c18093c1066191cdcec94fdd",
+          "isolated worktree /private/tmp/swift-migration-color-standard-live",
+          "canonical swift-dimension URL, identity, product, source import, and dependent test module mappings applied; own package identity unchanged and residual scan clean"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit edd2481d822f6d88c18093c1066191cdcec94fdd",
+          "verified stable GitHub repository ID 1121146145 with public visibility and non-archived state",
+          "fast-forward published prepared commit 80d0070f53478c64215c2635b0efb430fa681b15",
+          "verified live main 80d0070f53478c64215c2635b0efb430fa681b15 and final origin https://github.com/swift-standards/swift-color-standard.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-color-standard at live commit 80d0070f53478c64215c2635b0efb430fa681b15",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-color-standard-live institute package resolve --package-path /private/tmp/swift-migration-color-standard-live --argument=--disable-sandbox",
+          "resolved swift-dimension 4b7cdaba8f0fa64bbe19d1bd349456704065ab90, swift-iec-61966 83aa5ae0c2dd940636c261c2a1800a0cd33ce4b3, swift-iso-9899 e2ea6f447fbf0da9261ff8e48a51c3780c25c80b, and swift-ecma-48 8e794393 plus transitive closure",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to SHA-256 32c58e680ea8e9e9a78e5f6a0083da1b1ec75d65639ee91439bd6523a0d32df7 and remained ignored/uncommitted"
+        ]
+      },
+      "githubRepositoryID": 1121146145
     },
     {
       "current": "swift-standards/swift-css-standard",
