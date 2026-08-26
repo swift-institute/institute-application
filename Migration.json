@@ -16140,7 +16140,10 @@
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit fb2a90259e3fbeea327e395b0efeb6467142b65b",
+          "renamed repository swift-molecules/swift-byte-serializer-primitives -> swift-molecules/swift-byte-serializer",
+          "verified stable GitHub repository ID 1242330712",
+          "prepared commit 0f8c4a268c3d161442911422d6919fe335027331 publication pending"
         ]
       },
       "state": "blocked",
@@ -16152,7 +16155,8 @@
           "remote repository not found: https://github.com/swift-molecules/swift-serializer.git",
           "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
-      }
+      },
+      "githubRepositoryID": 1242330712
     },
     {
       "current": "swift-primitives/swift-cache-primitives",
