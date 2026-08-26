@@ -1183,7 +1183,8 @@
         "records": [
           "prepared commit f3cad89f538025b7d72cb45ada9dcc05dd46f4a4 from expected parent 94bf98e457daa95603e618f37b3815143d573ab2",
           "isolated worktree /private/tmp/four-layer-swift-cpu-composition",
-          "changed Package.swift, Sources/CPU/exports.swift, and README.md; mapped CPU molecule dependency URL, product, and import with clean canonical residual and public payload scans"
+          "changed Package.swift, Sources/CPU/exports.swift, and README.md; mapped CPU molecule dependency URL, product, and import with clean canonical residual and public payload scans",
+          "prepared ordinary child repair 907c1863ebf91552693fa134fd51a3ab51dc5fb9 from published f3cad89f538025b7d72cb45ada9dcc05dd46f4a4; changed only root manifest package identity from swift-cpu to swift-cpu-composition while preserving public product and dependency semantics"
         ]
       },
       "publication": {
@@ -1193,18 +1194,23 @@
           "organization rename established live coordinate swift-compositions/swift-cpu without a repository rename",
           "verified stable GitHub repository ID 1257228477 and public visibility before and after publication",
           "fast-forward published prepared commit f3cad89f538025b7d72cb45ada9dcc05dd46f4a4",
-          "verified live main f3cad89f538025b7d72cb45ada9dcc05dd46f4a4 and final origin https://github.com/swift-compositions/swift-cpu.git"
+          "verified live main f3cad89f538025b7d72cb45ada9dcc05dd46f4a4 and final origin https://github.com/swift-compositions/swift-cpu.git",
+          "fast-forward published deterministic identity repair 907c1863ebf91552693fa134fd51a3ab51dc5fb9 from f3cad89f538025b7d72cb45ada9dcc05dd46f4a4",
+          "verified repaired live main 907c1863ebf91552693fa134fd51a3ab51dc5fb9 with stable GitHub repository ID 1257228477 and unchanged public visibility"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
           "package resolution blocked for composition swift-cpu at live published commit f3cad89f538025b7d72cb45ada9dcc05dd46f4a4",
           "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-cpu-composition-live institute package resolve --package-path /private/tmp/four-layer-swift-cpu-composition --argument=--disable-sandbox",
           "resolved molecule swift-cpu c23d13f67bb95bee63b442b0420ca5fdcc2c4c0a, swift-arm-standard 1972294ba8e394dbdf16c24a2e4e74253383b4ae, and swift-x86-standard 8be8c2a0cc367fd1f1eea51c37d3a01413cd89fc before identity validation",
           "exit nonzero; SwiftPM rejected root/dependency identity collision: package swift-cpu versus override directory four-layer-swift-cpu-composition; publication preserved for deterministic identity repair",
-          "Package.resolved generated from absent to SHA-256 2fe779944da2eecc74338d14c1d013f3ef978b9507f1e1586e091d3d91c09146 and remained ignored/uncommitted; HEAD and tracked worktree clean"
+          "Package.resolved generated from absent to SHA-256 2fe779944da2eecc74338d14c1d013f3ef978b9507f1e1586e091d3d91c09146 and remained ignored/uncommitted; HEAD and tracked worktree clean",
+          "package resolution recovery passed after root manifest identity changed to swift-cpu-composition at live repair 907c1863ebf91552693fa134fd51a3ab51dc5fb9",
+          "recovery invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-cpu-identity-live institute package resolve --package-path /private/tmp/four-layer-swift-cpu-composition --argument=--disable-sandbox",
+          "recovery exit 0; Package.resolved remained SHA-256 2fe779944da2eecc74338d14c1d013f3ef978b9507f1e1586e091d3d91c09146; HEAD and tracked worktree clean"
         ]
       },
       "githubRepositoryID": 1257228477
