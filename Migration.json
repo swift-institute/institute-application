@@ -19658,20 +19658,26 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit ff0cb47ee156acbec0056bd9974104b7a3d046d2",
+          "renamed repository swift-molecules/swift-io-primitives -> swift-molecules/swift-io",
+          "verified stable GitHub repository ID 1217844743",
+          "fast-forward published prepared commit 87026ee6c9fbd2f835365f11af4ad1c2f1d56c4e",
+          "verified live main 87026ee6c9fbd2f835365f11af4ad1c2f1d56c4e and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-io.git"
         ]
       },
       "state": "passed",
       "validation": {
         "status": "passed",
         "records": [
-          "package resolution passed at prepared commit 87026ee6c9fbd2f835365f11af4ad1c2f1d56c4e",
-          "invocation: institute package resolve --package-path /private/tmp/swift-institute-cutover-io-ff0cb47e",
-          "exit 0; HEAD unchanged; worktree clean; Package.resolved unchanged"
+          "package resolution passed at live published commit 87026ee6c9fbd2f835365f11af4ad1c2f1d56c4e",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/swift-institute-cutover-io-ff0cb47e --argument=--disable-sandbox",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved absent before and after"
         ]
-      }
+      },
+      "githubRepositoryID": 1217844743
     },
     {
       "current": "swift-primitives/swift-iterator-primitives",
