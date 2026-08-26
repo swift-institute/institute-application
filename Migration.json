@@ -13201,8 +13201,12 @@
       "observedHead": "d178ae1432424ea1c35a0f29d75a0dbc9fcc52e9",
       "observedRemote": "https://github.com/swift-primitives/swift-algebra-modular-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 93b36110e29ef7fe28c59dd3984eb74cbe65ce31",
+          "isolated worktree /private/tmp/four-layer-swift-algebra-modular-primitives",
+          "changed paths 23"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -13210,10 +13214,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "blocked",
+        "records": [
+          "package resolution blocked at prepared commit 93b36110e29ef7fe28c59dd3984eb74cbe65ce31",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-algebra-modular-primitives --argument=--disable-sandbox",
+          "remote repository not found: https://github.com/swift-molecules/swift-algebra.git",
+          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+        ]
       }
     },
     {
@@ -13626,8 +13635,12 @@
       "observedHead": "cb1d3233181427c26b653bee5ee4650c0d890312",
       "observedRemote": "https://github.com/swift-primitives/swift-ascii-serializer-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 67626f5f7ec933613a4b5b35b7f1c931fbc5d660",
+          "isolated worktree /private/tmp/four-layer-swift-ascii-serializer-primitives",
+          "changed paths 31"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -13635,10 +13648,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "blocked",
+        "records": [
+          "package resolution blocked at prepared commit 67626f5f7ec933613a4b5b35b7f1c931fbc5d660",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-ascii-serializer-primitives --argument=--disable-sandbox",
+          "remote repository not found: https://github.com/swift-molecules/swift-ascii.git",
+          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+        ]
       }
     },
     {
@@ -13805,8 +13823,12 @@
       "observedHead": "bed7777ad5c53cbe55bc761d4bcf31996dbdeaaa",
       "observedRemote": "https://github.com/swift-primitives/swift-axis-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 007acacc21d146981cab7129c7aeefe3313bdc3a",
+          "isolated worktree /private/tmp/four-layer-swift-axis-primitives",
+          "changed paths 11"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -13814,10 +13836,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "blocked",
+        "records": [
+          "package resolution blocked at prepared commit 007acacc21d146981cab7129c7aeefe3313bdc3a",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-axis-primitives --argument=--disable-sandbox",
+          "remote repository not found: https://github.com/swift-molecules/swift-equation.git",
+          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+        ]
       }
     },
     {
@@ -14031,8 +14058,12 @@
       "observedHead": "40dffe0088369d591df850d7294a49734723ea26",
       "observedRemote": "https://github.com/swift-primitives/swift-binary-cursor-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 9f6ff637bf0ac0ef7667920d3ddd5128d1cc39ee",
+          "isolated worktree /private/tmp/four-layer-swift-binary-cursor-primitives",
+          "changed paths 11"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -14040,10 +14071,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "blocked",
+        "records": [
+          "package resolution blocked at prepared commit 9f6ff637bf0ac0ef7667920d3ddd5128d1cc39ee",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-binary-cursor-primitives --argument=--disable-sandbox",
+          "remote repository not found: https://github.com/swift-molecules/swift-binary.git",
+          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+        ]
       }
     },
     {
@@ -14078,8 +14114,12 @@
       "observedHead": "f95a39e6c6162fe3fafb2342fa56890091a3c8e8",
       "observedRemote": "https://github.com/swift-primitives/swift-binary-formatter-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 00b1908cb58f36cd079806f2888ae0d254535a49",
+          "isolated worktree /private/tmp/four-layer-swift-binary-formatter-primitives",
+          "changed paths 7"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -14087,10 +14127,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "blocked",
+        "records": [
+          "package resolution blocked at prepared commit 00b1908cb58f36cd079806f2888ae0d254535a49",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-binary-formatter-primitives --argument=--disable-sandbox",
+          "remote repository not found: https://github.com/swift-molecules/swift-binary.git",
+          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+        ]
       }
     },
     {
@@ -14839,8 +14884,12 @@
       "observedHead": "aa12e9c7fd236cd14986f3b89ac750082dc6422d",
       "observedRemote": "https://github.com/swift-primitives/swift-bitset-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 2da93c06156e1f19785f23761bcc518c44744f9c",
+          "isolated worktree /private/tmp/four-layer-swift-bitset-primitives",
+          "changed paths 24"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -14848,10 +14897,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "blocked",
+        "records": [
+          "package resolution blocked at prepared commit 2da93c06156e1f19785f23761bcc518c44744f9c",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-bitset-primitives --argument=--disable-sandbox",
+          "remote repository not found: https://github.com/swift-molecules/swift-sequence.git",
+          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+        ]
       }
     },
     {
@@ -15620,8 +15674,12 @@
       "observedHead": "2e695ae9fe5a636b70cc25e308c8101426086580",
       "observedRemote": "https://github.com/swift-primitives/swift-byte-collection-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 28f72b0af93312611c781cf9b8c7d09730457c49",
+          "isolated worktree /private/tmp/four-layer-swift-byte-collection-primitives",
+          "changed paths 10"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -15629,10 +15687,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "blocked",
+        "records": [
+          "package resolution blocked at prepared commit 28f72b0af93312611c781cf9b8c7d09730457c49",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-byte-collection-primitives --argument=--disable-sandbox",
+          "remote repository not found: https://github.com/swift-molecules/swift-byte.git",
+          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+        ]
       }
     },
     {
@@ -16509,8 +16572,12 @@
       "observedHead": "0f1b55487694f81077517b6fe2db70b5657fb889",
       "observedRemote": "https://github.com/swift-primitives/swift-comparison-finite-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 13c4b07b9f97ec31883200d34da52f250befbff8",
+          "isolated worktree /private/tmp/four-layer-swift-comparison-finite-primitives",
+          "changed paths 6"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -16518,10 +16585,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "blocked",
+        "records": [
+          "package resolution blocked at prepared commit 13c4b07b9f97ec31883200d34da52f250befbff8",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-comparison-finite-primitives --argument=--disable-sandbox",
+          "remote repository not found: https://github.com/swift-molecules/swift-finite.git",
+          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+        ]
       }
     },
     {
@@ -16616,8 +16688,12 @@
       "observedHead": "40d0965117c3e4206e88fe4100fff8cabb25c310",
       "observedRemote": "https://github.com/swift-primitives/swift-compass-cyclic-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 91b4525c00d978e886a7bf53f03775b4c449c40e",
+          "isolated worktree /private/tmp/four-layer-swift-compass-cyclic-primitives",
+          "changed paths 6"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -16625,10 +16701,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "blocked",
+        "records": [
+          "package resolution blocked at prepared commit 91b4525c00d978e886a7bf53f03775b4c449c40e",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-compass-cyclic-primitives --argument=--disable-sandbox",
+          "sandbox DNS blocked github.com while resolving https://github.com/swift-molecules/swift-compass.git; live remote existence was not determined",
+          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+        ]
       }
     },
     {
@@ -16915,8 +16996,12 @@
       "observedHead": "dce760f5ef4d14025b6659a45d1851c958f8f38c",
       "observedRemote": "https://github.com/swift-primitives/swift-cpu-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit c23d13f67bb95bee63b442b0420ca5fdcc2c4c0a",
+          "isolated worktree /private/tmp/four-layer-swift-cpu-primitives",
+          "changed paths 39"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -16924,10 +17009,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "blocked",
+        "records": [
+          "package resolution blocked at prepared commit c23d13f67bb95bee63b442b0420ca5fdcc2c4c0a",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-cpu-primitives --argument=--disable-sandbox",
+          "sandbox DNS blocked github.com while resolving https://github.com/swift-molecules/swift-binary.git; live remote existence was not determined",
+          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+        ]
       }
     },
     {
@@ -17023,8 +17113,12 @@
       "observedHead": "4f272cf9e3eea9e642306322a29abc3b70e5b05e",
       "observedRemote": "https://github.com/swift-primitives/swift-cyclic-index-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 9b67b94730b6ab53d459930e057cd89d805f3ea5",
+          "isolated worktree /private/tmp/four-layer-swift-cyclic-index-primitives",
+          "changed paths 13"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -17032,10 +17126,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "blocked",
+        "records": [
+          "package resolution blocked at prepared commit 9b67b94730b6ab53d459930e057cd89d805f3ea5",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-cyclic-index-primitives --argument=--disable-sandbox",
+          "sandbox DNS blocked github.com while resolving https://github.com/swift-molecules/swift-cyclic.git; live remote existence was not determined",
+          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+        ]
       }
     },
     {
@@ -17080,8 +17179,12 @@
       "observedHead": "bff7e8552222c1bd0f6176a33c1ea0b0858d9e85",
       "observedRemote": "https://github.com/swift-primitives/swift-cyclic-iterator-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit a8e25b069ba3dabfffd7e03f41ddf8267651eb7b",
+          "isolated worktree /private/tmp/four-layer-swift-cyclic-iterator-primitives",
+          "changed paths 12"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -17089,10 +17192,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "blocked",
+        "records": [
+          "package resolution blocked at prepared commit a8e25b069ba3dabfffd7e03f41ddf8267651eb7b",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-cyclic-iterator-primitives --argument=--disable-sandbox",
+          "sandbox DNS blocked github.com while resolving https://github.com/swift-molecules/swift-cyclic.git; live remote existence was not determined",
+          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+        ]
       }
     },
     {
@@ -17414,8 +17522,12 @@
       "observedHead": "5d297c1c25966731cf0228a93fcfadb534a0aae2",
       "observedRemote": "https://github.com/swift-primitives/swift-diagnostic-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit f728f4fb9537b435df4384894bd78320344dd89d",
+          "isolated worktree /private/tmp/four-layer-swift-diagnostic-primitives",
+          "changed paths 15"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -17423,10 +17535,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "blocked",
+        "records": [
+          "package resolution blocked at prepared commit f728f4fb9537b435df4384894bd78320344dd89d",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-diagnostic-primitives --argument=--disable-sandbox",
+          "sandbox DNS blocked github.com while resolving https://github.com/swift-molecules/swift-source.git; live remote existence was not determined",
+          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+        ]
       }
     },
     {
@@ -18201,8 +18318,12 @@
       "observedHead": "637f00a49411e14977c4e8409d810bb741df8d02",
       "observedRemote": "https://github.com/swift-primitives/swift-finite-algebra-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit ada3b68f723dfced3f92453ec47bd11289ee2bac",
+          "isolated worktree /private/tmp/four-layer-swift-finite-algebra-primitives",
+          "changed paths 11"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -18210,10 +18331,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "blocked",
+        "records": [
+          "package resolution blocked at prepared commit ada3b68f723dfced3f92453ec47bd11289ee2bac",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-finite-algebra-primitives --argument=--disable-sandbox",
+          "sandbox DNS blocked github.com while resolving https://github.com/swift-molecules/swift-finite.git; live remote existence was not determined",
+          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+        ]
       }
     },
     {
@@ -19305,8 +19431,12 @@
       "observedHead": "cb94cfc238f447384a0133efc7bd8caf76690f87",
       "observedRemote": "https://github.com/swift-primitives/swift-input-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit d6d4ae19ab48b1a36c757b9a54bbc690dce89095",
+          "isolated worktree /private/tmp/four-layer-swift-input-primitives",
+          "changed paths 45"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -19314,10 +19444,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "blocked",
+        "records": [
+          "package resolution blocked at prepared commit d6d4ae19ab48b1a36c757b9a54bbc690dce89095",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-input-primitives --argument=--disable-sandbox",
+          "sandbox DNS blocked github.com while resolving https://github.com/swift-molecules/swift-collection.git; live remote existence was not determined",
+          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+        ]
       }
     },
     {
@@ -19357,8 +19492,12 @@
       "observedHead": "4c1ba3010f9934dd68c3a9a7248047255a080186",
       "observedRemote": "https://github.com/swift-primitives/swift-interval-finite-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 2583f8a18462d903117ac0bcec82de43f8ddb805",
+          "isolated worktree /private/tmp/four-layer-swift-interval-finite-primitives",
+          "changed paths 8"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -19366,10 +19505,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "blocked",
+        "records": [
+          "package resolution blocked at prepared commit 2583f8a18462d903117ac0bcec82de43f8ddb805",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-interval-finite-primitives --argument=--disable-sandbox",
+          "sandbox DNS blocked github.com while resolving https://github.com/swift-molecules/swift-finite.git; live remote existence was not determined",
+          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+        ]
       }
     },
     {
@@ -20538,8 +20682,12 @@
       "observedHead": "c88d8c6a2c46d13b7a004bbbc20bcf153f90d00b",
       "observedRemote": "https://github.com/swift-primitives/swift-memory-iterator-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit e74d198336a0d6f03e8524f2a5cf26f706f15ebf",
+          "isolated worktree /private/tmp/four-layer-swift-memory-iterator-primitives",
+          "changed paths 5"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -20547,10 +20695,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "blocked",
+        "records": [
+          "package resolution blocked at prepared commit e74d198336a0d6f03e8524f2a5cf26f706f15ebf",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-memory-iterator-primitives --argument=--disable-sandbox",
+          "remote repository not found: https://github.com/swift-molecules/swift-span.git",
+          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+        ]
       }
     },
     {
@@ -20709,8 +20862,12 @@
       "observedHead": "000dd495f2632f8e4a0497a0a7a43161ecd72786",
       "observedRemote": "https://github.com/swift-primitives/swift-memory-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 4e875ebe3c6de287b3ed00410c2d77b27c20172b",
+          "isolated worktree /private/tmp/four-layer-swift-memory-primitives",
+          "changed paths 33"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -20718,10 +20875,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "blocked",
+        "records": [
+          "package resolution blocked at prepared commit 4e875ebe3c6de287b3ed00410c2d77b27c20172b",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-memory-primitives --argument=--disable-sandbox",
+          "remote repository not found: https://github.com/swift-molecules/swift-ordinal.git",
+          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+        ]
       }
     },
     {
@@ -20892,8 +21054,12 @@
       "observedHead": "88b94b9363844e71e399d7791b7bfb618cd3e0ea",
       "observedRemote": "https://github.com/swift-primitives/swift-module-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 2c54f8b4b1f310072cb71c03d1dad300957ffbb2",
+          "isolated worktree /private/tmp/four-layer-swift-module-primitives",
+          "changed paths 9"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -20901,10 +21067,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "blocked",
+        "records": [
+          "package resolution blocked at prepared commit 2c54f8b4b1f310072cb71c03d1dad300957ffbb2",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-module-primitives --argument=--disable-sandbox",
+          "remote repository not found: https://github.com/swift-molecules/swift-source.git",
+          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+        ]
       }
     },
     {
@@ -20980,8 +21151,12 @@
       "observedHead": "67430076dd868970107f879afdb421026686e82c",
       "observedRemote": "https://github.com/swift-primitives/swift-numeric-finite-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit dfa36c3666a046e029bc07b8189c061314be4f88",
+          "isolated worktree /private/tmp/four-layer-swift-numeric-finite-primitives",
+          "changed paths 7"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -20989,10 +21164,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "blocked",
+        "records": [
+          "package resolution blocked at prepared commit dfa36c3666a046e029bc07b8189c061314be4f88",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-numeric-finite-primitives --argument=--disable-sandbox",
+          "remote repository not found: https://github.com/swift-molecules/swift-finite.git",
+          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+        ]
       }
     },
     {
@@ -21177,8 +21357,12 @@
       "observedHead": "e18afe7f2dbcadcb9c3cae916c440080b11df6e1",
       "observedRemote": "https://github.com/swift-primitives/swift-order-finite-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit c2861f5b7b36a93cedc8472f3c51d2e92aa6227b",
+          "isolated worktree /private/tmp/four-layer-swift-order-finite-primitives",
+          "changed paths 6"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -21186,10 +21370,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "blocked",
+        "records": [
+          "package resolution blocked at prepared commit c2861f5b7b36a93cedc8472f3c51d2e92aa6227b",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-order-finite-primitives --argument=--disable-sandbox",
+          "remote repository not found: https://github.com/swift-molecules/swift-finite.git",
+          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+        ]
       }
     },
     {
@@ -21375,8 +21564,12 @@
       "observedHead": "b3ebc933afecdbd8b5c4c4dbba0438d453dc1e87",
       "observedRemote": "https://github.com/swift-primitives/swift-orthant-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 6998ca6fa8ea270b27b217b42744ee27ed1bf462",
+          "isolated worktree /private/tmp/four-layer-swift-orthant-primitives",
+          "changed paths 11"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -21384,10 +21577,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "blocked",
+        "records": [
+          "package resolution blocked at prepared commit 6998ca6fa8ea270b27b217b42744ee27ed1bf462",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-orthant-primitives --argument=--disable-sandbox",
+          "remote repository not found: https://github.com/swift-molecules/swift-direction.git",
+          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+        ]
       }
     },
     {
@@ -23002,8 +23200,12 @@
       "observedHead": "5ed760aa2a01a0ab6e467dee942c587e0a866687",
       "observedRemote": "https://github.com/swift-primitives/swift-sector-cyclic-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit e3070fa147f18a9494a2b8db59ee842178a41ba2",
+          "isolated worktree /private/tmp/four-layer-swift-sector-cyclic-primitives",
+          "changed paths 6"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -23011,10 +23213,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "blocked",
+        "records": [
+          "package resolution blocked at prepared commit e3070fa147f18a9494a2b8db59ee842178a41ba2",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-sector-cyclic-primitives --argument=--disable-sandbox",
+          "remote repository not found: https://github.com/swift-molecules/swift-sector.git",
+          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+        ]
       }
     },
     {
@@ -24435,8 +24642,12 @@
       "observedHead": "84d4163c2fea30747d0a98a408b5de72c9456c67",
       "observedRemote": "https://github.com/swift-primitives/swift-tagged-collection-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 714ad7aa2ab55465a7057b05fb79bbf971a5ced9",
+          "isolated worktree /private/tmp/four-layer-swift-tagged-collection-primitives",
+          "changed paths 6"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -24444,10 +24655,15 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "blocked",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "blocked",
+        "records": [
+          "package resolution blocked at prepared commit 714ad7aa2ab55465a7057b05fb79bbf971a5ced9",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-tagged-collection-primitives --argument=--disable-sandbox",
+          "remote repository not found: https://github.com/swift-molecules/swift-tagged.git",
+          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+        ]
       }
     },
     {
