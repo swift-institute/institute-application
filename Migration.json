@@ -18061,7 +18061,10 @@
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit f0ad660879396a388c56250d545998f1b953fd99",
+          "renamed repository swift-molecules/swift-either-primitives -> swift-molecules/swift-either",
+          "verified stable GitHub repository ID 1232911534 and public visibility",
+          "prepared commit publication pending"
         ]
       },
       "state": "blocked",
@@ -18073,7 +18076,8 @@
           "sandbox DNS blocked github.com while resolving https://github.com/swift-molecules/swift-equation.git; live remote existence was not determined",
           "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
-      }
+      },
+      "githubRepositoryID": 1232911534
     },
     {
       "current": "swift-primitives/swift-empty-iterator-primitives",
