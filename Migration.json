@@ -17278,7 +17278,10 @@
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 060da5e78c171107e848a524dff57ce034fa1230",
+          "renamed repository swift-molecules/swift-cursor-primitives -> swift-molecules/swift-cursor",
+          "verified stable GitHub repository ID 1241776966",
+          "prepared commit 1ea0b89f0a0b1b695c790b02ef973e06d8025902 publication pending"
         ]
       },
       "state": "blocked",
@@ -17290,7 +17293,8 @@
           "sandbox DNS blocked github.com while resolving https://github.com/swift-molecules/swift-tagged.git; live remote existence was not determined",
           "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
-      }
+      },
+      "githubRepositoryID": 1241776966
     },
     {
       "current": "swift-primitives/swift-cyclic-index-primitives",
