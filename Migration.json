@@ -21122,14 +21122,14 @@
           "updated isolated worktree origin to https://github.com/swift-molecules/swift-memory.git"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
-          "package resolution blocked at prepared commit 4e875ebe3c6de287b3ed00410c2d77b27c20172b",
-          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-memory-primitives --argument=--disable-sandbox",
-          "remote repository not found: https://github.com/swift-molecules/swift-ordinal.git",
-          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+          "package resolution passed for swift-memory at live published commit 4e875ebe3c6de287b3ed00410c2d77b27c20172b",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-memory institute package resolve --package-path /private/tmp/four-layer-swift-memory-primitives --argument=--disable-sandbox",
+          "resolved swift-memory direct live dependencies swift-affine at fffed9e57683fd4973f2ebf414f106fa88ba2354, swift-bit-index at 68ef5e71940fbf27447e1752ac79ea3d3b43f1ad, swift-cardinal at e932d328deff46ef801bab10520354b0da779398, swift-carrier at 428df0eb4e03fe671c4c6da8683b88e6e8534f63, swift-index at ea265ffc2efe2c282e494f5e7309d0ea19f2b287, swift-ordinal at 92f2aef190ba01b10d606c4991c48c44039e4a69, swift-span at 8c76670f76b7982f128e3e7b7fc80f43f05200ff, and swift-tagged at c46829f9ff788f078389b41e0f75a48b14ee6b6b",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 e494eef73095d3cb0c8e200912d1c98c2b098e6be413669934760deb9312d623 and left as generated state"
         ]
       },
       "githubRepositoryID": 1132373559
