@@ -20238,21 +20238,27 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 5e1ed34d94d590d67d58a8adda2211e2ceb917c8",
+          "renamed repository swift-molecules/swift-logic-primitives -> swift-molecules/swift-logic",
+          "verified stable GitHub repository ID 831052210",
+          "fast-forward published prepared commit 608ed4fb9793c9f4091f45b7aefab428b26980db",
+          "verified live main 608ed4fb9793c9f4091f45b7aefab428b26980db and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-logic.git"
         ]
       },
-      "state": "blocked",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
-          "package resolution blocked at prepared commit 608ed4fb9793c9f4091f45b7aefab428b26980db",
+          "package resolution passed at live published commit 608ed4fb9793c9f4091f45b7aefab428b26980db",
           "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/four-layer-swift-logic-primitives --argument=--disable-sandbox",
-          "sandbox DNS blocked github.com while resolving https://github.com/swift-molecules/swift-standard-library-extensions.git; live remote existence was not determined",
-          "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
+          "resolved live swift-standard-library-extensions at 28a204ee2c6cf1476cd99dc95b81b59868681ebf",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to sha256 7be180aab33e80d1620f472d855dd8f04fbab5bd268616a12dbed742738b324a and left as generated state"
         ]
-      }
+      },
+      "githubRepositoryID": 831052210
     },
     {
       "current": "swift-primitives/swift-machine-primitives",
