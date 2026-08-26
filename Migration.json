@@ -15963,7 +15963,10 @@
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit a2386d5247cc2519f917874b50ecff2006937797",
+          "renamed repository swift-molecules/swift-byte-primitives -> swift-molecules/swift-byte",
+          "verified stable GitHub repository ID 1239798588 and public visibility",
+          "prepared commit publication pending"
         ]
       },
       "state": "blocked",
@@ -15975,7 +15978,8 @@
           "sandbox DNS blocked github.com while resolving https://github.com/swift-molecules/swift-carrier.git; live remote existence was not determined",
           "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
-      }
+      },
+      "githubRepositoryID": 1239798588
     },
     {
       "current": "swift-primitives/swift-byte-serializer-primitives",
