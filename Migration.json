@@ -18701,20 +18701,26 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 5e2197175e25dc1245cb85ec57c89213209878da",
+          "preserved repository identity swift-molecules/swift-foundation-extensions",
+          "verified stable GitHub repository ID 837842720",
+          "fast-forward published prepared commit 5c4b3d2faa208d3cb05dc34118795c9cf652de9a",
+          "verified live main 5c4b3d2faa208d3cb05dc34118795c9cf652de9a and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-foundation-extensions.git"
         ]
       },
       "state": "passed",
       "validation": {
         "status": "passed",
         "records": [
-          "package resolution passed at prepared commit 5c4b3d2faa208d3cb05dc34118795c9cf652de9a",
+          "package resolution passed at live published commit 5c4b3d2faa208d3cb05dc34118795c9cf652de9a",
           "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/swift-institute-cutover-foundation-extensions-5e219717 --argument=--disable-sandbox",
-          "exit 0; HEAD unchanged; worktree clean; Package.resolved unchanged"
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved absent before and after"
         ]
-      }
+      },
+      "githubRepositoryID": 837842720
     },
     {
       "current": "swift-primitives/swift-geometry-primitives",
