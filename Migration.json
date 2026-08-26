@@ -24307,7 +24307,10 @@
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 9c32795f56531fe9236a243be21fda9945e01d03",
+          "renamed repository swift-molecules/swift-span-primitives -> swift-molecules/swift-span",
+          "verified stable GitHub repository ID 1259220718 and public visibility",
+          "prepared commit publication pending"
         ]
       },
       "state": "blocked",
@@ -24319,7 +24322,8 @@
           "remote repository not found: https://github.com/swift-molecules/swift-index.git",
           "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
-      }
+      },
+      "githubRepositoryID": 1259220718
     },
     {
       "current": "swift-primitives/swift-stack-primitives",
