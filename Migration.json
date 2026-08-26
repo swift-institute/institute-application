@@ -14124,7 +14124,10 @@
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 40dffe0088369d591df850d7294a49734723ea26",
+          "renamed repository swift-molecules/swift-binary-cursor-primitives -> swift-molecules/swift-binary-cursor",
+          "verified stable GitHub repository ID 1246635485",
+          "prepared commit 9f6ff637bf0ac0ef7667920d3ddd5128d1cc39ee publication pending"
         ]
       },
       "state": "blocked",
@@ -14136,7 +14139,8 @@
           "remote repository not found: https://github.com/swift-molecules/swift-binary.git",
           "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
-      }
+      },
+      "githubRepositoryID": 1246635485
     },
     {
       "current": "swift-primitives/swift-binary-formatter-primitives",
