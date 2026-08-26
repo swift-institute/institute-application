@@ -13180,7 +13180,10 @@
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit ddee2a3f7163e6d16e7f1e636136d8eef7ee0eb1",
+          "renamed repository swift-molecules/swift-affine-primitives -> swift-molecules/swift-affine",
+          "verified stable GitHub repository ID 1132373178 and public visibility",
+          "prepared commit publication pending"
         ]
       },
       "state": "blocked",
@@ -13192,7 +13195,8 @@
           "remote repository not found: https://github.com/swift-molecules/swift-ordinal.git",
           "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
-      }
+      },
+      "githubRepositoryID": 1132373178
     },
     {
       "current": "swift-primitives/swift-algebra-modular-primitives",
