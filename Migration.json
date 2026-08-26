@@ -22142,7 +22142,10 @@
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit d18932048b0492ee96e2d168adc3dc38d56e327e",
+          "renamed repository swift-molecules/swift-parity-primitives -> swift-molecules/swift-parity",
+          "verified stable GitHub repository ID 1253310323 and public visibility",
+          "prepared commit publication pending"
         ]
       },
       "state": "blocked",
@@ -22154,7 +22157,8 @@
           "remote repository not found: https://github.com/swift-molecules/swift-pair.git",
           "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
-      }
+      },
+      "githubRepositoryID": 1253310323
     },
     {
       "current": "swift-primitives/swift-parser-effect-primitives",
