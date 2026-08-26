@@ -24860,7 +24860,10 @@
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 57996561debfc5a8c2a0195393155c9d5fb1879d",
+          "renamed repository swift-molecules/swift-tagged-primitives -> swift-molecules/swift-tagged",
+          "verified stable GitHub repository ID 1225649812 and public visibility",
+          "prepared commit publication pending"
         ]
       },
       "state": "blocked",
@@ -24872,7 +24875,8 @@
           "remote repository not found: https://github.com/swift-molecules/swift-carrier.git",
           "exit 1; HEAD unchanged; worktree clean; Package.resolved unchanged; rerun after flag-day destination publication or environment repair"
         ]
-      }
+      },
+      "githubRepositoryID": 1225649812
     },
     {
       "current": "swift-primitives/swift-tensor-primitives",
