@@ -26057,12 +26057,13 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 903cbf5de173097713cf2009a0bc7feb71f16abc",
           "renamed swift-molecules/swift-string-primitives to swift-molecules/swift-string",
           "verified exact destination owns stable GitHub repository ID 1138063892 with public visibility and non-archived state",
-          "prepared commit publication remains pending"
+          "fast-forward published prepared commit 2e3ec71fb41c145b164348c17b673a690e2c3b42",
+          "verified live main 2e3ec71fb41c145b164348c17b673a690e2c3b42 and final origin https://github.com/swift-molecules/swift-string.git"
         ]
       },
       "state": "ready",
@@ -26113,11 +26114,17 @@
           "verify expected old commit with the publishing identity immediately before push"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-w3c-css at live published commit 3928a392fea7eb30ab8a865c0abf8e3bb9487454",
+          "post-publication invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-w3c-css-live institute package resolve --package-path /private/tmp/swift-w3c-css-live.1MpTOz/repo --argument=--disable-sandbox",
+          "resolved live IEC 61966, IEEE 754, RFC 4648, swift-ascii, swift-format, swift-geometry 267c767f5da69a6b0b6b8fc99d527a517a21f16d, and W3C CSSOM dependency graph",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved SHA-256 37e68611a3f53e62520dc295073793c3353dc9fb54e73c860874ec569fe3e86a remained ignored/uncommitted"
+        ]
+      },
+      "githubRepositoryID": 963822346
     },
     {
       "current": "swift-primitives/swift-symmetry-primitives",
@@ -28405,20 +28412,32 @@
       "observedHead": "b60195689735cff8063ad78c88441af3c0989f73",
       "observedRemote": "https://github.com/swift-standards/swift-pdf-standard.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "canonical four-layer transformation was a no-op at expected commit b60195689735cff8063ad78c88441af3c0989f73",
+          "isolated worktree /private/tmp/swift-pdf-standard-live.PCypL5/repo",
+          "sole swift-iso-32000 dependency, products, modules, imports, README, and own package identity were already canonical; changed paths none"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified live main already at expected unchanged commit b60195689735cff8063ad78c88441af3c0989f73; no push required",
+          "verified stable GitHub repository ID 1113640683 with public visibility and non-archived state",
+          "verified final origin https://github.com/swift-standards/swift-pdf-standard.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-pdf-standard at live unchanged commit b60195689735cff8063ad78c88441af3c0989f73",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-pdf-standard-live institute package resolve --package-path /private/tmp/swift-pdf-standard-live.PCypL5/repo --argument=--disable-sandbox",
+          "resolved sole live swift-iso-32000 dependency at 59a0e9dcec0c13812785010a007540727a893e81 and its transitive closure",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to SHA-256 8e6ee90838ea03ef42e94f2761256ea545ea17afac921aca8e0b5d0ad75bd5f0 and remained ignored/uncommitted"
+        ]
+      },
+      "githubRepositoryID": 1113640683
     },
     {
       "current": "swift-standards/swift-postgresql-standard",
