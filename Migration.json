@@ -13944,12 +13944,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit d55f6c9b737f748704c700541c601efa920469cc",
           "renamed repository swift-molecules/swift-bifunctor-primitives -> swift-molecules/swift-bifunctor",
           "verified stable GitHub repository ID 1234476076",
-          "prepared commit 8dce0ac2de4a95376b029a0cfa87d41c0d221085 publication pending"
+          "fast-forward published prepared commit 8dce0ac2de4a95376b029a0cfa87d41c0d221085",
+          "verified live main 8dce0ac2de4a95376b029a0cfa87d41c0d221085 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-bifunctor.git"
         ]
       },
       "state": "blocked",
