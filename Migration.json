@@ -1485,20 +1485,34 @@
       "observedHead": "792491ebd6c6f439aeb2e8f0e4bfee58ddef345a",
       "observedRemote": "https://github.com/swift-foundations/swift-decimals.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit 152879f926d800287d1d8b9ed8def920d0ba033c from expected parent 792491ebd6c6f439aeb2e8f0e4bfee58ddef345a",
+          "isolated worktree /private/tmp/four-layer-swift-decimals-composition",
+          "canonical decimal and ASCII serializer dependency URL, identity, product, module, README, and stale test identifier mappings applied; residual and public payload scans clean"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 792491ebd6c6f439aeb2e8f0e4bfee58ddef345a",
+          "organization rename established live coordinate swift-compositions/swift-decimals without a repository rename",
+          "verified stable GitHub repository ID 1132378207 with public visibility and non-archived state",
+          "fast-forward published prepared commit 152879f926d800287d1d8b9ed8def920d0ba033c",
+          "verified live main 152879f926d800287d1d8b9ed8def920d0ba033c and final origin https://github.com/swift-compositions/swift-decimals.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-decimals at live commit 152879f926d800287d1d8b9ed8def920d0ba033c",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-decimals-composition-live institute package resolve --package-path /private/tmp/four-layer-swift-decimals-composition --argument=--disable-sandbox",
+          "resolved swift-ieee-754 e226f68a3b410299b599f9928afe1f353c4a307c, swift-ascii-serializer 67626f5f7ec933613a4b5b35b7f1c931fbc5d660, and swift-decimal 4eb9c7c981b3e10bcd2cea45389d8b4ab4d90d30",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to SHA-256 2c8e4f667b0b410f0be0c899123a5bee0020748871316c3ca85a2ff78230096f and remained ignored/uncommitted"
+        ]
+      },
+      "githubRepositoryID": 1132378207
     },
     {
       "current": "swift-foundations/swift-defunctionalize",
@@ -9305,20 +9319,33 @@
       "observedHead": "e4d156de50903e14dedadd2e72440d1ec6709438",
       "observedRemote": "https://github.com/swift-iec/swift-iec-61966.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit 83aa5ae0c2dd940636c261c2a1800a0cd33ce4b3 from expected parent e4d156de50903e14dedadd2e72440d1ec6709438",
+          "isolated worktree /private/tmp/four-layer-swift-iec-61966",
+          "changed Package.swift and Sources/IEC 61966 2-1/sRGB.swift; canonical ASCII molecule URL, identity, product, and import mapping applied with clean residual and public payload scans"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit e4d156de50903e14dedadd2e72440d1ec6709438",
+          "verified stable GitHub repository ID 1113415917 with public visibility and non-archived state",
+          "fast-forward published prepared commit 83aa5ae0c2dd940636c261c2a1800a0cd33ce4b3",
+          "verified live main 83aa5ae0c2dd940636c261c2a1800a0cd33ce4b3 and final origin https://github.com/swift-iec/swift-iec-61966.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-iec-61966 at live commit 83aa5ae0c2dd940636c261c2a1800a0cd33ce4b3",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-iec-61966-live institute package resolve --package-path /private/tmp/four-layer-swift-iec-61966 --argument=--disable-sandbox",
+          "resolved swift-iso-9899 e2ea6f447fbf0da9261ff8e48a51c3780c25c80b and swift-ascii c85e57796aa0a6f05144980d7ff30fee57051d82",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to SHA-256 d8d692ff095741df72e4aa8d41a8801c11bc69c0adf48f097dfe054e8820d275 and remained ignored/uncommitted"
+        ]
+      },
+      "githubRepositoryID": 1113415917
     },
     {
       "current": "swift-iec/swift-iec-80000-13",
@@ -19186,10 +19213,15 @@
           "verified live main eb3dfc4514fe25b22fc3f78820b96e7cbe1e0a05 and final origin https://github.com/swift-molecules/swift-facet.git"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-facet at live commit eb3dfc4514fe25b22fc3f78820b96e7cbe1e0a05",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-facet-live institute package resolve --package-path /private/tmp/four-layer-swift-facet-primitives --argument=--disable-sandbox",
+          "resolved all seven direct molecule dependencies and their live transitive closure",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to SHA-256 5c65319ba77e5b50f365f32ca5b3f4473d34577143086c2fb454aa8ddef4f469 and remained ignored/uncommitted"
+        ]
       },
       "githubRepositoryID": 1264249311
     },
@@ -20896,10 +20928,15 @@
           "verified live main 360a0678866aca739ca79af65722c9a6dfc9a0b1 and final origin https://github.com/swift-molecules/swift-link.git"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-link at live commit 360a0678866aca739ca79af65722c9a6dfc9a0b1",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-link-live institute package resolve --package-path /private/tmp/swift-migration-link-live --argument=--disable-sandbox",
+          "resolved direct live swift-index ea265ffc2efe2c282e494f5e7309d0ea19f2b287 and swift-vector 873798b99a45080d68664b8a81253d50a08fa4d2 dependencies plus their transitive closure",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to SHA-256 6215c0d6ac3ce18e781ca9c80d1e8a401912b1e9f3e9a753f0856f96e3b11b39 and remained ignored/uncommitted"
+        ]
       },
       "githubRepositoryID": 1217845780
     },
@@ -21726,20 +21763,33 @@
       "observedHead": "e0843b62d90b3ea8e0169be9cc89fe6d184c0704",
       "observedRemote": "https://github.com/swift-primitives/swift-memory-inline-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit 7cb35c249694f33ad9129053d2e8479207b52012 from expected parent e0843b62d90b3ea8e0169be9cc89fe6d184c0704",
+          "isolated worktree /private/tmp/four-layer-swift-memory-inline-primitives",
+          "canonical package, products, targets, modules, imports, source and test paths, README, metadata, and three dependency mappings applied across 11 files; residual and public payload scans clean"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit e0843b62d90b3ea8e0169be9cc89fe6d184c0704",
+          "renamed swift-molecules/swift-memory-inline-primitives to swift-molecules/swift-memory-inline while preserving GitHub repository ID 1263886014",
+          "fast-forward published prepared commit 7cb35c249694f33ad9129053d2e8479207b52012",
+          "verified live main 7cb35c249694f33ad9129053d2e8479207b52012, public visibility, non-archived state, and final origin https://github.com/swift-molecules/swift-memory-inline.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-memory-inline at live commit 7cb35c249694f33ad9129053d2e8479207b52012",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-memory-inline-live institute package resolve --package-path /private/tmp/four-layer-swift-memory-inline-primitives --argument=--disable-sandbox",
+          "resolved swift-memory 4e875ebe3c6de287b3ed00410c2d77b27c20172b, swift-memory-allocation e7e377301958af7e049c7cc2d7f37844baf431af, and swift-index ea265ffc2efe2c282e494f5e7309d0ea19f2b287 plus transitive closure",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to SHA-256 b60806c61445013abb84e7f2a45ecf374a5c335f7c707814cb70edb864ad2f71 and remained ignored/uncommitted"
+        ]
+      },
+      "githubRepositoryID": 1263886014
     },
     {
       "current": "swift-primitives/swift-memory-iterator-primitives",
@@ -28886,20 +28936,33 @@
       "observedHead": "5da96c240ebc2fb44ab2631d38c2ecc519927f59",
       "observedRemote": "https://github.com/swift-w3c/swift-w3c-png.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared commit e30b9e84a896a5942e58c5f91abd2a9845b5835d from expected parent 5da96c240ebc2fb44ab2631d38c2ecc519927f59",
+          "isolated worktree /private/tmp/four-layer-swift-w3c-png",
+          "canonical binary, byte, and standard-library-extensions dependency URL, identity, product, and import mappings applied in Package.swift, five sources, and one test; residual and public payload scans clean"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified pre-publication main at expected commit 5da96c240ebc2fb44ab2631d38c2ecc519927f59",
+          "verified stable GitHub repository ID 1132375375 with public visibility and non-archived state",
+          "fast-forward published prepared commit e30b9e84a896a5942e58c5f91abd2a9845b5835d",
+          "verified live main e30b9e84a896a5942e58c5f91abd2a9845b5835d and final origin https://github.com/swift-w3c/swift-w3c-png.git"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-w3c-png at live commit e30b9e84a896a5942e58c5f91abd2a9845b5835d",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-w3c-png-live institute package resolve --package-path /private/tmp/four-layer-swift-w3c-png --argument=--disable-sandbox",
+          "resolved swift-rfc-1950 b2c9a98480e1bc6b9dea8bd10a6fcdf13cfe1c32, swift-binary 8f9159a3470f7992b54b2ac74b1ffbb1e244fa62, swift-byte 21d5194adee27b585f27e01c5c7669f74bb96710, and swift-standard-library-extensions 28a204ee2c6cf1476cd99dc95b81b59868681ebf",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to SHA-256 5997a3958c912854f3a1ac303bec0b0b343cb0a7cee4457a4b2870e97c24e99b and remained ignored/uncommitted"
+        ]
+      },
+      "githubRepositoryID": 1132375375
     },
     {
       "current": "swift-w3c/swift-w3c-svg",
