@@ -23206,20 +23206,26 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit c18f47e16f7bae0ff5717aeae93164402674a4a2",
+          "renamed repository swift-molecules/swift-render-primitives -> swift-molecules/swift-render",
+          "verified stable GitHub repository ID 905733273",
+          "fast-forward published prepared commit 103e3c1b98f8442b5c7116aec8a4a06e3102f83c",
+          "verified live main 103e3c1b98f8442b5c7116aec8a4a06e3102f83c and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-render.git"
         ]
       },
       "state": "passed",
       "validation": {
         "status": "passed",
         "records": [
-          "package resolution passed at prepared commit 103e3c1b98f8442b5c7116aec8a4a06e3102f83c",
-          "invocation: institute package resolve --package-path /private/tmp/swift-institute-cutover-render-c18f47e1",
-          "exit 0; HEAD unchanged; worktree clean; Package.resolved unchanged"
+          "package resolution passed at live published commit 103e3c1b98f8442b5c7116aec8a4a06e3102f83c",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache institute package resolve --package-path /private/tmp/swift-institute-cutover-render-c18f47e1 --argument=--disable-sandbox",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved absent before and after"
         ]
-      }
+      },
+      "githubRepositoryID": 905733273
     },
     {
       "current": "swift-primitives/swift-sample-primitives",
