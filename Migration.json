@@ -26066,10 +26066,15 @@
           "verified live main 2e3ec71fb41c145b164348c17b673a690e2c3b42 and final origin https://github.com/swift-molecules/swift-string.git"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-string at live commit 2e3ec71fb41c145b164348c17b673a690e2c3b42",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-string-live institute package resolve --package-path /private/tmp/swift-string-live-903cbf5de173097713cf2009a0bc7feb71f16abc --argument=--disable-sandbox",
+          "resolved direct live swift-memory-heap 518085a7bea5ae9a41f00207ef6ddb4073794726, swift-ownership 8cbad8f0ae82ba45ee77f00515973426bd6aeb5f, swift-span 8c76670, and swift-tagged c46829f plus transitive closure",
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent to SHA-256 13c30fefc85766ee2f1a616b2c969edc92146cd92a66802f1f0b48f9c2b026d9 and remained ignored/uncommitted"
+        ]
       },
       "githubRepositoryID": 1138063892
     },
