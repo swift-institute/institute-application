@@ -7674,10 +7674,15 @@
           "verified live main 3ac0a18092ff849035f5928003c5ccc639c2d5e1 with unchanged public visibility and non-archived state"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-tensors at live published commit 3ac0a18092ff849035f5928003c5ccc639c2d5e1",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-tensors-root institute package resolve --package-path /private/tmp/four-layer-swift-tensors --argument=--disable-sandbox",
+          "resolution exited 0 against the five direct live future-coordinate dependencies and their transitive graph",
+          "HEAD unchanged; tracked worktree clean; Package.resolved generated as ignored uncommitted state and stabilized at SHA-256 e408b7e0143872f18ae1fa1e123e90c401b471bdb53816f5635cc41b4ebb1558"
+        ]
       },
       "githubRepositoryID": 1257228624
     },
