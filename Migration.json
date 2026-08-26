@@ -1601,10 +1601,15 @@
           "verified live main adf2391128a3bd417f2913b7d430985456737ab9 with unchanged public visibility and non-archived state"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-defunctionalize at live published commit adf2391128a3bd417f2913b7d430985456737ab9",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-defunctionalize-root institute package resolve --package-path /private/tmp/four-layer-swift-defunctionalize --argument=--disable-sandbox",
+          "resolution exited 0 against live future-coordinate Finite and Optic dependencies, external swift-syntax 602.0.0, and their transitive graph",
+          "HEAD unchanged; tracked worktree clean; Package.resolved generated as ignored uncommitted state and stabilized at SHA-256 b32dc7b3799fc678f6bd5907f981ffe38c4aa56b041315157b4965661010f934"
+        ]
       },
       "githubRepositoryID": 1183220184
     },
