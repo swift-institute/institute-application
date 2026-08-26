@@ -16684,12 +16684,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 7b49b9eeb52724899c5148a2c09aa330c1ae5ce3",
           "renamed repository swift-molecules/swift-comparison-primitives -> swift-molecules/swift-comparison",
-          "verified stable GitHub repository ID 1139270953 and public visibility",
-          "prepared commit publication pending"
+          "verified stable GitHub repository ID 1139270953",
+          "fast-forward published prepared commit 094fd624bd55948a2fdfbcc76e53e75ea0ae80a5",
+          "verified live main 094fd624bd55948a2fdfbcc76e53e75ea0ae80a5 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-comparison.git"
         ]
       },
       "state": "blocked",
