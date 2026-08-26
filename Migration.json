@@ -17267,12 +17267,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 4f272cf9e3eea9e642306322a29abc3b70e5b05e",
           "renamed repository swift-molecules/swift-cyclic-index-primitives -> swift-molecules/swift-cyclic-index",
           "verified stable GitHub repository ID 1145453857",
-          "prepared commit 9b67b94730b6ab53d459930e057cd89d805f3ea5 publication pending"
+          "fast-forward published prepared commit 9b67b94730b6ab53d459930e057cd89d805f3ea5",
+          "verified live main 9b67b94730b6ab53d459930e057cd89d805f3ea5 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-cyclic-index.git"
         ]
       },
       "state": "blocked",
