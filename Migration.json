@@ -4744,16 +4744,22 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit 13862992e37746eff101884868fe4d7477bacc26",
+          "organization rename established live coordinate swift-compositions/swift-logger-handlers without a repository rename",
+          "verified exact destination owns stable GitHub repository ID 1032266657 with public visibility and non-archived state",
+          "updated isolated worktree fetch and push origin to https://github.com/swift-compositions/swift-logger-handlers.git",
+          "fast-forward published prepared commit 4192d0693d5b8bd87409e4aa959a3c0b0f0643f3",
+          "verified live main 4192d0693d5b8bd87409e4aa959a3c0b0f0643f3 with unchanged public visibility and non-archived state"
         ]
       },
       "state": "ready",
       "validation": {
         "status": "pending",
         "records": []
-      }
+      },
+      "githubRepositoryID": 1032266657
     },
     {
       "current": "swift-foundations/swift-mailgun",
