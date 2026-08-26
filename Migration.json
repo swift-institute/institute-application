@@ -21954,12 +21954,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 6668241f83a0b3e694709da2e6e6c56f3ce27b77",
           "renamed repository swift-molecules/swift-pair-primitives -> swift-molecules/swift-pair",
-          "verified stable GitHub repository ID 1232914016 and public visibility",
-          "prepared commit publication pending"
+          "verified stable GitHub repository ID 1232914016",
+          "fast-forward published prepared commit 626bcabc76913ab71b3467d89ac3849163c38d4b",
+          "verified live main 626bcabc76913ab71b3467d89ac3849163c38d4b and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-pair.git"
         ]
       },
       "state": "blocked",
