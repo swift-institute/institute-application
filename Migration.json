@@ -14475,12 +14475,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 7e779f2a192efb7f47546a49887dd1998046fe24",
           "renamed repository swift-molecules/swift-binary-serializer-primitives -> swift-molecules/swift-binary-serializer",
-          "verified stable GitHub repository ID 1250663681 and public visibility",
-          "prepared commit publication pending"
+          "verified stable GitHub repository ID 1250663681",
+          "fast-forward published prepared commit 29b9a86729f88a3be4a63e9dd22311afe2872e19",
+          "verified live main 29b9a86729f88a3be4a63e9dd22311afe2872e19 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-binary-serializer.git"
         ]
       },
       "state": "blocked",
