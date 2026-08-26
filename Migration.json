@@ -24062,12 +24062,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit e63c0b7af66a3fa3edd4ba114680fb20f361df75",
           "renamed repository swift-molecules/swift-single-iterator-primitives -> swift-molecules/swift-single-iterator",
           "verified stable GitHub repository ID 1250663778",
-          "prepared commit 0fade9b5ff7b2b775993d0fe763c2effcb5b11a1 publication pending"
+          "fast-forward published prepared commit 0fade9b5ff7b2b775993d0fe763c2effcb5b11a1",
+          "verified live main 0fade9b5ff7b2b775993d0fe763c2effcb5b11a1 and public visibility",
+          "updated isolated worktree origin to https://github.com/swift-molecules/swift-single-iterator.git"
         ]
       },
       "state": "blocked",
