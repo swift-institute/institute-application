@@ -13366,10 +13366,15 @@
           "verified final origin https://github.com/swift-iso/swift-iso-9945.git"
         ]
       },
-      "state": "published",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-iso-9945 at live published commit af5d6339142bbd169017eca7022e5634486da790",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-iso-9945-live institute package resolve --package-path /private/tmp/swift-iso-9945-live-907578dbc0143384ba223326263801b5eb2bb5ba --argument=--disable-sandbox",
+          "exit 0; live future-coordinate dependencies resolved successfully",
+          "HEAD unchanged; tracked worktree clean; Package.resolved generated from absent to SHA-256 7b9323d6975dcc05afe14f159e334239b541991dae2a97a7c4fb07e130d8af7b and remained ignored/uncommitted"
+        ]
       },
       "githubRepositoryID": 1217888724
     },
