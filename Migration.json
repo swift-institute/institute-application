@@ -22271,7 +22271,7 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit b58974e8a939f73b7cff1fae9be53815b39b6b56",
           "renamed swift-molecules/swift-loader-primitives to swift-molecules/swift-loader",
@@ -22280,7 +22280,9 @@
           "verified live main a385a2b5f3c6da09668b3e02fad10e7ca794a069 and final origin https://github.com/swift-molecules/swift-loader.git",
           "renamed the colliding molecule coordinate swift-molecules/swift-loader to canonical swift-molecules/swift-loader-vocabulary without transfer, deletion, archival, visibility change, force push, or history rewrite",
           "coordinator verified exact destination swift-molecules/swift-loader-vocabulary owns unchanged GitHub repository ID 1132373528 with public visibility, non-archived state, default branch main, clone URL https://github.com/swift-molecules/swift-loader-vocabulary.git, and unchanged live main a385a2b5f3c6da09668b3e02fad10e7ca794a069",
-          "publication of prepared identity repair commit 94c4d92fdfe55886fae51f41531c402baf1fffd7 remains pending"
+          "publication of prepared identity repair commit 94c4d92fdfe55886fae51f41531c402baf1fffd7 was pending at the rename checkpoint",
+          "updated both fetch and push origins deliberately to https://github.com/swift-molecules/swift-loader-vocabulary.git and fast-forward published exact direct-child repair commit 94c4d92fdfe55886fae51f41531c402baf1fffd7 without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified exact live main 94c4d92fdfe55886fae51f41531c402baf1fffd7 at canonical coordinate swift-molecules/swift-loader-vocabulary with unchanged GitHub repository ID 1132373528, public visibility, non-archived state, default branch main, and final clone URL"
         ]
       },
       "state": "ready",
