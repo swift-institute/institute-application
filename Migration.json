@@ -10010,23 +10010,32 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-compositions/swift-uuids",
       "futureLayer": "compositions",
-      "observedHead": "13507da8cbb369355177028249b65ff7fe31ac66",
-      "observedRemote": "https://github.com/swift-foundations/swift-uuids.git",
+      "observedHead": "8dab1548ed7c7ba2bf89a05dfce459155afe3989",
+      "observedRemote": "https://github.com/swift-compositions/swift-uuids.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared exact direct-child cutover commit 8dab1548ed7c7ba2bf89a05dfce459155afe3989 from expected base 13507da8cbb369355177028249b65ff7fe31ac66 in clean isolated worktree /private/tmp/uuids-composition-lane/swift-uuids",
+          "mechanical four-layer cutover changed only .github/metadata.yaml, Package.swift, and README.md with three insertions and three deletions across layer metadata, the Random dependency owner, and the repository URL; products, modules, and public semantics remained unchanged",
+          "all three manifest dependency identities/products plus residual identity, active Actions-reference, public-payload, machine-path, credential, diff, attribution, and Package.resolved preservation checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "repository ID 1257227998 was verified before and after cutover at exact canonical coordinate swift-compositions/swift-uuids with unchanged public visibility, non-archived state, and default branch main",
+          "published exact prepared commit 8dab1548ed7c7ba2bf89a05dfce459155afe3989 as an ordinary fast-forward from 13507da8cbb369355177028249b65ff7fe31ac66 to refs/heads/main through the authenticated administrative ruleset bypass; no force push or history rewrite occurred",
+          "coordinator independently reverified exact live main 8dab1548ed7c7ba2bf89a05dfce459155afe3989, repository ID 1257227998, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, active workflows, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is complete and Package.resolved remained absent twice before and after publication; the repository is queued behind swift-compositions/swift-random validation and the serialized Institute package-resolution slot"
+        ]
+      },
+      "githubRepositoryID": 1257227998
     },
     {
       "current": "swift-foundations/swift-webpage",
