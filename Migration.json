@@ -6032,19 +6032,30 @@
       "observedHead": "37d556abf84986b1bb85820894e3feece5ac285e",
       "observedRemote": "https://github.com/swift-foundations/swift-posix.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit b2944133f9bb2a7750b7fd88cdb39b8b0070f77a from expected parent 37d556abf84986b1bb85820894e3feece5ac285e",
+          "isolated worktree /private/tmp/four-layer-swift-posix",
+          "deterministic audit verified the clean direct-child 24-path, 146-file-preserving transformation, all eight exact live dependency coordinates and products including Glob and ISO 9945, foundation-to-composition and primitive-to-molecule mappings, zero mapped residuals, public payload, active Actions refs, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified the already-final post-organization-cutover coordinate swift-compositions/swift-posix at expected main 37d556abf84986b1bb85820894e3feece5ac285e with GitHub repository ID 1129970266, public visibility, non-archived state, and default branch main; no repository rename was required",
+          "updated isolated worktree fetch and push origins to https://github.com/swift-compositions/swift-posix.git",
+          "fast-forward published exact prepared commit b2944133f9bb2a7750b7fd88cdb39b8b0070f77a without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main b2944133f9bb2a7750b7fd88cdb39b8b0070f77a with unchanged repository ID, public visibility, non-archived state, default branch main, and clean isolated worktree"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-posix-publisher institute package resolve --package-path /private/tmp/four-layer-swift-posix --argument=--disable-sandbox against all eight exact live dependencies and their graph",
+          "prepared HEAD remained b2944133f9bb2a7750b7fd88cdb39b8b0070f77a and the isolated worktree remained clean",
+          "Package.resolved was absent before resolution and present afterward as untouched ignored generated state with stable SHA-256 e08683d7ae2175a1a91ba5532b51c3997ae4cfccbc5df4b1645ff95236a03992"
+        ]
       }
     },
     {
