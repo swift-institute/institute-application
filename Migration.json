@@ -30750,20 +30750,29 @@
       "observedHead": "1d22405653d0442172a6090b1c4bd1a48436562c",
       "observedRemote": "https://github.com/swift-standards/swift-standards-linter-rules.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit 397df25319ed392636204a2ba6cbafbc933177ce from exact parent 1d22405653d0442172a6090b1c4bd1a48436562c in clean disjoint worktree /private/tmp/four-layer-swift-standards-linter-rules-publisher with subject Prepare Standards Linter Rules for four layers",
+          "audited all eight tracked paths and made the exact five-path, 19-insertion/19-deletion mechanical transformation across manifest, README, metadata, source, and test, mapping Linter and Institute Linter Rules dependencies and four-layer prose while preserving the intentional swift-primitives-linter-rules repository identity, package public semantics, and canonical Actions; residual-exception, payload, staged-tree, ancestry, and identity checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "JIT verified unchanged canonical coordinate swift-standards/swift-standards-linter-rules with stable GitHub repository ID 1292692666, public visibility, non-archived state, default branch main, canonical origin, and exact live parent, plus both direct dependencies and auxiliary README destinations",
+          "ordinary fast-forward published exact direct child 397df25319ed392636204a2ba6cbafbc933177ce through the configured administrator ruleset bypass without rename, force, or history rewrite",
+          "coordinator independently verified exact live main 397df25319ed392636204a2ba6cbafbc933177ce with unchanged repository ID 1292692666, exact coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, and a clean tracked checkout"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-standards-linter-rules-publisher institute package resolve --package-path /private/tmp/four-layer-swift-standards-linter-rules-publisher --argument=--disable-sandbox against the exact live graph; no build, test, compilation, raw SwiftPM, dump-package, or manifest evaluation was invoked",
+          "Package.resolved was absent twice before resolution and present afterward only as ignored untracked generated state, never edited/deleted/staged/committed, with stable twice-observed SHA-256 b07e6430b5ec63f809018461db8cba95df0f97a919062ec24f409e17c748f44b; final live identity/SHA and clean tracked checkout were reverified"
+        ]
+      },
+      "githubRepositoryID": 1292692666
     },
     {
       "current": "swift-standards/swift-stripe-standard",
