@@ -2671,23 +2671,32 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-compositions/swift-favicon",
       "futureLayer": "compositions",
-      "observedHead": "05021175d06f47da906552acc6023fabf253ed2f",
-      "observedRemote": "https://github.com/swift-foundations/swift-favicon.git",
+      "observedHead": "313c6d512bb10a65b9993b0dcb7d8c7e6a7ba772",
+      "observedRemote": "https://github.com/swift-compositions/swift-favicon.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared exact direct-child cutover commit 313c6d512bb10a65b9993b0dcb7d8c7e6a7ba772 from expected base 05021175d06f47da906552acc6023fabf253ed2f in clean isolated worktree /private/tmp/favicon-composition-lane/swift-favicon while leaving unrelated pre-existing build/lane state untouched",
+          "mechanical four-layer cutover changed only .github/metadata.yaml, Package.swift, and README.md with seven insertions and seven deletions across three dependency URLs, repository links, and layer metadata while preserving legitimate URL Routing Foundation Integration and unrelated coenttb integration links",
+          "all three live dependency identities/products plus residual identity, active Actions-reference, public-payload, machine-path, credential, diff, attribution, and Package.resolved preservation checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "repository ID 1064980402 was verified before and after cutover at exact canonical coordinate swift-compositions/swift-favicon with unchanged public visibility, non-archived state, default branch main, and active workflows",
+          "published exact prepared commit 313c6d512bb10a65b9993b0dcb7d8c7e6a7ba772 as an ordinary fast-forward from 05021175d06f47da906552acc6023fabf253ed2f to refs/heads/main through the authenticated administrative ruleset bypass; no force push or history rewrite occurred",
+          "coordinator independently reverified exact live main 313c6d512bb10a65b9993b0dcb7d8c7e6a7ba772, repository ID 1064980402, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is complete and Package.resolved remained absent twice before and after publication; the repository is queued behind HTML and URL Routing validation plus the serialized Institute package-resolution slot"
+        ]
+      },
+      "githubRepositoryID": 1064980402
     },
     {
       "current": "swift-foundations/swift-file-system",
