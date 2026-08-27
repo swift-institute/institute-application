@@ -7391,20 +7391,29 @@
       "observedHead": "efb564cca4ac518777b4a7b5ce516c66662be5cc",
       "observedRemote": "https://github.com/swift-foundations/swift-source.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit 9e419218900e171c0c66f76483994d89d7ef5816 from exact parent efb564cca4ac518777b4a7b5ce516c66662be5cc in clean identity-compatible isolated worktree /private/tmp/swift-source; the original checkout and pre-existing source-enforcement-v3 worktree remained clean and untouched",
+          "audited all 119 tracked paths and made the exact 5-path, 10-insertion/10-deletion mechanical cutover across Package.swift, README, metadata, and two source files, mapping Source and Diagnostic to molecule identities and JSON to compositions while preserving FIPS 180-4, public semantics, and canonical Actions; the only old-owner residuals were deliberate fictional swift-foundations/swift-example test data, and staged-tree, ancestry, payload, and identity checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-source as canonical with stable GitHub repository ID 1144636284, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; no repository rename was needed",
+          "JIT verified all four declared dependency coordinates, exact heads, required products, and ledger gates, then ordinary fast-forward published exact direct child 9e419218900e171c0c66f76483994d89d7ef5816 without force or history rewrite",
+          "coordinator independently verified exact live main 9e419218900e171c0c66f76483994d89d7ef5816 with unchanged repository ID 1144636284, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, and clean tracked checkout"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-source-composition-publisher institute package resolve --package-path /private/tmp/swift-source --argument=--disable-sandbox against the exact live graph; SwiftPM accepted the composition root and molecule dependency sharing canonical swift-source identity, with no separate molecule pin, and no build, test, compilation, raw SwiftPM, dump-package, or standalone manifest-evaluation command was invoked",
+          "Package.resolved was absent twice before resolution and present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 3521d2d8efb25c82b87215293a8fdfed7b794cad74a1c3f2a7076ed1d1652614; final live identity/SHA and clean tracked checkout were reverified"
+        ]
+      },
+      "githubRepositoryID": 1144636284
     },
     {
       "current": "swift-foundations/swift-splat",
