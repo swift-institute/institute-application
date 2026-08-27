@@ -4915,23 +4915,33 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-compositions/swift-linter",
       "futureLayer": "compositions",
-      "observedHead": "9306455e617b0da94388226edbaf57fa4a569a2a",
-      "observedRemote": "https://github.com/swift-foundations/swift-linter.git",
+      "observedHead": "ecd44fe5762e8e1e8be77a72ec6d6c597a89c0ab",
+      "observedRemote": "https://github.com/swift-compositions/swift-linter.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared exact direct-child cutover commit ecd44fe5762e8e1e8be77a72ec6d6c597a89c0ab from expected base 9306455e617b0da94388226edbaf57fa4a569a2a in clean isolated worktree /private/tmp/linter-composition-lane/swift-linter",
+          "mechanical four-layer cutover changed 48 tracked paths with 163 insertions and 163 deletions across root and nested manifests, sources, tests, fixtures, README, metadata, and CI; the Runner self-hosting URL moved to swift-compositions/swift-linter while the root's distinct swift-molecules/swift-linter dependency and legitimate primitives-linter-rules identities remained preserved",
+          "root and Runner manifest future URL sets, live dependency products, all active workflows, residual identity, public-payload, machine-path, credential, diff, attribution, and Package.resolved preservation checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "repository ID 1230911632 was verified before and after cutover at exact canonical coordinate swift-compositions/swift-linter with unchanged public visibility, non-archived state, and default branch main",
+          "the scheduler's apparent self-cycle was proven to be only Runner/Package.swift consuming the same repository's public Linter product, so the exact nested edge was exempted from publication ordering without changing the manifest mapping",
+          "published exact prepared commit ecd44fe5762e8e1e8be77a72ec6d6c597a89c0ab as an ordinary fast-forward from 9306455e617b0da94388226edbaf57fa4a569a2a to refs/heads/main through the authenticated administrative ruleset bypass; no force push or history rewrite occurred",
+          "coordinator independently reverified exact live main ecd44fe5762e8e1e8be77a72ec6d6c597a89c0ab, repository ID 1230911632, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is complete and Package.resolved remained absent twice before and after publication; resolution is queued until swift-compositions/swift-manifests validation is passed and the serialized Institute package-resolution slot is available"
+        ]
+      },
+      "githubRepositoryID": 1230911632
     },
     {
       "current": "swift-foundations/swift-linter-rules",
