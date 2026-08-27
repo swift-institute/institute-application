@@ -9771,23 +9771,32 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-compositions/swift-url-routing-translating",
       "futureLayer": "compositions",
-      "observedHead": "3b93e2c44540f3ac7fce0fbb381e4db507d7dbcf",
-      "observedRemote": "https://github.com/swift-foundations/swift-url-routing-translating.git",
+      "observedHead": "7bc1ede1d9c4943fd50855ddc3d0a16c7595e167",
+      "observedRemote": "https://github.com/swift-compositions/swift-url-routing-translating.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared exact direct-child cutover commit 7bc1ede1d9c4943fd50855ddc3d0a16c7595e167 from expected base 3b93e2c44540f3ac7fce0fbb381e4db507d7dbcf in clean isolated worktree /private/tmp/url-routing-translating-composition-lane/swift-url-routing-translating",
+          "mechanical four-layer cutover changed four tracked paths with twelve insertions and twelve deletions across dependency owners, repository links, metadata, and stale layer/ownership prose while preserving package/product/target semantics",
+          "all four manifest dependency URLs byte-matched canonical ledger futures; live dependency products plus residual identity, active Actions-reference, public-payload, credential, diff, attribution, and Package.resolved preservation checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "repository ID 1026569320 was verified before and after cutover at exact canonical coordinate swift-compositions/swift-url-routing-translating with unchanged public visibility, non-archived state, default branch main, and enabled Actions",
+          "published exact prepared commit 7bc1ede1d9c4943fd50855ddc3d0a16c7595e167 as an ordinary fast-forward from 3b93e2c44540f3ac7fce0fbb381e4db507d7dbcf to refs/heads/main through the authenticated administrative ruleset bypass; no force push or history rewrite occurred",
+          "coordinator independently reverified exact live main 7bc1ede1d9c4943fd50855ddc3d0a16c7595e167, repository ID 1026569320, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is complete and Package.resolved remained absent twice before and after publication; resolution is queued until swift-compositions/swift-url-routing validation is passed and the serialized Institute package-resolution slot is available"
+        ]
+      },
+      "githubRepositoryID": 1026569320
     },
     {
       "current": "swift-foundations/swift-url-routing-vapor",
