@@ -5430,6 +5430,15 @@
     "wave": "wave6h",
     "changes": "Repaired arithmetic and index APIs after seam extraction, restored the exact core/AFI/TestSupport product shape, and retained canonical Cardinal, Ordinal, and Index dependencies. Foundation only in AFI. Fresh build green; 46 tests green; local Embedded proof blocked upstream by the host toolchain.",
     "bookedAt": "2026-08-27T20:02:29Z"
+   },
+   {
+    "repo": "swift-atoms/swift-link",
+    "headSHA": "11f75cb1be6e53a7287fc6ec21daa01326dc0041",
+    "build": "green",
+    "test": "green",
+    "wave": "wave6i",
+    "changes": "Migrated removed Index count, equality, position, and offset assumptions to current Cardinal, Ordinal, Tagged, and Index APIs; restored public import visibility and the exact core/AFI/TestSupport product shape. Foundation only in AFI. Fresh build green; 37 tests green; local Embedded proof blocked upstream.",
+    "bookedAt": "2026-08-27T20:06:00Z"
    }
   ]
  }
