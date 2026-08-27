@@ -11302,19 +11302,27 @@
       "observedHead": "7cb408f24735453c2078ef585d54ac048d4efa26",
       "observedRemote": "https://github.com/swift-ietf/swift-rfc-5321.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared human-authored direct-child commit bad82271ada29e0bf753261f0d391084164e03b9 from expected parent 7cb408f24735453c2078ef585d54ac048d4efa26 in isolated worktree /private/tmp/four-layer-swift-rfc-5321 with subject Migrate RFC 5321 dependencies",
+          "reconstructed expected tree matched all 26 tracked files byte-for-byte and verified the exact six-path 20-insertion/20-deletion canonical mapping of four molecule dependency URLs/packages/products/modules across Package.swift and five source files; preserved RFC 1123, INCITS 4-1986, and every RFC 5321 identity and semantic surface, introduced no split/new dependency, found zero mapped residuals, and verified unchanged README/metadata/CI, public payload, canonical one-hop Actions, explicit staging, and clean checkout"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified unchanged canonical coordinate swift-ietf/swift-rfc-5321 at expected main 7cb408f24735453c2078ef585d54ac048d4efa26 with GitHub repository ID 1026769984, public visibility, non-archived state, and default branch main; all six future dependencies were exact live ledger-passed commits and no repository rename was required",
+          "fast-forward published exact prepared commit bad82271ada29e0bf753261f0d391084164e03b9 without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main bad82271ada29e0bf753261f0d391084164e03b9 with unchanged repository ID 1026769984, exact coordinate swift-ietf/swift-rfc-5321, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-rfc-5321-publisher institute package resolve --package-path /private/tmp/four-layer-swift-rfc-5321 --argument=--disable-sandbox against the exact live declared dependencies and transitive graph",
+          "Package.resolved was absent before resolution and generated ignored/untracked afterward without editing or committing; two post-resolution checks produced stable SHA-256 47225af6e0a4dfee053319f1e829252320b514ccae89939790e97ffd5b8257a6, exact HEAD bad82271ada29e0bf753261f0d391084164e03b9, and a clean checkout"
+        ]
       }
     },
     {
