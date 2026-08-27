@@ -25791,9 +25791,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit deb0e602f0bebbb5f52124c31cd6bc7f9382b221 on exact live coordinate swift-molecules/swift-set-primitives after the organization cutover",
+          "verified exact future coordinate swift-molecules/swift-set returned HTTP 404 before repository rename",
+          "renamed repository swift-molecules/swift-set-primitives to swift-molecules/swift-set and verified stable GitHub repository ID 1138063826",
+          "updated isolated worktree fetch and push origin to https://github.com/swift-molecules/swift-set.git",
+          "fast-forward published prepared commit cba020f673ff3412f87ffb14f12edda7e9f01c94 without force or history rewrite",
+          "verified live main cba020f673ff3412f87ffb14f12edda7e9f01c94 with unchanged repository ID, public visibility, non-archived state, default branch main, and clean isolated worktree"
         ]
       },
       "state": "ready",
