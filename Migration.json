@@ -9243,8 +9243,12 @@
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-windows-publisher institute package resolve --package-path /private/tmp/four-layer-swift-windows --argument=--disable-sandbox against all ten exact live dependencies including Glob and Windows 32",
+          "prepared HEAD remained 8ffd72c852c1eb11ba4de6312284d040da330f52 and the isolated worktree remained clean in repeated checks",
+          "Package.resolved was absent before resolution and present afterward as untouched ignored generated state with stable SHA-256 9571a6c41fdb429ab8fa020c5ab38e7e732194920681e63289d43a07674855c1"
+        ]
       }
     },
     {
