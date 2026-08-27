@@ -1626,6 +1626,35 @@
    "splits": [],
    "notes": "Adjudication: Source is a native semantic domain (file-qualified source positions, ranges, locations, and a ~Copyable content manager) \u2014 atom. Its Byte and Text dependencies are constitutive (stored-property types of the core structs), so no swift-source-* seam molecules exist; dependency URLs were repointed to their current live swift-atoms coordinates (branch: main). Reshape: (1) deleted umbrella Sources/Source/exports.swift (@_exported Text) and added explicit `public import Text` to Source.Location/Position/Range/Manager (Manager keeps `public import Byte`); (2) moved Source.Location+Codable.swift to new \"Source Standard Library Integration\" target (deps exactly [\"Source\"]) with `public import Source` + `public import Text` added; (3) created seed \"Source Apple Foundation Integration\" target (no Foundation code existed) with the three-line seed file; (4) products now exactly Source / Source Standard Library Integration / Source Apple Foundation Integration; (5) deleted trivial re-export target \"Source Test Support\" (exports.swift re-exporting Source + Text_Test_Support and a one-line file) and its product; in Source Tests replaced `import Source_Test_Support` with `import Text` (tests use Text.Location/Cardinal, not any Text_Test_Support API); test target is \"Source Tests\" deps [\"Source\"]. Residual red (structural pass, expected): SLI target imports Text without a declared target dependency (recipe fixes deps to exactly [\"Source\"]); the retroactive Codable conformance now lives outside Source's module and cannot assign Source.Location stored properties cross-module as written; Source Tests imports Byte and Text without declared target deps (recipe fixes deps to [\"Source\"]); `Cardinal` is referenced in Source.Location.swift and the SLI file with no direct import (previously reached via Text's re-exports). Push to main used the org-admin bypass of the PR/status-check rules (direct pushes to main were authorized by the commission).",
    "completedAt": "2026-08-27T13:22:07Z"
+  },
+  {
+   "package": "swift-cyclic",
+   "repositoryID": 1142827431,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-cyclic",
+   "to": "swift-atoms/swift-cyclic",
+   "shapeCommit": "8a3c05de9a439a0e2e83b5f9e13f265ecc849c84",
+   "dependencies": [
+    "swift-atoms/swift-cardinal",
+    "swift-atoms/swift-ordinal",
+    "swift-atoms/swift-index"
+   ],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-cyclic-tagged",
+     "repositoryID": 1348511960,
+     "commit": "462b501ce7b97e4fd4c036cd75d043a385c6da05",
+     "seam": "Tagged wrapper initializers/arithmetic/inverse over Cyclic.Group.Static.Element (deps swift-tagged, swift-ordinal), plus its test file"
+    },
+    {
+     "successor": "swift-molecules/swift-cyclic-hash",
+     "repositoryID": 1348512124,
+     "commit": "4e27853e57f78a024b6acd0602f6161313b2fdea",
+     "seam": "Cyclic.Group.Static.Element conformance to Hash.`Protocol` (dep swift-hash); stub @Suite test"
+    }
+   ],
+   "notes": "Adjudication: Cyclic is a native semantic domain (cyclic groups: dynamic Cyclic.Group with runtime Modulus, static Cyclic.Group.Static<let N> with Element, arithmetic, errors) \u2014 atom. Reshape: collapsed Cyclic Namespace, Cyclic Group Static, Cyclic Group Static Element, and Cyclic Group into the single Sources/Cyclic module (12 files); deleted all 7 exports.swift umbrella files and the Cyclic Test Support target. Dependencies kept because they are woven into core public API, not integration files: Cardinal (Cyclic.Group.Modulus stores/exposes Cardinal), Ordinal (Element inits take Ordinal positions), Index (Cyclic.Group element indexing in Modulus/Element/Arithmetic). Comparison dep dropped entirely (only referenced by a deleted @_exported umbrella line, no source use). Hash and Tagged deps extracted as molecules. SLI target: outgoing Hash-conformance file moved to swift-cyclic-hash; Tests/Support ExpressibleByIntegerLiteral file moved into \"Cyclic Standard Library Integration\" (stdlib literal conformance). AFI target seeded (no Foundation imports existed). Residual red (structural pass, expected): (1) SLI Literals file uses Ordinal(UInt(...)) but SLI deps are exactly [\"Cyclic\"] and it imports only Cyclic \u2014 needs Ordinal visibility to compile; (2) \"Cyclic Tests\" (deps [\"Cyclic\"]) files use integer literals for Static.Element, whose conformance now lives in SLI, and rely on member visibility formerly provided by umbrellas; (3) molecule test target given \"Cyclic Standard Library Integration\" product for the literal conformance, may still need MemberImportVisibility fixes. Push to protected main succeeded via org-admin bypass (rule-violation bypass notice on push, as established policy allows). Note: dependency repos swift-tagged/swift-ordinal/swift-hash/swift-cardinal/swift-index all resolve at swift-atoms (transferred), so those coordinates were used; swift-cyclic itself referenced at swift-molecules in molecules.",
+   "completedAt": "2026-08-27T13:22:14Z"
   }
  ],
  "successors": [],
