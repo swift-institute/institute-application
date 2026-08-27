@@ -2604,6 +2604,45 @@
    ],
    "notes": "ADJUDICATION: Queue is a native semantic domain (ownership-aware FIFO), so atom despite the implementation being layered over the buffer/storage stack. The irreducible atom is the __Queue<S> store-wrapper struct (init/take, conditional Copyable/Sendable) plus Queue.Error \u2014 dependency-free; every operational surface was integration and moved out. ATOM SHAPE: Sources/Queue = Queue.swift (struct, external imports and ring-backed convenience inits removed) + Queue.Error.swift; Queue+Equatable/Queue+Hashable moved to \"Queue Standard Library Integration\" (stdlib conformances, imports rewritten Queue_Primitive->Queue); \"Queue Apple Foundation Integration\" is a three-line seed (no Foundation code existed). Exactly three products, zero package dependencies. Deleted umbrella exports.swift in Queue, Queue Primitive, and Tests/Support; deleted trivial \"Queue Test Support\" target. \"Queue Tests\" (deps [\"Queue\"]) kept with a new stub round-trip suite since both original test files were seam-specific and moved to swift-queue-buffer-ring. SEAM GROUPING: the recipe's one-molecule-per-dependency-D was infeasible \u2014 every integration file imports 5-10 external modules from one interlocked stack \u2014 so I cut two cohesive seams named for their dominant dependency: swift-queue-storage (protocol layer: swift-storage/swift-buffer protocols + index/affine/ordinal/sequence) and swift-queue-buffer-ring (concrete ring backing: buffer-ring/memory-heap/memory-allocation/memory-small/ownership-shared); the latter's test target depends on the former. DEP COORDINATES: verified live via redirect resolution \u2014 buffer, storage, index, affine, ordinal, sequence, tagged now live at swift-atoms (canonical atom products); buffer-ring, memory-*, ownership-shared remain at swift-molecules with legacy product names, referenced as such. EXPECTED RED (structural pass, deferred): (1) molecule extensions read __Queue.store which is `package`-visible \u2014 cross-package access will not compile until the atom exposes an accessor or the visibility is revisited; (2) moved sources import legacy module names (Buffer_Primitive, Buffer_Protocol, Store_Protocol, Storage_Contiguous, Sequence as Sequenceable owner) that transferred atoms may no longer vend after their own reshapes; manifests reference the current canonical products (Buffer, Storage) instead; (3) Buffer_Test_Support import survives in Queue Tests.swift (moved to buffer-ring molecule) but swift-atoms/swift-buffer no longer vends that product \u2014 residual red reference, no manifest entry; (4) the front-door `public typealias Queue<E>` in module Queue_Buffer_Ring shadows the imported Queue module name. Push to swift-queue main reported org-admin bypass of the PR/ci-ok rule (direct push was expressly authorized). git status clean in all three checkouts.",
    "completedAt": "2026-08-27T16:26:20Z"
+  },
+  {
+   "package": "swift-sample",
+   "repositoryID": 1179869757,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-sample",
+   "to": "swift-atoms/swift-sample",
+   "shapeCommit": "366b5f1485e4f95793e27d5e7f36fbb0c064dcda",
+   "dependencies": [
+    "swift-atoms/swift-witness"
+   ],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-sample-algebra",
+     "repositoryID": 1348698057,
+     "commit": "989764df2e50b275b508638b9e81d493626c7bf3",
+     "seam": "Sample.Accumulator+Monoid.swift \u2014 commutative monoid witness for Sample.Accumulator over Algebra (swift-algebra)"
+    },
+    {
+     "successor": "swift-molecules/swift-sample-order",
+     "repositoryID": 1348698135,
+     "commit": "bef42fc2a04575d8c8326f8618e372aaaff9dae6",
+     "seam": "Sample.Batch ~Copyable.swift \u2014 comparator-driven construction, insertion sort, and borrowing accessors for Sample.Batch over Order (swift-order)"
+    },
+    {
+     "successor": "swift-molecules/swift-sample-comparison",
+     "repositoryID": 1348698218,
+     "commit": "5451a2c13811db94f4e0dcd64528f0dec73273b6",
+     "seam": "Sample.Batch Copyable.swift \u2014 array construction of Sample.Batch defaulting to Comparison.Protocol ascending comparator (swift-comparison, plus swift-order for Order.Comparator)"
+    },
+    {
+     "successor": "swift-molecules/swift-sample-time",
+     "repositoryID": 1348698297,
+     "commit": "ef71f0473835922c53e13a2aae1ce39c292dc102",
+     "seam": "Duration integration over Time (swift-time): Sample.Averaging.duration witness (uses Time's Duration.inSeconds) plus the Element == Duration convenience extensions split out of Sample.Batch+Averaging/+StandardDeviation/+CoefficientOfVariation/+MedianAbsoluteDeviation and Sample.Comparison"
+    }
+   ],
+   "notes": "Adjudication: Sample is a native semantic domain (sampling/statistics primitives: Sample, Accumulator, Averaging, Batch, Comparison, Metric, Polarity, Regression, Trend) \u2014 clear atom. Reshape: collapsed targets Sample Primitive, Sample Averaging, Sample Batch, Sample Accumulator, and umbrella Sample (exports.swift deleted) into single module Sources/Sample via git mv; all Sample_* imports removed. Products now exactly Sample / Sample Standard Library Integration / Sample Apple Foundation Integration. SLI holds real code: the #if !hasFeature(Embedded) Codable conformance extracted from Sample.Metric.swift into Sample.Metric+Codable.swift. AFI is the three-line seed (no Foundation imports existed anywhere). Kept dependency justification: swift-witness \u2014 Sample.Averaging, the domain's central abstraction consumed throughout Batch statistics, is declared as a Witness.`Protocol` conformance with @_exported import; severing it is semantic redesign beyond a structural pass, and extracting Averaging would gut the atom (Metric, Comparison, and four Batch statistics files all consume it). Coordinate updates: all five former deps have transferred to swift-atoms with renamed products, so imports were rewritten Time_Primitive\u2192Time and Algebra_Monoid\u2192Algebra, and molecule manifests use swift-atoms coordinates (swift-sample itself referenced at swift-molecules). Tests: Sample Tests kept with deps [\"Sample\"]; trivial Sample Test Support target (single @_exported re-export) deleted \u2014 test files already import Sample directly; no SLI test files existed; molecule test targets are @Suite stubs. Residual red references (expected, later pass): kept test files use the extracted seams \u2014 Sample.Batch([...]) array init (comparison seam) in Batch/Averaging/Comparison/MAD/CV tests, .duration conveniences (time seam) in MAD/CV tests, .monoid (algebra seam) in Accumulator tests; molecule seam sources reference the atom's internal @usableFromInline storage (_SampleBatchStorage, _storage, _insertionSort), which is not visible across module boundaries \u2014 the atom needs a package-visible construction seam in the semantic pass. swift-sample-comparison carries an extra swift-order dependency because its default init uses Order.Comparator.ascending. Direct push to swift-molecules/swift-sample main used the authorized bypass (repo has PR-only + required-check rules; remote reported rule bypass). All five working trees verified clean; remote heads read back and match the reported SHAs.",
+   "completedAt": "2026-08-27T16:26:29Z"
   }
  ],
  "successors": [],
