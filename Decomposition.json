@@ -2408,6 +2408,30 @@
    "splits": [],
    "notes": "Adjudication: Matrix is a native semantic domain (linear-algebra matrix), default atom disposition applies. The package was a pure namespace reservation: Sources/Matrix/Matrix.swift contains only `public enum Matrix {}` and the sole test target imports only Matrix and Testing. All four declared package dependencies (swift-molecules/swift-linear, swift-vector, swift-dimension, swift-index) were entirely unused \u2014 no source or test file imported Linear, Vector, Dimension, or Index \u2014 so there were no seam targets/files to extract and zero molecule repositories were created; the dependencies were simply removed. Reshape: manifest rewritten to the canonical three-product atom shape matching the swift-atoms/swift-bit exemplar (Matrix, Matrix Standard Library Integration, Matrix Apple Foundation Integration; test target \"Matrix Tests\" deps [\"Matrix\"]; tools-version 6.4, .v27 platforms, swiftLanguageModes [.v6], trailing ecosystem SwiftSetting loop preserved verbatim). No stdlib-integration or Foundation-importing code existed, so both integration targets were created as seed files: \"Sources/Matrix Standard Library Integration/Matrix Standard Library Integration.swift\" (public import Matrix) and \"Sources/Matrix Apple Foundation Integration/Matrix Apple Foundation Integration.swift\" (public import Matrix / public import Matrix_Standard_Library_Integration / public import Foundation). README status line updated to stop claiming the now-removed dependency declarations. No SLI test files existed, so no SLI test target. No residual red references. Working tree verified clean after push; remote reported an org-admin rule bypass on the direct main push (pre-existing repo ruleset; direct pushes were explicitly authorized).",
    "completedAt": "2026-08-27T16:12:20Z"
+  },
+  {
+   "package": "swift-heap",
+   "repositoryID": 1138063543,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-heap",
+   "to": "swift-atoms/swift-heap",
+   "shapeCommit": "2b87220d1d14b30f81f7b41fc741a0a275c08175",
+   "dependencies": [
+    "swift-atoms/swift-buffer \u2014 core __Heap constrains S: Buffer.Protocol and uses swapAt/append surface",
+    "swift-atoms/swift-storage \u2014 core __Heap constrains S: Store.Protocol and uses unshare()/move(at:)",
+    "swift-atoms/swift-comparison \u2014 heap ordering requires Element: Comparison.Protocol (borrowing <)",
+    "swift-atoms/swift-index \u2014 count/subscript API is expressed in Index<Element> and Index.Count"
+   ],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-heap-buffer-linear",
+     "repositoryID": 1348550349,
+     "commit": "26fce692d97a66175cdf43ac718bbdf6c74f9c9f",
+     "seam": "Concrete Heap front door: `Heap<E>` typealias plus init(minimumCapacity:)/push bound to the Buffer<Storage<Memory.Allocator<Resource>>.Contiguous<E>>.Linear column (deps: swift-buffer-linear, swift-memory-allocation, swift-memory-heap), with the DS-024 Seam Ledger test moved along."
+    }
+   ],
+   "notes": "Adjudication: Heap is a native semantic domain \u2014 it owns the min-heap invariant and sift-up/sift-down algorithm \u2014 so atom, not defer. Reshape: collapsed \"Heap Primitive\" into single Sources/Heap module (Heap.swift); deleted all three umbrella exports.swift files and the trivial \"Heap Test Support\" target (Tests/Support/exports.swift); rewrote imports to reshaped atom modules (Buffer_Protocol/Buffer_Primitive\u2192Buffer, Storage_*/Store_Protocol\u2192Storage). Created seed \"Heap Standard Library Integration\" (public import Heap) and \"Heap Apple Foundation Integration\" (three-line seed) \u2014 no stdlib- or Foundation-extending code existed. Products exactly the canonical three. Seam out: Heap.FrontDoor.swift and the concrete-column extension (init/push) moved to swift-heap-buffer-linear (product/target \"Heap Buffer Linear\", module Heap_Buffer_Linear); atom lost swift-buffer-linear, swift-memory-allocation, swift-memory-heap, swift-collection, swift-input, swift-sequence entirely. Dependency coordinates use current live orgs (buffer/comparison/index/storage now in swift-atoms; buffer-linear/memory-* still swift-molecules). Expected red (structural pass, noted, not fixed): (1) kept atom tests (Heap Tests.swift, Heap Differential Tests.swift) construct the concrete `Heap<Int>` front door now living in the molecule \u2014 residual references to the extracted seam; (2) molecule extension calls `siftUp`/`slot`, which are package-visibility in the atom, so cross-package access will not compile as-is; (3) molecule test imports Buffer_Test_Support (Seam.Ledger), a product the reshaped swift-atoms/swift-buffer no longer ships, so no manifest dep could be declared for it; (4) `Ordinal` in the atom is reachable only transitively via swift-index. Pushes to swift-molecules/swift-heap main bypassed the PR/ci-ok rule via authorized direct push (remote reported the bypass).",
+   "completedAt": "2026-08-27T16:12:28Z"
   }
  ],
  "successors": [],
