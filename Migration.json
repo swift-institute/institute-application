@@ -10218,23 +10218,32 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-compositions/swift-webpage",
       "futureLayer": "compositions",
-      "observedHead": "26298a4625f1877ba44ea3cc8c849fcfa6b33e0e",
-      "observedRemote": "https://github.com/swift-foundations/swift-webpage.git",
+      "observedHead": "f79079497b9778d11971a5efbcb46596677e4c1b",
+      "observedRemote": "https://github.com/swift-compositions/swift-webpage.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared exact direct-child cutover commit f79079497b9778d11971a5efbcb46596677e4c1b from expected base 26298a4625f1877ba44ea3cc8c849fcfa6b33e0e in clean isolated worktree /private/tmp/swift-webpage while preserving a pre-existing prunable remediation worktree record untouched",
+          "mechanical four-layer cutover changed only .github/metadata.yaml, Package.swift, and README.md with seven insertions and seven deletions across five composition dependency owners, the repository coordinate, and layer metadata while preserving Apple Foundation imports and all public identities/semantics",
+          "all six live dependency identities/products plus residual identity, active Actions-reference, public-payload, diff, attribution, and Package.resolved preservation checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "repository ID 1217882167 was verified before and after cutover at exact canonical coordinate swift-compositions/swift-webpage with unchanged public visibility, non-archived and enabled state, default branch main, and enabled Actions",
+          "published exact prepared commit f79079497b9778d11971a5efbcb46596677e4c1b as an ordinary fast-forward from 26298a4625f1877ba44ea3cc8c849fcfa6b33e0e to refs/heads/main through the authenticated administrative ruleset bypass; no force push or history rewrite occurred",
+          "coordinator independently reverified exact live main f79079497b9778d11971a5efbcb46596677e4c1b, repository ID 1217882167, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is complete and Package.resolved remained absent twice before and after publication; the repository is queued behind HTML validation and the serialized Institute package-resolution slot"
+        ]
+      },
+      "githubRepositoryID": 1217882167
     },
     {
       "current": "swift-foundations/swift-windows",
