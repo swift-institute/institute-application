@@ -906,6 +906,37 @@
    ],
    "notes": "Adjudication: Direction is a native irreducible semantic domain (signed orientation: positive/negative with opposite, sign, ordering operators) \u2014 atom by default rule; no tooling/standard/relational character. Reshape: Sources/Direction Primitive/Direction.swift git-mv'd to Sources/Direction/Direction.swift; umbrella Sources/Direction/exports.swift deleted; trivial re-export Tests/Support (Direction Test Support target) deleted \u2014 kept test file already imported only Direction. The trailing `extension Direction: Codable {}` (Embedded-guarded) was split out of Direction.swift into Sources/Direction Standard Library Integration/Direction+Codable.swift (public import Direction); the ==/</<=/>/>= operators and hash(into:) remain in the atom as plain domain members (not stdlib-protocol conformances). Apple Foundation Integration created as the three-line seed (no Foundation code existed). Products exactly Direction / Direction Standard Library Integration / Direction Apple Foundation Integration; package dependencies now empty (swift-equation, swift-hash, swift-comparison all removed with their seam targets). Manifest idiom (tools 6.4, .v27 platforms, v6 mode, ecosystem SwiftSetting loop) copied verbatim. Seams: three molecules created, each depending on swift-molecules/swift-direction (branch main) and its counterpart atom at live swift-atoms coordinates (swift-equation/swift-hash/swift-comparison all redirect to swift-atoms \u2014 verified via gh repo view); seam imports rewritten Direction_Primitive -> Direction; no seam-specific test files existed, so each molecule has a stub @Suite test target. Residual red references in kept tests: `Direction - Comparison`.Unit `sorting orders negative first` calls .sorted(), which needed Comparable via the extracted Comparison.Protocol conformance \u2014 expected red in the atom's test target until a later pass. Atom push to main used the authorized direct-push path (remote reported bypassed branch-protection rules: PR requirement + expected ci-ok check). All four working trees verified clean and remote heads read back equal to local HEADs.",
    "completedAt": "2026-08-27T12:42:42Z"
+  },
+  {
+   "package": "swift-coproduct",
+   "repositoryID": 1234454937,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-coproduct",
+   "to": "swift-atoms/swift-coproduct",
+   "shapeCommit": "9c51a0fbd269653bb3441f8314280f721dc0d11d",
+   "dependencies": [],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-coproduct-equation",
+     "repositoryID": 1348474248,
+     "commit": "fcaef0e378c4a463e2d9c765c557523ead46bf03",
+     "seam": "Coproduct: Equation.Protocol conformance (Coproduct+Equation.Protocol.swift) integrating with swift-atoms/swift-equation"
+    },
+    {
+     "successor": "swift-molecules/swift-coproduct-hash",
+     "repositoryID": 1348474339,
+     "commit": "f154faad9a754aefd0e156e3efa0bede4ebebf08",
+     "seam": "Coproduct: Hash.Protocol + Swift.Hashable conformances (Coproduct+Hash.Protocol.swift) integrating with swift-atoms/swift-hash"
+    },
+    {
+     "successor": "swift-molecules/swift-coproduct-comparison",
+     "repositoryID": 1348474431,
+     "commit": "72aaa81d4e1c7738240167ad08aebcdd9652055f",
+     "seam": "Coproduct: Comparison.Protocol conformance (Coproduct+Comparison.Protocol.swift) integrating with swift-atoms/swift-comparison"
+    }
+   ],
+   "notes": "Adjudication: atom \u2014 Coproduct<each Element> is the irreducible native owner of the n-ary coproduct (variadic sum) domain; single existing target, no strata to collapse. Domain X = Coproduct (from product/target \"Coproduct\"). Reshape: dropped all three package deps (swift-equation/swift-hash/swift-comparison, each used only by one conformance file) and deleted their @_exported imports from Coproduct.swift; extracted the three conformance files as seam molecules with imports rewritten to `public import Coproduct` + `public import <D>` (dep coordinates: swift-atoms, since all three redirect there as transferred atoms). The Hashable conformance travels with the hash molecule because it is constrained on Hash.Protocol. SLI target: moved Coproduct+CustomStringConvertible/+Decodable/+Encodable and split the `Codable` and `Swift.Error` retroactive extensions out of Coproduct.swift into new SLI files Coproduct+Codable.swift/Coproduct+Error.swift, each importing Coproduct; note these are now retroactive conformances declared outside the declaring module, and the SLI Codable aggregate depends on Decodable/Encodable in the same module \u2014 structural, may warn/red later. Copyable/Escapable/Sendable/BitwiseCopyable structural conformances stay in the atom. Apple Foundation Integration is a three-line seed (no Foundation imports existed). Test target \"Coproduct Tests\" kept as-is (imports only Coproduct+Testing, no residual references to extracted domains); no SLI test files existed so no SLI test target; molecule tests are stub @Suites. All code remains gated behind #if hasFeature(VariadicEnum) so modules compile to zero symbols on current toolchains, per the package's documented posture. Atom push bypassed branch-protection PR/ci-ok rules via authorized direct push (remote noted the bypass). No build/resolve/test performed per commission. All four working trees verified clean; remote heads read back equal to local SHAs.",
+   "completedAt": "2026-08-27T12:42:50Z"
   }
  ],
  "successors": [],
