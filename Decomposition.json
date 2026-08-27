@@ -5421,6 +5421,15 @@
     "wave": "wave6g",
     "changes": "Migrated the removed Index.Count surface to canonical Cardinal, restored the exact core/AFI/TestSupport product shape, and corrected atom documentation. Foundation only in AFI. Fresh build green; 2 tests green; local Embedded proof blocked upstream in Cardinal.",
     "bookedAt": "2026-08-27T19:52:50Z"
+   },
+   {
+    "repo": "swift-atoms/swift-cyclic",
+    "headSHA": "5d74f09aef564280789e1031e8478a08aefdd945",
+    "build": "green",
+    "test": "green",
+    "wave": "wave6h",
+    "changes": "Repaired arithmetic and index APIs after seam extraction, restored the exact core/AFI/TestSupport product shape, and retained canonical Cardinal, Ordinal, and Index dependencies. Foundation only in AFI. Fresh build green; 46 tests green; local Embedded proof blocked upstream by the host toolchain.",
+    "bookedAt": "2026-08-27T20:02:29Z"
    }
   ]
  }
