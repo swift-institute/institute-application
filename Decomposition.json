@@ -5124,6 +5124,42 @@
     "wave": "tranche0-close+main",
     "changes": "Replaced stale granular Iterator and Index seams with consolidated Iterator plus native Cardinal/Ordinal APIs; repaired difference/hunk behavior, explicit Swift 6 imports, SLI Span iterators, and tests. Exact atom products preserved; Foundation only in AFI. Fresh build green; fresh tests green (124 tests).",
     "bookedAt": "2026-08-27T19:06:42Z"
+   },
+   {
+    "repo": "swift-atoms/swift-index",
+    "headSHA": "e9ae3efa42fb474ac58df54551b572c6dbe70917",
+    "build": "green",
+    "test": "green",
+    "wave": "wave5a-recovered",
+    "changes": "Dependency URLs verified canonical (swift-atoms/swift-ordinal, swift-atoms/swift-tagged; no transfers). Sources unchanged; all red was in Tests. Deleted 'Index Embedded SIL Probe.swift' (subject: '+' arithmetic on Index \u2014 no '+' exists on Tagged or Ordinal anywhere upstream; seam extracted/removed). Deleted 'Index.Offset Tests.swift' (Index.Offset no longer exists in this package or its dependencies). Deleted 'Index.Count.Tests.swift' (experimental Count = Tagged<Tag, Cardinal>; Cardinal is not a dependency of this package). Rewrote 'Index Tests.swift': removed equatable/comparable/hashable co",
+    "bookedAt": "2026-08-27T19:07:32Z"
+   },
+   {
+    "repo": "swift-atoms/swift-hash",
+    "headSHA": "121bb01d5414f36d7e7d7989a349bc9d2906a462",
+    "build": "green",
+    "test": "green",
+    "wave": "wave5a-recovered",
+    "changes": "Dependency URL swift-atoms/swift-tagged verified live (no transfer). Three fixes: (1) Sources/Hash Standard Library Integration/Hash.Protocol+Swift.Span.swift \u2014 conditional Hashable conformance on Span no longer implies Equatable and == cannot be synthesized outside the declaring file; added an explicit @retroactive Equatable extension with same bounds and a manual element-wise ==. (2) Package.swift \u2014 test target 'Hash Tests' gained deps 'Hash Standard Library Integration' and product 'Tagged Standard Library Integration' (test-target deps only; library products untouched), with matching under",
+    "bookedAt": "2026-08-27T19:07:32Z"
+   },
+   {
+    "repo": "swift-atoms/swift-serializer",
+    "headSHA": "4b7e30a9c3d71ecb9ec927093dc25e2e98c7843d",
+    "build": "green",
+    "test": "green",
+    "wave": "wave5a-recovered",
+    "changes": "Dependency URL swift-atoms/swift-either verified canonical via gh api (no change needed). Fixed module-vs-type shadowing in Sources/Serializer Standard Library Integration/Optional+Serializable.swift: 'Serializer.Serializer.Optionally' resolved the first Serializer to the enum type, not the module; changed signature to 'Serializer.Optionally<Wrapped.Serializer>' and body to '.init(Wrapped.serializer)'. Added 'import Either' to Serializer.Filter Tests.swift, Serializer.Map Tests.swift, Serializer.Sequence Tests.swift (MemberImportVisibility: tests pattern-match Either cases and name Either in t",
+    "bookedAt": "2026-08-27T19:07:32Z"
+   },
+   {
+    "repo": "swift-atoms/swift-facet",
+    "headSHA": "8c31d971a62826fefd2e65886ce2005e67e8e017",
+    "build": "green",
+    "test": "green",
+    "wave": "wave5a-recovered",
+    "changes": "Dependency URLs verified canonical (swift-atoms/swift-axis, swift-atoms/swift-direction; no changes needed). Sources/Facet/Facet.swift: import Axis/Direction -> public import (types in public API + @inlinable bodies under InternalImportsByDefault); restored ': Equatable, Hashable, Comparable' conformance clause on the existing operator extension (declarations were lost when the Equation/Hash/Comparison protocol-seam files were deleted in the Phase 2 canonical-shape commit 5cc79c1; matches sibling atom Axis pattern). Sources/Facet Standard Library Integration/Facet+Codable.swift: replaced bare ",
+    "bookedAt": "2026-08-27T19:07:32Z"
    }
   ]
  }
