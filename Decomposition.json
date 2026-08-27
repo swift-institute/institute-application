@@ -806,16 +806,18 @@
   {
    "package": "swift-range",
    "repositoryID": 1139271312,
-   "disposition": "atom",
+   "disposition": "molecule",
    "from": "swift-molecules/swift-range",
-   "to": "swift-atoms/swift-range",
+   "to": "swift-molecules/swift-range",
    "shapeCommit": "504cd9f76df156875ea38bdcbd30132f99b7b736",
    "dependencies": [
     "swift-atoms/swift-property (product Property) \u2014 every domain operation is expressed as a Property<Tag, Swift.Range<Bound>> tagged accessor; extracting it as a seam would leave the atom empty, so it is irreducible to the Range domain API"
    ],
    "splits": [],
    "notes": "Adjudication: atom. swift-range is the ecosystem's native owner of the Range domain \u2014 typed-throws functional operations (forEach/map/filter/reduce/first/contains/allSatisfy/compactMap plus map.bounds) on Swift.Range, one module, no strata targets, no integration seams with any external package other than the irreducible Property mechanism, so there are no molecule splits. Reshape performed at /private/tmp/claude-501/-Users-coen-Developer-coenttb/20dff9a4-b817-42e7-bbc6-9081ab416a17/scratchpad/wave1/swift-range: deleted the umbrella Sources/Range/exports.swift (@_exported public import Property) and added an explicit \"public import Property\" to each of the 8 domain files, which had no import lines and relied on the umbrella leak; added seed targets/products \"Range Standard Library Integration\" (deps [\"Range\"], seed file \"public import Range\") and \"Range Apple Foundation Integration\" (deps [\"Range\", \"Range Standard Library Integration\"], three-line seed importing Range / Range_Standard_Library_Integration / Foundation); products now exactly the canonical three. The Swift.Range extensions remain in the Range module rather than the SLI target because extending Swift.Range IS the domain content here (the package defines no native type); moving them would empty the atom \u2014 noted as a deliberate reading of the SLI rule. Dependency coordinate updated from swift-molecules/swift-property to its current live home swift-atoms/swift-property (branch: \"main\"). Test target \"Range Tests\" kept with deps [\"Range\"]; the test file imports only Range and Testing and uses Property solely through member chains (lenient under MemberImportVisibility) \u2014 possible red spot if the compiler demands an explicit Property import there; not built per commission. Tools-version 6.4, .v27 platforms, swiftLanguageModes [.v6], and the trailing ecosystem SwiftSetting loop preserved verbatim. Single commit \"Adopt canonical atom shape\" pushed direct to origin main (push authorized; remote noted bypassed branch-protection rules); working tree clean.",
-   "completedAt": "2026-08-27T12:30:03Z"
+   "completedAt": "2026-08-27T12:30:03Z",
+   "amendedAt": "2026-08-27T18:40:00Z",
+   "amendment": "Phase 3 tranche 0 frontend-family re-adjudication: demoted atom->molecule per atoms-audit-2026-08-27 (stdlib Range extensions via Property; no native type). Transferred back to swift-molecules with repository ID preserved, head unchanged at 504cd9f76df156875ea38bdcbd30132f99b7b736, OrganizationAdmin ruleset bypass restored post-transfer. No kept atom depends on this package (ledger sweep 2026-08-27)."
   },
   {
    "package": "swift-equation",
@@ -1580,9 +1582,9 @@
   {
    "package": "swift-cursor",
    "repositoryID": 1241776966,
-   "disposition": "atom",
+   "disposition": "molecule",
    "from": "swift-molecules/swift-cursor",
-   "to": "swift-atoms/swift-cursor",
+   "to": "swift-molecules/swift-cursor",
    "shapeCommit": "d409834f194df329d46c351d9cecbca2b07d1778",
    "dependencies": [
     "swift-tagged (Cursor's position field is Tagged<DomainTag, Ordinal>; constitutive of the core type)",
@@ -1591,7 +1593,9 @@
    ],
    "splits": [],
    "notes": "Adjudication: Cursor is a native semantic domain \u2014 a positioned cursor over borrowed storage (Cursor<DomainTag: Ownership.Borrow.Protocol & ~Copyable>: ~Copyable, ~Escapable with a Tagged<DomainTag, Ordinal> position). Its single source file is the domain itself, not an integration, so atom. The three kept dependencies are irreducible: they appear in the type's own generic signature and stored properties, so no seam extraction is possible without emptying the atom. Reshape: collapsed \"Cursor Primitive\" into the single Cursor module (git mv of Cursor.swift); deleted the intra-package umbrella exports.swift in both Cursor Primitive (which @_exported Cardinal/Ordinal/Ownership_Borrow/Tagged) and Cursor (which @_exported Cursor_Primitive); dropped swift-cardinal (referenced only by the deleted umbrella) and swift-index (referenced only by the deleted trivial re-export \"Cursor Test Support\" target at Tests/Support, which no test file imported). Added seed \"Cursor Standard Library Integration\" (deps [\"Cursor\"], file containing exactly \"public import Cursor\") and seed \"Cursor Apple Foundation Integration\" (deps [\"Cursor\", \"Cursor Standard Library Integration\"], three public imports incl. Foundation) since no stdlib-extension or Foundation-importing code existed. Products now exactly Cursor / Cursor Standard Library Integration / Cursor Apple Foundation Integration; test target \"Cursor Tests\" (deps [\"Cursor\"]) kept unchanged; manifest idiom (tools 6.4, .v27 platforms, .v6 language mode, ecosystem SwiftSetting loop) preserved verbatim. Not built or tested per commission. Residual: README.md's module table (lines 62-63 at /private/tmp/claude-501/-Users-coen-Developer-coenttb/20dff9a4-b817-42e7-bbc6-9081ab416a17/scratchpad/wave1/swift-cursor/README.md) still describes the old Cursor Primitive/umbrella layout \u2014 documentation only, left for a later pass to keep the reshape a single commit. Push note: remote reported \"Bypassed rule violations\" (PR requirement + required status check) \u2014 direct push to main was authorized by the commission; no gates were disabled.",
-   "completedAt": "2026-08-27T13:21:52Z"
+   "completedAt": "2026-08-27T13:21:52Z",
+   "amendedAt": "2026-08-27T18:40:00Z",
+   "amendment": "Phase 3 tranche 0 frontend-family re-adjudication: demoted atom->molecule per atoms-audit-2026-08-27 (pure composition of Tagged+Ordinal+Ownership). Transferred back to swift-molecules with repository ID preserved, head unchanged at d409834f194df329d46c351d9cecbca2b07d1778, OrganizationAdmin ruleset bypass restored post-transfer. No kept atom depends on this package (ledger sweep 2026-08-27)."
   },
   {
    "package": "swift-list",
@@ -1615,9 +1619,9 @@
   {
    "package": "swift-source",
    "repositoryID": 1138063850,
-   "disposition": "atom",
+   "disposition": "molecule",
    "from": "swift-molecules/swift-source",
-   "to": "swift-atoms/swift-source",
+   "to": "swift-molecules/swift-source",
    "shapeCommit": "42f412678f36947ddde911cbeb2536df7fe9339b",
    "dependencies": [
     "swift-atoms/swift-byte (product Byte): Source.Manager stores file contents as [[Byte]] and register(content:) takes [Byte]; the domain's content representation, not an integration seam",
@@ -1625,7 +1629,9 @@
    ],
    "splits": [],
    "notes": "Adjudication: Source is a native semantic domain (file-qualified source positions, ranges, locations, and a ~Copyable content manager) \u2014 atom. Its Byte and Text dependencies are constitutive (stored-property types of the core structs), so no swift-source-* seam molecules exist; dependency URLs were repointed to their current live swift-atoms coordinates (branch: main). Reshape: (1) deleted umbrella Sources/Source/exports.swift (@_exported Text) and added explicit `public import Text` to Source.Location/Position/Range/Manager (Manager keeps `public import Byte`); (2) moved Source.Location+Codable.swift to new \"Source Standard Library Integration\" target (deps exactly [\"Source\"]) with `public import Source` + `public import Text` added; (3) created seed \"Source Apple Foundation Integration\" target (no Foundation code existed) with the three-line seed file; (4) products now exactly Source / Source Standard Library Integration / Source Apple Foundation Integration; (5) deleted trivial re-export target \"Source Test Support\" (exports.swift re-exporting Source + Text_Test_Support and a one-line file) and its product; in Source Tests replaced `import Source_Test_Support` with `import Text` (tests use Text.Location/Cardinal, not any Text_Test_Support API); test target is \"Source Tests\" deps [\"Source\"]. Residual red (structural pass, expected): SLI target imports Text without a declared target dependency (recipe fixes deps to exactly [\"Source\"]); the retroactive Codable conformance now lives outside Source's module and cannot assign Source.Location stored properties cross-module as written; Source Tests imports Byte and Text without declared target deps (recipe fixes deps to [\"Source\"]); `Cardinal` is referenced in Source.Location.swift and the SLI file with no direct import (previously reached via Text's re-exports). Push to main used the org-admin bypass of the PR/status-check rules (direct pushes to main were authorized by the commission).",
-   "completedAt": "2026-08-27T13:22:07Z"
+   "completedAt": "2026-08-27T13:22:07Z",
+   "amendedAt": "2026-08-27T18:40:00Z",
+   "amendment": "Phase 3 tranche 0 frontend-family re-adjudication: demoted atom->molecule per atoms-audit-2026-08-27 (specialization of Text by file identity). Transferred back to swift-molecules with repository ID preserved, head unchanged at 42f412678f36947ddde911cbeb2536df7fe9339b, OrganizationAdmin ruleset bypass restored post-transfer. No kept atom depends on this package (ledger sweep 2026-08-27)."
   },
   {
    "package": "swift-cyclic",
@@ -1682,16 +1688,18 @@
   {
    "package": "swift-token",
    "repositoryID": 1138063988,
-   "disposition": "atom",
+   "disposition": "molecule",
    "from": "swift-molecules/swift-token",
-   "to": "swift-atoms/swift-token",
+   "to": "swift-molecules/swift-token",
    "shapeCommit": "de2b5037d07f9ed0cbe9bc2129b5d2a521123947",
    "dependencies": [
     "swift-atoms/swift-text (product Text): Token's core type stores a Text.Range (Sources/Token/Token.swift), so the domain module irreducibly needs Text; URL updated from swift-molecules to its current live swift-atoms coordinate"
    ],
    "splits": [],
    "notes": "Adjudication: Token is a native semantic domain (lexical tokens: Token, Token.Kind, Token.Keyword) \u2014 atom. Already a single domain module; no strata targets to collapse. No file exists to integrate Token with an external package (Text.Range appears only inside the constitutive Token struct), so no seam molecules were extracted. Changes: deleted Sources/Token/exports.swift (umbrella @_exported of Text) and added explicit `public import Text` to Token.swift; deleted trivial re-export test-support target \"Token Test Support\" (Tests/Support/*, product removed) and rewrote test imports from Token_Test_Support to `import Token` (+ `import Text` in Token Tests.swift and Token.Kind Tests.swift, which use Text.Range); added seed targets/files \"Token Standard Library Integration\" (public import Token) and \"Token Apple Foundation Integration\" (three-line seed) \u2014 no stdlib-conformance or Foundation-importing files existed to move. Products now exactly Token / Token Standard Library Integration / Token Apple Foundation Integration; manifest idiom (tools 6.4, .v27 platforms, swiftLanguageModes [.v6], trailing ecosystem SwiftSetting loop) preserved verbatim. Residual red risk: \"Token Tests\" deps are exactly [\"Token\"] per recipe while two test files import Text directly (transitive product, may need explicit dep in the later build pass); nothing from Text_Test_Support was actually used, so it was dropped. Push to main succeeded via authorized direct-push (remote reported bypassed PR/ci-ok branch rules). Working trees verified clean.",
-   "completedAt": "2026-08-27T13:22:29Z"
+   "completedAt": "2026-08-27T13:22:29Z",
+   "amendedAt": "2026-08-27T18:40:00Z",
+   "amendment": "Phase 3 tranche 0 frontend-family re-adjudication: demoted atom->molecule per atoms-audit-2026-08-27 (core stored property is Text.Range; categorized text span). Transferred back to swift-molecules with repository ID preserved, head unchanged at de2b5037d07f9ed0cbe9bc2129b5d2a521123947, OrganizationAdmin ruleset bypass restored post-transfer. No kept atom depends on this package (ledger sweep 2026-08-27)."
   },
   {
    "package": "swift-finite",
@@ -1798,16 +1806,18 @@
   {
    "package": "swift-diagnostic",
    "repositoryID": 1138063379,
-   "disposition": "atom",
+   "disposition": "molecule",
    "from": "swift-molecules/swift-diagnostic",
-   "to": "swift-atoms/swift-diagnostic",
+   "to": "swift-molecules/swift-diagnostic",
    "shapeCommit": "3eb649884c5954a059f934d4db123e389e727cdb",
    "dependencies": [
     "swift-atoms/swift-source (product \"Source\", branch main) \u2014 Diagnostic.Record's stored `location: Source.Location` field is the domain's defining feature (a diagnostic is a located finding, per the package's own README); the atom cannot express Record without it. Coordinate updated from swift-molecules to its current live home swift-atoms."
    ],
    "splits": [],
    "notes": "Adjudication: Diagnostic is a native semantic domain (structured findings: Record, Severity, Severity.Wire) \u2014 atom. Domain X = Diagnostic, derived from existing product/target names. Reshape at /private/tmp/claude-501/-Users-coen-Developer-coenttb/20dff9a4-b817-42e7-bbc6-9081ab416a17/scratchpad/wave1/swift-diagnostic: (1) already a single Sources/Diagnostic module \u2014 no strata to collapse; deleted umbrella Sources/Diagnostic/exports.swift (@_exported public import Source) and added explicit `public import Source` to Diagnostic.Record.swift, the only file using Source. (2) No seam targets/files existed whose purpose was integrating Diagnostic with an external package, so zero molecules created. (3) Created seed targets \"Diagnostic Standard Library Integration\" (seed file `public import Diagnostic`) and \"Diagnostic Apple Foundation Integration\" (three-line seed; no Foundation imports existed anywhere). Stdlib conformances (Codable/Comparable/CaseIterable on Severity; Codable/Hashable on Record; Comparable + CustomStringConvertible extensions on Record) live in the same files as the type declarations, so no whole file qualified for SLI relocation; splitting declaration files was not mandated \u2014 noted as residual conformance content inside the atom module. (4) Products now exactly three. (5) Deleted trivial re-export test-support target \"Diagnostic Test Support\" (Tests/Support) and its product; rewrote test imports: Diagnostic.Record Tests.swift now `import Diagnostic` + `import Source` (uses Source.Location directly \u2014 residual cross-domain reference in a kept test file, and Source is not declared in the test target's deps, which are exactly [\"Diagnostic\"] per recipe; may read red until transitive-module visibility is settled in the later build pass), Diagnostic.Severity.Wire Tests.swift now `import Diagnostic` only. Source_Test_Support dependency dropped entirely (nothing used its members). Manifest idiom (tools 6.4, .v27 platforms, .v6 language mode, trailing ecosystem SwiftSetting loop) preserved verbatim. One commit \"Adopt canonical atom shape\" pushed direct to main (authorized); git status clean. Not built or tested per commission.",
-   "completedAt": "2026-08-27T13:31:46Z"
+   "completedAt": "2026-08-27T13:31:46Z",
+   "amendedAt": "2026-08-27T18:40:00Z",
+   "amendment": "Phase 3 tranche 0 frontend-family re-adjudication: demoted atom->molecule per atoms-audit-2026-08-27 (Record defined by Source.Location; located finding over Source). Transferred back to swift-molecules with repository ID preserved, head unchanged at 3eb649884c5954a059f934d4db123e389e727cdb, OrganizationAdmin ruleset bypass restored post-transfer. No kept atom depends on this package (ledger sweep 2026-08-27)."
   },
   {
    "package": "swift-bitset",
@@ -2131,9 +2141,9 @@
   {
    "package": "swift-lexer",
    "repositoryID": 1138063657,
-   "disposition": "atom",
+   "disposition": "molecule",
    "from": "swift-molecules/swift-lexer",
-   "to": "swift-atoms/swift-lexer",
+   "to": "swift-molecules/swift-lexer",
    "shapeCommit": "0121b8b3be64c7c227f8f45def1e67afa7b56b01",
    "dependencies": [
     "swift-atoms/swift-token (Token) \u2014 Lexer.Lexeme carries Token.Kind and produces Token; keyword lookup extends Token.Keyword; the lexing domain is byte->Token by definition",
@@ -2147,7 +2157,9 @@
    ],
    "splits": [],
    "notes": "Adjudication: atom. Lexer is a native semantic domain (lexical analysis: Lexeme, Trivia, Position, Classify, Scanner, Pull streaming) \u2014 not tooling, not an external standard, and not a mere relator: it owns real semantics. Its dependencies are irreducible vocabulary of that domain, mirroring the precedent of the already-reshaped swift-atoms/swift-cursor atom which keeps Tagged/Ordinal/Ownership deps. No target or file exists solely to integrate Lexer with an external package, so there are zero seam molecules; extracting e.g. Token.Keyword+Lookup would not free the atom of swift-token because Lexeme itself carries Token.Kind. Changes: (1) deleted the intra-package umbrella Sources/Lexer/exports.swift and added explicit file-level imports per file; (2) deleted the trivial re-export test-support target Tests/Support (product \"Lexer Test Support\"; no test file imported it, so no test import rewrites were needed) and with it the \"Token Test Support\" product use; (3) rewrote stale product/module coordinates to current live shapes: Cursor_Primitive->Cursor, Span_Protocol->Span (\"Span Protocol\" product gone), dropped swift-memory (\"Memory Primitive\" product gone upstream and no Memory.* usage in sources), added explicit swift-text and swift-affine (previously reached only transitively); dependency URLs updated to live orgs (swift-atoms for seven, swift-memory-cursor still swift-molecules); (4) products now exactly Lexer / Lexer Standard Library Integration / Lexer Apple Foundation Integration; (5) SLI target holds Lexer.Position+CustomStringConvertible.swift (extension moved out of Sources/Lexer/Lexer.Position.swift); AFI target is the three-line seed (no Foundation imports existed anywhere); (6) manifest keeps tools-version 6.4, .v27 platforms, swiftLanguageModes [.v6], and the verbatim trailing ecosystem SwiftSetting loop. Residual red (deliberate, later pass): Lexer Tests deps are exactly [\"Lexer\"] but test files reference Token.Kind, Byte, Text.Count/Line, Cardinal, and Span construction, which under MemberImportVisibility will need explicit imports/deps once building resumes; SLI's description body reads Text.Location members with only \"public import Lexer\" (expression-position access, expected lenient); exact public/internal import levels in Sources/Lexer are best-effort pending the compile pass. Push to protected main succeeded via the authorized org-admin bypass (rule-violation notice recorded: PR requirement and required check \"ci / matrix / ci-ok\" bypassed). git status clean in /private/tmp/claude-501/-Users-coen-Developer-coenttb/20dff9a4-b817-42e7-bbc6-9081ab416a17/scratchpad/wave1/swift-lexer; no other directories touched.",
-   "completedAt": "2026-08-27T13:42:36Z"
+   "completedAt": "2026-08-27T13:42:36Z",
+   "amendedAt": "2026-08-27T18:40:00Z",
+   "amendment": "Phase 3 tranche 0 frontend-family re-adjudication: demoted atom->molecule per atoms-audit-2026-08-27 (byte/text-to-token pipeline; also erases the atom edge to swift-memory-cursor). Transferred back to swift-molecules with repository ID preserved, head unchanged at 0121b8b3be64c7c227f8f45def1e67afa7b56b01, OrganizationAdmin ruleset bypass restored post-transfer. No kept atom depends on this package (ledger sweep 2026-08-27)."
   },
   {
    "package": "swift-path",
@@ -2768,9 +2780,9 @@
   {
    "package": "swift-layout",
    "repositoryID": 1132373494,
-   "disposition": "atom",
+   "disposition": "molecule",
    "from": "swift-molecules/swift-layout",
-   "to": "swift-atoms/swift-layout",
+   "to": "swift-molecules/swift-layout",
    "shapeCommit": "acb64140bed897f92556c4eefd64b9cd9c991e08",
    "dependencies": [
     "swift-atoms/swift-axis \u2014 Layout.Stack stores Axis<2> as its axis property and Axis+Layout.swift names its 2D cases horizontal/vertical",
@@ -2786,7 +2798,9 @@
     }
    ],
    "notes": "Adjudication: Layout is a native semantic domain (Stack, Flow, Grid, Line/Line.Box, Alignment, Corner, Cross, Direction own real behavior), so atom, not defer. It is intrinsically expressed in geometric vocabulary: the core enum is parameterized over Geometry and the alignment types hang off Dimension's Horizontal/Vertical, so axis/dimension/geometry are irreducible and kept (all three re-pointed to their current live swift-atoms coordinates; they redirect from swift-molecules anyway). Package was already a single Layout module \u2014 no strata to collapse, no umbrella exports.swift existed. Seam extracted: only the trailing `extension Boundary.Corner` block of Sources/Layout/Corner.swift (plus its `public import Boundary` line) moved to swift-molecules/swift-layout-boundary as Sources/Layout Boundary/Boundary.Corner+Layout.swift; the atom lost swift-boundary entirely. The Horizontal(_:direction:) and Vertical(_:) side-conversion inits it calls remain public in the atom's Corner.swift (they are Dimension-vocabulary, and Dimension is kept). Molecule depends on swift-molecules/swift-layout, swift-atoms/swift-boundary, swift-atoms/swift-dimension; no seam-specific tests existed, so a stub @Suite test target was created. SLI/AFI: no file in the package is a whole-file stdlib or Foundation integration (stdlib conformances like Codable/CaseIterable are declared inline on the domain type declarations or interleaved in domain files), so both targets were created as seed files per the recipe (\"Layout Standard Library Integration.swift\" = `public import Layout`; AFI seed = the three-line idiom). Tests: trivial re-export target \"Layout Test Support\" (@_exported Dimension_Test_Support + Layout) and its product were deleted; the three `import Layout_Test_Support` lines were removed from Layout.Flow/Grid/Grid.Lazy tests \u2014 the TestLayout/TestSpace/TestGeometry fixtures they use are defined locally in Tests/Layout Tests/TestSpacing.swift, but if any symbol came from Dimension_Test_Support those files will be red until the later build pass (noted residual risk). Deviation from the literal \"X Tests deps [X]\": test files directly `import Axis` and `@testable import Dimension/Geometry`, so those three kept products were added to the Layout Tests target \u2014 no new package dependencies introduced. Atom push to main bypassed the repo's PR/status-check rules via existing authorization (remote reported the bypass); no force-push, history intact. Both working trees verified clean.",
-   "completedAt": "2026-08-27T16:33:02Z"
+   "completedAt": "2026-08-27T16:33:02Z",
+   "amendedAt": "2026-08-27T18:40:00Z",
+   "amendment": "Phase 3 tranche 0 frontend-family re-adjudication: demoted atom->molecule per atoms-audit-2026-08-27 (specialization over Geometry/Dimension/Axis). Transferred back to swift-molecules with repository ID preserved, head unchanged at acb64140bed897f92556c4eefd64b9cd9c991e08, OrganizationAdmin ruleset bypass restored post-transfer. No kept atom depends on this package (ledger sweep 2026-08-27)."
   },
   {
    "package": "swift-parser",
@@ -3117,9 +3131,9 @@
   {
    "package": "swift-test",
    "repositoryID": 1132374017,
-   "disposition": "atom",
+   "disposition": "molecule",
    "from": "swift-molecules/swift-test",
-   "to": "swift-atoms/swift-test",
+   "to": "swift-molecules/swift-test",
    "shapeCommit": "bac08c0a06ad1bae22bb36c6fd56cb825cac9d1b",
    "dependencies": [
     "swift-tagged \u2014 Test.Case/Expectation/Expression IDs and Test.Event.Kind are defined as Tagged typealiases (plus Tagged SLI for Kind's string-literal extension); core representation, not integration",
@@ -3133,7 +3147,9 @@
    ],
    "splits": [],
    "notes": "Adjudication: Test is a native semantic domain (test identity, events, expectations, issues, benchmarks, snapshot testing), not tooling or an external standard \u2014 atom. Reshape: collapsed Test Core + Test Snapshot + umbrella Test into single Sources/Test (git mv, 51 files); deleted five intra-package umbrella exports.swift files (Test Core, Test Snapshot, Test, Test SLI, Tests/Support); kept existing Test Standard Library Integration target (Bool/tuple CaseIterable retroactive conformances) with deps exactly [\"Test\"]; created seed Sources/Test Apple Foundation Integration (no source file imported Foundation \u2014 matches were doc comments only). Products now exactly Test / Test Standard Library Integration / Test Apple Foundation Integration. Seams: none extracted \u2014 no target or file exists to integrate Test with an external package; all nine former strata deps except swift-time are load-bearing in core type definitions (listed in dependenciesKept). Dropped: swift-time (only its umbrella re-export referenced it; no Time identifier used anywhere) and product \"Tagged Test Support\" (only re-exported by the deleted Tests/Support/exports.swift; no test uses Tagged symbols). Test Test Support target was NOT a trivial re-export (real .stub factory helpers), so its file moved into the \"Test Tests\" target as a plain helper (public import Test -> import Test) rather than surviving as a fourth product; import Test_Test_Support rewritten to import Test in 18 test files. CaseIterable Tests.swift moved to new \"Test Standard Library Integration Tests\" (deps [\"Test\", \"Test Standard Library Integration\"]). \"Test Tests\" deps are [\"Test\", Byte] \u2014 4 test files import Byte directly, and swift-byte is a kept package dep, so the product was retained on the test target (deviation from the bare [\"X\"] prescription, noted). Residual red risk (pre-existing, untouched): many Sources/Test files use Tagged/Source/Sample types without per-file import lines (they previously leaned on strata umbrella re-exports); with exports.swift files deleted and MemberImportVisibility/InternalImportsByDefault on, per-file imports will be needed in a later red-fix pass. Push to main reported \"Bypassed rule violations\" (PR requirement + expected ci-ok check) \u2014 direct push was explicitly authorized; no gate was disabled. Working tree verified clean. Checkout: /private/tmp/claude-501/-Users-coen-Developer-coenttb/20dff9a4-b817-42e7-bbc6-9081ab416a17/scratchpad/wave2/swift-test.",
-   "completedAt": "2026-08-27T16:54:36Z"
+   "completedAt": "2026-08-27T16:54:36Z",
+   "amendedAt": "2026-08-27T18:40:00Z",
+   "amendment": "Phase 3 tranche 0 frontend-family re-adjudication: demoted atom->molecule per atoms-audit-2026-08-27 (composition of 8 domains; demoted whole rather than slimmed (slim core would still embed Source.Location, itself demoted)). Transferred back to swift-molecules with repository ID preserved, head unchanged at bac08c0a06ad1bae22bb36c6fd56cb825cac9d1b, OrganizationAdmin ruleset bypass restored post-transfer. No kept atom depends on this package (ledger sweep 2026-08-27)."
   },
   {
    "package": "swift-pool",
@@ -4285,11 +4301,71 @@
   "completedAt": "2026-08-27T16:56:14Z",
   "sealedInventory": 209,
   "dispositions": {
-   "atom": 112,
-   "molecule": 96,
+   "atom": 104,
+   "molecule": 104,
    "developer-tool": 1
   },
   "seamMoleculesCreated": 190,
   "notes": "All 209 sealed swift-molecules packages have exactly one disposition. Atoms transferred to swift-atoms with stable repository IDs and canonical three-product shape; swift-x packages whose substrate is irreducibly molecular stay in swift-molecules as molecules-in-place; swift-linter took the developer-tool exception to swift-institute. Compile/test convergence, coordinate canonicalization, atom-to-molecule edge reconciliation (see concerns), and molecule certification are the next bottom-up pass."
+ },
+ "convergence": {
+  "startedAt": "2026-08-27T18:40:00Z",
+  "bar": "package resolves, builds, and greens its tests at a verified head before booking",
+  "tranche0": {
+   "demotions": {
+    "swift-source": {
+     "newHome": "swift-molecules/swift-source",
+     "headSHA": "42f412678f36947ddde911cbeb2536df7fe9339b",
+     "transferredAt": "2026-08-27T18:30:00Z",
+     "rulesetBypassRestored": true
+    },
+    "swift-token": {
+     "newHome": "swift-molecules/swift-token",
+     "headSHA": "de2b5037d07f9ed0cbe9bc2129b5d2a521123947",
+     "transferredAt": "2026-08-27T18:30:00Z",
+     "rulesetBypassRestored": true
+    },
+    "swift-diagnostic": {
+     "newHome": "swift-molecules/swift-diagnostic",
+     "headSHA": "3eb649884c5954a059f934d4db123e389e727cdb",
+     "transferredAt": "2026-08-27T18:30:00Z",
+     "rulesetBypassRestored": true
+    },
+    "swift-lexer": {
+     "newHome": "swift-molecules/swift-lexer",
+     "headSHA": "0121b8b3be64c7c227f8f45def1e67afa7b56b01",
+     "transferredAt": "2026-08-27T18:30:00Z",
+     "rulesetBypassRestored": true
+    },
+    "swift-test": {
+     "newHome": "swift-molecules/swift-test",
+     "headSHA": "bac08c0a06ad1bae22bb36c6fd56cb825cac9d1b",
+     "transferredAt": "2026-08-27T18:30:00Z",
+     "rulesetBypassRestored": true
+    },
+    "swift-range": {
+     "newHome": "swift-molecules/swift-range",
+     "headSHA": "504cd9f76df156875ea38bdcbd30132f99b7b736",
+     "transferredAt": "2026-08-27T18:30:00Z",
+     "rulesetBypassRestored": true
+    },
+    "swift-layout": {
+     "newHome": "swift-molecules/swift-layout",
+     "headSHA": "acb64140bed897f92556c4eefd64b9cd9c991e08",
+     "transferredAt": "2026-08-27T18:30:00Z",
+     "rulesetBypassRestored": true
+    },
+    "swift-cursor": {
+     "newHome": "swift-molecules/swift-cursor",
+     "headSHA": "d409834f194df329d46c351d9cecbca2b07d1778",
+     "transferredAt": "2026-08-27T18:30:00Z",
+     "rulesetBypassRestored": true
+    }
+   },
+   "orgCensusAfterDemotions": {
+    "swift-atoms": 104
+   }
+  },
+  "packages": []
  }
 }
