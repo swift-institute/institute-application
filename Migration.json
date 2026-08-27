@@ -2194,19 +2194,27 @@
       "observedHead": "db33d59b42f7bfaefe86e6576f718c6e2cf6f0ea",
       "observedRemote": "https://github.com/swift-foundations/swift-environment.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit ec44a3b8dca552c364f06d3d202179856ddb35e9 from expected parent db33d59b42f7bfaefe86e6576f718c6e2cf6f0ea in isolated worktree /private/tmp/four-layer-swift-environment",
+          "deterministic audit verified the exact four-path, 23-file-preserving foundation-to-composition mapping of Kernel and Strings URLs, README owner, metadata topic, and two String module qualifiers; live dependencies/products/modules, zero mapped residuals, public payload, active Actions, human commit identity, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified canonical post-organization coordinate swift-compositions/swift-environment at expected main db33d59b42f7bfaefe86e6576f718c6e2cf6f0ea with GitHub repository ID 906140742, public visibility, non-archived state, and default branch main; no repository rename was required",
+          "set fetch and push origins to https://github.com/swift-compositions/swift-environment.git and fast-forward published exact prepared commit ec44a3b8dca552c364f06d3d202179856ddb35e9 without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main ec44a3b8dca552c364f06d3d202179856ddb35e9 with unchanged repository ID 906140742, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-environment-publisher institute package resolve --package-path /private/tmp/four-layer-swift-environment --argument=--disable-sandbox against live Kernel and Strings plus their published graph",
+          "post-resolution verification found exact HEAD ec44a3b8dca552c364f06d3d202179856ddb35e9, a clean checkout, and untouched generated Package.resolved with stable SHA-256 8bde249e11ea621bb4ba79adb6075908953bef0e2c9c4823e62023ac8bfa54c7"
+        ]
       }
     },
     {
