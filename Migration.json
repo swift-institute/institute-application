@@ -3759,20 +3759,28 @@
       "observedHead": "c379ea777585039eb0d25798f4c4fd35c4554d23",
       "observedRemote": "https://github.com/swift-foundations/swift-http-redirect.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit c8f540667ea08655eb7d5d83d92e06d894137a62 from exact parent c379ea777585039eb0d25798f4c4fd35c4554d23 in clean identity-compatible isolated worktree /private/tmp/http-redirect-composition-root/swift-http-redirect; the original checkout remained clean and untouched",
+          "audited all 10 tracked paths and made the exact 3-path, 3-insertion/3-deletion mechanical cutover across Package.swift, README, and metadata, mapping the Server dependency and self coordinate to compositions while preserving RFC 6797, HTTP Standard, and all owned package, product, target, module, path, and public semantics; residual, staged-tree, ancestry, identity, and canonical Actions checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-http-redirect as canonical with stable GitHub repository ID 1144635529, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; the completed organization rename had already established the coordinate, so no repository rename was needed",
+          "JIT reverified all three declared dependency coordinates and exact heads immediately before ordinary fast-forward publication of exact direct child c8f540667ea08655eb7d5d83d92e06d894137a62 without force or history rewrite",
+          "coordinator verified exact live main c8f540667ea08655eb7d5d83d92e06d894137a62 with unchanged repository ID 1144635529, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is complete and Package.resolved was absent twice immediately before preparation; the repository is queued behind the serialized Institute package-resolution slot after measured shared SwiftPM-cache contention"
+        ]
+      },
+      "githubRepositoryID": 1144635529
     },
     {
       "current": "swift-foundations/swift-http-session",
