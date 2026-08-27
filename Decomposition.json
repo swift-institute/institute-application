@@ -3113,6 +3113,27 @@
    "splits": [],
    "notes": "Outer-loop adjudication (substrate rule): canonical internal shape adopted, but Machine.Program/Node/Builder are definitionally Graph.Sequential-shaped and swift-graph itself stayed a molecule; stays in swift-molecules. Lane notes: Adjudication: Machine is a native semantic domain (typed program-graph machine: values, captures, transforms, combines, next/finalize combinators, frames, nodes, programs, builder) -> atom. Twelve internal strata targets (Machine Primitive/Value/Capture/Transform/Combine/Next/Finalize/Frame/Node/Program/Convenience plus umbrella Machine) collapsed via git mv into the single Sources/Machine module;",
    "completedAt": "2026-08-27T16:47:02Z"
+  },
+  {
+   "package": "swift-test",
+   "repositoryID": 1132374017,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-test",
+   "to": "swift-atoms/swift-test",
+   "shapeCommit": "bac08c0a06ad1bae22bb36c6fd56cb825cac9d1b",
+   "dependencies": [
+    "swift-tagged \u2014 Test.Case/Expectation/Expression IDs and Test.Event.Kind are defined as Tagged typealiases (plus Tagged SLI for Kind's string-literal extension); core representation, not integration",
+    "swift-source \u2014 Source.Location is an embedded field of Test.ID, Test.Issue, Test.Trait, Test.Expression",
+    "swift-sample \u2014 Benchmark complexity fitting, measurement statistics, and Mann-Kendall trend are built on Sample",
+    "swift-numeric \u2014 Real powers Benchmark.Complexity.Class curve evaluation and evidence computation",
+    "swift-async \u2014 Async.Callback is the stored type of Test.Snapshot.Strategy.snapshot; part of the strategy's shape",
+    "swift-sequence \u2014 Sequence.Difference.diff is the diff engine of Test.Snapshot line/styled diffing",
+    "swift-witness \u2014 Test.Snapshot.Strategy is declared as Witness.`Protocol`; definitional",
+    "swift-byte \u2014 Test.Attachment.bytes is [Byte] and Snapshot.Diffing serializes to [Byte] (plus Byte SLI for .underlying in the text strategy); core representation"
+   ],
+   "splits": [],
+   "notes": "Adjudication: Test is a native semantic domain (test identity, events, expectations, issues, benchmarks, snapshot testing), not tooling or an external standard \u2014 atom. Reshape: collapsed Test Core + Test Snapshot + umbrella Test into single Sources/Test (git mv, 51 files); deleted five intra-package umbrella exports.swift files (Test Core, Test Snapshot, Test, Test SLI, Tests/Support); kept existing Test Standard Library Integration target (Bool/tuple CaseIterable retroactive conformances) with deps exactly [\"Test\"]; created seed Sources/Test Apple Foundation Integration (no source file imported Foundation \u2014 matches were doc comments only). Products now exactly Test / Test Standard Library Integration / Test Apple Foundation Integration. Seams: none extracted \u2014 no target or file exists to integrate Test with an external package; all nine former strata deps except swift-time are load-bearing in core type definitions (listed in dependenciesKept). Dropped: swift-time (only its umbrella re-export referenced it; no Time identifier used anywhere) and product \"Tagged Test Support\" (only re-exported by the deleted Tests/Support/exports.swift; no test uses Tagged symbols). Test Test Support target was NOT a trivial re-export (real .stub factory helpers), so its file moved into the \"Test Tests\" target as a plain helper (public import Test -> import Test) rather than surviving as a fourth product; import Test_Test_Support rewritten to import Test in 18 test files. CaseIterable Tests.swift moved to new \"Test Standard Library Integration Tests\" (deps [\"Test\", \"Test Standard Library Integration\"]). \"Test Tests\" deps are [\"Test\", Byte] \u2014 4 test files import Byte directly, and swift-byte is a kept package dep, so the product was retained on the test target (deviation from the bare [\"X\"] prescription, noted). Residual red risk (pre-existing, untouched): many Sources/Test files use Tagged/Source/Sample types without per-file import lines (they previously leaned on strata umbrella re-exports); with exports.swift files deleted and MemberImportVisibility/InternalImportsByDefault on, per-file imports will be needed in a later red-fix pass. Push to main reported \"Bypassed rule violations\" (PR requirement + expected ci-ok check) \u2014 direct push was explicitly authorized; no gate was disabled. Working tree verified clean. Checkout: /private/tmp/claude-501/-Users-coen-Developer-coenttb/20dff9a4-b817-42e7-bbc6-9081ab416a17/scratchpad/wave2/swift-test.",
+   "completedAt": "2026-08-27T16:54:36Z"
   }
  ],
  "successors": [],
