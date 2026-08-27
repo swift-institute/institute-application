@@ -4037,20 +4037,31 @@
       "observedHead": "e0f01c2cd1079d7f96a6e4a5ed89e2c8124e2146",
       "observedRemote": "https://github.com/swift-foundations/swift-ip-address.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit c305c0f63fc2099dbef44afae73fe93afdb616aa from expected parent e0f01c2cd1079d7f96a6e4a5ed89e2c8124e2146 in isolated worktree /private/tmp/four-layer-swift-ip-address",
+          "the exact two-path mechanical foundation-to-composition transformation changed only the README installation owner and metadata layer topic with two insertions and two deletions; manifest dependencies/products, all swift-ip-address package/product/target/module/source/test identities and paths, public semantics, and the dependency set remained unchanged",
+          "both IPv4 Standard and IPv6 Standard were ledger-passed and freshly exact-live with products verified; the full committed-tree residual, canonical Actions, explicit staging, human-identity, Package.resolved-absence, and clean-worktree gates passed with no split or new dependency"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled both old and new API paths to exact canonical coordinate swift-compositions/swift-ip-address with stable GitHub repository ID 1217845994, public visibility, non-archived state, default branch main, and expected live base e0f01c2cd1079d7f96a6e4a5ed89e2c8124e2146; the organization cutover had already moved the repository so no repository rename was required",
+          "fast-forward published exact direct child c305c0f63fc2099dbef44afae73fe93afdb616aa to main through the configured administrator ruleset bypass without force or history rewrite",
+          "verified live main c305c0f63fc2099dbef44afae73fe93afdb616aa with unchanged repository ID 1217845994, exact canonical coordinate, public visibility, non-archived state, default branch main, and deliberate final origins"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-ip-address-publisher institute package resolve --package-path /private/tmp/four-layer-swift-ip-address --argument=--disable-sandbox",
+          "HEAD remained c305c0f63fc2099dbef44afae73fe93afdb616aa and the isolated worktree remained clean",
+          "Package.resolved was absent before resolution and present afterward only as ignored generated state with stable SHA-256 3968f6637ee170580cbfed4f161186bd3eabe2dec6b66efc2c9ea6d7bc1036c8"
+        ]
+      },
+      "githubRepositoryID": 1217845994
     },
     {
       "current": "swift-foundations/swift-json",
