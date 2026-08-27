@@ -30205,20 +30205,31 @@
       "observedHead": "e81bed3af2efde504256b8da36a5e903e3572dbc",
       "observedRemote": "https://github.com/swift-standards/swift-media-type-standard.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified no-change preparation at exact existing commit e81bed3af2efde504256b8da36a5e903e3572dbc in clean isolated worktree /private/tmp/four-layer-swift-media-type-standard; no empty or invented commit was created",
+          "audited all ten committed paths and proved Package.swift, three source/export files, test, README, metadata, workflow, and remaining payload already used exact canonical RFC 2045 and RFC 9110 URLs/packages/products/modules, canonical Actions, and unchanged Media Type Standard package/product/target/path/public identities",
+          "zero old-owner/reservation/-primitives/plural-Primitives residuals or public payload issues were present; Foundation-free wording correctly describes architectural/system-framework semantics and was preserved, while Package.resolved was absent before resolution"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified unchanged coordinate swift-standards/swift-media-type-standard at exact live main e81bed3af2efde504256b8da36a5e903e3572dbc with GitHub repository ID 1307557375, public visibility, non-archived state, default branch main, and canonical clone URL",
+          "no repository rename, content commit, or push was required because the complete committed tree already matched the canonical four-layer mapping",
+          "coordinator independently reverified unchanged live main e81bed3af2efde504256b8da36a5e903e3572dbc with stable repository ID 1307557375 and exact coordinate, visibility, archive state, default branch, URL, and both dependency heads"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-media-type-standard-publisher institute package resolve --package-path /private/tmp/four-layer-swift-media-type-standard --argument=--disable-sandbox against exact live RFC 2045 head c870376957cfb552b74d71e6a34100347314e215 and RFC 9110 head e3300b59e0735755c403ee4cfeaf4877eacedbea",
+          "coordinator reverified unchanged exact live main e81bed3af2efde504256b8da36a5e903e3572dbc with GitHub repository ID 1307557375, public visibility, non-archived state, and default branch main",
+          "HEAD and both origins remained exact and canonical and the isolated checkout remained clean; Package.resolved was absent before resolution and present afterward only as ignored untracked generated state with stable SHA-256 6039116c9ebc94277295c226c178ea2ae7f3beee6cb85f26780162aed33d36d6"
+        ]
+      },
+      "githubRepositoryID": 1307557375
     },
     {
       "current": "swift-standards/swift-pdf-standard",
