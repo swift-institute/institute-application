@@ -7704,13 +7704,18 @@
       "observedHead": "4c56e9d2cf072e7d5e75ccf7bb92cca3642c00a0",
       "observedRemote": "https://github.com/swift-foundations/swift-synchronizers.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit 7c33761280ad96f88a5213aa6fb4fc2a0dd12dba from expected parent 4c56e9d2cf072e7d5e75ccf7bb92cca3642c00a0 in isolated worktree /private/tmp/four-layer-swift-synchronizers",
+          "deterministic audit verified the exact three-path foundation-to-composition mapping of the Kernel dependency URL, metadata topic, four-layer README classification, and mapped swift-async identity; live Kernel and Kernel Test Support products, legitimate semantic primitive prose and external identities, zero stale owner mappings, public payload, active Actions, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified canonical post-organization coordinate swift-compositions/swift-synchronizers at expected main 4c56e9d2cf072e7d5e75ccf7bb92cca3642c00a0 with GitHub repository ID 1257228541, public visibility, non-archived state, and default branch main; no repository rename was required",
+          "set fetch and push origins to https://github.com/swift-compositions/swift-synchronizers.git and fast-forward published exact prepared commit 7c33761280ad96f88a5213aa6fb4fc2a0dd12dba without force or history rewrite using the configured administrator ruleset bypass",
+          "verified live main 7c33761280ad96f88a5213aa6fb4fc2a0dd12dba with unchanged repository ID 1257228541, public visibility, non-archived state, default branch main, final origins, and clean isolated worktree"
         ]
       },
       "state": "ready",
