@@ -487,6 +487,25 @@
    "splits": [],
    "notes": "Adjudication: Render is a native semantic domain (structured-document rendering machine: Render.View protocol, result builder, semantic block/inline/list model, rendering machine/context) with zero external package dependencies and zero Foundation imports \u2014 clear atom. Reshape: collapsed \"Render Primitive\" (29 files) into the single Render module via git mv; deleted the umbrella Sources/Render/exports.swift (@_exported Render_Primitive). Moved Optional+Render.swift and Array+Render.swift (stdlib Optional/Array conformances to Render.View) into \"Render Standard Library Integration\" with `public import Render` added. \"Render Apple Foundation Integration\" created as the three-line seed file (no Foundation-importing code existed). Products exactly the canonical three. Tests: the \"Render Test Support\" target/product was deleted; its support file (Recording context, Equatable test conformances, TextLeaf/BlockWrapper helpers, render()/buildContent()) was substantive, so it was folded into the \"Render Tests\" test target directory rather than discarded; `import Render_Test_Support` lines removed from all test files. Previously unregistered Tests/Testing snapshot and performance test files were folded into \"Render Tests\" as well. Residual red references: \"Render Tests\" depends only on [\"Render\"], but Composition/Snapshot/Performance/Builder tests exercise Optional/Array view conformances now living in Render Standard Library Integration; also `extension Never: Render.View` remains in Sources/Render/Render.View.swift because the atom's associatedtype Body machinery irreducibly requires it. Not built or tested per commission. Push to main succeeded via rule bypass (direct pushes authorized by the brief); no force-push, history intact. git status clean.",
    "completedAt": "2026-08-27T12:10:43Z"
+  },
+  {
+   "package": "swift-terminal",
+   "repositoryID": 1132373987,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-terminal",
+   "to": "swift-atoms/swift-terminal",
+   "shapeCommit": "dd0af40a4507ec7d43fa7551c733ff380e75050b",
+   "dependencies": [],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-terminal-error",
+     "repositoryID": 1348445859,
+     "commit": "d8a7b316135f0de84059db2d70c9512a517e1bd5",
+     "seam": "Terminal.Error typed-error family (Error, Operation, Underlying) whose Underlying case payloads wrap swift-error's Error.Error"
+    }
+   ],
+   "notes": "Adjudication: Terminal is a native semantic domain (terminal streams, modes, size, raw/keyboard/mouse/screen/paste state machine types), so atom. Reshape: collapsed \"Terminal Primitive\" (18 files, incl. the empty Terminal.Backend.swift, preserved) into Sources/Terminal via git mv; deleted the umbrella Sources/Terminal/exports.swift and the trivial re-export test-support target Tests/Support (no test file imported it \u2014 tests already import Terminal directly). Rewrote the one `@testable import Terminal_Primitive` in Terminal.Stream.Tests.swift to `@testable import Terminal`. No file in the domain imports Foundation and none is a pure stdlib-extension file (Stream's CaseIterable etc. are declaration-site conformances), so both \"Terminal Standard Library Integration\" and \"Terminal Apple Foundation Integration\" are seed files. Seam: the entire former \"Terminal Error\" target moved to swift-molecules/swift-terminal-error \u2014 Terminal.Error.Underlying.swift imports Error (swift-error), and Terminal.Error.swift/Operation.swift are inseparable from it (stored property `underlying: Underlying`, description switches over Error.Error payloads); no atom source or test references Terminal.Error, so the atom loses the dependency cleanly with no red references. Molecule deps at current live coordinates: swift-molecules/swift-terminal (Terminal) and swift-atoms/swift-error (verified: swift-molecules/swift-error redirects to swift-atoms/swift-error, same repo id 1138063468); seam had no dedicated tests, so a stub @Suite was added. dependenciesKept is empty \u2014 swift-error left with the seam. Nothing was built or tested per commission. Push to main bypassed the PR/ci-ok branch rules via authorized direct push (remote noted the bypass). Trees at /private/tmp/claude-501/-Users-coen-Developer-coenttb/20dff9a4-b817-42e7-bbc6-9081ab416a17/scratchpad/wave1/{swift-terminal,swift-terminal-error} both verified clean.",
+   "completedAt": "2026-08-27T12:14:32Z"
   }
  ],
  "successors": [],
