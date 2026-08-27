@@ -24784,19 +24784,27 @@
       "observedHead": "0050c77673a5bd10cd6ee8bf0f682df4ab4afbdf",
       "observedRemote": "https://github.com/swift-primitives/swift-pool-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit b7031cf9973eb0f5bfbe874c65d5badd9324c333 from expected parent 0050c77673a5bd10cd6ee8bf0f682df4ab4afbdf in isolated worktree /private/tmp/four-layer-swift-pool",
+          "deterministic full-tree audit verified 73 changed paths with 340 insertions/340 deletions, all owner/suffix/path mappings, the exact 19 dependency URLs and 26 live products/packages/modules/imports, test path, README, and metadata cutover, preserved 20 legitimate singular Primitive identities, unchanged workflow, zero mapped residuals, public payload, human commit identity, clean checkout, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified old coordinate swift-molecules/swift-pool-primitives at expected main 0050c77673a5bd10cd6ee8bf0f682df4ab4afbdf with GitHub repository ID 1132373809, public visibility, non-archived state, and default branch main, then renamed it to exact destination swift-molecules/swift-pool",
+          "verified the same GitHub repository ID 1132373809 at swift-molecules/swift-pool, set fetch and push origins to the final HTTPS URL, and fast-forward published exact prepared commit b7031cf9973eb0f5bfbe874c65d5badd9324c333 without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified exact canonical coordinate swift-molecules/swift-pool at live main b7031cf9973eb0f5bfbe874c65d5badd9324c333 with unchanged repository ID 1132373809, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-pool-publisher institute package resolve --package-path /private/tmp/four-layer-swift-pool --argument=--disable-sandbox against all 19 exact live declared dependencies and transitive graph",
+          "post-resolution verification found exact HEAD b7031cf9973eb0f5bfbe874c65d5badd9324c333, a clean checkout, and untouched generated Package.resolved with stable SHA-256 87ca79a1d8cd098c0f74af478dda7950215c3ea80b20081e12c2054bb6ceda26"
+        ]
       }
     },
     {
