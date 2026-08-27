@@ -251,6 +251,25 @@
    "dependencies": [],
    "splits": [],
    "completedAt": "2026-08-27T11:47:18Z"
+  },
+  {
+   "package": "swift-bit",
+   "repositoryID": 1132373283,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-bit",
+   "to": "swift-atoms/swift-bit",
+   "shapeCommit": "dc6a041cf52114ca43fd5102f40898f619043686",
+   "dependencies": [],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-bit-hash",
+     "repositoryID": 1348430328,
+     "commit": "73a1cac6d9c1ff8814625a98a8a50393c6b0853a",
+     "seam": "Bit: Hash.Protocol conformance (sole external dependency swift-hash)"
+    }
+   ],
+   "notes": "Bit Primitive + Bit Pattern collapsed into Bit; Bit Test Support product/target removed (trivial re-export)",
+   "completedAt": "2026-08-27T11:52:49Z"
   }
  ],
  "successors": [],
