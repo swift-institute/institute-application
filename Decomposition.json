@@ -3054,6 +3054,39 @@
    ],
    "notes": "Adjudication: Async is a native semantic domain (structured-concurrency primitives: Async namespace, Callback, Cancellation, Continuation, Demand, Lifecycle, Precedence, Mutex, Promise, Publication, Completion) -> atom. Eleven dependency-free strata targets collapsed into the single Async module; all 18 external package dependencies eliminated from the atom (dependenciesKept empty). Five dependency-bearing targets plus one transitively-bound target extracted as subdomain-named molecules (single external D does not exist here; each seam target weaves a mesh of collection/memory packages, so molecules are named by the seam target, keeping product \"Async <D>\"/module Async_<D> per the X D pattern). Atom shape: products exactly Async / Async Standard Library Integration / Async Apple Foundation Integration; both integration targets are seed files (no stdlib-extension or Foundation-importing code existed); manifest idiom (tools 6.4, .v27, .v6, ecosystem SwiftSetting loop incl. RawLayout, needed by Async.Mutex @_rawLayout) copied verbatim. Async.Mutex retains a canImport(Kernel_Thread)-guarded @_exported import Kernel_Thread branch \u2014 conditional, no manifest dep, left as-is. Tests: atom keeps \"Async Tests\" (Async/Core/Callback/Cancellation/Demand/Publication files, Async_Test_Support imports rewritten to Async); trivial re-export target \"Async Test Support\" and undeclared \"Tests/Testing/Async Performance Tests\" dir deleted from atom, perf files distributed to channel (Benchmark/Bounded/Unbounded) and broadcast (Broadcast.swift) molecules; barrier has a stub @Suite. Import rewrites in molecules: Async_<merged-stratum> -> Async, exports.swift rewritten to `@_exported public import Async`, and dependency modules re-pointed at current live products: Buffer_Primitive->Buffer (swift-atoms/swift-buffer), Storage_Contiguous->Storage, Queue_Primitive->Queue, Ownership_Slot->Ownership (those atoms collapsed their strata; old product names no longer exist). Molecule manifests reference current live coordinates: swift-atoms for buffer/storage/hash/index/queue/deque/tagged/ownership/either/pair, swift-molecules for buffer-ring/buffer-linear/memory-allocation/memory-heap/dictionary/dictionary-ordered/hash-table/column. Residual red (expected, later pass): atom's kept test files still reference extracted domains (Async Tests.swift touches Async.Channel; Async.Core Tests.swift has Barrier/Semaphore/Waiter suites); molecule test files may still use helpers formerly re-exported from Buffer/Queue/Tagged Test Support products (not re-added); duplicate `import Async` lines with mixed access levels may remain in a few semaphore files; broadcast perf test references Benchmark.iterations now living in the channel molecule (its own local Benchmark suite absent). Atom push to swift-molecules/swift-async main was a direct push (authorized) that bypassed the repo's PR/CI branch rule per remote notice; no CI gate was disabled. No build/resolve/test was run per commission.",
    "completedAt": "2026-08-27T16:46:40Z"
+  },
+  {
+   "package": "swift-version",
+   "repositoryID": 1237035717,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-version",
+   "to": "swift-atoms/swift-version",
+   "shapeCommit": "1a145ac715342cfa901e989df8df46786642c42c",
+   "dependencies": [
+    "swift-tagged (swift-atoms) \u2014 Major/Minor/Patch .Value are Tagged<_, UInt> typealiases used as stored property types of the core Semantic/Tools structs; removing it requires an API redesign out of scope for a structural pass"
+   ],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-version-parser",
+     "repositoryID": 1348721375,
+     "commit": "280cc9fae0f66546ff6fb2890f28ec8b86f7bda8",
+     "seam": "Textual parsing/serialization stack (swift-parser, swift-serializer, swift-byte-parser, swift-ascii, swift-ascii-parser, swift-text): Semantic/Tools Parser+Serializer+Parseable, Error types, parsing inits, description conformances"
+    },
+    {
+     "successor": "swift-molecules/swift-version-time",
+     "repositoryID": 1348721472,
+     "commit": "02575ec73dec54534ca2f54ef6adfe99954383d6",
+     "seam": "CalVer integration with swift-time: entire Version.Calendar family (core enum stores Time.Year/Time.Month) incl. its Parser/Serializer/Parseable/Codable/DebugDescription/Error/Micro"
+    },
+    {
+     "successor": "swift-molecules/swift-version-carrier",
+     "repositoryID": 1348721550,
+     "commit": "560dd3ffe9af87c6e25c761ea95cdde28413d519",
+     "seam": "Carrier.Protocol conformances for Semantic, Tools, Calendar (depends on swift-version-time for Calendar)"
+    }
+   ],
+   "notes": "ADJUDICATION: atom. Version (SemVer core, tools-version, generic Range/Set algebra) is a native semantic domain, not tooling or a mere relator; the heavy dependency list was integration machinery, all extractable as seams. SEAM GROUPING JUDGMENT: the parser/serializer/byte-parser/ascii stack was extracted as ONE molecule (swift-version-parser) rather than one-per-D because the conformances span it inseparably (LosslessStringConvertible needs both parse and description; Parseable references the Parser types); splitting would force molecule-on-molecule deps inside a single integration surface. The whole Version.Calendar family went to swift-version-time because Time types are stored in its core enum. ATOM SHAPE: Sources/Version (Tagged only), Version Standard Library Integration (received Semantic/Tools+Codable, Range+SwiftRange, Range/Bound/Set/Phase+Description from the domain target; kept the two ExpressibleByStringLiteral files; exports.swift deleted), Version Apple Foundation Integration (seed file \u2014 no Foundation imports existed anywhere in sources); exactly three products; tests split into Version Tests and Version Standard Library Integration Tests. SURGERY: init(parsing:), position/countDots helpers, description, CustomStringConvertible/LosslessStringConvertible conformances were cut verbatim from Version.Semantic.swift and Version.Tools.swift into new Version.Semantic+Parsing.swift / Version.Tools+Parsing.swift in the parser molecule; Semantic.Error/Tools.Error moved there too (they are parse-grammar errors carrying Text.Range payloads, letting the atom drop swift-text and swift-ordinal). TWO COMMITS on swift-version main, not one: 1cf0a2af62cf1f736c0b835c1b3eb76f94e075ae \"Adopt canonical atom shape\" then 1a145ac715342cfa901e989df8df46786642c42c \"Delete umbrella exports file\" (a Sources/Version/exports.swift re-exporting Carrier/Tagged surfaced after the first push; force-push forbidden, so a follow-up commit). Pushes to main tripped bypassed branch-protection notices (direct push was authorized; no gate disabled). RESIDUAL RED (later pass): SLI Codable/ExpressibleByStringLiteral files reference init(parsing:)/description/Error now living in swift-version-parser (recipe pins these files to SLI with deps exactly [\"Version\"]); atom test files Version.Semantic Tests / Version.Tools Tests keep parsing/description references (~43/16 sites); SLI Description/Codable tests reference molecule-owned description (Codable tests also import Foundation); pre-existing MemberImportVisibility looseness (e.g. Bumped.swift uses Tagged .underlying without import) left untouched; Semantic+Parseable retains pre-existing odd qualifier Version.Version.Semantic.Parser. Molecule dep coordinates resolved live via gh api redirect: ascii/byte/carrier/ordinal/parser/serializer/tagged/text/time are swift-atoms; ascii-parser/byte-parser/version are swift-molecules.",
+   "completedAt": "2026-08-27T16:46:48Z"
   }
  ],
  "successors": [],
