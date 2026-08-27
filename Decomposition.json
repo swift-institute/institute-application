@@ -5795,6 +5795,60 @@
     "wave": "wave7i",
     "changes": "Canonicalized Numeric and Pair to their atom owners and retained genuine Numeric.Sign.Value and Numeric.Ternary.Value Pair aliases, adding missing Ternary coverage and the explicit Pair import required by member-import visibility. Fresh build green; 2 tests green.",
     "bookedAt": "2026-08-27T21:25:59Z"
+   },
+   {
+    "repo": "swift-molecules/swift-order-pair",
+    "headSHA": "2314cb25f9dcc87605387b682eb0ce6fdebd69b8",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7j",
+    "changes": "Canonicalized Order to its atom owner and retained the genuine Order.Monotonicity.Value Pair alias, widening payload support to Pair's noncopyable/nonescapable surface and replacing empty coverage with case, identity, and noncopyable tests. Fresh build green; 4 tests green.",
+    "bookedAt": "2026-08-27T21:29:14Z"
+   },
+   {
+    "repo": "swift-molecules/swift-ordinal-carrier",
+    "headSHA": "3ebab736afa168f388d30803088c29fb7904719a",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7j",
+    "changes": "Canonicalized Ordinal to its atom owner and retained the genuine retroactive Ordinal Carrier.Protocol conformance, adding explicit direct dependencies/imports plus concrete and generic Carrier round-trip coverage. Fresh build green; 3 tests green.",
+    "bookedAt": "2026-08-27T21:29:14Z"
+   },
+   {
+    "repo": "swift-molecules/swift-ordinal-comparison",
+    "headSHA": "82eea3f4811da6f356f6258cb366703f383469c3",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7j",
+    "changes": "Canonicalized Ordinal to its atom owner and retained the genuine retroactive Comparison.Protocol/Comparable conformance absent from the atom, adding direct Comparison test wiring and generic less/equal/greater proof. Fresh build and test green, warning-free.",
+    "bookedAt": "2026-08-27T21:29:14Z"
+   },
+   {
+    "repo": "swift-molecules/swift-ordinal-equation",
+    "headSHA": "72bd13b6a8ec6c1ada82e812f094b09b779f3402",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7j",
+    "changes": "Canonicalized Ordinal to its atom owner and retained the genuine retroactive Equation.Protocol/Equatable conformance absent from the atom, re-exporting owners with focused protocol/equality/inequality coverage. Fresh build green; 3 tests green.",
+    "bookedAt": "2026-08-27T21:32:26Z"
+   },
+   {
+    "repo": "swift-molecules/swift-ownership-tagged",
+    "headSHA": "327b2249cc2f98ae2dec6ffff79cc2609f62dd80",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7j",
+    "changes": "Canonicalized Ownership to its atom owner and retained the genuine retroactive Tagged Ownership.Borrow.Protocol conformance, documenting direct forwarding of Underlying.Borrowed and compile-proving the tagged Borrowed identity. Fresh build and test green.",
+    "bookedAt": "2026-08-27T21:32:26Z"
+   },
+   {
+    "repo": "swift-molecules/swift-package-tagged",
+    "headSHA": "2690a4eb50950344620fbcfcdc6d451ec3644c18",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7j",
+    "changes": "Canonicalized Package to its atom owner and retained the genuine Package, Product, and Target Tagged string aliases, moving Tagged SLI to test-only scope, narrowing public imports, and covering the permissive alias contract. Fresh build green; 15 tests green.",
+    "bookedAt": "2026-08-27T21:32:26Z"
    }
   ]
  }
