@@ -31377,20 +31377,29 @@
       "observedHead": "5692a7f22a6eccf80bb71a31c6042f7ed035bf79",
       "observedRemote": "https://github.com/swift-whatwg/swift-whatwg-url.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared human-authored direct-child commit d52c309ece832e609f2a9379dd39ff1b397d3c61 from expected parent 5692a7f22a6eccf80bb71a31c6042f7ed035bf79 in clean isolated worktree /private/tmp/four-layer-swift-whatwg-url-root with subject Prepare WHATWG URL for the four-layer cutover",
+          "the complete fifty-five-path tree was audited and the exact twenty-path, fifty-two-insertion/fifty-two-deletion mechanical transformation mapped ASCII, ASCII Parser, ASCII Serializer, Binary, Byte Parser, and Parser dependency repositories/packages/products/modules/imports from primitive identities to exact suffix-free molecules in Package.swift, thirteen WHATWG URL source files, three WHATWG Form URL Encoded source files, and three tests",
+          "all WHATWG URL and WHATWG Form URL Encoded package/product/target/path/public semantics and the five authority/standard dependencies were preserved; all eleven future dependencies were ledger-passed and freshly exact-live with referenced products verified, qualified Parser.Parser.Protocol matched existing migrated consumers, and full residual/public-payload/Actions/staging/direct-parent/human-identity checks passed with Package.resolved absent"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified unchanged coordinate swift-whatwg/swift-whatwg-url, GitHub repository ID 1095108073, public visibility, non-archived state, default branch main, canonical clone URL, and exact expected live parent 5692a7f22a6eccf80bb71a31c6042f7ed035bf79 immediately before publication; no rename was required",
+          "fast-forward published exact direct child d52c309ece832e609f2a9379dd39ff1b397d3c61 to main through the configured administrator ruleset bypass without force or history rewrite",
+          "coordinator verified exact live main d52c309ece832e609f2a9379dd39ff1b397d3c61 with unchanged repository ID 1095108073, exact coordinate, public visibility, non-archived state, default branch main, canonical origins, and a clean isolated worktree"
         ]
       },
       "state": "ready",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is durably booked before the sole package-resolution gate"
+        ]
+      },
+      "githubRepositoryID": 1095108073
     }
   ],
   "decompositionQueue": [
