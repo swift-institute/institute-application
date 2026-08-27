@@ -30632,20 +30632,31 @@
       "observedHead": "f4c78306188831ca5ecd9b0617fc84753836818f",
       "observedRemote": "https://github.com/swift-standards/swift-uri-standard.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit 2079289b10ce4052f1de55f82d894c21717f1f13 from expected parent f4c78306188831ca5ecd9b0617fc84753836818f in isolated worktree /private/tmp/four-layer-swift-uri-standard",
+          "the full sixteen-path committed tree was audited; Package.swift, sources, tests, public package/product/target identities, canonical RFC 3986 and RFC 3987 dependencies/modules, and Actions were already canonical, while the sole stale README swift-foundations/swift-uri Foundation integration reference was mechanically mapped to swift-compositions/swift-uri Composition integration",
+          "the exact one-path change was one insertion and one deletion with no source, test, workflow, metadata, or public semantic change; residual, public-payload, staged, direct-parent, and human-identity checks passed, and Package.resolved was absent before preparation"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified unchanged coordinate swift-standards/swift-uri-standard, GitHub repository ID 1099560346, public visibility, non-archived state, default branch main, canonical clone URL, and exact expected live parent f4c78306188831ca5ecd9b0617fc84753836818f immediately before publication; no rename was required",
+          "fast-forward published exact direct child 2079289b10ce4052f1de55f82d894c21717f1f13 to main through the configured administrator ruleset bypass without force or history rewrite",
+          "coordinator independently reverified exact live main 2079289b10ce4052f1de55f82d894c21717f1f13 with unchanged repository ID 1099560346, exact coordinate, public visibility, non-archived state, default branch main, and canonical URL"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-uri-standard-publisher institute package resolve --package-path /private/tmp/four-layer-swift-uri-standard --argument=--disable-sandbox against the exact live RFC 3986 and RFC 3987 dependencies",
+          "coordinator reverified exact live main 2079289b10ce4052f1de55f82d894c21717f1f13 with unchanged GitHub repository ID 1099560346, public visibility, non-archived state, and default branch main",
+          "HEAD and both origins remained exact and canonical and the isolated checkout remained clean; Package.resolved was absent before resolution and present afterward only as ignored untracked generated state with stable SHA-256 e6d6df1e7e57a7b3fb93cd2a354e7e0d9b8e8bcb355d147a3e05969eb8c1f91f"
+        ]
+      },
+      "githubRepositoryID": 1099560346
     },
     {
       "current": "swift-standards/swift-xcode-standard",
@@ -31227,11 +31238,14 @@
           "deliberately set both origins to the canonical final URL and coordinator reverified live main 23723dba8ca3cd6536f1104fb8f40508eac7d4cf with unchanged repository ID 963492258, exact coordinate, public visibility, non-archived state, and default branch main"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "publication is durably booked before the sole package-resolution gate"
+          "publication was durably booked before the sole package-resolution gate",
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-whatwg-html-root institute package resolve --package-path /private/tmp/four-layer-swift-whatwg-html-root/swift-whatwg-html --argument=--disable-sandbox against all seven exact live direct dependencies and their canonical transitive graph",
+          "coordinator reverified exact live main 23723dba8ca3cd6536f1104fb8f40508eac7d4cf with unchanged GitHub repository ID 963492258, public visibility, non-archived state, and default branch main",
+          "HEAD remained 23723dba8ca3cd6536f1104fb8f40508eac7d4cf, both origins remained the canonical final URL, and the isolated worktree remained clean; Package.resolved was absent before resolution and present afterward only as ignored untracked generated state with stable SHA-256 0914172a6eaf72ac2993529b587a309c724e61114627d9f846e04617f9a9ec4c"
         ]
       },
       "githubRepositoryID": 963492258
