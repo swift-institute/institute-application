@@ -25801,10 +25801,15 @@
           "verified live main cba020f673ff3412f87ffb14f12edda7e9f01c94 with unchanged repository ID, public visibility, non-archived state, default branch main, and clean isolated worktree"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-set at live published commit cba020f673ff3412f87ffb14f12edda7e9f01c94",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-set-root institute package resolve --package-path /private/tmp/four-layer-swift-set --argument=--disable-sandbox",
+          "resolution exited 0 against all eleven live molecule dependencies and their transitive graph",
+          "HEAD unchanged; tracked worktree clean; Package.resolved changed from absent to ignored uncommitted generated state and stabilized at SHA-256 60c9ac656bc62ca7144d03a66df49a8e1bde79f336eaa94492153a3ae7fe1a46"
+        ]
       }
     },
     {
