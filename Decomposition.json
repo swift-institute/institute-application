@@ -4997,6 +4997,24 @@
     "wave": "wave4+chains",
     "changes": "Converged red main: head b8262e2 failed under MemberImportVisibility because Tagged members (init(_unchecked:), underlying) were used without importing Tagged; added public import Tagged to Sources/Linear/Linear+Arithmetic.swift and Linear.Vector.swift and added swift-atoms/swift-tagged as a dependency. Restored the Phase 2 angle/polar/rotation surface from swift-molecules/swift-linear-numeric into Sources/Linear/Linear.Vector+Angle.swift (Vector angle/unit(at:)/polar/angle(to:)/signedAngle/rotated over Radian and Degree) and Sources/Linear/Linear.Matrix+Rotation.swift (2x2 Matrix rotation(Rad",
     "bookedAt": "2026-08-27T18:10:41Z"
+   },
+   {
+    "repo": "swift-atoms/swift-affine",
+    "headSHA": "6c657044d141c8addc5876aaa5a194e3045b8fcc",
+    "build": "green",
+    "test": "green",
+    "wave": "tranche0-unblock-1",
+    "changes": "Absorbed Affine.Continuous content from swift-affine-geometry into the Affine atom; restored required native vector, ratio, region, rotation, and explicit Codable surfaces; canonical products preserved; fresh build green and 115 tests in 37 suites passed. Donor swift-affine-geometry was tombstoned separately at daf8180f8d06bd92342bdf4ae8ea561ed38db207.",
+    "bookedAt": "2026-08-27T18:41:59Z"
+   },
+   {
+    "repo": "swift-atoms/swift-iterator",
+    "headSHA": "91f620edc90954fb187017183a33011417d2c662",
+    "build": "green",
+    "test": "green",
+    "wave": "tranche0-unblock-1",
+    "changes": "Removed obsolete Carrier and Cardinal-SLI seams, converged chunk APIs on native Cardinal, repaired span bookkeeping and consolidated-target shadowing; canonical three-product atom shape preserved and Foundation only in AFI. Fresh build green; fresh tests green (19 tests).",
+    "bookedAt": "2026-08-27T18:41:59Z"
    }
   ]
  }
