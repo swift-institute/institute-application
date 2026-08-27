@@ -6025,19 +6025,27 @@
       "observedHead": "50b88137406b69cce22c120c80f561d746cdfe29",
       "observedRemote": "https://github.com/swift-foundations/swift-pdf-render.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit 7d224e1628af21fb9aa85cf34fb042898435cdbe from expected parent 50b88137406b69cce22c120c80f561d746cdfe29 in isolated worktree /private/tmp/four-layer-swift-pdf-render",
+          "deterministic full-tree equivalence audit verified exact 38-path and 80-insertion/80-deletion owner/dependency mapping, all 11 canonical dependency URLs/products/packages/modules/imports, preserved owned swift-pdf-render and PDF Rendering identities/paths, metadata composition and README self URL, zero old-owner/plural-suffix residuals, public payload, unchanged Actions, human commit identity, clean checkout, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified canonical post-organization coordinate swift-compositions/swift-pdf-render at expected main 50b88137406b69cce22c120c80f561d746cdfe29 with GitHub repository ID 1116787945, public visibility, non-archived state, and default branch main; no repository rename was required",
+          "set fetch and push origins to https://github.com/swift-compositions/swift-pdf-render.git and fast-forward published exact prepared commit 7d224e1628af21fb9aa85cf34fb042898435cdbe without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main 7d224e1628af21fb9aa85cf34fb042898435cdbe with unchanged repository ID 1116787945, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-pdf-render-publisher institute package resolve --package-path /private/tmp/four-layer-swift-pdf-render --argument=--disable-sandbox against all 11 exact live declared dependencies and transitive graph",
+          "post-resolution verification found exact HEAD 7d224e1628af21fb9aa85cf34fb042898435cdbe, a clean checkout, and untouched generated Package.resolved with stable SHA-256 df9738e8f1968f51674bede023a856e742afa15db2f00fa7a49fd41e5757dab2"
+        ]
       }
     },
     {
