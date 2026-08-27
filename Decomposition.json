@@ -2039,6 +2039,33 @@
    "splits": [],
    "notes": "Adjudication: atom. Link is the native owner of intrusive link-topology semantics (Link<let N: Int>, Link.Header, Link.Node/__LinkNode, append/prepend/unlink/insert/forEach). Index is its vocabulary, not an integration seam \u2014 no file exists to bridge Link to an external domain, so no swift-link-* molecules were created. Coordinate updated to swift-atoms/swift-index (repo already transferred; old swift-molecules URL redirects). Dropped dependency: swift-vector \u2014 imported in __LinkNode.swift and Link+Topology.swift but no Vector symbol used (InlineArray is stdlib); imports and package dependency deleted. Deleted umbrellas: Sources/Link/exports.swift (@_exported Index/Vector) and the trivial re-export test-support target Tests/Support (\"Link Test Support\" product removed). Test files' `import Link_Test_Support` rewritten to `import Index` + `import Link`. Added seed targets/files \"Link Standard Library Integration\" (public import Link) and \"Link Apple Foundation Integration\" (three-line seed); products now exactly Link / Link Standard Library Integration / Link Apple Foundation Integration. Manifest keeps tools-version 6.4, .v27 platforms, swiftLanguageModes [.v6], and the verbatim trailing ecosystem SwiftSetting loop. Residual red risk (not build-verified per brief): \"Tests/Link Tests/Link+Topology Tests.swift\" and \"Link.Node Tests.swift\" use Ordinal and Index(_unchecked:)/Index.Offset \u2014 Ordinal lives in swift-ordinal (a dependency of swift-index's Index target, not re-exported under atom rules), so an `import Ordinal` plus a manifest product reference may be needed once builds run; also `Index<Tag> = 99` integer-literal sentinels depend on ExpressibleByIntegerLiteral now housed in Index's own SLI target. Test target deps are [\"Link\", Index] rather than bare [\"Link\"] because test files reference Index directly. git status clean in /private/tmp/claude-501/-Users-coen-Developer-coenttb/20dff9a4-b817-42e7-bbc6-9081ab416a17/scratchpad/wave1/swift-link.",
    "completedAt": "2026-08-27T13:42:05Z"
+  },
+  {
+   "package": "swift-growth",
+   "repositoryID": 1259220792,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-growth",
+   "to": "swift-atoms/swift-growth",
+   "shapeCommit": "150abab1e6d19336d94963404c347182bf57e842",
+   "dependencies": [
+    "swift-atoms/swift-index (product Index): Growth.Policy's entire representation and API currency is Index<Element>.Count \u2014 the closure type, capacity(from:), and both native policies (doubling, exact) are defined over it; removing it guts the domain."
+   ],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-growth-affine",
+     "repositoryID": 1348531340,
+     "commit": "a082b914afcec7feaa56c04192576cd439041a03",
+     "seam": "Growth.Policy.factor(_:) \u2014 ratio-scaled growth policy integrating Affine.Discrete.Ratio"
+    },
+    {
+     "successor": "swift-molecules/swift-growth-memory",
+     "repositoryID": 1348531475,
+     "commit": "830513e862b53b31f17a4eb4e7b5c3b5a5f855b1",
+     "seam": "Growth.Policy.paged(_:) \u2014 alignment-paged growth policy integrating Memory.Alignment, plus its edge-case test"
+    }
+   ],
+   "notes": "Adjudication: Growth (capacity growth policies) is a native semantic domain owning Growth, Growth.Growable, Growth.Policy \u2014 atom by default; nothing suggests tooling, external standard, or pure relator. Reshape: package had a single Growth target plus a trivial re-export \"Growth Test Support\" target; no strata targets to collapse. Deleted umbrella Sources/Growth/exports.swift (@_exported Index) and Tests/Support/exports.swift; deleted the \"Growth Test Support\" product/target and rewrote the test file's import Growth_Test_Support to import Growth + import Index (Index_Test_Support was never actually used). Seams out: factor(_:) to swift-growth-affine (module Growth_Affine) and paged(_:) with its test to swift-growth-memory (module Growth_Memory); atom lost swift-affine and swift-memory entirely (the unused \"Memory Standard Library Integration\" product dep dropped with it). Added seed \"Growth Standard Library Integration\" and \"Growth Apple Foundation Integration\" targets (no stdlib-conformance or Foundation-importing code existed); products now exactly the canonical three. Manifest idiom (tools 6.4, .v27, .v6, ecosystem+RawLayout settings loop) preserved verbatim in atom and molecules. Deviation: two commits on the atom instead of one \u2014 after the reshape push I found swift-index/affine/memory were already transferred to swift-atoms (swift-molecules names redirect), so a follow-up commit repointed the kept swift-index dependency to its live swift-atoms coordinates (amend/force-push forbidden). Molecule deps use live coordinates: swift-atoms for affine/memory/index, swift-molecules for swift-growth itself. Expected red (structural pass, nothing built): Growth.Policy.init is package-access, so both molecules' factory methods cannot call Self { ... } cross-package until the atom exposes a public/inlinable construction seam; test files import Index transitively without explicit target deps (kept test target deps are exactly [\"Growth\"] per recipe), which MemberImportVisibility may flag. No residual references to extracted domains remain in kept atom sources or tests.",
+   "completedAt": "2026-08-27T13:42:13Z"
   }
  ],
  "successors": [],
