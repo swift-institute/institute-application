@@ -978,20 +978,29 @@
       "observedHead": "2281ca8ef7c2b744a4fad79ac9f3c33f26798653",
       "observedRemote": "https://github.com/swift-foundations/swift-clocks-dependencies.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit 5da94978737e33708742014f1f27c6e718ebdae3 from exact parent 2281ca8ef7c2b744a4fad79ac9f3c33f26798653 in clean isolated worktree /private/tmp/four-layer-swift-clocks-dependencies with subject Move clock dependencies to the four-layer graph; the original checkout was observed and not touched",
+          "audited all 12 tracked paths and made the exact five-path, eight-insertion/eight-deletion mechanical transformation across Package.swift, README, metadata, sources, and tests, moving Dependencies/self coordinates and mapping Clock package/product/module to the canonical four-layer graph while preserving public semantics, target/path structure, and canonical Actions; residual, payload, staged-tree, ancestry, and identity checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-clocks-dependencies as canonical with stable GitHub repository ID 1299567516, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; no repository rename was needed",
+          "JIT verified Dependencies and Clock at their exact passed live heads and required products, then ordinary fast-forward published exact direct child 5da94978737e33708742014f1f27c6e718ebdae3 without force or history rewrite",
+          "coordinator independently verified exact live main 5da94978737e33708742014f1f27c6e718ebdae3 with unchanged repository ID 1299567516, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, and a clean tracked checkout"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-clocks-dependencies-publisher institute package resolve --package-path /private/tmp/four-layer-swift-clocks-dependencies --argument=--disable-sandbox against exact live Dependencies and Clock plus canonical transitives; no build, test, compilation, raw SwiftPM, dump-package, or manifest evaluation was invoked",
+          "Package.resolved was absent before resolution and present afterward only as ignored untracked generated state, never edited/deleted/staged/committed, with stable twice-observed SHA-256 4c16ba75f010f9b664b25bf74d3fe5035d16cc1c920d167171d300bb0a0a07d5; final live identity/SHA and clean tracked checkout were reverified"
+        ]
+      },
+      "githubRepositoryID": 1299567516
     },
     {
       "current": "swift-foundations/swift-color",
