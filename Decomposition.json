@@ -6278,6 +6278,51 @@
     "wave": "wave7r",
     "changes": "Canonicalized Cyclic to its atom owner and retained the genuine retroactive typed Hash.Protocol seam over Cyclic's atom-owned native Equatable/Hashable implementations, updating stale single Static.Element coverage to current Static.Element, dynamic Group.Element, and Modulus surfaces with direct dependencies and typed-value proofs. Fresh build green; 3 tests green.",
     "bookedAt": "2026-08-27T22:37:08Z"
+   },
+   {
+    "repo": "swift-molecules/swift-order-property",
+    "headSHA": "abf9db436f6265a854c02d24b8242fcd9a841897",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7s",
+    "changes": "Canonicalized Order to its atom owner and retained the genuine Orderable/fluent-order-predicate Property seam, replacing removed Property.Inout with value-owning Property<Order, Base>, updating the current Comparison initializer, preserving .order for copyable values, and adding explicit consuming ordered() for noncopyable values around a Swift 6.4 lowering limitation. Fresh build green; 22 tests across 12 suites green.",
+    "bookedAt": "2026-08-27T22:38:19Z"
+   },
+   {
+    "repo": "swift-molecules/swift-facet-hash",
+    "headSHA": "82cc3f19457cd4fea3e2ff548e304d6f5e8fc7a5",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7s",
+    "changes": "Canonicalized Facet and its Axis/Direction fixtures to atom owners and retained the genuine narrow retroactive Facet Hash.Protocol/domain-typed Hash.Value bridge over Facet's atom-owned native Equatable/Hashable implementation, with explicit direct test dependencies and native-versus-domain contracts. Fresh build green; 2 tests green.",
+    "bookedAt": "2026-08-27T22:39:21Z"
+   },
+   {
+    "repo": "swift-molecules/swift-orthant-hash",
+    "headSHA": "deed3228a7533c541206d201f1e9cba9a4524542",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7s",
+    "changes": "Canonicalized Orthant and its Direction fixture to atom owners and retained the genuine narrow retroactive Orthant Hash.Protocol/domain-typed Hash.Value bridge over Orthant's atom-owned native Equatable, Hashable, and hash(into:) implementation, with explicit dependencies and native-versus-domain contracts. Fresh build green; 2 tests green.",
+    "bookedAt": "2026-08-27T22:41:35Z"
+   },
+   {
+    "repo": "swift-molecules/swift-serializer-tagged",
+    "headSHA": "542ed5fce90baf5123ccd5f9e42d09b813484939",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7s",
+    "changes": "Canonicalized Serializer to its atom owner and retained the genuine conditional retroactive Tagged Serializable lift preserving Buffer and Failure while delegating output to the underlying serializer, replacing the stale Serializer Primitive namespace with SerializerProtocol and adding success, append, failure, and conformance contracts. Fresh build green; 4 tests green.",
+    "bookedAt": "2026-08-27T22:42:55Z"
+   },
+   {
+    "repo": "swift-molecules/swift-ordinal-tagged",
+    "headSHA": "31b2cea31e3be6177a68fa3a0ca95b1443a489b0",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7s",
+    "changes": "Canonicalized Ordinal to its atom owner and composed the live Ordinal Property seam, removing duplicate local advance/distance, Span/MutableSpan Carrier-count, and buffer-initializer behavior while retaining genuine Tagged construction/conversion, successor/predecessor/retreat, array, buffer subscript, and pointer-move surfaces with current imports/docs/tests. Fresh build green; 17 tests across 5 suites green.",
+    "bookedAt": "2026-08-27T22:42:55Z"
    }
   ]
  }
