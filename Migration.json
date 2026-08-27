@@ -15086,7 +15086,9 @@
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-rename main at expected commit b6f3e8617d2d7042510a98506b5129dec5f88cd5 on exact live coordinate swift-molecules/swift-binary-leb128-parser-primitives and verified exact future coordinate returned HTTP 404",
+          "renamed repository to swift-molecules/swift-binary-leb128-parser and verified stable GitHub repository ID 1254469065 with public visibility, non-archived state, default branch main, and unchanged pre-push main",
+          "fast-forward publication remains in progress; resume from the exact final coordinate without repeating the rename"
         ]
       },
       "state": "ready",
