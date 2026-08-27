@@ -265,20 +265,30 @@
       "observedHead": "0939bf3d8432bcb9aee61c6a879dfdf4e0cce243",
       "observedRemote": "https://github.com/swift-foundations/swift-application.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared two ordinary human-authored commits ending at 71843bd46b3b4b3c7c5292c30a05b6bbbd979ae8 from exact base 0939bf3d8432bcb9aee61c6a879dfdf4e0cce243 in clean isolated worktree /private/tmp/four-layer-swift-application: the mechanical cutover followed by a narrow README residual repair, without amend or history rewrite",
+          "audited the complete 21-path tree and changed only Package.swift, README, Sources/Application/Exports.swift, and metadata, moving Application to the molecule identity and Dependencies/Environment/self coordinates to their final layers while preserving Application public semantics and canonical Actions; residual, payload, staged-tree, ancestry, and identity checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-application as canonical with stable GitHub repository ID 1318270107, public visibility, non-archived state, default branch main, canonical origins, and exact live base; no repository rename was needed",
+          "JIT verified exact live Dependencies, Environment, and swift-molecules/swift-application dependencies, then ordinary fast-forward published exact prepared head 71843bd46b3b4b3c7c5292c30a05b6bbbd979ae8 without force or history rewrite",
+          "coordinator independently verified exact live main 71843bd46b3b4b3c7c5292c30a05b6bbbd979ae8 with unchanged repository ID 1318270107, exact future coordinate, public visibility, non-archived state, default branch main, ancestry from the expected base, stable Package.resolved evidence, and clean tracked checkout"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "the first Institute resolution attempt in /private/tmp/four-layer-swift-application exited 1 solely because that temporary directory basename changed SwiftPM override identity; publication remained durable, the identity condition was repaired without source or history changes by using /private/tmp/swift-application-resolution/swift-application at the identical published tree, and no compile or test fallback was attempted",
+          "package resolution then passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-application-publisher institute package resolve --package-path /private/tmp/swift-application-resolution/swift-application --argument=--disable-sandbox against the exact live graph; no build, test, compilation, raw SwiftPM, dump-package, or manifest evaluation was invoked",
+          "Package.resolved was absent before resolution and afterward existed only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 f126af54df82de809f59ff68cc9c2ad719218ba047d92344bdb49d2ea3169190 in the accepted resolver worktree; final live identity/SHA and both clean tracked worktrees were reverified"
+        ]
+      },
+      "githubRepositoryID": 1318270107
     },
     {
       "current": "swift-foundations/swift-application-server",
