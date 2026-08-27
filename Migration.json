@@ -29430,20 +29430,31 @@
       "observedHead": "600dfcd4b5d945725b78dd026ae643e0d492097b",
       "observedRemote": "https://github.com/swift-standards/swift-email-standard.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified no-change preparation at exact existing commit 600dfcd4b5d945725b78dd026ae643e0d492097b in clean isolated worktree /private/tmp/four-layer-swift-email-standard; no empty or invented commit was created",
+          "audited all fourteen committed paths and proved Package.swift, five source/test files, README, metadata, SPI configuration, workflow, and remaining payload already used the exact five canonical future dependencies/products, authority and standard modules, package/product/target/path/public identities, standards metadata, self-links, and active Actions reference",
+          "zero old-owner, reservation-owner, -primitives, plural Primitives, or _Primitives residuals were present; the generic unused foundation manifest helper and a documentation-only coenttb subscriptions recommendation are not cutover identities and were preserved, with Package.resolved absent before resolution"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified unchanged coordinate swift-standards/swift-email-standard at exact live main 600dfcd4b5d945725b78dd026ae643e0d492097b with GitHub repository ID 1095021992, public visibility, non-archived state, default branch main, and canonical clone URL",
+          "no repository rename, content commit, or push was required because the complete committed tree already matched the canonical four-layer mapping",
+          "coordinator independently reverified unchanged live main 600dfcd4b5d945725b78dd026ae643e0d492097b with stable repository ID 1095021992 and exact coordinate, visibility, archive state, default branch, and URL"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-email-standard-publisher institute package resolve --package-path /private/tmp/four-layer-swift-email-standard --argument=--disable-sandbox against the exact live RFC 2045, RFC 2046, RFC 4648, RFC 5322, and Email Address Standard heads",
+          "coordinator reverified unchanged exact live main 600dfcd4b5d945725b78dd026ae643e0d492097b with GitHub repository ID 1095021992, public visibility, non-archived state, default branch main, and all five direct dependency heads",
+          "HEAD and both origins remained exact and canonical and the isolated checkout remained clean; Package.resolved was absent before resolution and present afterward only as ignored untracked generated state with stable SHA-256 8e759f06312dbe82d3563e18375cd13a07a4f9f6bea70efbdf494d5934b414b6"
+        ]
+      },
+      "githubRepositoryID": 1095021992
     },
     {
       "current": "swift-standards/swift-emailaddress-standard",
