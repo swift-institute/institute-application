@@ -9658,19 +9658,27 @@
       "observedHead": "eabf2d43abdf9250d62ea5186893abd90b4efd46",
       "observedRemote": "https://github.com/swift-foundations/swift-yaml.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit d591d93d09b50ef6a9fc9dfda3b77e2e7d2e812c from expected parent eabf2d43abdf9250d62ea5186893abd90b4efd46 in isolated worktree /private/tmp/four-layer-swift-yaml",
+          "verified exact six-path 11-insertion/11-deletion mechanical cutover of Byte and Lexer dependency URLs, package identities, products, and modules plus metadata layer foundations to compositions; preserved YAML, YAML Standard, Byte Primitive, and Byte_Primitive identities; verified exact live dependency commits, public payload, canonical one-hop Actions, human commit identity, clean checkout, and no stale mapped residuals"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified unchanged canonical coordinate swift-compositions/swift-yaml at expected main eabf2d43abdf9250d62ea5186893abd90b4efd46 with GitHub repository ID 1144636648, public visibility, non-archived state, and default branch main; no repository rename was required",
+          "fast-forward published exact prepared commit d591d93d09b50ef6a9fc9dfda3b77e2e7d2e812c without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main d591d93d09b50ef6a9fc9dfda3b77e2e7d2e812c with unchanged repository ID 1144636648, exact coordinate swift-compositions/swift-yaml, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-yaml-composition-publisher institute package resolve --package-path /private/tmp/four-layer-swift-yaml --argument=--disable-sandbox against the exact live Byte, Lexer, and YAML Standard dependencies",
+          "post-resolution verification found exact HEAD d591d93d09b50ef6a9fc9dfda3b77e2e7d2e812c, a clean checkout, and generated ignored Package.resolved untouched with stable SHA-256 205c17ebdc13e5ecdc4e3c5d3eccb37d455fb33b54574e33dac57cd63cce3e96"
+        ]
       }
     },
     {
