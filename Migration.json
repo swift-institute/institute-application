@@ -29765,20 +29765,31 @@
       "observedHead": "7441959813ac4875cf9ac9fe59f566004a346f3e",
       "observedRemote": "https://github.com/swift-standards/swift-ipv6-standard.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified a deterministic no-change preparation at exact expected commit 7441959813ac4875cf9ac9fe59f566004a346f3e in isolated worktree /private/tmp/four-layer-swift-ipv6-standard; no empty commit was created",
+          "audited all nine tracked paths and confirmed Package.swift, source reexports, README, metadata, and workflow already use only canonical RFC 4007, RFC 4291, and RFC 5952 coordinates/products/modules while preserving every IPv6 Standard package/product/target/path/public semantic identity",
+          "the complete committed tree contains no swift-primitives or swift-foundations owner, -primitives repository/package, Primitives product, or _Primitives module residual; canonical Actions and public-payload gates passed and Package.resolved was absent before resolution"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified exact canonical coordinate swift-standards/swift-ipv6-standard, GitHub repository ID 1107714054, public visibility, non-archived state, default branch main, exact final origin, and live main 7441959813ac4875cf9ac9fe59f566004a346f3e; no repository rename or publication push was required",
+          "verified all three direct dependencies were ledger-passed and freshly exact-live with products on public, non-archived, default-main repositories: RFC 4007 at 0568615a80c333a19a574da1ba54f8245ae8278f, RFC 4291 at d45cfce8bd8f7680f4aaa76696c1cd3b4de63983, and RFC 5952 at 9db1a9bad9925fbce83c2d2526063931a562fef1",
+          "coordinator reverified unchanged live main 7441959813ac4875cf9ac9fe59f566004a346f3e and stable repository ID 1107714054 after resolution"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-ipv6-standard-publisher institute package resolve --package-path /private/tmp/four-layer-swift-ipv6-standard --argument=--disable-sandbox",
+          "HEAD remained 7441959813ac4875cf9ac9fe59f566004a346f3e, both origins remained the canonical final URL, and the isolated worktree remained clean",
+          "Package.resolved was absent before resolution and present afterward only as ignored generated state with stable SHA-256 20a9989157cb1311287b11a665b6d4351849bf589d32d13d6eee80a5ab5f3221"
+        ]
+      },
+      "githubRepositoryID": 1107714054
     },
     {
       "current": "swift-standards/swift-json-feed-standard",
