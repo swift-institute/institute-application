@@ -463,6 +463,18 @@
    "splits": [],
    "notes": "Adjudication: clear atom \u2014 Single<Element> is the irreducible native owner of the single-element-container domain (domain X = Single, derived from product/target \"Single\"). Package was already near-canonical: one module Sources/Single (single file Single.swift), zero package dependencies, no Foundation imports anywhere, no external-integration targets or files, no umbrella exports.swift, no strata targets to collapse \u2014 hence zero seam molecules. Reshape consisted of adding the two required integration targets as empty seeds: \"Sources/Single Standard Library Integration/Single Standard Library Integration.swift\" (exactly \"public import Single\") and \"Sources/Single Apple Foundation Integration/Single Apple Foundation Integration.swift\" (three-line seed), plus the two new library products, giving exactly the three canonical products. The Copyable/Escapable conditional conformance extensions in Single.swift were kept in the core module rather than moved to Standard Library Integration: they are structural capability mirrors of the generic type itself (matching how the exemplar atoms keep type-defining conformances with the type), not extensions of stdlib types. Manifest idiom (tools 6.4, .v27 platforms, swiftLanguageModes [.v6], trailing ecosystem SwiftSetting loop) preserved verbatim. Test target \"Single Tests\" (deps [\"Single\"]) unchanged; no SLI test files exist so no SLI test target. No residual red references. Working tree verified clean after push.",
    "completedAt": "2026-08-27T12:06:20Z"
+  },
+  {
+   "package": "swift-reference",
+   "repositoryID": 1138063770,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-reference",
+   "to": "swift-atoms/swift-reference",
+   "shapeCommit": "f87310727a3af163b3bfe3bf05f1b8391238cc9d",
+   "dependencies": [],
+   "splits": [],
+   "notes": "Adjudication: atom. Reference is a native semantic domain \u2014 reference-wrapper primitives (Reference.Weak, Reference.Unowned, Reference.Unowned.Sendable.Checked/Unchecked, Reference.Sendability.Unchecked) with zero external package dependencies and no Foundation imports. Not tooling, not an external standard, not a relator of other domains. Reshape: package was already single-module; deleted empty Sources/Reference/exports.swift umbrella; deleted trivial re-export test-support target \"Reference Test Support\" (Tests/Support, one @_exported line) and its product \u2014 the only test file already imported Reference directly, so no test-import rewrites were needed. Added seed targets \"Reference Standard Library Integration\" (public import Reference) and \"Reference Apple Foundation Integration\" (three-line seed) \u2014 no existing stdlib-conformance or Foundation-importing files existed to move (all source extensions are on Reference's own nested types; Sendable conformances are core semantics). Products now exactly the canonical three; test target \"Reference Tests\" deps [\"Reference\"] with explicit path. Manifest keeps the existing idiom verbatim (tools 6.4, .v27 platforms, swiftLanguageModes [.v6], trailing ecosystem SwiftSetting loop). No seams extracted, hence no molecule repositories. No kept package dependencies. No residual red references known; nothing was built per brief. Working tree clean after push; remote reported rule-bypass notices (PR requirement, ci-ok expected) consistent with the authorized direct push to main.",
+   "completedAt": "2026-08-27T12:06:25Z"
   }
  ],
  "successors": [],
