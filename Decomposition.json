@@ -5259,6 +5259,24 @@
     "wave": "wave6a",
     "changes": "Wired tests to SLI/AFI conformances, removed unsafe String(format:) fallback under strict memory safety, and canonicalized repository documentation. Exact three-product atom shape preserved; Foundation only in AFI. Fresh build green; fresh tests green (19 tests).",
     "bookedAt": "2026-08-27T19:12:35Z"
+   },
+   {
+    "repo": "swift-atoms/swift-sample",
+    "headSHA": "0ec14ebd359e36333017ef5579d7e7223d5f77dd",
+    "build": "green",
+    "test": "green",
+    "wave": "wave6b",
+    "changes": "Restored native Batch construction/borrowing and Duration statistics; replaced deleted Algebra monoid integration with a local Witness.Protocol-backed accumulator; aligned tests and documentation to exact atom shape. Canonical witness dependency; Foundation only in AFI. Fresh build green; 70 tests green.",
+    "bookedAt": "2026-08-27T19:23:43Z"
+   },
+   {
+    "repo": "swift-atoms/swift-orthant",
+    "headSHA": "7aa9ba11b54c8d57582e362c7eed130e3b442f3b",
+    "build": "green",
+    "test": "green",
+    "wave": "wave6b",
+    "changes": "Declared existing Hashable/Comparable implementations, made Direction an explicit test dependency/import, and removed molecule-era documentation for nonexistent surfaces. Exact three-product atom shape preserved; Foundation only in AFI. Fresh build green; 7 tests green.",
+    "bookedAt": "2026-08-27T19:23:43Z"
    }
   ]
  }
