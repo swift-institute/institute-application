@@ -3795,7 +3795,7 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-compositions/swift-http-redirect",
       "futureLayer": "compositions",
-      "observedHead": "c379ea777585039eb0d25798f4c4fd35c4554d23",
+      "observedHead": "c8f540667ea08655eb7d5d83d92e06d894137a62",
       "observedRemote": "https://github.com/swift-foundations/swift-http-redirect.git",
       "preparation": {
         "status": "passed",
@@ -3812,11 +3812,13 @@
           "coordinator verified exact live main c8f540667ea08655eb7d5d83d92e06d894137a62 with unchanged repository ID 1144635529, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
         ]
       },
-      "state": "published",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "publication is complete and Package.resolved was absent twice immediately before preparation; the repository is queued behind the serialized Institute package-resolution slot after measured shared SwiftPM-cache contention"
+          "publication completed before validation and Package.resolved remained absent twice before resolution",
+          "package resolution passed on the single approved attempt with exact exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-http-redirect-publisher institute package resolve --package-path /private/tmp/http-redirect-composition-root/swift-http-redirect --argument=--disable-sandbox --argument=--disable-dependency-cache against the exact live graph; no build, test, compilation, raw SwiftPM, dump-package, or standalone manifest-evaluation command was invoked",
+          "Package.resolved was present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 d27caa942f1cbdf9f1181697f9d08b41f27764c25bd5f81d4b4937f447c5a58e; coordinator reverified all three dependency gates and live products plus final repository identity/SHA, exact worktree HEAD, canonical origins, and clean tracked checkout"
         ]
       },
       "githubRepositoryID": 1144635529
