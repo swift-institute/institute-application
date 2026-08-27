@@ -2750,20 +2750,29 @@
       "observedHead": "39850d5a2fe88fa2efac73f83618f71528c9e110",
       "observedRemote": "https://github.com/swift-foundations/swift-file-system.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit 70f60886eddbe0f1dc22cf3869448347777a1f61 from exact parent 39850d5a2fe88fa2efac73f83618f71528c9e110 in clean identity-compatible isolated worktree /private/tmp/swift-file-system; the original checkout remained untouched",
+          "audited all 199 tracked paths and made the exact 45-path, 134-insertion/134-deletion mechanical cutover across Package.swift, README, metadata, sources, and tests, mapping seven composition owners and six molecule identities with their exact product/module transformations while preserving RFC 4648 and all owned public semantics; mapped residuals, staged-tree, ancestry, identity, payload, and canonical Actions checks passed, with only a pre-existing public README example path retained"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-file-system as canonical with stable GitHub repository ID 1119072870, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; the completed organization rename had already established the coordinate, so no repository rename was needed",
+          "JIT verified all 14 declared dependency coordinates, exact heads, required products, and ledger gates immediately before publication, then ordinary fast-forward published exact direct child 70f60886eddbe0f1dc22cf3869448347777a1f61 without force or history rewrite",
+          "coordinator independently verified exact live main 70f60886eddbe0f1dc22cf3869448347777a1f61 with unchanged repository ID 1119072870, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, and clean tracked checkout"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-file-system-publisher institute package resolve --package-path /private/tmp/swift-file-system --argument=--disable-sandbox against the exact live graph; the already-active resolver was allowed to finish under the serialization correction and was not retried, and no build, test, compilation, raw SwiftPM, dump-package, or standalone manifest-evaluation command was invoked",
+          "Package.resolved was absent twice before resolution and present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 c5a4030a98f79d3e12f12da42165b6a0534a06e34f444a0a12cf8aa954a5271d; final live identity/SHA and clean tracked checkout were reverified"
+        ]
+      },
+      "githubRepositoryID": 1119072870
     },
     {
       "current": "swift-foundations/swift-form-coding",
