@@ -7651,19 +7651,27 @@
       "observedHead": "878d23e9ce4a23f6e45cca525cef5fbfe6a2bae4",
       "observedRemote": "https://github.com/swift-foundations/swift-svg-render.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit 7ce78aea28cd37953f445d61b609837b0aec3c4c from expected parent 878d23e9ce4a23f6e45cca525cef5fbfe6a2bae4 in isolated worktree /private/tmp/four-layer-swift-svg-render",
+          "deterministic audit verified the exact 19-path, 68-insertion/68-deletion mechanical foundation-to-composition and 11 primitive-dependency mappings, unchanged SVG Standard dependency, exact published products/modules and test support, preservation of three legitimate singular Primitive identities and external Test Snapshot import, metadata/README, active CI/SPI, public payload, zero mapped residuals, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified canonical post-organization coordinate swift-compositions/swift-svg-render at expected main 878d23e9ce4a23f6e45cca525cef5fbfe6a2bae4 with GitHub repository ID 1107772888, public visibility, non-archived state, and default branch main; no repository rename was required",
+          "set fetch and push origins to https://github.com/swift-compositions/swift-svg-render.git and fast-forward published exact prepared commit 7ce78aea28cd37953f445d61b609837b0aec3c4c without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main 7ce78aea28cd37953f445d61b609837b0aec3c4c with unchanged repository ID 1107772888, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-svg-render-publisher institute package resolve --package-path /private/tmp/four-layer-swift-svg-render --argument=--disable-sandbox against the exact published commit and all 12 live future dependencies",
+          "post-resolution verification found exact HEAD 7ce78aea28cd37953f445d61b609837b0aec3c4c, a clean checkout, and untouched generated Package.resolved with stable SHA-256 bfb087ba9e8227f58565c5d7b880607f3af06231bd52f87066f98c3744fde6a0"
+        ]
       }
     },
     {
