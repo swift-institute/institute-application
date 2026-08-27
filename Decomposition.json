@@ -684,6 +684,25 @@
    ],
    "notes": "Adjudication: Manifest is a native semantic domain (manifest configuration/dependency model plus the parent-directive namespace), so atom. The package was already single-module (Sources/Manifest, 4 files); no strata targets to collapse. Seam: Sources/Manifest/Manifest.Parent.swift held the only uses of the two external deps (internal import ASCII, internal import Byte_Parser) \u2014 its scan/parse implementation moved to the new molecule as Sources/Manifest Byte Parser/Manifest.Parent.scan.swift (module Manifest_Byte_Parser, product \"Manifest Byte Parser\"; deps swift-molecules/swift-manifest, swift-atoms/swift-ascii [live coordinate \u2014 swift-molecules/swift-ascii redirects there], swift-molecules/swift-byte-parser, all branch: \"main\"). The bare `public enum Parent: Swift.Sendable {}` namespace declaration stays in the atom so the molecule extends it. Atom now has zero package dependencies. No stdlib-extension or Foundation-importing code existed, so both \"Manifest Standard Library Integration\" and \"Manifest Apple Foundation Integration\" are seed files per the recipe. Trivial re-export test-support target (\"Manifest Test Support\": empty file + @_exported exports.swift) deleted; kept \"Manifest Tests\" (deps [\"Manifest\"]) with Manifest.Configuration.Tests.swift, which needed no import rewrite. Manifest.Parent.Tests.swift moved to \"Manifest Byte Parser Tests\" with `import Manifest_Byte_Parser` added. Residual red references: none known in kept atom files; the molecule source references Byte.Input / Input.Input.Stream.Error / Byte.Literal.Parser exactly as before (unverified \u2014 no build per commission), and the atom push bypassed the required-PR/ci-ok rule as authorized (direct push to main). LICENSE.md and .gitignore copied into the molecule; one-line README added.",
    "completedAt": "2026-08-27T12:20:13Z"
+  },
+  {
+   "package": "swift-ownership",
+   "repositoryID": 1145453383,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-ownership",
+   "to": "swift-atoms/swift-ownership",
+   "shapeCommit": "a2ed9130c4e6dd613b9f2f806763ec7a570c250b",
+   "dependencies": [],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-ownership-tagged",
+     "repositoryID": 1348452329,
+     "commit": "c688a9e765751297a2b886bc36171a795242fbc5",
+     "seam": "Tagged conformance to Ownership.Borrow.Protocol (Tagged+Ownership.Borrow.Protocol.swift plus its test) extracted as product \"Ownership Tagged\", removing the swift-tagged dependency from the atom"
+    }
+   ],
+   "notes": "Adjudication: Ownership is an irreducible native semantic domain (move-only ownership primitives: Borrow, Inout, Unique, Immutable, Mutable, Slot, Latch, Box, Transfer, Transfer Erased) \u2014 atom by default and on the merits. Reshape: collapsed 11 internal strata targets (Ownership Primitive/Borrow/Inout/Unique/Immutable/Mutable/Slot/Latch/Box/Transfer/Transfer Erased) into single Sources/Ownership via git mv; deleted all 12 intra-package exports.swift umbrellas plus Tests/Support/exports.swift (trivial re-export test-support target Ownership Test Support deleted; its one consumer, Ownership.Unique Tests.swift, rewritten from '@testable import Ownership_Test_Support' to 'import Ownership' \u2014 it used no internals and no Tagged Test Support symbols). Deleted 8 now-intra-module 'internal import Ownership_Latch' lines in the Transfer/Transfer Erased files. Seam out: Tagged+Ownership.Borrow.Protocol.swift and Tagged+Ownership.Borrow.Protocol Tests.swift moved to new molecule swift-ownership-tagged (module Ownership_Tagged; imports rewritten to 'public import Ownership' / 'import Ownership_Tagged'; deps at live coordinates swift-molecules/swift-ownership + swift-atoms/swift-tagged \u2014 swift-tagged verified transferred to swift-atoms, id 1225649812). No stdlib-extension or Foundation-importing files existed, so both integration targets are seed files ('Sources/Ownership Standard Library Integration/Ownership Standard Library Integration.swift' and the three-line Apple Foundation seed). The atom's Synchronization imports (Slot, Latch) are Swift toolchain stdlib, not a package dependency; zero package dependencies kept. Products: exactly Ownership, Ownership Standard Library Integration, Ownership Apple Foundation Integration; test target Ownership Tests (deps [\"Ownership\"]). Residual red references: none known in kept test files (Optional+take Tests exercises stdlib Optional.take, not an extracted domain); code untested per commission \u2014 structural pass only. Both working trees verified clean; atom push bypassed the PR-required/ci-ok branch rules via authorized direct push (reported by remote as bypassed rule violations).",
+   "completedAt": "2026-08-27T12:20:19Z"
   }
  ],
  "successors": [],
