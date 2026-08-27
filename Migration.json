@@ -12268,20 +12268,31 @@
       "observedHead": "59e12e6a5cb0ef89b7e5978f94e9bf38e551a9a0",
       "observedRemote": "https://github.com/swift-ietf/swift-rfc-7578.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified a deterministic no-change preparation at exact expected commit 59e12e6a5cb0ef89b7e5978f94e9bf38e551a9a0 in isolated detached worktree /private/tmp/four-layer-swift-rfc-7578; no empty commit was created",
+          "audited all twenty tracked paths and confirmed Package.swift plus every source/test/README import and reference already use only canonical IEEE 754, RFC 2045, RFC 2046, RFC 2183, and RFC 7578 authority identities while preserving every RFC 7578 package/product/target/path/public semantic identity",
+          "the complete committed tree outside LICENSE contains no swift-primitives or swift-foundations owner, reservation owner, -primitives repository/package, Primitives product, or _Primitives module residual; README/metadata, canonical Actions, public-payload, exact-tree, Package.resolved-absence, and clean-worktree gates passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified exact canonical coordinate swift-ietf/swift-rfc-7578, GitHub repository ID 1095071271, public visibility, non-archived state, default branch main, exact final origin, and live main 59e12e6a5cb0ef89b7e5978f94e9bf38e551a9a0; no repository rename or publication push was required",
+          "verified all four direct dependencies were ledger-passed and freshly exact-live with products on public, non-archived, default-main repositories: IEEE 754 at e226f68a3b410299b599f9928afe1f353c4a307c, RFC 2045 at c870376957cfb552b74d71e6a34100347314e215, newly booked RFC 2046 at 93c89b3e7622c7ddc7f2c2cc3b53a933c3115421, and RFC 2183 at 9d85573a9fd0b85551e33fdfcf2344d4e0a77e06",
+          "coordinator reverified unchanged live main 59e12e6a5cb0ef89b7e5978f94e9bf38e551a9a0 and stable repository ID 1095071271 after resolution"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-rfc-7578-publisher institute package resolve --package-path /private/tmp/four-layer-swift-rfc-7578 --argument=--disable-sandbox and selected all four direct dependencies at their exact live heads",
+          "HEAD remained 59e12e6a5cb0ef89b7e5978f94e9bf38e551a9a0, both origins remained the canonical final URL, and the isolated worktree remained clean",
+          "Package.resolved was absent before resolution and present afterward only as ignored generated state with stable SHA-256 e7b980eb17c3e56b7fc90103bfd53a23559c204c19ead2a1ac67f67cb1035dc5"
+        ]
+      },
+      "githubRepositoryID": 1095071271
     },
     {
       "current": "swift-ietf/swift-rfc-7617",
