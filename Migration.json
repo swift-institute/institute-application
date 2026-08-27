@@ -9684,19 +9684,27 @@
       "observedHead": "d42fd5cd09a303f2e95eafc125794cf0bb742b18",
       "observedRemote": "https://github.com/swift-ieee/swift-ieee-1003.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit d05536f6897c14772cdac8c71f513bcbf3215d66 from expected parent d42fd5cd09a303f2e95eafc125794cf0bb742b18 in isolated worktree /private/tmp/four-layer-swift-ieee-1003",
+          "deterministic audit verified the exact six-path, 34-file-preserving mechanical mapping of four dependency coordinates/products/modules/imports and README layer/owner prose; preserved IEEE identity, legitimate singular IEEE_1003 Primitive references, and LICENSE heritage; zero mapped residuals, public payload, metadata, active Actions, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified canonical live coordinate swift-ieee/swift-ieee-1003 at expected main d42fd5cd09a303f2e95eafc125794cf0bb742b18 with GitHub repository ID 1243159016, public visibility, non-archived state, and default branch main; no repository rename was required",
+          "set fetch and push origins to https://github.com/swift-ieee/swift-ieee-1003.git and fast-forward published exact prepared commit d05536f6897c14772cdac8c71f513bcbf3215d66 without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main d05536f6897c14772cdac8c71f513bcbf3215d66 with unchanged repository ID 1243159016, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-ieee-1003-publisher institute package resolve --package-path /private/tmp/four-layer-swift-ieee-1003 --argument=--disable-sandbox against the exact published commit and four live mapped dependencies",
+          "post-resolution verification found exact HEAD d05536f6897c14772cdac8c71f513bcbf3215d66, a clean checkout, and untouched generated Package.resolved with stable SHA-256 05c950040cd75ab8fa6c9830666b64e7274d9d3e1a12fcffaa3fbe99d6322865"
+        ]
       }
     },
     {
