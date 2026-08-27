@@ -7793,23 +7793,32 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-compositions/swift-sql-migrations",
       "futureLayer": "compositions",
-      "observedHead": "4663fd82ca6c54f36eb66fec3d1d7e9a54568a14",
-      "observedRemote": "https://github.com/swift-foundations/swift-sql-migrations.git",
+      "observedHead": "c1359db3be190008851eedc70196494a68a957e0",
+      "observedRemote": "https://github.com/swift-compositions/swift-sql-migrations.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared exact direct-child cutover commit c1359db3be190008851eedc70196494a68a957e0 from expected base 4663fd82ca6c54f36eb66fec3d1d7e9a54568a14 in clean isolated worktree /private/tmp/sql-migrations-composition-lane/swift-sql-migrations",
+          "mechanical four-layer cutover changed only .github/metadata.yaml, Package.swift, and README.md with three insertions and three deletions across layer metadata, the SQL dependency owner, and the repository URL; public semantics remained unchanged",
+          "the exact live SQL dependency/product plus residual identity, active Actions-reference, public-payload, machine-path, credential, diff, attribution, and Package.resolved preservation checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "repository ID 1144635909 was verified before and after cutover at exact canonical coordinate swift-compositions/swift-sql-migrations with unchanged public visibility, non-archived state, default branch main, and active workflows",
+          "published exact prepared commit c1359db3be190008851eedc70196494a68a957e0 as an ordinary fast-forward from 4663fd82ca6c54f36eb66fec3d1d7e9a54568a14 to refs/heads/main through the authenticated administrative ruleset bypass; no force push or history rewrite occurred",
+          "coordinator independently reverified exact live main c1359db3be190008851eedc70196494a68a957e0, repository ID 1144635909, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is complete and Package.resolved remained absent twice before and after publication; the repository is queued behind swift-compositions/swift-sql validation and the serialized Institute package-resolution slot"
+        ]
+      },
+      "githubRepositoryID": 1144635909
     },
     {
       "current": "swift-foundations/swift-sql-postgres-provider",
