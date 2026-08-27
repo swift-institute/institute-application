@@ -4943,11 +4943,13 @@
           "coordinator independently reverified exact live main ecd44fe5762e8e1e8be77a72ec6d6c597a89c0ab, repository ID 1230911632, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
         ]
       },
-      "state": "published",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "publication is complete and Package.resolved remained absent twice before and after publication; resolution is queued until swift-compositions/swift-manifests validation is passed and the serialized Institute package-resolution slot is available"
+          "publication completed before validation; root and Runner Package.resolved remained absent before resolution, and the pre-existing source fixture Package.resolved remained stable at SHA-256 9e2e664f8e21e0d2b885d2fa41336a80409fed21693be7283100ecbe6b13bf0c",
+          "root package resolution passed on the single approved attempt with exact exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-linter-publisher institute package resolve --package-path /private/tmp/linter-composition-lane/swift-linter --argument=--disable-sandbox --argument=--disable-dependency-cache against the exact live graph; the nested Runner self-edge was expressly excluded, allowed swift-argument-parser 1.8.2 and swift-syntax 602.0.0 were selected, and no build, test, compilation, raw SwiftPM, dump-package, or standalone manifest-evaluation command was invoked",
+          "root Package.resolved was present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 79f8b00b004e4df45fafef8f9feda41c5cf4d3f976a9edbc0839a87a6f0bd747; Runner Package.resolved remained absent and the source fixture hash remained unchanged, while coordinator reverified all 21 internal root dependency gates/live products, two external requirements/products, final repository identity/SHA, exact worktree HEAD, canonical origins, and clean tracked checkouts"
         ]
       },
       "githubRepositoryID": 1230911632
