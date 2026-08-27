@@ -14328,8 +14328,13 @@
       "observedHead": "f067ed37df2549f7f522f63096181241d1d945f4",
       "observedRemote": "https://github.com/swift-primitives/swift-array-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 740a954920e4915e1f4604c00f6fb81c76e8d0ce from expected parent f067ed37df2549f7f522f63096181241d1d945f4",
+          "isolated worktree /private/tmp/four-layer-swift-array",
+          "mapped all seventeen dependency URLs, products, modules, imports, paths, README references, and repository metadata to their live molecule coordinates; stripped owned plural Array Primitives identities while preserving legitimate singular Primitive identities",
+          "ancestry, clean worktree, exact 23-path intended diff and renames, dependency readiness and live SHA coverage, residual, public payload, workflow, and Package.resolved audits passed independently; exact future coordinate remains HTTP 404 pending repository rename and stable repository ID is 1138063267"
+        ]
       },
       "publication": {
         "status": "pending",
