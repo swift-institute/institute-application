@@ -7201,7 +7201,7 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-compositions/swift-server-static",
       "futureLayer": "compositions",
-      "observedHead": "c2092974e7a25e92b64bb22a26f890c557dedc82",
+      "observedHead": "921bfeb8dbff48957b742ad12c9e13cd833d162a",
       "observedRemote": "https://github.com/swift-foundations/swift-server-static.git",
       "preparation": {
         "status": "passed",
@@ -7218,11 +7218,13 @@
           "coordinator independently verified exact live main 921bfeb8dbff48957b742ad12c9e13cd833d162a with unchanged repository ID 1304797882, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
         ]
       },
-      "state": "published",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "publication is complete and Package.resolved remained absent twice after publication; the repository is queued behind the serialized Institute package-resolution slot after measured shared SwiftPM-cache contention"
+          "publication completed before validation and Package.resolved remained absent twice before resolution",
+          "package resolution passed on the single approved attempt with exact exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-server-static-publisher institute package resolve --package-path /private/tmp/swift-server-static --argument=--disable-sandbox --argument=--disable-dependency-cache against the exact live graph; no build, test, compilation, raw SwiftPM, dump-package, or standalone manifest-evaluation command was invoked",
+          "Package.resolved was present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 0856b5ed2f68cbf4983ba3f89bec6cd7536fd497d2d58f4e7025f760ff786b19; coordinator reverified the Server dependency gate and live product plus final repository identity/SHA, exact worktree HEAD, canonical origins, and clean tracked checkout"
         ]
       },
       "githubRepositoryID": 1304797882
