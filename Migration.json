@@ -29054,15 +29054,17 @@
           "coordinator reverified live main d4d246e718b2f8c0654af51735e4d9257497873f with unchanged repository ID 1206918613, exact coordinate, public visibility, non-archived state, default branch main, and final clone URL https://github.com/swift-standards/swift-darwin-standard.git"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "package resolution passed for swift-darwin-standard at live published commit 467dfbfd68a040e1f363e574e1577d81bb7f1448",
           "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-darwin-standard-root institute package resolve --package-path /private/tmp/four-layer-swift-darwin-standard --argument=--disable-sandbox",
           "resolution exited 0 against live ISO 9945 and all eight molecule dependencies and their transitive graph",
           "HEAD unchanged; tracked worktree clean; Package.resolved changed from absent to ignored uncommitted generated state and stabilized at SHA-256 188f4e914ef134ebcb7938580fa599837eed2a32d71a8b0d24c81b1282bf8677",
-          "the prior resolution evidence is superseded by the Loader vocabulary identity repair; final package resolution is pending the consumer follow-up"
+          "the prior resolution evidence was superseded by the Loader vocabulary identity repair and revalidation followed publication of the exact consumer follow-up",
+          "package resolution passed with exit status 0 using the sole approved noncompiling command CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-darwin-standard-loader-vocabulary-root institute package resolve --package-path /private/tmp/four-layer-swift-darwin-standard --argument=--disable-sandbox; live swift-loader-vocabulary resolved at 94c4d92fdfe55886fae51f41531c402baf1fffd7 and repaired ISO 9945 resolved from its exact live main",
+          "post-resolution verification found exact HEAD d4d246e718b2f8c0654af51735e4d9257497873f, clean tracked and untracked status, final fetch and push origin https://github.com/swift-standards/swift-darwin-standard.git, and untouched ignored generated Package.resolved changed from pre-resolution SHA-256 188f4e914ef134ebcb7938580fa599837eed2a32d71a8b0d24c81b1282bf8677 to stable post-resolution SHA-256 884737e655ea0173dc712771b7b2e7c9db6946ea3ce444b082807d649c7e56e8"
         ]
       }
     },
