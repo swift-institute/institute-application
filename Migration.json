@@ -10990,13 +10990,18 @@
       "observedHead": "b1034ddfe96d3264a38c7d023444d726d173d35e",
       "observedRemote": "https://github.com/swift-ietf/swift-rfc-5234.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit 7bfc24502a3f6a6daecf814ad313e0866d4282a7 from expected parent b1034ddfe96d3264a38c7d023444d726d173d35e in isolated worktree /private/tmp/four-layer-swift-rfc-5234",
+          "deterministic audit verified the exact four-path, 19-file-preserving mechanical mapping of Standard Library Extensions and ASCII coordinates, product, modules, and exports; all three dependencies were ledger-passed; RFC 5234 standards identity, README, metadata, active Actions reference, and public payload remained valid; zero mapped residuals and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified canonical live coordinate swift-ietf/swift-rfc-5234 at expected main b1034ddfe96d3264a38c7d023444d726d173d35e with GitHub repository ID 1107704518, public visibility, non-archived state, and default branch main; no repository rename was required",
+          "fast-forward published exact prepared commit 7bfc24502a3f6a6daecf814ad313e0866d4282a7 without force or history rewrite using the configured administrator ruleset bypass",
+          "verified live main 7bfc24502a3f6a6daecf814ad313e0866d4282a7 with unchanged repository ID 1107704518, public visibility, non-archived state, default branch main, final origins, and clean isolated worktree"
         ]
       },
       "state": "ready",
