@@ -1178,6 +1178,37 @@
    ],
    "notes": "Adjudication: Pair<First, Second> is the irreducible native owner of the binary-product domain \u2014 a single generic struct with map/swapped/apply/tuple operations and no strata targets; clearly an atom. Reshape: (1) Domain module Sources/Pair kept as-is minus seams; deleted the three @_exported public import Comparison/Equation/Hash lines from Pair.swift \u2014 the atom now has zero package dependencies (dependenciesKept empty; nothing the core type irreducibly needs). (2) Seams out: Pair+{Equation,Hash,Comparison}.Protocol.swift each existed solely to integrate Pair with an external package; moved to swift-pair-{equation,hash,comparison} molecules (products \"Pair Equation\"/\"Pair Hash\"/\"Pair Comparison\", modules Pair_Equation etc.) with \"public import <D>\" + \"public import Pair\" prepended. Molecule deps pinned at current live coordinates: swift-atoms/swift-{equation,hash,comparison} (already transferred; swift-molecules names redirect there) and swift-molecules/swift-pair, all branch \"main\". (3) SLI target holds moved Pair+BitwiseCopyable.swift and Pair+Codable.swift (Codable extension extracted out of Pair.swift, incl. its !hasFeature(Embedded) guard), each with \"public import Pair\"; no umbrella exports.swift. (4) AFI target is the three-line seed (package was Foundation-free). (5) Products exactly three. (6) Tests: \"Pair Tests\" (deps [Pair]) keeps core map/swap/apply/tuple/Sendable/lifetime tests; Ranked helper and all Equation/Hash/Comparison-dependent test extensions (including the copyable equatable/hashable/comparable tests, whose conformances now live in the seams) moved to the respective molecule test targets with the needed helper conformance each; Span kept in atom without its now-seam conformances (its remaining tests use only plain members). \"Pair Standard Library Integration Tests\" holds Pair+BitwiseCopyable Tests.swift with import Pair_Standard_Library_Integration added. Residual red: none grep-detectable in atom sources/tests; README.md still describes the old three-dependency architecture and re-exports (left stale \u2014 structural pass only, no build/test run per brief). Push to swift-molecules/swift-pair main was direct as authorized; remote reported bypassed branch-protection rules (PR requirement + expected ci-ok check) via admin rights \u2014 no gate was disabled or altered. Local dirs under .../scratchpad/wave1/: swift-pair, swift-pair-equation, swift-pair-hash, swift-pair-comparison \u2014 all git-clean (exemplar clone exemplar-bit untouched).",
    "completedAt": "2026-08-27T12:43:51Z"
+  },
+  {
+   "package": "swift-sector",
+   "repositoryID": 1264249519,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-sector",
+   "to": "swift-atoms/swift-sector",
+   "shapeCommit": "669a2cc7420490d30024a75023f2c9fe8aac45c2",
+   "dependencies": [],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-sector-equation",
+     "repositoryID": 1348478924,
+     "commit": "67bcd1dbfe95a364670b15901254c38f9343001d",
+     "seam": "Sector Equation umbrella (re-exports Equation + Sector) extracted; atom drops swift-equation dependency"
+    },
+    {
+     "successor": "swift-molecules/swift-sector-hash",
+     "repositoryID": 1348479019,
+     "commit": "f63fe302d8474cd515f3eb1f17f1ab75c136f573",
+     "seam": "Sector.Quadrant/Octant: Hash.`Protocol` conformances extracted; atom drops swift-hash dependency"
+    },
+    {
+     "successor": "swift-molecules/swift-sector-comparison",
+     "repositoryID": 1348479116,
+     "commit": "e2a053db28e1fb7aa6fed374d8d00033b56454c9",
+     "seam": "Sector.Quadrant/Octant: Comparison.`Protocol` conformances extracted; atom drops swift-comparison dependency"
+    }
+   ],
+   "notes": "Adjudication: Sector (planar quadrants I-IV and spatial sign-triple octants, with opposite/rank semantics) is an irreducible native geometric domain \u2014 atom by default, no defer indicators. Reshape: collapsed \"Sector Primitive\" into Sources/Sector via git mv (Sector.swift, Sector.Quadrant.swift, Sector.Octant.swift); deleted umbrella Sources/Sector/exports.swift and the trivial re-export \"Sector Test Support\" target (its module was not even imported by the test file, so no test-import rewrites were needed). Stdlib split into \"Sector Standard Library Integration\": CaseIterable removed from both enum declarations and re-declared there with explicit allCases (cross-module synthesis unavailable), and the #if !hasFeature(Embedded) Codable conformances moved there with hand-written init(from:)/encode(to:) because the atom's _rank is internal (@usableFromInline) and synthesis will not cross modules; encoding preserves the original rank order. No Foundation-importing code existed, so \"Sector Apple Foundation Integration\" is the three-line seed. Products exactly three; dependenciesKept empty \u2014 the Sector module needs nothing. Molecule dep coordinates: swift-equation/swift-hash/swift-comparison verified live at swift-atoms (transferred), swift-sector itself referenced at swift-molecules; all branch: \"main\". Residual red expected (structural pass, nothing built): (1) \"Sector Tests\" (deps [\"Sector\"] per recipe) uses allCases (now SLI), Set/hashing (Hashable conformance lives in the hash molecule), and sorted() (Comparable lives in the comparison molecule) \u2014 the test 'Comparison orders by sign triple' is the main seam residue kept in the atom's shared test file; (2) atom keeps ==/</hash(into:) operator funcs without declared conformances, as before. Molecule test targets are stub @Suites importing Sector_<D>. Atom push to main went through with a server-side rule-bypass notice (org-admin bypass over the PR/ci-ok rules) \u2014 direct push was authorized; no force-push, no history rewrite. All four working trees verified clean and remote heads read back equal to local heads.",
+   "completedAt": "2026-08-27T12:43:59Z"
   }
  ],
  "successors": [],
