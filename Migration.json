@@ -8081,23 +8081,32 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-compositions/swift-stripe-http",
       "futureLayer": "compositions",
-      "observedHead": "ca6cda1076c9dbff36efd751b4f032d5f345684e",
-      "observedRemote": "https://github.com/swift-foundations/swift-stripe-http.git",
+      "observedHead": "f9f1dfc00163405c22d0b39419d3fd4bda1e3947",
+      "observedRemote": "https://github.com/swift-compositions/swift-stripe-http.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared exact direct-child cutover commit f9f1dfc00163405c22d0b39419d3fd4bda1e3947 from expected base ca6cda1076c9dbff36efd751b4f032d5f345684e in clean isolated worktree /private/tmp/swift-stripe-http while preserving a disjoint pre-existing clean worktree untouched",
+          "mechanical four-layer cutover changed only .github/metadata.yaml, Package.swift, and README.md with twelve insertions and twelve deletions across seven composition dependency owners, repository links, and layer metadata; Stripe Standard and all owned package/product/target/module/source/test identities remained unchanged",
+          "all eight direct dependency identities/products plus residual identity, active Actions-reference, public-payload, credential, diff, attribution, and Package.resolved preservation checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "repository ID 1048526268 was verified before and after cutover at exact canonical coordinate swift-compositions/swift-stripe-http with unchanged public visibility, non-archived state, and default branch main",
+          "published exact prepared commit f9f1dfc00163405c22d0b39419d3fd4bda1e3947 as an ordinary fast-forward from ca6cda1076c9dbff36efd751b4f032d5f345684e to refs/heads/main through the authenticated administrative ruleset bypass; no force push or history rewrite occurred",
+          "coordinator independently reverified exact live main f9f1dfc00163405c22d0b39419d3fd4bda1e3947, repository ID 1048526268, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is complete and Package.resolved remained absent twice before and after publication; resolution is queued until all eight dependencies validate and the serialized Institute package-resolution slot is available"
+        ]
+      },
+      "githubRepositoryID": 1048526268
     },
     {
       "current": "swift-foundations/swift-structured-queries-postgres",
