@@ -4994,20 +4994,26 @@
       "observedHead": "5d14c8134ff9988849e69ae63250718a10602bf7",
       "observedRemote": "https://github.com/swift-foundations/swift-logger-dependencies.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit c5e0537e1308ee00df7236094a4512e5c0e64da9 from exact live parent 5d14c8134ff9988849e69ae63250718a10602bf7 in clean isolated worktree /private/tmp/four-layer-swift-logger-dependencies-root with subject Prepare Logger Dependencies for the four-layer cutover",
+          "audited all eight tracked paths and made the exact three-path, four-insertion/four-deletion mechanical transformation across Package.swift, README, and metadata, moving Dependencies and self coordinates plus layer topic to compositions while preserving swift-log, all package/product/target/module public semantics, and canonical Actions; residual, payload, staged-tree, ancestry, and identity checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-logger-dependencies as canonical with stable GitHub repository ID 1304286636, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; no repository rename was needed",
+          "JIT verified exact live Dependencies and external apple/swift-log identities, then ordinary fast-forward published exact direct child c5e0537e1308ee00df7236094a4512e5c0e64da9 through the configured administrator ruleset bypass without force or history rewrite",
+          "coordinator verified exact live main c5e0537e1308ee00df7236094a4512e5c0e64da9 twice with unchanged repository ID 1304286636, exact future coordinate, public visibility, non-archived state, default branch main, canonical fetch/push origins, direct-child ancestry, and a clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
         "records": []
-      }
+      },
+      "githubRepositoryID": 1304286636
     },
     {
       "current": "swift-foundations/swift-logger-handlers",
