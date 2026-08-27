@@ -8759,20 +8759,29 @@
       "observedHead": "c93a8cfcdd3b95a72e29322e90ed213f0a8961fd",
       "observedRemote": "https://github.com/swift-foundations/swift-time-based-one-time-password.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit ffaa306090e940d1be57c240e3f5f0a6658409c0 from exact parent c93a8cfcdd3b95a72e29322e90ed213f0a8961fd in clean isolated worktree /private/tmp/four-layer-swift-time-based-one-time-password",
+          "audited all 21 tracked paths and made the exact three-path, eight-insertion/eight-deletion deterministic cutover across Package.swift, README, and metadata, moving Dependencies/self coordinates and correcting canonical RFC ownership while preserving external version ranges, all package/product/target/module identities, public semantics, and canonical Actions; residual, payload, staged-tree, ancestry, and identity checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-time-based-one-time-password as canonical with stable GitHub repository ID 1041618915, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; no repository rename was needed",
+          "JIT verified exact live Dependencies, apple/swift-crypto, and swift-ietf/swift-rfc-6238 identities/products, then ordinary fast-forward published exact direct child ffaa306090e940d1be57c240e3f5f0a6658409c0 without force or history rewrite",
+          "coordinator independently verified exact live main ffaa306090e940d1be57c240e3f5f0a6658409c0 with unchanged repository ID 1041618915, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, stable Package.resolved evidence, and clean tracked checkout"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-time-based-one-time-password-publisher institute package resolve --package-path /private/tmp/four-layer-swift-time-based-one-time-password --argument=--disable-sandbox against the exact live graph, selecting swift-crypto 4.5.1 and RFC 6238 main; no build, test, compilation, raw SwiftPM, dump-package, or manifest evaluation was invoked",
+          "Package.resolved was absent twice before resolution and present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 14bd22ed07b68c98bdb5998df521abf9e1a36398efb7fb8288cccd74532af63e; final live identity/SHA and clean tracked checkout were reverified"
+        ]
+      },
+      "githubRepositoryID": 1041618915
     },
     {
       "current": "swift-foundations/swift-time-to-live",
