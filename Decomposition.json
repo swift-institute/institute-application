@@ -968,6 +968,37 @@
    ],
    "notes": "Adjudication: Boundary (rectilinear edge/corner sides domain: Boundary.Edge, Boundary.Corner with opposite/isTop/isLeft, rank-based operators) is an irreducible native semantic domain -> atom. Reshape: collapsed \"Boundary Primitive\" into Sources/Boundary via git mv (Boundary.swift, Boundary.Edge.swift, Boundary.Corner.swift); deleted the Boundary umbrella exports.swift, the Boundary Equation/Hash/Comparison strata targets (extracted as molecules), and the trivial re-export \"Boundary Test Support\" target (test file already imported Boundary directly, no rewrite needed). SLI: Codable conformances (#if !hasFeature(Embedded) blocks) split out of Boundary.Edge.swift/Boundary.Corner.swift into \"Boundary Standard Library Integration\" (plus @_exported exports.swift matching the swift-bit exemplar). AFI: no Foundation code existed; three-line seed file created. Products exactly three; package dependencies now empty. Molecule deps at live coordinates: swift-atoms/swift-equation|swift-hash|swift-comparison (all transferred to swift-atoms) + swift-molecules/swift-boundary, branch main. Residual red expected until molecules resolve alongside the atom: Boundary Tests uses .sorted() and Set<...> which relied on Comparable/Hashable arriving via Comparison.Protocol/Hash.Protocol through the old umbrella; the atom defines ==/</<=/>/>=/hash(into:) but declares no stdlib Comparable/Hashable conformance itself (kept semantics with the seam extraction rather than inventing conformances). Push to main bypassed the PR/ci-ok branch rule via org-admin (direct pushes explicitly authorized). No merges, no CI changes, no history rewrites; all four trees verified clean.",
    "completedAt": "2026-08-27T12:42:58Z"
+  },
+  {
+   "package": "swift-compass",
+   "repositoryID": 1264249411,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-compass",
+   "to": "swift-atoms/swift-compass",
+   "shapeCommit": "90ac560adbd8cc25bd65369832e6384c0a1edd12",
+   "dependencies": [],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-compass-equation",
+     "repositoryID": 1348475766,
+     "commit": "0179a20cea3c477822b7798982ae6b1dc7ca3c49",
+     "seam": "Compass Equation target (re-export umbrella coupling Compass to swift-atoms/swift-equation)"
+    },
+    {
+     "successor": "swift-molecules/swift-compass-hash",
+     "repositoryID": 1348475845,
+     "commit": "e6df6e330a15f221a67b4d0e8bdde478180d5264",
+     "seam": "Compass.Cardinal: Hash.Protocol conformance coupling Compass to swift-atoms/swift-hash"
+    },
+    {
+     "successor": "swift-molecules/swift-compass-comparison",
+     "repositoryID": 1348475893,
+     "commit": "e62f736698c7bb098b29cca6a6a66f55eca1b9b5",
+     "seam": "Compass.Cardinal: Comparison.Protocol conformance coupling Compass to swift-atoms/swift-comparison"
+    }
+   ],
+   "notes": "Adjudication: atom \u2014 Compass (cardinal directions) is an irreducible native semantic domain owning Compass.Cardinal with rotation/opposite/ordering semantics; domain spelling Compass derived from existing product names. Reshape: collapsed \"Compass Primitive\" into the single Compass module (git mv), deleted the Sources/Compass umbrella exports.swift and the trivial re-export \"Compass Test Support\" target (test file now imports Compass directly). Stdlib conformances split into \"Compass Standard Library Integration\" (real code, no seed needed): CaseIterable moved out of the enum declaration into an extension with explicit allCases [.north,.east,.south,.west] preserving order, and the #if !hasFeature(Embedded) Codable conformance moved there; SLI also carries exports.swift (@_exported import Compass) mirroring swift-atoms/swift-bit. \"Compass Apple Foundation Integration\" created as the three-line seed (no Foundation code existed). Exactly three products; package dependencies now empty \u2014 all three external deps (swift-equation, swift-hash, swift-comparison) left with their seams. Tests: \"Compass Tests\" deps [\"Compass\"]; the two allCases loops rewritten to explicit arrays and the sorted()-based ordering assertion moved to swift-compass-comparison tests (sorted() needs the Comparison-derived Comparable); direct </>-operator expectations kept in the atom (operators are atom-native static funcs). New \"Compass Standard Library Integration Tests\" holds the CaseIterable suite. Molecules: manifests at current live coordinates (swift-molecules/swift-compass for the atom, swift-atoms/* for equation/hash/comparison, all branch: \"main\"); seam imports rewritten Compass_Primitive -> Compass; equation molecule is re-export-only (original target had no conformance code \u2014 faithful extraction, flagged for a later semantic pass to add Equation.Protocol conformance); hash and comparison carry the conformance files; equation and hash have stub @Suite tests. Atom README Architecture section refreshed to the new products. No builds/tests run per commission (structural pass); atom push bypassed the PR/CI branch rule via authorized direct push (remote noted the bypass). Residual red risk: none known beyond unbuilt state; no remaining references to extracted domains in kept files.",
+   "completedAt": "2026-08-27T12:43:06Z"
   }
  ],
  "successors": [],
