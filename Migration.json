@@ -12862,19 +12862,27 @@
       "observedHead": "cecf89f54cdba53bb018802c45b8b8a6579cca74",
       "observedRemote": "https://github.com/swift-ietf/swift-rfc-9557.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared human-authored direct-child commit de8814391843b7278d0b77f32b2491d27e26fe5e from expected parent cecf89f54cdba53bb018802c45b8b8a6579cca74 in isolated worktree /private/tmp/four-layer-swift-rfc-9557 with subject Prepare RFC 9557 for the four-layer cutover",
+          "deterministic whole-tree audit verified the exact nine-path 20-insertion/20-deletion canonical mapping of ASCII Serializer and Parser URLs/packages/products/modules, Standard Library Extensions owner-only migration, and RFC3339-transitive Binary Serializable and Parseable ASCII module imports; preserved RFC 3339 and all RFC 9557 identities/semantics, introduced no split/new dependency, found zero mapped residuals, and verified unchanged README/metadata/CI, public payload, canonical one-hop Actions, explicit staging, and clean checkout"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified unchanged canonical coordinate swift-ietf/swift-rfc-9557 at expected main cecf89f54cdba53bb018802c45b8b8a6579cca74 with GitHub repository ID 1105625353, public visibility, non-archived state, and default branch main; all four future dependencies were exact live ledger-passed commits and no repository rename was required",
+          "fast-forward published exact prepared commit de8814391843b7278d0b77f32b2491d27e26fe5e without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main de8814391843b7278d0b77f32b2491d27e26fe5e with unchanged repository ID 1105625353, exact coordinate swift-ietf/swift-rfc-9557, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-rfc-9557-publisher institute package resolve --package-path /private/tmp/four-layer-swift-rfc-9557 --argument=--disable-sandbox against the exact live declared dependencies and transitive graph",
+          "Package.resolved was absent before resolution and generated ignored/untracked afterward without editing or committing; two post-resolution checks produced stable SHA-256 02629634679358a22e4daf4673211760a94e15cef243083660c5eaef51d95e33, exact HEAD de8814391843b7278d0b77f32b2491d27e26fe5e, and a clean checkout"
+        ]
       }
     },
     {
