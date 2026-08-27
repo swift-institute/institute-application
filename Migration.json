@@ -30226,13 +30226,18 @@
       "observedHead": "6853221bd66f79be6b01bf506b9dc46ac89b65e7",
       "observedRemote": "https://github.com/swift-standards/swift-yaml-standard.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit 155cdd824aacc1d54dbdaa46a09de41d7657117d from expected parent 6853221bd66f79be6b01bf506b9dc46ac89b65e7 in isolated worktree /private/tmp/four-layer-swift-yaml-standard",
+          "deterministic full-tree equivalence audit verified all 30 tracked files, exact nine-path and 15-insertion/15-deletion mapping of Graph Sequential and Lexer dependency URLs/products/packages/modules/imports, preserved the YAML Standard package/product/target/path identity and every unrelated file byte-for-byte, zero mapped residuals, public payload, active Actions, human commit identity, clean checkout, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified unchanged canonical coordinate swift-standards/swift-yaml-standard at expected main 6853221bd66f79be6b01bf506b9dc46ac89b65e7 with GitHub repository ID 1329635548, public visibility, non-archived state, and default branch main; no repository rename was required",
+          "fast-forward published exact prepared commit 155cdd824aacc1d54dbdaa46a09de41d7657117d without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main 155cdd824aacc1d54dbdaa46a09de41d7657117d with unchanged repository ID 1329635548, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
