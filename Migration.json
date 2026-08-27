@@ -8850,22 +8850,29 @@
       "future": "swift-compositions/swift-tests",
       "futureLayer": "compositions",
       "observedHead": "84b30a00e4cef0d165e6075c0d1e601d77bb2697",
-      "observedRemote": "https://github.com/swift-foundations/swift-tests.git",
+      "observedRemote": "https://github.com/swift-compositions/swift-tests.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared exact direct-child cutover commit 95f12b95ec50217d813308a2326c1b205210f017 from expected base 84b30a00e4cef0d165e6075c0d1e601d77bb2697 in clean isolated worktree /private/tmp/swift-tests",
+          "mechanical four-layer cutover changed 120 tracked paths with 601 insertions and 601 deletions across the root and nested Tests manifests, sources, tests, README, and metadata; canonical package/product/module mappings were applied while the Testing product, local nested package identity, and legitimate IEC Real_Primitives imports remained unchanged",
+          "ordered changed-path SHA-256 608e53fe3b53cae8518db5e08948f8a4d42544b13454a0668cb918ce34d98164; the nested swift-test-application product plus residual identity, active Actions-reference, public-payload, credential, diff, attribution, and both root/nested Package.resolved preservation checks passed"
+        ]
       },
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "fail-closed preflight proved exact canonical destination swift-compositions/swift-tests returned HTTP 404 immediately before rename, while actual live coordinate swift-compositions/swift-test-snapshot had repository ID 1132378504, exact base 84b30a00e4cef0d165e6075c0d1e601d77bb2697, public visibility, non-archived state, and default branch main",
+          "renamed swift-compositions/swift-test-snapshot to canonical swift-compositions/swift-tests with the supported gh repo rename operation; bounded polling succeeded and proved the identical repository ID 1132378504 with unchanged visibility, archive state, default branch, and base SHA",
+          "coordinator independently reverified the exact future coordinate, stable repository ID 1132378504, public visibility, non-archived state, default branch main, and unchanged remote main before authorizing publication; publication remains pending as a separately journaled phase"
         ]
       },
-      "state": "ready",
+      "state": "prepared",
       "validation": {
         "status": "pending",
         "records": []
-      }
+      },
+      "githubRepositoryID": 1132378504
     },
     {
       "current": "swift-foundations/swift-threads",
