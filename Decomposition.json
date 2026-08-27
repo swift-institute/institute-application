@@ -2931,6 +2931,37 @@
    ],
    "notes": "Adjudication: glob pattern matching is a native semantic domain (Pattern/Segment/Atom/Scalar.Class/Options/Error vocabulary) \u2014 atom, no defer. Reshape: deleted umbrella exports.swift; moved Glob.Pattern.Parser.swift, Glob.Pattern+Parseable.swift (fixed pre-existing Glob.Glob.Pattern typo), the throws(Glob.Error) init(_ String) extension split out of Glob.Pattern.swift (as Glob.Pattern+Parsing.swift), and Glob.Pattern+ExpressibleByStringLiteral.swift into swift-glob-parser module Glob_Parser (the literal conformance calls the parsing init, so it cannot live in the SLI target whose deps are exactly [Glob]); each moved file gained public import Glob. Added a public memberwise init to Glob.Pattern so the external parser can construct it. Removed the atom's ASCII dependency by rewriting Glob.isPattern with hex byte literals (0x2A/0x3F/0x5B/0x5C) \u2014 isPattern is core domain logic, ASCII was incidental sugar; all other external imports (Array, Buffer Linear, Ownership Shared, Byte, Byte Parser, Parser, Collection) existed only in the moved parser files, so the atom's package dependencies are now empty. Created SLI seed file (no genuine stdlib-only integration code remains) and AFI seed file (no Foundation imports existed). Products exactly three. Tests: parsing tests moved to Glob Parser Tests (imports rewritten to plain import Glob + import Glob_Parser, @testable dropped); atom Glob Tests keeps the isPattern test plus a new memberwise-init test. Molecule deps pinned at current live coordinates (swift-atoms: byte, parser, collection; swift-molecules: glob, array, ownership-shared, buffer-linear, byte-parser); Collection added explicitly because Glob.Pattern.Parser.swift file-imports it. Residual red risk (unbuilt by mandate): moved files' verbatim import sets may include unused modules, and Byte.Input/Parseable resolution is unverified. README minimally corrected to the new three-product shape. Both working trees verified clean; atom push bypassed the repo's PR/status-check rules via authorized direct push (remote noted the bypass).",
    "completedAt": "2026-08-27T16:46:12Z"
+  },
+  {
+   "package": "swift-executor",
+   "repositoryID": 1217844478,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-executor",
+   "to": "swift-atoms/swift-executor",
+   "shapeCommit": "6bcd213b64fda8be6a2961b6534309d191ec80a4",
+   "dependencies": [],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-executor-index",
+     "repositoryID": 1348714795,
+     "commit": "17f4f480f7a1b59a24fc7e1179886b26536c95b7",
+     "seam": "Executor.Job.Deque \u2014 Chase-Lev work-stealing deque whose only external dependency is swift-index (Index<UnownedJob>.Count in its public API)"
+    },
+    {
+     "successor": "swift-molecules/swift-executor-deque",
+     "repositoryID": 1348714859,
+     "commit": "c886fdb814e58243119be228812f7b74428276fe",
+     "seam": "Executor.Job.Queue \u2014 FIFO job queue stored as Deque<Column.Ring<UnownedJob>>; deps swift-deque (dominant), swift-column, swift-buffer-ring, swift-index"
+    },
+    {
+     "successor": "swift-molecules/swift-executor-clock",
+     "repositoryID": 1348714935,
+     "commit": "250284abc0d53bd7496e689f16eb9b7cb0ddfa5b",
+     "seam": "Executor.Job.Priority (+ .Entry) \u2014 deadline-ordered scheduling keyed by Clock.Continuous.Instant (public API); deps swift-clock (dominant), swift-heap, swift-comparison, swift-index"
+    }
+   ],
+   "notes": "Adjudication: Executor is a native semantic domain (job-scheduling namespace: Executor, Executor.Job, Executor.Shutdown(.Flag), Executor.Wait(.Event)) \u2014 atom. Atom now holds one Executor module (collapsed Executor Primitive/Job/Shutdown/Wait strata plus umbrella; 5 exports.swift deleted), seed SLI target, seed AFI target, zero package dependencies; Executor.Shutdown.Flag keeps `public import Synchronization` (stdlib toolchain module, not a package dependency). Test target \"Executor Tests\" retains Executor.Shutdown.Flag Tests only. \"Executor Test Support\" target deleted; its UnownedJob.mock helper (an extension on stdlib UnownedJob, test-only) was duplicated as \"UnownedJob Mock.swift\" into the index and clock molecule test targets that need it; test imports of Executor_Test_Support rewritten. Import rewrites in molecules: Executor_Job -> Executor, and stale Executor_Core -> Executor (the \"Executor Job Priority\" directory was undeclared in the old manifest \u2014 never compiled; its `#if canImport(Executor_Job_Priority)` test guard removed and imports fixed to Executor_Clock). Molecule naming keyed by the dominant external dependency per the swift-bit-index precedent; multi-dep molecules keep their auxiliary deps (column/buffer-ring at swift-molecules, all others at swift-atoms live coordinates, branch main). Residual red risks (structural pass, nothing built): Comparison/Equation `Protocol` conformances in Executor.Job.Priority.Entry assume swift-comparison exposes Equation via the Comparison product; molecules assume product names read live from dependency manifests; atom README still documents the extracted Job.Queue/Job.Deque products (not updated \u2014 not in recipe scope). Pushes to main used org-admin bypass of the PR/status-check rule, as authorized by the brief.",
+   "completedAt": "2026-08-27T16:46:20Z"
   }
  ],
  "successors": [],
