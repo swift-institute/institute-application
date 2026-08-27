@@ -3161,6 +3161,59 @@
    ],
    "notes": "Adjudication: Pool is a native semantic domain (resource-pool vocabulary: Pool, ID, Scope, Capacity, Error, Metrics, Lifecycle) \u2014 atom. Atom module Sources/Pool collapsed from strata targets Pool Primitive/ID/Scope/Error/Capacity/Metrics/Lifecycle (namespace + Error only); all exports.swift umbrellas and the 12-product manifest deleted; exactly three products now (Pool, Pool Standard Library Integration, Pool Apple Foundation Integration). Kept dependency swift-dimension: Tagged<Self, UInt64> is the stored RawValue of Pool.ID and Pool.Scope \u2014 woven into core identity types, irremovable without semantic redesign. SLI target holds one real file: Pool.Capacity+ExpressibleByIntegerLiteral.swift, split out of Pool.Capacity.swift; cross-module init rewritten to `self = try! Pool.Capacity(value)` since it can no longer assign the stored let directly. AFI target is the three-line seed (no Foundation code existed). Concurrency trait removed from the atom (it only gated the extracted Bounded implementation); trait + POOL_CONCURRENCY define preserved verbatim in swift-pool-async. Tests: 8 suites + 2 helpers moved to molecules (Bounded/Concurrency/Lifecycle \u2192 pool-async; Acquire/Release \u2192 pool-effect); trivial Pool Test Support re-export target deleted and its imports dropped; atom keeps a stub Pool Tests suite. Residual red, expected by design: (1) Pool.Scope.swift Embedded-only branch still references Async.Mutex after losing swift-async (non-Embedded path uses stdlib Synchronization and is fine); (2) molecule test files @_spi(Internal) @testable import Pool cross-package, and any former Index Test Support symbols from the deleted Pool Test Support re-export are unresolved; (3) molecule files extending atom types were given explicit `public import Pool` lines (Pool_Primitive/Pool_Scope/etc. imports rewritten to Pool and deduped). swift-pool-async carries the Bounded substrate deps at current live coordinates (swift-atoms for async/queue/storage/buffer/dimension/ownership/index/iterator/either/fixed/effect; swift-molecules for array/buffer-linear/column/memory-heap/memory-allocation/ownership-shared/stack/tagged-collection), verified via org census. Working trees for all three repos verified clean.",
    "completedAt": "2026-08-27T16:54:45Z"
+  },
+  {
+   "package": "swift-linter",
+   "repositoryID": 1230911411,
+   "disposition": "developer-tool",
+   "from": "swift-molecules/swift-linter",
+   "to": "swift-institute/swift-linter",
+   "shapeCommit": "8337af02e7c7c499e98519a8a5ae9a65fae60a95",
+   "dependencies": [
+    "swift-source (Lint.Source.Parsed and Lint.Rule observe/repair signatures are defined over Source types)",
+    "swift-diagnostic (Lint.Finding wraps Diagnostic.Record; Lint.Rule.Severity wraps Diagnostic.Severity)",
+    "swift-cardinal (used in Lint.Brand)",
+    "swift-tagged + Tagged Standard Library Integration (Rule.ID, Control.ID, Filter.Prefix, Source.Path are Tagged typealiases)",
+    "swift-ownership (Lint.Configuration stores Ownership.Immutable parent)",
+    "swift-standard-library-extensions (Array.Builder used in Lint.Configuration init)",
+    "swift-syntax (Lint.Brand, Lint.Source.Parsed, Lint.Syntax.*, Lint.Visibility+Effective operate directly on SwiftSyntax nodes)",
+    "swift-byte (test-only, Linter Tests)"
+   ],
+   "splits": [],
+   "notes": "Lane defer upheld and routed via the developer-tool exception: the lint engine is Institute governance tooling operating on SwiftSyntax + Source + Diagnostic; transferred intact (no reshape) to swift-institute. Lane notes: DEFER, no reshaping, no push (head = clone head 8337af02e7c7c499e98519a8a5ae9a65fae60a95, working tree clean). Adjudication: swift-linter is Institute developer tooling (the lint engine's domain model: Lint.Rule, Finding, Configuration, Suppression, Repair) and simultaneously a capability whose entire purpose is relating independent domains \u2014 it observes parsed Swift sources (swift-source + SwiftS",
+   "completedAt": "2026-08-27T16:55:06Z"
+  },
+  {
+   "package": "swift-cache",
+   "repositoryID": null,
+   "disposition": "molecule",
+   "from": "swift-molecules/swift-cache",
+   "to": "swift-molecules/swift-cache",
+   "shapeCommit": "9cd56e07a698afc6335b0f7cdec21801eeb67f81",
+   "dependencies": [
+    "swift-molecules/swift-array (Array Primitive, Array) \u2014 Cache.swift uses __Array as its resumption-batch storage",
+    "swift-atoms/swift-async (Async) \u2014 Async.Mutex, Async.Waiter queue/continuation/flag machinery is the core concurrency substrate of Cache; also used by Cache Tests (Async.Gate)",
+    "swift-atoms/swift-ownership (Ownership) \u2014 Ownership.Mutable<...>.Unchecked wraps both Storage types",
+    "swift-molecules/swift-column (Column) \u2014 Column.Heap is the element layout of the resumption arrays",
+    "swift-molecules/swift-buffer-ring (Buffer Ring Primitive) \u2014 imported by Cache.swift for member visibility of the queue/array machinery under MemberImportVisibility",
+    "swift-molecules/swift-buffer-linear (Buffer Linear Primitive) \u2014 same member-visibility role, imported by Cache.swift",
+    "swift-atoms/swift-buffer (Buffer) \u2014 Cache.swift imported Buffer_Primitive; rewritten to the atomized Buffer module",
+    "swift-atoms/swift-storage (Storage) \u2014 Cache.swift imported Storage_Contiguous; rewritten to the atomized Storage module",
+    "swift-molecules/swift-memory-heap (Memory Heap) \u2014 imported by Cache.swift and Cache.Entry.Waiters.swift for the waiter queue storage",
+    "swift-molecules/swift-memory-allocation (Memory Allocator Primitive) \u2014 imported by Cache.swift for allocator-backed storage member visibility",
+    "swift-atoms/swift-queue (Queue) \u2014 Cache.swift imported Queue and Waiters imported Queue_Primitive; rewritten to the atomized Queue module (enqueue/drain/reapFlagged members)",
+    "swift-molecules/swift-standard-library-extensions (Standard Library Extensions) \u2014 imported by Cache.swift; previously satisfied only via umbrella re-export, now declared explicitly"
+   ],
+   "splits": [
+    {
+     "repo": "swift-molecules/swift-cache-effect",
+     "id": 1348727981,
+     "commit": "f26a02a3833f1dfc203ef398429c03541f1b8094",
+     "seam": "Cache.Compute and Cache.Evict effect types conforming to Effect.Protocol, plus their tests"
+    }
+   ],
+   "notes": "Outer-loop adjudication (substrate rule): canonical internal shape adopted with the Effect seam split, but 12 kept dependencies include many molecules (array, column, buffer-ring/linear, memory-heap/allocation, standard-library-extensions); stays in swift-molecules.",
+   "completedAt": "2026-08-27T16:55:06Z"
   }
  ],
  "successors": [],
