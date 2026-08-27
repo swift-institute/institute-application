@@ -30199,8 +30199,12 @@
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-w3c-svg-root institute package resolve --package-path /private/tmp/four-layer-swift-w3c-svg --argument=--disable-sandbox against live Format, Geometry, and Parser dependencies",
+          "prepared HEAD remained 956e92b8a8545c35b3612d6052df5f61234e884e and the isolated worktree remained clean",
+          "Package.resolved was absent before resolution and present afterward as untouched ignored generated state with stable SHA-256 50ab8ca81b004dbe849f67dc2bab41a144ca544a5f8da63130c2b2177223bc58"
+        ]
       }
     },
     {
