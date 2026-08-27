@@ -5530,6 +5530,42 @@
     "wave": "wave7c",
     "changes": "Canonicalized Argument to its atom owner and replaced the vanished atom enumeration surface with a minimal seam-owned Finite.Enumerable over CaseIterable and Sendable, retaining Argument flag name/help/hash requirements without reviving Cardinal/Ordinal machinery. Revalidated against repaired Argument 7e8abd4. Fresh build green; 6 tests green.",
     "bookedAt": "2026-08-27T20:47:33Z"
+   },
+   {
+    "repo": "swift-molecules/swift-boundary-comparison",
+    "headSHA": "6667417d14ef95430ece59bdb548fbc595d64b22",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7d",
+    "changes": "Canonicalized Boundary to its atom owner, removed duplicate Edge and Corner Comparable conformances now owned by Boundary, and made the molecule an exported Comparison compatibility seam with focused protocol/rank-order coverage. Fresh build green; 3 tests green.",
+    "bookedAt": "2026-08-27T20:51:48Z"
+   },
+   {
+    "repo": "swift-molecules/swift-ascii-byte",
+    "headSHA": "6b9546f313ccad43d5c0808dcb751ab29752274e",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7d",
+    "changes": "Canonicalized ASCII to its atom owner; removed atom-owned Equatable/Hashable declarations, Byte SLI, and non-cross-domain String/UInt8 forwarders; retained checked Byte.Protocol conversion, validation error, and decimal-to-Byte behavior with focused retroactive conformance coverage. Fresh build green; 15 tests green.",
+    "bookedAt": "2026-08-27T20:52:21Z"
+   },
+   {
+    "repo": "swift-molecules/swift-cardinal-comparison",
+    "headSHA": "e6dada1070b066e540c61c83e928ecaec5127004",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7d",
+    "changes": "Canonicalized Cardinal to its atom owner and retained the genuine retroactive Comparison.Protocol/Comparable conformance absent from the atom, re-exporting both owners with explicit retroactive marking and focused conformance/order/sort coverage. Fresh build green; 3 tests green.",
+    "bookedAt": "2026-08-27T20:53:25Z"
+   },
+   {
+    "repo": "swift-molecules/swift-boundary-equation",
+    "headSHA": "02c768c4dbd8c79f68a4a11ed9e56b4867fb1563",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7d",
+    "changes": "Canonicalized Boundary to its atom owner, removed redundant duplicate-conformance residue, and preserved the real narrow Boundary/Equation compatibility umbrella with focused generic-constraint/equality coverage and canonical generated-state ignores. Fresh build green; 2 tests green.",
+    "bookedAt": "2026-08-27T20:54:21Z"
    }
   ]
  }
