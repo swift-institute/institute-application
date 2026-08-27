@@ -4749,12 +4749,13 @@
    },
    {
     "repo": "swift-atoms/swift-argument",
-    "headSHA": "2adfbeccd98735013cf36ab07e9986fb66b7e4ca",
+    "headSHA": "7e8abd457b7bbad9c31355032a72bdd34770e584",
     "build": "green",
     "test": "green",
-    "wave": "wave2",
-    "changes": "Pushed 2adfbec to main. Red cause: the canonical-atom-shape commit (fe7cf6e) deleted the Tagged-based Argument.Environment.Variable.Name typealias and all manifest dependencies, but Argument.Option.swift and Argument.Option.Tests.swift still referenced Environment.Variable.Name (cascading into a spurious Equatable-conformance error on Option). Fix: (1) Package.swift \u2014 added dependency https://github.com/swift-atoms/swift-tagged.git branch main (verified live home via gh api repos/swift-atoms/swift-tagged --jq .full_name -> swift-atoms/swift-tagged); Argument target now depends on product Tagge",
-    "bookedAt": "2026-08-27T17:59:32Z"
+    "wave": "wave7c",
+    "changes": "Completed exclusive Tagged extraction by removing Environment.Variable.Name and environment option/initializer residue plus the now-unused Tagged dependency; restored exact core/AFI/TestSupport products and promoted Schema.Recording into Test Support. Foundation only in AFI. Fresh build green; 50 tests green.",
+    "bookedAt": "2026-08-27T20:47:14Z",
+    "priorHeadSHA": "2adfbeccd98735013cf36ab07e9986fb66b7e4ca"
    },
    {
     "repo": "swift-atoms/swift-time",
@@ -5493,6 +5494,42 @@
     "wave": "wave7b",
     "changes": "Canonicalized Axis to its atom owner, removed the duplicate Equatable conformance now owned by Axis, and made the molecule a real exported Equation compatibility seam with focused equality/protocol coverage. Fresh build green; 3 tests green.",
     "bookedAt": "2026-08-27T20:42:18Z"
+   },
+   {
+    "repo": "swift-molecules/swift-argument-tagged",
+    "headSHA": "e04a7987ac365266d16cacd7fd7c1d32e31b854b",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7c",
+    "changes": "Canonicalized Argument to its atom owner and established exclusive ownership of the Tagged environment-variable name seam, with public initializer/literal/equality coverage and narrow documentation. Revalidated against repaired Argument 7e8abd4. Fresh build green; 3 tests green.",
+    "bookedAt": "2026-08-27T20:47:14Z"
+   },
+   {
+    "repo": "swift-molecules/swift-axis-finite",
+    "headSHA": "1a42e212ecab6e9a0d18dbe5b17e4817d5e6fa5b",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7c",
+    "changes": "Canonicalized Axis to its atom owner, replaced vanished Finite.Enumerable/Ordinal TestSupport residue with current Finite.Bound integration and checked Axis-to-Ordinal conversion, and added focused containment/conversion coverage. Fresh build green; 6 tests green.",
+    "bookedAt": "2026-08-27T20:47:14Z"
+   },
+   {
+    "repo": "swift-molecules/swift-ascii-carrier",
+    "headSHA": "a1db247a6ea2b85d901c73908112a497e4efe449",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7c",
+    "changes": "Canonicalized ASCII to its atom owner, preserved the real ASCII.Code Carrier conformance and namespace seam, removed duplicate byte-value ownership by projecting live ASCII.Code constants, and added current aliases and focused contract coverage. Fresh build green; 4 tests green.",
+    "bookedAt": "2026-08-27T20:47:14Z"
+   },
+   {
+    "repo": "swift-molecules/swift-argument-finite",
+    "headSHA": "b23edba2f1a9c20e5c95dfcc2aa1780e1f8484c0",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7c",
+    "changes": "Canonicalized Argument to its atom owner and replaced the vanished atom enumeration surface with a minimal seam-owned Finite.Enumerable over CaseIterable and Sendable, retaining Argument flag name/help/hash requirements without reviving Cardinal/Ordinal machinery. Revalidated against repaired Argument 7e8abd4. Fresh build green; 6 tests green.",
+    "bookedAt": "2026-08-27T20:47:33Z"
    }
   ]
  }
