@@ -5241,6 +5241,24 @@
     "wave": "wave5b-recovered",
     "changes": "Package.swift: canonicalized swift-symmetry dependency URL from swift-molecules/swift-symmetry to swift-atoms/swift-symmetry (verified via gh api redirect; swift-linear and swift-dimension already canonical at swift-atoms). Tests/Symmetry Linear Tests/Scale Tests.swift: adapted `Uniform scale creates equal factors` to upstream Dimension.Scale.uniform(_: Scale<1, Scalar>) signature (was bare Scalar); deleted `1D scale from float literal` and `1D scale from integer literal` \u2014 the ExpressibleByFloatLiteral/IntegerLiteral conformances no longer exist on upstream Dimension.Scale, so their subject i",
     "bookedAt": "2026-08-27T19:07:55Z"
+   },
+   {
+    "repo": "swift-atoms/swift-text",
+    "headSHA": "2fe9e8f784680e04b033c67520f54a38ed924bf7",
+    "build": "green",
+    "test": "green",
+    "wave": "wave6a",
+    "changes": "Converged the retained slim Text native core on current Affine/Cardinal/Ordinal/Tagged APIs; removed stale Carrier, added explicit integration/test dependencies, manual equality/hash and cross-module Codable, and checked Int/Text.Count boundaries. No Source/Token surfaces reintroduced; exact products preserved; Foundation only in AFI. Fresh build green; 46 tests green.",
+    "bookedAt": "2026-08-27T19:12:35Z"
+   },
+   {
+    "repo": "swift-atoms/swift-percent",
+    "headSHA": "226bf660f9bafd28fef5f707f471c278247b3576",
+    "build": "green",
+    "test": "green",
+    "wave": "wave6a",
+    "changes": "Wired tests to SLI/AFI conformances, removed unsafe String(format:) fallback under strict memory safety, and canonicalized repository documentation. Exact three-product atom shape preserved; Foundation only in AFI. Fresh build green; fresh tests green (19 tests).",
+    "bookedAt": "2026-08-27T19:12:35Z"
    }
   ]
  }
