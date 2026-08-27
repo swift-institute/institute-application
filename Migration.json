@@ -4176,20 +4176,29 @@
       "observedHead": "478de68ce2fb44f613532b9b50854f90764ffa84",
       "observedRemote": "https://github.com/swift-foundations/swift-io.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit 70929620360fa053e4db8f1b7d31859860ae339b from exact parent 478de68ce2fb44f613532b9b50854f90764ffa84 in clean identity-compatible isolated worktree /private/tmp/swift-io; the original checkout remained clean and untouched",
+          "audited all 62 tracked paths and made the exact 28-path, 105-insertion/105-deletion mechanical cutover across Package.swift, README, metadata, nine sources, and 16 tests/support files, mapping six composition owners, 14 molecule package identities, plural product/module identities, and a transitive Error module while preserving legitimate singular Primitive identities, the descriptive Event Primitives test-suite name, public semantics, and canonical Actions; residual, payload, staged-tree, ancestry, and identity checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-io as canonical with stable GitHub repository ID 1122233189, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; no repository rename was needed",
+          "JIT verified all 20 declared dependency coordinates, exact heads, required products, and ledger gates twice, then ordinary fast-forward published exact direct child 70929620360fa053e4db8f1b7d31859860ae339b without force or history rewrite",
+          "coordinator independently verified exact live main 70929620360fa053e4db8f1b7d31859860ae339b with unchanged repository ID 1122233189, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, stable Package.resolved evidence, and clean tracked checkout"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-io-publisher institute package resolve --package-path /private/tmp/swift-io --argument=--disable-sandbox against the exact live graph; no build, test, compilation, raw SwiftPM, dump-package, or standalone manifest-evaluation command was invoked",
+          "Package.resolved was absent twice before resolution and present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 a9b2d330ae396c23cba1994bcb6050fcbbb1b56e02cbe205ed8b30cc8a90d4f4; final live identity/SHA and clean tracked checkout were reverified"
+        ]
+      },
+      "githubRepositoryID": 1122233189
     },
     {
       "current": "swift-foundations/swift-ip-address",
