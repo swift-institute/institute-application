@@ -7073,20 +7073,28 @@
       "observedHead": "88354b9b2426683cfa8765a17b70e26dc4d612f3",
       "observedRemote": "https://github.com/swift-foundations/swift-server-dependencies.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit f630c459511d17d1c041dd0dae8f7e6fdf8ac672 from exact parent 88354b9b2426683cfa8765a17b70e26dc4d612f3 in clean identity-compatible isolated worktree /private/tmp/swift-server-dependencies; the original checkout remained clean at its base",
+          "audited all 11 tracked paths and made the exact 3-path, 6-insertion/6-deletion mechanical cutover across Package.swift, README, and metadata, mapping Dependencies, Logger Dependencies, Server, and self coordinates to compositions while preserving apple/swift-log, HTTP Standard, and all package, product, target, module, path, and public semantics; residual, payload, staged-tree, ancestry, identity, and canonical Actions checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-server-dependencies as canonical with stable GitHub repository ID 1304398262, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; the completed organization rename had already established the coordinate, so no repository rename was needed",
+          "JIT verified all five declared dependency coordinates, exact heads, required products, and publication gates, then ordinary fast-forward published exact direct child f630c459511d17d1c041dd0dae8f7e6fdf8ac672 without force or history rewrite",
+          "coordinator independently verified exact live main f630c459511d17d1c041dd0dae8f7e6fdf8ac672 with unchanged repository ID 1304398262, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is complete and Package.resolved remained absent twice after publication; the repository is queued behind the serialized Institute package-resolution slot after measured shared SwiftPM-cache contention"
+        ]
+      },
+      "githubRepositoryID": 1304398262
     },
     {
       "current": "swift-foundations/swift-server-static",
