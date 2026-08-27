@@ -30496,20 +30496,30 @@
       "observedHead": "2e574bf625a55876dbdf0edc0106875dcc781eeb",
       "observedRemote": "https://github.com/swift-standards/swift-time-standard.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared human-authored direct-child commit 20d76221be6e12cb90112ce3886389fe73810982 from expected parent 2e574bf625a55876dbdf0edc0106875dcc781eeb in isolated identity-matching worktree /private/tmp/four-layer-swift-time-standard-root/swift-time-standard with subject Prepare Time Standard for the four-layer cutover",
+          "the exact eight-path mechanical transformation changed Package.swift plus four source and three test files with ten insertions and ten deletions: swift-time-primitives became suffix-free molecule package/product/module swift-time, Time, and Time, while standard-library-extensions preserved its package/product identity and changed only owner",
+          "all five future dependencies were ledger-passed and freshly exact-live with their manifest products verified; RFC 3339, RFC 5322, ISO 8601, every Time Standard package/product/target/path/public semantic identity, all sixteen tracked paths, and canonical Actions were preserved with no split or new dependency",
+          "committed-tree residual and public-payload scans were clean, the explicit staged/unstaged/commit-parent gates passed, Package.resolved was absent before preparation, and the worktree remained clean at the exact prepared commit"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified exact coordinate swift-standards/swift-time-standard, GitHub repository ID 1121371229, public visibility, non-archived state, default branch main, exact clone URL, and expected live parent 2e574bf625a55876dbdf0edc0106875dcc781eeb immediately before publication; no rename was required",
+          "fast-forward published exact direct child 20d76221be6e12cb90112ce3886389fe73810982 to main through the configured administrator ruleset bypass without force or history rewrite",
+          "deliberately set both origins to the canonical final URL and coordinator reverified live main 20d76221be6e12cb90112ce3886389fe73810982 with unchanged repository ID 1121371229, exact coordinate, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is durably booked before the sole package-resolution gate"
+        ]
+      },
+      "githubRepositoryID": 1121371229
     },
     {
       "current": "swift-standards/swift-uri-standard",
