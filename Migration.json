@@ -17482,19 +17482,27 @@
       "observedHead": "f14e1a2f3e05ad66917d9a11eb88a2227139c43b",
       "observedRemote": "https://github.com/swift-primitives/swift-cache-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit f1d3d9a39d975210fc456640d7822c278e7d8cc1 from expected parent f14e1a2f3e05ad66917d9a11eb88a2227139c43b in isolated worktree /private/tmp/four-layer-swift-cache",
+          "deterministic full-tree audit verified 26 changed paths with 90 insertions/90 deletions, all 16 dependency URLs and 20 exact products/packages/modules/imports, documentation target, README, and metadata mappings; preserved six legitimate singular Primitive identities, found zero mapped residuals, and verified all dependencies at booked live heads, public payload, active Actions, human commit identity, clean checkout, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified old coordinate swift-molecules/swift-cache-primitives at expected main f14e1a2f3e05ad66917d9a11eb88a2227139c43b with GitHub repository ID 1028863851, public visibility, non-archived state, and default branch main, then renamed it to exact destination swift-molecules/swift-cache",
+          "verified the same GitHub repository ID 1028863851 at swift-molecules/swift-cache, set fetch and push origins to the final HTTPS URL, and fast-forward published exact prepared commit f1d3d9a39d975210fc456640d7822c278e7d8cc1 without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified exact canonical coordinate swift-molecules/swift-cache at live main f1d3d9a39d975210fc456640d7822c278e7d8cc1 with unchanged repository ID 1028863851, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-cache-publisher institute package resolve --package-path /private/tmp/four-layer-swift-cache --argument=--disable-sandbox against the exact live declared dependency graph",
+          "post-resolution verification found exact HEAD f1d3d9a39d975210fc456640d7822c278e7d8cc1, a clean checkout, and untouched generated Package.resolved with stable SHA-256 7c8548a5daf381230bb46ffcf72fbde646106dc3a26450871bd46d492414b687"
+        ]
       }
     },
     {
@@ -25504,19 +25512,27 @@
       "observedHead": "0960e5d050a77bb49afb9cd7adbae6b995d8d11d",
       "observedRemote": "https://github.com/swift-primitives/swift-render-async-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit 6cdc1db7cecc967dee73b33681b7c7adcd63f883 from expected parent 0960e5d050a77bb49afb9cd7adbae6b995d8d11d in isolated worktree /private/tmp/four-layer-swift-render-async",
+          "deterministic full-tree equivalence audit verified all 14 tracked files, seven path moves, the exact Render, Async Channel, and Byte future dependency URLs/products/packages/modules/imports, owned suffix-free identities, preserved legitimate singular identities, README and metadata mappings, zero mapped residuals, public payload, active Actions, human commit identity, clean checkout, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified old coordinate swift-molecules/swift-render-async-primitives at expected main 0960e5d050a77bb49afb9cd7adbae6b995d8d11d with GitHub repository ID 1246634343, public visibility, non-archived state, default branch main, and absent exact destination, then renamed it to swift-molecules/swift-render-async",
+          "verified the same GitHub repository ID 1246634343 at swift-molecules/swift-render-async, set fetch and push origins to the final HTTPS URL, and fast-forward published exact prepared commit 6cdc1db7cecc967dee73b33681b7c7adcd63f883 without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified exact canonical coordinate swift-molecules/swift-render-async at live main 6cdc1db7cecc967dee73b33681b7c7adcd63f883 with unchanged repository ID 1246634343, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-render-async-publisher institute package resolve --package-path /private/tmp/four-layer-swift-render-async --argument=--disable-sandbox against the exact live Render, Async Channel, and Byte dependency graph",
+          "post-resolution verification found exact HEAD 6cdc1db7cecc967dee73b33681b7c7adcd63f883, a clean checkout, and Package.resolved absent both before and after resolution with absence checked twice"
+        ]
       }
     },
     {
@@ -28201,10 +28217,12 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified old coordinate swift-molecules/swift-tree-n-primitives at expected main b526a1312f054a4fed9a852a18e0d1282da3e768 with GitHub repository ID 1250708981, public visibility, non-archived state, and default branch main",
-          "renamed the repository to exact destination swift-molecules/swift-tree-n and verified the same GitHub repository ID 1250708981 at expected pre-publication main b526a1312f054a4fed9a852a18e0d1282da3e768 with unchanged visibility, archival state, and default branch; prepared commit publication remains pending"
+          "renamed the repository to exact destination swift-molecules/swift-tree-n and verified the same GitHub repository ID 1250708981 at expected pre-publication main b526a1312f054a4fed9a852a18e0d1282da3e768 with unchanged visibility, archival state, and default branch",
+          "set fetch and push origins to https://github.com/swift-molecules/swift-tree-n.git and fast-forward published exact prepared commit 30c5ac40ff73ddd24c891f52de2ee3cbf96626ca without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified exact canonical coordinate swift-molecules/swift-tree-n at live main 30c5ac40ff73ddd24c891f52de2ee3cbf96626ca with unchanged repository ID 1250708981, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
