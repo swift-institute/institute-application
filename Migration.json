@@ -18929,8 +18929,13 @@
       "observedHead": "0987a0c68ba269055b8ddd2a690f4603bfcbb59b",
       "observedRemote": "https://github.com/swift-primitives/swift-dictionary-ordered-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 1a65bff1704e47e41491e1680ca6c014588ceb0d from expected parent 0987a0c68ba269055b8ddd2a690f4603bfcbb59b",
+          "isolated worktree /private/tmp/four-layer-swift-dictionary-ordered",
+          "mapped all thirteen dependency URLs, products, modules, imports, paths, README references, and repository metadata to their live molecule coordinates; stripped owned plural Dictionary Ordered Primitives identities while preserving Dictionary Ordered Primitive and legitimate dependency singular Primitive identities",
+          "ancestry, clean worktree, exact 12-path intended diff and six renames, all twenty referenced live product declarations, dependency readiness and live SHA coverage, residual, public payload, workflow, and Package.resolved audits passed independently; exact future coordinate remains HTTP 404 and stable repository ID is 1250661956"
+        ]
       },
       "publication": {
         "status": "pending",
