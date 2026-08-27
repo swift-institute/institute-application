@@ -8838,20 +8838,31 @@
       "observedHead": "9bcd5402be4537170e66b092cde334c0e6ea9ac9",
       "observedRemote": "https://github.com/swift-foundations/swift-uri.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit 991041bf22db15d1ad18a41b17954d82aef5226a from expected parent 9bcd5402be4537170e66b092cde334c0e6ea9ac9 in isolated worktree /private/tmp/four-layer-swift-uri-composition",
+          "audited all fifteen committed paths and made the exact two-path, two-insertion/two-deletion layer mapping: the README installation URL moved from swift-foundations to swift-compositions and the metadata topic moved from foundations to compositions",
+          "Package.swift, dependency, source, test, URI and URI Standard identities, Apple Foundation integration semantics, active Actions, and public payload were otherwise already canonical and preserved; zero old-owner/plural-Primitives residuals remained, URI Standard was exact-live and ledger-passed, and Package.resolved was absent before preparation"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled the completed organization cutover: the exact future API proved swift-compositions/swift-uri owns GitHub repository ID 1217846151 while the old coordinate only redirected to that same identity; verified public visibility, non-archived state, default branch main, canonical clone URL, and expected live base 9bcd5402be4537170e66b092cde334c0e6ea9ac9, so no repository rename was required",
+          "fast-forward published exact direct child 991041bf22db15d1ad18a41b17954d82aef5226a to main through the configured administrator ruleset bypass without force or history rewrite",
+          "coordinator independently reverified exact live main 991041bf22db15d1ad18a41b17954d82aef5226a with unchanged repository ID 1217846151, exact final coordinate, public visibility, non-archived state, default branch main, and canonical URL"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-uri-composition-publisher institute package resolve --package-path /private/tmp/four-layer-swift-uri-composition --argument=--disable-sandbox against exact live URI Standard head 2079289b10ce4052f1de55f82d894c21717f1f13",
+          "coordinator reverified exact live main 991041bf22db15d1ad18a41b17954d82aef5226a with unchanged GitHub repository ID 1217846151, public visibility, non-archived state, and default branch main",
+          "HEAD and both origins remained exact and canonical and the isolated checkout remained clean; Package.resolved was absent before resolution and present afterward only as ignored untracked generated state with stable SHA-256 ff620f333d609c89e2d34587901f624551b23a79a1fde557c06ce369c0205422"
+        ]
+      },
+      "githubRepositoryID": 1217846151
     },
     {
       "current": "swift-foundations/swift-url-form-coding",
