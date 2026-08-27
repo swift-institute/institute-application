@@ -1808,6 +1808,25 @@
    "splits": [],
    "notes": "Adjudication: Diagnostic is a native semantic domain (structured findings: Record, Severity, Severity.Wire) \u2014 atom. Domain X = Diagnostic, derived from existing product/target names. Reshape at /private/tmp/claude-501/-Users-coen-Developer-coenttb/20dff9a4-b817-42e7-bbc6-9081ab416a17/scratchpad/wave1/swift-diagnostic: (1) already a single Sources/Diagnostic module \u2014 no strata to collapse; deleted umbrella Sources/Diagnostic/exports.swift (@_exported public import Source) and added explicit `public import Source` to Diagnostic.Record.swift, the only file using Source. (2) No seam targets/files existed whose purpose was integrating Diagnostic with an external package, so zero molecules created. (3) Created seed targets \"Diagnostic Standard Library Integration\" (seed file `public import Diagnostic`) and \"Diagnostic Apple Foundation Integration\" (three-line seed; no Foundation imports existed anywhere). Stdlib conformances (Codable/Comparable/CaseIterable on Severity; Codable/Hashable on Record; Comparable + CustomStringConvertible extensions on Record) live in the same files as the type declarations, so no whole file qualified for SLI relocation; splitting declaration files was not mandated \u2014 noted as residual conformance content inside the atom module. (4) Products now exactly three. (5) Deleted trivial re-export test-support target \"Diagnostic Test Support\" (Tests/Support) and its product; rewrote test imports: Diagnostic.Record Tests.swift now `import Diagnostic` + `import Source` (uses Source.Location directly \u2014 residual cross-domain reference in a kept test file, and Source is not declared in the test target's deps, which are exactly [\"Diagnostic\"] per recipe; may read red until transitive-module visibility is settled in the later build pass), Diagnostic.Severity.Wire Tests.swift now `import Diagnostic` only. Source_Test_Support dependency dropped entirely (nothing used its members). Manifest idiom (tools 6.4, .v27 platforms, .v6 language mode, trailing ecosystem SwiftSetting loop) preserved verbatim. One commit \"Adopt canonical atom shape\" pushed direct to main (authorized); git status clean. Not built or tested per commission.",
    "completedAt": "2026-08-27T13:31:46Z"
+  },
+  {
+   "package": "swift-bitset",
+   "repositoryID": 1154397612,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-bitset",
+   "to": "swift-atoms/swift-bitset",
+   "shapeCommit": "1c06cd6375a4110efd5bd2166a3a6989573e6472",
+   "dependencies": [],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-bitset-iterator",
+     "repositoryID": 1348521843,
+     "commit": "6650f4580cbfba10c5da37b6975c76e102efe551",
+     "seam": "Bitset.Iterator retroactive conformance to Iterator_Primitive.Iterator.`Protocol` from swift-iterator (product \"Iterator Protocol\")"
+    }
+   ],
+   "notes": "Adjudication: Bitset is a native semantic domain (Bitset, Bitset.Fixed, Bitset.Static value types with Algebra/Relation/Builder/Error substructure), no internal strata targets \u2014 atom. Domain X = Bitset. Reshape: (1) Sources/Bitset/Bitset.Iterator.swift moved to \"Sources/Bitset Standard Library Integration/Bitset.Iterator.swift\"; its `public import Iterator_Protocol` replaced with `public import Bitset` and the Iterator_Primitive.Iterator.`Protocol` conformance removed \u2014 Swift.Sequence + IteratorProtocol conformance, the Iterator struct, and Bitset.forEach now live in SLI. (2) The external conformance became the single seam molecule swift-bitset-iterator (module Bitset_Iterator, deps: swift-molecules/swift-bitset products Bitset + SLI, swift-atoms/swift-iterator \"Iterator Protocol\" \u2014 swift-iterator is already transferred, id 1250663734 resolves at swift-atoms). (3) \"Bitset Apple Foundation Integration\" created as three-line seed (no Foundation-importing code existed). (4) Trivial re-export target \"Bitset Test Support\" (two @_exported lines) deleted along with its product and the swift-sequence dependency; no test file imported it, so no import rewrites needed. (5) Products now exactly Bitset / Bitset Standard Library Integration / Bitset Apple Foundation Integration; package dependencies now empty; test target \"Bitset Tests\" deps [\"Bitset\"]; manifest idiom (6.4 / .v27 / .v6 / ecosystem SwiftSetting loop) preserved verbatim. Expected red (deferred to build pass): SLI's Bitset.Iterator.swift accesses Bitset internals (storage, capacity, Self.bitsPerWord) marked @usableFromInline cross-module \u2014 needs API surface or relocation decisions later; \"Bitset Tests\" lines 186/200 use Array(set), which now requires the SLI module (Sequence conformance) \u2014 residual reference noted per brief; molecule's empty retroactive conformance assumes next() satisfies the protocol requirement witness cross-module. Both git trees verified clean; atom push bypassed the PR/ci-ok branch rules via authorized direct push (remote noted the bypass).",
+   "completedAt": "2026-08-27T13:31:53Z"
   }
  ],
  "successors": [],
