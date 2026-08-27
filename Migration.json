@@ -24374,13 +24374,17 @@
       "observedHead": "abf7d6e0f22f7173034d0881e0cf759b2037528f",
       "observedRemote": "https://github.com/swift-primitives/swift-parser-machine-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit fcb05b4a9789dcbf832557f7991137ef64fe6470 from expected parent abf7d6e0f22f7173034d0881e0cf759b2037528f in isolated worktree /private/tmp/four-layer-swift-parser-machine",
+          "deterministic full-tree equivalence audit verified all 52 tracked files, 57 changed paths with 333 insertions/333 deletions, exact stripping of owned plural Primitives identities and all source/test paths, the five canonical dependency URLs and verified live products/packages/modules/imports, README and metadata mappings, zero mapped residuals, public payload, active Actions, human commit identity, clean checkout, and Package.resolved absence"
+        ]
       },
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified old coordinate swift-molecules/swift-parser-machine-primitives at expected main abf7d6e0f22f7173034d0881e0cf759b2037528f with GitHub repository ID 1145453452, public visibility, non-archived state, default branch main, and absent exact destination",
+          "renamed the repository to exact destination swift-molecules/swift-parser-machine and verified the same GitHub repository ID 1145453452 at expected pre-publication main abf7d6e0f22f7173034d0881e0cf759b2037528f with unchanged visibility, archival state, and default branch; prepared commit publication remains pending"
         ]
       },
       "state": "ready",
