@@ -8433,11 +8433,13 @@
           "coordinator independently reverified exact live main 60dc9704babb249f51ae61be6fc26d0e1567a84a, repository ID 1064960692, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
         ]
       },
-      "state": "published",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "publication is complete and Package.resolved remained absent twice before and after publication; the repository is queued behind swift-compositions/swift-test-application validation and the serialized Institute package-resolution slot"
+          "publication completed before validation; root and nested Tests Package.resolved were absent twice before resolution",
+          "root package resolution passed with exact exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-svg-publisher institute package resolve --package-path /private/tmp/swift-svg --argument=--disable-sandbox --argument=--disable-dependency-cache against the exact live graph; the nested Tests package was not separately resolved, and no build, test, compilation, raw SwiftPM, dump-package, or standalone manifest-evaluation command was invoked",
+          "root Package.resolved was present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 c09826b7353e2bceb2e5e8114c26df4792d22831a1dcc75d8a2ca0883d4d3bfb; Tests/Package.resolved remained absent twice; coordinator reverified all three unique internal dependency gates/products, final repository identity/SHA/state, exact worktree HEAD, canonical origins, clean tracked checkout, and that no archive restoration was required"
         ]
       },
       "githubRepositoryID": 1064960692
