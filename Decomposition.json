@@ -506,6 +506,25 @@
    ],
    "notes": "Adjudication: Terminal is a native semantic domain (terminal streams, modes, size, raw/keyboard/mouse/screen/paste state machine types), so atom. Reshape: collapsed \"Terminal Primitive\" (18 files, incl. the empty Terminal.Backend.swift, preserved) into Sources/Terminal via git mv; deleted the umbrella Sources/Terminal/exports.swift and the trivial re-export test-support target Tests/Support (no test file imported it \u2014 tests already import Terminal directly). Rewrote the one `@testable import Terminal_Primitive` in Terminal.Stream.Tests.swift to `@testable import Terminal`. No file in the domain imports Foundation and none is a pure stdlib-extension file (Stream's CaseIterable etc. are declaration-site conformances), so both \"Terminal Standard Library Integration\" and \"Terminal Apple Foundation Integration\" are seed files. Seam: the entire former \"Terminal Error\" target moved to swift-molecules/swift-terminal-error \u2014 Terminal.Error.Underlying.swift imports Error (swift-error), and Terminal.Error.swift/Operation.swift are inseparable from it (stored property `underlying: Underlying`, description switches over Error.Error payloads); no atom source or test references Terminal.Error, so the atom loses the dependency cleanly with no red references. Molecule deps at current live coordinates: swift-molecules/swift-terminal (Terminal) and swift-atoms/swift-error (verified: swift-molecules/swift-error redirects to swift-atoms/swift-error, same repo id 1138063468); seam had no dedicated tests, so a stub @Suite was added. dependenciesKept is empty \u2014 swift-error left with the seam. Nothing was built or tested per commission. Push to main bypassed the PR/ci-ok branch rules via authorized direct push (remote noted the bypass). Trees at /private/tmp/claude-501/-Users-coen-Developer-coenttb/20dff9a4-b817-42e7-bbc6-9081ab416a17/scratchpad/wave1/{swift-terminal,swift-terminal-error} both verified clean.",
    "completedAt": "2026-08-27T12:14:32Z"
+  },
+  {
+   "package": "swift-tagged",
+   "repositoryID": 1225649812,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-tagged",
+   "to": "swift-atoms/swift-tagged",
+   "shapeCommit": "fac96ed288a6153caea0e7a46251f95d18d480fd",
+   "dependencies": [],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-tagged-carrier",
+     "repositoryID": 1348445910,
+     "commit": "b0d48a6576f5ad3364185d12e52bef6879e7c7fa",
+     "seam": "Tagged conformance to Carrier.Protocol (swift-carrier dependency), with its tests and Carrier-specific test support"
+    }
+   ],
+   "notes": "Adjudication: Tagged is an irreducible native semantic domain (phantom-tag newtype over an Underlying value with map/retag algebra) \u2014 atom. Atom reshape at /private/tmp/claude-501/-Users-coen-Developer-coenttb/20dff9a4-b817-42e7-bbc6-9081ab416a17/scratchpad/wave1/swift-tagged: moved Tagged+Codable.swift and Tagged+CustomStringConvertible.swift from Sources/Tagged into \"Sources/Tagged Standard Library Integration\" (stdlib conformances); deleted umbrella exports.swift files in SLI and Tests/Support; deleted the trivial \"Tagged Test Support\" target (empty seed file + Carrier re-exports) and its product; created \"Tagged Apple Foundation Integration\" as a three-line seed (no Foundation imports exist anywhere); products now exactly Tagged / Tagged Standard Library Integration / Tagged Apple Foundation Integration. Seam out: Sources/Tagged/Tagged+Carrier.Protocol.swift, Tests \"Tagged+Carrier Tests.swift\", and Tests/Support/Test+Carriers.swift (retroactive Array/ContiguousArray/Dictionary/Set Carrier conformances) moved to new molecule swift-molecules/swift-tagged-carrier (product/target \"Tagged Carrier\", module Tagged_Carrier); atom lost the swift-carrier dependency entirely \u2014 zero package dependencies kept. Molecule deps at live coordinates: swift-molecules/swift-tagged (branch main) and swift-atoms/swift-carrier (branch main; verified transferred, repo id 1221732056). Molecule source gained \"public import Tagged\" and @retroactive on the now-cross-module conformance; molecule test file rewritten from @testable import Tagged to plain imports plus import Tagged_Carrier. Residual red (expected, later pass): \"Tagged Tests\" target has deps [\"Tagged\"] per canonical shape, but Tests/Tagged Tests/Tagged Tests.swift retains \"import Tagged_Standard_Library_Integration\" and many literal-based constructions that need SLI's ExpressibleBy* conformances; likewise SLI test files use @testable import Tagged for package-level members; the retagged Resource struct in Tagged Tests.swift was stripped of its Carrier conformance. AtomicRepresentable file keeps the SYNCHRONIZATION_AVAILABLE define, so the trailing manifest loop was kept verbatim from the original manifest in both packages. Both working trees verified clean.",
+   "completedAt": "2026-08-27T12:14:38Z"
   }
  ],
  "successors": [],
