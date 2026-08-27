@@ -11174,8 +11174,13 @@
       "observedHead": "5cbdc2fdbe0a67f1c3fc697d5650eda403b2fe9c",
       "observedRemote": "https://github.com/swift-ietf/swift-rfc-5646.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 0626a08874263f8d32faa471ec4aa6a6e49998fa from expected parent 5cbdc2fdbe0a67f1c3fc697d5650eda403b2fe9c",
+          "isolated worktree /private/tmp/four-layer-swift-rfc-5646",
+          "mapped Standard Library Extensions, ASCII, and Parser dependency coordinates/products/modules to their live molecule identities while preserving the three ISO dependencies and standards-owned RFC 5646 package identity",
+          "deterministic audit verified the clean direct-child four-path, 16-file-preserving mechanical transformation, all six dependency records passed, zero stale mapped primitive identities, unchanged README/metadata/active one-hop workflow and public payload, and Package.resolved absence; canonical repository remains swift-ietf/swift-rfc-5646 with stable GitHub repository ID 1107711122"
+        ]
       },
       "publication": {
         "status": "pending",
