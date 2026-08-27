@@ -2326,6 +2326,33 @@
    ],
    "notes": "Adjudication: Complex numbers are an irreducible native semantic domain -> atom. Reshape: deleted Sources/Complex/exports.swift umbrella (@_exported Dimension/Numeric_Relaxed/Real); no strata targets existed, single Complex module retained. SLI target created with moved files Complex+Equatable.swift, Complex+Hashable.swift, Complex+String.swift (each gains public import Complex); AFI target seeded (no Foundation usage anywhere). Products now exactly Complex / Complex Standard Library Integration / Complex Apple Foundation Integration. Seams: (1) swift-dimension dependency removed by splitting Complex+Polar.swift \u2014 atom keeps polar/length/squared, molecule swift-complex-dimension takes phase(of:)/phase/init(length:phase:) plus the moved Complex.Polar.Tests.swift; (2) Numeric Relaxed product dependency removed by moving Complex.Relaxed.swift to swift-complex-numeric-relaxed (stub @Suite tests). Trivial re-export target \"Complex Test Support\" (Tests/Support) and its product deleted; kept test files (Arithmetic/Division/Math/Properties) gained import Complex; test target \"Complex Tests\" deps now exactly [\"Complex\"]; no SLI-specific test files existed. Explicit public import Real added to 10 atom files and public import Tagged to Complex.Modulus.swift/Complex+Polar.swift since the umbrella is gone. Residual red (structural pass, expected): molecule sources reference @usableFromInline internal members of Complex (._value, .complex, Modulus.Value(_unchecked:)) which are package-internal, so both molecules will not compile until swift-complex exposes public API for these; moved Complex.Polar.Tests.swift retains length/Modulus assertions against atom API (acceptable residual); kept atom test files may use == on Complex.Number whose Equatable conformance now lives in the SLI module they do not import; Complex.Properties.swift's ExpressibleBy/isFinite usages rely on stdlib only. Atom working tree, both molecule trees verified clean. Push to main used the org-admin bypass (remote reported bypassed PR/status-check rules); direct pushes were authorized by the commission.",
    "completedAt": "2026-08-27T13:50:35Z"
+  },
+  {
+   "package": "swift-linear",
+   "repositoryID": 1132373204,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-linear",
+   "to": "swift-atoms/swift-linear",
+   "shapeCommit": "b8262e287d2ae1a5058164c2094b359d194984ca",
+   "dependencies": [
+    "swift-dimension (swift-atoms/swift-dimension, branch main) \u2014 irreducible: the Linear module's entire public API is expressed in Dimension's typed quantities (Displacement.X/Y/Z/W, Extent, Length, Distance, Area, Scale typealiases in Linear.swift; Scale operators in Linear+Arithmetic.swift; Dx/Dy accessors throughout Vector/Matrix)"
+   ],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-linear-numeric",
+     "repositoryID": 1348544721,
+     "commit": "be6a677786de27223c621e8ffc05a2e888347167",
+     "seam": "Transcendental/trig functionality (vector angles, polar construction, rotation, matrix rotation/rotationAngle) integrating Linear with swift-numeric (formerly product Real)"
+    },
+    {
+     "successor": "swift-molecules/swift-linear-format",
+     "repositoryID": 1348544879,
+     "commit": "7c02335c52942bc704576bc1909764656dff76b3",
+     "seam": "Tagged floating-point formatted(_:) integration with swift-format (Linear+Format.swift)"
+    }
+   ],
+   "notes": "Adjudication: Linear (dimension-checked vectors/matrices) is a native semantic domain \u2014 atom. Domain X = Linear, derived from existing product/target \"Linear\". Reshape: exports.swift (@_exported Dimension/Real) deleted; ONE domain module Sources/Linear remains (no strata targets existed). Real dependency fully extracted: Linear.Vector+Real.swift moved to molecule as Linear.Vector+Numeric.swift, and the three Real-dependent Matrix extensions (Double/Float rotation(Radian/Degree), Double rotationAngle using Scalar.math.atan2) split out of Linear.Matrix.swift into molecule file Linear.Matrix+Numeric.swift; Matrix's `public import Real` removed. Format dependency fully extracted (Linear+Format.swift). SLI target created with real content: Codable conformances split out of Linear.Vector.swift and Linear.Matrix.swift into Sources/Linear Standard Library Integration/Linear.Vector+Codable.swift and Linear.Matrix+Codable.swift (deps exactly [\"Linear\"]). AFI target created as 3-line seed (no Foundation imports existed anywhere). Products exactly three. Tests: trivial re-export target \"Linear Test Support\" (Tests/Support) deleted along with its product and the swift-tagged dependency; \"Linear Tests\" deps now [\"Linear\"]; removed `import Tagged_Standard_Library_Integration` from MatrixTests.swift. Residual red (expected, later pass): (1) live swift-dimension is already atom-shaped with a bare `enum Radian {}` \u2014 Linear's code targets an older Dimension API (Radian<Scalar>, Tagged, .Value, .cos/.sin), so much of the package is red against live deps independent of this reshape; (2) MatrixTests Tagged literal comparisons may need Tagged SLI conformances; (3) swift-linear-format keeps the `Formatter.`Protocol`` reference but the Formatter module no longer exists in live swift-format (product set is Format/SLI/AFI) \u2014 the dead `import Formatter` was dropped and Tagged import/dep added (Tagged no longer re-exported via Dimension); (4) swift-linear-numeric imports rewritten Real\u2192Numeric plus Numeric_Standard_Library_Integration for `.math`; Radian trig members (.cos/.sin/.atan2/.acos) have no current live owner. Molecule deps use current live coordinates (swift-atoms for dimension/numeric/format/tagged \u2014 all redirect from swift-molecules; swift-molecules/swift-linear for the atom), all branch: \"main\". Atom's kept dep repointed to swift-atoms/swift-dimension. Direct pushes to main used as authorized (remote reported bypassed PR/status-check rules). All three working trees verified clean.",
+   "completedAt": "2026-08-27T13:50:44Z"
   }
  ],
  "successors": [],
