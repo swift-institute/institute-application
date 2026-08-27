@@ -12146,19 +12146,27 @@
       "observedHead": "71f186b07ecca91749349e8c764c70542c3e7212",
       "observedRemote": "https://github.com/swift-ietf/swift-rfc-8259.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit ab7b9fdc8ae305776a703b32170fe3469d2676d7 from expected parent 71f186b07ecca91749349e8c764c70542c3e7212 in isolated worktree /private/tmp/four-layer-swift-rfc-8259",
+          "deterministic audit verified the exact ten-path, 29-file-preserving mechanical transformation, seven live dependency coordinates and products, mapped source identities including the live Byte owner, preserved RFC 8259 standards identity, zero mapped residuals, public payload, active Actions reference, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified canonical live coordinate swift-ietf/swift-rfc-8259 at expected main 71f186b07ecca91749349e8c764c70542c3e7212 with GitHub repository ID 1132375327, public visibility, non-archived state, and default branch main; no repository rename was required",
+          "set fetch and push origins to https://github.com/swift-ietf/swift-rfc-8259.git and fast-forward published exact prepared commit ab7b9fdc8ae305776a703b32170fe3469d2676d7 without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main ab7b9fdc8ae305776a703b32170fe3469d2676d7 with unchanged repository ID 1132375327, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-rfc-8259-publisher institute package resolve --package-path /private/tmp/four-layer-swift-rfc-8259 --argument=--disable-sandbox against the exact published commit and live dependency graph",
+          "post-resolution verification found exact HEAD ab7b9fdc8ae305776a703b32170fe3469d2676d7, a clean checkout, and untouched generated Package.resolved with stable SHA-256 3eed90a26d94e518d842762abac92118b43af0c48700c138e4bc061fda0cca31"
+        ]
       }
     },
     {
