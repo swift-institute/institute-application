@@ -4336,20 +4336,29 @@
       "observedHead": "9c53d14929fc27c12e9b2824a9792401115ea95e",
       "observedRemote": "https://github.com/swift-foundations/swift-json.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit 878c5079f8d8922747631eaaa75f432ec9e3b6a0 from exact parent 9c53d14929fc27c12e9b2824a9792401115ea95e in clean identity-compatible isolated worktree /private/tmp/json-composition-root/swift-json with subject Prepare JSON for the four-layer cutover; the original checkout and existing testing-stack worktree remained clean and untouched",
+          "audited all 50 tracked paths and made the exact ten-path, 59-insertion/59-deletion mechanical transformation across Package.swift, README, metadata, seven JSON sources, and one test import, mapping Async plus 13 molecule package/product/module identities while preserving legitimate singular Primitive products/modules, RFC 8259, JSON public semantics, and a test-data swift-foundations URL unrelated to the migration graph; residual, payload, staged-tree, ancestry, and identity checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-json as canonical with stable GitHub repository ID 1144635738, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; no repository rename was needed",
+          "JIT verified all 15 declared dependency coordinates/heads and every renamed product from exact live manifests, then ordinary fast-forward published exact direct child 878c5079f8d8922747631eaaa75f432ec9e3b6a0 through the configured administrator ruleset bypass without force or history rewrite",
+          "coordinator verified exact live main 878c5079f8d8922747631eaaa75f432ec9e3b6a0 with unchanged repository ID 1144635738, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical fetch/push origins, and clean tracked checkout"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-json-composition-root institute package resolve --package-path /private/tmp/json-composition-root/swift-json --argument=--disable-sandbox against the exact live composition, molecule, RFC 8259, and transitive graph; no build, test, compilation, raw SwiftPM, dump-package, or standalone manifest-evaluation command was invoked",
+          "Package.resolved was absent repeatedly before resolution and present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 76efb974654915caf95843c972ad24fc1f892fea9f41f54aaee5d8b6e7061363; final live identity/SHA and clean tracked checkout were reverified"
+        ]
+      },
+      "githubRepositoryID": 1144635738
     },
     {
       "current": "swift-foundations/swift-json-web-token",
