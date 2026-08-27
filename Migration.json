@@ -36247,11 +36247,13 @@
           "final cutover seal reverified exact live coordinate swift-standards/swift-stripe-standard, numeric repository ID 1031603849, published main SHA 664a99308916eae84f474ae45150b6180ca23b84, public visibility, archived=false, disabled=false, and default branch main"
         ]
       },
-      "state": "published",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "publication is complete and Package.resolved remained absent twice before and after publication; resolution is queued until swift-compositions/swift-url-routing validation is passed and the serialized Institute package-resolution slot is available"
+          "publication completed before validation and Package.resolved remained absent twice before resolution",
+          "package resolution passed with exact exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-stripe-standard-publisher institute package resolve --package-path /private/tmp/swift-stripe-standard --argument=--disable-sandbox --argument=--disable-dependency-cache against the exact live graph; no build, test, compilation, raw SwiftPM, dump-package, standalone manifest-evaluation command, or decomposition was invoked",
+          "Package.resolved was present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 927e76d15aefc6d38f2f4b44d418f6e0213f6bc463a60b243ba82de7ee4f8197; coordinator reverified all nine internal dependency gates/products, final repository identity/SHA/state, exact worktree HEAD, canonical origins, clean tracked checkout, and that no archive restoration was required"
         ]
       },
       "seal": {
