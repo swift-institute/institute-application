@@ -30003,20 +30003,31 @@
       "observedHead": "89d6f59dd562122eccfb63c034f14f2740eda76a",
       "observedRemote": "https://github.com/swift-standards/swift-json-feed-standard.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit 1597119952df9ced8f7c89f3c043d34e14f5cce3 from expected parent 89d6f59dd562122eccfb63c034f14f2740eda76a in isolated worktree /private/tmp/four-layer-swift-json-feed-standard",
+          "audited all twenty-one tracked paths; Package.swift, products, targets, source/test imports, paths, metadata, SPI, active Actions, and all public semantics were already canonical, while the exact one-path three-insertion/three-deletion change moved three README links from swift-foundations/swift-json-feed to swift-compositions/swift-json-feed",
+          "old and future documentation coordinates were verified to identify the same existing private non-archived repository ID 1217846040, so only the owner coordinate changed and no content or visibility was disclosed or altered; all three dependencies were ledger-passed and exact-live, residual/public-payload/staging/direct-parent/human-identity checks passed, and Package.resolved was absent before preparation"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified unchanged coordinate swift-standards/swift-json-feed-standard, GitHub repository ID 1099361278, public visibility, non-archived state, default branch main, canonical clone URL, and exact expected live base 89d6f59dd562122eccfb63c034f14f2740eda76a immediately before publication; no rename was required",
+          "fast-forward published exact direct child 1597119952df9ced8f7c89f3c043d34e14f5cce3 to main through the configured administrator ruleset bypass without force or history rewrite",
+          "coordinator independently reverified exact live main 1597119952df9ced8f7c89f3c043d34e14f5cce3 with unchanged repository ID 1099361278, exact coordinate, public visibility, non-archived state, default branch main, and canonical URL"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-json-feed-standard-publisher institute package resolve --package-path /private/tmp/four-layer-swift-json-feed-standard --argument=--disable-sandbox against exact live IEEE 754, RFC 5322, and URI Standard heads",
+          "coordinator reverified exact live main 1597119952df9ced8f7c89f3c043d34e14f5cce3 with unchanged GitHub repository ID 1099361278, public visibility, non-archived state, default branch main, and all three direct dependency heads",
+          "HEAD and both origins remained exact and canonical and the isolated checkout remained clean; Package.resolved was absent before resolution and present afterward only as ignored untracked generated state with stable SHA-256 60f3e9d84021ed6fe61a4ecb676cfffae8390c84f1941f832ca1918118ddb6ea"
+        ]
+      },
+      "githubRepositoryID": 1099361278
     },
     {
       "current": "swift-standards/swift-locale-standard",
