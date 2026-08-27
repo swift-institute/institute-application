@@ -9555,20 +9555,29 @@
       "observedHead": "cb65b361e8ba7cc5057c0573cb7067fdeaac5dd6",
       "observedRemote": "https://github.com/swift-foundations/swift-urlrequest-handler.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit a8d5cbbe94b81765a50bb70029082e723b8ddbb1 from exact parent cb65b361e8ba7cc5057c0573cb7067fdeaac5dd6 in clean isolated worktree /private/tmp/swift-urlrequest-handler with subject Prepare URLRequest Handler for composition",
+          "made the exact three-path, seven-insertion/seven-deletion mechanical cutover across Package.swift, README, and metadata, moving Dependencies, Logger Dependencies, self references, and layer topic to compositions while preserving external swift-log, public documentation links, package/product/target/module identities, semantics, and canonical Actions; residual, payload, staged-tree, ancestry, and identity checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-urlrequest-handler as canonical with stable GitHub repository ID 1032266934, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; no repository rename was needed",
+          "JIT verified exact live Dependencies, Logger Dependencies, and external apple/swift-log identities/products, then ordinary fast-forward published exact direct child a8d5cbbe94b81765a50bb70029082e723b8ddbb1 without force or history rewrite",
+          "coordinator independently verified exact live main a8d5cbbe94b81765a50bb70029082e723b8ddbb1 with unchanged repository ID 1032266934, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, stable Package.resolved evidence, and clean tracked checkout"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-urlrequest-handler-publisher institute package resolve --package-path /private/tmp/swift-urlrequest-handler --argument=--disable-sandbox; a warm-state rerun produced the unambiguous exit result after the first session output was truncated, and no build, test, compilation, raw SwiftPM, dump-package, or manifest evaluation was invoked",
+          "Package.resolved was absent twice before resolution and present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 633231edf9ee37252ef124197b308c4c834cd032b23d7125902aa26a4de182eb; the coordinator recovered the worker's transient final network check and reverified live identity/SHA plus clean tracked checkout"
+        ]
+      },
+      "githubRepositoryID": 1032266934
     },
     {
       "current": "swift-foundations/swift-uuids",
