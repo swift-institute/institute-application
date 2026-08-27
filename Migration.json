@@ -25663,7 +25663,10 @@
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-rename main at expected commit 23b3a99358531588c3e3323c1dae455080e32f56 on exact live coordinate swift-molecules/swift-set-algebra-primitives after the organization cutover",
+          "verified exact future coordinate swift-molecules/swift-set-algebra returned HTTP 404 before repository rename",
+          "renamed repository swift-molecules/swift-set-algebra-primitives to swift-molecules/swift-set-algebra and verified stable GitHub repository ID 1253222898 with public visibility, non-archived state, default branch main, and unchanged main 23b3a99358531588c3e3323c1dae455080e32f56",
+          "fast-forward publication remains in progress; resume from the exact final coordinate without repeating the rename"
         ]
       },
       "state": "ready",
