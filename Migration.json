@@ -6139,20 +6139,27 @@
       "observedHead": "e42cd9bda3fd979f7002296f802971d4c74b696d",
       "observedRemote": "https://github.com/swift-foundations/swift-pdf-html-render.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit 040e04fb6432cc8456a7f9cfd8fea0e0b71a15d1 from exact live parent e42cd9bda3fd979f7002296f802971d4c74b696d in clean isolated worktree /private/tmp/four-layer-swift-pdf-html-render-root with subject Prepare PDF HTML Render for the four-layer cutover; the pre-existing prunable benchmark worktree record was observed and not touched",
+          "audited all 163 tracked paths and made the exact 28-path, 135-insertion/135-deletion mechanical transformation across metadata, Package.swift, README, sources, and tests, mapping four composition coordinates, fourteen molecule coordinates/package identities/products, and corresponding direct/transitive modules while preserving legitimate singular Primitive products, public semantics, standards, and canonical Actions",
+          "committed-tree residual and payload checks passed with intentional unchanged content fixtures containing L1/L3 labels and an existing coenttb URL distinguished from architecture or credential data; staged set, direct-parent ancestry, human identity, and exact published product-name evidence passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-pdf-html-render as canonical with stable GitHub repository ID 1116787982, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; no repository rename was needed",
+          "JIT verified all nineteen dependency repositories at exact passed live heads, stable public identities, and required products, then ordinary fast-forward published exact direct child 040e04fb6432cc8456a7f9cfd8fea0e0b71a15d1 through the configured administrator ruleset bypass without force or history rewrite",
+          "coordinator verified exact live main 040e04fb6432cc8456a7f9cfd8fea0e0b71a15d1 twice with unchanged repository ID 1116787982, exact future coordinate, public visibility, non-archived state, default branch main, canonical fetch/push origins, direct-child ancestry, and a clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
         "records": []
-      }
+      },
+      "githubRepositoryID": 1116787982
     },
     {
       "current": "swift-foundations/swift-pdf-render",
