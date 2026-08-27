@@ -270,6 +270,43 @@
    ],
    "notes": "Bit Primitive + Bit Pattern collapsed into Bit; Bit Test Support product/target removed (trivial re-export)",
    "completedAt": "2026-08-27T11:52:49Z"
+  },
+  {
+   "package": "swift-byte",
+   "repositoryID": 1239798588,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-byte",
+   "to": "swift-atoms/swift-byte",
+   "shapeCommit": "b5ab8a50e1abb2d8eda994079862585cd393dbf8",
+   "dependencies": [],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-byte-carrier",
+     "repositoryID": 1348434068,
+     "commit": "17f3ed89395e45418b3cff5dec85f20c763157d6",
+     "seam": "Byte: Carrier.Protocol conformance + Carrier-side Byte extensions (dep swift-carrier)"
+    },
+    {
+     "successor": "swift-molecules/swift-byte-ownership",
+     "repositoryID": 1348434160,
+     "commit": "0c83b156874637b7cc341ad1cbdaaaa8a0a0fd98",
+     "seam": "Byte: Ownership.Borrow.Protocol conformance (dep swift-ownership; was target Byte Borrowed)"
+    },
+    {
+     "successor": "swift-molecules/swift-byte-tagged",
+     "repositoryID": 1348434249,
+     "commit": "cba19b827a3ab28efcea896b9c85b4d9e7b4acea",
+     "seam": "Tagged: Byte.Protocol conformance (dep swift-tagged; was target Byte Tagged)"
+    },
+    {
+     "successor": "swift-molecules/swift-byte-bit",
+     "repositoryID": 1348434340,
+     "commit": "1324b86196db2a018ef6d8f28f4607f6c5fd1e94",
+     "seam": "Byte/Bit interop (dep swift-bit; was target Byte Bit)"
+    }
+   ],
+   "notes": "Byte Primitive + Byte Protocol core collapsed into Byte; Codable/CustomStringConvertible moved to SLI; Byte Test Support removed (empty re-export, dropped test-only swift-ownership dep); residual Tagged/Carrier references in atom test files left for the compile pass",
+   "completedAt": "2026-08-27T11:57:17Z"
   }
  ],
  "successors": [],
