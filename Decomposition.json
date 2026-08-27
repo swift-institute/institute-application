@@ -1307,6 +1307,37 @@
    ],
    "notes": "Adjudication: Polarity (positive/negative/neutral sign with first-class neutrality) is a native irreducible semantic domain \u2014 clear atom. Reshape at /private/tmp/claude-501/-Users-coen-Developer-coenttb/20dff9a4-b817-42e7-bbc6-9081ab416a17/scratchpad/wave1/swift-polarity: (1) Sources/Polarity/exports.swift (umbrella @_exported Pair) deleted; (2) Pair seam \u2014 the Polarity.Value typealias and its 'public import Pair' \u2014 moved to new molecule swift-polarity-pair (product/target \"Polarity Pair\", module Polarity_Pair; deps at live coordinates: swift-molecules/swift-polarity + swift-atoms/swift-pair, both branch main); the sole existing test exercised that typealias and moved to \"Polarity Pair Tests\"; (3) new \"Polarity Standard Library Integration\" target holds Polarity+CaseIterable.swift (conformance lifted off the enum declaration, matching the swift-bit exemplar) and Polarity+Codable.swift (Embedded-guarded extension moved from Polarity.swift), plus the exemplar-idiom exports.swift; (4) new seed \"Polarity Apple Foundation Integration\" (three-line file, deps [\"Polarity\", \"Polarity Standard Library Integration\"]); (5) trivial re-export \"Polarity Test Support\" target deleted; \"Polarity Tests\" kept with deps [\"Polarity\"] and a replacement unit test for opposite/!. Products exactly the three canonical ones; package dependencies now empty (Pair was the only one and left with the seam). Manifest idiom (tools 6.4, .v27 platforms, .v6 language mode, ecosystem SwiftSetting loop) preserved verbatim. README architecture/quick-start sections updated to the new shape. No residual red references to extracted domains in kept test files. Push to main reported GitHub's expected bypass notice (PR-required + ci-ok rules bypassed via authorized direct push). Nothing was built or tested per brief.",
    "completedAt": "2026-08-27T12:55:09Z"
+  },
+  {
+   "package": "swift-order",
+   "repositoryID": 1139271284,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-order",
+   "to": "swift-atoms/swift-order",
+   "shapeCommit": "883d50ccf769360f6edc074c9997d04baece2a06",
+   "dependencies": [],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-order-comparison",
+     "repositoryID": 1348485411,
+     "commit": "1e024f63487260e82d5e8e14ede00ea0d45feefd",
+     "seam": "Order.Comparator (+Chaining/+Comparable/+Projection/+Reversal/.Partial) and Order.Projection \u2014 everything storing or producing a Comparison value"
+    },
+    {
+     "successor": "swift-molecules/swift-order-property",
+     "repositoryID": 1348485974,
+     "commit": "c9040b3c02c691b68146c5248d8aa85fddbdc9b2",
+     "seam": "Order.Orderable, the .order fluent accessor, Property<Order,Base>.Inout predicates, and the stdlib Orderable/Comparable convenience files"
+    },
+    {
+     "successor": "swift-molecules/swift-order-pair",
+     "repositoryID": 1348486383,
+     "commit": "6196b28f3314b59d244185dd46414e5f11425ed5",
+     "seam": "Order.Monotonicity.Value<Payload> = Pair<Order.Monotonicity, Payload> typealias"
+    }
+   ],
+   "notes": "Adjudication: atom. Order is a native semantic domain \u2014 the Order namespace enum plus Direction and Monotonicity are dependency-free native concepts; everything else in the old package was integration with Comparison, Property, or Pair. Atom shape now matches swift-bit/swift-byte exactly: one Sources/Order module (Order.swift, Order.Direction.swift, Order.Monotonicity.swift), products exactly Order / Order Standard Library Integration / Order Apple Foundation Integration, dependencies: [], all exports.swift umbrellas deleted, Order Test Support target deleted (test files never imported it explicitly). SLI holds a real file: Order.Monotonicity+Codable.swift (Codable conformance moved out of the Monotonicity source file); AFI is the three-line seed (no Foundation code existed). Files moved: 7 Comparator/Projection sources to swift-order-comparison (imports rewritten Order_Primitive/Order_Direction -> Order); Order.Orderable.swift, Order+Property.Inout.swift, and both old SLI files (Order+Swift.Comparable.swift, Order.Orderable+Swift.Comparable.swift) to swift-order-property \u2014 the two ex-SLI files conform stdlib types to Order.Orderable, which lives in the property seam, so they could not satisfy the SLI deps-exactly-[\"Order\"] rule and travelled with Orderable (imports rewritten Order_Orderable -> Order, Order_Comparator -> Order_Comparison); the Pair typealias split out of Order.Monotonicity.swift into swift-order-pair. Tests: old Order Tests.swift split \u2014 Direction suites plus new Monotonicity suites kept in atom \"Order Tests\"; Comparator suites moved to \"Order Comparison Tests\"; Order Fluent Tests.swift became \"Order Property Tests\" in the property molecule. Structural notes: swift-order-property depends on sibling molecule swift-order-comparison because Order+Property.Inout.swift and its tests use Order.Comparator \u2014 a molecule-on-molecule edge, flagged for coordinator review. Dependency coordinates verified live: swift-comparison/swift-property/swift-pair now resolve to swift-atoms (used those); swift-order itself referenced at swift-molecules. Residual red risk (unbuilt by mandate): Order+Swift.Comparable.swift keeps a Copyable-constrained duplicate of the .order accessor; MemberImportVisibility may require additional imports in molecule test files at build time. Atom README.md left as-is \u2014 it still describes the pre-split comparator-centric package (doc pass is out of scope). Push to swift-molecules/swift-order main used the pre-authorized direct push (server reported rule bypass: PR requirement + ci-ok expected check).",
+   "completedAt": "2026-08-27T12:55:17Z"
   }
  ],
  "successors": [],
