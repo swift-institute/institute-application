@@ -646,6 +646,25 @@
    "splits": [],
    "notes": "Adjudication: Navigation is a native semantic domain (navigation stacks, destinations, presentation modes, identity minting) \u2014 clear atom. Already a single Sources/Navigation module with no internal strata targets and no seam targets, so no molecules were extracted. Changes: (1) deleted Sources/Navigation/exports.swift (@_exported re-export of Tagged); (2) added seed targets/files \"Sources/Navigation Standard Library Integration/Navigation Standard Library Integration.swift\" (public import Navigation) and \"Sources/Navigation Apple Foundation Integration/Navigation Apple Foundation Integration.swift\" (three-line seed) since no file-granular stdlib- or Foundation-only code exists; (3) manifest now has exactly the three canonical products, SLI deps [\"Navigation\"], AFI deps [\"Navigation\", \"Navigation Standard Library Integration\"], test target \"Navigation Tests\" deps [\"Navigation\"]; tools-version 6.4, .v27 platforms, swiftLanguageModes [.v6], and the trailing ecosystem SwiftSetting loop kept verbatim; (4) retargeted the Tagged dependency from swift-molecules/swift-tagged to its current live coordinate swift-atoms/swift-tagged (branch: \"main\"); (5) added \"import Tagged\" to Tests/Navigation Tests/Navigation.Identity.Tests.swift, which uses Tagged members (.underlying, Identity init) formerly reachable only via the deleted re-export. Residual red risk (acceptable, untested per brief): stdlib conformances remain inline in domain files (RandomAccessCollection on Navigation.Stack in Navigation.Stack.swift; CaseIterable on Presentation.Mode/Dismissal; conditional Equatable/Hashable/Sendable) \u2014 candidates for a later code-motion pass into the SLI target, not movable at file granularity now. Working tree clean at push; no build/resolve/test performed. Repo path: /private/tmp/claude-501/-Users-coen-Developer-coenttb/20dff9a4-b817-42e7-bbc6-9081ab416a17/scratchpad/wave1/swift-navigation.",
    "completedAt": "2026-08-27T12:20:02Z"
+  },
+  {
+   "package": "swift-cpu",
+   "repositoryID": 1132373345,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-cpu",
+   "to": "swift-atoms/swift-cpu",
+   "shapeCommit": "dd3389ec2ee1e54d529be7e7fced9d6fdfa8de79",
+   "dependencies": [],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-cpu-binary-serializer",
+     "repositoryID": 1348452091,
+     "commit": "7b15052ec55614d8d5a080f0f160099b89bfd2a0",
+     "seam": "Binary.Serializable conformances for CPU.Timestamp and CPU.Integrity.Cyclic.Checksum (deps swift-binary + swift-binary-serializer)"
+    }
+   ],
+   "notes": "Adjudication: CPU is a native semantic domain (atomics, barriers, cache, spin, timestamp, CRC integrity) \u2014 atom. Atom shape: kept internal C target \"CPU Shims\" (no external package deps; C code cannot merge into the Swift CPU module; not a product), deleted Sources/CPU/exports.swift (umbrella @_exported Binary/Binary_Serializable), stripped the two Binary.Serializable conformance lines from CPU.Integrity.Cyclic.Checksum.swift and CPU.Timestamp.swift into the molecule, seeded \"CPU Standard Library Integration\" (public import CPU) and \"CPU Apple Foundation Integration\" (three-line seed; no Foundation imports existed anywhere). Products exactly three. All three external package dependencies removed: swift-binary and swift-binary-serializer moved to the molecule; swift-bit was only used by the deleted trivial re-export test-support target \"CPU Test Support\" (Tests/Support), which no test file actually used (tests import Testing + @testable CPU, one imports Synchronization \u2014 toolchain module, kept in atom). Stdlib conformances (Comparable, ExpressibleByIntegerLiteral, RawRepresentable) are declared on the type definitions themselves and stay in the atom rather than the SLI target; no standalone stdlib-extension files existed. Reserved/ files (CPU.Wait/Crypto/Vector) have no imports and stay in the atom. Molecule swift-cpu-binary-serializer depends on swift-molecules/swift-cpu, swift-atoms/swift-binary (already transferred), swift-molecules/swift-binary-serializer, all branch main; stub backticked @Suite test. No residual red references known in kept tests; nothing was built per commission. Both working trees verified clean. Note: push to swift-cpu main reported bypassed branch-protection rules (PR requirement + required check) under the authorized direct-push grant.",
+   "completedAt": "2026-08-27T12:20:07Z"
   }
  ],
  "successors": [],
