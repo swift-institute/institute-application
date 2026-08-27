@@ -14856,19 +14856,28 @@
       "observedHead": "e9c9309e84045971bbdd373f3767d9719dbe107b",
       "observedRemote": "https://github.com/swift-primitives/swift-async-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit 76b2165eb69722bc0721f3b7703314b15ba3c850 from expected parent e9c9309e84045971bbdd373f3767d9719dbe107b in isolated worktree /private/tmp/four-layer-swift-async",
+          "deterministic full-tree audit verified exact equivalence across all 124 files and 115 required path moves, all 18 live dependency coordinates/products, stripped owned plural package/product/target/module/import suffixes while preserving legitimate singular Primitive identities, metadata/README/badges/Kernel link, zero stale owner/plural/coenttb residuals, public payload, active Actions, human commit identity, and Package.resolved absence; no semantic change or split"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified exact old live coordinate swift-molecules/swift-async-primitives at expected main e9c9309e84045971bbdd373f3767d9719dbe107b with GitHub repository ID 1132373255 and exact future coordinate HTTP 404",
+          "renamed repository to swift-molecules/swift-async and verified the same numeric repository ID 1132373255, public visibility, non-archived state, and default branch main without relying on the old redirect",
+          "set fetch and push origins to https://github.com/swift-molecules/swift-async.git and fast-forward published exact prepared commit 76b2165eb69722bc0721f3b7703314b15ba3c850 without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main 76b2165eb69722bc0721f3b7703314b15ba3c850 with unchanged repository ID 1132373255, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-async-publisher institute package resolve --package-path /private/tmp/four-layer-swift-async --argument=--disable-sandbox against all 18 exact live future dependencies and transitive graph",
+          "post-resolution verification found exact HEAD 76b2165eb69722bc0721f3b7703314b15ba3c850, a clean checkout, and untouched generated Package.resolved with stable SHA-256 a6bed80374249f1a5e9e0704dc33f085660da3d86718427b4c83c0e66dcb4d2b"
+        ]
       }
     },
     {
