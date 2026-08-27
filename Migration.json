@@ -10469,20 +10469,32 @@
       "observedHead": "828cc3adafa845f0afda8cb26c416944df187b86",
       "observedRemote": "https://github.com/swift-ietf/swift-rfc-2183.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit 9d85573a9fd0b85551e33fdfcf2344d4e0a77e06 from expected parent 828cc3adafa845f0afda8cb26c416944df187b86 in isolated worktree /private/tmp/four-layer-swift-rfc-2183 with subject Prepare RFC 2183 for the four-layer cutover",
+          "deterministic audit verified the exact ten-path mechanical transformation with 32 insertions and 32 deletions across Package.swift and nine RFC 2183 source files, preserving all 25 tracked paths and every RFC 2183 package/product/target/path/public semantic identity",
+          "mapped ASCII Parser, ASCII Serializer, Binary, Binary Serializer, and Parser from their old primitive coordinates/products/modules to the exact live molecule identities; preserved RFC 2045, RFC 5322, and INCITS 4-1986 identities; introduced no split or dependency",
+          "all eight future dependencies were ledger-passed and exact-live with their products verified; zero stale old-owner/plural residuals remained, README/metadata and canonical Actions required no change, Package.resolved was absent before preparation, and the isolated worktree was clean at the exact prepared commit"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified exact coordinate swift-ietf/swift-rfc-2183, GitHub repository ID 1099557671, public visibility, non-archived state, default branch main, exact clone URL, and expected live base 828cc3adafa845f0afda8cb26c416944df187b86 immediately before publication; no rename was required",
+          "fast-forward published exact direct child 9d85573a9fd0b85551e33fdfcf2344d4e0a77e06 to main through the configured administrator ruleset bypass without force or history rewrite",
+          "verified live main 9d85573a9fd0b85551e33fdfcf2344d4e0a77e06 with unchanged repository ID 1099557671, exact coordinate, public visibility, non-archived state, default branch main, and deliberate final origins"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-rfc-2183-publisher institute package resolve --package-path /private/tmp/four-layer-swift-rfc-2183 --argument=--disable-sandbox against the exact live dependency graph",
+          "HEAD remained 9d85573a9fd0b85551e33fdfcf2344d4e0a77e06 and the isolated worktree remained clean",
+          "Package.resolved was absent before resolution and present afterward only as ignored generated state with stable SHA-256 81bba713a8ae0b1191c42c91ac506f8cfbc368bbbd8302a913582c529b81af4a"
+        ]
+      },
+      "githubRepositoryID": 1099557671
     },
     {
       "current": "swift-ietf/swift-rfc-2369",
