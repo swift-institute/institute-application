@@ -12046,20 +12046,31 @@
       "observedHead": "5baaee0fb6e94c035d39b9da81793b6b1468570d",
       "observedRemote": "https://github.com/swift-ietf/swift-rfc-6570.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit 25d55b0d56cbb47ea8444b2ff0a39f006a9a24a9 from expected parent 5baaee0fb6e94c035d39b9da81793b6b1468570d in isolated worktree /private/tmp/four-layer-swift-rfc-6570",
+          "the complete twenty-eight-path tree was audited and the exact two-path, sixteen-insertion/sixteen-deletion mechanical change mapped Dictionary, Dictionary Ordered, ASCII, Hash Table, Buffer Linear, and Ownership Shared repository/package identities to suffix-free molecules and the plural Dictionary, Dictionary Ordered, and ASCII products/modules to suffix-free forms",
+          "legitimate singular Hash Indexed Primitive, Buffer Linear Primitive, and Ownership Shared Primitive product/module identities and every RFC 6570 public semantic identity were preserved; all seven dependencies were ledger-passed and exact-live with referenced products verified, and residual/public-payload/Actions/staging/direct-parent/human-identity checks passed with Package.resolved absent before preparation"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified unchanged coordinate swift-ietf/swift-rfc-6570, GitHub repository ID 1096056193, public visibility, non-archived state, default branch main, canonical clone URL, and exact expected live parent 5baaee0fb6e94c035d39b9da81793b6b1468570d immediately before publication; no rename was required",
+          "fast-forward published exact direct child 25d55b0d56cbb47ea8444b2ff0a39f006a9a24a9 to main through the configured administrator ruleset bypass without force or history rewrite",
+          "coordinator independently reverified exact live main 25d55b0d56cbb47ea8444b2ff0a39f006a9a24a9 with unchanged repository ID 1096056193, exact coordinate, public visibility, non-archived state, default branch main, and canonical URL"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-rfc-6570-publisher institute package resolve --package-path /private/tmp/four-layer-swift-rfc-6570 --argument=--disable-sandbox against the exact live seven-dependency graph",
+          "coordinator reverified exact live main 25d55b0d56cbb47ea8444b2ff0a39f006a9a24a9 with unchanged GitHub repository ID 1096056193, public visibility, non-archived state, and default branch main",
+          "HEAD and both origins remained exact and canonical and the isolated checkout remained clean; Package.resolved was absent before resolution and present afterward only as ignored untracked generated state with stable SHA-256 0fd21dfc02a311ae7a2483ae9d4983eb50479c23534602b812ef40ca644e8c6c"
+        ]
+      },
+      "githubRepositoryID": 1096056193
     },
     {
       "current": "swift-ietf/swift-rfc-6750",
