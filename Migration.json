@@ -4309,19 +4309,27 @@
       "observedHead": "3bef3f2dc591b022a718582ff1f690850d811c0c",
       "observedRemote": "https://github.com/swift-foundations/swift-kernel.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit ee2999265d2a760b6f8cd3147bac9a1e6a6535fb from expected parent 3bef3f2dc591b022a718582ff1f690850d811c0c in isolated worktree /private/tmp/four-layer-swift-kernel",
+          "deterministic audit verified the 67-path, 190-insertion/190-deletion mechanical foundation-to-composition and 31-dependency identity transformation, published products/modules, preservation of five legitimate singular Primitive references and external fork heritage, metadata/README/badges, active CI, public payload, zero mapped residuals, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified canonical post-organization coordinate swift-compositions/swift-kernel at expected main 3bef3f2dc591b022a718582ff1f690850d811c0c with GitHub repository ID 1125502188, public visibility, non-archived state, and default branch main; no repository rename was required",
+          "set fetch and push origins to https://github.com/swift-compositions/swift-kernel.git and fast-forward published exact prepared commit ee2999265d2a760b6f8cd3147bac9a1e6a6535fb without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main ee2999265d2a760b6f8cd3147bac9a1e6a6535fb with unchanged repository ID 1125502188, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-kernel-publisher institute package resolve --package-path /private/tmp/four-layer-swift-kernel --argument=--disable-sandbox against all 31 exact live future dependencies, including the booked CPU identity repair at 907c1863ebf91552693fa134fd51a3ab51dc5fb9",
+          "post-resolution verification found exact HEAD ee2999265d2a760b6f8cd3147bac9a1e6a6535fb, a clean checkout, and untouched generated Package.resolved with stable SHA-256 080527698cdaf862b2d0fdd990b44b474494e703b3e7cb154b4a59a5bcbfa6ec"
+        ]
       }
     },
     {
