@@ -3087,6 +3087,32 @@
    ],
    "notes": "ADJUDICATION: atom. Version (SemVer core, tools-version, generic Range/Set algebra) is a native semantic domain, not tooling or a mere relator; the heavy dependency list was integration machinery, all extractable as seams. SEAM GROUPING JUDGMENT: the parser/serializer/byte-parser/ascii stack was extracted as ONE molecule (swift-version-parser) rather than one-per-D because the conformances span it inseparably (LosslessStringConvertible needs both parse and description; Parseable references the Parser types); splitting would force molecule-on-molecule deps inside a single integration surface. The whole Version.Calendar family went to swift-version-time because Time types are stored in its core enum. ATOM SHAPE: Sources/Version (Tagged only), Version Standard Library Integration (received Semantic/Tools+Codable, Range+SwiftRange, Range/Bound/Set/Phase+Description from the domain target; kept the two ExpressibleByStringLiteral files; exports.swift deleted), Version Apple Foundation Integration (seed file \u2014 no Foundation imports existed anywhere in sources); exactly three products; tests split into Version Tests and Version Standard Library Integration Tests. SURGERY: init(parsing:), position/countDots helpers, description, CustomStringConvertible/LosslessStringConvertible conformances were cut verbatim from Version.Semantic.swift and Version.Tools.swift into new Version.Semantic+Parsing.swift / Version.Tools+Parsing.swift in the parser molecule; Semantic.Error/Tools.Error moved there too (they are parse-grammar errors carrying Text.Range payloads, letting the atom drop swift-text and swift-ordinal). TWO COMMITS on swift-version main, not one: 1cf0a2af62cf1f736c0b835c1b3eb76f94e075ae \"Adopt canonical atom shape\" then 1a145ac715342cfa901e989df8df46786642c42c \"Delete umbrella exports file\" (a Sources/Version/exports.swift re-exporting Carrier/Tagged surfaced after the first push; force-push forbidden, so a follow-up commit). Pushes to main tripped bypassed branch-protection notices (direct push was authorized; no gate disabled). RESIDUAL RED (later pass): SLI Codable/ExpressibleByStringLiteral files reference init(parsing:)/description/Error now living in swift-version-parser (recipe pins these files to SLI with deps exactly [\"Version\"]); atom test files Version.Semantic Tests / Version.Tools Tests keep parsing/description references (~43/16 sites); SLI Description/Codable tests reference molecule-owned description (Codable tests also import Foundation); pre-existing MemberImportVisibility looseness (e.g. Bumped.swift uses Tagged .underlying without import) left untouched; Semantic+Parseable retains pre-existing odd qualifier Version.Version.Semantic.Parser. Molecule dep coordinates resolved live via gh api redirect: ascii/byte/carrier/ordinal/parser/serializer/tagged/text/time are swift-atoms; ascii-parser/byte-parser/version are swift-molecules.",
    "completedAt": "2026-08-27T16:46:48Z"
+  },
+  {
+   "package": "swift-coder",
+   "repositoryID": null,
+   "disposition": "molecule",
+   "from": "swift-molecules/swift-coder",
+   "to": "swift-molecules/swift-coder",
+   "shapeCommit": "d7b1eb05f232cdc1e26e5bfb6b1e11e1b03a1ea5",
+   "dependencies": [],
+   "splits": [],
+   "notes": "Lane defer upheld: Coder.Protocol is definitionally the refinement of Parser.Protocol + Serializer.Protocol \u2014 a capability that exists only by relating two independent domains; no dependency-free core exists. Stays in swift-molecules untouched; natural internal seam (Coder Parser stratum) noted for the certification pass. Lane notes: DEFER without reshaping \u2014 swift-coder is a capability that only relates other independent domains, not a native semantic owner. Evidence from /private/tmp/claude-501/-Users-coen-Developer-coenttb/20dff9a4-b817-42e7-bbc6-9081ab416a17/scratchpad/wave2/swift-coder: (1) Coder.Protocol (Sources/Coder Primitive/Coder.Protocol.swift) is defined as the refinement of Parser.Protocol (swift-parser) and Seri",
+   "completedAt": "2026-08-27T16:47:02Z"
+  },
+  {
+   "package": "swift-machine",
+   "repositoryID": null,
+   "disposition": "molecule",
+   "from": "swift-molecules/swift-machine",
+   "to": "swift-molecules/swift-machine",
+   "shapeCommit": "cb4d4074a1f1ce41dde7c06ab9c82e63ffcc23d4",
+   "dependencies": [
+    "swift-molecules/swift-graph (product \"Graph Sequential\") \u2014 irreducible: Machine.Program's public stored representation is Graph.Sequential, Machine.Node.ID is a typealias for Graph.Node<Self>, and Machine.Builder wraps Graph.Sequential.Builder; the machine domain is a graph-shaped program, so Node/Program/Builder are the domain core rather than an integration seam"
+   ],
+   "splits": [],
+   "notes": "Outer-loop adjudication (substrate rule): canonical internal shape adopted, but Machine.Program/Node/Builder are definitionally Graph.Sequential-shaped and swift-graph itself stayed a molecule; stays in swift-molecules. Lane notes: Adjudication: Machine is a native semantic domain (typed program-graph machine: values, captures, transforms, combines, next/finalize combinators, frames, nodes, programs, builder) -> atom. Twelve internal strata targets (Machine Primitive/Value/Capture/Transform/Combine/Next/Finalize/Frame/Node/Program/Convenience plus umbrella Machine) collapsed via git mv into the single Sources/Machine module;",
+   "completedAt": "2026-08-27T16:47:02Z"
   }
  ],
  "successors": [],
