@@ -3142,23 +3142,32 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-compositions/swift-github-http",
       "futureLayer": "compositions",
-      "observedHead": "c38522d7505d23f90e58b1a228aee22fc02e5d1e",
-      "observedRemote": "https://github.com/swift-foundations/swift-github-http.git",
+      "observedHead": "15ccc9d825fb51c1632cd489a96fb9c8ff7bb2c5",
+      "observedRemote": "https://github.com/swift-compositions/swift-github-http.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared exact direct-child cutover commit 15ccc9d825fb51c1632cd489a96fb9c8ff7bb2c5 from expected base c38522d7505d23f90e58b1a228aee22fc02e5d1e in clean isolated worktree /private/tmp/github-http-composition-lane/swift-github-http",
+          "mechanical four-layer cutover changed only .github/metadata.yaml, Package.swift, README.md, and Tests/GitHub HTTP Tests/GitHub.HTTP.Content Tests.swift; dependency/self URLs, layer metadata, and the exact URL fixture moved to their canonical composition coordinates without semantic or dependency expansion",
+          "residual identity, active Actions-reference, public-payload, machine-path, credential, diff, attribution, and Package.resolved preservation checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "repository ID 1047996797 was verified before and after cutover at exact canonical coordinate swift-compositions/swift-github-http with unchanged public visibility, non-archived state, and default branch main",
+          "published exact prepared commit 15ccc9d825fb51c1632cd489a96fb9c8ff7bb2c5 as an ordinary fast-forward from c38522d7505d23f90e58b1a228aee22fc02e5d1e to refs/heads/main through the authenticated administrative ruleset bypass; no force push or history rewrite occurred",
+          "coordinator independently reverified exact live main 15ccc9d825fb51c1632cd489a96fb9c8ff7bb2c5, repository ID 1047996797, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is complete and Package.resolved remained absent twice before and after publication; the repository is queued behind the serialized Institute package-resolution slot after measured shared SwiftPM-cache contention"
+        ]
+      },
+      "githubRepositoryID": 1047996797
     },
     {
       "current": "swift-foundations/swift-html",
