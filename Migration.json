@@ -13868,34 +13868,41 @@
       "observedHead": "907578dbc0143384ba223326263801b5eb2bb5ba",
       "observedRemote": "https://github.com/swift-iso/swift-iso-9945.git",
       "preparation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "prepared commit af5d6339142bbd169017eca7022e5634486da790 from expected parent 907578dbc0143384ba223326263801b5eb2bb5ba",
           "isolated worktree /private/tmp/swift-iso-9945-live-907578dbc0143384ba223326263801b5eb2bb5ba",
           "canonical dependency identities, products, modules, imports, and paths applied across 297 changed paths; unchanged repository coordinate preserved",
-          "follow-up preparation is required from published commit af5d6339142bbd169017eca7022e5634486da790 to replace the lower Loader package identity and module with swift-loader-vocabulary and Loader_Vocabulary"
+          "follow-up preparation was required from published commit af5d6339142bbd169017eca7022e5634486da790 to replace the lower Loader package identity and module with swift-loader-vocabulary and Loader_Vocabulary",
+          "prepared human-authored exact direct-child commit 4fdba77facedee28bf8c4c56276c79cb6e8749a3 in isolated worktree /private/tmp/swift-iso-9945-live-907578dbc0143384ba223326263801b5eb2bb5ba with subject Repair the ISO 9945 Loader dependency",
+          "committed-tree audit verified the exact five-path six-insertion/six-deletion follow-up: canonical Loader vocabulary URL/package identity plus four lower-module imports changed to Loader_Vocabulary while public product Loader, Loader namespace/type references, all ISO 9945 identities/semantics, other flag-day mappings, canonical Actions, public payload, explicit staging, and clean checkout were preserved"
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 907578dbc0143384ba223326263801b5eb2bb5ba",
           "verified stable GitHub repository ID 1217888724 with public visibility and non-archived state",
           "fast-forward published prepared commit af5d6339142bbd169017eca7022e5634486da790",
           "verified live main af5d6339142bbd169017eca7022e5634486da790 with unchanged public visibility",
           "verified final origin https://github.com/swift-iso/swift-iso-9945.git",
-          "the successful flag-day publication remains live and preserved, but final publication is pending the Loader vocabulary dependency follow-up"
+          "the successful flag-day publication remained live and preserved while final publication awaited the Loader vocabulary dependency follow-up",
+          "verified exact pre-publication main af5d6339142bbd169017eca7022e5634486da790 at unchanged coordinate swift-iso/swift-iso-9945 with GitHub repository ID 1217888724, public visibility, non-archived state, and default branch main; all 25 future dependencies were exact live ledger-passed commits",
+          "fast-forward published exact direct-child follow-up commit 4fdba77facedee28bf8c4c56276c79cb6e8749a3 without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main 4fdba77facedee28bf8c4c56276c79cb6e8749a3 with unchanged repository ID 1217888724, exact coordinate, public visibility, non-archived state, and default branch main"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "package resolution passed for swift-iso-9945 at live published commit af5d6339142bbd169017eca7022e5634486da790",
           "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-iso-9945-live institute package resolve --package-path /private/tmp/swift-iso-9945-live-907578dbc0143384ba223326263801b5eb2bb5ba --argument=--disable-sandbox",
           "exit 0; live future-coordinate dependencies resolved successfully",
           "HEAD unchanged; tracked worktree clean; Package.resolved generated from absent to SHA-256 7b9323d6975dcc05afe14f159e334239b541991dae2a97a7c4fb07e130d8af7b and remained ignored/uncommitted",
-          "the prior resolution evidence is superseded by the Loader vocabulary identity repair; final package resolution is pending the consumer follow-up"
+          "the prior resolution evidence was superseded by the Loader vocabulary identity repair and revalidation followed publication of the exact consumer follow-up",
+          "package resolution passed with exit status 0 using the sole approved noncompiling command CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-iso-9945-loader-vocabulary-publisher institute package resolve --package-path /private/tmp/swift-iso-9945-live-907578dbc0143384ba223326263801b5eb2bb5ba --argument=--disable-sandbox; output explicitly removed the retired swift-loader checkout and resolved swift-loader-vocabulary at 94c4d92fdfe55886fae51f41531c402baf1fffd7",
+          "post-resolution verification found exact HEAD 4fdba77facedee28bf8c4c56276c79cb6e8749a3, clean tracked and untracked status, and untouched ignored generated Package.resolved changed from pre-resolution SHA-256 7b9323d6975dcc05afe14f159e334239b541991dae2a97a7c4fb07e130d8af7b to stable post-resolution SHA-256 fffdef5ab8fda7fed8e5e4bf36f1393014c271c61f6a8cf6e132a577b67d314c"
         ]
       },
       "githubRepositoryID": 1217888724
