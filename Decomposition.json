@@ -2509,6 +2509,29 @@
    "splits": [],
    "notes": "Outer-loop adjudication overriding lane atom call (same rule as swift-builder): canonical internal shape adopted at the reported head, but nine irreducible molecule-level substrate dependencies (hash-table, buffer-linear, storage-contiguous, memory-heap/allocation, ownership-shared) make it molecule-tier; an atom may not depend on molecules, so it stays in swift-molecules. Lane notes: Adjudication: Dictionary (associative map) is a native semantic domain, so atom. However, this atom is not dependency-free: __Dictionary is a thin generic wrapper whose entire implementation is expressed as compositions of substrate molecules (Hash.Indexed over Buffer.Linear over Storage.Contiguous over Memory.Allocator<Memory.Heap>, optionally under Ownership.Shared). No file's reason to exist is \"integrate Dictionary with D\" \u2014 every file is the dictionary itself \u2014 so there are no seams to extr",
    "completedAt": "2026-08-27T16:12:49Z"
+  },
+  {
+   "package": "swift-fixed",
+   "repositoryID": 1276750054,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-fixed",
+   "to": "swift-atoms/swift-fixed",
+   "shapeCommit": "73789e530b2a1b8e7fa0125bf64edf2003d8f657",
+   "dependencies": [
+    "swift-atoms/swift-storage (product \"Store Protocol\"): the core __Fixed<S> definition, its Index typealias, and Fixed.Error are constrained on S: Store.Protocol \u2014 the type cannot be stated without it",
+    "swift-atoms/swift-buffer (product \"Buffer Protocol\"): init(store:) and the whole always-full collection surface (count/capacity/subscript/swap) are constrained on S: Buffer.Protocol",
+    "swift-atoms/swift-index (product \"Index\"): Fixed's typed index/ordinal surface (Index.Index<S.Element>, Count) is the domain's indexing vocabulary, used in the core type and Error"
+   ],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-fixed-buffer-linear",
+     "repositoryID": 1348695452,
+     "commit": "efb9e64a992f62eaeb6809c46faf96d26b37c51d",
+     "seam": "Concrete bounded-linear-heap-column integration: the pinned Fixed<E> front-door typealias and constructors over Buffer<Storage<Memory.Allocator<Memory.Heap>>.Contiguous<E>>.Linear.Bounded (Fixed.FrontDoor.swift, Fixed+Columns.swift, plus all concrete-stack tests)"
+    }
+   ],
+   "notes": "Adjudication: Fixed is a native semantic domain \u2014 the always-full column invariant (count == capacity proven at construction) with its own indexing, in-place-write, and error surface \u2014 so atom, not defer. Its three kept dependencies are irreducible: __Fixed<S> is defined generically over Store/Buffer protocols with a typed Index; no strata targets existed to collapse and SLI/AFI seed targets plus the three-product shape were already present and kept verbatim (manifest idiom incl. ecosystem SwiftSetting loop preserved). Seam extraction: Fixed.FrontDoor.swift and Fixed+Columns.swift existed solely to pin Fixed to the concrete swift-buffer-linear/storage-contiguous/memory-heap stack; both moved to new molecule swift-fixed-buffer-linear (product/target \"Fixed Buffer Linear\") with \"public import Fixed\" prepended, and swift-buffer-linear, swift-memory-allocation, swift-memory-heap dropped from the atom entirely (also dropped atom-side products Buffer Primitive and Storage Contiguous). Tests: the entire original Fixed Tests.swift was seam-specific (uses the concrete Fixed<E> typealias, BoundedHeapColumn, Buffer Test Support, Seam.Ledger) and moved to \"Fixed Buffer Linear Tests\" with \"import Fixed_Buffer_Linear\" prepended; atom keeps \"Fixed Tests\" (deps [\"Fixed\"]) as a stub @Suite. Note: the original swift-fixed manifest never declared swift-ordinal/swift-tagged/test-support products its test file imported; the molecule manifest now declares them explicitly (swift-ordinal and swift-tagged resolve to swift-atoms via redirect \u2014 live coordinates used). Expected residual reds for the later pass: (1) molecule extensions access __Fixed's package-level `store` member (store.mutableSpan, store.withUnsafeBufferPointer) across a package boundary; (2) init(__unchecked:) in the molecule delegates to public init(store:), fine, but the `store` reads are not; (3) the `Fixed` typealias in module Fixed_Buffer_Linear coexists with the imported module named Fixed \u2014 potential name-lookup ambiguity; (4) atom README.md still describes the pinned constructors and old two-target architecture (docs, not structure \u2014 left untouched). Atom push to main went through with an org-admin rule bypass notice (PR requirement + required check \"ci / matrix / ci-ok\"); direct pushes to main were explicitly authorized by the commission. No merges, no history rewrites, no other repositories touched; both working trees verified clean.",
+   "completedAt": "2026-08-27T16:25:56Z"
   }
  ],
  "successors": [],
