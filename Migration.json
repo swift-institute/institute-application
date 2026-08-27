@@ -28554,19 +28554,27 @@
       "observedHead": "1df682fad2046b781c92d2981810ad45c18d59df",
       "observedRemote": "https://github.com/swift-primitives/swift-version-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit d7eaad9a7abb10b9eb8f0ebee0835bd1af46ac98 from expected parent 1df682fad2046b781c92d2981810ad45c18d59df in isolated worktree /private/tmp/four-layer-swift-version",
+          "deterministic full-tree equivalence audit verified all 78 tracked files, 72 path moves, 77 diff records with 168 insertions/168 deletions, owned Version family identities, all 11 dependency URLs/products/packages/modules plus inherited module references, README/metadata/docs mapping, preserved four legitimate semantic primitive prose references, zero removed-identity residuals, public payload, active Actions, human commit identity, clean checkout, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified old coordinate swift-molecules/swift-version-primitives at expected main 1df682fad2046b781c92d2981810ad45c18d59df with GitHub repository ID 1237035717, public visibility, non-archived state, default branch main, and absent exact destination, then renamed it to swift-molecules/swift-version",
+          "verified the same GitHub repository ID 1237035717 at swift-molecules/swift-version, set fetch and push origins to the final HTTPS URL, and fast-forward published exact prepared commit d7eaad9a7abb10b9eb8f0ebee0835bd1af46ac98 without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified exact canonical coordinate swift-molecules/swift-version at live main d7eaad9a7abb10b9eb8f0ebee0835bd1af46ac98 with unchanged repository ID 1237035717, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-version-publisher institute package resolve --package-path /private/tmp/four-layer-swift-version --argument=--disable-sandbox against all 11 exact live declared dependencies and transitive graph",
+          "post-resolution verification found exact HEAD d7eaad9a7abb10b9eb8f0ebee0835bd1af46ac98, a clean isolated checkout, and Package.resolved absent both before and after resolution with absence checked twice; the source checkout's pre-existing ignored Package.resolved remained untouched at SHA-256 58ed2065d898fb03921478f0dc2ef5376cbecf3e13df4b1158a7840fb9db31d8"
+        ]
       }
     },
     {
