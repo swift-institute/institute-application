@@ -660,20 +660,29 @@
       "observedHead": "231a76f70f673593348ccccc7853a4cb600eded5",
       "observedRemote": "https://github.com/swift-foundations/swift-async.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit e8dd89e0e112bc4f839d5703c5723201a07ad79e from exact parent 231a76f70f673593348ccccc7853a4cb600eded5 in clean identity-compatible isolated worktree /private/tmp/async-composition-lane/swift-async with subject Move async composition to the four-layer graph; the original checkout and existing Windows lane were untouched",
+          "audited all 120 tracked paths and made the exact 91-path, 177-insertion/177-deletion one-for-one mechanical transformation of all 11 declared dependencies, plural primitive products/modules, canonical transitive modules, README self URL, and layer topic while preserving legitimate singular Primitive identities, public semantics, targets/paths, and canonical Actions; residual, payload, staged-tree, ancestry, and identity checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-async as canonical with stable GitHub repository ID 1311176519, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; no repository rename was needed",
+          "JIT verified the exact live Clocks, Clocks Dependencies, and nine molecule dependency identities/products and ledger gates, then ordinary fast-forward published exact direct child e8dd89e0e112bc4f839d5703c5723201a07ad79e without force or history rewrite",
+          "coordinator independently verified exact live main e8dd89e0e112bc4f839d5703c5723201a07ad79e with unchanged repository ID 1311176519, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, stable Package.resolved evidence, and clean tracked checkout"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-async-composition-publisher institute package resolve --package-path /private/tmp/async-composition-lane/swift-async --argument=--disable-sandbox against the exact live graph; SwiftPM accepted the distinct composition and molecule repositories that both canonicalize to swift-async without identity collision, and no build, test, compilation, raw SwiftPM, dump-package, or standalone manifest-evaluation command was invoked",
+          "Package.resolved was absent twice before resolution and present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 449a0cb879d37819930065c02d4564a6d92f3496bfe7456b804f1b8ee0d66e14; final live identity/SHA and clean tracked checkout were reverified"
+        ]
+      },
+      "githubRepositoryID": 1311176519
     },
     {
       "current": "swift-foundations/swift-authentication",
