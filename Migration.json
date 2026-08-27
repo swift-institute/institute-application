@@ -29349,19 +29349,27 @@
       "observedHead": "cb1137f233b7ad3daf0d05304b6df725525e267c",
       "observedRemote": "https://github.com/swift-standards/swift-locale-standard.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit 96624713b04d2d07037d3c9f57e52933944888a5 from expected parent cb1137f233b7ad3daf0d05304b6df725525e267c in isolated worktree /private/tmp/four-layer-swift-locale-standard",
+          "deterministic audit verified the exact one-path, 14-file-preserving Standard Library Extensions owner mapping, all five live dependency coordinates/products, preserved Locale Standard and other standards identities, zero mapped residuals, public payload, active Actions, human commit identity, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified canonical live coordinate swift-standards/swift-locale-standard at expected main cb1137f233b7ad3daf0d05304b6df725525e267c with GitHub repository ID 1113415928, public visibility, non-archived state, and default branch main; no repository rename was required",
+          "set fetch and push origins to https://github.com/swift-standards/swift-locale-standard.git and fast-forward published exact prepared commit 96624713b04d2d07037d3c9f57e52933944888a5 without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main 96624713b04d2d07037d3c9f57e52933944888a5 with unchanged repository ID 1113415928, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-locale-standard-publisher institute package resolve --package-path /private/tmp/four-layer-swift-locale-standard --argument=--disable-sandbox against all five exact live dependencies and transitive graph",
+          "post-resolution verification found exact HEAD 96624713b04d2d07037d3c9f57e52933944888a5, a clean checkout, and untouched generated Package.resolved with stable SHA-256 193b4a6066772290a8f40050de24f159e6fc7f1f06d9b6be4edf1be680423fca"
+        ]
       }
     },
     {
