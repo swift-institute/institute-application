@@ -14135,23 +14135,28 @@
       "observedHead": "f1d13af14b8474bf1df42e931c36b9f41d0682db",
       "observedRemote": "https://github.com/swift-microsoft/swift-windows-32.git",
       "preparation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "prepared commit 7a555f122346568fa9080dd836ad6445cae27ec3 from expected parent f1d13af14b8474bf1df42e931c36b9f41d0682db",
           "isolated worktree /private/tmp/swift-windows-32-publish",
           "canonical molecule dependency identities, products, modules, imports, and paths applied across 202 changed paths; unchanged repository coordinate preserved",
-          "follow-up preparation is required from published commit 7a555f122346568fa9080dd836ad6445cae27ec3 to replace the lower Loader package identity and module with swift-loader-vocabulary and Loader_Vocabulary"
+          "follow-up preparation was required from published commit 7a555f122346568fa9080dd836ad6445cae27ec3 to replace the lower Loader package identity and module with swift-loader-vocabulary and Loader_Vocabulary",
+          "prepared human-authored exact direct-child commit 8ae5a84f0951914d3534a3b72a72586b38a011a1 in isolated worktree /private/tmp/swift-windows-32-publish with subject Use the Loader vocabulary package",
+          "committed-tree audit verified the exact seven-path eight-insertion/eight-deletion follow-up: canonical Loader vocabulary URL/package identity plus six lower-module imports changed to Loader_Vocabulary while public product Loader and all Windows 32 package, product, target, path, and namespace semantics remained unchanged; public payload, explicit staging, residual, clean checkout, and untouched Package.resolved gates passed"
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit f1d13af14b8474bf1df42e931c36b9f41d0682db",
           "verified stable GitHub repository ID 1206918715 with public visibility and non-archived state",
           "fast-forward published prepared commit 7a555f122346568fa9080dd836ad6445cae27ec3",
           "verified live main 7a555f122346568fa9080dd836ad6445cae27ec3 with unchanged public visibility",
           "verified final origin https://github.com/swift-microsoft/swift-windows-32.git",
-          "the successful flag-day publication remains live and preserved, but final publication is pending the Loader vocabulary dependency follow-up"
+          "the successful flag-day publication remained live and preserved while final publication awaited the Loader vocabulary dependency follow-up",
+          "coordinator reverified exact pre-publication main 7a555f122346568fa9080dd836ad6445cae27ec3 at unchanged coordinate swift-microsoft/swift-windows-32 with GitHub repository ID 1206918715, public visibility, non-archived state, and default branch main",
+          "fast-forward published exact direct-child follow-up commit 8ae5a84f0951914d3534a3b72a72586b38a011a1 without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main 8ae5a84f0951914d3534a3b72a72586b38a011a1 with unchanged repository ID 1206918715, exact coordinate, public visibility, non-archived state, default branch main, and final clone URL https://github.com/swift-microsoft/swift-windows-32.git"
         ]
       },
       "state": "ready",
