@@ -4465,8 +4465,21 @@
     "blockingHeadSHA": "29b9a86729f88a3be4a63e9dd22311afe2872e19",
     "evidence": "The CPU seam is genuine and its direct CPU/Binary coordinates were modernized locally, but fresh resolution fails in Binary Serializer because its test-support target still requests the removed Binary Test Support product and its manifest still uses swift-molecules/swift-binary, creating a conflicting identity with canonical swift-atoms/swift-binary.",
     "resumeWhen": "Converge swift-binary-serializer, then resume the preserved checkout, rerun fresh build/test, push, and book only the verified green head.",
+    "resolvedByHeadSHA": "5b809b9e8776b451bad945a24154c84c512acb14",
+    "resumedPackageHeadSHA": "a539d23f91d04beea1b54c8c33f2513abbefab35",
+    "status": "resolved-and-booked",
+    "recordedAt": "2026-08-27T21:54:27Z",
+    "resolvedAt": "2026-08-27T22:10:08Z"
+   },
+   {
+    "repo": "swift-molecules/swift-byte-parser",
+    "currentHeadSHA": "8843cdabcbfc3809ab016c4c7f8cd7a1bcb231fc",
+    "blockedBy": "swift-molecules/swift-memory-cursor",
+    "blockingHeadSHA": "d571416d2f12dc1055f09fda935d1458644af7b8",
+    "evidence": "Byte Parser's direct Parser/Byte/Either/Input/Collection/Span graph and obsolete Array.Shared input buffer were modernized locally, but fresh resolution stops in Memory Cursor: it requests removed Cursor Test Support, Cursor Primitive, Byte Test Support, Iterator Protocol, and Span Protocol products and carries stale moved-atom coordinates. Byte Parser genuinely consumes Memory Cursor-owned peek/consume/count/isAtEnd behavior and cannot replace that substrate locally.",
+    "resumeWhen": "Converge swift-memory-cursor, then resume the preserved checkout, rerun fresh build/test, push, and book only the verified green head.",
     "status": "dependency-convergence-required",
-    "recordedAt": "2026-08-27T21:54:27Z"
+    "recordedAt": "2026-08-27T22:05:44Z"
    }
   ],
   "pendingAdjudications": [
@@ -6077,6 +6090,51 @@
     "wave": "wave7n",
     "changes": "Canonicalized Coproduct to its atom owner and retained the genuine VariadicEnum-gated native Hashable implementation plus retroactive Hash.Protocol/domain-typed Hash.Value seam, adding explicit ownership, feature-active contracts, and a current-toolchain unavailable-feature proof. Fresh build green; 1 gating test green.",
     "bookedAt": "2026-08-27T22:04:45Z"
+   },
+   {
+    "repo": "swift-molecules/swift-boundary-hash",
+    "headSHA": "5fc68def1b878c8d64e7b5fd6f6dc5ecca35caad",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7o",
+    "changes": "Canonicalized Boundary to its atom owner and retained the genuine retroactive Edge and Corner Hash.Protocol bridges beyond their atom-owned native Hashable implementations, adding explicit ownership and focused typed Hash.Value contracts for both boundary types. Fresh build green; 2 tests green.",
+    "bookedAt": "2026-08-27T22:07:11Z"
+   },
+   {
+    "repo": "swift-molecules/swift-compass-hash",
+    "headSHA": "f32a3789348028cf5e722643721cc46ad605f5ec",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7o",
+    "changes": "Canonicalized Compass to its atom owner and retained the genuine retroactive Compass.Cardinal Hash.Protocol bridge, distinguishing activation of the atom-owned native hash implementation from domain-typed Hash.Value and proving both Set behavior and typed hashes with explicit ownership. Fresh build green; 2 tests green.",
+    "bookedAt": "2026-08-27T22:09:13Z"
+   },
+   {
+    "repo": "swift-molecules/swift-cpu-binary-serializer",
+    "headSHA": "a539d23f91d04beea1b54c8c33f2513abbefab35",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7o",
+    "changes": "Resumed after Binary Serializer substrate convergence, canonicalized CPU to its atom owner, and retained the genuine retroactive Binary.Serializable conformances for CPU.Timestamp and CPU.Integrity.Cyclic.Checksum with scoped public imports, direct test dependencies, and native-endian plus append-semantics coverage. Fresh build green against Binary Serializer 5b809b9e8776b451bad945a24154c84c512acb14; 3 tests green.",
+    "bookedAt": "2026-08-27T22:10:04Z"
+   },
+   {
+    "repo": "swift-molecules/swift-effect-hash",
+    "headSHA": "5d01624dbfc59d7870f0fe46906d609959a82ba7",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7o",
+    "changes": "Canonicalized Effect to its atom owner and retained the genuine case-discriminated Effect.Outcome hashing seam over the Effect Equation equality prerequisite, adding explicit retroactive native Hashable and domain-typed Hash.Protocol ownership and focused protocol payload, Set, and Hash.Value contracts. Fresh build green; 2 tests green.",
+    "bookedAt": "2026-08-27T22:13:35Z"
+   },
+   {
+    "repo": "swift-molecules/swift-cardinal-hash",
+    "headSHA": "4926cca43e221e299436b51a467318552aeb1239",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7o",
+    "changes": "Canonicalized Cardinal to its atom owner and retained the genuine retroactive Cardinal Hash.Protocol conformance beyond atom-owned equality, preserving the broad Cardinal import needed for the inherited Equatable witness and adding scoped Hash ownership plus focused domain-typed Hash.Value and native hashing proofs. Fresh build green; 2 tests green.",
+    "bookedAt": "2026-08-27T22:14:29Z"
    }
   ]
  }
