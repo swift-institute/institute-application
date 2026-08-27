@@ -14159,15 +14159,17 @@
           "coordinator reverified live main 8ae5a84f0951914d3534a3b72a72586b38a011a1 with unchanged repository ID 1206918715, exact coordinate, public visibility, non-archived state, default branch main, and final clone URL https://github.com/swift-microsoft/swift-windows-32.git"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "package resolution passed for swift-windows-32 at live published commit 7a555f122346568fa9080dd836ad6445cae27ec3",
           "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-windows-32-postpublish-2 institute package resolve --package-path /private/tmp/swift-windows-32-publish --argument=--disable-sandbox",
           "exit 0; all 24 live future-coordinate dependencies resolved successfully",
           "HEAD unchanged; tracked worktree clean; Package.resolved generated and ignored at SHA-256 cd41176599272ae0ab4c39e763ebe562d678d43e88c75119656f7d4bb1748766",
-          "the prior resolution evidence is superseded by the Loader vocabulary identity repair; final package resolution is pending the consumer follow-up"
+          "the prior resolution evidence was superseded by the Loader vocabulary identity repair and revalidation followed publication of the exact consumer follow-up",
+          "package resolution passed with exit status 0 using the sole approved noncompiling command CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-windows-32-loader-vocabulary-root institute package resolve --package-path /private/tmp/swift-windows-32-publish --argument=--disable-sandbox; live swift-loader-vocabulary resolved at 94c4d92fdfe55886fae51f41531c402baf1fffd7 and the retired swift-loader checkout was removed by the coordinator",
+          "post-resolution verification found exact HEAD 8ae5a84f0951914d3534a3b72a72586b38a011a1, clean tracked and untracked status, final fetch and push origin https://github.com/swift-microsoft/swift-windows-32.git, and untouched ignored generated Package.resolved changed from pre-resolution SHA-256 cd41176599272ae0ab4c39e763ebe562d678d43e88c75119656f7d4bb1748766 to stable post-resolution SHA-256 ec4c499c4fe147f17fdeb7840a632e75bdbdc5546367892a274916065d404c89"
         ]
       },
       "githubRepositoryID": 1206918715
