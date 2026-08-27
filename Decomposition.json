@@ -2148,6 +2148,40 @@
    "splits": [],
    "notes": "Adjudication: atom. Lexer is a native semantic domain (lexical analysis: Lexeme, Trivia, Position, Classify, Scanner, Pull streaming) \u2014 not tooling, not an external standard, and not a mere relator: it owns real semantics. Its dependencies are irreducible vocabulary of that domain, mirroring the precedent of the already-reshaped swift-atoms/swift-cursor atom which keeps Tagged/Ordinal/Ownership deps. No target or file exists solely to integrate Lexer with an external package, so there are zero seam molecules; extracting e.g. Token.Keyword+Lookup would not free the atom of swift-token because Lexeme itself carries Token.Kind. Changes: (1) deleted the intra-package umbrella Sources/Lexer/exports.swift and added explicit file-level imports per file; (2) deleted the trivial re-export test-support target Tests/Support (product \"Lexer Test Support\"; no test file imported it, so no test import rewrites were needed) and with it the \"Token Test Support\" product use; (3) rewrote stale product/module coordinates to current live shapes: Cursor_Primitive->Cursor, Span_Protocol->Span (\"Span Protocol\" product gone), dropped swift-memory (\"Memory Primitive\" product gone upstream and no Memory.* usage in sources), added explicit swift-text and swift-affine (previously reached only transitively); dependency URLs updated to live orgs (swift-atoms for seven, swift-memory-cursor still swift-molecules); (4) products now exactly Lexer / Lexer Standard Library Integration / Lexer Apple Foundation Integration; (5) SLI target holds Lexer.Position+CustomStringConvertible.swift (extension moved out of Sources/Lexer/Lexer.Position.swift); AFI target is the three-line seed (no Foundation imports existed anywhere); (6) manifest keeps tools-version 6.4, .v27 platforms, swiftLanguageModes [.v6], and the verbatim trailing ecosystem SwiftSetting loop. Residual red (deliberate, later pass): Lexer Tests deps are exactly [\"Lexer\"] but test files reference Token.Kind, Byte, Text.Count/Line, Cardinal, and Span construction, which under MemberImportVisibility will need explicit imports/deps once building resumes; SLI's description body reads Text.Location members with only \"public import Lexer\" (expression-position access, expected lenient); exact public/internal import levels in Sources/Lexer are best-effort pending the compile pass. Push to protected main succeeded via the authorized org-admin bypass (rule-violation notice recorded: PR requirement and required check \"ci / matrix / ci-ok\" bypassed). git status clean in /private/tmp/claude-501/-Users-coen-Developer-coenttb/20dff9a4-b817-42e7-bbc6-9081ab416a17/scratchpad/wave1/swift-lexer; no other directories touched.",
    "completedAt": "2026-08-27T13:42:36Z"
+  },
+  {
+   "package": "swift-path",
+   "repositoryID": 1179869736,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-path",
+   "to": "swift-atoms/swift-path",
+   "shapeCommit": "02ba2f4fda0b342471b74c60711840d3abca638c",
+   "dependencies": [
+    "swift-atoms/swift-string \u2014 Path's storage representation is defined in terms of String.String.Char/Codec/terminator (Path.Char typealias, null-termination invariant in every init); irreducible to the domain type itself",
+    "swift-molecules/swift-memory-heap \u2014 Path's sole stored property is a Memory.Heap (adopting/take/capacity); the atom cannot exist without it"
+   ],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-path-tagged",
+     "repositoryID": 1348533954,
+     "commit": "4d300d525fe038604bbbdd07fdb143ed5b12b85d",
+     "seam": "Tagged+Path.swift \u2014 Tagged wrapper API for Path (typealiases, forwarding inits/take) integrating swift-tagged"
+    },
+    {
+     "successor": "swift-molecules/swift-path-ownership",
+     "repositoryID": 1348534033,
+     "commit": "823dd709f25d413e2416ea20d6aec91f491863b8",
+     "seam": "Path: Ownership.Borrow.Protocol conformance extracted from Path.Borrowed.swift, integrating swift-ownership"
+    },
+    {
+     "successor": "swift-molecules/swift-path-error",
+     "repositoryID": 1348534111,
+     "commit": "63806308e7491123fadfe11efb7dd1be4cfcb285",
+     "seam": "Path.Canonical.Error.swift \u2014 canonicalization error enum whose .platform case wraps Error.Error from swift-error"
+    }
+   ],
+   "notes": "Adjudication: Path is a native semantic domain (filesystem-path value type with decomposition/modification/resolution/scan/sanitization sub-namespaces), so atom. Single domain module already existed (no strata targets to collapse). Seams out: (1) Tagged+Path.swift moved whole to swift-path-tagged (imports rewritten to public import Path/Tagged/String; it references String.String.Borrowed, so swift-string kept as molecule dep); (2) the one-line Ownership.Borrow.Protocol conformance split out of Path.Borrowed.swift into swift-path-ownership (the Borrowed struct itself is core and stayed); (3) Path.Canonical.Error.swift moved whole to swift-path-error. Atom lost swift-tagged, swift-ownership, swift-error entirely; kept-dep URLs updated to current live coordinates (swift-string now at swift-atoms). SLI and AFI targets created as seed files (no stdlib-integration-primary or Foundation-importing files existed; CustomStringConvertible conformances on Path.Resolution.Error and Path.String.Error live inside core definition files and were left in place rather than tearing files apart \u2014 noted as a later judgment pass candidate). Trivial re-export target \"Path Test Support\" (@_exported Path + Tagged_Test_Support) deleted with its product; no test file imported it, so no test rewrites needed. Kept \"Path Tests\" (deps [\"Path\"]); no SLI test files. Each molecule carries the PATH_AVAILABLE platform define mirrored onto its target so the guarded seam sources still compile-in. Residual red risk (structural pass, unbuilt): Tagged+Path.swift's local typealias String = Path.String may shadow the String module reference in init(copying:); molecule test targets are stub @Suites. Direct pushes to protected main used the authorized bypass (server noted rule bypass; no gates disabled). Local checkouts under .../scratchpad/wave1/{swift-path,swift-path-tagged,swift-path-ownership,swift-path-error}, all clean on main.",
+   "completedAt": "2026-08-27T13:42:44Z"
   }
  ],
  "successors": [],
