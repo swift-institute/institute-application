@@ -999,6 +999,37 @@
    ],
    "notes": "Adjudication: atom \u2014 Compass (cardinal directions) is an irreducible native semantic domain owning Compass.Cardinal with rotation/opposite/ordering semantics; domain spelling Compass derived from existing product names. Reshape: collapsed \"Compass Primitive\" into the single Compass module (git mv), deleted the Sources/Compass umbrella exports.swift and the trivial re-export \"Compass Test Support\" target (test file now imports Compass directly). Stdlib conformances split into \"Compass Standard Library Integration\" (real code, no seed needed): CaseIterable moved out of the enum declaration into an extension with explicit allCases [.north,.east,.south,.west] preserving order, and the #if !hasFeature(Embedded) Codable conformance moved there; SLI also carries exports.swift (@_exported import Compass) mirroring swift-atoms/swift-bit. \"Compass Apple Foundation Integration\" created as the three-line seed (no Foundation code existed). Exactly three products; package dependencies now empty \u2014 all three external deps (swift-equation, swift-hash, swift-comparison) left with their seams. Tests: \"Compass Tests\" deps [\"Compass\"]; the two allCases loops rewritten to explicit arrays and the sorted()-based ordering assertion moved to swift-compass-comparison tests (sorted() needs the Comparison-derived Comparable); direct </>-operator expectations kept in the atom (operators are atom-native static funcs). New \"Compass Standard Library Integration Tests\" holds the CaseIterable suite. Molecules: manifests at current live coordinates (swift-molecules/swift-compass for the atom, swift-atoms/* for equation/hash/comparison, all branch: \"main\"); seam imports rewritten Compass_Primitive -> Compass; equation molecule is re-export-only (original target had no conformance code \u2014 faithful extraction, flagged for a later semantic pass to add Equation.Protocol conformance); hash and comparison carry the conformance files; equation and hash have stub @Suite tests. Atom README Architecture section refreshed to the new products. No builds/tests run per commission (structural pass); atom push bypassed the PR/CI branch rule via authorized direct push (remote noted the bypass). Residual red risk: none known beyond unbuilt state; no remaining references to extracted domains in kept files.",
    "completedAt": "2026-08-27T12:43:06Z"
+  },
+  {
+   "package": "swift-effect",
+   "repositoryID": 1138063446,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-effect",
+   "to": "swift-atoms/swift-effect",
+   "shapeCommit": "0702baab8a6b719aa4125ad9ee35b8f123fae1b8",
+   "dependencies": [],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-effect-dependency",
+     "repositoryID": 1348476403,
+     "commit": "1634ab0fdd41996b6ce3bb6de8ad2e76ec77ab7b",
+     "seam": "Effect.Context (scoped handler registration) backed by Dependency task-local scopes; Sources/Effect/Effect.Context.swift + its test file moved"
+    },
+    {
+     "successor": "swift-molecules/swift-effect-equation",
+     "repositoryID": 1348476503,
+     "commit": "f1b931b5107ae3e0e1e41c57ba2eb1f6d25eed12",
+     "seam": "Equation.Protocol (== Swift.Equatable) conformance for Effect.Outcome, split out of Effect.Outcome.swift, plus the four equality tests"
+    },
+    {
+     "successor": "swift-molecules/swift-effect-hash",
+     "repositoryID": 1348476586,
+     "commit": "2eee308d5fc98c1c1449c360a2f87d7a43c8ba77",
+     "seam": "Hash.Protocol + Swift.Hashable conformances for Effect.Outcome, split out of Effect.Outcome.swift, plus the hashable-consistency test"
+    }
+   ],
+   "notes": "Adjudication: Effect is a native semantic domain (algebraic-effect primitives \u2014 Effect.Protocol, one-shot/multi-shot ~Copyable continuations, handlers, outcomes) with no external governance; clear atom. Domain spelling Effect derived from existing product/target \"Effect\". Reshape: single Sources/Effect module already existed (no strata to collapse, no exports.swift). Seams: Effect.Context.swift was a pure Dependency integration (whole file moved, `public import Effect` added); Effect.Outcome.swift was split \u2014 native enum, Copyable/Sendable conditionals, Result init/property, value/error/isAborted stay in the atom; Equation and Hash conformance extensions moved to their molecules verbatim. Result-conversion helpers kept in the atom (they extend the domain type, not a stdlib type), so \"Effect Standard Library Integration\" and \"Effect Apple Foundation Integration\" are seed files (exact prescribed content). Products now exactly the three canonical ones; package dependencies emptied \u2014 the Effect module needs nothing. Tests: \"Effect Tests\" kept with deps [\"Effect\"]; Effect.Outcome.Tests.swift split (native tests stay; 4 equality tests to equation molecule, hashable test to hash molecule); Effect.Context.Tests.swift moved to dependency molecule with imports rewritten (import Effect + @testable import Effect_Dependency); trivial re-export target \"Effect Test Support\" (unused by any test import) deleted along with its product. No residual references to extracted domains remain in kept sources or tests (grep-verified zero). README minimally updated to the three-product shape. Molecule coordinates: swift-dependency/swift-equation/swift-hash resolved live to swift-atoms (molecules URLs now redirect); swift-effect itself referenced at swift-molecules. swift-effect-hash additionally depends on swift-effect-equation because Hash.Protocol refines Swift.Hashable (requires Equatable), whose Effect.Outcome conformance lives in the equation molecule; import Effect_Equation added in the hash seam source and test. Structural pass only \u2014 nothing built or resolved; atom push to main bypassed branch-protection rules via authorized direct push (remote reported the bypass). All four working trees verified clean.",
+   "completedAt": "2026-08-27T12:43:15Z"
   }
  ],
  "successors": [],
