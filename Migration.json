@@ -546,19 +546,27 @@
       "observedHead": "a8a4980df36cf86ca4d7f34c7216b6ca33cf792a",
       "observedRemote": "https://github.com/swift-foundations/swift-ascii.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit d3bfc673d77cd8be3ea8856efa00c2c1a71c555f from expected parent a8a4980df36cf86ca4d7f34c7216b6ca33cf792a in isolated worktree /private/tmp/four-layer-swift-ascii-composition",
+          "deterministic full-tree equivalence audit verified all 36 tracked files with no path moves, eight changed paths and 30 insertions/30 deletions, all nine dependency URLs/products/packages/modules/imports including ASCII molecule surfaces, preserved composition-owned ASCII and ASCII Test Support identities, metadata composition and README owner mapping, zero removed-identity residuals, public payload, active Actions, human commit identity, clean checkout, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified canonical post-organization coordinate swift-compositions/swift-ascii at expected main a8a4980df36cf86ca4d7f34c7216b6ca33cf792a with GitHub repository ID 1144634877, public visibility, non-archived state, and default branch main; no repository rename was required",
+          "set fetch and push origins to https://github.com/swift-compositions/swift-ascii.git and fast-forward published exact prepared commit d3bfc673d77cd8be3ea8856efa00c2c1a71c555f without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main d3bfc673d77cd8be3ea8856efa00c2c1a71c555f with unchanged repository ID 1144634877, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-ascii-composition-publisher institute package resolve --package-path /private/tmp/four-layer-swift-ascii-composition --argument=--disable-sandbox against all nine exact live declared dependencies and transitive graph",
+          "post-resolution verification found exact HEAD d3bfc673d77cd8be3ea8856efa00c2c1a71c555f, a clean checkout, and Package.resolved absent both before and after resolution with absence checked twice"
+        ]
       }
     },
     {
@@ -14662,19 +14670,27 @@
       "observedHead": "b71b22a4011cede7ed0a2de9b01453c60cac0edf",
       "observedRemote": "https://github.com/swift-primitives/swift-ascii-parser-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit 5b3695bb756b90e095d13001282af12ec35a9cd7 from expected parent b71b22a4011cede7ed0a2de9b01453c60cac0edf in isolated worktree /private/tmp/four-layer-swift-ascii-parser",
+          "deterministic full-tree audit verified 45 changed paths with 166 insertions/166 deletions, exact owner/suffix/path transformation, all six dependency URLs and eight verified live products/packages/modules/imports, README and metadata mappings, preserved two legitimate singular Primitive identities, unchanged workflow, zero mapped residuals, public payload, human commit identity, clean checkout, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified old coordinate swift-molecules/swift-ascii-parser-primitives at expected main b71b22a4011cede7ed0a2de9b01453c60cac0edf with GitHub repository ID 1173222959, public visibility, non-archived state, and default branch main, then renamed it to exact destination swift-molecules/swift-ascii-parser",
+          "verified the same GitHub repository ID 1173222959 at swift-molecules/swift-ascii-parser, set fetch and push origins to the final HTTPS URL, and fast-forward published exact prepared commit 5b3695bb756b90e095d13001282af12ec35a9cd7 without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified exact canonical coordinate swift-molecules/swift-ascii-parser at live main 5b3695bb756b90e095d13001282af12ec35a9cd7 with unchanged repository ID 1173222959, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-ascii-parser-publisher institute package resolve --package-path /private/tmp/four-layer-swift-ascii-parser --argument=--disable-sandbox against all six exact live declared dependencies and transitive graph",
+          "post-resolution verification found exact HEAD 5b3695bb756b90e095d13001282af12ec35a9cd7, a clean checkout, and untouched generated Package.resolved with stable SHA-256 732d70aee7322b66f66303946815bf04d82a5b1216fb5f9cd8e020101e296cb0"
+        ]
       }
     },
     {
