@@ -31198,20 +31198,31 @@
       "observedHead": "21e5e3f081500d1b427e497b7ca29964ca4a7a7b",
       "observedRemote": "https://github.com/swift-whatwg/swift-whatwg-html.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared human-authored direct-child commit 23723dba8ca3cd6536f1104fb8f40508eac7d4cf from expected parent 21e5e3f081500d1b427e497b7ca29964ca4a7a7b in isolated worktree /private/tmp/four-layer-swift-whatwg-html-root/swift-whatwg-html with subject Prepare WHATWG HTML for the four-layer cutover",
+          "the exact fourteen-path transformation changed Package.swift, README, and twelve source files with 21 insertions and 24 deletions across a fully audited 949-path committed tree: ASCII, Geometry, Radix Formatter, Format, their repositories/products/modules/imports, and standard-library-extensions owner now use exact canonical molecule identities",
+          "the stale public README Used By recommendation was removed because its old swift-foundations link redirects to archived private swift-compositions/swift-html-css-pointfree; the private canonical coordinate was not exposed and that external repository's visibility/archive state was not changed",
+          "all seven direct future dependencies plus the transitive live Format module were ledger-passed or independently exact-live with products verified; RFC 2045, ISO 8601, WHATWG, every WHATWG HTML package/product/target/path/public semantic identity, and the existing separate nest-types worktree were preserved with no split or new dependency",
+          "the full committed-tree old-owner/plural/reservation residual and public-payload scans were clean, canonical Actions and explicit staged/unstaged/human-identity/direct-parent gates passed, Package.resolved was absent before preparation, and the isolated worktree remained clean at the exact prepared commit"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified exact coordinate swift-whatwg/swift-whatwg-html, GitHub repository ID 963492258, public visibility, non-archived state, default branch main, exact clone URL, and expected live parent 21e5e3f081500d1b427e497b7ca29964ca4a7a7b immediately before publication; no rename was required",
+          "fast-forward published exact direct child 23723dba8ca3cd6536f1104fb8f40508eac7d4cf to main through the configured administrator ruleset bypass without force or history rewrite",
+          "deliberately set both origins to the canonical final URL and coordinator reverified live main 23723dba8ca3cd6536f1104fb8f40508eac7d4cf with unchanged repository ID 963492258, exact coordinate, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is durably booked before the sole package-resolution gate"
+        ]
+      },
+      "githubRepositoryID": 963492258
     },
     {
       "current": "swift-whatwg/swift-whatwg-url",
