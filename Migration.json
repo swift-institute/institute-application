@@ -6344,23 +6344,32 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-compositions/swift-pdf",
       "futureLayer": "compositions",
-      "observedHead": "fd13ac892b342b044bf4973448ae780fae1a46f2",
-      "observedRemote": "https://github.com/swift-foundations/swift-pdf.git",
+      "observedHead": "e19d11b2cf9ae47c51026c4c96edbb4596325f89",
+      "observedRemote": "https://github.com/swift-compositions/swift-pdf.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared exact direct-child cutover commit e19d11b2cf9ae47c51026c4c96edbb4596325f89 from expected base fd13ac892b342b044bf4973448ae780fae1a46f2 in clean isolated worktree /private/tmp/four-layer-swift-pdf while preserving the occupied unrelated /private/tmp/swift-pdf path untouched",
+          "mechanical four-layer cutover changed four tracked paths with eight insertions and eight deletions across HTML, PDF HTML Render, File System, repository links, layer metadata, and a workflow comment while preserving external Test_Snapshot_Primitives and public semantics",
+          "all three declared live dependency identities/products and the mapped Sequence repository plus residual identity, active Actions-reference, public-payload, diff, attribution, and Package.resolved preservation checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "repository ID 828974536 was verified before and after cutover at exact canonical coordinate swift-compositions/swift-pdf with unchanged public visibility, non-archived and enabled state, default branch main, and enabled Actions",
+          "published exact prepared commit e19d11b2cf9ae47c51026c4c96edbb4596325f89 as an ordinary fast-forward from fd13ac892b342b044bf4973448ae780fae1a46f2 to refs/heads/main through the authenticated administrative ruleset bypass; no force push or history rewrite occurred",
+          "coordinator independently reverified exact live main e19d11b2cf9ae47c51026c4c96edbb4596325f89, repository ID 828974536, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is complete and Package.resolved remained absent twice before and after publication; the repository is queued behind HTML validation and the serialized Institute package-resolution slot"
+        ]
+      },
+      "githubRepositoryID": 828974536
     },
     {
       "current": "swift-foundations/swift-pdf-html-render",
