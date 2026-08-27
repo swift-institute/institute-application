@@ -2162,20 +2162,31 @@
       "observedHead": "2b1c204ec1db4041d30a6db68ae2df3df8f14a79",
       "observedRemote": "https://github.com/swift-foundations/swift-emailaddress.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit d9b387991a73a34cde4cab4aa0af1dc55fcbb76a from expected parent 2b1c204ec1db4041d30a6db68ae2df3df8f14a79 in clean isolated worktree /private/tmp/four-layer-swift-emailaddress with subject Move EmailAddress references to compositions",
+          "the complete eight-path committed tree was audited and exactly two stale layer references were mechanically mapped: the README installation URL moved from swift-foundations to swift-compositions and the metadata topic moved from foundations to compositions, for a two-path two-insertion/two-deletion commit",
+          "Package.swift, sources, tests, package/product/target/path and public identities, the sole exact Email Address Standard dependency, and canonical Actions were already correct and unchanged; residual, public-payload, staged, direct-parent, and human-identity checks passed, with Package.resolved absent before preparation"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled the completed organization cutover: old and final coordinates identify the same GitHub repository ID 1217845899, and verified exact final coordinate swift-compositions/swift-emailaddress, public visibility, non-archived state, default branch main, canonical clone URL, and expected live base 2b1c204ec1db4041d30a6db68ae2df3df8f14a79; no repository rename was required",
+          "after one malformed local zsh refspec failed before any remote mutation and the live base was reverified unchanged, fast-forward published exact direct child d9b387991a73a34cde4cab4aa0af1dc55fcbb76a to main through the configured administrator ruleset bypass without force or history rewrite",
+          "coordinator independently reverified exact live main d9b387991a73a34cde4cab4aa0af1dc55fcbb76a with unchanged repository ID 1217845899, exact final coordinate, public visibility, non-archived state, default branch main, and canonical URL"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-emailaddress-composition-publisher institute package resolve --package-path /private/tmp/four-layer-swift-emailaddress --argument=--disable-sandbox against exact live Email Address Standard head eda471455b43e0e0a0c4319906b8296b03700ade",
+          "coordinator reverified exact live main d9b387991a73a34cde4cab4aa0af1dc55fcbb76a with unchanged GitHub repository ID 1217845899, public visibility, non-archived state, and default branch main",
+          "HEAD and both origins remained exact and canonical and the isolated checkout remained clean; Package.resolved was absent before resolution and present afterward only as ignored untracked generated state with stable SHA-256 2f86bddd23bd442df8c66c0d54e75b741747325d5739c1a8a9c7c44dc05e6a91"
+        ]
+      },
+      "githubRepositoryID": 1217845899
     },
     {
       "current": "swift-foundations/swift-entitlement",
