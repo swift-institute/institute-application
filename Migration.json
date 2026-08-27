@@ -7798,19 +7798,27 @@
       "observedHead": "616bd3fddda35f6bb3b3eb1f2214237f6ab87d30",
       "observedRemote": "https://github.com/swift-foundations/swift-systems.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit c629ec734e3285aaffc7fbb0c3cc190562f8bc52 from expected parent 616bd3fddda35f6bb3b3eb1f2214237f6ab87d30 in isolated worktree /private/tmp/four-layer-swift-systems",
+          "deterministic audit verified the exact five-path, 9-file-preserving mapping of System primitive identity/product/module to swift-molecules/swift-system, Kernel/Darwin/Linux owners to compositions, README self coordinate/re-export, and metadata; preserved Windows 32 and platform/System public identities, all live dependencies/products, zero mapped residuals, public payload, active Actions, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified canonical post-organization coordinate swift-compositions/swift-systems at expected main 616bd3fddda35f6bb3b3eb1f2214237f6ab87d30 with GitHub repository ID 1132378453, public visibility, non-archived state, and default branch main; no repository rename was required",
+          "set fetch and push origins to https://github.com/swift-compositions/swift-systems.git and fast-forward published exact prepared commit c629ec734e3285aaffc7fbb0c3cc190562f8bc52 without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main c629ec734e3285aaffc7fbb0c3cc190562f8bc52 with unchanged repository ID 1132378453, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-systems-publisher institute package resolve --package-path /private/tmp/four-layer-swift-systems --argument=--disable-sandbox against all five exact live future dependencies and transitive graph",
+          "post-resolution verification found exact HEAD c629ec734e3285aaffc7fbb0c3cc190562f8bc52, a clean checkout, and untouched generated Package.resolved with stable SHA-256 8e45393967edf728396733ad63ed5903ef7089506098d89d7d1b210cace62bcc"
+        ]
       }
     },
     {
