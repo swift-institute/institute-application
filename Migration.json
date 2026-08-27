@@ -10610,20 +10610,32 @@
       "observedHead": "47deb44f4dcebc9904b97a7dcf12659350e545c5",
       "observedRemote": "https://github.com/swift-ietf/swift-rfc-2387.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit fadc87b44a70112589109d0281ce2ee620a48340 from expected parent 47deb44f4dcebc9904b97a7dcf12659350e545c5 in isolated worktree /private/tmp/four-layer-swift-rfc-2387",
+          "deterministic audit verified the exact four-path mechanical transformation with twelve insertions and twelve deletions across Package.swift and three RFC 2387 source/export files while preserving all fifteen tracked paths and every RFC 2387 package/product/target/path/public semantic identity",
+          "mapped ASCII Serializer, Byte Parser, Parser, their modules, and the qualified Parser protocol spelling to exact live suffix-free molecule identities; preserved RFC 2045, newly booked RFC 2046, and RFC 5322 identities with no split or new dependency",
+          "all six future dependencies were ledger-passed and exact-live with products verified; zero stale mapped old-owner/plural residuals remained, public-payload/Actions/staging/human-identity gates passed, Package.resolved was absent before preparation, and the worktree was clean at the exact prepared commit"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified exact coordinate swift-ietf/swift-rfc-2387, GitHub repository ID 1095071242, public visibility, non-archived state, default branch main, and expected live base 47deb44f4dcebc9904b97a7dcf12659350e545c5 immediately before publication; no rename was required",
+          "fast-forward published exact direct child fadc87b44a70112589109d0281ce2ee620a48340 to main through the configured administrator ruleset bypass without force or history rewrite",
+          "verified live main fadc87b44a70112589109d0281ce2ee620a48340 with unchanged repository ID 1095071242, exact coordinate, public visibility, non-archived state, default branch main, and deliberate final origins"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-rfc-2387-publisher institute package resolve --package-path /private/tmp/four-layer-swift-rfc-2387 --argument=--disable-sandbox; after the initial completed session handle expired, the same idempotent noncompiling command was rerun once solely to recapture exit 0",
+          "HEAD remained fadc87b44a70112589109d0281ce2ee620a48340 and the isolated worktree remained clean",
+          "Package.resolved was absent before resolution and present afterward only as ignored generated state with stable SHA-256 43179c0bdb997d7940e155d94a3028e6120200fac368643cf755ec740d9094f3"
+        ]
+      },
+      "githubRepositoryID": 1095071242
     },
     {
       "current": "swift-ietf/swift-rfc-2388",
