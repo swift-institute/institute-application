@@ -5425,20 +5425,28 @@
       "observedHead": "4af5d6f6a24478d06fdcf851c9e3dbd19e25e486",
       "observedRemote": "https://github.com/swift-foundations/swift-manifests.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit bf1d528c826f41e55bcac0788ad082c58b0b4ec4 from exact parent 4af5d6f6a24478d06fdcf851c9e3dbd19e25e486 in clean identity-compatible isolated worktree /private/tmp/swift-manifests; the source checkout remained clean at its base",
+          "audited all 25 tracked paths and made the exact 15-path, 29-insertion/29-deletion mechanical cutover across Package.swift, README, metadata, 11 sources, and test support, mapping five composition owners plus Manifest and Package molecule package/product/module identities while preserving the explicit swift-primitives-linter-rules/Linter Primitives Rules test-fixture exception and all public semantics; residual, payload, staged-tree, ancestry, identity, and canonical Actions checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-manifests as canonical with stable GitHub repository ID 1230998607, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; the completed organization rename had already established the coordinate, so no repository rename was needed",
+          "JIT verified all nine declared dependency coordinates, exact heads, required products, and publication gates, then ordinary fast-forward published exact direct child bf1d528c826f41e55bcac0788ad082c58b0b4ec4 without force or history rewrite",
+          "coordinator independently verified exact live main bf1d528c826f41e55bcac0788ad082c58b0b4ec4 with unchanged repository ID 1230998607, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is complete and Package.resolved remained absent twice after publication; the repository is queued behind the serialized Institute package-resolution slot"
+        ]
+      },
+      "githubRepositoryID": 1230998607
     },
     {
       "current": "swift-foundations/swift-markdown-html-render",
