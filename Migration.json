@@ -12161,20 +12161,31 @@
       "observedHead": "6dc6861a9be14f5f0d5fa1210759a889f6b61734",
       "observedRemote": "https://github.com/swift-ietf/swift-rfc-6797.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified no-change preparation at exact existing commit 6dc6861a9be14f5f0d5fa1210759a889f6b61734 in clean isolated worktree /private/tmp/four-layer-swift-rfc-6797; no empty or invented commit was created",
+          "audited all ten committed paths and proved the manifest, three source files, test, README, metadata, workflow, and remaining payload already used the exact live RFC 9110 URL/package/product/module, canonical Actions, and unchanged RFC 6797 package/product/target/path/public identities",
+          "zero old-owner/reservation/-primitives/plural-Primitives residuals or public payload issues were present; Foundation-free wording correctly describes architectural/system-framework semantics and was preserved, while Package.resolved was absent before resolution"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified unchanged coordinate swift-ietf/swift-rfc-6797 at exact live main 6dc6861a9be14f5f0d5fa1210759a889f6b61734 with GitHub repository ID 1304744848, public visibility, non-archived state, default branch main, and canonical clone URL",
+          "no repository rename, content commit, or push was required because the complete committed tree already matched the canonical four-layer mapping",
+          "coordinator independently reverified unchanged live main 6dc6861a9be14f5f0d5fa1210759a889f6b61734 with stable repository ID 1304744848 and exact coordinate, visibility, archive state, default branch, URL, and RFC 9110 dependency head"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-rfc-6797-publisher institute package resolve --package-path /private/tmp/four-layer-swift-rfc-6797 --argument=--disable-sandbox against exact live RFC 9110 head e3300b59e0735755c403ee4cfeaf4877eacedbea",
+          "coordinator reverified unchanged exact live main 6dc6861a9be14f5f0d5fa1210759a889f6b61734 with GitHub repository ID 1304744848, public visibility, non-archived state, and default branch main",
+          "HEAD and both origins remained exact and canonical and the isolated checkout remained clean; Package.resolved was absent before resolution and present afterward only as ignored untracked generated state with stable SHA-256 6c9ea6ecc1771686b770c8c99cf600b58d79d8632f9f23a69f3faff5224eb895"
+        ]
+      },
+      "githubRepositoryID": 1304744848
     },
     {
       "current": "swift-ietf/swift-rfc-7405",
