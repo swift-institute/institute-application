@@ -4249,6 +4249,36 @@
     "swift-atoms/swift-geometry -> swift-molecules/swift-affine-geometry (Geometry.Point built on Affine_Geometry)",
     "swift-atoms/swift-heap seam molecule swift-heap-buffer-linear calls package-visibility members of the atom"
    ]
+  },
+  {
+   "id": "atoms-audit-2026-08-27",
+   "recordedAt": "2026-08-27T17:26:42Z",
+   "concern": "Post-seal read-only audit of all 112 swift-atoms (97 clean, 0 shape violations). Findings feed Phase 3 tranche 0; no transfers were churned.",
+   "suspectMolecules": [
+    "swift-lexer (byte/text->token pipeline)",
+    "swift-test (composition of 8 domains; slim Test core could be the atom)",
+    "swift-source (specialization of text by file identity)",
+    "swift-range (stdlib Range extensions via Property; no native type)",
+    "swift-layout (specialization over Geometry/Dimension)",
+    "swift-token (core stored property is Text.Range)",
+    "swift-diagnostic (Record defined by Source.Location)",
+    "swift-cursor (pure composition of Tagged+Ordinal+Ownership)"
+   ],
+   "trueAtomToMoleculeEdges": [
+    "swift-lexer -> swift-molecules/swift-memory-cursor",
+    "swift-geometry -> swift-molecules/swift-affine-geometry",
+    "swift-memory -> swift-molecules/swift-bit-index",
+    "swift-string -> swift-molecules/swift-memory-heap",
+    "swift-path -> swift-molecules/swift-memory-heap"
+   ],
+   "depsQuestionable": [
+    "swift-parser: swift-text kept only for error messages (incidental; seam or drop)",
+    "swift-pool: depends on swift-dimension but constitutively needs swift-tagged (umbrella-leak artifact)",
+    "swift-storage: core ops ride other atoms SLI products (misdirected layering)",
+    "swift-path: duplicates String storage idiom alongside String vocabulary"
+   ],
+   "stalePins": "13 swift-molecules URL pins that redirect to swift-atoms: swift-complex (numeric, tagged), swift-cursor (tagged, ordinal, ownership), swift-test (tagged, source, async, sequence, sample, numeric, witness, byte)",
+   "recommendation": "Phase 3 tranche 0: (1) relocate Memory.Heap, Bit.Index.Count, affine-geometry (and likely memory-cursor, buffer-linear) content down into atoms \u2014 erases the five hard edges and legitimizes string/path/memory/geometry; (2) re-adjudicate the frontend family (text->source->token->diagnostic->lexer) plus swift-test/swift-range/swift-cursor/swift-layout \u2014 demote to molecules or slim to native cores; (3) sweep the 13 stale pins to swift-atoms coordinates."
   }
  ],
  "summary": {
