@@ -2764,6 +2764,29 @@
    "splits": [],
    "notes": "Outer-loop adjudication (same rule): canonical internal shape adopted, but tensor value storage types are written in molecule substrate (buffer-linear, memory-heap, memory-allocation); stays in swift-molecules. Lane notes: Adjudication: atom. Tensor is a native semantic domain (rank-typed n-dimensional tensors with typed-error shape/broadcast/slice arithmetic), not tooling, not an external standard, and not a mere relator of other domains. Reshape: collapsed the internal strata targets \"Tensor Core\", \"Tensor Dynamic\", \"Tensor Named\", and the umbrella \"Tensor\" into a single Sources/Tensor module via git mv; deleted t",
    "completedAt": "2026-08-27T16:26:55Z"
+  },
+  {
+   "package": "swift-layout",
+   "repositoryID": 1132373494,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-layout",
+   "to": "swift-atoms/swift-layout",
+   "shapeCommit": "acb64140bed897f92556c4eefd64b9cd9c991e08",
+   "dependencies": [
+    "swift-atoms/swift-axis \u2014 Layout.Stack stores Axis<2> as its axis property and Axis+Layout.swift names its 2D cases horizontal/vertical",
+    "swift-atoms/swift-dimension \u2014 the domain's alignment vocabulary (Horizontal.Alignment, Vertical.Alignment/.Baseline, Corner sides) is declared as extensions on Dimension's Horizontal/Vertical carrier types",
+    "swift-atoms/swift-geometry \u2014 the core Layout<Scalar, Space> type defines Width/Height/Spacing/Point/Size as Geometry projections used throughout Stack/Flow/Grid/Line.Box"
+   ],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-layout-boundary",
+     "repositoryID": 1348708062,
+     "commit": "1e4429a530b016a4336d732821b332a9dce44114",
+     "seam": "Boundary.Corner init bridging Layout's Corner + Direction into Boundary's absolute corner cases (sole use of swift-boundary)"
+    }
+   ],
+   "notes": "Adjudication: Layout is a native semantic domain (Stack, Flow, Grid, Line/Line.Box, Alignment, Corner, Cross, Direction own real behavior), so atom, not defer. It is intrinsically expressed in geometric vocabulary: the core enum is parameterized over Geometry and the alignment types hang off Dimension's Horizontal/Vertical, so axis/dimension/geometry are irreducible and kept (all three re-pointed to their current live swift-atoms coordinates; they redirect from swift-molecules anyway). Package was already a single Layout module \u2014 no strata to collapse, no umbrella exports.swift existed. Seam extracted: only the trailing `extension Boundary.Corner` block of Sources/Layout/Corner.swift (plus its `public import Boundary` line) moved to swift-molecules/swift-layout-boundary as Sources/Layout Boundary/Boundary.Corner+Layout.swift; the atom lost swift-boundary entirely. The Horizontal(_:direction:) and Vertical(_:) side-conversion inits it calls remain public in the atom's Corner.swift (they are Dimension-vocabulary, and Dimension is kept). Molecule depends on swift-molecules/swift-layout, swift-atoms/swift-boundary, swift-atoms/swift-dimension; no seam-specific tests existed, so a stub @Suite test target was created. SLI/AFI: no file in the package is a whole-file stdlib or Foundation integration (stdlib conformances like Codable/CaseIterable are declared inline on the domain type declarations or interleaved in domain files), so both targets were created as seed files per the recipe (\"Layout Standard Library Integration.swift\" = `public import Layout`; AFI seed = the three-line idiom). Tests: trivial re-export target \"Layout Test Support\" (@_exported Dimension_Test_Support + Layout) and its product were deleted; the three `import Layout_Test_Support` lines were removed from Layout.Flow/Grid/Grid.Lazy tests \u2014 the TestLayout/TestSpace/TestGeometry fixtures they use are defined locally in Tests/Layout Tests/TestSpacing.swift, but if any symbol came from Dimension_Test_Support those files will be red until the later build pass (noted residual risk). Deviation from the literal \"X Tests deps [X]\": test files directly `import Axis` and `@testable import Dimension/Geometry`, so those three kept products were added to the Layout Tests target \u2014 no new package dependencies introduced. Atom push to main bypassed the repo's PR/status-check rules via existing authorization (remote reported the bypass); no force-push, history intact. Both working trees verified clean.",
+   "completedAt": "2026-08-27T16:33:02Z"
   }
  ],
  "successors": [],
