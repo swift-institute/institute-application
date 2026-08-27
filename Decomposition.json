@@ -2692,6 +2692,78 @@
    ],
    "notes": "Adjudication: atom. Symmetry is a native semantic domain (planar symmetry operations: Rotation, Shear, Phase, plus the Symmetry namespace enum); all ten former package dependencies were integration seams, so every one was extracted and the atom now has zero package dependencies. Domain spelling X = Symmetry, derived from existing product/target names.\n\nAtom shape (swift-molecules/swift-symmetry @ 3df488b8efb74303e2bad6e710f032f38afee3f2): Sources/Symmetry holds Symmetry.swift, Rotation.swift, Shear.swift, Phase.swift (renamed from Rotation.Phase.swift), all dependency-free. \"Symmetry Standard Library Integration\" holds Rotation+Codable.swift, Shear+Codable.swift, Phase+Codable.swift (Codable conformances split out of the core files; Phase's Codable now rides RawRepresentable defaults cross-module). \"Symmetry Apple Foundation Integration\" is the three-line seed (no Foundation code existed). Exactly three products; test target \"Symmetry Tests\" (deps [\"Symmetry\"]) keeps Symmetry Tests.swift and a purified Shear Tests.swift. Manifest idiom (tools 6.4, .v27 platforms, v6 language mode, ecosystem SwiftSetting loop) copied verbatim.\n\nFiles moved per seam: algebra = Phase+Algebra, Rotation+Algebra, Shear+Algebra (each gained `public import Symmetry`); linear = Rotation.linear()/Shear.linear() extracted into Rotation+Linear.swift/Shear+Linear.swift plus Scale+Linear.swift moved whole; dimension = Rotation angle section extracted into Rotation+Angle.swift and Shear.horizontal/vertical (Scale-typed) into Shear+Scale.swift; affine-geometry = Affine.Transform.swift; finite = Phase's Finite.Enumerable conformance extracted into Phase+Finite.swift; pair = Phase.Value typealias into Phase+Pair.swift.\n\nTests: trivial re-export target \"Symmetry Test Support\" deleted (no test file imported it; its Cardinal Test Support re-export was unused). Scale Tests.swift moved to swift-symmetry-linear (it mostly exercises Dimension's Scale type core behavior \u2014 residual but compiles there since Dimension is a dep); Rotation Tests.swift moved to swift-symmetry-dimension with imports rewritten (Symmetry + Symmetry_Algebra + @testable Symmetry_Dimension) and its one linear() test relocated to swift-symmetry-linear rewritten via init(cos:sin:); Geometry.AffineTransform tests moved to swift-symmetry-affine-geometry with imports rewritten. Shear Tests split: core stayed in the atom; linear() tests went to swift-symmetry-linear (two cross-seam cases rewritten to use Shear(x:y:) instead of horizontal/vertical); horizontal/vertical tests went to swift-symmetry-dimension.\n\nCross-molecule dependencies (additive, acyclic): swift-symmetry-dimension depends on swift-symmetry-algebra (rotated(by:) calls concatenating); swift-symmetry-affine-geometry depends on swift-symmetry-linear (transform initializers call .linear()) and, test-only, on swift-symmetry-dimension (tests use Rotation(angle:)/quarterTurn). Coordinates: all extracted-atom deps at swift-atoms (linear, dimension, algebra, numeric, affine, finite, cardinal, ordinal, pair \u2014 the old swift-molecules URLs now redirect); swift-affine-geometry still at swift-molecules; all branch: \"main\", no tags or path deps.\n\nResidual red (expected, structural pass only): CaseIterable stayed on the Phase declaration rather than SLI (cross-module synthesis impossible); Rotation+Angle.swift's rotated(by:) needs Symmetry_Algebra's concatenating \u2014 wired via the cross-molecule dep; original test files referenced Scale/Dimension types without importing Dimension (pre-existing oddity, likely already red or leaning on umbrellas \u2014 imports were normalized where files moved); no build/resolve/test was run per commission. Atom direct-push to main reported a bypassed branch-protection notice (direct pushes were explicitly authorized). All seven working trees verified clean.",
    "completedAt": "2026-08-27T16:26:39Z"
+  },
+  {
+   "package": "swift-array",
+   "repositoryID": null,
+   "disposition": "molecule",
+   "from": "swift-molecules/swift-array",
+   "to": "swift-molecules/swift-array",
+   "shapeCommit": "740a954920e4915e1f4604c00f6fb81c76e8d0ce",
+   "dependencies": [
+    "swift-memory-small",
+    "swift-span",
+    "swift-memory-iterator",
+    "swift-standard-library-extensions",
+    "swift-index",
+    "swift-collection",
+    "swift-sequence",
+    "swift-buffer",
+    "swift-buffer-linear",
+    "swift-storage",
+    "swift-iterator",
+    "swift-cardinal",
+    "swift-tagged",
+    "swift-ordinal",
+    "swift-memory-heap",
+    "swift-ownership-shared",
+    "swift-memory-allocation"
+   ],
+   "splits": [],
+   "notes": "Lane defer upheld: pure composition over the buffer/storage/memory/ownership substrate (\"the package IS the molecule\"); stays in swift-molecules untouched. Lane notes: Adjudication: DEFER \u2014 swift-array is clearly a capability that only relates other independent domains, not a native semantic domain owner. Evidence: (1) the concrete Array is a pure typealias over external composition, __Array<Buffer<Storage<Memory.Allocator<Memory.Heap>>.Contiguous<E>>.Linear> (Sources/Array Primitive/Array.FrontDoor.swift); (2) every operation (append, subscript, pop, remove, dr",
+   "completedAt": "2026-08-27T16:26:55Z"
+  },
+  {
+   "package": "swift-stack",
+   "repositoryID": null,
+   "disposition": "molecule",
+   "from": "swift-molecules/swift-stack",
+   "to": "swift-molecules/swift-stack",
+   "shapeCommit": "a9e301e56fee23c2fc441b28e739b5ff723b115c",
+   "dependencies": [
+    "swift-index \u2014 Index<E>.Count/Ordinal is the vocabulary of every Stack operation signature (count, capacity, slot addressing)",
+    "swift-buffer \u2014 Buffer.Protocol constrains the generic column and Buffer Primitive's Buffer<> appears in the canonical Stack typealias",
+    "swift-buffer-linear \u2014 Buffer<...>.Linear and .Linear.Bounded are the concrete column types of the domain's front-door Stack and Stack.Bounded",
+    "swift-storage \u2014 Store.Protocol/Store.Direct constrain the generic ops; Storage<...>.Contiguous is in the canonical typealias",
+    "swift-memory-allocation \u2014 Memory.Allocator/Memory.Growable parameterize the growable init/push",
+    "swift-memory-heap \u2014 Memory.Heap is the default allocator in the front-door Stack typealias"
+   ],
+   "splits": [],
+   "notes": "Outer-loop adjudication (same rule as swift-builder/swift-dictionary): canonical internal shape adopted, but front-door Stack/Stack.Bounded irreducibly bind molecule substrate (buffer-linear, memory-allocation, memory-heap); stays in swift-molecules. Lane notes: Adjudication: Stack is a native semantic domain (LIFO container), so atom. However, it is not self-contained like swift-bit: __Stack<S: ~Copyable> is a discipline over a storage column, and every core operation (count/isEmpty/top/pop/push) is expressed through Store.Protocol, Buffer.Protocol, and Index; the front-door `Stack<E>` typealias and Stack.Bounded bind Buffer<Storage<Memory.Allocator<Memo",
+   "completedAt": "2026-08-27T16:26:55Z"
+  },
+  {
+   "package": "swift-tensor",
+   "repositoryID": null,
+   "disposition": "molecule",
+   "from": "swift-molecules/swift-tensor",
+   "to": "swift-molecules/swift-tensor",
+   "shapeCommit": "9e7c2c8faa112aa80a4639d655d9c5cb30568c01",
+   "dependencies": [
+    "swift-index \u2014 Index<Element> is the typed buffer-index used by every kernel (subscript, arithmetic, matmul)",
+    "swift-cardinal \u2014 Cardinal is the per-axis dimension type in Tensor.Shape/Dynamic.Shape",
+    "swift-ordinal \u2014 Ordinal constructs unchecked element indices in the kernels",
+    "swift-affine \u2014 Affine.Discrete.Vector is the stride element type in Tensor.Strides and linearize",
+    "swift-buffer \u2014 Buffer<...> is the owned storage of Tensor.Value/Dynamic.Value/Named",
+    "swift-buffer-linear \u2014 the .Linear buffer view is the concrete storage representation throughout Value/Dynamic/Named",
+    "swift-storage \u2014 Storage_Primitive.Storage<...>.Contiguous and Storage_Contiguous name the storage type in every tensor value",
+    "swift-memory \u2014 Memory.Allocator appears in the storage type of every tensor value",
+    "swift-memory-heap \u2014 Memory.Heap/Memory_Heap is the allocator substrate of Dynamic and Named (and appears in Core value types)",
+    "swift-memory-allocation \u2014 Memory Allocator Primitive/Protocol back the Memory.Allocator generic used in the storage types"
+   ],
+   "splits": [],
+   "notes": "Outer-loop adjudication (same rule): canonical internal shape adopted, but tensor value storage types are written in molecule substrate (buffer-linear, memory-heap, memory-allocation); stays in swift-molecules. Lane notes: Adjudication: atom. Tensor is a native semantic domain (rank-typed n-dimensional tensors with typed-error shape/broadcast/slice arithmetic), not tooling, not an external standard, and not a mere relator of other domains. Reshape: collapsed the internal strata targets \"Tensor Core\", \"Tensor Dynamic\", \"Tensor Named\", and the umbrella \"Tensor\" into a single Sources/Tensor module via git mv; deleted t",
+   "completedAt": "2026-08-27T16:26:55Z"
   }
  ],
  "successors": [],
