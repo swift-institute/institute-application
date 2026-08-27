@@ -2396,6 +2396,18 @@
    "splits": [],
    "notes": "Outer-loop adjudication overriding lane atom call: canonical internal shape adopted, but the public API is irreducibly expressed in molecule-level machinery (Buffer.Linear accumulator, Storage.Contiguous, Memory.Heap/Allocator) \u2014 an atom may not depend on molecules, so Builder is certified as a molecule in place. Lane notes: Adjudication: Builder is a native semantic domain (the declarative result-builder construction grammar: @resultBuilder Builder<Component: ~Copyable> plus the Buildable protocol), so the default atom disposition holds. There are no seam files: both source files (Sources/Builder/Builder.swift, Buildable.swift) ARE the domain, and every kept dependency appears in the domain module's own public API surface (accumulator type Buffer<Storage<Memory.Allocator<Memory.Heap>>.Contiguous<Component>>.Linear; Initiable superprotocol), hence irreducible \u2014 zero molecule repos created. No stdlib-extension file",
    "completedAt": "2026-08-27T13:51:05Z"
+  },
+  {
+   "package": "swift-matrix",
+   "repositoryID": 1139271159,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-matrix",
+   "to": "swift-atoms/swift-matrix",
+   "shapeCommit": "71a6f7b0ca502320663e5543b7c2fc951a801251",
+   "dependencies": [],
+   "splits": [],
+   "notes": "Adjudication: Matrix is a native semantic domain (linear-algebra matrix), default atom disposition applies. The package was a pure namespace reservation: Sources/Matrix/Matrix.swift contains only `public enum Matrix {}` and the sole test target imports only Matrix and Testing. All four declared package dependencies (swift-molecules/swift-linear, swift-vector, swift-dimension, swift-index) were entirely unused \u2014 no source or test file imported Linear, Vector, Dimension, or Index \u2014 so there were no seam targets/files to extract and zero molecule repositories were created; the dependencies were simply removed. Reshape: manifest rewritten to the canonical three-product atom shape matching the swift-atoms/swift-bit exemplar (Matrix, Matrix Standard Library Integration, Matrix Apple Foundation Integration; test target \"Matrix Tests\" deps [\"Matrix\"]; tools-version 6.4, .v27 platforms, swiftLanguageModes [.v6], trailing ecosystem SwiftSetting loop preserved verbatim). No stdlib-integration or Foundation-importing code existed, so both integration targets were created as seed files: \"Sources/Matrix Standard Library Integration/Matrix Standard Library Integration.swift\" (public import Matrix) and \"Sources/Matrix Apple Foundation Integration/Matrix Apple Foundation Integration.swift\" (public import Matrix / public import Matrix_Standard_Library_Integration / public import Foundation). README status line updated to stop claiming the now-removed dependency declarations. No SLI test files existed, so no SLI test target. No residual red references. Working tree verified clean after push; remote reported an org-admin rule bypass on the direct main push (pre-existing repo ruleset; direct pushes were explicitly authorized).",
+   "completedAt": "2026-08-27T16:12:20Z"
   }
  ],
  "successors": [],
