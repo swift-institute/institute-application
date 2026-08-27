@@ -30514,11 +30514,14 @@
           "coordinator verified exact live main a4236c428d69fc4d07ce30a89dde97c943aa2520 with unchanged repository ID 1238556616, exact coordinate, public visibility, non-archived state, default branch main, canonical origins, and a clean isolated worktree"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "publication is durably booked before the sole package-resolution gate"
+          "publication was durably booked before the sole package-resolution gate",
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-spm-standard-root institute package resolve --package-path /private/tmp/four-layer-swift-spm-standard-root --argument=--disable-sandbox against the exact live Byte, Package, Version, and URI Standard heads and their canonical transitive graph",
+          "coordinator reverified exact live main a4236c428d69fc4d07ce30a89dde97c943aa2520 with unchanged GitHub repository ID 1238556616, public visibility, non-archived state, and default branch main",
+          "HEAD remained a4236c428d69fc4d07ce30a89dde97c943aa2520, both origins remained the canonical final URL, and the isolated worktree remained clean; Package.resolved was absent before resolution and present afterward only as ignored untracked generated state with stable SHA-256 ad6de681577370285cd09a91e185ceb887e418d9892b9aee6fbcba14bb52dbf9"
         ]
       },
       "githubRepositoryID": 1238556616
