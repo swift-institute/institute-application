@@ -1209,6 +1209,25 @@
    ],
    "notes": "Adjudication: Sector (planar quadrants I-IV and spatial sign-triple octants, with opposite/rank semantics) is an irreducible native geometric domain \u2014 atom by default, no defer indicators. Reshape: collapsed \"Sector Primitive\" into Sources/Sector via git mv (Sector.swift, Sector.Quadrant.swift, Sector.Octant.swift); deleted umbrella Sources/Sector/exports.swift and the trivial re-export \"Sector Test Support\" target (its module was not even imported by the test file, so no test-import rewrites were needed). Stdlib split into \"Sector Standard Library Integration\": CaseIterable removed from both enum declarations and re-declared there with explicit allCases (cross-module synthesis unavailable), and the #if !hasFeature(Embedded) Codable conformances moved there with hand-written init(from:)/encode(to:) because the atom's _rank is internal (@usableFromInline) and synthesis will not cross modules; encoding preserves the original rank order. No Foundation-importing code existed, so \"Sector Apple Foundation Integration\" is the three-line seed. Products exactly three; dependenciesKept empty \u2014 the Sector module needs nothing. Molecule dep coordinates: swift-equation/swift-hash/swift-comparison verified live at swift-atoms (transferred), swift-sector itself referenced at swift-molecules; all branch: \"main\". Residual red expected (structural pass, nothing built): (1) \"Sector Tests\" (deps [\"Sector\"] per recipe) uses allCases (now SLI), Set/hashing (Hashable conformance lives in the hash molecule), and sorted() (Comparable lives in the comparison molecule) \u2014 the test 'Comparison orders by sign triple' is the main seam residue kept in the atom's shared test file; (2) atom keeps ==/</hash(into:) operator funcs without declared conformances, as before. Molecule test targets are stub @Suites importing Sector_<D>. Atom push to main went through with a server-side rule-bypass notice (org-admin bypass over the PR/ci-ok rules) \u2014 direct push was authorized; no force-push, no history rewrite. All four working trees verified clean and remote heads read back equal to local heads.",
    "completedAt": "2026-08-27T12:43:59Z"
+  },
+  {
+   "package": "swift-formatter",
+   "repositoryID": 1237544086,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-formatter",
+   "to": "swift-atoms/swift-formatter",
+   "shapeCommit": "5269770aaaea738d003eec3d264d398d70954724",
+   "dependencies": [],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-formatter-pair",
+     "repositoryID": 1348483633,
+     "commit": "4c423c361c520d18d5e0ade9938f6b355245f176",
+     "seam": "Pair/Either integration: Pair conformance to Formatter.Protocol (source + its test file), removing swift-either and swift-pair dependencies from the atom"
+    }
+   ],
+   "notes": "Adjudication: Formatter is a native semantic domain (typed-throws formatting algebra: Formatter namespace enum, Formatter.Protocol, Formattable, Format struct) \u2014 atom. Collapsed strata targets Formatter Primitive, Formatter Protocol, Formattable, and Format into the single Formatter module via git mv; deleted all six intra-package umbrella exports.swift files (including the Formatter umbrella target and the Tests/Support re-export). Deleted the Formatter Test Support target and product; its only test consumer moved to the molecule with imports rewritten to Formatter/Either/Pair/Formatter_Pair. Seam out: \"Formatter Pair\" target (deps Either + Pair) became swift-molecules/swift-formatter-pair with product/target \"Formatter Pair\", depending on swift-molecules/swift-formatter plus swift-atoms/swift-either and swift-atoms/swift-pair (verified live at swift-atoms), branch main, no path deps. Atom now has exactly three products (Formatter, Formatter Standard Library Integration seed, Formatter Apple Foundation Integration seed \u2014 no stdlib-extension or Foundation-importing code existed, so both are seed files) and a stub \"Formatter Tests\" @Suite since the only pre-existing test file was seam-specific. Package dependencies kept: none. Residual red risk (structural pass, not built): in Formattable.swift the associatedtype named Formatter shadowed the namespace enum; the old module-qualified Formatter_Primitive.Formatter.`Protocol` constraint was rewritten to the module-selector form Formatter::Formatter.`Protocol` \u2014 if the toolchain rejects module selectors here this line needs attention in the build pass. Atom push bypassed the repo's PR/required-check rules per the direct-push authorization (remote noted the bypass). Both working trees verified clean.",
+   "completedAt": "2026-08-27T12:54:39Z"
   }
  ],
  "successors": [],
