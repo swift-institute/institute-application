@@ -6032,6 +6032,51 @@
     "wave": "wave7m",
     "changes": "Canonicalized Hash to its atom owner and retained the genuine conditional Tagged Hash.Protocol conformance, correcting misleading ordinary-Hashable coverage with a generic protocol proof returning typed Hash.Value and documenting the seam's ownership/install boundary. Fresh build green; 1 test green.",
     "bookedAt": "2026-08-27T21:56:23Z"
+   },
+   {
+    "repo": "swift-molecules/swift-cardinal-property",
+    "headSHA": "b20fdb391a9d4e1771ff680cd7298a6179922209",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7n",
+    "changes": "Canonicalized Cardinal to its atom owner and retained the genuine Property-namespaced saturating and exact Cardinal arithmetic, removing the unnecessary Cardinal Carrier edge in favor of core zero/raw-value semantics, narrowing imports, modernizing tests, and covering normal, boundary, and typed-error behavior. Fresh build green; 8 tests green.",
+    "bookedAt": "2026-08-27T21:57:58Z"
+   },
+   {
+    "repo": "swift-molecules/swift-effect-dependency",
+    "headSHA": "fdf5a2daffac0b29b1fd84994a248f78b48e3b14",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7n",
+    "changes": "Canonicalized Effect to its atom owner and Dependency to its live molecule home, retaining the genuine Effect.Context surface over Dependency.Scope, Values, and Key including synchronous and asynchronous task-local scoping, with clarified ownership documentation. Fresh build green; 12 tests across 6 suites green.",
+    "bookedAt": "2026-08-27T21:59:18Z"
+   },
+   {
+    "repo": "swift-molecules/swift-direction-hash",
+    "headSHA": "35d51dbca6e113c00fe0733a29a462b68b231a98",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7n",
+    "changes": "Canonicalized Direction to its atom owner and retained the genuine retroactive Direction Hash.Protocol conformance, distinguishing activation of native Hashable from the domain-typed Hash.Value surface and proving both Set behavior and typed hash values with explicit ownership. Fresh build green; 2 tests green.",
+    "bookedAt": "2026-08-27T22:01:49Z"
+   },
+   {
+    "repo": "swift-molecules/swift-binary-serializer",
+    "headSHA": "5b809b9e8776b451bad945a24154c84c512acb14",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7n",
+    "changes": "Converged the blocking Binary Serializer substrate against canonical Binary, Serializer, Byte, Witness, and Tagged atom homes; removed obsolete Binary Test Support wiring, migrated fixed-width and RawRepresentable serializers to the current Binary SLI byte codec, repaired Byte/Tagged public-import boundaries, and updated current test-support documentation. Fresh build green; 42 tests across 14 suites green.",
+    "bookedAt": "2026-08-27T22:04:45Z"
+   },
+   {
+    "repo": "swift-molecules/swift-coproduct-hash",
+    "headSHA": "5f58583cdd9a3cf6dd2aa427ecd4f470b94d6c69",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7n",
+    "changes": "Canonicalized Coproduct to its atom owner and retained the genuine VariadicEnum-gated native Hashable implementation plus retroactive Hash.Protocol/domain-typed Hash.Value seam, adding explicit ownership, feature-active contracts, and a current-toolchain unavailable-feature proof. Fresh build green; 1 gating test green.",
+    "bookedAt": "2026-08-27T22:04:45Z"
    }
   ]
  }
