@@ -31311,11 +31311,13 @@
           "coordinator independently reverified exact live main 9b95d27eca77f9a370aa2d67a8b99b7ca779c883, repository ID 1217844900, unchanged canonical coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, active workflows, and clean tracked checkout"
         ]
       },
-      "state": "published",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "publication is complete and Package.resolved remained absent twice before and after publication; the repository is queued behind swift-compositions/swift-tests validation and the serialized Institute package-resolution slot"
+          "publication completed before validation; root and nested Tests Package.resolved were absent twice before resolution",
+          "root package resolution passed with exact exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-postgresql-standard-publisher institute package resolve --package-path /private/tmp/postgresql-standard-lane/swift-postgresql-standard --argument=--disable-sandbox --argument=--disable-dependency-cache against the exact live graph; swift-syntax 602.0.0 and compatible macro/snapshot dependencies resolved, the nested Tests package was not separately resolved, and no build, test, compilation, raw SwiftPM, dump-package, or standalone manifest-evaluation command was invoked",
+          "root Package.resolved was present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 eafa955687583ba33da25fe7ef15f04026aa481f0099765f08b54dd7bf558f28; Tests/Package.resolved remained absent twice; coordinator reverified all three internal and three external dependency gates/products, final repository identity/SHA/state, exact worktree HEAD, canonical origins, clean tracked checkout, and that no archive restoration was required"
         ]
       },
       "githubRepositoryID": 1217844900
