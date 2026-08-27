@@ -43,6 +43,9 @@ extension Institute.Architecture.Migration {
       guard let separator = current.firstIndex(of: "/") else { return current }
       let currentOrganization = Swift.String(current[..<separator])
       let currentName = Swift.String(current[current.index(after: separator)...])
+      if currentOrganization == "swift-foundations", currentName == "swift-testing" {
+        return "swift-compositions/swift-test-application"
+      }
       if ["swift-primitives", "swift-foundations"].contains(currentOrganization),
         [
           "swift-standard-library-extensions",

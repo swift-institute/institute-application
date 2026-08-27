@@ -6460,7 +6460,7 @@
         {
           "manifest": "Tests/Package.swift",
           "current": "swift-foundations/swift-testing",
-          "future": "swift-compositions/swift-testing"
+          "future": "swift-compositions/swift-test-application"
         }
       ],
       "dirtyPaths": [],
@@ -7760,7 +7760,7 @@
         {
           "manifest": "Tests/Package.swift",
           "current": "swift-foundations/swift-testing",
-          "future": "swift-compositions/swift-testing"
+          "future": "swift-compositions/swift-test-application"
         },
         {
           "manifest": "Tests/Package.swift",
@@ -8369,7 +8369,7 @@
         {
           "manifest": "Tests/Package.swift",
           "current": "swift-foundations/swift-testing",
-          "future": "swift-compositions/swift-testing"
+          "future": "swift-compositions/swift-test-application"
         }
       ],
       "dirtyPaths": [],

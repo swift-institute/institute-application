@@ -55,6 +55,14 @@ struct `Institute Architecture Migration Mapping Tests` {
   }
 
   @Test
+  func `maps the legacy testing coordinate to its canonical repository`() {
+    #expect(
+      mapping.coordinate("swift-foundations/swift-testing")
+        == "swift-compositions/swift-test-application"
+    )
+  }
+
+  @Test
   func `removes plural product and module tokens but preserves singular primitive`() {
     #expect(
       mapping.product("Byte Primitives Standard Library Integration")
