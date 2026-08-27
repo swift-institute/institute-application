@@ -6233,6 +6233,51 @@
     "wave": "wave7q",
     "changes": "Resumed against converged Byte Parser, canonicalized Manifest to its atom owner, and retained the genuine Manifest.Parent parent-directive scan/parse seam, updating the scanner to current ASCII constants and Input.Stream.Error APIs, narrowing public docs, and adding empty-directive coverage. Fresh build green; 12 tests across 4 suites green.",
     "bookedAt": "2026-08-27T22:28:13Z"
+   },
+   {
+    "repo": "swift-molecules/swift-ordinal-hash",
+    "headSHA": "e357cdb2f6ef47f2b4991622a4d422c587115994",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7r",
+    "changes": "Canonicalized Ordinal to its atom owner and retained the genuine Hash.Protocol seam that activates native Hashable using the atom-owned equality implementation, supplies hashing and domain-typed Hash.Value without an Equation prerequisite, and proves both native and typed contracts with explicit ownership. Fresh build green; 2 tests green.",
+    "bookedAt": "2026-08-27T22:29:34Z"
+   },
+   {
+    "repo": "swift-molecules/swift-iterator-either",
+    "headSHA": "c8dad5919ef3ad424067af58cd7c5bd29a1c429d",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7r",
+    "changes": "Canonicalized Iterator to its atom owner and retained the genuine dual-error-channel terminal-operation seam mapping closure/predicate errors to Either.left and iterator failures to .right across contains, first, forEach, and reduce; removed obsolete Carrier usage, adopted native Cardinal in fixtures, and added focused first-operation/API documentation. Fresh build green; 6 tests across 4 suites green.",
+    "bookedAt": "2026-08-27T22:31:27Z"
+   },
+   {
+    "repo": "swift-molecules/swift-ordinal-property",
+    "headSHA": "21682883508b79905d47e2e9a3c6480015be8a33",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7r",
+    "changes": "Canonicalized Ordinal to its atom owner and retained the genuine successor/predecessor, exact/saturating/clamped advance/retreat, directional distance, and Ordinal.Protocol Range convenience seam; added the direct current Carrier edge, moved cardinal access to core underlying representation, removed accidental Comparison/Equatable assumptions, and replaced empty tests with full policy coverage. Fresh build green; 6 tests green.",
+    "bookedAt": "2026-08-27T22:32:33Z"
+   },
+   {
+    "repo": "swift-molecules/swift-affine-hash",
+    "headSHA": "a01f17fa9c881134c0ff47c4e80fe8fa3af1041b",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7r",
+    "changes": "Canonicalized Affine to its atom owner and retained the genuine typed Hash.Protocol bridges for Affine.Discrete.Vector and Region, adding explicit retroactive ownership while removing the molecule's duplicate Vector hash(into:) already native to Affine, with focused typed-value contracts and no redundant Equation prerequisite. Fresh build green; 2 tests green.",
+    "bookedAt": "2026-08-27T22:34:27Z"
+   },
+   {
+    "repo": "swift-molecules/swift-cyclic-hash",
+    "headSHA": "c2bd93b8a4c04aaf77c088a3ec63166d9370548f",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7r",
+    "changes": "Canonicalized Cyclic to its atom owner and retained the genuine retroactive typed Hash.Protocol seam over Cyclic's atom-owned native Equatable/Hashable implementations, updating stale single Static.Element coverage to current Static.Element, dynamic Group.Element, and Modulus surfaces with direct dependencies and typed-value proofs. Fresh build green; 3 tests green.",
+    "bookedAt": "2026-08-27T22:37:08Z"
    }
   ]
  }
