@@ -1723,6 +1723,31 @@
    ],
    "notes": "Adjudication: atom. Finite owns a native semantic domain (finiteness; Finite namespace + Finite.Bound<let N: Int>) whose primitive stratum has zero external dependencies. Only \"Finite Primitive\" was dependency-free, so it alone collapsed into Sources/Finite; every other former target (Finite Capacity, Finite Enumerable, Finite Bounded) existed to integrate Finite with external packages and left as seams. Atom now has exactly three products (Finite, Finite Standard Library Integration, Finite Apple Foundation Integration), zero package dependencies, SLI/AFI seed files (no stdlib- or Foundation-integration code existed; Finite.Bound's inline Hashable/Sendable stays in the type declaration), and a new minimal \"Finite Tests\" suite since all four original test files were seam tests. All exports.swift umbrellas, the Finite umbrella target, and the trivial re-export target Finite Test Support (Tests/Support) were deleted. Seam grouping judgment: Ordinal and Tagged are inseparable in this code (Ordinal.Finite IS a Tagged), so one swift-finite-ordinal molecule carries the Ordinal/Tagged/Enumerable material rather than fragmenting further; Iterator and Index usage inside Finite.Enumeration.swift stays there as residual (noted below); Index.Bounded got its own swift-finite-index molecule (deps on swift-finite-ordinal, acyclic). Import rewrites: Finite_Primitive->Finite (including qualified Finite.Finite.Bound<N>), Finite_Capacity->Finite_Cardinal, Iterator_Primitive/Iterator_Protocol->Iterator (products no longer exist on the reshaped swift-atoms/swift-iterator); the nested-struct shadowing of the module name made the inline `Iterator.`Protocol`` conformance unresolvable inside Finite.Enumeration, so that conformance moved to a file-scope extension at the end of Finite.Enumeration.swift. Dependency coordinates: swift-cardinal/-ordinal/-tagged/-index/-iterator all live at swift-atoms (verified) and are referenced there branch:\"main\"; swift-finite and the new molecules referenced at swift-molecules. Residual red risks (structural pass only, nothing built): (1) former test-support re-export Index_Test_Support has no product on reshaped swift-atoms/swift-index \u2014 its import was dropped from moved tests, so any helper usage from it will be red; (2) moved tests previously relied on the deleted umbrella re-exports, so member-import-visibility may demand more imports; explicit Cardinal/Ordinal/Tagged/Index/Finite/Finite_Cardinal imports were added and @testable now targets the owning molecule module; (3) `Iterator.`Protocol`` file-scope extension and `Finite.Finite.Bound<N>` module-anchored spellings are best-effort against the reshaped atoms. Atom README.md left as-is (now stale about products/architecture; not in the reshape mandate). Direct push to swift-molecules/swift-finite main succeeded via org-admin bypass (remote reported bypassed PR/status-check rules \u2014 informational, no gate was disabled). Paths: /private/tmp/claude-501/-Users-coen-Developer-coenttb/20dff9a4-b817-42e7-bbc6-9081ab416a17/scratchpad/wave1/{swift-finite,swift-finite-cardinal,swift-finite-ordinal,swift-finite-index}; all four git-status clean.",
    "completedAt": "2026-08-27T13:22:37Z"
+  },
+  {
+   "package": "swift-span",
+   "repositoryID": 1259220718,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-span",
+   "to": "swift-atoms/swift-span",
+   "shapeCommit": "2788b8bb2a0312ab29fe503c47e3dbb79f5223bb",
+   "dependencies": [],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-span-index",
+     "repositoryID": 1348513487,
+     "commit": "0264a3ac12e27daed024f6653ef6eabd52b8c0d5",
+     "seam": "Span.Mutable.Protocol whose count-parameterised requirement uses Index<Element>.Count from swift-index"
+    },
+    {
+     "successor": "swift-molecules/swift-span-byte",
+     "repositoryID": 1348513572,
+     "commit": "584fa046af603d7cc987c0e195f80effa2e1673c",
+     "seam": "Span.Raw / Span.Raw.Mutable byte-addressed raw spans (Element = Byte; also uses Index and Cardinal Standard Library Integration)"
+    }
+   ],
+   "notes": "Adjudication: atom. Span is the native owner of the span/borrowed-memory-view domain (typealias Span = Swift.Span, __Span namespace, Span.Protocol, Swift.Span conformance); not tooling, not an external standard, and it has irreducible content beyond relating other domains. Atom module Sources/Span merged Span Primitive + the dependency-free Span Protocol files (__Span.Protocol.swift, Swift.Span+Span.Protocol.swift); all four exports.swift umbrellas deleted; Span_Primitive imports removed. Kept Swift.Span extensions in the atom rather than SLI because Swift.Span is the domain carrier itself; SLI and AFI exist as seed files only. Seam 1 (swift-span-index): __Span.Mutable.Protocol.swift + Swift.MutableSpan+Span.Mutable.Protocol.swift (the typealias references the protocol so travels with it); imports rewritten Span_Primitive->Span; stub @Suite test target. Seam 2 (swift-span-byte): all five Span Raw files (Span.Raw.swift, Span.Raw.Base.swift, Span.Raw.Mutable.swift, Span.Raw.Mutable.Base.swift, Swift.Span+Span.Raw.swift) plus seam tests Span.Raw Tests.swift and Span.Raw.Mutable+`Bounds Safety`.swift; imports rewritten Span_Protocol->Span(+Span_Index for the Mutable conformance), Span_Primitive->Span, added explicit Span imports where the deleted umbrella had supplied it, Byte_Protocol->covered by Byte (module collapsed into the Byte atom), Span_Test_Support->Span/Span_Byte. Molecule dependency coordinates verified live: swift-index/swift-byte/swift-cardinal at swift-atoms; swift-span and swift-span-index at swift-molecules; all branch: \"main\". Trivial re-export target Span Test Support deleted; its import in the kept test file replaced with Span. Residual red in kept atom test Tests/Span Tests/Span.Protocol Tests.swift: it still imports Index and conforms a fixture to Span.Mutable.Protocol / uses Index<Int>.Count, both now in swift-span-index \u2014 acceptable per brief, flagged for the later red pass. Package dependencies kept by the atom: none. Direct push to main used bypass authorization noted by the remote (PR rule + expected ci-ok check bypassed as authorized by the brief).",
+   "completedAt": "2026-08-27T13:22:45Z"
   }
  ],
  "successors": [],
