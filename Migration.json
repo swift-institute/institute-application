@@ -2428,13 +2428,18 @@
       "observedHead": "6e1dbf276c502772d72a719dfd58c79be4cd123d",
       "observedRemote": "https://github.com/swift-foundations/swift-executors.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit 43d34b4f937678e344ae1889f0cd35a7b2162b6b from expected parent 6e1dbf276c502772d72a719dfd58c79be4cd123d in isolated worktree /private/tmp/four-layer-swift-executors",
+          "deterministic audit verified the exact 12-path, 40-insertion/40-deletion foundation-to-composition and five primitive-package mapping, live dependency products/modules, preserved external swift-kernel-primitives architecture reference, four-layer README and final owner links, metadata, zero mapped residuals, public payload, active Actions, human commit identity, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified canonical post-organization coordinate swift-compositions/swift-executors at expected main 6e1dbf276c502772d72a719dfd58c79be4cd123d with GitHub repository ID 1217722144, public visibility, non-archived state, and default branch main; no repository rename was required",
+          "set fetch and push origins to https://github.com/swift-compositions/swift-executors.git and fast-forward published exact prepared commit 43d34b4f937678e344ae1889f0cd35a7b2162b6b without force or history rewrite using the configured administrator ruleset bypass",
+          "verified live main 43d34b4f937678e344ae1889f0cd35a7b2162b6b with unchanged repository ID 1217722144, public visibility, non-archived state, default branch main, final origins, and clean isolated worktree"
         ]
       },
       "state": "ready",
