@@ -5609,20 +5609,28 @@
       "observedHead": "0287e35d6cabee40b8eaae287c947526e7675a82",
       "observedRemote": "https://github.com/swift-foundations/swift-multipart-form-coding.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit 86d5d7209c142529b03302122f922a5037d73b43 from exact parent 0287e35d6cabee40b8eaae287c947526e7675a82 in clean identity-compatible isolated worktree /private/tmp/swift-multipart-form-coding; the original checkout remained untouched",
+          "audited the tracked tree and made the exact 3-path, 8-insertion/8-deletion mechanical cutover across Package.swift, README, and metadata, mapping the sole HTML Form Coder dependency and self/related repository coordinates to compositions while preserving all package, product, target, module, path, and public semantics; mapped residual, payload, staged-tree, ancestry, identity, and canonical Actions checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-multipart-form-coding as canonical with stable GitHub repository ID 1095894804, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; the completed organization rename had already established the coordinate, so no repository rename was needed",
+          "JIT verified the sole HTML Form Coder dependency exact live coordinate, head, required product, and publication gate, then ordinary fast-forward published exact direct child 86d5d7209c142529b03302122f922a5037d73b43 without force or history rewrite",
+          "coordinator independently verified exact live main 86d5d7209c142529b03302122f922a5037d73b43 with unchanged repository ID 1095894804, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is complete and Package.resolved remained absent twice after publication; the repository is queued behind the serialized Institute package-resolution slot after measured shared SwiftPM-cache contention"
+        ]
+      },
+      "githubRepositoryID": 1095894804
     },
     {
       "current": "swift-foundations/swift-navigation",
