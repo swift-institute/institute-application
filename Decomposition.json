@@ -2850,6 +2850,68 @@
    ],
    "notes": "Adjudication: Deque (X = \"Deque\", from the existing Deque product) is a native semantic domain \u2014 the double-ended queue \u2014 so atom, per the default. The core __QueueDoubleEnded struct (Position, init(store:)/take(), conditional Copyable/Sendable) needs zero imports; every other file existed to integrate with an external stack, so the atom kept no package dependencies. Atom shape: Sources/Deque holds Queue.DoubleEnded.swift (core struct) and Deque.swift (public typealias Deque<S: ~Copyable> = __QueueDoubleEnded<S>; the original constraint S: Store.Protocol & Buffer.Protocol was dropped because those protocols are external \u2014 the constraint is re-imposed structurally by the extensions in Deque Storage; noted as a deliberate loosening). \"Deque Standard Library Integration\" (deps exactly [\"Deque\"]) holds the Equatable/Hashable conformances (Queue.DoubleEnded+Equatable.swift). \"Deque Apple Foundation Integration\" is a three-line seed (no Foundation code existed). All three exports.swift umbrellas deleted; old strata targets (Queue DoubleEnded Primitive / Queue DoubleEnded / Queue DoubleEnded Small Primitive / Deque-umbrella) removed; exactly three products; manifest keeps tools-version 6.4, .v27 platforms, swiftLanguageModes [.v6], and the verbatim trailing ecosystem SwiftSetting loop. Tests: original test files were entirely seam-specific and moved to their molecules; atom \"Deque Tests\" is a minimal wrapper-roundtrip suite. Files moved: Queue.DoubleEnded ~Copyable.swift -> Deque Storage (plus new Queue.DoubleEnded+Index.swift carrying the Index typealias extracted from the core file); Queue.DoubleEnded.FrontDoor.swift, Queue.DoubleEnded+Columns.swift, and the convenience inits (split out of the core file into Queue.DoubleEnded+Init.swift) -> Deque Buffer Ring; Queue.DoubleEnded.Small.swift -> Deque Memory Small; Queue.DoubleEnded Tests.swift -> Deque Buffer Ring Tests; Queue.DoubleEnded.Small Tests.swift -> Deque Memory Small Tests. Import rewrites: Queue_DoubleEnded_Primitive -> Deque everywhere; Queue_DoubleEnded_Small_Primitive -> Deque_Memory_Small; seam test files additionally import Deque_Storage/Deque_Buffer_Ring. Molecule dependency coordinates verified live via redirect resolution: swift-queue/swift-buffer/swift-storage/swift-index/swift-ordinal/swift-affine/swift-tagged are at swift-atoms; swift-buffer-ring/swift-memory-heap/swift-memory-allocation/swift-ownership-shared/swift-memory-small remain at swift-molecules; all branch: \"main\". Residual red (structural pass, nothing built by design): (1) Memory_Allocator_Protocol is imported by the Init/Columns files but the original manifest never listed a matching product \u2014 parity preserved, may need a product dep later; (2) the seam-crossing tests in Deque Buffer Ring Tests exercise Deque Storage operations (count/pop/peek/drain) and Deque Memory Small Tests reaches through Deque Buffer Ring's front door \u2014 both declared as test deps, cross-seam references noted; (3) molecule-on-molecule deps: swift-deque-buffer-ring depends on swift-deque-storage (tests only), swift-deque-memory-small on both; (4) the atom's README prose still describes ring-backed behavior now owned by molecules (Architecture table updated to the three canonical products); (5) the atom test's Deque<Int>(store:) roundtrip assumes the unconstrained typealias \u2014 red only if the loosening is rejected. Direct push to swift-molecules/swift-deque main used the authorized bypass (remote reported the PR/status-check rules as bypassed). git status clean in all four working trees.",
    "completedAt": "2026-08-27T16:33:18Z"
+  },
+  {
+   "package": "swift-graph",
+   "repositoryID": null,
+   "disposition": "molecule",
+   "from": "swift-molecules/swift-graph",
+   "to": "swift-molecules/swift-graph",
+   "shapeCommit": "3f907e5b050a870598772b926dad1167d3a27e37",
+   "dependencies": [
+    "swift-tagged",
+    "swift-tagged-collection",
+    "swift-stack",
+    "swift-set",
+    "swift-set-ordered",
+    "swift-heap",
+    "swift-index",
+    "swift-array",
+    "swift-fixed",
+    "swift-column",
+    "swift-hash-table",
+    "swift-ownership-shared",
+    "swift-buffer-linear",
+    "swift-buffer-ring",
+    "swift-queue",
+    "swift-bit-vector",
+    "swift-iterator",
+    "swift-vector"
+   ],
+   "splits": [],
+   "notes": "Outer-loop adjudication (substrate rule): canonical internal shape adopted, but 18 kept dependencies include many molecules (tagged-collection, set-ordered, column, hash-table, ownership-shared, buffer-linear, buffer-ring, bit-vector, array, stack) consumed inside the algorithms; stays in swift-molecules. Lane notes: ADJUDICATION: Graph is a native semantic domain (graph representation plus traversal/analysis/path/transform algorithms) \u2014 atom. All 22 source targets were internal strata of the one domain (Graph Primitive/Index/Adjacency/Traversal/Sequential/Remappable plus per-algorithm targets DFS, BFS, Topological, Reachable, Dead, SCC, Cycles, Transitive Closure, Path Exists, Shortest Path, Weighted Path, Pa",
+   "completedAt": "2026-08-27T16:33:32Z"
+  },
+  {
+   "package": "swift-tree",
+   "repositoryID": null,
+   "disposition": "molecule",
+   "from": "swift-molecules/swift-tree",
+   "to": "swift-molecules/swift-tree",
+   "shapeCommit": "5e58b695b137880f2ecc70dd4fcf87de319c8eac",
+   "dependencies": [
+    "swift-atoms/swift-index \u2014 Index<Tag> and Index.Count are the public position/count vocabulary of __TreePosition and the core operations API",
+    "swift-molecules/swift-storage-generational \u2014 Store.Generational.Handle is the currency of the __TreeStorage/Traversable protocol requirements themselves",
+    "swift-atoms/swift-storage \u2014 Store Primitive is the namespace owner co-required wherever Store.Generational.Handle is spelled",
+    "swift-atoms/swift-queue \u2014 Queue drives the level-order traversal required by the atom's own Traversable conformance in Tree+Operations",
+    "swift-molecules/swift-stack \u2014 Stack drives pre/post-order traversal, height, and removeSubtree in the atom's core operations"
+   ],
+   "splits": [
+    {
+     "repo": "swift-molecules/swift-tree-column",
+     "id": 1348708424,
+     "commit": "b40ee7f929aefe8ff79453488945f7ef9ebb7d5e",
+     "seam": "Dynamic generational-column storage backend (TreeStorage.Dynamic, __TreeArena, __TreeNode, Tree.FrontDoor typealias) integrating Tree with swift-column and swift-ownership-shared"
+    },
+    {
+     "repo": "swift-molecules/swift-tree-property",
+     "id": 1348708795,
+     "commit": "839f901cc95caca8622cebf04aa334d708a3a9c1",
+     "seam": "Property-namespaced fluent accessors (.child, .forEach borrows: __TreeChild, __TreeForEach) integrating Tree with swift-property"
+    }
+   ],
+   "notes": "Outer-loop adjudication (substrate rule): canonical internal shape adopted with 2 seam splits, but core traversal/storage protocols irreducibly bind molecules (storage-generational, stack); stays in swift-molecules. Lane notes: Adjudication: Tree is a native semantic data-structure domain (irreducible owner of tree positions, insert/remove/traversal semantics) \u2014 atom. Domain spelling \"Tree\" derived from existing product names. Reshape: collapsed Tree Primitive, Tree Index, Tree Operations, and the dependency-free remnants of Tree Storage (TreeStorage namespace enum) into the single Sources/Tree module; deleted umbrella S",
+   "completedAt": "2026-08-27T16:33:32Z"
   }
  ],
  "successors": [],
