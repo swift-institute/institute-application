@@ -8879,20 +8879,29 @@
       "observedHead": "8f4cde02ac222d2498c2e3ae18756e5ce154578e",
       "observedRemote": "https://github.com/swift-foundations/swift-time-to-live-dependencies.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit e338f80ce4969995bcb6e6d97a944ef5b4d2cc46 from exact parent 8f4cde02ac222d2498c2e3ae18756e5ce154578e in clean identity-compatible isolated worktree /private/tmp/time-to-live-dependencies-lane/swift-time-to-live-dependencies with subject Move time-to-live dependencies to the four-layer graph",
+          "audited all ten tracked paths and made the exact three-path, seven-insertion/seven-deletion mechanical transformation across Package.swift, README, and metadata, moving three composition dependencies, swift-time package identity, self reference, and layer topic while intentionally preserving the legitimate Time Primitive product/module, public semantics, and canonical Actions; residual, payload, staged-tree, ancestry, and identity checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-time-to-live-dependencies as canonical with stable GitHub repository ID 1304735086, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; no repository rename was needed",
+          "JIT verified exact live Clocks Dependencies, Dependencies, Time To Live, and swift-molecules/swift-time identities/products, then ordinary fast-forward published exact direct child e338f80ce4969995bcb6e6d97a944ef5b4d2cc46 without force or history rewrite",
+          "coordinator independently verified exact live main e338f80ce4969995bcb6e6d97a944ef5b4d2cc46 with unchanged repository ID 1304735086, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, stable Package.resolved evidence, and clean tracked checkout"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-time-to-live-dependencies-publisher institute package resolve --package-path /private/tmp/time-to-live-dependencies-lane/swift-time-to-live-dependencies --argument=--disable-sandbox against the exact live graph; no build, test, compilation, raw SwiftPM, dump-package, or manifest evaluation was invoked",
+          "Package.resolved was absent twice before resolution and present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 155eb9c158150695efa9ffe97a849dd918c9e19d020f84a61823a9f27a9b1f45; final live identity/SHA and clean tracked checkout were reverified"
+        ]
+      },
+      "githubRepositoryID": 1304735086
     },
     {
       "current": "swift-foundations/swift-tls",
