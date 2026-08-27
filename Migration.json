@@ -1393,25 +1393,36 @@
       },
       "expectedCommit": "56383bd69f33e0a056e070130f752f518ee61e01",
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
-      "future": "swift-compositions/swift-css-html-layout-render",
+  "future": "swift-compositions/swift-css-html-layout-render",
       "futureLayer": "compositions",
       "observedHead": "56383bd69f33e0a056e070130f752f518ee61e01",
       "observedRemote": "https://github.com/swift-foundations/swift-css-html-layout-render.git",
-      "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
-        "records": [
-          "verify expected old commit with the publishing identity immediately before push"
-        ]
-      },
-      "state": "ready",
-      "validation": {
-        "status": "pending",
-        "records": []
-      }
+  "preparation": {
+    "status": "passed",
+    "records": [
+      "prepared human-authored direct-child commit e3cd4e61867e7bd9acf923b41f4a535166abb23e from expected parent 56383bd69f33e0a056e070130f752f518ee61e01 in clean isolated worktree /private/tmp/four-layer-swift-css-html-layout-render with subject Prepare CSS HTML Layout Render for four-layer cutover",
+      "audited all 16 tracked paths and made the exact five-path, 37-insertion/37-deletion mechanical transformation across Package.swift, README.md, metadata, and two source files, moving dependency coordinates and layer metadata to the four-layer destinations while stripping only the plural Primitives product/module suffixes",
+      "preserved legitimate singular Primitive identities, CSS HTML Layout Rendering public identity and semantics, CSS/WHATWG standards, source behavior, and canonical active Actions with no split/refactor/new dependency; complete residual/public-payload/staging/direct-parent/human-identity/committed-tree checks passed"
+    ]
+  },
+  "publication": {
+    "status": "passed",
+    "records": [
+      "reconciled the completed organization cutover idempotently: exact future coordinate swift-compositions/swift-css-html-layout-render was canonical with GitHub repository ID 1294639079, public visibility, non-archived state, default branch main, canonical clone URL, and exact live parent 56383bd69f33e0a056e070130f752f518ee61e01; the legacy owner route was not used as proof, and no repository rename was needed",
+      "JIT verified all eleven ledger-owned dependencies and their required products at exact live passed heads, then ordinary fast-forward published exact direct child e3cd4e61867e7bd9acf923b41f4a535166abb23e through the configured administrator ruleset bypass without force or history rewrite",
+      "coordinator independently verified exact live main e3cd4e61867e7bd9acf923b41f4a535166abb23e with unchanged repository ID 1294639079, exact future coordinate, public visibility, non-archived state, default branch main, canonical origin, exact direct-child ancestry, and a clean tracked checkout"
+    ]
+  },
+  "state": "passed",
+  "validation": {
+    "status": "passed",
+    "records": [
+      "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-css-html-layout-render-publisher institute package resolve --package-path /private/tmp/four-layer-swift-css-html-layout-render --argument=--disable-sandbox against the exact live dependency graph; no build, test, compilation, raw SwiftPM, dump-package, or manifest evaluation was invoked",
+      "coordinator reverified exact live main e3cd4e61867e7bd9acf923b41f4a535166abb23e with GitHub repository ID 1294639079, public visibility, non-archived state, and default branch main",
+      "the isolated tracked checkout remained clean; Package.resolved was absent before resolution and present afterward only as ignored untracked generated state, never edited/staged/committed, with stable twice-observed SHA-256 72ee83a3ef7435e126eb24e7447c8df8ed95860e9f57d36238ce32ecd2ae9bcb"
+    ]
+  },
+  "githubRepositoryID": 1294639079
     },
     {
       "current": "swift-foundations/swift-css-html-render",
