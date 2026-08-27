@@ -9067,20 +9067,29 @@
       "observedHead": "ec6133bdd6fd132e4637f047978b76c8eab84a1f",
       "observedRemote": "https://github.com/swift-foundations/swift-tls.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit 810e6fc528cd6e764e2b7254d70797b013f7de03 from exact parent ec6133bdd6fd132e4637f047978b76c8eab84a1f in clean identity-compatible isolated worktree /private/tmp/tls-composition-lane/swift-tls",
+          "audited all 14 tracked paths and made the exact 2-path, 8-insertion/8-deletion mechanical cutover across Package.swift and README, mapping five dependency owners to compositions and Span to swift-molecules/swift-span with Span Raw while preserving the owned TLS package, products, targets, modules, and public semantics; residual, payload, staged-tree, ancestry, identity, and canonical Actions checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-tls as canonical with stable GitHub repository ID 1328092469, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; the completed organization rename had already established the coordinate, so no repository rename was needed",
+          "JIT verified all six declared dependency coordinates, exact heads, required products, and ledger gates, then ordinary fast-forward published exact direct child 810e6fc528cd6e764e2b7254d70797b013f7de03 without force or history rewrite",
+          "coordinator independently verified exact live main 810e6fc528cd6e764e2b7254d70797b013f7de03 with unchanged repository ID 1328092469, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, and clean tracked checkout"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-tls-publisher institute package resolve --package-path /private/tmp/tls-composition-lane/swift-tls --argument=--disable-sandbox against the exact live graph; no build, test, compilation, raw SwiftPM, dump-package, or standalone manifest-evaluation command was invoked",
+          "Package.resolved was absent twice before resolution and present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 066c1ef2b3f601e89a09455ca183eb4a3a34bd4609f4b7ac3b6e33c6703edf9b; final live identity/SHA and clean tracked checkout were reverified"
+        ]
+      },
+      "githubRepositoryID": 1328092469
     },
     {
       "current": "swift-foundations/swift-translating",
