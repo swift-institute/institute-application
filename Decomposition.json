@@ -1748,6 +1748,40 @@
    ],
    "notes": "Adjudication: atom. Span is the native owner of the span/borrowed-memory-view domain (typealias Span = Swift.Span, __Span namespace, Span.Protocol, Swift.Span conformance); not tooling, not an external standard, and it has irreducible content beyond relating other domains. Atom module Sources/Span merged Span Primitive + the dependency-free Span Protocol files (__Span.Protocol.swift, Swift.Span+Span.Protocol.swift); all four exports.swift umbrellas deleted; Span_Primitive imports removed. Kept Swift.Span extensions in the atom rather than SLI because Swift.Span is the domain carrier itself; SLI and AFI exist as seed files only. Seam 1 (swift-span-index): __Span.Mutable.Protocol.swift + Swift.MutableSpan+Span.Mutable.Protocol.swift (the typealias references the protocol so travels with it); imports rewritten Span_Primitive->Span; stub @Suite test target. Seam 2 (swift-span-byte): all five Span Raw files (Span.Raw.swift, Span.Raw.Base.swift, Span.Raw.Mutable.swift, Span.Raw.Mutable.Base.swift, Swift.Span+Span.Raw.swift) plus seam tests Span.Raw Tests.swift and Span.Raw.Mutable+`Bounds Safety`.swift; imports rewritten Span_Protocol->Span(+Span_Index for the Mutable conformance), Span_Primitive->Span, added explicit Span imports where the deleted umbrella had supplied it, Byte_Protocol->covered by Byte (module collapsed into the Byte atom), Span_Test_Support->Span/Span_Byte. Molecule dependency coordinates verified live: swift-index/swift-byte/swift-cardinal at swift-atoms; swift-span and swift-span-index at swift-molecules; all branch: \"main\". Trivial re-export target Span Test Support deleted; its import in the kept test file replaced with Span. Residual red in kept atom test Tests/Span Tests/Span.Protocol Tests.swift: it still imports Index and conforms a fixture to Span.Mutable.Protocol / uses Index<Int>.Count, both now in swift-span-index \u2014 acceptable per brief, flagged for the later red pass. Package dependencies kept by the atom: none. Direct push to main used bypass authorization noted by the remote (PR rule + expected ci-ok check bypassed as authorized by the brief).",
    "completedAt": "2026-08-27T13:22:45Z"
+  },
+  {
+   "package": "swift-sequence",
+   "repositoryID": 1139271497,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-sequence",
+   "to": "swift-atoms/swift-sequence",
+   "shapeCommit": "2656f1e9ddde6b4ab253ff88504377a047f6dbc1",
+   "dependencies": [
+    "swift-atoms/swift-iterator: the core Sequenceable protocol constrains its Iterator associatedtype to Iterator_Primitive.Iterator.Protocol, and the domain's lazy views (Borrowing, Drop, Prefix, Filter, Map, SLI Span iterators) are built on Iterator Protocol/Iterator Chunk \u2014 the domain is defined in terms of iterators",
+    "swift-atoms/swift-index: core operation signatures use Cardinal/Index (Sequenceable.count -> Cardinal, Drop.First/Prefix.First counts, Span batch sizing); extracting them would gut the domain's own API"
+   ],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-sequence-property",
+     "repositoryID": 1348517371,
+     "commit": "550290fb4680d453465094588e72a6899314a024",
+     "seam": "Property.Inout fluent-accessor integration (.contains/.first/.reduce/.satisfies/.forEach/.hint/.drain/.span accessor vars and all *+Property.Inout.swift extensions, plus their tests)"
+    },
+    {
+     "successor": "swift-molecules/swift-sequence-either",
+     "repositoryID": 1348517463,
+     "commit": "150d0c43a8260f016bfd2d7c28c7b41afb7969ae",
+     "seam": "Either-typed dual-error overloads of forEach/consume split out of Sequenceable+ForEach.swift and Sequenceable+Consume.swift"
+    },
+    {
+     "successor": "swift-molecules/swift-sequence-cardinal",
+     "repositoryID": 1348517545,
+     "commit": "682afb24f07d4ac7a56a95c3dbbc7feec886b26a",
+     "seam": "Cardinal/Ordinal integration: Sequenceable+collect.swift (Cardinal SLI capacity hint) and Swift.Span+extracting.swift (Cardinal/Ordinal subscript+extracting)"
+    }
+   ],
+   "notes": "Adjudication: atom \u2014 swift-sequence is the irreducible native owner of the lazy-sequence domain (Sequenceable protocol, iterators, borrowing/span traversal, map/filter/drop/prefix pipelines, Myers difference); clearly not tooling, an external standard, or a mere relator. Reshape: 17 strata targets (Sequence Primitive/Iterator/Protocol/Borrowing/Span/Map/Filter/Drop/Prefix/ForEach/Satisfies/Contains/First/Reduce/Hint/Drain/Difference) collapsed into Sources/Sequence/<Op>/ via git mv; all 20 exports.swift umbrellas deleted; products reduced from 21 to exactly Sequence / Sequence Standard Library Integration / Sequence Apple Foundation Integration. SLI target keeps Sequenceable+first.swift and Swift.Span.Iterator(.Batch).swift with deps exactly [\"Sequence\"]. AFI created as the three-line seed (no Foundation imports existed anywhere). Deps swift-property/swift-either/swift-cardinal removed from the atom entirely; kept deps repointed to their live swift-atoms coordinates. Tests merged into one \"Sequence Tests\" target; test-support target and product deleted, its fixture file (Sequence.Fixture Source/Drainable) moved into the test target and copied into the property and cardinal molecule test targets; seam tests moved (Contains/First/Reduce/Satisfies/ForEach/Drain -> property; Sequenceable+collect -> cardinal). File splits: Sequenceable+ForEach.swift split three ways (plain forEach stays; Property accessor -> property molecule; Either overload -> either molecule); Sequenceable+Consume.swift split two ways. Residual red expected until the build pass: (1) kept atom tests (Composition, Count, Map, Filter, Drop, Prefix, Difference) still call .collect(), now owned by swift-sequence-cardinal; (2) SLI files import Index/Iterator_Chunk while the SLI target declares deps exactly [\"Sequence\"] per the commission \u2014 will need target-level product deps or import surgery later; (3) test fixture and SLI/atom files that relied on deleted @_exported umbrellas got explicit imports (Iterator_Protocol added to Sequenceable.swift and fixture copies), but cross-package module visibility for undeclared products may still bite; (4) pre-existing gap: no `var drain`/`var span` accessor exists anywhere in the original package although tests call source.drain{}/span APIs \u2014 carried into swift-sequence-property unchanged; (5) Swift.Span+extracting.swift references no Sequence type at all \u2014 its natural long-term home is swift-cardinal's own SLI; parked in swift-sequence-cardinal per scope. Molecule deps: property -> sequence+property+index+iterator; either -> sequence+either; cardinal -> sequence+sequence-property+cardinal+ordinal (+iterator for tests). Push to swift-molecules/swift-sequence main was a direct push (authorized); remote noted bypassed branch-protection rules (PR requirement + ci-ok check) via org-admin bypass \u2014 no gate was disabled or altered. All four working trees verified clean.",
+   "completedAt": "2026-08-27T13:22:53Z"
   }
  ],
  "successors": [],
