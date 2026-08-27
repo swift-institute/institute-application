@@ -6165,32 +6165,39 @@
       "observedHead": "37d556abf84986b1bb85820894e3feece5ac285e",
       "observedRemote": "https://github.com/swift-foundations/swift-posix.git",
       "preparation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "prepared commit b2944133f9bb2a7750b7fd88cdb39b8b0070f77a from expected parent 37d556abf84986b1bb85820894e3feece5ac285e",
           "isolated worktree /private/tmp/four-layer-swift-posix",
           "deterministic audit verified the clean direct-child 24-path, 146-file-preserving transformation, all eight exact live dependency coordinates and products including Glob and ISO 9945, foundation-to-composition and primitive-to-molecule mappings, zero mapped residuals, public payload, active Actions refs, and Package.resolved absence",
-          "follow-up preparation is required from published commit b2944133f9bb2a7750b7fd88cdb39b8b0070f77a to replace the lower Loader package identity and module with swift-loader-vocabulary and Loader_Vocabulary"
+          "follow-up preparation was required from published commit b2944133f9bb2a7750b7fd88cdb39b8b0070f77a to replace the lower Loader package identity and module with swift-loader-vocabulary and Loader_Vocabulary",
+          "prepared human-authored exact direct-child commit 70a69f9813708df3321e371f63b357c1b9063234 in isolated worktree /private/tmp/four-layer-swift-posix with subject Repair the POSIX Loader dependency",
+          "committed-tree audit verified the exact three-path four-insertion/four-deletion follow-up: canonical Loader vocabulary URL/package identity plus two lower-module imports changed to Loader_Vocabulary while public product Loader, all POSIX identities/semantics, repaired ISO 9945 integration, other flag-day mappings, canonical Actions, explicit staging, and clean checkout were preserved"
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified the already-final post-organization-cutover coordinate swift-compositions/swift-posix at expected main 37d556abf84986b1bb85820894e3feece5ac285e with GitHub repository ID 1129970266, public visibility, non-archived state, and default branch main; no repository rename was required",
           "updated isolated worktree fetch and push origins to https://github.com/swift-compositions/swift-posix.git",
           "fast-forward published exact prepared commit b2944133f9bb2a7750b7fd88cdb39b8b0070f77a without force or history rewrite using the configured administrator ruleset bypass",
           "coordinator reverified live main b2944133f9bb2a7750b7fd88cdb39b8b0070f77a with unchanged repository ID, public visibility, non-archived state, default branch main, and clean isolated worktree",
-          "the successful flag-day publication remains live and preserved, but final publication is pending the Loader vocabulary dependency follow-up"
+          "the successful flag-day publication remained live and preserved while final publication awaited the Loader vocabulary dependency follow-up",
+          "verified exact pre-publication main b2944133f9bb2a7750b7fd88cdb39b8b0070f77a at unchanged coordinate swift-compositions/swift-posix with GitHub repository ID 1129970266, public visibility, non-archived state, and default branch main; all eight future dependencies were exact live ledger-passed commits",
+          "fast-forward published exact direct-child follow-up commit 70a69f9813708df3321e371f63b357c1b9063234 without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main 70a69f9813708df3321e371f63b357c1b9063234 with unchanged repository ID 1129970266, exact coordinate, public visibility, non-archived state, and default branch main"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-posix-publisher institute package resolve --package-path /private/tmp/four-layer-swift-posix --argument=--disable-sandbox against all eight exact live dependencies and their graph",
           "prepared HEAD remained b2944133f9bb2a7750b7fd88cdb39b8b0070f77a and the isolated worktree remained clean",
           "Package.resolved was absent before resolution and present afterward as untouched ignored generated state with stable SHA-256 e08683d7ae2175a1a91ba5532b51c3997ae4cfccbc5df4b1645ff95236a03992",
-          "the prior resolution evidence is superseded by the Loader vocabulary identity repair; final package resolution is pending the consumer follow-up"
+          "the prior resolution evidence was superseded by the Loader vocabulary identity repair and revalidation followed publication of the exact consumer follow-up",
+          "package resolution passed with exit status 0 using the sole approved noncompiling command CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-posix-loader-vocabulary-publisher institute package resolve --package-path /private/tmp/four-layer-swift-posix --argument=--disable-sandbox; direct Loader vocabulary resolved at 94c4d92fdfe55886fae51f41531c402baf1fffd7 and repaired ISO 9945 resolved at 4fdba77facedee28bf8c4c56276c79cb6e8749a3",
+          "post-resolution verification found exact HEAD 70a69f9813708df3321e371f63b357c1b9063234, clean tracked and untracked status, and untouched ignored generated Package.resolved changed from pre-resolution SHA-256 e08683d7ae2175a1a91ba5532b51c3997ae4cfccbc5df4b1645ff95236a03992 to stable post-resolution SHA-256 3aeba6eac31c3b11714f598e668437c8642f668acad867961bbfefd3947fbf30"
         ]
       }
     },
