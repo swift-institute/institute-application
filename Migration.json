@@ -18789,9 +18789,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-publication main at expected commit eb7a1c20555402bfcf921a7335bd7ba6c60a92b3 on exact live coordinate swift-molecules/swift-deque-primitives after the organization cutover",
+          "verified exact future coordinate swift-molecules/swift-deque returned HTTP 404 before repository rename",
+          "renamed repository swift-molecules/swift-deque-primitives to swift-molecules/swift-deque and verified stable GitHub repository ID 1138063349",
+          "updated isolated worktree fetch and push origin to https://github.com/swift-molecules/swift-deque.git",
+          "fast-forward published prepared commit da0c4fff6ddda0e3bb020f4badc6ff0dd36f82d5 without force or history rewrite",
+          "verified live main da0c4fff6ddda0e3bb020f4badc6ff0dd36f82d5 with unchanged repository ID, public visibility, non-archived state, default branch main, and clean isolated worktree"
         ]
       },
       "state": "ready",
