@@ -24797,12 +24797,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-rename main at expected commit 228d683f1ae52e9e1d4aec678b2eaa46f65ecf7b on exact live coordinate swift-molecules/swift-queue-primitives after the organization cutover",
           "verified exact future coordinate swift-molecules/swift-queue returned HTTP 404 before repository rename",
           "renamed repository swift-molecules/swift-queue-primitives to swift-molecules/swift-queue and verified stable GitHub repository ID 1138058582 with public visibility, non-archived state, default branch main, and unchanged main 228d683f1ae52e9e1d4aec678b2eaa46f65ecf7b",
-          "fast-forward publication remains in progress; resume from the exact final coordinate without repeating the rename"
+          "updated isolated worktree fetch and push origin to https://github.com/swift-molecules/swift-queue.git",
+          "fast-forward published final prepared commit 2dc928a7540d67683961305905a4ea542862f530 without force or history rewrite",
+          "verified live main 2dc928a7540d67683961305905a4ea542862f530 with unchanged repository ID, public visibility, non-archived state, default branch main, repaired molecules metadata topic, and clean isolated worktree"
         ]
       },
       "state": "ready",
