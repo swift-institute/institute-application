@@ -2801,20 +2801,28 @@
       "observedHead": "90e3ed63b392f461fdcdc2ee75d0e32aa9c3d7a5",
       "observedRemote": "https://github.com/swift-foundations/swift-form-coding.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit 20f8fe49381ce58cb39835e83a888d36bab0aec4 from exact parent 90e3ed63b392f461fdcdc2ee75d0e32aa9c3d7a5 in clean identity-compatible isolated worktree /private/tmp/swift-form-coding",
+          "audited the tracked tree and made the exact 3-path, 12-insertion/12-deletion mechanical cutover across Package.swift, README, and metadata, mapping Multipart Form Coding, URL Form Coding, self, and related repository coordinates to compositions while preserving FormCoding/URLFormCoding/MultipartFormCoding package, product, target, module, path, and public semantics; mapped residual, payload, staged-tree, ancestry, identity, and canonical Actions checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-form-coding as canonical with stable GitHub repository ID 1026603889, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; the completed organization rename had already established the coordinate, so no repository rename was needed",
+          "JIT verified both declared dependency coordinates, exact heads, required products, and publication gates, then ordinary fast-forward published exact direct child 20f8fe49381ce58cb39835e83a888d36bab0aec4 without force or history rewrite",
+          "coordinator independently verified exact live main 20f8fe49381ce58cb39835e83a888d36bab0aec4 with unchanged repository ID 1026603889, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is complete and Package.resolved remained absent twice after publication; the repository is queued behind the serialized Institute package-resolution slot after measured shared SwiftPM-cache contention"
+        ]
+      },
+      "githubRepositoryID": 1026603889
     },
     {
       "current": "swift-foundations/swift-foundation-dependencies",
