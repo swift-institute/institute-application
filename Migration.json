@@ -12385,19 +12385,27 @@
       "observedHead": "72420e7c2d47719bdeccf37cfb4593fb704b8790",
       "observedRemote": "https://github.com/swift-ietf/swift-rfc-8058.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "verified no-change preparation at exact existing commit 72420e7c2d47719bdeccf37cfb4593fb704b8790 in isolated worktree /private/tmp/four-layer-swift-rfc-8058; no empty or invented commit was created",
+          "audited all 14 committed paths and proved zero current old-owner, reservation-owner, -primitives, Primitives-product, or _Primitives module mappings outside LICENSE; manifest, sources, tests, README, and authority-owned RFC 3987 and RFC 3987 Foundation identities were already canonical, so the expected migrated tree is byte-identical to the existing commit"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified unchanged canonical coordinate swift-ietf/swift-rfc-8058 at existing main 72420e7c2d47719bdeccf37cfb4593fb704b8790 with GitHub repository ID 1095043681, public visibility, non-archived state, and default branch main; exact live RFC 3987 dependency was ledger-passed",
+          "no repository rename or push was required because the complete committed tree already matched the canonical four-layer mapping",
+          "coordinator reverified unchanged live main 72420e7c2d47719bdeccf37cfb4593fb704b8790 with stable repository ID 1095043681 and exact coordinate, visibility, archive state, and default branch"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-rfc-8058-publisher institute package resolve --package-path /private/tmp/four-layer-swift-rfc-8058 --argument=--disable-sandbox and resolved exact live RFC 3987 commit ca07c6abad837078aa9add468b215f77a843dd7d",
+          "Package.resolved was absent before resolution and generated ignored/untracked afterward without editing or committing; two post-resolution checks produced stable SHA-256 8177ca5108f3889b5d687e8760a0693fa64b8ee0f262bf78e0a8e56113a8d64a, exact unchanged HEAD 72420e7c2d47719bdeccf37cfb4593fb704b8790, and a clean checkout"
+        ]
       }
     },
     {
