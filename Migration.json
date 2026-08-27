@@ -30266,8 +30266,11 @@
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-yaml-standard-root institute package resolve --package-path /private/tmp/four-layer-swift-yaml-standard --argument=--disable-sandbox against the exact live Graph and Lexer dependency graph",
+          "post-resolution verification found exact HEAD 155cdd824aacc1d54dbdaa46a09de41d7657117d, a clean checkout, and untouched generated Package.resolved with stable SHA-256 124fe9fb1eb5abf7cc54efbfbe1a81cf17ea2c34d0a8551be247b45c9a8bc103"
+        ]
       }
     },
     {
