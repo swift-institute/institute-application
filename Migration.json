@@ -5641,11 +5641,13 @@
           "coordinator independently verified exact live main 86d5d7209c142529b03302122f922a5037d73b43 with unchanged repository ID 1095894804, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
         ]
       },
-      "state": "published",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "publication is complete and Package.resolved remained absent twice after publication; the repository is queued behind the serialized Institute package-resolution slot after measured shared SwiftPM-cache contention"
+          "publication completed before validation and Package.resolved remained absent twice after publication",
+          "package resolution passed on the single approved attempt with exact exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-multipart-form-coding-publisher institute package resolve --package-path /private/tmp/swift-multipart-form-coding --argument=--disable-sandbox --argument=--disable-dependency-cache against the exact live graph; the corrupted shared dependency cache was bypassed without deleting generated state, and no build, test, compilation, raw SwiftPM, dump-package, or standalone manifest-evaluation command was invoked",
+          "Package.resolved was present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 06f29144dc44909bd0348053120cbe43b8685f4942095d2497a2de6be15113ca; final live identity/SHA, exact worktree HEAD, canonical origins, and clean tracked checkout were reverified"
         ]
       },
       "githubRepositoryID": 1095894804
