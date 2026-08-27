@@ -4592,6 +4592,71 @@
     "requiredAction": "Delete the manifest, duplicate source, and tests, and replace the README with an explicit tombstone. This destructive edit requires principal approval before execution.",
     "status": "principal-approval-required",
     "recordedAt": "2026-08-27T21:39:34Z"
+   },
+   {
+    "repo": "swift-molecules/swift-affine-equation",
+    "currentHeadSHA": "d54463ffc947eb877a209684cb25da2a9c517ee3",
+    "proposedDisposition": "duplicate-owned-by-affine-atom",
+    "atoms": {
+     "swift-atoms/swift-affine": "6c657044d141c8addc5876aaa5a194e3045b8fcc",
+     "swift-atoms/swift-equation": "931364b7292619a82348020fc7a7a4ad7ed3570c"
+    },
+    "evidence": "Equation.Protocol is only a Swift.Equatable alias, while the Affine atom already owns Discrete.Vector equality and Discrete.Region Hashable/equality. The molecule's only production files redeclare those identical conformances and its test target is empty.",
+    "requiredAction": "Delete the manifest, duplicate source, and empty tests, and replace the README with an explicit tombstone. This destructive edit requires principal approval before execution.",
+    "status": "principal-approval-required",
+    "recordedAt": "2026-08-27T23:07:58Z"
+   },
+   {
+    "repo": "swift-molecules/swift-affine-comparison",
+    "currentHeadSHA": "6499be3bcd3c4e41f8ebbb4d2b1007f4c6afe3ad",
+    "proposedDisposition": "duplicate-owned-by-affine-atom",
+    "atoms": {
+     "swift-atoms/swift-affine": "6c657044d141c8addc5876aaa5a194e3045b8fcc",
+     "swift-atoms/swift-comparison": "66384c0b3a359a2c02e5e7069a28f8822dc21635"
+    },
+    "evidence": "Comparison.Protocol is only a Swift.Comparable alias, while the Affine atom already owns Discrete.Vector Comparable and explicitly implements all equality and ordering operators. The molecule's sole production file redeclares that conformance and its test target is empty.",
+    "requiredAction": "Delete the manifest, duplicate source, and empty tests, and replace the README with an explicit tombstone. This destructive edit requires principal approval before execution.",
+    "status": "principal-approval-required",
+    "recordedAt": "2026-08-27T23:08:44Z"
+   },
+   {
+    "repo": "swift-molecules/swift-orthant-equation",
+    "currentHeadSHA": "5e581eb0bbcbe62e3375fc9cf9e68403956544e5",
+    "proposedDisposition": "duplicate-owned-by-orthant-atom",
+    "atoms": {
+     "swift-atoms/swift-orthant": "7aa9ba11b54c8d57582e362c7eed130e3b442f3b",
+     "swift-atoms/swift-equation": "931364b7292619a82348020fc7a7a4ad7ed3570c"
+    },
+    "evidence": "Equation.Protocol is only a Swift.Equatable alias, while the Orthant atom already declares Hashable and Comparable and implements equality. The molecule's sole source redeclares that identical conformance and its test target is empty.",
+    "requiredAction": "Delete the manifest, duplicate source, and empty tests, and replace the README with an explicit tombstone. This destructive edit requires principal approval before execution.",
+    "status": "principal-approval-required",
+    "recordedAt": "2026-08-27T23:09:48Z"
+   },
+   {
+    "repo": "swift-molecules/swift-orthant-comparison",
+    "currentHeadSHA": "2ba36f1afee750c5d3d1d5cd8bac9c2214236478",
+    "proposedDisposition": "duplicate-owned-by-orthant-atom",
+    "atoms": {
+     "swift-atoms/swift-orthant": "7aa9ba11b54c8d57582e362c7eed130e3b442f3b",
+     "swift-atoms/swift-comparison": "66384c0b3a359a2c02e5e7069a28f8822dc21635"
+    },
+    "evidence": "Comparison.Protocol is only a Swift.Comparable alias, while the Orthant atom already declares Comparable and implements all equality and ordering operators. The molecule's sole source redeclares that identical conformance and its test target is empty.",
+    "requiredAction": "Delete the manifest, duplicate source, and empty tests, and replace the README with an explicit tombstone. This destructive edit requires principal approval before execution.",
+    "status": "principal-approval-required",
+    "recordedAt": "2026-08-27T23:10:45Z"
+   },
+   {
+    "repo": "swift-molecules/swift-sector-equation",
+    "currentHeadSHA": "67bcd1dbfe95a364670b15901254c38f9343001d",
+    "proposedDisposition": "duplicate-owned-by-sector-atom",
+    "atoms": {
+     "swift-atoms/swift-sector": "a3d72f136c0c4a6e15d2b24e132afcf495e70b57",
+     "swift-atoms/swift-equation": "931364b7292619a82348020fc7a7a4ad7ed3570c"
+    },
+    "evidence": "Equation.Protocol is only a Swift.Equatable alias, while Sector's payload-free Quadrant and Octant enums already own equality; a compiler probe reported both conformances as already stated in the Sector module. The molecule contains only reexports and its test target is empty.",
+    "requiredAction": "Delete the manifest, duplicate reexport source, and empty tests, and replace the README with an explicit tombstone. This destructive edit requires principal approval before execution.",
+    "status": "principal-approval-required",
+    "recordedAt": "2026-08-27T23:14:02Z"
    }
   ],
   "packages": [
@@ -6433,6 +6498,51 @@
     "wave": "wave7u",
     "changes": "Resumed against converged Affine Carrier, canonicalized Affine to its atom owner, and retained genuine tagged offsets/conversions, collection/pointer operations, and tagged ratio scaling while removing only two exact ratio initializer/quotient implementations already owned by the Affine atom, with current imports/APIs and focused scaling ownership proofs. Fresh build green; 39 tests across 13 suites green.",
     "bookedAt": "2026-08-27T23:05:45Z"
+   },
+   {
+    "repo": "swift-molecules/swift-finite-index",
+    "headSHA": "6a2ae25572c6edd7c8fd87c7cb44dbbcb16537b9",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7v",
+    "changes": "Canonicalized Finite to its atom owner and retained the genuine zero-overhead Index<Element>.Bounded<N> narrowing/widening seam, adding the required direct Finite Cardinal capacity product/import, explicit defining-module visibility, current non-SLI literal tests, and focused ownership documentation. Fresh build green; 13 tests across 4 suites green.",
+    "bookedAt": "2026-08-27T23:07:53Z"
+   },
+   {
+    "repo": "swift-molecules/swift-span-index",
+    "headSHA": "c02204380d2ed8508edf9654b95720d3ef9a3df7",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7v",
+    "changes": "Canonicalized Span to its atom owner and retained the genuine __Span.Mutable.Protocol/MutableSpan.Protocol bridge joining Span's mutable view with element-typed Index<Element>.Count, adding the direct live Ordinal Cardinal owner for the removed Index.Count surface and lifetime-aware alias, full-storage, and typed-prefix tests. Fresh build green; 3 tests green.",
+    "bookedAt": "2026-08-27T23:12:59Z"
+   },
+   {
+    "repo": "swift-molecules/swift-collection-property",
+    "headSHA": "ddf72817a4c64ce1c8f2daabce51f3e7a8fd724a",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7v",
+    "changes": "Canonicalized Collection to its atom owner and restored the genuine fluent Collection.Protocol max/min Property.Inout accessors plus Collection.Slice.Protocol slice, wiring current Order Comparison, Property Ownership, Ownership, and Iterator witnesses, removing only an empty no-op slice extension, and replacing placeholders with index/value/custom-order/empty behavior contracts. Fresh build green; 4 tests green.",
+    "bookedAt": "2026-08-27T23:13:58Z"
+   },
+   {
+    "repo": "swift-molecules/swift-sector-comparison",
+    "headSHA": "09b6f19159c9a80aa8a7c0e94f71972906b1e90f",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7v",
+    "changes": "Canonicalized Sector to its atom owner and retained the genuine retroactive Quadrant and Octant Comparison.Protocol/Comparable conformances: Sector owns the concrete ordering operators but does not declare Comparable. Added explicit retroactive ownership, direct test dependencies, and focused protocol-constrained contracts/docs. Fresh build green; 2 tests green.",
+    "bookedAt": "2026-08-27T23:16:02Z"
+   },
+   {
+    "repo": "swift-molecules/swift-either-standard-library-extensions",
+    "headSHA": "f6f989eb25c13156f4bf8de2ae0a9f0ed3509aad",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7v",
+    "changes": "Canonicalized Either to its atom owner and retained the genuine unabsorbed consuming conversion from distinct move-only-capable SLE.Result into Either; the Either atom's canonical SLI owns only Codable. Added direct SLE test-product visibility and clarified the ownership boundary while preserving current ~Copyable coverage. Fresh build green; 7 tests across 7 suites green.",
+    "bookedAt": "2026-08-27T23:19:12Z"
    }
   ]
  }
