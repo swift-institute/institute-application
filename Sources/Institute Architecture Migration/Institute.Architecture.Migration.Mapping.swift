@@ -10,9 +10,9 @@ extension Institute.Architecture.Migration {
       [(current: Swift.String, future: Swift.String, kind: Swift.String)]
     {
       [
-        ("swift-molecules", "swift-mol-rsv", "reservation"),
+        ("swift-molecules", "swift-molecules-reserve", "reservation"),
         ("swift-primitives", "swift-molecules", "layer"),
-        ("swift-compositions", "swift-comp-rsv", "reservation"),
+        ("swift-compositions", "swift-compositions-reserve", "reservation"),
         ("swift-foundations", "swift-compositions", "layer"),
       ]
     }

@@ -19,6 +19,7 @@ extension Institute.Architecture.Migration.Ledger {
     public let validation: Result
     public let publication: Result
     public let disposition: Result
+    public let seal: Seal?
 
     public init(
       current: Swift.String,
@@ -35,7 +36,8 @@ extension Institute.Architecture.Migration.Ledger {
       preparation: Result,
       validation: Result,
       publication: Result,
-      disposition: Result
+      disposition: Result,
+      seal: Seal? = nil
     ) {
       self.current = current
       self.future = future
@@ -52,6 +54,7 @@ extension Institute.Architecture.Migration.Ledger {
       self.validation = validation
       self.publication = publication
       self.disposition = disposition
+      self.seal = seal
     }
 
     public static func serialize(_ value: Self) -> JSON {
@@ -69,6 +72,7 @@ extension Institute.Architecture.Migration.Ledger {
         "observedRemote": value.observedRemote?.json ?? .null,
         "preparation": value.preparation.json,
         "publication": value.publication.json,
+        "seal": value.seal?.json ?? .null,
         "state": value.state.json,
         "validation": value.validation.json,
       ]
@@ -85,6 +89,12 @@ extension Institute.Architecture.Migration.Ledger {
       let expected = try value("expectedCommit")
       let head = try value("observedHead")
       let remote = try value("observedRemote")
+      let seal: Seal?
+      if let value = object["seal"], !value.isNull {
+        seal = try Seal(json: value)
+      } else {
+        seal = nil
+      }
       return try .init(
         current: Swift.String(json: value("current")),
         future: Swift.String(json: value("future")),
@@ -100,7 +110,8 @@ extension Institute.Architecture.Migration.Ledger {
         preparation: Result(json: value("preparation")),
         validation: Result(json: value("validation")),
         publication: Result(json: value("publication")),
-        disposition: Result(json: value("disposition"))
+        disposition: Result(json: value("disposition")),
+        seal: seal
       )
     }
   }
