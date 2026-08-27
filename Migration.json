@@ -31127,11 +31127,14 @@
           "coordinator verified exact live main e166a33c39ef7b154ba526a6d20635003e4ea1aa with unchanged repository ID 1118185914, exact coordinate, public visibility, non-archived state, default branch main, canonical origins, and a clean isolated worktree"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "publication is durably booked before the sole package-resolution gate"
+          "publication was durably booked before the sole package-resolution gate",
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-w3c-epub-root institute package resolve --package-path /private/tmp/four-layer-swift-w3c-epub-root --argument=--disable-sandbox; the resolver fetched and created working copies from live destinations and no build, test, compilation, raw SwiftPM, or manifest-only substitute was invoked",
+          "coordinator reverified exact live main e166a33c39ef7b154ba526a6d20635003e4ea1aa with GitHub repository ID 1118185914, public visibility, non-archived state, default branch main, and exact live direct dependency heads BCP 47 a2a8fa696d6eb66e78c9eac3daa4e41a69095818, Standard Library Extensions 28a204ee2c6cf1476cd99dc95b81b59868681ebf, CSS Standard 440ccfc24424c56aadccc7d35e0d6b7c50e9944c, and HTML Standard 255c367d3b8357bd681dedb56668a15123801139",
+          "HEAD and both origins remained exact and canonical and the isolated checkout remained clean; Package.resolved was absent before resolution and present afterward only as ignored untracked generated state with stable twice-observed SHA-256 96b9a1ebd4350b995fd71f9a99b90cdc0647328fb65b1d58face6ac72c7e8e02"
         ]
       },
       "githubRepositoryID": 1118185914
