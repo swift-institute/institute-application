@@ -1827,6 +1827,43 @@
    ],
    "notes": "Adjudication: Bitset is a native semantic domain (Bitset, Bitset.Fixed, Bitset.Static value types with Algebra/Relation/Builder/Error substructure), no internal strata targets \u2014 atom. Domain X = Bitset. Reshape: (1) Sources/Bitset/Bitset.Iterator.swift moved to \"Sources/Bitset Standard Library Integration/Bitset.Iterator.swift\"; its `public import Iterator_Protocol` replaced with `public import Bitset` and the Iterator_Primitive.Iterator.`Protocol` conformance removed \u2014 Swift.Sequence + IteratorProtocol conformance, the Iterator struct, and Bitset.forEach now live in SLI. (2) The external conformance became the single seam molecule swift-bitset-iterator (module Bitset_Iterator, deps: swift-molecules/swift-bitset products Bitset + SLI, swift-atoms/swift-iterator \"Iterator Protocol\" \u2014 swift-iterator is already transferred, id 1250663734 resolves at swift-atoms). (3) \"Bitset Apple Foundation Integration\" created as three-line seed (no Foundation-importing code existed). (4) Trivial re-export target \"Bitset Test Support\" (two @_exported lines) deleted along with its product and the swift-sequence dependency; no test file imported it, so no import rewrites needed. (5) Products now exactly Bitset / Bitset Standard Library Integration / Bitset Apple Foundation Integration; package dependencies now empty; test target \"Bitset Tests\" deps [\"Bitset\"]; manifest idiom (6.4 / .v27 / .v6 / ecosystem SwiftSetting loop) preserved verbatim. Expected red (deferred to build pass): SLI's Bitset.Iterator.swift accesses Bitset internals (storage, capacity, Self.bitsPerWord) marked @usableFromInline cross-module \u2014 needs API surface or relocation decisions later; \"Bitset Tests\" lines 186/200 use Array(set), which now requires the SLI module (Sequence conformance) \u2014 residual reference noted per brief; molecule's empty retroactive conformance assumes next() satisfies the protocol requirement witness cross-module. Both git trees verified clean; atom push bypassed the PR/ci-ok branch rules via authorized direct push (remote noted the bypass).",
    "completedAt": "2026-08-27T13:31:53Z"
+  },
+  {
+   "package": "swift-axis",
+   "repositoryID": 1264249256,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-axis",
+   "to": "swift-atoms/swift-axis",
+   "shapeCommit": "75973110fe65243d686d13fc28e2a52f607fb167",
+   "dependencies": [],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-axis-equation",
+     "repositoryID": 1348522019,
+     "commit": "755d2f895857c5a4119e1f43405218a9bbab17b5",
+     "seam": "Axis: Equation.Protocol conformance (target 'Axis Equation', dep swift-atoms/swift-equation)"
+    },
+    {
+     "successor": "swift-molecules/swift-axis-hash",
+     "repositoryID": 1348522088,
+     "commit": "ba96e08d54cfc1fabad6047de39485d083341593",
+     "seam": "Axis: Hash.Protocol conformance (target 'Axis Hash', dep swift-atoms/swift-hash)"
+    },
+    {
+     "successor": "swift-molecules/swift-axis-comparison",
+     "repositoryID": 1348522181,
+     "commit": "f38b6ea03ccc4939022a0c76e56be443137200bf",
+     "seam": "Axis: Comparison.Protocol conformance (target 'Axis Comparison', dep swift-atoms/swift-comparison)"
+    },
+    {
+     "successor": "swift-molecules/swift-axis-finite",
+     "repositoryID": 1348522266,
+     "commit": "658ce6cf34dd52d3ec46eef30ddaa4206330f7b4",
+     "seam": "Axis: Finite.Enumerable conformance (target 'Axis Enumerable', deps swift-atoms/swift-finite + swift-atoms/swift-ordinal; seam named after primary dep swift-finite)"
+    }
+   ],
+   "notes": "Adjudication: Axis<let N: Int> (typed axis of N-dimensional space) is a native semantic domain \u2014 atom. Reshape: collapsed 'Axis Primitive' into 'Axis' (Axis.swift, __AxisError.swift); deleted umbrella exports.swift in 'Axis' and 'Axis Enumerable'. Moved the Codable conformance block out of Axis.swift into new 'Axis Standard Library Integration' target (Axis+Codable.swift, public import Axis, kept the #if !hasFeature(Embedded) guard). No Foundation imports existed, so 'Axis Apple Foundation Integration' is the three-line seed file. Products exactly three; package dependencies emptied (Axis irreducibly needs none). Four seams extracted; the 'Axis Enumerable' target integrated two external packages (Finite + Ordinal) \u2014 placed as one molecule swift-axis-finite named after the primary conformance package, carrying swift-ordinal as a supporting dep; its molecule test target also depends on 'Ordinal Test Support' since the deleted trivial 'Axis Test Support' target (internal import Axis + @_exported Ordinal_Test_Support) re-exported it; the seam test file's 'import Axis_Test_Support' was rewritten to 'import Axis_Finite' + 'import Ordinal_Test_Support'. Residual red in kept atom tests (Tests/Axis Tests/Axis Tests.swift): Set<Axis<3>> (needs Hashable via extracted Hash seam) and .sorted() (needs Comparable via extracted Comparison seam); Axis defines ==/</hash(into:) as plain members, not conformances, so these two suites will not compile against the bare atom \u2014 acceptable per brief, noted for the later red pass. All molecule dep coordinates are live: swift-atoms for the five transferred atoms, swift-molecules/swift-axis for Axis; all branch: \"main\", no tags or path deps. Push to swift-axis main succeeded via org-admin bypass of the PR/status-check rule (direct push explicitly authorized). git status clean and fully pushed in all five directories under /private/tmp/claude-501/-Users-coen-Developer-coenttb/20dff9a4-b817-42e7-bbc6-9081ab416a17/scratchpad/wave1/.",
+   "completedAt": "2026-08-27T13:32:02Z"
   }
  ],
  "successors": [],
