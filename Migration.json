@@ -8000,23 +8000,32 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-compositions/swift-stripe",
       "futureLayer": "compositions",
-      "observedHead": "41f60d435226cf028102bc2146d373b185f3443f",
-      "observedRemote": "https://github.com/swift-foundations/swift-stripe.git",
+      "observedHead": "fb829c7f86bad66ca0359d342fe08f3af4f7a0a5",
+      "observedRemote": "https://github.com/swift-compositions/swift-stripe.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared exact direct-child cutover commit fb829c7f86bad66ca0359d342fe08f3af4f7a0a5 from expected base 41f60d435226cf028102bc2146d373b185f3443f in clean isolated worktree /private/tmp/swift-stripe while preserving an unrelated pre-existing prunable worktree record untouched",
+          "mechanical four-layer cutover changed only .github/metadata.yaml and README.md with five insertions and five deletions across layer metadata and repository links; Package.swift was already canonical and all package/product/target/module/source/test identities remained unchanged",
+          "the Stripe Standard dependency and required products plus residual identity, active Actions-reference, public-payload, credential, diff, attribution, and Package.resolved preservation checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "repository ID 823343297 was verified before and after cutover at exact canonical coordinate swift-compositions/swift-stripe with unchanged public visibility, non-archived state, and default branch main",
+          "published exact prepared commit fb829c7f86bad66ca0359d342fe08f3af4f7a0a5 as an ordinary fast-forward from 41f60d435226cf028102bc2146d373b185f3443f to refs/heads/main through the authenticated administrative ruleset bypass; no force push or history rewrite occurred",
+          "coordinator independently reverified exact live main fb829c7f86bad66ca0359d342fe08f3af4f7a0a5, repository ID 823343297, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is complete and Package.resolved remained absent twice before and after publication; resolution is queued until swift-standards/swift-stripe-standard validation is passed and the serialized Institute package-resolution slot is available"
+        ]
+      },
+      "githubRepositoryID": 823343297
     },
     {
       "current": "swift-foundations/swift-stripe-http",
