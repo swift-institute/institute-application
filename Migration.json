@@ -5706,19 +5706,27 @@
       "observedHead": "58d8b743e9c6b81537d3ac3f9a8fde65ae4f8b98",
       "observedRemote": "https://github.com/swift-foundations/swift-paths.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit 878675afcaaae3a8cd80f9b738bcddec3eea3cfc from expected parent 58d8b743e9c6b81537d3ac3f9a8fde65ae4f8b98 in isolated worktree /private/tmp/four-layer-swift-paths",
+          "deterministic audit verified the exact seven-path, 27-file-preserving mapping of four dependency URLs, products/packages, Path/Binary/Binary Serializable modules/imports, README self identity, and metadata; preserved owned Paths identity and semantics, all live dependencies/products, zero mapped residuals, public payload, active Actions, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified canonical post-organization coordinate swift-compositions/swift-paths at expected main 58d8b743e9c6b81537d3ac3f9a8fde65ae4f8b98 with GitHub repository ID 1132378357, public visibility, non-archived state, and default branch main; no repository rename was required",
+          "set fetch and push origins to https://github.com/swift-compositions/swift-paths.git and fast-forward published exact prepared commit 878675afcaaae3a8cd80f9b738bcddec3eea3cfc without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main 878675afcaaae3a8cd80f9b738bcddec3eea3cfc with unchanged repository ID 1132378357, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-paths-publisher institute package resolve --package-path /private/tmp/four-layer-swift-paths --argument=--disable-sandbox against all four exact live future dependencies and transitive graph",
+          "post-resolution verification found exact HEAD 878675afcaaae3a8cd80f9b738bcddec3eea3cfc, a clean checkout, and untouched generated Package.resolved with stable SHA-256 e62ac5aeb8989a6399d2493239b5417030120ebe047b9a865734e3958f4766ef"
+        ]
       }
     },
     {
