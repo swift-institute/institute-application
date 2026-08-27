@@ -5364,23 +5364,32 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-compositions/swift-mailgun-http",
       "futureLayer": "compositions",
-      "observedHead": "b7484f35cbf1133e6693e91825531f6af39b2116",
-      "observedRemote": "https://github.com/swift-foundations/swift-mailgun-http.git",
+      "observedHead": "7f8b36cc5c0b5c44afda9f5138bd46c3594402e4",
+      "observedRemote": "https://github.com/swift-compositions/swift-mailgun-http.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared exact direct-child cutover commit 7f8b36cc5c0b5c44afda9f5138bd46c3594402e4 from expected base b7484f35cbf1133e6693e91825531f6af39b2116 in clean isolated worktree /private/tmp/swift-mailgun-http",
+          "mechanical four-layer cutover changed only .github/metadata.yaml, Package.swift, README.md, and Tests/Mailgun HTTP Tests/Corpus.Documents.swift; owner URLs, package identities, fixtures, and layer metadata moved to canonical coordinates while legitimate singular Byte Primitive and Time Primitive product/module identities remained unchanged",
+          "all twelve dependency products and live identities plus residual identity, active Actions-reference, public-payload, machine-path, credential, diff, attribution, and Package.resolved preservation checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "repository ID 905951879 was verified before and after cutover at exact canonical coordinate swift-compositions/swift-mailgun-http with unchanged public visibility, non-archived state, and default branch main",
+          "published exact prepared commit 7f8b36cc5c0b5c44afda9f5138bd46c3594402e4 as an ordinary fast-forward from b7484f35cbf1133e6693e91825531f6af39b2116 to refs/heads/main through the authenticated administrative ruleset bypass; no force push or history rewrite occurred",
+          "coordinator independently reverified exact live main 7f8b36cc5c0b5c44afda9f5138bd46c3594402e4, repository ID 905951879, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is complete and Package.resolved remained absent twice before and after publication; the repository is queued behind the serialized Institute package-resolution slot after measured shared SwiftPM-cache contention"
+        ]
+      },
+      "githubRepositoryID": 905951879
     },
     {
       "current": "swift-foundations/swift-manifests",
