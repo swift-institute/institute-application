@@ -937,6 +937,37 @@
    ],
    "notes": "Adjudication: atom \u2014 Coproduct<each Element> is the irreducible native owner of the n-ary coproduct (variadic sum) domain; single existing target, no strata to collapse. Domain X = Coproduct (from product/target \"Coproduct\"). Reshape: dropped all three package deps (swift-equation/swift-hash/swift-comparison, each used only by one conformance file) and deleted their @_exported imports from Coproduct.swift; extracted the three conformance files as seam molecules with imports rewritten to `public import Coproduct` + `public import <D>` (dep coordinates: swift-atoms, since all three redirect there as transferred atoms). The Hashable conformance travels with the hash molecule because it is constrained on Hash.Protocol. SLI target: moved Coproduct+CustomStringConvertible/+Decodable/+Encodable and split the `Codable` and `Swift.Error` retroactive extensions out of Coproduct.swift into new SLI files Coproduct+Codable.swift/Coproduct+Error.swift, each importing Coproduct; note these are now retroactive conformances declared outside the declaring module, and the SLI Codable aggregate depends on Decodable/Encodable in the same module \u2014 structural, may warn/red later. Copyable/Escapable/Sendable/BitwiseCopyable structural conformances stay in the atom. Apple Foundation Integration is a three-line seed (no Foundation imports existed). Test target \"Coproduct Tests\" kept as-is (imports only Coproduct+Testing, no residual references to extracted domains); no SLI test files existed so no SLI test target; molecule tests are stub @Suites. All code remains gated behind #if hasFeature(VariadicEnum) so modules compile to zero symbols on current toolchains, per the package's documented posture. Atom push bypassed branch-protection PR/ci-ok rules via authorized direct push (remote noted the bypass). No build/resolve/test performed per commission. All four working trees verified clean; remote heads read back equal to local SHAs.",
    "completedAt": "2026-08-27T12:42:50Z"
+  },
+  {
+   "package": "swift-boundary",
+   "repositoryID": 1264249470,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-boundary",
+   "to": "swift-atoms/swift-boundary",
+   "shapeCommit": "9294a396e6d40a52beaa48f9a4aa7ab02e5f0e3c",
+   "dependencies": [],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-boundary-equation",
+     "repositoryID": 1348474426,
+     "commit": "8235e91e60fa35a921fb1ab891f8284edc4670ee",
+     "seam": "Boundary Equation umbrella target depending on swift-atoms/swift-equation (re-exports Boundary + Equation)"
+    },
+    {
+     "successor": "swift-molecules/swift-boundary-hash",
+     "repositoryID": 1348474499,
+     "commit": "5330436ba625aaaaebfb65f73c36e4ba93399082",
+     "seam": "Boundary.Edge/Corner conformances to Hash.Protocol from swift-atoms/swift-hash"
+    },
+    {
+     "successor": "swift-molecules/swift-boundary-comparison",
+     "repositoryID": 1348474585,
+     "commit": "f8ac8664fc1b0eb7c7cc8b67ef1be14f21012609",
+     "seam": "Boundary.Edge/Corner conformances to Comparison.Protocol from swift-atoms/swift-comparison"
+    }
+   ],
+   "notes": "Adjudication: Boundary (rectilinear edge/corner sides domain: Boundary.Edge, Boundary.Corner with opposite/isTop/isLeft, rank-based operators) is an irreducible native semantic domain -> atom. Reshape: collapsed \"Boundary Primitive\" into Sources/Boundary via git mv (Boundary.swift, Boundary.Edge.swift, Boundary.Corner.swift); deleted the Boundary umbrella exports.swift, the Boundary Equation/Hash/Comparison strata targets (extracted as molecules), and the trivial re-export \"Boundary Test Support\" target (test file already imported Boundary directly, no rewrite needed). SLI: Codable conformances (#if !hasFeature(Embedded) blocks) split out of Boundary.Edge.swift/Boundary.Corner.swift into \"Boundary Standard Library Integration\" (plus @_exported exports.swift matching the swift-bit exemplar). AFI: no Foundation code existed; three-line seed file created. Products exactly three; package dependencies now empty. Molecule deps at live coordinates: swift-atoms/swift-equation|swift-hash|swift-comparison (all transferred to swift-atoms) + swift-molecules/swift-boundary, branch main. Residual red expected until molecules resolve alongside the atom: Boundary Tests uses .sorted() and Set<...> which relied on Comparable/Hashable arriving via Comparison.Protocol/Hash.Protocol through the old umbrella; the atom defines ==/</<=/>/>=/hash(into:) but declares no stdlib Comparable/Hashable conformance itself (kept semantics with the seam extraction rather than inventing conformances). Push to main bypassed the PR/ci-ok branch rule via org-admin (direct pushes explicitly authorized). No merges, no CI changes, no history rewrites; all four trees verified clean.",
+   "completedAt": "2026-08-27T12:42:58Z"
   }
  ],
  "successors": [],
