@@ -15498,19 +15498,27 @@
       "observedHead": "2449e0d4d22ca6502703f1558ce44ce82829f1e5",
       "observedRemote": "https://github.com/swift-primitives/swift-binary-parser-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit 008185de12644cf62037caee9987a6c74821f432 from expected parent 2449e0d4d22ca6502703f1558ce44ce82829f1e5 in isolated worktree /private/tmp/four-layer-swift-binary-parser",
+          "independently reconstructed full-tree audit verified all 53 tracked files, nine source/test directory identity moves, all 11 canonical live dependency owner/product/package/module/import mappings, README and metadata cutover, preserved legitimate singular Buffer Linear Primitive, Ownership Shared Primitive, and Vector Primitive identities, zero mapped residuals, public payload, unchanged one-hop Actions, human commit identity, clean checkout, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified old coordinate swift-molecules/swift-binary-parser-primitives at expected main 2449e0d4d22ca6502703f1558ce44ce82829f1e5 with GitHub repository ID 1145453821, public visibility, non-archived state, default branch main, and absent exact destination, then renamed it to swift-molecules/swift-binary-parser",
+          "verified the same GitHub repository ID 1145453821 at swift-molecules/swift-binary-parser, set fetch and push origins to the final HTTPS URL, and fast-forward published exact prepared commit 008185de12644cf62037caee9987a6c74821f432 without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified exact canonical coordinate swift-molecules/swift-binary-parser at live main 008185de12644cf62037caee9987a6c74821f432 with unchanged repository ID 1145453821, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-binary-parser-publisher institute package resolve --package-path /private/tmp/four-layer-swift-binary-parser --argument=--disable-sandbox against all 11 exact live declared dependencies and transitive graph",
+          "post-resolution verification found exact HEAD 008185de12644cf62037caee9987a6c74821f432, a clean checkout, and untouched generated Package.resolved with stable SHA-256 cc43ac5c07c72cb2d45db8365c05553f4f5d51cc910114392e1ab2f9a1ff0c3d"
+        ]
       }
     },
     {
