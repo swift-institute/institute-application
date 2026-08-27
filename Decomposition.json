@@ -2182,6 +2182,37 @@
    ],
    "notes": "Adjudication: Path is a native semantic domain (filesystem-path value type with decomposition/modification/resolution/scan/sanitization sub-namespaces), so atom. Single domain module already existed (no strata targets to collapse). Seams out: (1) Tagged+Path.swift moved whole to swift-path-tagged (imports rewritten to public import Path/Tagged/String; it references String.String.Borrowed, so swift-string kept as molecule dep); (2) the one-line Ownership.Borrow.Protocol conformance split out of Path.Borrowed.swift into swift-path-ownership (the Borrowed struct itself is core and stayed); (3) Path.Canonical.Error.swift moved whole to swift-path-error. Atom lost swift-tagged, swift-ownership, swift-error entirely; kept-dep URLs updated to current live coordinates (swift-string now at swift-atoms). SLI and AFI targets created as seed files (no stdlib-integration-primary or Foundation-importing files existed; CustomStringConvertible conformances on Path.Resolution.Error and Path.String.Error live inside core definition files and were left in place rather than tearing files apart \u2014 noted as a later judgment pass candidate). Trivial re-export target \"Path Test Support\" (@_exported Path + Tagged_Test_Support) deleted with its product; no test file imported it, so no test rewrites needed. Kept \"Path Tests\" (deps [\"Path\"]); no SLI test files. Each molecule carries the PATH_AVAILABLE platform define mirrored onto its target so the guarded seam sources still compile-in. Residual red risk (structural pass, unbuilt): Tagged+Path.swift's local typealias String = Path.String may shadow the String module reference in init(copying:); molecule test targets are stub @Suites. Direct pushes to protected main used the authorized bypass (server noted rule bypass; no gates disabled). Local checkouts under .../scratchpad/wave1/{swift-path,swift-path-tagged,swift-path-ownership,swift-path-error}, all clean on main.",
    "completedAt": "2026-08-27T13:42:44Z"
+  },
+  {
+   "package": "swift-system",
+   "repositoryID": 1132373973,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-system",
+   "to": "swift-atoms/swift-system",
+   "shapeCommit": "e04675cb4ddef3c0628760b9de649837cd33289d",
+   "dependencies": [],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-system-cardinal",
+     "repositoryID": 1348535159,
+     "commit": "7c8f164d0b427fe39fd6e07260afa4f7f29ca780",
+     "seam": "Cardinal-backed Tagged quantity typealiases (Page.Size, Path.Length, Memory.Capacity, Processor.Count) plus their Int/UInt64 conversions"
+    },
+    {
+     "successor": "swift-molecules/swift-system-ordinal",
+     "repositoryID": 1348535234,
+     "commit": "b330d1ce9ef24c3ae283bd46e79ac0b15e7d15f9",
+     "seam": "Ordinal-backed System.Processor.ID typealias"
+    },
+    {
+     "successor": "swift-molecules/swift-system-memory",
+     "repositoryID": 1348535307,
+     "commit": "a57675658d3ed81b87b0c31e0f7e0d7779c56239",
+     "seam": "Memory.Alignment <-> System.Page.Size bridge (former System.Page+Alignment.swift)"
+    }
+   ],
+   "notes": "Adjudication: System is a native semantic domain (Page, Path, Processor, Memory, Topology/NUMA, Name namespaces) \u2014 atom. Atom reshape: deleted umbrella Sources/System/Exports.swift (@_exported Cardinal/Ordinal); trimmed System.Page/Path/Memory/Processor.swift to pure enum declarations, moving their Tagged typealiases and Int/UInt64 conversions to seam molecules; pure files (System, Name, Topology x4, Processor.Physical) stayed. No stdlib-extension or Foundation code existed, so \"System Standard Library Integration\" and \"System Apple Foundation Integration\" are seed files per the recipe. Deleted trivial re-export test-support target \"System Test Support\" (Tests/Support) and its product; the kept \"System Tests\" file imported only Testing + @testable System, so no import rewrites were needed and it is fully pure (Topology-only). Products exactly the canonical three; package dependencies emptied (Cardinal, Ordinal, Memory Alignment all left with their seams). Dep coordinates: swift-cardinal, swift-ordinal, swift-memory, swift-tagged all redirect to swift-atoms (already transferred), so molecules pin swift-atoms/... for those and swift-molecules/... for swift-system and swift-system-cardinal. Rewrites in molecules: Tagged is not re-exported by atom Cardinal/Ordinal, so seam files gained explicit `public import Tagged` with a dep on swift-atoms/swift-tagged (product \"Tagged\"); the old `public import Memory_Alignment` was rewritten to `public import Memory` because swift-atoms/swift-memory now ships the single \"Memory\" product; swift-system-memory also depends on swift-system-cardinal since the alignment bridge uses System.Page.Size. Residual red risks (structural pass only, nothing built): Tagged/Cardinal/Ordinal API drift after their own atomization (e.g. Int(bitPattern:) on Tagged values, throwing Memory.Alignment.init(Int)) may not compile; molecule test targets are stub @Suite files. Remote push to swift-molecules/swift-system main reported rule bypass (PR requirement + expected ci-ok check) under the authorized direct-push grant; no gates were disabled.",
+   "completedAt": "2026-08-27T13:42:53Z"
   }
  ],
  "successors": [],
