@@ -1725,20 +1725,29 @@
       "observedHead": "86bffedd22aa24cc019356a82196cba92a7ddc84",
       "observedRemote": "https://github.com/swift-foundations/swift-dependencies.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit d704fa47e44fb1c585f6cf0ccff264938fb740ee from exact parent 86bffedd22aa24cc019356a82196cba92a7ddc84 in clean isolated worktree /private/tmp/four-layer-swift-dependencies with subject Move dependencies to the four-layer graph; the original and pre-existing quality lane were observed and not touched",
+          "audited all 48 tracked paths and made the exact nine-path, 15-insertion/15-deletion mechanical transformation across Package.swift, README, metadata, sources, tests, and test support, mapping Environment/Witnesses coordinates and Dependency/Reference modules while preserving local L1 dependency-context semantics, public APIs, package structure, and canonical Actions; residual, payload, staged-tree, ancestry, and identity checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-dependencies as canonical with stable GitHub repository ID 1144635128, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; no repository rename was needed",
+          "JIT verified Environment and Witnesses at their exact passed live heads and products, then ordinary fast-forward published exact direct child d704fa47e44fb1c585f6cf0ccff264938fb740ee without force or history rewrite",
+          "coordinator independently verified exact live main d704fa47e44fb1c585f6cf0ccff264938fb740ee with unchanged repository ID 1144635128, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, and a clean tracked checkout"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-dependencies-publisher institute package resolve --package-path /private/tmp/four-layer-swift-dependencies --argument=--disable-sandbox against the exact live graph, transitively selecting allowed Swift Syntax 602.0.0; no build, test, compilation, raw SwiftPM, dump-package, or manifest evaluation was invoked",
+          "Package.resolved was absent before resolution and present afterward only as ignored untracked generated state, never edited/deleted/staged/committed, with stable twice-observed SHA-256 e0f23a2b6890bfedb34a24acc0a36fc60bf245b5a45797e2543a0782ea0dd97d; final live identity/SHA and clean tracked checkout were reverified"
+        ]
+      },
+      "githubRepositoryID": 1144635128
     },
     {
       "current": "swift-foundations/swift-diagnostics",
