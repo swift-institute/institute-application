@@ -10670,13 +10670,18 @@
       "observedHead": "88ac7582d62f03d670eb3de9370fbe7acd1f1c71",
       "observedRemote": "https://github.com/swift-ietf/swift-rfc-3339.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit edf200147cc62ad1f41f2f8bb36c09458f6cc62a from expected parent 88ac7582d62f03d670eb3de9370fbe7acd1f1c71 in isolated worktree /private/tmp/four-layer-swift-rfc-3339",
+          "deterministic full-tree equivalence audit verified all 26 tracked files, exact nine-path and 28-insertion/28-deletion mapping of six canonical dependency URLs/products/packages/modules/imports, preserved the standard-library-extensions exception and RFC 3339 package/product/target/path identity with every unrelated file byte-for-byte, zero mapped residuals, public payload, active Actions, human commit identity, clean checkout, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified unchanged canonical coordinate swift-ietf/swift-rfc-3339 at expected main 88ac7582d62f03d670eb3de9370fbe7acd1f1c71 with GitHub repository ID 1105495728, public visibility, non-archived state, and default branch main; no repository rename was required",
+          "fast-forward published exact prepared commit edf200147cc62ad1f41f2f8bb36c09458f6cc62a without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main edf200147cc62ad1f41f2f8bb36c09458f6cc62a with unchanged repository ID 1105495728, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
