@@ -29759,19 +29759,27 @@
       "observedHead": "0463bffd5740b6ba58103f82c73718f42eb8ef3a",
       "observedRemote": "https://github.com/swift-standards/swift-svg-standard.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit d30649c99ac8be69e57ad5f6a3e257fd09f06a31 from expected parent 0463bffd5740b6ba58103f82c73718f42eb8ef3a in isolated worktree /private/tmp/four-layer-swift-svg-standard",
+          "deterministic audit verified the one-path, 12-file-preserving mechanical README related-package coordinate update, unchanged standards identity and W3C SVG dependency, live dependency product, zero mapped residuals, public payload, active Actions reference, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified canonical live coordinate swift-standards/swift-svg-standard at expected main 0463bffd5740b6ba58103f82c73718f42eb8ef3a with GitHub repository ID 1107762194, public visibility, non-archived state, and default branch main; no repository rename was required",
+          "set fetch and push origins to https://github.com/swift-standards/swift-svg-standard.git and fast-forward published exact prepared commit d30649c99ac8be69e57ad5f6a3e257fd09f06a31 without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main d30649c99ac8be69e57ad5f6a3e257fd09f06a31 with unchanged repository ID 1107762194, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-svg-standard-publisher institute package resolve --package-path /private/tmp/four-layer-swift-svg-standard --argument=--disable-sandbox against the exact published commit and live W3C SVG dependency",
+          "post-resolution verification found exact HEAD d30649c99ac8be69e57ad5f6a3e257fd09f06a31, a clean checkout, and untouched generated Package.resolved with stable SHA-256 d12ba81220a20cebca3145d3361c812bbbddbd051c8eaedb0b3d780d9a86d1d3"
+        ]
       }
     },
     {
