@@ -880,20 +880,31 @@
       "observedHead": "064c503e78310d3ac0ae04f5e5f3ff5a1e165ff8",
       "observedRemote": "https://github.com/swift-foundations/swift-certificate-verification.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit fbfb0435cb6f193e335fc85c5754a94bfa333d2c from expected parent 064c503e78310d3ac0ae04f5e5f3ff5a1e165ff8 in clean isolated worktree /private/tmp/four-layer-swift-certificate-verification with subject Move certificate verification dependencies to molecules; the pre-existing nested lane was observed and not touched",
+          "audited all 133 tracked paths and made the exact two-path, seven-insertion/seven-deletion mechanical transformation: Package.swift moved Byte, identity-preserving Standard Library Extensions, and Time dependency coordinates/package identities to molecules, stripped only Byte plural product/package suffixes, preserved legitimate singular Time Primitive/Time_Primitive, and metadata topic foundations became compositions",
+          "preserved external apple/swift-crypto byte-for-byte, every RFC/ISO identity, Standard Library Extensions product/package/module identity, Certificates public semantics, fork-heritage README, sources, tests, and canonical active Actions with no split/refactor/new dependency; complete residual/public-payload/staging/direct-parent/human-identity/committed-tree checks passed, with the unchanged deterministic test fixture containing BEGIN PRIVATE KEY inspected and confirmed non-credential"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled the completed organization cutover idempotently: exact future coordinate swift-compositions/swift-certificate-verification was canonical with GitHub repository ID 1311360258 and node ID R_kgDOTinFAg, public visibility, non-archived state, default branch main, canonical clone URL, and exact live parent 064c503e78310d3ac0ae04f5e5f3ff5a1e165ff8; the legacy owner route redirected and was not used as proof, and no repository rename was needed",
+          "JIT verified external apple/swift-crypto plus all eight ledger-owned dependencies/products at their exact live passed heads, including Byte 21d5194adee27b585f27e01c5c7669f74bb96710, Standard Library Extensions 28a204ee2c6cf1476cd99dc95b81b59868681ebf, and Time 578f830f95eb5f01ab67e7bf7e059d0aa7fd15bb, then ordinary fast-forward published exact direct child fbfb0435cb6f193e335fc85c5754a94bfa333d2c without force or history rewrite",
+          "coordinator independently verified exact live main fbfb0435cb6f193e335fc85c5754a94bfa333d2c with unchanged repository ID 1311360258, exact future coordinate, public visibility, non-archived state, default branch main, canonical origins, exact direct-child ancestry, and a clean isolated checkout"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-certificate-verification-publisher institute package resolve --package-path /private/tmp/four-layer-swift-certificate-verification --argument=--disable-sandbox against all exact live branch dependencies; external swift-crypto resolved within the unchanged declared range at 4.5.1, and no build, test, compilation, raw SwiftPM, or manifest-only substitute was invoked",
+          "coordinator reverified exact live main fbfb0435cb6f193e335fc85c5754a94bfa333d2c with GitHub repository ID 1311360258, public visibility, non-archived state, and default branch main",
+          "HEAD and both origins remained exact and canonical and the isolated checkout remained clean twice; Package.resolved was absent before resolution and present afterward only as ignored untracked generated state with stable twice-observed SHA-256 45714c8d6c60d73c6f926f547dcae4bb008c5c50185d66f5069e0d8623cce88d"
+        ]
+      },
+      "githubRepositoryID": 1311360258
     },
     {
       "current": "swift-foundations/swift-clocks",
