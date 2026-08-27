@@ -2498,23 +2498,32 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-compositions/swift-epub-render",
       "futureLayer": "compositions",
-      "observedHead": "fe32171739eb648dc6852baffa279a1bf6c92911",
-      "observedRemote": "https://github.com/swift-foundations/swift-epub-render.git",
+      "observedHead": "e4de2266363ab384b0e5a77f5452aa7aef56249c",
+      "observedRemote": "https://github.com/swift-compositions/swift-epub-render.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared exact direct-child cutover commit e4de2266363ab384b0e5a77f5452aa7aef56249c from expected base fe32171739eb648dc6852baffa279a1bf6c92911 in clean isolated worktree /private/tmp/epub-render-composition-lane/swift-epub-render",
+          "mechanical four-layer cutover changed only Package.swift with two insertions and two deletions mapping the HTML and HTML Render dependency owners to compositions; all package/product/target/module/public identities and semantics remained unchanged",
+          "all six live dependency identities/products plus residual identity, active Actions-reference, public-payload, machine-path, credential, diff, attribution, and Package.resolved preservation checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "repository ID 1118186052 was verified before and after cutover at exact canonical coordinate swift-compositions/swift-epub-render with unchanged public visibility, non-archived state, default branch main, and active CI",
+          "published exact prepared commit e4de2266363ab384b0e5a77f5452aa7aef56249c as an ordinary fast-forward from fe32171739eb648dc6852baffa279a1bf6c92911 to refs/heads/main through the authenticated administrative ruleset bypass; no force push or history rewrite occurred",
+          "coordinator independently reverified exact live main e4de2266363ab384b0e5a77f5452aa7aef56249c, repository ID 1118186052, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is complete and Package.resolved remained absent twice before and after publication; the repository is queued behind HTML validation and the serialized Institute package-resolution slot"
+        ]
+      },
+      "githubRepositoryID": 1118186052
     },
     {
       "current": "swift-foundations/swift-event-loop-group-dependencies",
