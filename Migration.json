@@ -3381,20 +3381,31 @@
       "observedHead": "80451277ee1e1d3dbb50029f7d1e30887b4d8b08",
       "observedRemote": "https://github.com/swift-foundations/swift-html-render.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit 8fc19ec1a91295785b9afa3018d59ed91cb1c578 from expected parent 80451277ee1e1d3dbb50029f7d1e30887b4d8b08 in clean isolated worktree /private/tmp/four-layer-swift-html-render with subject Prepare HTML Render for four-layer dependencies",
+          "audited all 390 tracked paths and made the exact forty-one-path, eighty-four-insertion/eighty-four-deletion mechanical transformation across Package.swift, README, metadata, thirty-four core sources, three active tests, and one tracked dormant snapshot-support file: owners moved foundations to compositions and primitives to molecules, -primitives package identities and plural Primitives product/module suffixes were removed, and dormant Test Snapshot/Test Core identities were canonicalized",
+          "preserved legitimate singular Buffer Linear Primitive, Hash Indexed Primitive, Ownership Shared Primitive, and Async Primitive identities; all HTML Render package/product/target/path/public semantics, dependency surfaces, tests, active Actions, and source behavior were preserved with no split/refactor/new dependency, while complete residual/public-payload/staging/direct-parent/human-identity checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled the completed organization cutover idempotently: exact future coordinate swift-compositions/swift-html-render was canonical with GitHub repository ID 1107759123, public visibility, non-archived state, default branch main, canonical clone URL, and exact live parent 80451277ee1e1d3dbb50029f7d1e30887b4d8b08; the legacy owner route redirected and was not used as proof, and no repository rename was needed",
+          "JIT verified all fourteen future dependency repositories and products at exact live passed heads, then ordinary fast-forward published exact direct child 8fc19ec1a91295785b9afa3018d59ed91cb1c578 through the configured administrator ruleset bypass without force or history rewrite",
+          "coordinator independently verified exact live main 8fc19ec1a91295785b9afa3018d59ed91cb1c578 with unchanged repository ID 1107759123, exact future coordinate, public visibility, non-archived state, default branch main, canonical origins, exact direct-child ancestry, and a clean isolated worktree"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-html-render-publisher institute package resolve --package-path /private/tmp/four-layer-swift-html-render --argument=--disable-sandbox against all fourteen exact live future dependency coordinates and their canonical transitive graph; no build, test, compilation, raw SwiftPM, or manifest-only substitute was invoked",
+          "coordinator reverified exact live main 8fc19ec1a91295785b9afa3018d59ed91cb1c578 with GitHub repository ID 1107759123, public visibility, non-archived state, and default branch main",
+          "HEAD and both origins remained exact and canonical and the isolated checkout remained clean; Package.resolved was absent twice before resolution and present afterward only as ignored untracked generated state with stable twice-observed SHA-256 230b93648d0a21299748bc9eac25e00b64ff4911be88b314b2aa98e48c718238"
+        ]
+      },
+      "githubRepositoryID": 1107759123
     },
     {
       "current": "swift-foundations/swift-http-body",
