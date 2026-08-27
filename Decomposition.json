@@ -1079,6 +1079,43 @@
    ],
    "notes": "Adjudication: Cardinal (typed non-negative count over UInt with overflow-safe arithmetic) is an irreducible native semantic domain \u2014 clear atom. Atom shape: Sources/Cardinal = Cardinal.swift (ex Cardinal Primitive) + Cardinal.Error.swift (ex Cardinal Error); all 10 intra-package exports.swift umbrellas deleted; every X_Primitive/X_Error import rewritten to Cardinal. SLI target retains only dependency-free stdlib files (CustomStringConvertible, ExpressibleByIntegerLiteral, UnsignedInteger, AtomicRepresentable behind SYNCHRONIZATION_AVAILABLE [Synchronization is a toolchain stdlib module, not Foundation], Int<->Cardinal conversions). Int+Cardinal.swift was split: the one Carrier-based init moved to swift-cardinal-carrier as Int+Cardinal.Carrier.swift. No Foundation imports existed anywhere, so AFI is the three-line seed file. Products exactly Cardinal / Cardinal Standard Library Integration / Cardinal Apple Foundation Integration; zero package dependencies; ecosystem SwiftSetting loop kept verbatim including the SYNCHRONIZATION_AVAILABLE define. Cardinal Test Support (trivial re-export of Cardinal + Tagged_Test_Support) deleted; its import removed from kept tests. All six former external deps (tagged, carrier, property, equation, hash, comparison) have transferred to swift-atoms \u2014 swift-molecules URLs redirect \u2014 so molecules pin swift-atoms coordinates for them, swift-molecules for swift-cardinal and cross-molecule deps, all branch: main. Cross-molecule deps: swift-cardinal-property depends on swift-cardinal-carrier (Cardinal.Subtract uses .zero/one and >= defined via Carrier.Protocol); swift-cardinal-tagged depends on swift-cardinal-property (Tagged+Cardinal.Add/Subtract import the former Cardinal_Add/Cardinal_Subtract, rewritten to Cardinal_Property) and on swift-property/swift-tagged. Residual red expected (structural pass, nothing built): kept Tests/Cardinal Tests/Cardinal Tests.swift still references extracted .add/.subtract properties, Carrier-provided .zero/.one, and integer-literal construction now living in SLI while the test target depends only on Cardinal; molecule test files dropped @testable (cross-package) and may need further import repair; SLI files that previously leaned on the deleted @_exported umbrellas may need additional public import Cardinal lines. Direct pushes to main used remote bypass of the PR/ci-ok rules as authorized. All seven working trees verified clean; remote heads read back and match.",
    "completedAt": "2026-08-27T12:43:25Z"
+  },
+  {
+   "package": "swift-either",
+   "repositoryID": 1232911534,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-either",
+   "to": "swift-atoms/swift-either",
+   "shapeCommit": "d16fd1ebb97994322ab53ea1cc0d7471f7a2b54f",
+   "dependencies": [],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-either-equation",
+     "repositoryID": 1348477386,
+     "commit": "faf4b41bf9ceee8b7a43b6962341d5a92553938d",
+     "seam": "Either: Equation.Protocol conditional conformance (Either+Equation.Protocol.swift) integrating with swift-atoms/swift-equation"
+    },
+    {
+     "successor": "swift-molecules/swift-either-hash",
+     "repositoryID": 1348477477,
+     "commit": "788352c700fdf08df49ba92c53c8be42e6ff6525",
+     "seam": "Either: Hash.Protocol and the Hash-gated Swift.Hashable conformance (Either+Hash.Protocol.swift) integrating with swift-atoms/swift-hash"
+    },
+    {
+     "successor": "swift-molecules/swift-either-comparison",
+     "repositoryID": 1348477571,
+     "commit": "c22e62f29822f3596e06f86684e77e43870b7f7a",
+     "seam": "Either: Comparison.Protocol conditional conformance (Either+Comparison.Protocol.swift) integrating with swift-atoms/swift-comparison"
+    },
+    {
+     "successor": "swift-molecules/swift-either-standard-library-extensions",
+     "repositoryID": 1348477639,
+     "commit": "fa21b36559414378cd6ebf363e5bd0d6e0795e10",
+     "seam": "Either.init(Standard_Library_Extensions.Result) bridge plus its dedicated test file, integrating with swift-molecules/swift-standard-library-extensions"
+    }
+   ],
+   "notes": "Adjudication: Either is the native irreducible owner of the binary-coproduct domain (a single @frozen generic enum plus its pure functor surface: map/flatMap/fold/swap/accessors/Never-elimination) \u2014 clearly an atom, not tooling, an external standard, or a mere relator. Domain spelling derived from existing product/target \"Either\". Reshape (atom head d16fd1eb, direct push to main, server noted rule bypass as expected for authorized direct pushes): removed the three @_exported umbrella imports (Comparison/Equation/Hash) from Sources/Either/Either.swift; extracted the four external-dependency seam files listed in splits; moved the stdlib Codable conditional conformance out of Either.swift into new \"Sources/Either Standard Library Integration/Either+Codable.swift\" (public import Either) so the SLI target has real content (no seed file needed); created \"Either Apple Foundation Integration\" as the three-line seed (public import Either / public import Either_Standard_Library_Integration / public import Foundation); manifest now has zero package dependencies, exactly the three canonical products, and the verbatim tools-version 6.4 / .v27 platforms / swiftLanguageModes [.v6] / trailing ecosystem SwiftSetting loop idiom. Tests: \"Either Tests\" kept with deps [\"Either\"]; its imports of Comparison/Equation/Hash deleted; \"Either+StandardLibraryExtensions.Result Tests.swift\" moved to the SLE molecule (with import Either_Standard_Library_Extensions added). No SLI-specific test files existed, so no SLI test target. Residual red in kept Tests/Either Tests/Either Tests.swift: the \"Institute Integration\" suite (Probe/Cell conformances to Equation/Hash/Comparison protocols) references all three extracted domains and could not be split to a single molecule; the Conformances suite's Hashable/Codable checks and every test using == on Either values also depend on the extracted Hash/Equation conformances (== now lives in swift-either-equation) \u2014 deliberately left red per structural-only mandate. Sources/Either itself is dependency-free; kept dependencies: none. Molecule coordinates verified live before pinning: equation/hash/comparison resolve to swift-atoms (already transferred), standard-library-extensions and swift-either remain swift-molecules; all deps branch: \"main\", no tags or path deps. Each molecule carries LICENSE.md and .gitignore copied from swift-either, a one-line README, product/target \"Either D\" with module Either_D via SwiftPM name normalization, and a test target (\"Either D Tests\"; stub @Suite where no seam tests existed). git status clean in all five directories under /private/tmp/claude-501/-Users-coen-Developer-coenttb/20dff9a4-b817-42e7-bbc6-9081ab416a17/scratchpad/wave1/. No PRs merged, no CI gates touched, no history rewrites.",
+   "completedAt": "2026-08-27T12:43:34Z"
   }
  ],
  "successors": [],
