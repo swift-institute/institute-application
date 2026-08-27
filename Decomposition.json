@@ -5033,6 +5033,15 @@
     "wave": "tranche0-unblock-2",
     "changes": "Slimmed Input to a zero-dependency native cursor core after Property.Inout and Index.Count/Offset seams were extracted; implemented direct restore/remove/seek/element operations with validated bounds and moved Optional Restorable coverage to SLI tests. Exact three products preserved; Foundation only in AFI. Fresh build green; fresh tests green (30 tests).",
     "bookedAt": "2026-08-27T18:49:01Z"
+   },
+   {
+    "repo": "swift-atoms/swift-geometry",
+    "headSHA": "d86d07e40b1e762b9d1e849d975a289c9d46b251",
+    "build": "green",
+    "test": "green",
+    "wave": "tranche0-geometry",
+    "changes": "Removed the swift-molecules/swift-affine-geometry production edge and adopted the absorbed Affine atom surface; canonicalized dependencies to atom homes and repaired Tagged, Numeric, explicit Codable, and dimension-safe Scale uses. Canonical atom shape preserved. Fresh build green; fresh tests green (382 tests in 116 suites).",
+    "bookedAt": "2026-08-27T18:55:19Z"
    }
   ]
  }
