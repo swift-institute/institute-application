@@ -2463,6 +2463,52 @@
    ],
    "notes": "Adjudication: Geometry is a native semantic domain (Line, Polygon, Ball, Bezier, Ellipse, Arc, Ngon, Orthotope, Path, Ray, Size, Insets, Depth, Curvature, Area are original content, not mere relation of other domains) \u2014 atom, but one that irreducibly sits on the linear/affine substrate, so 5 package dependencies remain. Reshape: deleted Sources/Geometry/exports.swift (umbrella @_exported of 6 modules) and the trivial re-export target \"Geometry Test Support\" (Tests/Support/exports.swift); its product removed; test-file `import Geometry_Test_Support` rewritten to `import Affine_Test_Support` (the other module it re-exported; tests already import Geometry). Seams: swift-pair and swift-boundary each had exactly one use site; both extracted to molecules (imports rewritten to `public import Geometry`) and the dependencies dropped from the atom. No file imports Foundation and no whole file is dedicated to stdlib conformances (Codable/Hashable/etc. are conditional conformances interleaved inside each core type file, left in place, matching file-granularity of the recipe), so \"Geometry Standard Library Integration\" and \"Geometry Apple Foundation Integration\" were created as seed files with exactly the prescribed contents; products are exactly the canonical three. Manifest keeps tools-version 6.4, .v27 platforms, swiftLanguageModes [.v6], and the verbatim trailing ecosystem SwiftSetting loop; kept dependency URLs updated to their current live orgs (linear/affine/dimension/numeric now swift-atoms). Expected residual red (structural pass only, per brief): \"Geometry Tests\" target deps are exactly [\"Geometry\"], but test files still import Affine_Test_Support, Dimension, Real, and @testable Linear/Affine/Geometry (@testable of dependency modules was pre-existing); Geometry module files that previously leaned on the umbrella for Boundary no longer need it (the one Boundary use was extracted). No seam-specific tests existed; both molecules carry stub @Suite test targets. Pushes to main used the authorized direct-push path (server noted bypassed branch-protection rules \u2014 expected org-admin bypass, no gate disabled). Local checkouts: /private/tmp/claude-501/-Users-coen-Developer-coenttb/20dff9a4-b817-42e7-bbc6-9081ab416a17/scratchpad/wave1/{swift-geometry,swift-geometry-pair,swift-geometry-boundary}, all clean and in sync with origin/main.",
    "completedAt": "2026-08-27T16:12:35Z"
+  },
+  {
+   "package": "swift-column",
+   "repositoryID": null,
+   "disposition": "molecule",
+   "from": "swift-molecules/swift-column",
+   "to": "swift-molecules/swift-column",
+   "shapeCommit": "71623b0d81027078d4ac90066d6bfc9ed945e299",
+   "dependencies": [
+    "swift-buffer (unchanged; deferred without reshaping)",
+    "swift-buffer-linear (unchanged)",
+    "swift-buffer-ring (unchanged)",
+    "swift-storage (unchanged)",
+    "swift-storage-generational (unchanged)",
+    "swift-ownership-shared (unchanged)",
+    "swift-memory (unchanged)",
+    "swift-memory-heap (unchanged)",
+    "swift-memory-allocation (unchanged)",
+    "swift-index (unchanged; test-only)",
+    "swift-tagged (unchanged; test-only)"
+   ],
+   "splits": [],
+   "notes": "Outer-loop adjudication: pure composition of nine substrate molecule packages (\"no new types\" per its own README); relates multiple independent domains at once, so it stays in swift-molecules; molecule-vs-composition layer call deferred to the certification pass. Lane notes: Adjudicated DEFER: swift-column is not a native semantic domain. Its entire content (Sources/Column/Column.swift, Sources/Column/Column.Direct.swift) is typealiases composing Buffer x Storage x Memory x Ownership x Store types from nine external molecule packages; the README explicitly declares it \"pure composition: no new types\". An atom reshape would require the Column module to shed all external dependencies, leaving only an empty `public enum Column {}` \u2014 every file's reason to exist is rela",
+   "completedAt": "2026-08-27T16:12:49Z"
+  },
+  {
+   "package": "swift-dictionary",
+   "repositoryID": null,
+   "disposition": "molecule",
+   "from": "swift-molecules/swift-dictionary",
+   "to": "swift-molecules/swift-dictionary",
+   "shapeCommit": "b82a4172e3f8644502adf699e686639236a7feaf",
+   "dependencies": [
+    "swift-hash-table \u2014 Hash.Indexed is the store type Dictionary is defined over (its generic S parameter and all algorithm where-clauses)",
+    "swift-hash \u2014 Hash.Key constraint, Hash.Protocol conformance of Hash.Entry, hashValue probing",
+    "swift-buffer \u2014 Buffer.Protocol constraint and Buffer type in the canonical store composition",
+    "swift-buffer-linear \u2014 Buffer<...>.Linear is the concrete layout in the Dictionary typealias and every specialized operation",
+    "swift-storage \u2014 Storage<...>.Contiguous, Storage Primitive, and Store.Protocol constraints in the store composition",
+    "swift-memory-heap \u2014 Memory.Heap allocator in the canonical Dictionary typealias",
+    "swift-memory-allocation \u2014 Memory.Allocator wrapper in the canonical Dictionary typealias",
+    "swift-ownership-shared \u2014 Ownership.Shared CoW variant of the dictionary store (insert/withUnique paths)",
+    "swift-index \u2014 Index.Index<...>.Count is the count/capacity/minimumCapacity currency type in the public API"
+   ],
+   "splits": [],
+   "notes": "Outer-loop adjudication overriding lane atom call (same rule as swift-builder): canonical internal shape adopted at the reported head, but nine irreducible molecule-level substrate dependencies (hash-table, buffer-linear, storage-contiguous, memory-heap/allocation, ownership-shared) make it molecule-tier; an atom may not depend on molecules, so it stays in swift-molecules. Lane notes: Adjudication: Dictionary (associative map) is a native semantic domain, so atom. However, this atom is not dependency-free: __Dictionary is a thin generic wrapper whose entire implementation is expressed as compositions of substrate molecules (Hash.Indexed over Buffer.Linear over Storage.Contiguous over Memory.Allocator<Memory.Heap>, optionally under Ownership.Shared). No file's reason to exist is \"integrate Dictionary with D\" \u2014 every file is the dictionary itself \u2014 so there are no seams to extr",
+   "completedAt": "2026-08-27T16:12:49Z"
   }
  ],
  "successors": [],
@@ -2486,7 +2532,9 @@
     "swift-atoms/swift-memory -> swift-molecules/swift-bit-index (Memory.Shift stores Bit.Index.Count)",
     "swift-atoms/swift-path -> swift-molecules/swift-memory-heap (Path storage)",
     "swift-atoms/swift-string -> swift-molecules/swift-memory-heap (String storage)",
-    "swift-atoms/swift-lexer -> swift-molecules/swift-memory-cursor (Scanner.init)"
+    "swift-atoms/swift-lexer -> swift-molecules/swift-memory-cursor (Scanner.init)",
+    "swift-atoms/swift-geometry -> swift-molecules/swift-affine-geometry (Geometry.Point built on Affine_Geometry)",
+    "swift-atoms/swift-heap seam molecule swift-heap-buffer-linear calls package-visibility members of the atom"
    ]
   }
  ]
