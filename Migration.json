@@ -12939,20 +12939,26 @@
       "observedHead": "3a7e52b09ba3812dc9ad1574f5cf7a6e6d9ade37",
       "observedRemote": "https://github.com/swift-ietf/swift-rfc-8446.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit a77c98fe7c99c03eec8e848358cf041fe8afeb06 from exact live parent 3a7e52b09ba3812dc9ad1574f5cf7a6e6d9ade37 in clean isolated worktree /private/tmp/four-layer-swift-rfc-8446-root with subject Prepare RFC 8446 for the four-layer cutover",
+          "audited all 115 tracked paths and made the exact 55-path, 68-insertion/68-deletion mechanical transformation across Package.swift, source imports, and test imports, mapping six primitive dependency coordinates, plural product identities, and plural modules to canonical molecules while preserving Standard Library Extensions, external swift-crypto, RFC 8446 public semantics, metadata, and canonical Actions; residual, payload, staged-tree, direct-parent, and identity checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "JIT verified unchanged canonical coordinate swift-ietf/swift-rfc-8446 with stable GitHub repository ID 1132375341, public visibility, non-archived state, default branch main, canonical origins, and exact live parent, plus all six passed molecule dependencies and external apple/swift-crypto at their exact live identities/products",
+          "ordinary fast-forward published exact direct child a77c98fe7c99c03eec8e848358cf041fe8afeb06 through the configured administrator ruleset bypass without rename, force, or history rewrite",
+          "coordinator verified exact live main a77c98fe7c99c03eec8e848358cf041fe8afeb06 twice with unchanged repository ID 1132375341, exact coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, and a clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
         "records": []
-      }
+      },
+      "githubRepositoryID": 1132375341
     },
     {
       "current": "swift-ietf/swift-rfc-9110",
