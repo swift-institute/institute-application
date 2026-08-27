@@ -835,6 +835,27 @@
    ],
    "notes": "Adjudication: atom \u2014 Equation is a native semantic domain (equality/Equatable ownership: Equation enum namespace + Equation.Protocol typealias bridging Swift.Equatable, with a ~Copyable-aware Span equality integration). Reshape: collapsed \"Equation Primitive\" (Equation.swift) and \"Equation Protocol\" (Equation.Protocol.swift) into the single Sources/Equation module via git mv; deleted all intra-package umbrella exports.swift files (Equation, Equation Protocol, Equation Standard Library Integration, Tests/Support) and dropped the now-internal Equation_Primitive import. \"Equation Standard Library Integration\" kept with deps exactly [\"Equation\"]; its Span extension file gained an explicit \"public import Equation\". Created seed \"Equation Apple Foundation Integration\" target (deps [\"Equation\", \"Equation Standard Library Integration\"]) with the three-line seed file \u2014 no Foundation-importing code existed. Products reduced to exactly the three canonical ones. Seam out: \"Equation Tagged\" target (re-exports Equation + Tagged) moved to new swift-molecules/swift-equation-tagged (product/target \"Equation Tagged\", module Equation_Tagged), deps swift-molecules/swift-equation (branch main) + swift-atoms/swift-tagged (branch main \u2014 API redirect confirms transfer to swift-atoms); the Tagged Integration test suite and Tagged<User, Int> typealias moved to its \"Equation Tagged Tests\" target. Dependencies dropped from the atom: swift-tagged (moved to molecule) and swift-property \u2014 Property appeared only as an @_exported line in the deleted umbrella exports.swift with zero integration code, so no swift-equation-property molecule was warranted; dependenciesKept is empty. Trivial \"Equation Test Support\" target deleted; kept \"Equation Tests\" now imports Equation + Testing directly (deps [\"Equation\"]); no residual references to extracted domains remain in kept tests. Structural pass only per brief \u2014 nothing built or resolved; the atom push to main bypassed the PR/ci-ok branch rules via the authorized direct-push identity (reported by the remote as bypassed rule violations, no gate disabled). Local checkouts: /private/tmp/claude-501/-Users-coen-Developer-coenttb/20dff9a4-b817-42e7-bbc6-9081ab416a17/scratchpad/wave1/swift-equation and .../wave1/swift-equation-tagged, both with clean git status.",
    "completedAt": "2026-08-27T12:30:11Z"
+  },
+  {
+   "package": "swift-hash",
+   "repositoryID": 1139271130,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-hash",
+   "to": "swift-atoms/swift-hash",
+   "shapeCommit": "74f42d764d349af162df4a9e61aa94c42ac04644",
+   "dependencies": [
+    "swift-atoms/swift-tagged"
+   ],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-hash-tagged",
+     "repositoryID": 1348470804,
+     "commit": "54d33638f61450f07f7eb44a0292be7a67d3b9be",
+     "seam": "Tagged conformance to Hash.Protocol (Hash.Protocol+Tagged.swift) extracted as product 'Hash Tagged', module Hash_Tagged, depending on swift-molecules/swift-hash and swift-atoms/swift-tagged"
+    }
+   ],
+   "notes": "Adjudication: atom \u2014 Hash is a native semantic domain (typed hashing: Hash.Protocol for ~Copyable/~Escapable types plus typed Hash.Value). Collapsed Hash Primitive + Hash Value + Hash Protocol into Sources/Hash; deleted all intra-package umbrella exports.swift files (Hash, Hash Value, Hash Protocol, Hash Tagged, Tests/Support) and removed Hash_Primitive imports. Dependency kept: swift-tagged, because the domain's core value type is defined as `Hash.Value = Tagged<Hash, Int>` and Hash.Protocol's hashValue requirement returns it \u2014 the atom irreducibly needs Tagged; resolved at its current live coordinate swift-atoms/swift-tagged (the swift-molecules URL is a transfer redirect). swift-equation and swift-property dropped: referenced only from deleted @_exported umbrellas, zero source usage. SLI target keeps its 15 pre-existing stdlib conformance files with exports.swift rewritten to `@_exported public import Hash` (mirrors swift-atoms/swift-byte exemplar); those files carry no import lines of their own (pre-existing style) and may be red under MemberImportVisibility \u2014 left for the later red pass. AFI created as the three-line seed (no Foundation imports existed anywhere). Tests: deleted trivial re-export target Hash Test Support; Hash Tests imports rewritten to `import Hash` + `import Tagged`, and the test target carries the Tagged product in addition to Hash (deviation from the literal deps [\"Hash\"]: the kept file's Hash.Value, Tagged<Self,Int>, and Set tests use Tagged directly and Tagged is a kept atom-package dependency). Residual red references in kept tests: the `Integration` and `Standard Library` suites exercise the extracted Tagged\u2192Hash.Protocol conformance (now in swift-hash-tagged) and SLI conformances not visible from deps \u2014 noted, acceptable per brief. Molecule test target is a stub @Suite. Local checkouts at /private/tmp/claude-501/-Users-coen-Developer-coenttb/20dff9a4-b817-42e7-bbc6-9081ab416a17/scratchpad/wave1/swift-hash and .../swift-hash-tagged; both trees clean, both heads read back via git rev-parse. Push to swift-hash main used the authorized direct-push path (server reported bypassed PR/status-check rules; no gate disabled).",
+   "completedAt": "2026-08-27T12:34:27Z"
   }
  ],
  "successors": [],
