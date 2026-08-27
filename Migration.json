@@ -25772,15 +25772,23 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-rename main at expected commit 46578e084392d2029432d11bfc58b4dc015fbfe4 on exact live coordinate swift-molecules/swift-set-ordered-primitives and verified exact future coordinate returned HTTP 404",
+          "renamed repository to swift-molecules/swift-set-ordered and verified stable GitHub repository ID 1250662008 with public visibility, non-archived state, and default branch main",
+          "an initial locally malformed unbraced refspec was rejected before remote mutation; after re-verifying the unchanged remote base, fast-forward published exact prepared commit 39943f5f2108e64c2adc8d9f1e98d1a1c1adf1ab without force or history rewrite",
+          "updated and verified both isolated-worktree origins at https://github.com/swift-molecules/swift-set-ordered.git",
+          "coordinator reverified live main 39943f5f2108e64c2adc8d9f1e98d1a1c1adf1ab with unchanged repository ID, public visibility, non-archived state, default branch main, and clean isolated worktree"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-set-ordered-publisher institute package resolve --package-path /private/tmp/four-layer-swift-set-ordered --argument=--disable-sandbox against live molecule dependencies",
+          "prepared HEAD remained 39943f5f2108e64c2adc8d9f1e98d1a1c1adf1ab and the isolated worktree remained clean",
+          "Package.resolved was absent before resolution and present afterward as untouched ignored generated state with stable SHA-256 8363d3ca751b94ec93883edf87c68237bb7a1a508d187a8b2d72034a6b8f8f35"
+        ]
       }
     },
     {
@@ -27930,15 +27938,23 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-rename main at expected commit 8068fade9cc56e109faef38e590eed20ffd764bd on exact live coordinate swift-molecules/swift-tree-primitives and verified exact future coordinate returned HTTP 404",
+          "renamed repository to swift-molecules/swift-tree and verified stable GitHub repository ID 1139270620 with public visibility, non-archived state, and default branch main",
+          "updated isolated worktree fetch and push origin to https://github.com/swift-molecules/swift-tree.git",
+          "fast-forward published exact prepared commit 7277d8c945c3cfa1542edfc28d3edfbea1117b5c without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main 7277d8c945c3cfa1542edfc28d3edfbea1117b5c with unchanged repository ID, public visibility, non-archived state, default branch main, and clean isolated worktree"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-tree-publisher institute package resolve --package-path /private/tmp/four-layer-swift-tree --argument=--disable-sandbox against live molecule dependencies",
+          "prepared HEAD remained 7277d8c945c3cfa1542edfc28d3edfbea1117b5c and the isolated worktree remained clean in repeated checks",
+          "Package.resolved was absent before resolution and present afterward as untouched ignored generated state with stable SHA-256 d7ebb492de4c2ad45af8ddb9beb02b49a139dfb5d89ebee3038dce7e8dadef82"
+        ]
       }
     },
     {
