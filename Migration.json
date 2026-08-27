@@ -1429,20 +1429,31 @@
       "observedHead": "77f0404c2bf9bde1db1561c67dce1c603553c860",
       "observedRemote": "https://github.com/swift-foundations/swift-css-html-render.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit a2872d313b0857434ac32f1ef92df14ef5a75b76 from expected parent 77f0404c2bf9bde1db1561c67dce1c603553c860 in clean isolated worktree /private/tmp/four-layer-swift-css-html-render with subject Prepare CSS HTML Render for four-layer dependencies",
+          "audited all 535 tracked paths and made the exact three-path, three-insertion/three-deletion mechanical transformation: Package.swift moved the HTML Render URL from swift-foundations to swift-compositions, README moved the CSS HTML Render installation URL to swift-compositions, and metadata topic foundations became compositions",
+          "preserved CSS HTML Render package/product/target/module/path/public semantics, CSS Standard identity, all source behavior, and canonical active Actions with no split/refactor/new dependency; complete residual/public-payload/staging/direct-parent/human-identity/committed-tree checks passed with path-list hash b821c5e21402c4b8b3801188de63eff610d2bbdeff84cfdaef47ee2496642556 and tree-listing hash ca5353f5d335531283c992d24d275fd02a6c15fcd0544994382f7e9c1d0ccf3c"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled the completed organization cutover idempotently: exact future coordinate swift-compositions/swift-css-html-render was canonical with GitHub repository ID 1117535730, public visibility, non-archived state, default branch main, canonical clone URL, and exact live parent 77f0404c2bf9bde1db1561c67dce1c603553c860; the legacy owner route redirected and was not used as proof, and no repository rename was needed",
+          "reverified exact live dependencies HTML Render 8fc19ec1a91295785b9afa3018d59ed91cb1c578 with repository ID 1107759123 and CSS Standard 440ccfc24424c56aadccc7d35e0d6b7c50e9944c with repository ID 1108564035 plus their required products, then ordinary fast-forward published exact direct child a2872d313b0857434ac32f1ef92df14ef5a75b76 through the configured administrator ruleset bypass without force or history rewrite",
+          "coordinator independently verified exact live main a2872d313b0857434ac32f1ef92df14ef5a75b76 with unchanged repository ID 1117535730, exact future coordinate, public visibility, non-archived state, default branch main, canonical origins, exact direct-child ancestry, and a clean isolated checkout"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-css-html-render-publisher institute package resolve --package-path /private/tmp/four-layer-swift-css-html-render --argument=--disable-sandbox against exact live HTML Render 8fc19ec1a91295785b9afa3018d59ed91cb1c578, CSS Standard 440ccfc24424c56aadccc7d35e0d6b7c50e9944c, and the canonical transitive graph; no build, test, compilation, raw SwiftPM, or manifest-only substitute was invoked",
+          "coordinator reverified exact live main a2872d313b0857434ac32f1ef92df14ef5a75b76 with GitHub repository ID 1117535730, public visibility, non-archived state, and default branch main",
+          "HEAD and both origins remained exact and canonical and the isolated checkout remained clean; Package.resolved was absent twice before resolution and present afterward only as ignored untracked generated state with stable twice-observed SHA-256 87b288cf028998c65a78faaf5aa7d0f1d73a5c6341758ac5f65459814503ab63"
+        ]
+      },
+      "githubRepositoryID": 1117535730
     },
     {
       "current": "swift-foundations/swift-darwin",
