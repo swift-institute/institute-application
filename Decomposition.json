@@ -1919,6 +1919,45 @@
    ],
    "notes": "Adjudication: atom \u2014 swift-string is the irreducible native owner of the platform-string domain (owned ~Copyable null-terminated storage, borrowed view, platform code units); not tooling, not an external standard, not a pure relater. Kept dependency: Memory Heap is irreducible \u2014 String's stored property _storage is Memory.Heap, the type cannot exist without it. Reshape: single String module retained (no strata targets existed); seam integrations removed so the atom lost Span_Protocol, Tagged, and Ownership entirely. New seed targets: 'String Standard Library Integration' (seed file, no stdlib-conformance code existed in the package) and 'String Apple Foundation Integration' (seed file; no Foundation imports existed anywhere). Products exactly three. Tests: 'String Tests' kept with deps [\"String\"]; trivial re-export target 'String Test Support' (Tests/Support) deleted \u2014 its product and Tagged_Test_Support re-export dropped; the test file already imported Testing + @testable String, uses no Tagged symbols, so no rewrites were needed and no residual red references remain in kept tests. No SLI test files existed. Molecule imports rewritten by adding 'public import String' to the moved Tagged files; each molecule mirrors the atom's STRING_AVAILABLE define so the platform-gated bodies still compile. Dependency coordinates use current live homes: swift-atoms for swift-tagged/swift-span/swift-ownership, swift-molecules for swift-string and swift-memory-heap; branch: \"main\" throughout. Atom README.md/.github/metadata.yaml left untouched and now stale (they still describe the old two-product shape with Tagged integration) \u2014 flagged for a later docs pass. Push to main reported a bypassed branch-protection notice (org-admin bypass, expected under the pre-release posture); direct push was authorized by the commission. Remote heads read back and verified equal to local SHAs; git status clean in swift-string and all three molecule directories. Structural pass only: nothing was built, resolved, or tested. Paths: /private/tmp/claude-501/-Users-coen-Developer-coenttb/20dff9a4-b817-42e7-bbc6-9081ab416a17/scratchpad/wave1/{swift-string,swift-string-tagged,swift-string-span,swift-string-ownership}.",
    "completedAt": "2026-08-27T13:32:18Z"
+  },
+  {
+   "package": "swift-orthant",
+   "repositoryID": 1264249366,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-orthant",
+   "to": "swift-atoms/swift-orthant",
+   "shapeCommit": "e4e9333a546eacaa0bd9a905dc88ef12acca32f2",
+   "dependencies": [
+    "swift-atoms/swift-direction"
+   ],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-orthant-equation",
+     "repositoryID": 1348525031,
+     "commit": "5e581eb0bbcbe62e3375fc9cf9e68403956544e5",
+     "seam": "Orthant conformance to Equation.Protocol (swift-equation)"
+    },
+    {
+     "successor": "swift-molecules/swift-orthant-hash",
+     "repositoryID": 1348525130,
+     "commit": "21dcd876ecda3d43d1b48f2ffa0a0e18436a13c9",
+     "seam": "Orthant conformance to Hash.Protocol (swift-hash)"
+    },
+    {
+     "successor": "swift-molecules/swift-orthant-comparison",
+     "repositoryID": 1348525211,
+     "commit": "2ba36f1afee750c5d3d1d5cd8bac9c2214236478",
+     "seam": "Orthant conformance to Comparison.Protocol (swift-comparison)"
+    },
+    {
+     "successor": "swift-molecules/swift-orthant-finite",
+     "repositoryID": 1348525281,
+     "commit": "0a6ef55871936abcc60a3422c5e091fe73f4fab0",
+     "seam": "Orthant conformance to Finite.Enumerable (swift-finite / swift-finite-ordinal / swift-ordinal / swift-cardinal), including its seam test file"
+    }
+   ],
+   "notes": "Adjudication: Orthant<let N: Int> (sign orthant of N-dimensional space) is an irreducible native semantic domain; default atom disposition applies. Kept dependency: swift-atoms/swift-direction \u2014 the core type is literally InlineArray<N, Direction>; Direction appears in the public API of every initializer and property, so the atom irreducibly needs the Direction product (mirrors how swift-direction itself remained the substrate for orthant pre-reshape). Atom reshape at /private/tmp/claude-501/-Users-coen-Developer-coenttb/20dff9a4-b817-42e7-bbc6-9081ab416a17/scratchpad/wave1/swift-orthant: \"Orthant Primitive/Orthant.swift\" git-mv'd to Sources/Orthant/Orthant.swift (import Direction_Primitive rewritten to public import Direction; == < <= > >= operators and hash(into:) kept in the atom, matching the swift-direction exemplar); all three exports.swift umbrella files deleted; the #if !hasFeature(Embedded) Codable conformance moved to new \"Sources/Orthant Standard Library Integration/Orthant+Codable.swift\"; \"Orthant Apple Foundation Integration\" created as the three-line seed. Deviation from brief (necessity): the SLI target's deps are [\"Orthant\", \"Direction\", \"Direction Standard Library Integration\"] rather than exactly [\"Orthant\"], because the moved Codable code decodes/encodes Direction values and needs Direction's Codable conformance (declared in Direction Standard Library Integration); no new package dependency was introduced. Trivial re-export target \"Orthant Test Support\" (@_exported Ordinal_Test_Support) deleted; product \"Ordinal Test Support\" no longer exists at swift-atoms/swift-ordinal. Seam coordinates verified live: swift-direction/finite/ordinal/equation/hash/comparison/cardinal are all transferred atoms in swift-atoms with bare-domain products; Finite.Enumerable now lives in swift-molecules/swift-finite-ordinal (product \"Finite Ordinal\"), so swift-orthant-finite depends on it plus Cardinal/Ordinal/Direction/Finite; molecule naming follows the swift-bit-finite and swift-direction-hash precedents. Molecule imports rewritten Orthant_Primitive->Orthant; the Enumerable file's plain imports became public imports (public API positions under InternalImportsByDefault). Residual red references in kept files: Tests/Orthant Tests/Orthant Tests.swift uses Set<Orthant<2>> (Hashable now arrives via the swift-orthant-hash molecule, not the atom) and the moved enumerable test relies on allCases from Finite.Enumerable's CaseIterable bridge in swift-finite-ordinal \u2014 acceptable per brief; no builds were run by instruction. Direct push to main bypassed the PR/CI rule via org-admin (expected, reported by remote). All five working trees verified clean.",
+   "completedAt": "2026-08-27T13:32:27Z"
   }
  ],
  "successors": [],
