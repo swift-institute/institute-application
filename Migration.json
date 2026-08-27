@@ -8849,7 +8849,7 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-compositions/swift-tests",
       "futureLayer": "compositions",
-      "observedHead": "84b30a00e4cef0d165e6075c0d1e601d77bb2697",
+      "observedHead": "95f12b95ec50217d813308a2326c1b205210f017",
       "observedRemote": "https://github.com/swift-compositions/swift-tests.git",
       "preparation": {
         "status": "passed",
@@ -8860,17 +8860,21 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "fail-closed preflight proved exact canonical destination swift-compositions/swift-tests returned HTTP 404 immediately before rename, while actual live coordinate swift-compositions/swift-test-snapshot had repository ID 1132378504, exact base 84b30a00e4cef0d165e6075c0d1e601d77bb2697, public visibility, non-archived state, and default branch main",
           "renamed swift-compositions/swift-test-snapshot to canonical swift-compositions/swift-tests with the supported gh repo rename operation; bounded polling succeeded and proved the identical repository ID 1132378504 with unchanged visibility, archive state, default branch, and base SHA",
-          "coordinator independently reverified the exact future coordinate, stable repository ID 1132378504, public visibility, non-archived state, default branch main, and unchanged remote main before authorizing publication; publication remains pending as a separately journaled phase"
+          "coordinator independently reverified the exact future coordinate, stable repository ID 1132378504, public visibility, non-archived state, default branch main, and unchanged remote main before authorizing publication",
+          "published exact prepared commit 95f12b95ec50217d813308a2326c1b205210f017 as an ordinary fast-forward from 84b30a00e4cef0d165e6075c0d1e601d77bb2697 to refs/heads/main through the authenticated administrative ruleset bypass; no force push or history rewrite occurred",
+          "coordinator independently reverified exact live main 95f12b95ec50217d813308a2326c1b205210f017, repository ID 1132378504, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, clean tracked checkout, and untouched root/nested Package.resolved state"
         ]
       },
-      "state": "prepared",
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
+        "records": [
+          "publication is complete and root plus nested Tests/Package.resolved remained absent twice before and after publication; resolution is queued until the SCC partner swift-compositions/swift-test-application is published and the serialized Institute package-resolution slot is available"
+        ]
       },
       "githubRepositoryID": 1132378504
     },
