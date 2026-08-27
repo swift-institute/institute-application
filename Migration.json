@@ -5269,17 +5269,21 @@
           "coordinator reverified exact live main 931c661856a975818595f4e61ec3b33984a4ecb9 at canonical coordinate swift-compositions/swift-memory-mapping with unchanged GitHub repository ID 1125519693, public visibility, non-archived state, default branch main, and final clone URL"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "package resolution exited 1 using the sole approved command CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-memory-publisher institute package resolve --package-path /private/tmp/four-layer-swift-memory-composition --argument=--disable-sandbox after traversing the exact live dependency graph",
           "exact blocker: error: unable to override package 'swift-memory' because its identity 'swift-memory' doesn't match override's identity (directory name) 'four-layer-swift-memory-composition'; error: fatalError",
           "the flag-day mapping causes the composition root package swift-memory and its molecule dependency formerly named swift-memory-primitives to share SwiftPM identity swift-memory; resolving this requires a distinct public package identity or semantic ownership consolidation and was not improvised during mechanical cutover",
           "successful publication is preserved; post-resolution HEAD remains 79c5e704a61acbd9fb3850ad4c59c3135133ca1c with a clean checkout and untouched generated Package.resolved stable at SHA-256 2ba6ad4750e5b208858216e43e07e05655c6f7b0cb8689c3efb9a443a73a66d6",
-          "the exact blocker has an active repair through distinct higher package/product/module identity swift-memory-mapping, Memory Mapping, and Memory_Mapping; validation is pending follow-up publication and package resolution rather than remaining classified as blocked"
+          "the exact blocker was repaired through distinct higher package/product/module identity swift-memory-mapping, Memory Mapping, and Memory_Mapping",
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-memory-mapping-root institute package resolve --package-path /private/tmp/four-layer-swift-memory-composition --argument=--disable-sandbox against the exact live dependency graph",
+          "coordinator reverified exact live main 931c661856a975818595f4e61ec3b33984a4ecb9 at swift-compositions/swift-memory-mapping with unchanged GitHub repository ID 1125519693, public visibility, non-archived state, and default branch main",
+          "HEAD remained 931c661856a975818595f4e61ec3b33984a4ecb9, both fetch and push origins remained the canonical final URL, and the isolated worktree remained clean; Package.resolved remained untouched ignored generated state with stable pre/post SHA-256 2ba6ad4750e5b208858216e43e07e05655c6f7b0cb8689c3efb9a443a73a66d6"
         ]
-      }
+      },
+      "githubRepositoryID": 1125519693
     },
     {
       "current": "swift-foundations/swift-multipart-form-coding",
