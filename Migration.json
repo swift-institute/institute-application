@@ -25682,8 +25682,12 @@
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-set-algebra-root institute package resolve --package-path /private/tmp/four-layer-swift-set-algebra --argument=--disable-sandbox against live molecule dependencies",
+          "prepared HEAD remained 38c7af444ace1857eadfa4d8c9aab3de3fcbc546 and the isolated worktree remained clean",
+          "Package.resolved was absent before resolution and present afterward as untouched ignored generated state with stable SHA-256 bc071d9e2f1c4cc5d13920663b36e5147c9e207419ccb12cfa151999d1ab432e"
+        ]
       }
     },
     {
