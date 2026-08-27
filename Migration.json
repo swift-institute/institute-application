@@ -22285,15 +22285,17 @@
           "coordinator reverified exact live main 94c4d92fdfe55886fae51f41531c402baf1fffd7 at canonical coordinate swift-molecules/swift-loader-vocabulary with unchanged GitHub repository ID 1132373528, public visibility, non-archived state, default branch main, and final clone URL"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "package resolution passed for swift-loader at live published commit a385a2b5f3c6da09668b3e02fad10e7ca794a069",
           "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-loader-live institute package resolve --package-path /private/tmp/four-layer-swift-loader-primitives --argument=--disable-sandbox",
           "resolved direct live dependencies swift-ascii at c85e522199612936e683a522b367e20b68a6c881, swift-ownership at 8cbad8f0ae82ba45ee77f00515973426bd6aeb5f, and swift-string at 2e3ec71fb41c145b164348c17b673a690e2c3b42",
           "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent and left uncommitted at sha256 61e104a8fb580360c4830d049b09f11642125fb1e59129909da3b985358822bf",
-          "the prior resolution evidence is superseded by the distinct swift-loader-vocabulary package identity; package resolution remains pending until exact prepared repair commit 94c4d92fdfe55886fae51f41531c402baf1fffd7 is published"
+          "the prior resolution evidence was superseded by the distinct swift-loader-vocabulary package identity and revalidation followed publication of exact prepared repair commit 94c4d92fdfe55886fae51f41531c402baf1fffd7",
+          "package resolution passed with exit status 0 using the sole approved noncompiling command CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-loader-vocabulary-root institute package resolve --package-path /private/tmp/four-layer-swift-loader-primitives --argument=--disable-sandbox against the exact live ASCII, Ownership, and String dependency graph",
+          "post-resolution verification found exact HEAD 94c4d92fdfe55886fae51f41531c402baf1fffd7, clean tracked and untracked status, final fetch and push origin https://github.com/swift-molecules/swift-loader-vocabulary.git, and untouched ignored Package.resolved with the same pre/post stable SHA-256 61e104a8fb580360c4830d049b09f11642125fb1e59129909da3b985358822bf"
         ]
       },
       "githubRepositoryID": 1132373528
