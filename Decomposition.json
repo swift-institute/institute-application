@@ -4555,6 +4555,141 @@
     "wave": "tranche0",
     "changes": "PR #13 squash-merged by coordinator at exact verified head 4aff8736; squash tree 21e4c050 identical \u2014 lane-verified green applies bit-for-bit. Core SLI-product deps removed (Affine dropped entirely); storage-owned slot arithmetic (Index+Storage, Store.Span, UnsafePointer+Slot).",
     "bookedAt": "2026-08-27T17:53:57Z"
+   },
+   {
+    "repo": "swift-atoms/swift-ownership",
+    "headSHA": "a2ed9130c4e6dd613b9f2f806763ec7a570c250b",
+    "build": "green",
+    "test": "green",
+    "wave": "wave2",
+    "changes": "No changes needed; nothing pushed. Reported SHA is the current live head of main (clone head == origin/main). Manifest has zero dependencies, so no URL canonicalization applied. swift build green (warnings only: UnusedImportAccess on the umbrella files in Ownership Standard Library Integration and Ownership Apple Foundation Integration). swift test green: 127 tests in 51 suites passed. Products match atom canonical shape (Ownership / Ownership Standard Library Integration / Ownership Apple Foundation Integration); only the AFI module imports Foundation.",
+    "bookedAt": "2026-08-27T17:59:32Z"
+   },
+   {
+    "repo": "swift-atoms/swift-algebra",
+    "headSHA": "149cfa088e2fa96ab2fa5671f70d332bbaefd48c",
+    "build": "green",
+    "test": "green",
+    "wave": "wave2",
+    "changes": "No external dependencies in Package.swift, so no URL canonicalization needed. Build was already green. Test compile was red: two test files (Tests/Algebra Tests/Algebra.Lattice Tests.swift, Tests/Algebra Tests/Algebra.Semilattice Tests.swift) referenced Comparable-based constructors (Lattice.minMax, Semilattice.minimum/maximum) that live in the in-package 'Algebra Standard Library Integration' module, but the test target depended only on 'Algebra'. Fix: added 'Algebra Standard Library Integration' to the Algebra Tests target dependencies in Package.swift and added 'import Algebra_Standard_Libr",
+    "bookedAt": "2026-08-27T17:59:32Z"
+   },
+   {
+    "repo": "swift-atoms/swift-axis",
+    "headSHA": "fbf5806779955c28c63da7492ea795bd7711788a",
+    "build": "green",
+    "test": "green",
+    "wave": "wave2",
+    "changes": "One-line fix: Sources/Axis/Axis.swift \u2014 declared Equatable, Hashable, Comparable conformances on the extension that already implemented ==, <, <=, >, >=, and hash(into:); tests exercised these conformances but the declarations were missing. No dependencies in Package.swift, so no URL canonicalization needed. swift build green; swift test green (20 tests, 28 suites, all passed). Committed with explicit pathspec and pushed directly to main (bypass notice expected). Benign residual warnings: unused public imports in Axis Apple Foundation Integration.swift.",
+    "bookedAt": "2026-08-27T17:59:32Z"
+   },
+   {
+    "repo": "swift-atoms/swift-ascii",
+    "headSHA": "96f2adc85feaa01909328f508e511a35c1529022",
+    "build": "green",
+    "test": "green",
+    "wave": "wave2",
+    "changes": "Two one-line fixes pushed to main (9dc3939 -> 96f2adc). (1) Sources/ASCII/ASCII.Code.swift: added Hashable conformance to ASCII.Code \u2014 the core module declares Set<ASCII.Code> (whitespaces) so the conformance must live in the declaring module. (2) Sources/ASCII Standard Library Integration/Character+ASCII.swift: callAsFunction(case:) parameter type 'ASCII.ASCII.Case' -> 'ASCII.Case'; the leading ASCII resolved to the type (module/type name collision), so the double qualification failed member lookup. No dependencies in Package.swift, so no URL canonicalization was needed. swift build clean; sw",
+    "bookedAt": "2026-08-27T17:59:32Z"
+   },
+   {
+    "repo": "swift-atoms/swift-direction",
+    "headSHA": "5ad7eab527cc2e8fbe69126d5780e57131a64d1e",
+    "build": "green",
+    "test": "green",
+    "wave": "wave2",
+    "changes": "Two fixes, both minimal. (1) Sources/Direction Standard Library Integration/Direction+Codable.swift: cross-module `extension Direction: Codable {}` cannot synthesize (hard error: extension outside declaring file); replaced with explicit init(from:)/encode(to:) using single-value string coding (\"positive\"/\"negative\"), still under #if !hasFeature(Embedded). (2) Sources/Direction/Direction.swift: the extension already defining ==/</<=/>/>=/hash now declares `: Comparable` \u2014 tests call sorted(), which failed without the conformance. Manifest untouched: dependencies array is empty (nothing to canon",
+    "bookedAt": "2026-08-27T17:59:32Z"
+   },
+   {
+    "repo": "swift-atoms/swift-deque",
+    "headSHA": "5f91671c4d67a7d2cd381abf74d4c4af931c73ec",
+    "build": "green",
+    "test": "green",
+    "wave": "wave2",
+    "changes": "No changes; nothing pushed. Package was already green at the existing live head 5f91671c4d67a7d2cd381abf74d4c4af931c73ec: manifest has zero dependencies (no URLs to canonicalize), products match the atom canonical shape (Deque, Deque Standard Library Integration, Deque Apple Foundation Integration), swift build succeeded with only UnusedImportAccess warnings in 'Sources/Deque Apple Foundation Integration/Deque Apple Foundation Integration.swift' (empty umbrella file with unused public imports), and swift test passed (1 test across 4 suites).",
+    "bookedAt": "2026-08-27T17:59:32Z"
+   },
+   {
+    "repo": "swift-atoms/swift-async",
+    "headSHA": "ffe094cc1e971566a52d96c82e89213e71811546",
+    "build": "green",
+    "test": "green",
+    "wave": "wave2",
+    "changes": "No dependency URLs to canonicalize (Package.swift has zero dependencies; canonical 3-product atom shape already in place). Sources compiled clean at head. Test target had leftover references to seams extracted in the four-layer cutover (commit 3a3bfa8 deleted Sources for Barrier/Channel/Broadcast/Bridge but left test residue): (1) removed Async.Channel<Never>.self reference from the namespace test in 'Tests/Async Tests/Async Tests.swift'; (2) deleted the Barrier suite declaration and the entire extension Core.Test.Barrier block (6 tests, subject now lives outside this package) from 'Tests/Asyn",
+    "bookedAt": "2026-08-27T17:59:32Z"
+   },
+   {
+    "repo": "swift-atoms/swift-formatter",
+    "headSHA": "5269770aaaea738d003eec3d264d398d70954724",
+    "build": "green",
+    "test": "green",
+    "wave": "wave2",
+    "changes": "No changes pushed; reported SHA is the current live head of main. Package already converged: manifest has zero external dependencies (nothing to canonicalize), canonical atom shape present (Formatter / Formatter Standard Library Integration / Formatter Apple Foundation Integration), swift build succeeds with only unused-public-import warnings in the AFI module, swift test passes (test target contains an empty backticked suite with 0 tests).",
+    "bookedAt": "2026-08-27T17:59:32Z"
+   },
+   {
+    "repo": "swift-atoms/swift-binary",
+    "headSHA": "34432b9240a71468e37fe72eec3abdf0f07c0891",
+    "build": "green",
+    "test": "green",
+    "wave": "wave2",
+    "changes": "Package.swift has zero external dependencies, so URL canonicalization was a no-op. 'swift build' was already green at the cloned head 70bfc42. 'swift test' was red in 'Binary Standard Library Integration Tests/Array+Bytes Tests.swift': nine tests (lines 121-186, 'append UInt16' through 'append multiple values') exercised mutating append(_:endianness:) overloads on [UInt8] that commit 70bfc42 ('Adopt canonical atom shape') deleted along with the extracted FixedWidthInteger+Binary seam they depended on. Per the extracted-seam rule, deleted those nine tests (66 lines) and nothing else. After dele",
+    "bookedAt": "2026-08-27T17:59:32Z"
+   },
+   {
+    "repo": "swift-atoms/swift-order",
+    "headSHA": "55718a72afc043d3aef26d7da9ec1187600d1d9c",
+    "build": "green",
+    "test": "green",
+    "wave": "wave2",
+    "changes": "Package has zero dependencies, so no URL canonicalization applied. Single red: cross-module `extension Order.Monotonicity: Codable {}` in the Standard Library Integration target \u2014 derived Codable requires same-file declaration, so synthesis failed with hard errors. Replaced with an explicit init(from:)/encode(to:) encoding each case as its single-value string name (increasing/decreasing/constant), still under #if !hasFeature(Embedded). One file changed. swift build green (3 unused-public-import warnings in the AFI placeholder file, warnings acceptable), swift test 7/7 passed. Committed with ex",
+    "bookedAt": "2026-08-27T17:59:32Z"
+   },
+   {
+    "repo": "swift-atoms/swift-effect",
+    "headSHA": "0702baab8a6b719aa4125ad9ee35b8f123fae1b8",
+    "build": "green",
+    "test": "green",
+    "wave": "wave2",
+    "changes": "No changes pushed; reported SHA is the current live head of main (clone head == origin/main, verified via git ls-remote). Package was already at the Phase 3 bar at head: Package.swift declares zero dependencies (nothing to canonicalize), products match the atom canonical shape (Effect / Effect Standard Library Integration / Effect Apple Foundation Integration), swift build green (Swift 6.4, warnings only: unused public imports in the AFI placeholder file), swift test green (21 tests in 16 suites, all passed). Working tree left clean.",
+    "bookedAt": "2026-08-27T17:59:32Z"
+   },
+   {
+    "repo": "swift-atoms/swift-symmetry",
+    "headSHA": "3df488b8efb74303e2bad6e710f032f38afee3f2",
+    "build": "green",
+    "test": "green",
+    "wave": "wave2",
+    "changes": "No changes needed; pushed nothing. Package has zero dependencies (no URLs to canonicalize), already matches canonical atom shape (products Symmetry / Symmetry Standard Library Integration / Symmetry Apple Foundation Integration), and builds and tests green at the current live head of main (3df488b8efb74303e2bad6e710f032f38afee3f2). 11 tests in 8 suites passed. Only warnings: unused public imports in Symmetry Apple Foundation Integration.swift (AFI module is an empty placeholder importing Symmetry, SLI, Foundation).",
+    "bookedAt": "2026-08-27T17:59:32Z"
+   },
+   {
+    "repo": "swift-atoms/swift-boundary",
+    "headSHA": "66c2d2453c5eb2efa9d0b207189e84fa4b14866f",
+    "build": "green",
+    "test": "green",
+    "wave": "wave2",
+    "changes": "Two red classes fixed. (1) Retroactive `extension Boundary.Edge/Corner: Codable {}` in the Standard Library Integration module cannot synthesize cross-module; replaced with explicit single-value case-name-string init(from:)/encode(to:) in the same two files. (2) Core module defined ==/</<=/>/>=/hash(into:) but never declared conformances, so tests using sorted() and Set failed to compile; declared `Comparable, Hashable` on the existing operator extensions in Sources/Boundary/Boundary.Edge.swift and Boundary.Corner.swift. Package.swift has zero dependencies, so no URL canonicalization applied. ",
+    "bookedAt": "2026-08-27T17:59:32Z"
+   },
+   {
+    "repo": "swift-atoms/swift-compass",
+    "headSHA": "6e97c8955f26bd4d68fb35fa489bca9055f94766",
+    "build": "green",
+    "test": "green",
+    "wave": "wave2",
+    "changes": "One fix: Sources/Compass Standard Library Integration/Compass.Cardinal+Codable.swift \u2014 `extension Compass.Cardinal: Codable {}` cannot synthesize init(from:)/encode(to:) outside the declaring file/module (hard error); replaced with an explicit Codable implementation encoding each case as its lowercase name in a single-value String container, still guarded by #if !hasFeature(Embedded). Package.swift has zero external dependencies, so URL canonicalization was vacuous. Canonical atom shape already conformant (Compass / Compass Standard Library Integration / Compass Apple Foundation Integration; o",
+    "bookedAt": "2026-08-27T17:59:32Z"
+   },
+   {
+    "repo": "swift-atoms/swift-argument",
+    "headSHA": "2adfbeccd98735013cf36ab07e9986fb66b7e4ca",
+    "build": "green",
+    "test": "green",
+    "wave": "wave2",
+    "changes": "Pushed 2adfbec to main. Red cause: the canonical-atom-shape commit (fe7cf6e) deleted the Tagged-based Argument.Environment.Variable.Name typealias and all manifest dependencies, but Argument.Option.swift and Argument.Option.Tests.swift still referenced Environment.Variable.Name (cascading into a spurious Equatable-conformance error on Option). Fix: (1) Package.swift \u2014 added dependency https://github.com/swift-atoms/swift-tagged.git branch main (verified live home via gh api repos/swift-atoms/swift-tagged --jq .full_name -> swift-atoms/swift-tagged); Argument target now depends on product Tagge",
+    "bookedAt": "2026-08-27T17:59:32Z"
    }
   ]
  }
