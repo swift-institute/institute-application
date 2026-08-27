@@ -2787,6 +2787,38 @@
    ],
    "notes": "Adjudication: Layout is a native semantic domain (Stack, Flow, Grid, Line/Line.Box, Alignment, Corner, Cross, Direction own real behavior), so atom, not defer. It is intrinsically expressed in geometric vocabulary: the core enum is parameterized over Geometry and the alignment types hang off Dimension's Horizontal/Vertical, so axis/dimension/geometry are irreducible and kept (all three re-pointed to their current live swift-atoms coordinates; they redirect from swift-molecules anyway). Package was already a single Layout module \u2014 no strata to collapse, no umbrella exports.swift existed. Seam extracted: only the trailing `extension Boundary.Corner` block of Sources/Layout/Corner.swift (plus its `public import Boundary` line) moved to swift-molecules/swift-layout-boundary as Sources/Layout Boundary/Boundary.Corner+Layout.swift; the atom lost swift-boundary entirely. The Horizontal(_:direction:) and Vertical(_:) side-conversion inits it calls remain public in the atom's Corner.swift (they are Dimension-vocabulary, and Dimension is kept). Molecule depends on swift-molecules/swift-layout, swift-atoms/swift-boundary, swift-atoms/swift-dimension; no seam-specific tests existed, so a stub @Suite test target was created. SLI/AFI: no file in the package is a whole-file stdlib or Foundation integration (stdlib conformances like Codable/CaseIterable are declared inline on the domain type declarations or interleaved in domain files), so both targets were created as seed files per the recipe (\"Layout Standard Library Integration.swift\" = `public import Layout`; AFI seed = the three-line idiom). Tests: trivial re-export target \"Layout Test Support\" (@_exported Dimension_Test_Support + Layout) and its product were deleted; the three `import Layout_Test_Support` lines were removed from Layout.Flow/Grid/Grid.Lazy tests \u2014 the TestLayout/TestSpace/TestGeometry fixtures they use are defined locally in Tests/Layout Tests/TestSpacing.swift, but if any symbol came from Dimension_Test_Support those files will be red until the later build pass (noted residual risk). Deviation from the literal \"X Tests deps [X]\": test files directly `import Axis` and `@testable import Dimension/Geometry`, so those three kept products were added to the Layout Tests target \u2014 no new package dependencies introduced. Atom push to main bypassed the repo's PR/status-check rules via existing authorization (remote reported the bypass); no force-push, history intact. Both working trees verified clean.",
    "completedAt": "2026-08-27T16:33:02Z"
+  },
+  {
+   "package": "swift-parser",
+   "repositoryID": 1132373796,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-parser",
+   "to": "swift-atoms/swift-parser",
+   "shapeCommit": "b01f3dd6148d85554cb6565b89b078839a27febe",
+   "dependencies": [
+    "swift-atoms/swift-input",
+    "swift-atoms/swift-collection",
+    "swift-atoms/swift-either",
+    "swift-atoms/swift-product",
+    "swift-atoms/swift-index",
+    "swift-atoms/swift-text"
+   ],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-parser-tagged",
+     "repositoryID": 1348708677,
+     "commit": "cfc87650502539b072012ef1ac032a8e78522147",
+     "seam": "Tagged+Parseable conformance integrating Parser with swift-tagged (former 'Parser Tagged' target)"
+    },
+    {
+     "successor": "swift-molecules/swift-parser-pair",
+     "repositoryID": 1348708762,
+     "commit": "e82137ffa3105f61d2b1affb8399de6e3f9877ab",
+     "seam": "Pair: Parser.Protocol conformance integrating Parser with swift-pair (former 'Parser Pair' target, plus its 'Pair as Parser' tests)"
+    }
+   ],
+   "notes": "Adjudication: Parser is an irreducible native semantic domain (parser combinators: Take, Many, OneOf, Prefix, Map, FlatMap, error/location machinery) \u2014 atom. Reshape: 36 strata targets (Parser Primitive/Core/Error/Take/... ) collapsed into one Sources/Parser module via git mv, all intra-package exports.swift umbrellas deleted ('Parser Core' and the 'Parser' umbrella were exports-only and vanish); Parser_Primitive qualifications rewritten (Parseable.swift now uses Parser.Parser.`Protocol`). 'Parser Standard Library Integration' holds the former Parser Conformance files (Swift.Array and String conformances to Parser.Protocol) with `public import Parser` added; 'Parser Apple Foundation Integration' is a three-line seed (no Foundation imports existed anywhere). Products reduced from 39 to the canonical three. Dependencies kept (all live at swift-atoms via transfer redirects; verified with gh nameWithOwner): swift-input \u2014 Input.Input.Protocol/checkpoint-restore is the core parsing-state substrate in OneOf/Many/Take/Optional/Peek/Not/First/Tracked/Span/Locate; swift-collection \u2014 Collection.Slice.Protocol underlies Match/Remaining/Prefix/Rest/Consume/Discard/End/Take; swift-either \u2014 Either is the error algebra in Error/Map/Conversion; swift-product \u2014 Product is OneOf's composite Failure type; swift-index \u2014 Index in Error.Located and Spanned; swift-text \u2014 Text in error messages. Dropped: swift-tagged and swift-pair (seams out), swift-array (only used by the deleted Parser Core umbrella), swift-iterator (was test-support-only). Tests: all 21 per-stratum test targets merged into one 'Parser Tests' (deps [\"Parser\"]); 'Parser Test Support' was non-trivial, so its fixture files moved into Tests/Parser Tests/Support and `import Parser_Test_Support` rewritten to `import Parser`; Pair tests moved to the pair molecule. Residual red references (accepted, structural pass): Support/Parser.Test.Bytes.swift imports Collection + Iterable, Support/Parser.Test.Iterator.swift imports Collection + Iterator_Chunk, Support/Parser.Test.Input.swift imports Input \u2014 modules not in the test target's dependency list (and swift-iterator no longer a package dep); the molecule test file 'Pair as Parser Tests.swift' references Parser.Test.Input and Parser.Take/First fixtures that now live inside the atom's test module and are not importable. Atom repo: /private/tmp/claude-501/-Users-coen-Developer-coenttb/20dff9a4-b817-42e7-bbc6-9081ab416a17/scratchpad/wave2/swift-parser (push to main bypassed the PR-required/ci-ok branch rules per authorization; noted by remote). All three working trees verified clean. Two staging copies (seam-tagged/, seam-pair/) remain in the scratchpad wave2 directory outside any repo; an rm cleanup was permission-denied.",
+   "completedAt": "2026-08-27T16:33:10Z"
   }
  ],
  "successors": [],
