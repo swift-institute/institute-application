@@ -5304,6 +5304,33 @@
     "wave": "wave6c",
     "changes": "Adapted Tagged APIs/imports; restored Foundation-free Semantic/Tools parsing, typed errors and descriptions in SLI; moved integration tests to the owning target and removed stale Calendar residue. Exact products preserved; Foundation only in AFI. Fresh build green; 112 tests green.",
     "bookedAt": "2026-08-27T19:26:44Z"
+   },
+   {
+    "repo": "swift-atoms/swift-module",
+    "headSHA": "bfa2744f6732e954f31bc663fa6b6fe75163220d",
+    "build": "green",
+    "test": "green",
+    "wave": "wave6d",
+    "changes": "Restored native Module.Name(product:) suffix normalization and corrected stale molecule/source/test-support documentation. Dependency-free exact atom shape preserved; Foundation only in AFI. Fresh build green; 5 tests green.",
+    "bookedAt": "2026-08-27T19:31:16Z"
+   },
+   {
+    "repo": "swift-atoms/swift-position",
+    "headSHA": "4f5627649960509123af039b40d828b21f1402cd",
+    "build": "green",
+    "test": "green",
+    "wave": "wave6d",
+    "changes": "Repaired cross-module Codable through same-shaped private proxies, made imports explicit/public, removed stale exported shim, and added real integration coverage. Dependency-free exact products preserved; Foundation only in AFI. Fresh build green; 3 tests green.",
+    "bookedAt": "2026-08-27T19:31:16Z"
+   },
+   {
+    "repo": "swift-atoms/swift-random",
+    "headSHA": "18180ecfb11ae9a56956c50c9cabcbd5302a8fa4",
+    "build": "green",
+    "test": "green",
+    "wave": "wave6d",
+    "changes": "Canonicalized atom metadata/documentation, aligned generic platform error wording, and marked raw-buffer test operations explicitly unsafe for strict memory safety. Dependency-free exact products preserved; Foundation only in AFI. Fresh build green; 15 tests green.",
+    "bookedAt": "2026-08-27T19:31:16Z"
    }
   ]
  }
