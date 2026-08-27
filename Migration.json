@@ -31334,23 +31334,32 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-standards/swift-stripe-standard",
       "futureLayer": "standards",
-      "observedHead": "9488e520ba8905010044a003d8cd633bb07e453d",
+      "observedHead": "664a99308916eae84f474ae45150b6180ca23b84",
       "observedRemote": "https://github.com/swift-standards/swift-stripe-standard.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared exact direct-child cutover commit 664a99308916eae84f474ae45150b6180ca23b84 from expected base 9488e520ba8905010044a003d8cd633bb07e453d in clean isolated worktree /private/tmp/swift-stripe-standard",
+          "mechanical four-layer cutover changed 263 tracked paths with 812 insertions and 812 deletions across Package.swift, README.md, 245 source files, and 16 test files; owner URLs, molecule repository/package/product/module identities, generated consumer references, and the Tagged requirement moved to the migrated live main while public semantics and legitimate URL Routing Foundation Integration remained unchanged",
+          "all 812 final additions matched exact canonical replacements with ordered changed-path SHA-256 e51140a89309a94a454c08d57313b0250454d575974b3e103c5aafbff86b77e6; live dependency products plus residual identity, active Actions-reference, public-payload, credential, diff, attribution, and Package.resolved preservation checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "unchanged-coordinate repository ID 1031603849 was verified before and after cutover at swift-standards/swift-stripe-standard with public visibility, non-archived state, and default branch main",
+          "published exact prepared commit 664a99308916eae84f474ae45150b6180ca23b84 as an ordinary fast-forward from 9488e520ba8905010044a003d8cd633bb07e453d to refs/heads/main through the authenticated administrative ruleset bypass; no force push or history rewrite occurred",
+          "coordinator independently reverified exact live main 664a99308916eae84f474ae45150b6180ca23b84, repository ID 1031603849, unchanged canonical coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is complete and Package.resolved remained absent twice before and after publication; resolution is queued until swift-compositions/swift-url-routing validation is passed and the serialized Institute package-resolution slot is available"
+        ]
+      },
+      "githubRepositoryID": 1031603849
     },
     {
       "current": "swift-standards/swift-svg-standard",
