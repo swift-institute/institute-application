@@ -5484,6 +5484,15 @@
     "wave": "wave7a",
     "changes": "Canonicalized Axis to its atom owner, removed the duplicate Comparable conformance now owned by Axis, and made the molecule a real exported Comparison compatibility seam with focused ordering/protocol coverage. Fresh build green; 3 tests green.",
     "bookedAt": "2026-08-27T20:40:03Z"
+   },
+   {
+    "repo": "swift-molecules/swift-axis-equation",
+    "headSHA": "f3410b3b6d81c8d890b47091f995f66fd129a9b6",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7b",
+    "changes": "Canonicalized Axis to its atom owner, removed the duplicate Equatable conformance now owned by Axis, and made the molecule a real exported Equation compatibility seam with focused equality/protocol coverage. Fresh build green; 3 tests green.",
+    "bookedAt": "2026-08-27T20:42:18Z"
    }
   ]
  }
