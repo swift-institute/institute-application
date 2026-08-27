@@ -1454,6 +1454,31 @@
    "splits": [],
    "notes": "Lane adjudication (wave 8): sole substantive content is Pair/Either distribute/factor \u2014 a capability that exists only by relating the independent Pair and Either domains; after seam extraction the atom would be empty. Certified as a molecule in place; Bifunctor is the precise semantic name of the relationship, so the swift-x name is retained. Untouched at head.",
    "completedAt": "2026-08-27T12:55:52Z"
+  },
+  {
+   "package": "swift-format",
+   "repositoryID": 1132373437,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-format",
+   "to": "swift-atoms/swift-format",
+   "shapeCommit": "1f431da6d7faceb0836abc2b65801f9bd2476153",
+   "dependencies": [],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-format-formatter",
+     "repositoryID": 1348496578,
+     "commit": "9ceab7a7d55a3ec0097f7d795052b17d65bf7792",
+     "seam": "Formatter integration: Format.Case conformance to Formatter.Protocol plus BinaryInteger/BinaryFloatingPoint/StringProtocol generic formatted(_:) overloads and the Formatter-dependent Format.Case test file"
+    },
+    {
+     "successor": "swift-molecules/swift-format-tagged",
+     "repositoryID": 1348496653,
+     "commit": "d3756dcd89116d0e4a75936efb1fc291639382d7",
+     "seam": "Tagged integration: Tagged+Format.swift (Tagged<_, BinaryFloatingPoint>.formatted(_ Format.Decimal))"
+    }
+   ],
+   "notes": "Adjudication: atom \u2014 Format is a native semantic domain (Format.Case, Format.Case.Insensitive, Format.Decimal, Format.Numeric formatting descriptors), not tooling or a relater of other domains. Reshape: collapsed Format Primitive/Case/Decimal/Numeric into single Sources/Format module via git mv; deleted all five exports.swift umbrellas and the trivial Format Test Support re-export target. Format.Case.swift edited in the atom to drop the Formatter.Protocol conformance and import (struct, Input/Output/Failure typealiases, format(_:), and static styles stay native); the conformance moved to the formatter molecule as a retroactive empty extension. Format.Decimal.swift's `import Standard_Library_Extensions` was unused (only stdlib symbols) \u2014 deleted, so swift-standard-library-extensions dropped without a seam. StringProtocol+Format.swift split: concrete Format.Case overload + String.caseInsensitive stay in SLI; the generic Formatter overload moved to the molecule as StringProtocol+Formatter.swift. SLI keeps BinaryFloatingPoint+Format.Decimal.swift (import rewritten Format_Decimal\u2192Format). No Foundation-importing code existed, so Apple Foundation Integration is the three-line seed. Products exactly three; zero package dependencies kept. Tests: Format Tests keeps the (empty) Format Tests.swift; FloatingPoint+Format and Format.Case.Insensitive tests moved to new Format Standard Library Integration Tests (they exercise SLI formatted/caseInsensitive sugar) with imports updated; Format.Case Tests.swift moved to the formatter molecule (its @testable import Format replaced with plain imports \u2014 one custom-transform test previously relied only on public API, so no @testable loss expected). Molecule deps pinned at live coordinates: swift-molecules/swift-format plus swift-atoms/swift-formatter and swift-atoms/swift-tagged (both verified transferred; molecules org names redirect). Residual red risk (structural pass only, nothing built): in the molecule's Format.Case tests, `\"...\".formatted(.upper)` now resolves through either SLI's concrete overload or the generic Formatter overload \u2014 the generic path may fail leading-dot inference; the Substring suite depends on the generic overload with implicit member syntax and is the likeliest red spot. Direct push to swift-molecules/swift-format main used the pre-authorized bypass (remote noted bypassed PR/status-check rules).",
+   "completedAt": "2026-08-27T13:03:02Z"
   }
  ],
  "successors": [],
