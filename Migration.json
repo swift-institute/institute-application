@@ -4710,19 +4710,29 @@
       "observedHead": "170a86b44c89b04e091fa0431f002b08ae809726",
       "observedRemote": "https://github.com/swift-foundations/swift-loader.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit d10aee65c547edbbf5b22653384fdb2e559440fc from expected parent 170a86b44c89b04e091fa0431f002b08ae809726 in isolated worktree /private/tmp/four-layer-swift-loader",
+          "deterministic audit verified the exact six-path, 15-file-preserving mechanical foundation-to-composition and Loader Primitives-to-Loader mapping, four live dependency coordinates and products, zero stale layer/plural/coenttb residuals, public payload, active Actions reference, human commit identity, and Package.resolved absence; no semantic change or split"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified canonical post-organization coordinate swift-compositions/swift-loader at expected main 170a86b44c89b04e091fa0431f002b08ae809726 with GitHub repository ID 1132378317, public visibility, non-archived state, and default branch main; no repository rename was required",
+          "set fetch and push origins to https://github.com/swift-compositions/swift-loader.git and fast-forward published exact prepared commit d10aee65c547edbbf5b22653384fdb2e559440fc without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main d10aee65c547edbbf5b22653384fdb2e559440fc with unchanged repository ID 1132378317, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "blocked",
+        "records": [
+          "package resolution exited 1 using the sole approved command CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-loader-publisher institute package resolve --package-path /private/tmp/four-layer-swift-loader --argument=--disable-sandbox after resolving the four live direct dependencies and transitive graph",
+          "exact blocker: error: unable to override package 'swift-loader' because its identity 'swift-loader' doesn't match override's identity (directory name) 'four-layer-swift-loader'; error: fatalError",
+          "the flag-day mapping causes the composition root package swift-loader and its molecule dependency formerly named swift-loader-primitives to share SwiftPM identity swift-loader; resolving this requires a distinct public package identity or semantic ownership consolidation and was not improvised during mechanical cutover",
+          "successful publication is preserved; post-resolution HEAD remains d10aee65c547edbbf5b22653384fdb2e559440fc with a clean checkout and untouched generated Package.resolved stable at SHA-256 acbbb9195b4f6f5329e96a6c1227dabc77b43aaee7c46d0c217c9388ef67765e"
+        ]
       }
     },
     {
