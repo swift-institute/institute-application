@@ -1997,6 +1997,34 @@
    ],
    "notes": "Adjudication: Memory (addresses, alignment, shifts, regions) is a native semantic domain; default atom stands. Atom module Sources/Memory now holds Memory.swift (from Memory Primitive), Memory.Shift(.Error), Memory.Alignment(.Error), Memory.Alignable; all six strata targets and every intra-package exports.swift umbrella deleted; products are exactly Memory / Memory Standard Library Integration / Memory Apple Foundation Integration. SLI target (deps exactly [\"Memory\"]) holds Comparable/CustomStringConvertible conformance blocks split out of the core files plus an exports.swift re-exporting Memory (exemplar swift-bit idiom); AFI is the three-line seed (no Foundation imports existed). Manifest keeps tools-version 6.4, .v27 platforms, v6 language mode, and the verbatim ecosystem loop incl. RawLayout. File splits (justified necessity to make the atom lose seam deps, since integrations were inline blocks): Carrier-generic overloads split out of Memory.Alignment.swift into swift-memory-carrier as Memory.Alignment+Carrier.Protocol.swift. swift-memory-tagged carries supporting deps swift-affine/swift-index/swift-property (all live in swift-atoms) because every pointer file speaks Address vocabulary plus Index/Property; it is the narrowest owner. Residual red expected (structural pass): (1) Tests/Memory Tests/Memory.Alignment Performance Tests.swift uses .timed from the deleted Memory Test Support umbrella; (2) Memory.Shift's magnitude/mask use \"Carrier(1) << self\" whose shift operator lives outside the atom; (3) swift-memory-span's file never mentions Memory \u2014 candidate for relocation into swift-span's own tree (kept a nominal swift-memory dep for the X-D shape); (4) trivial Memory Test Support target deleted, its import rewritten to Affine/Cardinal/Index/Memory in the molecule's arithmetic tests. Deleted as stale: Tests/Testing/* Memory Pool performance test referencing nonexistent module Memory_Pool (Pool is not defined anywhere in this package). Original live coordinates confirmed: tagged/ordinal/cardinal/affine/index/property/carrier/span resolve to swift-atoms; swift-bit-index remains swift-molecules. All five working trees verified clean.",
    "completedAt": "2026-08-27T13:32:36Z"
+  },
+  {
+   "package": "swift-vector",
+   "repositoryID": 1139270685,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-vector",
+   "to": "swift-atoms/swift-vector",
+   "shapeCommit": "b08d0fd8658283fa67c478674859ece87b5f20ae",
+   "dependencies": [
+    "swift-atoms/swift-index \u2014 Vector's stored bounds (start/end: Index), its public Index typealias, and count: Index.Count are Index types; the core type cannot be stated without it",
+    "swift-atoms/swift-property \u2014 the Property<ForEach,_>/Property<Drain,_>.Inout accessors are declared inside the Vector and Vector.Reversed struct bodies in Vector.swift; the domain's iteration API is defined in terms of Property"
+   ],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-vector-sequence",
+     "repositoryID": 1348526934,
+     "commit": "1f1f14c8563f64a929e95ddee5b48c6e650d9450",
+     "seam": "Sequenceable conformance and count(where:) sequence operations integrating Vector with swift-sequence (Vector+Sequenceable.swift, Vector+Sequence.Properties.swift)"
+    },
+    {
+     "successor": "swift-molecules/swift-vector-iterator",
+     "repositoryID": 1348526999,
+     "commit": "0cc2f5ca58e9b935c27b0c38e7ab847eead04e7b",
+     "seam": "Iterable/Iterator.Protocol conformances and Materializing/Witness iterator bridging integrating Vector with swift-iterator (Vector+Iterable.swift)"
+    }
+   ],
+   "notes": "Adjudication: Vector (typed half-open index-range generator) is a native semantic domain; default atom disposition stands. Domain spelling Vector derived from existing product names. Reshape: collapsed \"Vector Primitive\" into Sources/Vector (10 files via git mv); deleted all four umbrella exports.swift files; deleted \"Vector Primitive\" and \"Vector Test Support\" products, leaving exactly the three canonical products. All upstream deps were found already transferred and atomized under swift-atoms (swift-index, swift-property, swift-sequence, swift-iterator), so kept/molecule coordinates use swift-atoms; the old Iterable/Iterator Chunk/Iterator Witness/Iterator Primitive products no longer exist and were rewritten to the single \"Iterator\" product, with Iterator_Primitive.-qualified names rewritten to module-anchored Iterator.Iterator.* (verified Iterable and Iterator.{Protocol,Materializing,Witness} live in swift-atoms/swift-iterator Sources/Iterator). AFI target seeded with the prescribed three-line file. Test support: \"Vector Test Support\" was substantive, not a trivial re-export, but its product/target are non-canonical; its one source file moved into \"Vector Tests\" (same package, so its package-access __unchecked init still resolves); its import Index_Test_Support rewritten to import Index because swift-index no longer ships a Test Support product. Deviations (reported): SLI target deps are [\"Vector\", Index] not exactly [\"Vector\"] \u2014 its four pre-existing files (UnsafeRaw*Pointer+Index.swift) extend stdlib pointer types via Index, mention Vector nowhere, and could not be deleted or moved to swift-index (out of scope); they are candidates for relocation to swift-index's SLI in a later pass. \"Vector Tests\" deps are [\"Vector\", Index] for the same kept-dep reason (Ordinal/Index(_unchecked:) uses). Expected red (structural pass, nothing built): molecule sources call package-access members across package boundaries (_makeSequenceIterator, _borrowingForEach); swift-vector-sequence's count(where:) uses the borrowing makeIterator now owned by swift-vector-iterator (no cross-molecule dep added); Index(_unchecked:) in the test-support file may have lived in the deleted Index Test Support module; kept \"Vector Tests\" retains count(where:) tests referencing the extracted sequence seam. Push to protected main succeeded via authorized org-admin bypass (rule-violation notice logged by remote, no gate disabled).",
+   "completedAt": "2026-08-27T13:32:44Z"
   }
  ],
  "successors": [],
