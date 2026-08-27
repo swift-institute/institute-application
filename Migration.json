@@ -8943,20 +8943,29 @@
       "observedHead": "e1289337c03da7d72789bf79f304ce9a38d72a15",
       "observedRemote": "https://github.com/swift-foundations/swift-translating.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit 7547dfdab9f304ec6ef4c0e262c5c5bec2a029c4 from exact parent e1289337c03da7d72789bf79f304ce9a38d72a15 in clean disjoint worktree /private/tmp/four-layer-swift-translating-publisher with subject Prepare Translating for the composition layer",
+          "audited all 42 tracked paths and made the exact three-path, three-insertion/three-deletion mechanical transformation across Package.swift, README, and metadata, moving Dependencies/self coordinates and layer topic to compositions while preserving unchanged BCP 47 authority identity/product, public semantics, and canonical Actions; residual, payload, staged-tree, ancestry, and identity checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-translating as canonical with stable GitHub repository ID 779618967, public visibility, non-archived state, default branch main, canonical fetch/push origins, and exact live parent; no repository rename was needed",
+          "JIT verified exact live Dependencies and swift-ietf/swift-bcp-47 heads and required products, then ordinary fast-forward published exact direct child 7547dfdab9f304ec6ef4c0e262c5c5bec2a029c4 without force or history rewrite",
+          "coordinator independently verified exact live main 7547dfdab9f304ec6ef4c0e262c5c5bec2a029c4 with unchanged repository ID 779618967, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, and a clean tracked checkout"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-translating-publisher institute package resolve --package-path /private/tmp/four-layer-swift-translating-publisher --argument=--disable-sandbox against exact live Dependencies, BCP 47, RFC 5646, and canonical transitives; no build, test, compilation, raw SwiftPM, dump-package, or manifest evaluation was invoked",
+          "Package.resolved was absent twice before resolution and present afterward only as ignored untracked generated state, never edited/deleted/staged/committed, with stable twice-observed SHA-256 426ea6172ad3452f070cb22cc30e56417ffc8d70a68f9ef5a0500383ecbce6b0; final live identity/SHA and clean tracked checkout were reverified"
+        ]
+      },
+      "githubRepositoryID": 779618967
     },
     {
       "current": "swift-foundations/swift-translating-dependencies",
