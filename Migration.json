@@ -384,20 +384,29 @@
       "observedHead": "4aa67f81246959eeda4726f2b9ad03899f2e3208",
       "observedRemote": "https://github.com/swift-foundations/swift-application-swiftui.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit 7ca278e1ab505cf5a3a83f4f41a39e0acc14faba from exact parent 4aa67f81246959eeda4726f2b9ad03899f2e3208 in clean identity-compatible isolated worktree /private/tmp/swift-application-swiftui",
+          "audited all 13 tracked paths and made the exact two-path, three-insertion/three-deletion mechanical cutover across Package.swift and metadata, moving Application and Environment owners plus layer topic to compositions while preserving every package/product/target/module identity, public semantics, source/test path, and canonical Actions; residual, payload, staged-tree, ancestry, and identity checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-application-swiftui as canonical with stable GitHub repository ID 1318331349, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; no repository rename was needed",
+          "JIT verified exact live Application and Environment identities/products and ledger gates, then ordinary fast-forward published exact direct child 7ca278e1ab505cf5a3a83f4f41a39e0acc14faba without force or history rewrite",
+          "coordinator independently verified exact live main 7ca278e1ab505cf5a3a83f4f41a39e0acc14faba with unchanged repository ID 1318331349, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, stable Package.resolved evidence, and clean tracked checkout; the original checkout's pre-existing ignored nested Xcode Package.resolved remained untouched"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-application-swiftui-publisher institute package resolve --package-path /private/tmp/swift-application-swiftui --argument=--disable-sandbox against the exact live graph; no build, test, compilation, raw SwiftPM, dump-package, or manifest evaluation was invoked",
+          "Package.resolved was absent twice before resolution and present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 cb461c96454a6f3dd135bc805f7234e9b152453647ed8175675dd69b5902417e; final live identity/SHA and clean tracked checkout were reverified"
+        ]
+      },
+      "githubRepositoryID": 1318331349
     },
     {
       "current": "swift-foundations/swift-arguments",
