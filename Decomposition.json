@@ -4488,6 +4488,28 @@
     "recordedAt": "2026-08-27T22:05:44Z",
     "resumedAt": "2026-08-27T22:16:26Z",
     "resolvedAt": "2026-08-27T22:24:00Z"
+   },
+   {
+    "repo": "swift-molecules/swift-orthant-finite",
+    "currentHeadSHA": "0a6ef55871936abcc60a3422c5e091fe73f4fab0",
+    "blockedBy": "swift-molecules/swift-finite-ordinal",
+    "blockingHeadSHA": "f595e134fee9dab5ebf389d22444d6d83f91abe3",
+    "evidence": "Orthant Finite genuinely requires Finite.Enumerable and Enumeration, which are owned by Finite Ordinal rather than the Finite atom. The live Finite Ordinal manifest still depends on stale swift-molecules/swift-finite and the unconverged Finite Cardinal seam, so the Orthant consumer may not invent or rewrite that transitive ownership.",
+    "resumeWhen": "Converge swift-finite-cardinal and swift-finite-ordinal, then resume Orthant Finite from its clean checkout and require fresh build/test before booking.",
+    "status": "dependency-convergence-required",
+    "recordedAt": "2026-08-27T22:44:06Z"
+   },
+   {
+    "repo": "swift-molecules/swift-affine-tagged",
+    "currentHeadSHA": "596d19d1dd85873218d793ab56cf8d087f4ba0b1",
+    "blockedBy": "swift-molecules/swift-affine-carrier",
+    "blockingHeadSHA": "aa7a645c161a0dcc7e695871f507b3f0f2d55a69",
+    "evidence": "Affine Tagged's genuine tagged integration is blocked before local compilation by Affine Carrier: that live seam still uses the moved swift-molecules/swift-affine identity, references Tagged without a declared/imported owner, and consumes Ordinal.Protocol without the Ordinal Cardinal product. The preserved Affine Tagged checkout contains only its canonical URL change and removal of two exact duplicates already owned byte-for-byte by the Affine atom.",
+    "resumeWhen": "Converge swift-affine-carrier, then resume the preserved checkout, rerun fresh build/test, and book only a verified green Affine Tagged head.",
+    "resolvedByHeadSHA": "79feb3ee7d61f4809ed45b16fd603bc41c1918fe",
+    "status": "blocking-dependency-converged-resumption-in-progress",
+    "recordedAt": "2026-08-27T22:46:59Z",
+    "resumedAt": "2026-08-27T22:54:18Z"
    }
   ],
   "pendingAdjudications": [
@@ -5336,12 +5358,13 @@
    },
    {
     "repo": "swift-molecules/swift-finite-cardinal",
-    "headSHA": "ffdae475aeb36a57593e6c230eb24bd7e9f0d183",
+    "headSHA": "ec712e7f64a188d5a423daa0dc675cfdcd413829",
     "build": "green",
     "test": "green",
-    "wave": "wave5b-recovered",
-    "changes": "Canonicalized dependency URL swift-molecules/swift-finite -> swift-atoms/swift-finite (verified via gh api; swift-atoms/swift-cardinal already canonical). Changed 'import Cardinal' to 'public import Cardinal' in Sources/Finite Cardinal/Finite.Capacity.swift: Cardinal appears in public protocol requirement and an @inlinable body, and under InternalImportsByDefault the internal import made those hard errors. No product/target/test changes. swift build and swift test fully green (1 test, 1 suite, passed). Pushed direct to main; SHA read back via git rev-parse HEAD.",
-    "bookedAt": "2026-08-27T19:07:55Z"
+    "wave": "wave7t",
+    "changes": "Retained the genuine narrow Finite.Capacity protocol and Finite.Bound<N> conformance over already-canonical Finite and Cardinal owners, adding explicit direct test products, zero/capacity generic-contract coverage, and ownership documentation without unnecessary source behavior changes. Fresh build green; 2 tests green.",
+    "bookedAt": "2026-08-27T22:46:51Z",
+    "priorHeadSHA": "ffdae475aeb36a57593e6c230eb24bd7e9f0d183"
    },
    {
     "repo": "swift-molecules/swift-system-cardinal",
@@ -6323,6 +6346,42 @@
     "wave": "wave7s",
     "changes": "Canonicalized Ordinal to its atom owner and composed the live Ordinal Property seam, removing duplicate local advance/distance, Span/MutableSpan Carrier-count, and buffer-initializer behavior while retaining genuine Tagged construction/conversion, successor/predecessor/retreat, array, buffer subscript, and pointer-move surfaces with current imports/docs/tests. Fresh build green; 17 tests across 5 suites green.",
     "bookedAt": "2026-08-27T22:42:55Z"
+   },
+   {
+    "repo": "swift-molecules/swift-text-byte",
+    "headSHA": "ca7a39fab5b7655d7ce6676b17dd7a1a5f3104eb",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7t",
+    "changes": "Canonicalized Text to its atom owner and retained the genuine byte-scanning Text.Line.Map initializer over [Byte], documenting exact LF, CR, CRLF, and byte-position semantics and updating optional offset assertions to current Text.Position results. Fresh build green; 11 tests across 4 suites green.",
+    "bookedAt": "2026-08-27T22:45:50Z"
+   },
+   {
+    "repo": "swift-molecules/swift-text-carrier",
+    "headSHA": "12c47f34f059d9ea0eb199091f9a843f2ef61c7b",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7t",
+    "changes": "Canonicalized Text to its atom owner and retained the genuine retroactive Text.Line.Number Carrier.Protocol<UInt> conformance providing generic extraction/validation without coupling atoms, adding explicit ownership/docs and updating fixtures to Text's nonthrowing UInt initializer without assuming Carrier SLI's raw UInt conformance. Fresh build green; 3 tests green.",
+    "bookedAt": "2026-08-27T22:49:03Z"
+   },
+   {
+    "repo": "swift-molecules/swift-text-ownership",
+    "headSHA": "06e16552044fdb442f4cafcb64bfae2a528d367b",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7t",
+    "changes": "Canonicalized Text to its atom owner and retained the genuine narrow retroactive Text Ownership.Borrow.Protocol conformance with Borrowed == Span<Byte>, documenting the cross-domain contract and adding compile-time conformance plus borrowed-span behavior proofs. Fresh build green; 2 tests green.",
+    "bookedAt": "2026-08-27T22:53:30Z"
+   },
+   {
+    "repo": "swift-molecules/swift-affine-carrier",
+    "headSHA": "79feb3ee7d61f4809ed45b16fd603bc41c1918fe",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7t",
+    "changes": "Converged the blocking Affine Carrier seam by canonicalizing Affine, explicitly composing Ordinal Cardinal and test-only Tagged/Tagged Carrier ownership, repairing Cardinal visibility/member ownership, replacing Carrier convenience access with generic underlying, and removing a redundant Tagged-specific Int conversion while focusing tests on genuine carrier, arithmetic, collection, and raw-pointer behavior. Fresh build green; 20 tests across 7 suites green.",
+    "bookedAt": "2026-08-27T22:54:14Z"
    }
   ]
  }
