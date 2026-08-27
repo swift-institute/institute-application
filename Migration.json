@@ -9801,19 +9801,27 @@
       "observedHead": "dae4916bd8a3ff7f43d5dd7aa991c70c81ebbc19",
       "observedRemote": "https://github.com/swift-ietf/swift-bcp-47.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit a2a8fa696d6eb66e78c9eac3daa4e41a69095818 from expected parent dae4916bd8a3ff7f43d5dd7aa991c70c81ebbc19 in isolated worktree /private/tmp/four-layer-swift-bcp-47",
+          "deterministic audit verified the exact one-path, 10-file-preserving Standard Library Extensions owner mapping, both live dependency URLs/products, preserved BCP 47 and RFC 5646 standards identities, zero mapped residuals, public payload, metadata, active Actions reference, human commit identity, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified canonical live coordinate swift-ietf/swift-bcp-47 at expected main dae4916bd8a3ff7f43d5dd7aa991c70c81ebbc19 with GitHub repository ID 1107711660, public visibility, non-archived state, and default branch main; no repository rename was required",
+          "set fetch and push origins to https://github.com/swift-ietf/swift-bcp-47.git and fast-forward published exact prepared commit a2a8fa696d6eb66e78c9eac3daa4e41a69095818 without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main a2a8fa696d6eb66e78c9eac3daa4e41a69095818 with unchanged repository ID 1107711660, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-bcp-47-publisher institute package resolve --package-path /private/tmp/four-layer-swift-bcp-47 --argument=--disable-sandbox against live RFC 5646 and Standard Library Extensions plus their published graph",
+          "post-resolution verification found exact HEAD a2a8fa696d6eb66e78c9eac3daa4e41a69095818, a clean checkout, and untouched generated Package.resolved with stable SHA-256 242865feb95e47c065e338b8696828dfb0f061520ee5e99a4afca0d31c0297a8"
+        ]
       }
     },
     {
