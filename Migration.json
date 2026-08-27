@@ -29728,20 +29728,31 @@
       "observedHead": "7e00f3f38e7286a728d6e47cd7b91c994f955b97",
       "observedRemote": "https://github.com/swift-standards/swift-github-standard.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit f4a5a27093daed01671a99c74a1bd26062a67828 from expected parent 7e00f3f38e7286a728d6e47cd7b91c994f955b97 in isolated worktree /private/tmp/four-layer-swift-github-standard",
+          "audited all one hundred twenty-nine tracked paths and made the exact ten-path, twelve-insertion/twelve-deletion mechanical transformation: Package.swift and eight source/export files moved Tagged repository/package/product/module identity from primitive plural forms to the exact suffix-free molecule, while two README architecture links moved from swift-foundations to exact swift-compositions futures",
+          "all GitHub Standard package/product/target/path/public semantics and RFC/Email Address dependencies were preserved; all four dependencies were ledger-passed and exact-live with products verified, and residual/public-payload/metadata/Actions/staging/direct-parent/human-identity checks passed with Package.resolved absent before preparation"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified unchanged coordinate swift-standards/swift-github-standard, GitHub repository ID 1047996732, public visibility, non-archived state, default branch main, canonical clone URL, and exact expected live base 7e00f3f38e7286a728d6e47cd7b91c994f955b97 immediately before publication; no rename was required",
+          "fast-forward published exact direct child f4a5a27093daed01671a99c74a1bd26062a67828 to main through the configured administrator ruleset bypass without force or history rewrite",
+          "coordinator independently reverified exact live main f4a5a27093daed01671a99c74a1bd26062a67828 with unchanged repository ID 1047996732, exact coordinate, public visibility, non-archived state, default branch main, and canonical URL"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-github-standard-publisher institute package resolve --package-path /private/tmp/four-layer-swift-github-standard --argument=--disable-sandbox against exact live RFC 3339, RFC 3986, Tagged, and Email Address Standard heads",
+          "coordinator reverified exact live main f4a5a27093daed01671a99c74a1bd26062a67828 with unchanged GitHub repository ID 1047996732, public visibility, non-archived state, default branch main, and all four direct dependency heads",
+          "HEAD and both origins remained exact and canonical and the isolated checkout remained clean; Package.resolved was absent before resolution and present afterward only as ignored untracked generated state with stable SHA-256 29567007312febf3845487a68d495d0ed6e93b0c100892bbb8759d872ee09412"
+        ]
+      },
+      "githubRepositoryID": 1047996732
     },
     {
       "current": "swift-standards/swift-html-standard",
