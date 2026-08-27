@@ -3233,23 +3233,32 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-compositions/swift-html",
       "futureLayer": "compositions",
-      "observedHead": "6b58f39f5b9242db22d85b14599d7dab2c2e810d",
-      "observedRemote": "https://github.com/swift-foundations/swift-html.git",
+      "observedHead": "b864d1d7ac04fcccb718a733fb086fd9b3189229",
+      "observedRemote": "https://github.com/swift-compositions/swift-html.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared exact direct-child cutover commit b864d1d7ac04fcccb718a733fb086fd9b3189229 from expected base 6b58f39f5b9242db22d85b14599d7dab2c2e810d in clean isolated worktree /private/tmp/swift-html",
+          "mechanical four-layer cutover changed five tracked paths with nineteen insertions and nineteen deletions across seven composition dependency owners, the Byte molecule repository/product/module identities, a dormant Layout import, README links, and layer metadata while preserving legitimate Apple Foundation and local foundation helper names",
+          "all ten declared future coordinates plus the published Layout product, residual identity, active Actions-reference, public-payload, credential, diff, attribution, and Package.resolved preservation checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "repository ID 905738141 was verified before and after cutover at exact canonical coordinate swift-compositions/swift-html with unchanged public visibility, non-archived and enabled state, default branch main, and enabled Actions",
+          "published exact prepared commit b864d1d7ac04fcccb718a733fb086fd9b3189229 as an ordinary fast-forward from 6b58f39f5b9242db22d85b14599d7dab2c2e810d to refs/heads/main through the authenticated administrative ruleset bypass; no force push or history rewrite occurred",
+          "coordinator independently reverified exact live main b864d1d7ac04fcccb718a733fb086fd9b3189229, repository ID 905738141, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is complete and Package.resolved remained absent twice before and after publication; the repository is queued behind swift-compositions/swift-svg and swift-compositions/swift-test-application validation plus the serialized Institute package-resolution slot"
+        ]
+      },
+      "githubRepositoryID": 905738141
     },
     {
       "current": "swift-foundations/swift-html-chart",
