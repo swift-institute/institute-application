@@ -1439,6 +1439,21 @@
    ],
    "notes": "Adjudication: clear atom \u2014 Ordinal is the irreducible native owner of the ordinal-position domain (confirmed by migration-map.json entry 357: target swift-atoms/swift-ordinal, \"Owns the irreducible native Ordinal namespace\"). Atom now contains exactly Sources/Ordinal (Ordinal.swift primitive + Ordinal.Error.swift, imports collapsed), SLI with the four pure-stdlib conformance files (CustomStringConvertible, ExpressibleByIntegerLiteral, UnsignedInteger, AtomicRepresentable \u2014 mirrors the swift-cardinal precedent), AFI three-line seed, and \"Ordinal Tests\" (deps [\"Ordinal\"]). All 7 package dependencies removed; dependenciesKept is empty. Key routing decision: Ordinal.Protocol.swift is structurally an integration file (associatedtype Count: Carrier.Protocol<Cardinal> plus a Tagged conformance in the same file), so it and every stdlib file written against `some Ordinal.Protocol` moved to swift-ordinal-cardinal rather than the atom/SLI \u2014 same treatment peers gave Cardinal.Add/Subtract (swift-cardinal-property). Umbrella exports.swift files (Ordinal, SLI) deleted; trivial re-export target \"Ordinal Test Support\" (@_exported Cardinal_Test_Support) deleted, its import in kept tests replaced with `import Cardinal`. Import rewrites: Ordinal_Primitive/Ordinal_Error -> Ordinal, Ordinal_Protocol/Ordinal_Distance -> Ordinal_Cardinal (or dropped when self-module), test imports of Ordinal_Standard_Library_Integration -> Ordinal_Cardinal, Ordinal_Test_Support -> Ordinal_Tagged in the tagged test. Molecule deps pinned at live coordinates: all seven external atoms resolved at swift-atoms/* (verified via gh), swift-ordinal and swift-ordinal-cardinal at swift-molecules/*, all branch: \"main\". Residual red (expected, structural pass only): (1) kept \"Ordinal Tests\" references Cardinal, advance/retreat/successor/predecessor/distance from extracted seams while the test target deps are exactly [\"Ordinal\"]; (2) Ordinal.Protocol.swift uses Carrier.`Protocol` without a Carrier import (pre-existing in origin; swift-carrier is a manifest dep of swift-ordinal-cardinal); (3) molecule test files use Tagged/Cardinal symbols covered by added test-target products; (4) the whole tree was not built by design. Directories: atom at .../scratchpad/wave1/swift-ordinal, molecules at .../scratchpad/wave1/swift-ordinal-<d>; git status clean in all eight repos; remote heads read back and match the SHAs reported.",
    "completedAt": "2026-08-27T12:55:43Z"
+  },
+  {
+   "package": "swift-bifunctor",
+   "repositoryID": null,
+   "disposition": "molecule",
+   "from": "swift-molecules/swift-bifunctor",
+   "to": "swift-molecules/swift-bifunctor",
+   "shapeCommit": "8dce0ac2de4a95376b029a0cfa87d41c0d221085",
+   "dependencies": [
+    "swift-pair",
+    "swift-either"
+   ],
+   "splits": [],
+   "notes": "Lane adjudication (wave 8): sole substantive content is Pair/Either distribute/factor \u2014 a capability that exists only by relating the independent Pair and Either domains; after seam extraction the atom would be empty. Certified as a molecule in place; Bifunctor is the precise semantic name of the relationship, so the swift-x name is retained. Untouched at head.",
+   "completedAt": "2026-08-27T12:55:52Z"
   }
  ],
  "successors": [],
