@@ -24083,10 +24083,15 @@
           "verified live main 86ddc5b0e1cad486f313da270a371a0383708cd8 with unchanged repository ID, public visibility, non-archived state, default branch main, and clean isolated worktree"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-parser at live published commit 86ddc5b0e1cad486f313da270a371a0383708cd8",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-parser-root institute package resolve --package-path /private/tmp/four-layer-swift-parser --argument=--disable-sandbox",
+          "resolution exited 0 against all ten live molecule dependencies and their transitive graph, including live Array and Product coordinates",
+          "HEAD unchanged; tracked worktree clean; Package.resolved changed from absent to ignored uncommitted generated state and stabilized at SHA-256 bb9dfc37df8dc3100e2f4119183810ca06311f5ca730c5708e4b76f274e3e26a"
+        ]
       }
     },
     {
