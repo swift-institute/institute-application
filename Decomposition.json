@@ -6588,6 +6588,51 @@
     "wave": "wave7w",
     "changes": "Resumed against converged Sequence Property, canonicalized Sequence and consolidated Iterator ownership, and retained genuine Sequenceable.collect() cardinal-capacity hints plus Cardinal/Ordinal Span extraction/addressing; removed retired Cardinal SLI wiring, preserved clamping conversion, narrowed fixtures, and added focused Span contracts. Fresh build green; 6 tests across 2 suites green.",
     "bookedAt": "2026-08-27T23:26:27Z"
+   },
+   {
+    "repo": "swift-molecules/swift-string-span",
+    "headSHA": "90ff9756a997d225d69fb9f118753e51e4949604",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7x",
+    "changes": "Canonicalized String to its atom owner and retained the genuine retroactive String Span.Protocol conformance joining String's atom-owned span view to the Span domain, replacing the retired Span Protocol product/module with consolidated Span and adding focused generic conformance plus code-unit span contracts. Fresh build green; 2 tests green.",
+    "bookedAt": "2026-08-27T23:30:22Z"
+   },
+   {
+    "repo": "swift-molecules/swift-string-ownership",
+    "headSHA": "9abc5a8aee3816d2d7192801a295a6c78f17651a",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7x",
+    "changes": "Canonicalized String to its atom owner and retained the genuine retroactive Ownership.Borrow.Protocol conformance binding String's atom-owned String.Borrowed view to the Ownership domain, with direct test products, generic protocol acceptance, inferred Borrowed identity proofs, and clarified ownership documentation. Fresh build green; 2 tests green.",
+    "bookedAt": "2026-08-27T23:33:38Z"
+   },
+   {
+    "repo": "swift-molecules/swift-string-tagged",
+    "headSHA": "137d3c8251ff68a8e3dc3aa806f5bc8fd26a91d3",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7x",
+    "changes": "Canonicalized String to its atom owner and retained genuine Tagged String constructors, views, spans, buffers, take/transfer behavior, and retroactive noncopyable Span conformance; a byte-identical clean sibling proof avoided mutating the designated checkout's stale generated pin and added focused borrowed-copy and Span contracts. Fresh build green; 2 tests green.",
+    "bookedAt": "2026-08-27T23:36:00Z"
+   },
+   {
+    "repo": "swift-molecules/swift-memory-carrier",
+    "headSHA": "9db224c80be3b0f5c8f892ce63cde76b0c4fb5c3",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7x",
+    "changes": "Canonicalized Memory to its atom owner and retained genuine carrier-preserving alignment, Cardinal-backed Property alignment, and Memory.Shift Carrier.Protocol ownership; added direct Tagged member visibility, replaced the removed unchecked Shift initializer with the public range-checked initializer, and added focused alignment/Shift tests/docs. Fresh build green; 3 tests green.",
+    "bookedAt": "2026-08-27T23:44:15Z"
+   },
+   {
+    "repo": "swift-molecules/swift-memory-tagged",
+    "headSHA": "c87906bd939f887091a7df8259562331528063ce",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7x",
+    "changes": "Canonicalized Memory and current Cardinal/Tagged/Ordinal/Property ownership, removed exact atom-owned Memory.Address/Error/Region duplicates and obsolete Address.Offset/Affine helpers, migrated Index.Count and Property.Property to Cardinal and Property<Tag, Base>, and retained genuine tagged count/address raw-pointer/buffer adapters plus Property-backed initialization/copy with focused tests. Fresh build green; 5 tests green and warning-free.",
+    "bookedAt": "2026-08-27T23:45:03Z"
    }
   ]
  }
