@@ -6154,10 +6154,13 @@
           "coordinator verified exact live main 040e04fb6432cc8456a7f9cfd8fea0e0b71a15d1 twice with unchanged repository ID 1116787982, exact future coordinate, public visibility, non-archived state, default branch main, canonical fetch/push origins, direct-child ancestry, and a clean tracked checkout"
         ]
       },
-      "state": "published",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-pdf-html-render-root institute package resolve --package-path /private/tmp/four-layer-swift-pdf-html-render-root --argument=--disable-sandbox against all exact live direct futures and the canonical transitive graph, including allowed Swift Syntax 602.0.0; no build, test, compilation, raw SwiftPM, dump-package, or manifest evaluation was invoked",
+          "Package.resolved was absent twice before resolution and present afterward only as ignored untracked generated state, never edited/deleted/staged/committed, with stable twice-observed SHA-256 57b1a4cc21aee3db7898a32341a28548d559942891747464ae616f214c2c17f6; coordinator reverified exact live main 040e04fb6432cc8456a7f9cfd8fea0e0b71a15d1, stable repository ID 1116787982, public/non-archived state, and a clean tracked checkout"
+        ]
       },
       "githubRepositoryID": 1116787982
     },
