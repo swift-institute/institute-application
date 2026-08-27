@@ -5015,6 +5015,24 @@
     "wave": "tranche0-unblock-1",
     "changes": "Removed obsolete Carrier and Cardinal-SLI seams, converged chunk APIs on native Cardinal, repaired span bookkeeping and consolidated-target shadowing; canonical three-product atom shape preserved and Foundation only in AFI. Fresh build green; fresh tests green (19 tests).",
     "bookedAt": "2026-08-27T18:41:59Z"
+   },
+   {
+    "repo": "swift-atoms/swift-collection",
+    "headSHA": "3ff3dca33c0ab0136186777fdd36e1d112fe28e7",
+    "build": "green",
+    "test": "green",
+    "wave": "tranche0-unblock-2",
+    "changes": "Replaced stale Iterable/Iterator Chunk products with canonical Iterator; removed vanished Index Test Support and the derived Index edge; migrated the protocol, rotated view, and fixtures to native comparable Int indices; canonical three-product atom shape preserved; Foundation only in AFI. Fresh build green; fresh tests green (19 tests).",
+    "bookedAt": "2026-08-27T18:49:01Z"
+   },
+   {
+    "repo": "swift-atoms/swift-input",
+    "headSHA": "3c3fbd27a2636ddc8897c47eba317b889846e741",
+    "build": "green",
+    "test": "green",
+    "wave": "tranche0-unblock-2",
+    "changes": "Slimmed Input to a zero-dependency native cursor core after Property.Inout and Index.Count/Offset seams were extracted; implemented direct restore/remove/seek/element operations with validated bounds and moved Optional Restorable coverage to SLI tests. Exact three products preserved; Foundation only in AFI. Fresh build green; fresh tests green (30 tests).",
+    "bookedAt": "2026-08-27T18:49:01Z"
    }
   ]
  }
