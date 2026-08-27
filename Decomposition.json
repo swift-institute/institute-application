@@ -2643,6 +2643,55 @@
    ],
    "notes": "Adjudication: Sample is a native semantic domain (sampling/statistics primitives: Sample, Accumulator, Averaging, Batch, Comparison, Metric, Polarity, Regression, Trend) \u2014 clear atom. Reshape: collapsed targets Sample Primitive, Sample Averaging, Sample Batch, Sample Accumulator, and umbrella Sample (exports.swift deleted) into single module Sources/Sample via git mv; all Sample_* imports removed. Products now exactly Sample / Sample Standard Library Integration / Sample Apple Foundation Integration. SLI holds real code: the #if !hasFeature(Embedded) Codable conformance extracted from Sample.Metric.swift into Sample.Metric+Codable.swift. AFI is the three-line seed (no Foundation imports existed anywhere). Kept dependency justification: swift-witness \u2014 Sample.Averaging, the domain's central abstraction consumed throughout Batch statistics, is declared as a Witness.`Protocol` conformance with @_exported import; severing it is semantic redesign beyond a structural pass, and extracting Averaging would gut the atom (Metric, Comparison, and four Batch statistics files all consume it). Coordinate updates: all five former deps have transferred to swift-atoms with renamed products, so imports were rewritten Time_Primitive\u2192Time and Algebra_Monoid\u2192Algebra, and molecule manifests use swift-atoms coordinates (swift-sample itself referenced at swift-molecules). Tests: Sample Tests kept with deps [\"Sample\"]; trivial Sample Test Support target (single @_exported re-export) deleted \u2014 test files already import Sample directly; no SLI test files existed; molecule test targets are @Suite stubs. Residual red references (expected, later pass): kept test files use the extracted seams \u2014 Sample.Batch([...]) array init (comparison seam) in Batch/Averaging/Comparison/MAD/CV tests, .duration conveniences (time seam) in MAD/CV tests, .monoid (algebra seam) in Accumulator tests; molecule seam sources reference the atom's internal @usableFromInline storage (_SampleBatchStorage, _storage, _insertionSort), which is not visible across module boundaries \u2014 the atom needs a package-visible construction seam in the semantic pass. swift-sample-comparison carries an extra swift-order dependency because its default init uses Order.Comparator.ascending. Direct push to swift-molecules/swift-sample main used the authorized bypass (repo has PR-only + required-check rules; remote reported rule bypass). All five working trees verified clean; remote heads read back and match the reported SHAs.",
    "completedAt": "2026-08-27T16:26:29Z"
+  },
+  {
+   "package": "swift-symmetry",
+   "repositoryID": 1132373953,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-symmetry",
+   "to": "swift-atoms/swift-symmetry",
+   "shapeCommit": "3df488b8efb74303e2bad6e710f032f38afee3f2",
+   "dependencies": [],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-symmetry-algebra",
+     "repositoryID": 1348702340,
+     "commit": "14e53f93a5014dec9b580bdf3d17ac775601ecb5",
+     "seam": "Group structures (Phase/Rotation/Shear + Algebra Group) integrating Symmetry with swift-algebra"
+    },
+    {
+     "successor": "swift-molecules/swift-symmetry-linear",
+     "repositoryID": 1348702413,
+     "commit": "9e83d0ec8263a42525d6391df3a2902afb7a75fd",
+     "seam": "linear() matrix conversions (Rotation/Shear/Scale) integrating Symmetry with swift-linear"
+    },
+    {
+     "successor": "swift-molecules/swift-symmetry-dimension",
+     "repositoryID": 1348702481,
+     "commit": "81a133c8b801e196be6f2bd421495db12870c49f",
+     "seam": "Radian/Degree angle API for Rotation and Scale-based Shear factories, integrating Symmetry with swift-dimension (+swift-numeric Real)"
+    },
+    {
+     "successor": "swift-molecules/swift-symmetry-affine-geometry",
+     "repositoryID": 1348702547,
+     "commit": "189c415ded6ca0d17d9cb58c49c2424c822d229c",
+     "seam": "Affine.Continuous.Transform initializers from Rotation/Scale/Shear, integrating Symmetry with swift-affine-geometry"
+    },
+    {
+     "successor": "swift-molecules/swift-symmetry-finite",
+     "repositoryID": 1348702665,
+     "commit": "0a6f2c8c36a8f7c608bcd188712df36c89d8fae6",
+     "seam": "Phase: Finite.Enumerable conformance integrating Symmetry with swift-finite (+swift-cardinal, swift-ordinal)"
+    },
+    {
+     "successor": "swift-molecules/swift-symmetry-pair",
+     "repositoryID": 1348702744,
+     "commit": "77005a5778daa3ec8acfa107fd9bfe3f7d7d2107",
+     "seam": "Phase.Value<Payload> typealias integrating Symmetry with swift-pair"
+    }
+   ],
+   "notes": "Adjudication: atom. Symmetry is a native semantic domain (planar symmetry operations: Rotation, Shear, Phase, plus the Symmetry namespace enum); all ten former package dependencies were integration seams, so every one was extracted and the atom now has zero package dependencies. Domain spelling X = Symmetry, derived from existing product/target names.\n\nAtom shape (swift-molecules/swift-symmetry @ 3df488b8efb74303e2bad6e710f032f38afee3f2): Sources/Symmetry holds Symmetry.swift, Rotation.swift, Shear.swift, Phase.swift (renamed from Rotation.Phase.swift), all dependency-free. \"Symmetry Standard Library Integration\" holds Rotation+Codable.swift, Shear+Codable.swift, Phase+Codable.swift (Codable conformances split out of the core files; Phase's Codable now rides RawRepresentable defaults cross-module). \"Symmetry Apple Foundation Integration\" is the three-line seed (no Foundation code existed). Exactly three products; test target \"Symmetry Tests\" (deps [\"Symmetry\"]) keeps Symmetry Tests.swift and a purified Shear Tests.swift. Manifest idiom (tools 6.4, .v27 platforms, v6 language mode, ecosystem SwiftSetting loop) copied verbatim.\n\nFiles moved per seam: algebra = Phase+Algebra, Rotation+Algebra, Shear+Algebra (each gained `public import Symmetry`); linear = Rotation.linear()/Shear.linear() extracted into Rotation+Linear.swift/Shear+Linear.swift plus Scale+Linear.swift moved whole; dimension = Rotation angle section extracted into Rotation+Angle.swift and Shear.horizontal/vertical (Scale-typed) into Shear+Scale.swift; affine-geometry = Affine.Transform.swift; finite = Phase's Finite.Enumerable conformance extracted into Phase+Finite.swift; pair = Phase.Value typealias into Phase+Pair.swift.\n\nTests: trivial re-export target \"Symmetry Test Support\" deleted (no test file imported it; its Cardinal Test Support re-export was unused). Scale Tests.swift moved to swift-symmetry-linear (it mostly exercises Dimension's Scale type core behavior \u2014 residual but compiles there since Dimension is a dep); Rotation Tests.swift moved to swift-symmetry-dimension with imports rewritten (Symmetry + Symmetry_Algebra + @testable Symmetry_Dimension) and its one linear() test relocated to swift-symmetry-linear rewritten via init(cos:sin:); Geometry.AffineTransform tests moved to swift-symmetry-affine-geometry with imports rewritten. Shear Tests split: core stayed in the atom; linear() tests went to swift-symmetry-linear (two cross-seam cases rewritten to use Shear(x:y:) instead of horizontal/vertical); horizontal/vertical tests went to swift-symmetry-dimension.\n\nCross-molecule dependencies (additive, acyclic): swift-symmetry-dimension depends on swift-symmetry-algebra (rotated(by:) calls concatenating); swift-symmetry-affine-geometry depends on swift-symmetry-linear (transform initializers call .linear()) and, test-only, on swift-symmetry-dimension (tests use Rotation(angle:)/quarterTurn). Coordinates: all extracted-atom deps at swift-atoms (linear, dimension, algebra, numeric, affine, finite, cardinal, ordinal, pair \u2014 the old swift-molecules URLs now redirect); swift-affine-geometry still at swift-molecules; all branch: \"main\", no tags or path deps.\n\nResidual red (expected, structural pass only): CaseIterable stayed on the Phase declaration rather than SLI (cross-module synthesis impossible); Rotation+Angle.swift's rotated(by:) needs Symmetry_Algebra's concatenating \u2014 wired via the cross-molecule dep; original test files referenced Scale/Dimension types without importing Dimension (pre-existing oddity, likely already red or leaning on umbrellas \u2014 imports were normalized where files moved); no build/resolve/test was run per commission. Atom direct-push to main reported a bypassed branch-protection notice (direct pushes were explicitly authorized). All seven working trees verified clean.",
+   "completedAt": "2026-08-27T16:26:39Z"
   }
  ],
  "successors": [],
