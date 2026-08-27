@@ -2471,20 +2471,29 @@
       "observedHead": "056452f2dd54f1908b0fd6061548e2ff2a57bc1d",
       "observedRemote": "https://github.com/swift-foundations/swift-event-loop-group-dependencies.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit a358345bf83bb6d2a48b41a855cb4f332d6fa254 from exact parent 056452f2dd54f1908b0fd6061548e2ff2a57bc1d in clean disjoint worktree /private/tmp/four-layer-swift-event-loop-group-dependencies-publisher with subject Prepare Event Loop Group Dependencies for composition",
+          "audited all nine tracked paths and made the exact two-path, two-insertion/two-deletion mechanical transformation in Package.swift and metadata, moving Dependencies and layer topic to compositions while preserving the entire external swift-nio declaration, products, public semantics, and canonical Actions; residual, payload, staged-tree, ancestry, and identity checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-event-loop-group-dependencies as canonical with stable GitHub repository ID 1311573938, public visibility, non-archived state, default branch main, canonical origin, and exact live parent; no repository rename was needed",
+          "JIT verified exact live Dependencies plus external apple/swift-nio range and required products, then ordinary fast-forward published exact direct child a358345bf83bb6d2a48b41a855cb4f332d6fa254 without force or history rewrite",
+          "coordinator independently verified exact live main a358345bf83bb6d2a48b41a855cb4f332d6fa254 with unchanged repository ID 1311573938, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, and a clean tracked checkout"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-event-loop-group-dependencies-publisher institute package resolve --package-path /private/tmp/four-layer-swift-event-loop-group-dependencies-publisher --argument=--disable-sandbox against exact live Dependencies and allowed SwiftNIO 2.101.3 plus canonical transitives; no build, test, compilation, raw SwiftPM, dump-package, or manifest evaluation was invoked",
+          "Package.resolved was absent twice before resolution and present afterward only as ignored untracked generated state, never edited/deleted/staged/committed, with stable twice-observed SHA-256 d1b629ef30642aedf5d16682d96fe56b3a2b432e9c6be6e6fd5c4f2f18af2a62; final live identity/SHA and clean tracked checkout were reverified"
+        ]
+      },
+      "githubRepositoryID": 1311573938
     },
     {
       "current": "swift-foundations/swift-executors",
