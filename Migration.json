@@ -22179,19 +22179,28 @@
       "observedHead": "78c0728188909a45743dd6889970f48a62f5709a",
       "observedRemote": "https://github.com/swift-primitives/swift-machine-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit 51231955b3016fffd17542d194969cbdb808d5ba from expected parent 78c0728188909a45743dd6889970f48a62f5709a in isolated worktree /private/tmp/four-layer-swift-machine",
+          "deterministic full-tree audit verified the exact 65-path, 161-insertion/161-deletion owner/suffix transformation, live Graph dependency URL/products/modules, preserved six legitimate singular Machine Primitive identities, zero mapped residuals, public payload, active workflow, human commit identity, and clean checkout; no semantic change or split"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified exact old live coordinate swift-molecules/swift-machine-primitives at expected main 78c0728188909a45743dd6889970f48a62f5709a with GitHub repository ID 1138063675 and exact future coordinate HTTP 404",
+          "renamed repository to swift-molecules/swift-machine and verified the same numeric repository ID 1138063675, public visibility, non-archived state, and default branch main without relying on the old redirect",
+          "set fetch and push origins to https://github.com/swift-molecules/swift-machine.git and fast-forward published exact prepared commit 51231955b3016fffd17542d194969cbdb808d5ba without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main 51231955b3016fffd17542d194969cbdb808d5ba with unchanged repository ID 1138063675, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-machine-publisher institute package resolve --package-path /private/tmp/four-layer-swift-machine --argument=--disable-sandbox against live Graph at f6b55b81ca48fe8e24b59d7f471257828b435a89",
+          "post-resolution verification found exact HEAD 51231955b3016fffd17542d194969cbdb808d5ba, a clean checkout, and untouched generated Package.resolved with stable SHA-256 3edafdcd28e0eb5b8d8fe05aa44980c4fadc7396a767005ce9f7465bd7bc93f3"
+        ]
       }
     },
     {
