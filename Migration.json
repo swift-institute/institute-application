@@ -15084,11 +15084,13 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-rename main at expected commit b6f3e8617d2d7042510a98506b5129dec5f88cd5 on exact live coordinate swift-molecules/swift-binary-leb128-parser-primitives and verified exact future coordinate returned HTTP 404",
           "renamed repository to swift-molecules/swift-binary-leb128-parser and verified stable GitHub repository ID 1254469065 with public visibility, non-archived state, default branch main, and unchanged pre-push main",
-          "fast-forward publication remains in progress; resume from the exact final coordinate without repeating the rename"
+          "updated isolated worktree fetch and push origins to https://github.com/swift-molecules/swift-binary-leb128-parser.git",
+          "fast-forward published exact prepared commit 1a4fe062a82f6e359c0034591085d0613b1769ac without force or history rewrite using the configured administrator ruleset bypass",
+          "verified live main 1a4fe062a82f6e359c0034591085d0613b1769ac with unchanged repository ID, public visibility, non-archived state, default branch main, and clean isolated worktree"
         ]
       },
       "state": "ready",
@@ -20273,19 +20275,31 @@
       "observedHead": "891801c9793c94a042a67c7403ac931567cf557a",
       "observedRemote": "https://github.com/swift-primitives/swift-glob-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 08ed80e44e2122a8f825c80efd93a8711b4cae12 from expected parent 891801c9793c94a042a67c7403ac931567cf557a",
+          "isolated worktree /private/tmp/four-layer-swift-glob",
+          "deterministic audit verified the clean 23-path, 25-file-preserving mechanical transformation across the Glob and Standard Library Integration family, all seven exact live dependency coordinates and products, legitimate singular Primitive preservation, zero plural residuals, public payload, metadata, README, active Actions refs, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-rename main at expected commit 891801c9793c94a042a67c7403ac931567cf557a on exact live coordinate swift-molecules/swift-glob-primitives and verified exact future coordinate returned HTTP 404",
+          "renamed repository to swift-molecules/swift-glob and verified stable GitHub repository ID 1228912459 with public visibility, non-archived state, and default branch main",
+          "updated isolated worktree fetch and push origins to https://github.com/swift-molecules/swift-glob.git",
+          "fast-forward published exact prepared commit 08ed80e44e2122a8f825c80efd93a8711b4cae12 without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main 08ed80e44e2122a8f825c80efd93a8711b4cae12 with unchanged repository ID, public visibility, non-archived state, default branch main, and clean isolated worktree"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-glob-publisher institute package resolve --package-path /private/tmp/four-layer-swift-glob --argument=--disable-sandbox against all seven live direct dependencies and their molecule graph",
+          "prepared HEAD remained 08ed80e44e2122a8f825c80efd93a8711b4cae12 and the isolated worktree remained clean",
+          "Package.resolved was absent before resolution and present afterward as untouched ignored generated state with stable SHA-256 e55ba5459e6ad25c86c5dfed0df450a7c972c72620ed1895a24388a14bad2f25"
+        ]
       }
     },
     {
@@ -21939,19 +21953,31 @@
       "observedHead": "13333a8ac9ca96bc4b8bcfde96ec02beb2828b01",
       "observedRemote": "https://github.com/swift-primitives/swift-manifest-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit af4678e04ec01203f83c73d3ee044aae5955a8c5 from expected parent 13333a8ac9ca96bc4b8bcfde96ec02beb2828b01",
+          "isolated worktree /private/tmp/four-layer-swift-manifest",
+          "deterministic audit verified the clean 11-path, 14-file-preserving mechanical transformation, exact live ASCII and Byte Parser dependency SHAs/products, stale README parser edge correction to the canonical Byte Parser ledger edge, settled L2 molecule/L4 composition labels, zero owned plural residuals, public payload, metadata, active Actions refs, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-rename main at expected commit 13333a8ac9ca96bc4b8bcfde96ec02beb2828b01 on exact live coordinate swift-molecules/swift-manifest-primitives and verified exact future coordinate returned HTTP 404",
+          "renamed repository to swift-molecules/swift-manifest and verified stable GitHub repository ID 1231810609 with public visibility, non-archived state, and default branch main",
+          "updated isolated worktree fetch and push origins to https://github.com/swift-molecules/swift-manifest.git",
+          "fast-forward published exact prepared commit af4678e04ec01203f83c73d3ee044aae5955a8c5 without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main af4678e04ec01203f83c73d3ee044aae5955a8c5 with unchanged repository ID, public visibility, non-archived state, default branch main, and clean isolated worktree"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-manifest-publisher institute package resolve --package-path /private/tmp/four-layer-swift-manifest --argument=--disable-sandbox against live ASCII and Byte Parser dependencies",
+          "prepared HEAD remained af4678e04ec01203f83c73d3ee044aae5955a8c5 and the isolated worktree remained clean",
+          "Package.resolved was absent before resolution and present afterward as untouched ignored generated state with stable SHA-256 87d71303a6f1cbd81ace89233a9a29745e8d11d1a6ed72a2687032ba6a75e54d"
+        ]
       }
     },
     {
@@ -23979,8 +24005,12 @@
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-parser-effect-publisher institute package resolve --package-path /private/tmp/four-layer-swift-parser-effect --argument=--disable-sandbox against live swift-effect and swift-parser dependencies",
+          "prepared HEAD remained d2267837285cc558d09d358326a84c778641d694 and the isolated worktree remained clean in repeated checks",
+          "Package.resolved was absent before resolution and present afterward as untouched ignored generated state with stable SHA-256 8d38cbf99b610f7d06c91b9d0d5bcc127413d5e44e9a26d9e5297b27553b9b92"
+        ]
       }
     },
     {
