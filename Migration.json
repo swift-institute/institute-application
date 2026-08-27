@@ -15075,8 +15075,13 @@
       "observedHead": "b6f3e8617d2d7042510a98506b5129dec5f88cd5",
       "observedRemote": "https://github.com/swift-primitives/swift-binary-leb128-parser-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 1a4fe062a82f6e359c0034591085d0613b1769ac from expected parent b6f3e8617d2d7042510a98506b5129dec5f88cd5",
+          "isolated worktree /private/tmp/four-layer-swift-binary-leb128-parser",
+          "mapped the three dependency URLs and product/module identities, owned Binary LEB128 Parser package/product/target/module/path family, README references, and metadata topic to live molecule identities",
+          "deterministic audit verified the clean direct-child nine-path 11-file-preserving mechanical transformation, exact live dependency SHAs for Binary LEB128, Parser, and Byte, zero plural residuals, unchanged active one-hop workflow, public-payload safety, and Package.resolved absence; stable repository ID is 1254469065 and exact future coordinate returned HTTP 404"
+        ]
       },
       "publication": {
         "status": "pending",
