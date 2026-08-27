@@ -29029,24 +29029,29 @@
       "observedHead": "7a5da4f069fd270b7b7a0d87aec107f4293d8441",
       "observedRemote": "https://github.com/swift-standards/swift-darwin-standard.git",
       "preparation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "prepared commit 467dfbfd68a040e1f363e574e1577d81bb7f1448 from expected parent 7a5da4f069fd270b7b7a0d87aec107f4293d8441",
           "isolated worktree /private/tmp/four-layer-swift-darwin-standard",
           "mapped eight primitive dependency URLs, products, modules, and imports to their live molecule coordinates while preserving the unchanged ISO 9945 dependency and suffix-free Darwin Standard identities",
           "ancestry, clean worktree, intended diff, dependency readiness, residual, public payload, workflow, and Package.resolved audits passed independently; live destination retains stable repository ID 1206918613",
-          "follow-up preparation is required from published commit 467dfbfd68a040e1f363e574e1577d81bb7f1448 to replace the lower Loader package identity and module with swift-loader-vocabulary and Loader_Vocabulary"
+          "follow-up preparation was required from published commit 467dfbfd68a040e1f363e574e1577d81bb7f1448 to replace the lower Loader package identity and module with swift-loader-vocabulary and Loader_Vocabulary",
+          "prepared human-authored exact direct-child commit d4d246e718b2f8c0654af51735e4d9257497873f in isolated worktree /private/tmp/four-layer-swift-darwin-standard with subject Use the Loader vocabulary package",
+          "committed-tree audit verified the exact five-path six-insertion/six-deletion follow-up: canonical Loader vocabulary URL/package identity plus four lower-module imports changed to Loader_Vocabulary while public product Loader, all Darwin Standard identities/semantics, ISO 9945 integration, other flag-day mappings, public payload, explicit staging, and clean checkout were preserved"
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 7a5da4f069fd270b7b7a0d87aec107f4293d8441",
           "repository retained exact live coordinate swift-standards/swift-darwin-standard; no repository rename was required",
           "verified exact coordinate owns stable GitHub repository ID 1206918613 with public visibility, non-archived state, and default branch main",
           "fast-forward published prepared commit 467dfbfd68a040e1f363e574e1577d81bb7f1448 without force or history rewrite",
           "verified live main 467dfbfd68a040e1f363e574e1577d81bb7f1448 with unchanged repository ID, public visibility, non-archived state, and clean isolated worktree",
-          "the successful flag-day publication remains live and preserved, but final publication is pending the Loader vocabulary dependency follow-up"
+          "the successful flag-day publication remained live and preserved while final publication awaited the Loader vocabulary dependency follow-up",
+          "coordinator reverified exact pre-publication main 467dfbfd68a040e1f363e574e1577d81bb7f1448 at unchanged coordinate swift-standards/swift-darwin-standard with GitHub repository ID 1206918613, public visibility, non-archived state, and default branch main; Loader vocabulary and repaired ISO 9945 were exact live ledger-passed dependencies",
+          "fast-forward published exact direct-child follow-up commit d4d246e718b2f8c0654af51735e4d9257497873f without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main d4d246e718b2f8c0654af51735e4d9257497873f with unchanged repository ID 1206918613, exact coordinate, public visibility, non-archived state, default branch main, and final clone URL https://github.com/swift-standards/swift-darwin-standard.git"
         ]
       },
       "state": "ready",
