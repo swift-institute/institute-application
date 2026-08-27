@@ -4455,8 +4455,12 @@
     "blockingHeadSHA": "8843cdabcbfc3809ab016c4c7f8cd7a1bcb231fc",
     "evidence": "The seam's direct Manifest, ASCII, and Byte Parser coordinates were modernized locally, but fresh resolution stops in Byte Parser's live dependency closure at its stale swift-molecules/swift-parser URL before this package can compile. The consumer lane may not rewrite an unconverged substrate's transitive graph.",
     "resumeWhen": "Converge swift-byte-parser and its parser-family closure, then resume the preserved checkout, rerun fresh build/test, push, and book only the verified green head.",
-    "status": "dependency-convergence-required",
-    "recordedAt": "2026-08-27T21:48:42Z"
+    "resolvedByHeadSHA": "bd68aa502d199be9d5d700e4cc7132ad8ca30139",
+    "resumedPackageHeadSHA": "77a97ecc90c3d0b8c9f3ecab2ae69eb27ae3d39a",
+    "status": "resolved-and-booked",
+    "recordedAt": "2026-08-27T21:48:42Z",
+    "resumedAt": "2026-08-27T22:24:00Z",
+    "resolvedAt": "2026-08-27T22:28:17Z"
    },
    {
     "repo": "swift-molecules/swift-cpu-binary-serializer",
@@ -4479,9 +4483,11 @@
     "evidence": "Byte Parser's direct Parser/Byte/Either/Input/Collection/Span graph and obsolete Array.Shared input buffer were modernized locally, but fresh resolution stops in Memory Cursor: it requests removed Cursor Test Support, Cursor Primitive, Byte Test Support, Iterator Protocol, and Span Protocol products and carries stale moved-atom coordinates. Byte Parser genuinely consumes Memory Cursor-owned peek/consume/count/isAtEnd behavior and cannot replace that substrate locally.",
     "resumeWhen": "Converge swift-memory-cursor, then resume the preserved checkout, rerun fresh build/test, push, and book only the verified green head.",
     "resolvedByHeadSHA": "6dd1be2fcbd330e6de9a195feb7fb672a5d33cea",
-    "status": "blocking-dependency-converged-resumption-in-progress",
+    "resumedPackageHeadSHA": "bd68aa502d199be9d5d700e4cc7132ad8ca30139",
+    "status": "resolved-and-booked",
     "recordedAt": "2026-08-27T22:05:44Z",
-    "resumedAt": "2026-08-27T22:16:26Z"
+    "resumedAt": "2026-08-27T22:16:26Z",
+    "resolvedAt": "2026-08-27T22:24:00Z"
    }
   ],
   "pendingAdjudications": [
@@ -6182,6 +6188,51 @@
     "wave": "wave7p",
     "changes": "Canonicalized Pair to its atom owner and retained the genuine element-wise native Hashable plus typed Hash.Protocol seam, adding the explicit Pair Equation equality prerequisite, retroactive ownership, and focused native Set and noncopyable typed Hash.Value contracts. Fresh build green; 2 tests across 5 suites green.",
     "bookedAt": "2026-08-27T22:21:35Z"
+   },
+   {
+    "repo": "swift-molecules/swift-byte-parser",
+    "headSHA": "bd68aa502d199be9d5d700e4cc7132ad8ca30139",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7q",
+    "changes": "Resumed after Memory Cursor convergence and modernized the Byte Parser substrate to canonical Parser, Input, Span, Byte, Either, Collection, and Byte Ownership surfaces; removed obsolete Array/Column/Buffer/Storage/Heap/Allocator/Index graph edges, preserved the byte-specific copyable/sendable Input.Protocol and random-access behavior, and migrated cursor offsets to current Cardinal/Tagged representation. Fresh build green; 28 tests across 22 suites green, including the 256-case byte domain and concurrency cases.",
+    "bookedAt": "2026-08-27T22:23:55Z"
+   },
+   {
+    "repo": "swift-molecules/swift-sector-hash",
+    "headSHA": "064683614d6e4e0e0545469f4191c70275a421ee",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7q",
+    "changes": "Canonicalized Sector to its atom owner and retained the genuine retroactive Quadrant and Octant Hash.Protocol bridges, activating atom-owned rank equality/native hashing plus typed Hash.Value without a separate equality dependency, with focused native and typed contracts for both sector types. Fresh build green; 4 tests green.",
+    "bookedAt": "2026-08-27T22:23:55Z"
+   },
+   {
+    "repo": "swift-molecules/swift-axis-hash",
+    "headSHA": "11683e49c7e3d757ccf8d1a5186eabd07a99196b",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7q",
+    "changes": "Canonicalized Axis to its atom owner and retained the genuine narrow retroactive Hash.Protocol/domain-typed Hash.Value bridge beyond Axis's atom-owned native Equatable and Hashable conformances, with direct test dependencies, focused native/domain contracts, and explicit ownership documentation. Fresh build green; 2 tests green.",
+    "bookedAt": "2026-08-27T22:26:41Z"
+   },
+   {
+    "repo": "swift-molecules/swift-ordinal-cardinal",
+    "headSHA": "661242888a8b8f27ada1644423e659a4a90ea624",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7q",
+    "changes": "Canonicalized Ordinal to its atom owner and retained the full genuine Ordinal/Cardinal seam: Ordinal.Protocol, conversions, domain-matched count arithmetic/comparison, atomic advancement, and ordinal-indexed standard-library access; explicitly composed current Cardinal Carrier and Tagged Carrier seams, repaired exact imports and Tagged/UInt spelling, and added focused core contracts. Fresh build green; 12 tests across 17 suites green.",
+    "bookedAt": "2026-08-27T22:27:13Z"
+   },
+   {
+    "repo": "swift-molecules/swift-manifest-byte-parser",
+    "headSHA": "77a97ecc90c3d0b8c9f3ecab2ae69eb27ae3d39a",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7q",
+    "changes": "Resumed against converged Byte Parser, canonicalized Manifest to its atom owner, and retained the genuine Manifest.Parent parent-directive scan/parse seam, updating the scanner to current ASCII constants and Input.Stream.Error APIs, narrowing public docs, and adding empty-directive coverage. Fresh build green; 12 tests across 4 suites green.",
+    "bookedAt": "2026-08-27T22:28:13Z"
    }
   ]
  }
