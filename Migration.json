@@ -13989,35 +13989,42 @@
       "observedHead": "4d9daa0cc53a3e155e5be9eecf266e85dd663fbf",
       "observedRemote": "https://github.com/swift-linux-foundation/swift-linux-standard.git",
       "preparation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "prepared commit 8bc8075ca84dd067ebb8ab30fe2adaff046d6f75 from expected parent 4d9daa0cc53a3e155e5be9eecf266e85dd663fbf",
           "isolated worktree /private/tmp/four-layer-swift-linux-standard",
           "mapped all twelve inventoried primitive dependencies to live molecule coordinates and added the required direct swift-molecules/swift-binary product dependency for two pre-existing direct Binary imports; preserved unchanged ISO 9945 and suffix-free Linux Standard identities",
           "ancestry, clean worktree, 89-path intended diff, dependency readiness, import/product coverage, residual, public payload, workflow absence, and Package.resolved audits passed independently; live destination retains stable repository ID 1206909850",
-          "follow-up preparation is required from published commit 8bc8075ca84dd067ebb8ab30fe2adaff046d6f75 to replace the lower Loader package identity and module with swift-loader-vocabulary and Loader_Vocabulary"
+          "follow-up preparation was required from published commit 8bc8075ca84dd067ebb8ab30fe2adaff046d6f75 to replace the lower Loader package identity and module with swift-loader-vocabulary and Loader_Vocabulary",
+          "prepared human-authored exact direct-child commit b27edad8f5d7fd6359706df8dfeddfcad0a1a69b in isolated worktree /private/tmp/four-layer-swift-linux-standard with subject Repair the Linux Standard Loader dependency",
+          "committed-tree audit verified the exact five-path six-insertion/six-deletion follow-up: canonical Loader vocabulary URL/package identity plus four lower-module imports changed to Loader_Vocabulary while public product Loader, all Linux Standard identities/semantics, repaired ISO 9945 integration, other flag-day mappings, canonical Actions, explicit staging, and clean checkout were preserved"
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-publication main at expected commit 4d9daa0cc53a3e155e5be9eecf266e85dd663fbf",
           "repository retained exact live coordinate swift-linux-foundation/swift-linux-standard; no repository rename or origin change was required",
           "verified exact coordinate owns stable GitHub repository ID 1206909850 with public visibility, non-archived state, and default branch main",
           "fast-forward published prepared commit 8bc8075ca84dd067ebb8ab30fe2adaff046d6f75 without force or history rewrite",
           "verified live main 8bc8075ca84dd067ebb8ab30fe2adaff046d6f75 with unchanged repository ID, public visibility, non-archived state, default branch main, and clean isolated worktree",
-          "the successful flag-day publication remains live and preserved, but final publication is pending the Loader vocabulary dependency follow-up"
+          "the successful flag-day publication remained live and preserved while final publication awaited the Loader vocabulary dependency follow-up",
+          "verified exact pre-publication main 8bc8075ca84dd067ebb8ab30fe2adaff046d6f75 at unchanged coordinate swift-linux-foundation/swift-linux-standard with GitHub repository ID 1206909850, public visibility, non-archived state, and default branch main; all 13 future dependencies were exact live ledger-passed commits",
+          "fast-forward published exact direct-child follow-up commit b27edad8f5d7fd6359706df8dfeddfcad0a1a69b without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main b27edad8f5d7fd6359706df8dfeddfcad0a1a69b with unchanged repository ID 1206909850, exact coordinate, public visibility, non-archived state, and default branch main"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "package resolution passed for swift-linux-standard at live published commit 8bc8075ca84dd067ebb8ab30fe2adaff046d6f75",
           "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-linux-standard-root institute package resolve --package-path /private/tmp/four-layer-swift-linux-standard --argument=--disable-sandbox",
           "resolution exited 0 against live ISO 9945, all twelve inventoried molecule dependencies, the added direct Binary dependency, and their transitive graph",
           "HEAD unchanged; tracked worktree clean; Package.resolved changed from absent to ignored uncommitted generated state and stabilized at SHA-256 7c164d379b871c0dea3bc263108e310a4cbb64caf1d52ea67de75331768272b3",
-          "the prior resolution evidence is superseded by the Loader vocabulary identity repair; final package resolution is pending the consumer follow-up"
+          "the prior resolution evidence was superseded by the Loader vocabulary identity repair and revalidation followed publication of the exact consumer follow-up",
+          "package resolution passed with exit status 0 using the sole approved noncompiling command CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-linux-standard-loader-vocabulary-publisher institute package resolve --package-path /private/tmp/four-layer-swift-linux-standard --argument=--disable-sandbox; direct Loader vocabulary resolved at 94c4d92fdfe55886fae51f41531c402baf1fffd7 and repaired ISO 9945 resolved at 4fdba77facedee28bf8c4c56276c79cb6e8749a3",
+          "post-resolution verification found exact HEAD b27edad8f5d7fd6359706df8dfeddfcad0a1a69b, clean tracked and untracked status, and untouched ignored generated Package.resolved changed from pre-resolution SHA-256 7c164d379b871c0dea3bc263108e310a4cbb64caf1d52ea67de75331768272b3 to stable post-resolution SHA-256 53cc557c5e01e03b114fcc5e0937e0eeaabf8d1a71a50f7587c438ac964b2e34"
         ]
       }
     },
