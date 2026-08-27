@@ -28194,13 +28194,17 @@
       "observedHead": "b526a1312f054a4fed9a852a18e0d1282da3e768",
       "observedRemote": "https://github.com/swift-primitives/swift-tree-n-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit 30c5ac40ff73ddd24c891f52de2ee3cbf96626ca from expected parent b526a1312f054a4fed9a852a18e0d1282da3e768 in isolated worktree /private/tmp/four-layer-swift-tree-n",
+          "deterministic full-tree equivalence audit verified all 41 tracked files, the exact 15 future dependency URLs and product/package/module/import mappings, 39 changed paths with 131 insertions/131 deletions, preserved five legitimate singular Primitive identities, zero mapped residuals, public payload, active Actions, human commit identity, clean checkout, and Package.resolved absence"
+        ]
       },
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified old coordinate swift-molecules/swift-tree-n-primitives at expected main b526a1312f054a4fed9a852a18e0d1282da3e768 with GitHub repository ID 1250708981, public visibility, non-archived state, and default branch main",
+          "renamed the repository to exact destination swift-molecules/swift-tree-n and verified the same GitHub repository ID 1250708981 at expected pre-publication main b526a1312f054a4fed9a852a18e0d1282da3e768 with unchanged visibility, archival state, and default branch; prepared commit publication remains pending"
         ]
       },
       "state": "ready",
