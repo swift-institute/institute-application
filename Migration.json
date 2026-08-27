@@ -3590,20 +3590,29 @@
       "observedHead": "ca142c27c6c2adb3d5aaa9bbe8a6097ed4a392bd",
       "observedRemote": "https://github.com/swift-foundations/swift-http-body.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit 88096a2e010368478d7999de0af81ae9c5027af8 from exact parent ca142c27c6c2adb3d5aaa9bbe8a6097ed4a392bd in clean identity-compatible isolated worktree /private/tmp/http-body-composition-lane/swift-http-body",
+          "audited all 41 tracked paths and made the exact 8-path, 34-insertion/34-deletion mechanical cutover across Package.swift, README, metadata, three sources, and two tests, mapping JSON and Byte Channel to compositions, molecule repository/package identities, and plural Coder/Either product-module identities while preserving legitimate singular Byte, Parser, and Serializer Primitive identities, public semantics, and canonical Actions; residual, payload, staged-tree, ancestry, and identity checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-http-body as canonical with stable GitHub repository ID 1144635357, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; the completed organization rename had already established the coordinate, so no repository rename was needed",
+          "JIT verified all eight declared dependency coordinates, exact heads, required products, and ledger gates, then ordinary fast-forward published exact direct child 88096a2e010368478d7999de0af81ae9c5027af8 without force or history rewrite",
+          "coordinator independently verified exact live main 88096a2e010368478d7999de0af81ae9c5027af8 with unchanged repository ID 1144635357, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, and clean tracked checkout"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-http-body-publisher institute package resolve --package-path /private/tmp/http-body-composition-lane/swift-http-body --argument=--disable-sandbox against the exact live graph; no build, test, compilation, raw SwiftPM, dump-package, or standalone manifest-evaluation command was invoked",
+          "Package.resolved was absent twice before resolution and present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 30c030e3d642f843a67b7020565334f026da49e817a20d627118bf64e329c666; final live identity/SHA and clean tracked checkout were reverified"
+        ]
+      },
+      "githubRepositoryID": 1144635357
     },
     {
       "current": "swift-foundations/swift-http-cookies",
