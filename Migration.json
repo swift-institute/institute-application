@@ -9225,13 +9225,20 @@
       "observedHead": "6842a965467a0bc19e15bb6296dde2c36640b1cf",
       "observedRemote": "https://github.com/swift-foundations/swift-windows.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 8ffd72c852c1eb11ba4de6312284d040da330f52 from expected parent 6842a965467a0bc19e15bb6296dde2c36640b1cf",
+          "isolated worktree /private/tmp/four-layer-swift-windows",
+          "deterministic audit verified the clean direct-child eight-path, 57-file-preserving transformation, all ten exact live dependency coordinates and products including Glob, foundation-to-composition and primitive-to-molecule mappings, zero mapped residuals, public payload, active Actions refs, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified the already-final post-organization-cutover coordinate swift-compositions/swift-windows at expected main 6842a965467a0bc19e15bb6296dde2c36640b1cf with GitHub repository ID 1129970234, public visibility, non-archived state, and default branch main; no repository rename was required",
+          "updated isolated worktree fetch and push origins to https://github.com/swift-compositions/swift-windows.git",
+          "fast-forward published exact prepared commit 8ffd72c852c1eb11ba4de6312284d040da330f52 without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main 8ffd72c852c1eb11ba4de6312284d040da330f52 with unchanged repository ID, public visibility, non-archived state, default branch main, and clean isolated worktree"
         ]
       },
       "state": "ready",
