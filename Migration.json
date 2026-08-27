@@ -7903,20 +7903,29 @@
       "observedHead": "4e2da8d5c85635c0ba2ee3e3c2d7ec5e2e213b18",
       "observedRemote": "https://github.com/swift-foundations/swift-structured-queries-postgres.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit ae751d19884e001e7165eb6a953dc446cb4074b9 from exact parent 4e2da8d5c85635c0ba2ee3e3c2d7ec5e2e213b18 in clean identity-compatible isolated worktree /private/tmp/structured-queries-postgres-root/swift-structured-queries-postgres with subject Prepare Structured Queries Postgres for the four-layer cutover",
+          "audited all 373 tracked paths and made the exact four-path, eight-insertion/eight-deletion cutover across Package.swift, README, SwiftLint parent configuration, and a module-collision comment, moving Dependencies, self, swift-records, organization configuration, Tagged, and Ordinal references to canonical final identities while preserving external dependencies/ranges, public semantics, upstream/coenttb documentation, and canonical Actions; residual, payload, staged-tree, ancestry, and identity checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-structured-queries-postgres as canonical with stable GitHub repository ID 1043214539, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; no repository rename was needed, and the canonical swift-compositions/.github SwiftLint configuration was verified live",
+          "JIT verified all nine declared external/composition dependency coordinates and heads, then ordinary fast-forward published exact direct child ae751d19884e001e7165eb6a953dc446cb4074b9 through the configured administrator ruleset bypass without force or history rewrite",
+          "coordinator verified exact live main ae751d19884e001e7165eb6a953dc446cb4074b9 with unchanged repository ID 1043214539, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical fetch/push origins, and clean tracked checkout"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-structured-queries-postgres-root institute package resolve --package-path /private/tmp/structured-queries-postgres-root/swift-structured-queries-postgres --argument=--disable-sandbox against the exact live composition and external versioned graph; only nonblocking deprecation warnings from an external manifest appeared, and no build, test, compilation, raw SwiftPM, dump-package, or standalone manifest-evaluation command was invoked",
+          "Package.resolved was absent repeatedly before resolution and present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 c024924ca315c0758c73892e9c2062c2bc4acbfaa60183f722a69e32f4ba1269; final live identity/SHA and clean tracked checkout were reverified"
+        ]
+      },
+      "githubRepositoryID": 1043214539
     },
     {
       "current": "swift-foundations/swift-svg",
