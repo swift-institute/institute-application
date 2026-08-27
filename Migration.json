@@ -845,14 +845,16 @@
       "publication": {
         "status": "pending",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "the exact future repository swift-compositions/swift-url-routing-authentication was discovered archived at expected base ff29fa22f948ca1de99a3694308e98c38f658399; the principal explicitly unarchived it to permit the migration and instructed that it be archived again only after publication and package resolution are fully booked",
+          "coordinator independently verified the completed unarchive at exact repository ID 906335974 with archived=false, public visibility, enabled state, default branch main, unchanged main SHA ff29fa22f948ca1de99a3694308e98c38f658399, and unchanged repository settings; publication remains pending as a separately journaled phase"
         ]
       },
       "state": "ready",
       "validation": {
         "status": "pending",
         "records": []
-      }
+      },
+      "githubRepositoryID": 906335974
     },
     {
       "current": "swift-foundations/swift-certificate-verification",
