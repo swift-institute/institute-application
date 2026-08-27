@@ -31425,11 +31425,14 @@
           "coordinator verified exact live main d52c309ece832e609f2a9379dd39ff1b397d3c61 with unchanged repository ID 1095108073, exact coordinate, public visibility, non-archived state, default branch main, canonical origins, and a clean isolated worktree"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "publication is durably booked before the sole package-resolution gate"
+          "publication was durably booked before the sole package-resolution gate",
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-whatwg-url-root institute package resolve --package-path /private/tmp/four-layer-swift-whatwg-url-root --argument=--disable-sandbox against all eleven exact live direct dependencies and their canonical transitive graph",
+          "coordinator reverified exact live main d52c309ece832e609f2a9379dd39ff1b397d3c61 with unchanged GitHub repository ID 1095108073, public visibility, non-archived state, and default branch main",
+          "HEAD remained d52c309ece832e609f2a9379dd39ff1b397d3c61, both origins remained the canonical final URL, and the isolated worktree remained clean; Package.resolved was absent before resolution and present afterward only as ignored untracked generated state with stable SHA-256 7187bfd8acd34b16c8549ec6dea2c4fc9c654d21c52b0c96c16e8aeb7cbbbf0a"
         ]
       },
       "githubRepositoryID": 1095108073
