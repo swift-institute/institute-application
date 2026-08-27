@@ -5473,7 +5473,7 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-compositions/swift-manifests",
       "futureLayer": "compositions",
-      "observedHead": "4af5d6f6a24478d06fdcf851c9e3dbd19e25e486",
+      "observedHead": "bf1d528c826f41e55bcac0788ad082c58b0b4ec4",
       "observedRemote": "https://github.com/swift-foundations/swift-manifests.git",
       "preparation": {
         "status": "passed",
@@ -5490,11 +5490,13 @@
           "coordinator independently verified exact live main bf1d528c826f41e55bcac0788ad082c58b0b4ec4 with unchanged repository ID 1230998607, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
         ]
       },
-      "state": "published",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "publication is complete and Package.resolved remained absent twice after publication; the repository is queued behind the serialized Institute package-resolution slot"
+          "publication completed before validation and Package.resolved remained absent twice before resolution",
+          "package resolution passed on the single approved attempt with exact exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-manifests-publisher institute package resolve --package-path /private/tmp/swift-manifests --argument=--disable-sandbox --argument=--disable-dependency-cache against the exact live graph; no build, test, compilation, raw SwiftPM, dump-package, or standalone manifest-evaluation command was invoked",
+          "Package.resolved was present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 c89de85366b902886b0c0a09da8ff7c478868a2ce709fc1e45de7a714a1642dd; coordinator reverified all nine dependency gates and live products plus final repository identity/SHA, exact worktree HEAD, canonical origins, and clean tracked checkout"
         ]
       },
       "githubRepositoryID": 1230998607
