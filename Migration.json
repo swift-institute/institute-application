@@ -1311,20 +1311,29 @@
       "observedHead": "a93d83fab53c21d8872c30d3ba3f80878d44e293",
       "observedRemote": "https://github.com/swift-foundations/swift-css.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit 05671627276c35fe6c52e4b53a6466dfc5a33746 from exact parent a93d83fab53c21d8872c30d3ba3f80878d44e293 in clean isolated worktree /private/tmp/four-layer-swift-css",
+          "audited all 118 tracked paths and made the exact three-path, five-insertion/five-deletion mechanical transformation across Package.swift, README.md, and metadata, moving three render dependency URLs, the package installation URL, and layer topic to compositions while preserving every package/product/target/module/path identity and the legitimate Foundation Integration name; residual, payload, staged-tree, ancestry, and identity checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-css as canonical with stable GitHub repository ID 1116793058, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; no repository rename was needed",
+          "JIT verified CSS HTML Layout Render, CSS HTML Render, HTML Render, and CSS Standard at their exact passed live heads and required products, then ordinary fast-forward published exact direct child 05671627276c35fe6c52e4b53a6466dfc5a33746 without force or history rewrite",
+          "coordinator independently verified exact live main 05671627276c35fe6c52e4b53a6466dfc5a33746 with unchanged repository ID 1116793058, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, and a clean tracked checkout"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-css-publisher institute package resolve --package-path /private/tmp/four-layer-swift-css --argument=--disable-sandbox against the exact four live direct futures; no build, test, compilation, raw SwiftPM, dump-package, or manifest evaluation was invoked",
+          "Package.resolved was absent before resolution and present afterward only as ignored untracked generated state, never edited/deleted/staged/committed, with stable twice-observed SHA-256 e0975e0a75140b717736f98180515ab28c29ba00867fbc57adbb3a3ab9c8b7c5; final live identity/SHA and clean tracked checkout were reverified"
+        ]
+      },
+      "githubRepositoryID": 1116793058
     },
     {
       "current": "swift-foundations/swift-css-html-layout-render",
