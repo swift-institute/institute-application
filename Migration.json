@@ -7000,13 +7000,15 @@
           "coordinator verified exact live main fab8d4d9b1da57fef66e77bee26f517e2b8bd949 with unchanged repository ID 1290903488, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
         ]
       },
-      "state": "published",
+      "state": "passed",
       "validation": {
-        "status": "blocked",
+        "status": "passed",
         "records": [
           "the first Institute package-resolution invocation traversed and materialized the full live dependency graph but its final exit status was lost at the terminal-session handoff, so it is not accepted as passing evidence",
           "an identical evidence-capture retry exited 1 during concurrent SwiftPM cache activity with transient unable-to-read-tree failures for already-published swift-ascii and swift-async revisions; this is a package-resolution failure to repair, not a compile/test failure, and the successful publication remains booked",
-          "Package.resolved was absent twice before the first resolution and is now present only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 359e921069e0eda5ae1d4a940ee54fa170d412b5f5f60801d45ae29868a958b2; resolution retries are serialized until an exact exit-0 result is captured"
+          "a scratch-path repair attempt through the Institute coordinator was refused before SwiftPM execution because that argument is coordinator-owned; no compilation or package mutation occurred",
+          "package resolution then passed with exact exit 0 through the Institute coordinator in clean exact-commit worktree /private/tmp/server-resolution-repair/swift-server using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-server-repair institute package resolve --package-path /private/tmp/server-resolution-repair/swift-server --argument=--disable-sandbox --argument=--disable-dependency-cache, isolating the working tree and bypassing the corrupted shared dependency cache; no build, test, compilation, raw SwiftPM, dump-package, or standalone manifest-evaluation command was invoked",
+          "Package.resolved was absent twice before the passing repair resolution and present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 359e921069e0eda5ae1d4a940ee54fa170d412b5f5f60801d45ae29868a958b2; final live identity/SHA, canonical origins, exact repair-worktree HEAD, and clean tracked checkout were reverified"
         ]
       },
       "githubRepositoryID": 1290903488
