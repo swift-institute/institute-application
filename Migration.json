@@ -2907,20 +2907,31 @@
       "observedHead": "681c17cb0d5cd22a86da60f21290a43e642b3d0d",
       "observedRemote": "https://github.com/swift-foundations/swift-github-continuous-integration.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit 535d619063a7961d1aee2056ad8f0e97f4a4961a from expected parent 681c17cb0d5cd22a86da60f21290a43e642b3d0d in clean isolated worktree /private/tmp/four-layer-swift-github-continuous-integration with subject Prepare GitHub Continuous Integration for four-layer cutover",
+          "audited all seventy-three tracked paths and all 165 embedded base64 fixture blocks, then made the exact twelve-path, ninety-one-insertion/ninety-one-deletion deterministic transformation: owners moved foundations to compositions and primitives to molecules, carrier and fixture -primitives identities were stripped, wrapper layer labels advanced to settled L2/L3/L4 positions, the public mechanical foundationsSubOrganizations API became compositionsSubOrganizations, and generated organization schema gained L4",
+          "proved the generated fixture corpus byte-for-byte equal to decode/map/re-encode output with only the nineteen expected blocks changed; preserved the already canonical GitHub Standard manifest dependency/product/module and active Actions, with zero committed migration residuals and full public-payload/staging/direct-parent/human-identity checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled the completed organization cutover idempotently: exact future coordinate swift-compositions/swift-github-continuous-integration was canonical with GitHub repository ID 1328654386, public visibility, non-archived state, default branch main, canonical clone URL, and exact live parent 681c17cb0d5cd22a86da60f21290a43e642b3d0d; the legacy owner route redirected and was not used as proof, and no repository rename was needed",
+          "reverified sole dependency swift-standards/swift-github-standard at exact live main f4a5a27093daed01671a99c74a1bd26062a67828 with repository ID 1047996732, then ordinary fast-forward published exact direct child 535d619063a7961d1aee2056ad8f0e97f4a4961a through the configured administrator ruleset bypass without force or history rewrite",
+          "coordinator independently verified exact live main 535d619063a7961d1aee2056ad8f0e97f4a4961a with unchanged repository ID 1328654386, exact future coordinate, public visibility, non-archived state, default branch main, canonical origins, exact direct-child ancestry, and a clean tracked checkout"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-github-continuous-integration-publisher institute package resolve --package-path /private/tmp/four-layer-swift-github-continuous-integration --argument=--disable-sandbox against exact live GitHub Standard f4a5a27093daed01671a99c74a1bd26062a67828 and the canonical live transitive graph; no build, test, compilation, raw SwiftPM, or manifest-only substitute was invoked",
+          "coordinator reverified exact live main 535d619063a7961d1aee2056ad8f0e97f4a4961a with GitHub repository ID 1328654386, public visibility, non-archived state, and default branch main",
+          "HEAD and both origins remained exact and canonical and tracked status remained clean; Package.resolved was absent before resolution and present afterward only as ignored untracked generated state with stable twice-observed SHA-256 6a40cad9b4adb42ccfa4092145e5b0e1d250d02465312cedf8c97b7daae13da5"
+        ]
+      },
+      "githubRepositoryID": 1328654386
     },
     {
       "current": "swift-foundations/swift-github-http",
