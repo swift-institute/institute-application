@@ -2376,20 +2376,26 @@
       "observedHead": "d276d3cd6a882ec93551241bd5b132fbacb28b3d",
       "observedRemote": "https://github.com/swift-foundations/swift-environment-dependencies.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit a5777bb8814758db73a3c2544c1676a2b1c5b09f from exact live parent d276d3cd6a882ec93551241bd5b132fbacb28b3d in clean isolated worktree /private/tmp/four-layer-swift-environment-dependencies-root with subject Prepare Environment Dependencies for the four-layer cutover; the pre-existing nested remediation worktree was observed and not touched",
+          "audited all 20 tracked paths and made the exact three-path, four-insertion/four-deletion mechanical transformation across Package.swift, README, and metadata, moving Environment, Dependencies, self coordinate, and layer topic to compositions while preserving external swift-log, Foundation Integration public identity, compatibility facade, package/product/target/module semantics, and canonical Actions; residual, payload, staged-tree, ancestry, and identity checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-environment-dependencies as canonical with stable GitHub repository ID 1299707442, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; no repository rename was needed",
+          "JIT verified exact live Environment and Dependencies heads plus external apple/swift-log identity, then ordinary fast-forward published exact direct child a5777bb8814758db73a3c2544c1676a2b1c5b09f through the configured administrator ruleset bypass without force or history rewrite",
+          "coordinator verified exact live main a5777bb8814758db73a3c2544c1676a2b1c5b09f twice with unchanged repository ID 1299707442, exact future coordinate, public visibility, non-archived state, default branch main, canonical fetch/push origins, direct-child ancestry, and a clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
         "records": []
-      }
+      },
+      "githubRepositoryID": 1299707442
     },
     {
       "current": "swift-foundations/swift-epub-render",
