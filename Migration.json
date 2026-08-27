@@ -9697,20 +9697,29 @@
       "observedHead": "dbd7f58fe192e26e8030fb8ad415d240b520adb2",
       "observedRemote": "https://github.com/swift-foundations/swift-witnesses.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit ec39cb4d0233e8adbe50304a14bb832d5c37752c from exact parent dbd7f58fe192e26e8030fb8ad415d240b520adb2 in clean isolated worktree /private/tmp/four-layer-swift-witnesses with subject Move witnesses to the four-layer graph",
+          "audited all 48 tracked paths and made the exact 27-path, 82-insertion/82-deletion mechanical transformation, mapping eight dependency repositories/products, README owner, metadata layer, direct imports, and macro-emitted module spellings to the canonical four-layer graph while preserving legitimate singular Primitive identities, Witnesses public semantics, Swift Syntax products/range, and canonical Actions; residual, payload, staged-tree, ancestry, and identity checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-witnesses as canonical with stable GitHub repository ID 1144636616, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; no repository rename was needed",
+          "JIT verified all eight Institute dependencies and external swiftlang/swift-syntax with required products, then ordinary fast-forward published exact direct child ec39cb4d0233e8adbe50304a14bb832d5c37752c without force or history rewrite",
+          "coordinator independently verified exact live main ec39cb4d0233e8adbe50304a14bb832d5c37752c with unchanged repository ID 1144636616, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, and a clean tracked checkout"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-witnesses-publisher institute package resolve --package-path /private/tmp/four-layer-swift-witnesses --argument=--disable-sandbox against the canonical live graph, selecting allowed Swift Syntax 602.0.0; no build, test, compilation, raw SwiftPM, dump-package, or manifest evaluation was invoked",
+          "Package.resolved was absent before resolution and present afterward only as ignored untracked generated state, never edited/deleted/staged/committed, with stable twice-observed SHA-256 f82bee166423e063de05238dc16bce6a469581c6ddca2f6e3b405983f86eb7f9; final live identity/SHA and clean tracked checkout were reverified"
+        ]
+      },
+      "githubRepositoryID": 1144636616
     },
     {
       "current": "swift-foundations/swift-xcode",
