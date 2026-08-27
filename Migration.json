@@ -29660,20 +29660,31 @@
       "observedHead": "91e69b18838afd455c5db446faee0ddab9542c01",
       "observedRemote": "https://github.com/swift-standards/swift-ipv4-standard.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified a deterministic no-change preparation at exact expected commit 91e69b18838afd455c5db446faee0ddab9542c01 in clean identity-matching detached worktree /private/tmp/swift-ipv4-standard-cutover/swift-ipv4-standard; no empty commit was created",
+          "audited all nine tracked paths and confirmed Package.swift already declares canonical live dependency https://github.com/swift-ietf/swift-rfc-791.git with package swift-rfc-791 and product RFC 791 while preserving IPv4 Standard package/product/target/path/public semantics",
+          "the committed tree contains no old swift-primitives or swift-foundations owner, -primitives repository/package, Primitives product, _Primitives module, or coenttb dependency residual; the canonical active Actions caller remained unchanged and Package.resolved was absent before resolution"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified exact canonical coordinate swift-standards/swift-ipv4-standard, GitHub repository ID 1107714449, public visibility, non-archived state, default branch main, exact clone URL, and live main 91e69b18838afd455c5db446faee0ddab9542c01; no repository rename or publication push was required",
+          "verified direct dependency swift-ietf/swift-rfc-791 exact live main bdbf5d97db18e3927d54682ba13d792a55f6df59, public visibility, non-archived state, default branch main, and live manifest product RFC 791",
+          "coordinator reverified unchanged live main 91e69b18838afd455c5db446faee0ddab9542c01 and stable repository ID 1107714449 after resolution"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "the first resolution attempt used the approved command from the exact worktree but exited 1 solely because sandbox DNS could not resolve github.com while fetching RFC 791; this was an execution-environment restriction rather than a package-resolution defect",
+          "the exact package-resolution gate then passed with exit 0 under permitted network access using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-ipv4-standard-root institute package resolve --package-path /private/tmp/swift-ipv4-standard-cutover/swift-ipv4-standard --argument=--disable-sandbox",
+          "HEAD remained 91e69b18838afd455c5db446faee0ddab9542c01, both origins remained the canonical final URL, and the isolated worktree remained clean; Package.resolved was absent before resolution and present afterward only as ignored generated state with stable SHA-256 514f340d08bb8fd9d010416671bc62593a8acd646963f38fd78c5afe6bed3653"
+        ]
+      },
+      "githubRepositoryID": 1107714449
     },
     {
       "current": "swift-standards/swift-ipv6-standard",
