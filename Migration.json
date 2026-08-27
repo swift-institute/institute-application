@@ -14240,19 +14240,31 @@
       "observedHead": "bc1369aa1f8671b67ea5fcd922d2fe0934f0749b",
       "observedRemote": "https://github.com/swift-primitives/swift-argument-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit e5f9293f7ca42c80ac5f60244c2d22a07a7e9443 from expected parent bc1369aa1f8671b67ea5fcd922d2fe0934f0749b",
+          "isolated worktree /private/tmp/four-layer-swift-argument",
+          "deterministic audit verified the clean direct-child 53-path, 64-file-preserving transformation, all seven exact live dependency coordinates and products, suffix-free owned family and settled L2/L3/L4 documentation mappings, preserved Argument Primitive singular identity, zero mapped residuals, public payload, active Actions refs, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-rename main at expected commit bc1369aa1f8671b67ea5fcd922d2fe0934f0749b on exact live coordinate swift-molecules/swift-argument-primitives and verified exact future coordinate returned HTTP 404",
+          "renamed repository to swift-molecules/swift-argument and verified stable GitHub repository ID 1243130855 with public visibility, non-archived state, and default branch main",
+          "updated isolated worktree fetch and push origins to https://github.com/swift-molecules/swift-argument.git",
+          "fast-forward published exact prepared commit e5f9293f7ca42c80ac5f60244c2d22a07a7e9443 without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main e5f9293f7ca42c80ac5f60244c2d22a07a7e9443 with unchanged repository ID, public visibility, non-archived state, default branch main, and clean isolated worktree"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-argument-publisher institute package resolve --package-path /private/tmp/four-layer-swift-argument --argument=--disable-sandbox against all seven exact live dependencies",
+          "prepared HEAD remained e5f9293f7ca42c80ac5f60244c2d22a07a7e9443 and the isolated worktree remained clean",
+          "Package.resolved was absent before resolution and present afterward as untouched ignored generated state with stable SHA-256 4966d458497c75ddb983e06c1ade7a6e7c361164ff13e907e0f750485e3438fe"
+        ]
       }
     },
     {
