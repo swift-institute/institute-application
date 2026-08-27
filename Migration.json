@@ -11758,13 +11758,18 @@
       "observedHead": "b13b311c4bdb6f2ebf5653a28bd36af13e08726b",
       "observedRemote": "https://github.com/swift-ietf/swift-rfc-7405.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit 0ddd812a64b109f6735050107197483f840a3e08 from expected parent b13b311c4bdb6f2ebf5653a28bd36af13e08726b in isolated worktree /private/tmp/four-layer-swift-rfc-7405",
+          "deterministic audit verified the exact two-path mechanical mapping of Standard Library Extensions and ASCII coordinates, product, and export; all three dependencies were ledger-passed; RFC 7405 standards identity, README, metadata, active Actions reference, and public payload remained valid; zero mapped residuals and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified canonical live coordinate swift-ietf/swift-rfc-7405 at expected main b13b311c4bdb6f2ebf5653a28bd36af13e08726b with GitHub repository ID 1107709788, public visibility, non-archived state, and default branch main; no repository rename was required",
+          "fast-forward published exact prepared commit 0ddd812a64b109f6735050107197483f840a3e08 without force or history rewrite using the configured administrator ruleset bypass",
+          "verified live main 0ddd812a64b109f6735050107197483f840a3e08 with unchanged repository ID 1107709788, public visibility, non-archived state, default branch main, final origins, and clean isolated worktree"
         ]
       },
       "state": "ready",
