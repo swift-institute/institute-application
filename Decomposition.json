@@ -4469,6 +4469,32 @@
     "requiredAction": "Delete the manifest, reexport source, and tests, and replace the README with an explicit tombstone. This destructive edit requires principal approval before execution.",
     "status": "principal-approval-required",
     "recordedAt": "2026-08-27T21:12:51Z"
+   },
+   {
+    "repo": "swift-molecules/swift-binary-byte",
+    "currentHeadSHA": "06671805547a7465702660437d1cfce0b25c3f9b",
+    "proposedDisposition": "prune-to-byte-only-seam",
+    "dependencies": {
+     "swift-atoms/swift-binary": "34432b9240a71468e37fe72eec3abdf0f07c0891",
+     "swift-atoms/swift-byte": "0658b521111ec4e6e623332c7ecfcf4ea48d3d85"
+    },
+    "evidence": "Binary SLI and Byte already own the UInt8 serialization and buffer helpers; only Byte-typed fixed-width encode/decode is genuine cross-domain behavior.",
+    "requiredAction": "Delete three duplicate production files and their legacy/broad tests, then replace them with focused Byte-typed contract coverage. This destructive pruning requires principal approval before execution.",
+    "status": "principal-approval-required",
+    "recordedAt": "2026-08-27T21:16:47Z"
+   },
+   {
+    "repo": "swift-molecules/swift-equation-tagged",
+    "currentHeadSHA": "7c89ebe7e31e2fc7c673888e8e49da1a2859ae27",
+    "proposedDisposition": "duplicate-owned-by-atoms",
+    "atoms": {
+     "swift-atoms/swift-equation": "931364b7292619a82348020fc7a7a4ad7ed3570c",
+     "swift-atoms/swift-tagged": "fadc5f8892fb935f3e464c7c48273e54e7d2155e"
+    },
+    "evidence": "Equation.Protocol aliases Swift.Equatable, Tagged already owns its conditional Equatable conformance, and the molecule contains only two reexports; its test exercises only atom-owned equality and is red on an unrelated missing Tagged SLI literal dependency.",
+    "requiredAction": "Delete the manifest, reexport source, and tests, and replace the README with an explicit tombstone. This destructive edit requires principal approval before execution.",
+    "status": "principal-approval-required",
+    "recordedAt": "2026-08-27T21:19:27Z"
    }
   ],
   "packages": [
@@ -5697,6 +5723,33 @@
     "wave": "wave7g",
     "changes": "Canonicalized Comparison and Property to atom owners, migrated removed Property.Inout/base.value APIs to current Property/base mutation, removed duplicate Swift.Comparable overloads and the unused Comparison SLI edge, and retained fluent compare/clamp behavior with focused coverage. Fresh build green; 6 tests green.",
     "bookedAt": "2026-08-27T21:10:56Z"
+   },
+   {
+    "repo": "swift-molecules/swift-dimension-axis",
+    "headSHA": "4c528997d3f601f8ff7a969d369bf91957621c7c",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7h",
+    "changes": "Canonicalized Dimension to its atom owner, retained five genuine Axis-indexed aliases, pruned ineffective duplicate constrained aliases, repaired Direction module/type shadowing through a public qualification alias, and updated current API coverage/docs. Fresh build green; 15 tests green.",
+    "bookedAt": "2026-08-27T21:15:51Z"
+   },
+   {
+    "repo": "swift-molecules/swift-either-comparison",
+    "headSHA": "972d59074272a634f4eb7dec36fd992bb3214373",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7h",
+    "changes": "Canonicalized Either to its atom owner and repaired the genuine seam with separate conditional retroactive Equatable and Comparison.Protocol conformances, preserving left-before-right ordering and adding same-side/cross-side equality, sorting, and generic protocol coverage. Fresh build green; 6 tests green.",
+    "bookedAt": "2026-08-27T21:17:54Z"
+   },
+   {
+    "repo": "swift-molecules/swift-either-equation",
+    "headSHA": "bdb7291d4a22736da5f2073270e948193b643457",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7h",
+    "changes": "Canonicalized Either to its atom owner and retained the genuine conditional retroactive Equation.Protocol conformance for Equatable payloads, re-exporting both owners with matching-arm, cross-arm, and generic protocol coverage. Fresh build green; 3 tests green.",
+    "bookedAt": "2026-08-27T21:18:55Z"
    }
   ]
  }
