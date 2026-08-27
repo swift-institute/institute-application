@@ -9710,23 +9710,32 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-compositions/swift-url-routing-form-coding",
       "futureLayer": "compositions",
-      "observedHead": "6828a0d52f53f30f30e5a8ea434eb11389ba2b84",
-      "observedRemote": "https://github.com/swift-foundations/swift-url-routing-form-coding.git",
+      "observedHead": "86b67f109680bb9e73328b5330e2eefe209a7f74",
+      "observedRemote": "https://github.com/swift-compositions/swift-url-routing-form-coding.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared exact direct-child cutover commit 86b67f109680bb9e73328b5330e2eefe209a7f74 from expected base 6828a0d52f53f30f30e5a8ea434eb11389ba2b84 in clean isolated worktree /private/tmp/swift-url-routing-form-coding",
+          "mechanical four-layer cutover changed only .github/metadata.yaml, Package.swift, and README.md with five insertions and five deletions across layer metadata, URL Routing and URL Form Coding dependency owners, and repository links; products, modules, and owned identities remained unchanged",
+          "all three dependency products and live identities plus residual identity, active Actions-reference, public-payload, credential, diff, attribution, and Package.resolved preservation checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "repository ID 1299567584 was verified before and after cutover at exact canonical coordinate swift-compositions/swift-url-routing-form-coding with unchanged public visibility, non-archived state, and default branch main",
+          "the first local push invocation had a malformed shell refspec expansion and made no remote mutation; the corrected explicit refspec then published exact prepared commit 86b67f109680bb9e73328b5330e2eefe209a7f74 as an ordinary fast-forward from 6828a0d52f53f30f30e5a8ea434eb11389ba2b84 through the authenticated administrative ruleset bypass, with no force push or history rewrite",
+          "coordinator independently reverified exact live main 86b67f109680bb9e73328b5330e2eefe209a7f74, repository ID 1299567584, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is complete and Package.resolved remained absent twice before and after publication; resolution is queued until swift-compositions/swift-url-routing validation is passed and the serialized Institute package-resolution slot is available"
+        ]
+      },
+      "githubRepositoryID": 1299567584
     },
     {
       "current": "swift-foundations/swift-url-routing-translating",
