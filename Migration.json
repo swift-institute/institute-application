@@ -8063,10 +8063,12 @@
       },
       "state": "published",
       "validation": {
-        "status": "pending",
         "records": [
-          "publication is complete and Package.resolved remained absent twice before and after publication; package resolution is queued behind the serialized Institute slot, and the preserved nested Tests package product observation will be judged only by that resolution gate"
-        ]
+          "publication completed before validation; root and nested Tests Package.resolved were absent twice before resolution",
+          "root package resolution passed with exact exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-records-publisher institute package resolve --package-path /private/tmp/swift-records --argument=--disable-sandbox --argument=--disable-dependency-cache against the exact live graph; the nested Tests package was not separately resolved, and no build, test, compilation, raw SwiftPM, dump-package, or standalone manifest-evaluation command was invoked",
+          "root Package.resolved was present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 e75aab82be922911bd8089ba72098566d343f0e5a0a7033643d484f16b23789c; Tests/Package.resolved remained absent twice; coordinator reverified all internal dependency gates/products, final repository identity/SHA/state, exact worktree HEAD, canonical origins, clean tracked checkout, and that no archive restoration was required; the nested Tests-only PostgreSQL Standard Test Support observation remains outside this root-resolution gate"
+        ],
+        "status": "passed"
       },
       "seal": {
         "archived": false,
