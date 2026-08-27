@@ -29781,20 +29781,31 @@
       "observedHead": "c236c06a0c1ffafce1f3b6584ab512c51883285c",
       "observedRemote": "https://github.com/swift-standards/swift-html-standard.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit 255c367d3b8357bd681dedb56668a15123801139 from expected parent c236c06a0c1ffafce1f3b6584ab512c51883285c in isolated worktree /private/tmp/four-layer-swift-html-standard; the existing separate .lanes/whatwg-nesting worktree was observed and left untouched",
+          "audited all fifteen tracked paths and made the exact four-path, six-insertion/nine-deletion mechanical change: Package.swift, Geometry conversion source, and test exports moved Geometry repository/package/product/module and Test Support identities from primitive forms to exact suffix-free molecules",
+          "removed the stale public README Used By recommendation and now-empty heading after exact API proof that old and canonical redirects identify the same private archived swift-html-css-pointfree repository; no private coordinate was exposed or external state changed, while all HTML Standard/WHATWG/public semantics were preserved and residual/public-payload/Actions/staging/direct-parent/human-identity checks passed with both exact live dependencies verified"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified unchanged coordinate swift-standards/swift-html-standard, GitHub repository ID 1101222316, public visibility, non-archived state, default branch main, canonical clone URL, and exact expected live parent c236c06a0c1ffafce1f3b6584ab512c51883285c immediately before publication; no rename was required",
+          "fast-forward published exact direct child 255c367d3b8357bd681dedb56668a15123801139 to main through the configured administrator ruleset bypass without force or history rewrite",
+          "coordinator independently reverified exact live main 255c367d3b8357bd681dedb56668a15123801139 with unchanged repository ID 1101222316, exact coordinate, public visibility, non-archived state, default branch main, and canonical URL"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-html-standard-publisher institute package resolve --package-path /private/tmp/four-layer-swift-html-standard --argument=--disable-sandbox against exact live Geometry and WHATWG HTML heads",
+          "coordinator reverified exact live main 255c367d3b8357bd681dedb56668a15123801139 with unchanged GitHub repository ID 1101222316, public visibility, non-archived state, and default branch main",
+          "HEAD and both origins remained exact and canonical and the isolated checkout remained clean; Package.resolved was absent before resolution and present afterward only as ignored untracked generated state with stable SHA-256 d3ea603617e24ed084421eaf8466ba73a5e93971cc4aec127c1b59e4870101b7"
+        ]
+      },
+      "githubRepositoryID": 1101222316
     },
     {
       "current": "swift-standards/swift-http-standard",
