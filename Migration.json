@@ -11196,20 +11196,28 @@
       "observedHead": "9080de9a86816092428662b3ae9fc291bea020d6",
       "observedRemote": "https://github.com/swift-ietf/swift-rfc-2388.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit 0c0480ba41501f4563a2348c690d113a6a1f1ef8 from exact parent 9080de9a86816092428662b3ae9fc291bea020d6 in clean identity-compatible isolated worktree /private/tmp/rfc2388-cutover-root/swift-rfc-2388; the original checkout remained clean and untouched",
+          "audited all 13 tracked paths and made the exact one-path, one-insertion/one-deletion consumer cutover in Package.swift, mapping only the HTML Form Coder dependency owner to compositions while preserving the swift-ietf owner, repository identity, RFC 2388 package/product/target/module/path/public semantics, and HTML Standard dependency; residual, staged-tree, ancestry, identity, and canonical Actions checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified unchanged exact coordinate swift-ietf/swift-rfc-2388 with stable GitHub repository ID 1095215150, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; no organization or repository rename applied",
+          "JIT verified both declared dependency coordinates and exact heads immediately before ordinary fast-forward publication of exact direct child 0c0480ba41501f4563a2348c690d113a6a1f1ef8 without force or history rewrite",
+          "coordinator verified exact live main 0c0480ba41501f4563a2348c690d113a6a1f1ef8 with unchanged repository ID 1095215150, coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is complete and Package.resolved was absent twice immediately before preparation; the repository is queued behind the serialized Institute package-resolution slot after measured shared SwiftPM-cache contention"
+        ]
+      },
+      "githubRepositoryID": 1095215150
     },
     {
       "current": "swift-ietf/swift-rfc-2822",
