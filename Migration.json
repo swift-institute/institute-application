@@ -31108,23 +31108,32 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-standards/swift-postgresql-standard",
       "futureLayer": "standards",
-      "observedHead": "7dfb4779cce58db719d18e003bf578bfda1bb26f",
+      "observedHead": "9b95d27eca77f9a370aa2d67a8b99b7ca779c883",
       "observedRemote": "https://github.com/swift-standards/swift-postgresql-standard.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared exact direct-child cutover commit 9b95d27eca77f9a370aa2d67a8b99b7ca779c883 from expected base 7dfb4779cce58db719d18e003bf578bfda1bb26f in clean isolated worktree /private/tmp/postgresql-standard-lane/swift-postgresql-standard",
+          "mechanical four-layer cutover changed 153 tracked paths with 1214 insertions and 1214 deletions across root/nested manifests, sources, macro expansion text, and tests; Structured Queries, Byte, Test, and Tagged package/product/module coordinates were mapped while legitimate Structured Queries Foundation Integration and public semantics remained unchanged",
+          "every changed file byte-matched application of only the enumerated deterministic mapping to its base version; all six dependency refs/products plus residual identity, active Actions-reference, public-payload, machine-path, credential, diff, attribution, and Package.resolved preservation checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "unchanged-coordinate repository ID 1217844900 was verified before and after cutover at swift-standards/swift-postgresql-standard with public visibility, non-archived state, and default branch main",
+          "published exact prepared commit 9b95d27eca77f9a370aa2d67a8b99b7ca779c883 as an ordinary fast-forward from 7dfb4779cce58db719d18e003bf578bfda1bb26f to refs/heads/main through the authenticated administrative ruleset bypass; no force push or history rewrite occurred",
+          "coordinator independently reverified exact live main 9b95d27eca77f9a370aa2d67a8b99b7ca779c883, repository ID 1217844900, unchanged canonical coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, active workflows, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is complete and Package.resolved remained absent twice before and after publication; the repository is queued behind swift-compositions/swift-tests validation and the serialized Institute package-resolution slot"
+        ]
+      },
+      "githubRepositoryID": 1217844900
     },
     {
       "current": "swift-standards/swift-rss-standard",
