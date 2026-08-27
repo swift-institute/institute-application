@@ -10477,19 +10477,27 @@
       "observedHead": "d56232609b468157dff48a90dda2fcc906eb1cd7",
       "observedRemote": "https://github.com/swift-ietf/swift-rfc-2369.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit b59ca2b45a74733f11623054d6a755e77e6f3517 from expected parent d56232609b468157dff48a90dda2fcc906eb1cd7 in isolated worktree /private/tmp/four-layer-swift-rfc-2369 with human commit subject Prepare the RFC 2369 four-layer cutover",
+          "full-tree audit verified all 21 tracked files and exact seven-path 15-insertion/15-deletion mechanical dependency mapping across Package.swift, five sources, and one test; mapped ASCII Serializer and Parser URLs/packages/products plus four module imports, preserved RFC 3987 and all RFC 2369 identities and semantics, introduced no dependency or split, found zero mapped residuals, and verified unchanged valid README/metadata, public payload, canonical one-hop Actions, explicit staging, and clean checkout"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified unchanged canonical coordinate swift-ietf/swift-rfc-2369 at expected main d56232609b468157dff48a90dda2fcc906eb1cd7 with GitHub repository ID 1095043648, public visibility, non-archived state, and default branch main; all three future dependencies were exact live ledger-passed commits and no repository rename was required",
+          "fast-forward published exact prepared commit b59ca2b45a74733f11623054d6a755e77e6f3517 without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main b59ca2b45a74733f11623054d6a755e77e6f3517 with unchanged repository ID 1095043648, exact coordinate swift-ietf/swift-rfc-2369, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-rfc-2369-publisher institute package resolve --package-path /private/tmp/four-layer-swift-rfc-2369 --argument=--disable-sandbox against the exact live declared dependencies and transitive graph",
+          "Package.resolved was absent before resolution and generated ignored/untracked afterward without editing or committing; two post-resolution checks produced stable SHA-256 6745f748caad8647797a50eaa901749237cbe5b722da39d38ef558dd0bb0d428, exact HEAD b59ca2b45a74733f11623054d6a755e77e6f3517, and a clean checkout"
+        ]
       }
     },
     {
