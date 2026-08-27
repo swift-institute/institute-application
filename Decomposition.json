@@ -2236,6 +2236,43 @@
    ],
    "notes": "Adjudication: swift-storage natively owns the storage/store semantic domain (Store.Protocol, Store.Direct, Store.Initialization, Store.Ledgered, Store.Inline, Storage primitive) \u2014 clear atom; domain spelling Storage derived from existing Storage/Storage Primitive products. Collapse: eight strata targets (Store Primitive/Protocol/Initialization/Ledgered, Store Inline, Storage Primitive/Protocol, plus Store and Storage umbrellas) merged into single Sources/Storage module via git mv; all nine intra-package exports.swift umbrellas deleted; intra-package Store_*/Storage_* import lines deleted. Seam: entire Storage Contiguous target (5 files incl. Storage.Contiguous.Error.swift, which types the Contiguous overflow error) moved to swift-molecules/swift-storage-memory, product/target \"Storage Memory\", with Store_Initialization/Store_Protocol/Store_Ledgered/Storage_Primitive imports rewritten to Storage; atom lost swift-memory, swift-memory-allocation, swift-memory-heap, swift-span, and the Storage/Storage Contiguous products entirely. One molecule (not one per memory package): all four extracted dependencies serve the single Storage.Contiguous type, so one seam repo keeps the graph acyclic; molecule deps pinned at live coordinates (swift-atoms for index/affine/ordinal/span/memory, swift-molecules for memory-heap/memory-allocation/storage). SLI/AFI: no stdlib-extension or Foundation-importing code exists anywhere in the package (core files use stdlib types in signatures, which is usage not integration), so both targets are seed files (\"Storage Standard Library Integration.swift\", \"Storage Apple Foundation Integration.swift\" with the prescribed three lines). Tests: trivial re-export supports \"Store Test Support\" and \"Storage Test Support\" deleted; their imports replaced with \"import Index\"; Store Tests + Store Inline Tests merged into \"Storage Tests\"; Storage.Contiguous Tests moved to the molecule as \"Storage Memory Tests\". Deviation from deps-exactly-[\"Storage\"]: \"Storage Tests\" also depends on the Index product because test files construct Index/Ordinal values directly. Residual red risk (unbuilt by mandate): test files call Ordinal(UInt(...)) and expect it to resolve via \"import Index\"; if the Index product does not re-export Ordinal, tests need an Ordinal import \u2014 later compile pass. RawLayout package SwiftSetting kept in the atom loop verbatim (Store.Inline uses @_rawLayout). README.md, .github/metadata.yaml and ci.yml left untouched and may still reference pre-reshape product names. Push to main bypassed the repo's PR/status-check rules via org-admin permission per the standing direct-push authorization (remote reported the bypass). Working trees verified clean in /private/tmp/claude-501/-Users-coen-Developer-coenttb/20dff9a4-b817-42e7-bbc6-9081ab416a17/scratchpad/wave1/swift-storage and .../swift-storage-memory.",
    "completedAt": "2026-08-27T13:43:00Z"
+  },
+  {
+   "package": "swift-dimension",
+   "repositoryID": 1132373407,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-dimension",
+   "to": "swift-atoms/swift-dimension",
+   "shapeCommit": "e3c7ad215d062c423c6c27bba463574d7ee9a9ee",
+   "dependencies": [],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-dimension-direction",
+     "repositoryID": 1348536656,
+     "commit": "c037ccc4867b21fdb6a79315d7b8001ab41b479d",
+     "seam": "Orientation protocol and Direction conformances of Horizontal/Vertical/Depth/Temporal (dep: swift-atoms/swift-direction)"
+    },
+    {
+     "successor": "swift-molecules/swift-dimension-axis",
+     "repositoryID": 1348536753,
+     "commit": "c65c5655219c5629b490b4e9c29e2bf51a96174b",
+     "seam": "Axis-indexed typealiases (Axis.Depth/Direction/Horizontal/Temporal/Vertical) integrating Dimension with swift-atoms/swift-axis (plus swift-direction for Axis.Direction)"
+    },
+    {
+     "successor": "swift-molecules/swift-dimension-tagged",
+     "repositoryID": 1348536843,
+     "commit": "403a388ce902f71b6c886092907d9bd9a7152bb7",
+     "seam": "Tagged dimensional values: .Value typealiases, Radian/Degree angles, trigonometry, Tagged arithmetic and quantization (deps: swift-atoms/swift-tagged + swift-atoms/swift-numeric)"
+    },
+    {
+     "successor": "swift-molecules/swift-dimension-pair",
+     "repositoryID": 1348536936,
+     "commit": "4981977f22b7c4805c6a3787564f0b814a51d916",
+     "seam": "Pair-based value typealiases (Chirality.Value, Winding.Value, Oriented/Orientation.Value) integrating Dimension with swift-atoms/swift-pair (also deps swift-dimension-direction for Orientation)"
+    }
+   ],
+   "notes": "ADJUDICATION: Dimension is a native semantic domain (spatial/angular/orientational taxonomy: Coordinate, Displacement, Extent, Measure, Scale, Interval, Angle, Chirality, Winding, Horizontal/Vertical/Depth/Temporal, Spatial) \u2014 atom, zero package dependencies after seam extraction. All six former deps (swift-axis, swift-direction, swift-finite, swift-tagged, swift-numeric, swift-pair) now live at swift-atoms in canonical atom shape, so molecule coordinates use swift-atoms URLs and imports were rewritten from the dead pre-atomization module names (Axis_Primitive\u2192Axis, Direction_Primitive\u2192Direction, Numeric_Core/Real\u2192Numeric). swift-finite/Ordinal was only re-exported by the deleted Sources/Dimension/exports.swift, never used \u2014 dependency dropped outright. RESHAPE: single Dimension module (was already one target, plus a trivial re-export \"Dimension Test Support\" target under Tests/Support, deleted with both exports.swift files); SLI target created with real content (Codable/CustomStringConvertible/CaseIterable/ExpressibleBy* conformances split out of Chirality, Winding, Depth, Horizontal, Vertical, Temporal, Scale, Interval.Unit); AFI target is the three-line seed (no Foundation usage existed). Exactly three products. FILE SPLITS: enum cores stayed in the atom; Orientation conformance blocks became Depth/Horizontal/Vertical/Temporal+Orientation.swift in dimension-direction; .Value typealiases split out of Angle/Coordinate/Displacement/Extent/Measure/Chirality/Winding into dimension-tagged and dimension-pair; whole files moved: Axis.*.swift (5) \u2192 axis; Orientation.swift + Direction+Orientation.swift \u2192 direction; Radian/Degree/Radian+Trigonometry/Tagged+Arithmetic/Tagged+Dimension/Tagged+Quantized \u2192 tagged. Seam tests moved likewise (Axis.* Tests \u2192 axis; Depth/Horizontal/Vertical/Temporal/Direction/Orientation Tests \u2192 direction; Tagged/Quantized tests + extracted \"Dimension - Tagged Values\" suite \u2192 tagged; extracted Chirality/Winding \"Value Typealias\" suites \u2192 pair). NOTES/RESIDUE for the later red-fix pass: (1) numeric seam collapsed into swift-dimension-tagged \u2014 every Numeric-using file is simultaneously a Tagged extension (Numeric.Fraction over Degree/Radian, _quantize on Tagged), so no independent dimension-numeric seam exists; (2) dimension-pair depends on dimension-direction because Oriented constrains on Orientation; (3) kept atom Chirality/Winding tests still exercise allCases/CaseIterable and description, now provided by SLI while the test target deps are [\"Dimension\"] \u2014 will be red until re-homed; (4) SLI Codable for Interval.Unit was rewritten to public API (underlying/init(clamping:)) since _storage is @usableFromInline internal and invisible cross-module; ExpressibleBy* likewise; (5) Axis.Direction.swift now reads \"public typealias Direction = Direction.Direction\" (module/type name collision) \u2014 may need a qualified-name fix; (6) Angle.Radian.Value etc. as extensions in Dimension_Tagged means Radian/Degree/all .Value references resolve only with the molecule imported; (7) Dimension Tests.swift retains only phantom-type suites; molecule test files keep @testable imports of their own module plus plain import Dimension; Tagged+Quantized test file had an @_spi(Internal) import Dimension line, kept, plus added import Dimension_Tagged. Atom push to swift-molecules/swift-dimension main was direct (authorized); remote printed the org-admin bypass notice for the PR/status-check rules \u2014 nothing was disabled. All five working trees verified clean; atom origin/main == e3c7ad215d062c423c6c27bba463574d7ee9a9ee.",
+   "completedAt": "2026-08-27T13:43:10Z"
   }
  ],
  "successors": [],
