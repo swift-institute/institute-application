@@ -1116,6 +1116,37 @@
    ],
    "notes": "Adjudication: Either is the native irreducible owner of the binary-coproduct domain (a single @frozen generic enum plus its pure functor surface: map/flatMap/fold/swap/accessors/Never-elimination) \u2014 clearly an atom, not tooling, an external standard, or a mere relator. Domain spelling derived from existing product/target \"Either\". Reshape (atom head d16fd1eb, direct push to main, server noted rule bypass as expected for authorized direct pushes): removed the three @_exported umbrella imports (Comparison/Equation/Hash) from Sources/Either/Either.swift; extracted the four external-dependency seam files listed in splits; moved the stdlib Codable conditional conformance out of Either.swift into new \"Sources/Either Standard Library Integration/Either+Codable.swift\" (public import Either) so the SLI target has real content (no seed file needed); created \"Either Apple Foundation Integration\" as the three-line seed (public import Either / public import Either_Standard_Library_Integration / public import Foundation); manifest now has zero package dependencies, exactly the three canonical products, and the verbatim tools-version 6.4 / .v27 platforms / swiftLanguageModes [.v6] / trailing ecosystem SwiftSetting loop idiom. Tests: \"Either Tests\" kept with deps [\"Either\"]; its imports of Comparison/Equation/Hash deleted; \"Either+StandardLibraryExtensions.Result Tests.swift\" moved to the SLE molecule (with import Either_Standard_Library_Extensions added). No SLI-specific test files existed, so no SLI test target. Residual red in kept Tests/Either Tests/Either Tests.swift: the \"Institute Integration\" suite (Probe/Cell conformances to Equation/Hash/Comparison protocols) references all three extracted domains and could not be split to a single molecule; the Conformances suite's Hashable/Codable checks and every test using == on Either values also depend on the extracted Hash/Equation conformances (== now lives in swift-either-equation) \u2014 deliberately left red per structural-only mandate. Sources/Either itself is dependency-free; kept dependencies: none. Molecule coordinates verified live before pinning: equation/hash/comparison resolve to swift-atoms (already transferred), standard-library-extensions and swift-either remain swift-molecules; all deps branch: \"main\", no tags or path deps. Each molecule carries LICENSE.md and .gitignore copied from swift-either, a one-line README, product/target \"Either D\" with module Either_D via SwiftPM name normalization, and a test target (\"Either D Tests\"; stub @Suite where no seam tests existed). git status clean in all five directories under /private/tmp/claude-501/-Users-coen-Developer-coenttb/20dff9a4-b817-42e7-bbc6-9081ab416a17/scratchpad/wave1/. No PRs merged, no CI gates touched, no history rewrites.",
    "completedAt": "2026-08-27T12:43:34Z"
+  },
+  {
+   "package": "swift-product",
+   "repositoryID": 1232915226,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-product",
+   "to": "swift-atoms/swift-product",
+   "shapeCommit": "ef4411fba523c092a509b2a8adb6b58768e9c2e9",
+   "dependencies": [],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-product-comparison",
+     "repositoryID": 1348477883,
+     "commit": "fc2672fc738823c490a178173d1305e505366420",
+     "seam": "Product: Comparison.Protocol conformance (lexicographic < over parameter packs) integrating swift-comparison"
+    },
+    {
+     "successor": "swift-molecules/swift-product-equation",
+     "repositoryID": 1348477981,
+     "commit": "65abcc1fa5f9911644ffe7d1bcff7b73de625b60",
+     "seam": "Product: Equation.Protocol conformance (pointwise ==) integrating swift-equation"
+    },
+    {
+     "successor": "swift-molecules/swift-product-hash",
+     "repositoryID": 1348478072,
+     "commit": "b99631c477824d2319851474aad3afb0f4a9e2d4",
+     "seam": "Product: Hash.Protocol conformance integrating swift-hash"
+    }
+   ],
+   "notes": "Adjudication: atom. Product is the irreducible native owner of the n-ary product (variadic tuple wrapper) domain; its core (Product.swift, Append, Fold, Map, Swap, Zip) has zero external needs \u2014 all three prior package dependencies (swift-comparison, swift-equation, swift-hash) existed only for one conformance file each, extracted as seams; dependencies list is now empty. Atom checkout: /private/tmp/claude-501/-Users-coen-Developer-coenttb/20dff9a4-b817-42e7-bbc6-9081ab416a17/scratchpad/wave1/swift-product. Reshape: single Product module (no strata targets existed); deleted the three @_exported umbrella imports from Product.swift. Moved to new \"Product Standard Library Integration\" target (deps exactly [\"Product\"], `public import Product` prefixed): Product+BitwiseCopyable, +CustomStringConvertible, +Decodable, +Encodable, +Error, +Hashable. \"Product Apple Foundation Integration\" created as the 3-line seed (no Foundation-importing code existed). Exactly three products; manifest idiom (tools 6.4, .v27, .v6, ecosystem SwiftSetting loop) preserved verbatim. Seam molecule coordinates: swift-comparison/equation/hash live at swift-atoms (transfer redirect verified via gh repo view), so molecules depend on swift-atoms/swift-{d} + swift-molecules/swift-product, all branch: \"main\". swift-product-hash's target additionally depends on product \"Product Standard Library Integration\" because its conformance is `where repeat each Element: Swift.Hashable` and Product's own Hashable lives in SLI. Tests: kept \"Product Tests\" (deps [\"Product\"]); removed seam imports and moved the three Unit.Institute seam tests into the respective molecule test targets. Residual red references in kept test file: Conformances suite tests for ==/!=, <, >, hashValue, and description, plus the Codable and Bitwise suites, exercise conformances now provided by the SLI target (not a test dependency) \u2014 expected red until the later build pass; the empty `@Suite struct Institute {}` declaration was also removed. No SLI test target created (no dedicated SLI test files existed). All four working trees verified clean; molecule repos created public under swift-molecules with ids/heads as listed.",
+   "completedAt": "2026-08-27T12:43:42Z"
   }
  ],
  "successors": [],
