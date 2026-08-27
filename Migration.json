@@ -4071,23 +4071,32 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-compositions/swift-identities-mailgun",
       "futureLayer": "compositions",
-      "observedHead": "a23f61d967478659133bc4ca09bdd3e7367d580d",
-      "observedRemote": "https://github.com/swift-foundations/swift-identities-mailgun.git",
+      "observedHead": "ffb49fb31a3c6e1825c667991f2049249a8913f3",
+      "observedRemote": "https://github.com/swift-compositions/swift-identities-mailgun.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared exact human-authored direct-child cutover commit ffb49fb31a3c6e1825c667991f2049249a8913f3 from expected base a23f61d967478659133bc4ca09bdd3e7367d580d in clean isolated worktree /private/tmp/identities-mailgun-composition-lane/swift-identities-mailgun",
+          "mechanical four-layer cutover changed exactly .github/metadata.yaml and Package.swift with ten insertions and ten deletions, mapping nine internal dependency owners from foundations to compositions and the layer topic while preserving all package/product/target/module/source identities and semantics",
+          "all ten dependency coordinates and consumed products plus residual identity, active Actions-reference, public-payload, diff, attribution, and Package.resolved preservation checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "repository ID 1048334100 was verified before and after cutover at exact canonical coordinate swift-compositions/swift-identities-mailgun with unchanged public visibility, non-archived and enabled state, default branch main, and enabled Actions; no repository-name rename or archive-state change was required",
+          "published exact prepared commit ffb49fb31a3c6e1825c667991f2049249a8913f3 as an ordinary fast-forward from a23f61d967478659133bc4ca09bdd3e7367d580d to refs/heads/main through the authenticated administrative ruleset bypass; no force push or history rewrite occurred",
+          "coordinator independently reverified exact live main ffb49fb31a3c6e1825c667991f2049249a8913f3, repository ID 1048334100, exact future coordinate, public visibility, non-archived and enabled state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is complete and Package.resolved remained absent twice before preparation, publication, and afterward; package resolution is queued until every internal dependency is validation-passed and the serialized Institute slot is available"
+        ]
+      },
+      "githubRepositoryID": 1048334100
     },
     {
       "current": "swift-foundations/swift-identities-types",
