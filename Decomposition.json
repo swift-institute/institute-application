@@ -2066,6 +2066,46 @@
    ],
    "notes": "Adjudication: Growth (capacity growth policies) is a native semantic domain owning Growth, Growth.Growable, Growth.Policy \u2014 atom by default; nothing suggests tooling, external standard, or pure relator. Reshape: package had a single Growth target plus a trivial re-export \"Growth Test Support\" target; no strata targets to collapse. Deleted umbrella Sources/Growth/exports.swift (@_exported Index) and Tests/Support/exports.swift; deleted the \"Growth Test Support\" product/target and rewrote the test file's import Growth_Test_Support to import Growth + import Index (Index_Test_Support was never actually used). Seams out: factor(_:) to swift-growth-affine (module Growth_Affine) and paged(_:) with its test to swift-growth-memory (module Growth_Memory); atom lost swift-affine and swift-memory entirely (the unused \"Memory Standard Library Integration\" product dep dropped with it). Added seed \"Growth Standard Library Integration\" and \"Growth Apple Foundation Integration\" targets (no stdlib-conformance or Foundation-importing code existed); products now exactly the canonical three. Manifest idiom (tools 6.4, .v27, .v6, ecosystem+RawLayout settings loop) preserved verbatim in atom and molecules. Deviation: two commits on the atom instead of one \u2014 after the reshape push I found swift-index/affine/memory were already transferred to swift-atoms (swift-molecules names redirect), so a follow-up commit repointed the kept swift-index dependency to its live swift-atoms coordinates (amend/force-push forbidden). Molecule deps use live coordinates: swift-atoms for affine/memory/index, swift-molecules for swift-growth itself. Expected red (structural pass, nothing built): Growth.Policy.init is package-access, so both molecules' factory methods cannot call Self { ... } cross-package until the atom exposes a public/inlinable construction seam; test files import Index transitively without explicit target deps (kept test target deps are exactly [\"Growth\"] per recipe), which MemberImportVisibility may flag. No residual references to extracted domains remain in kept atom sources or tests.",
    "completedAt": "2026-08-27T13:42:13Z"
+  },
+  {
+   "package": "swift-facet",
+   "repositoryID": 1264249311,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-facet",
+   "to": "swift-atoms/swift-facet",
+   "shapeCommit": "5cc79c17857f353a74a754c3fc44e3fe274eed9f",
+   "dependencies": [
+    "swift-atoms/swift-axis \u2014 Facet's stored property is Axis<N>; the type cannot be declared without it",
+    "swift-atoms/swift-direction \u2014 Facet's stored property is Direction; equally irreducible"
+   ],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-facet-equation",
+     "repositoryID": 1348531186,
+     "commit": "5eabc56a8bdeeb88a41315b0ce5ad266ae050d0d",
+     "seam": "Facet: Equation.Protocol conformance (dep swift-equation) as product/module Facet Equation / Facet_Equation"
+    },
+    {
+     "successor": "swift-molecules/swift-facet-hash",
+     "repositoryID": 1348531284,
+     "commit": "310e150e9db1cdbb7d89dce0c1234e3a247a5fb9",
+     "seam": "Facet: Hash.Protocol conformance (dep swift-hash) as Facet Hash"
+    },
+    {
+     "successor": "swift-molecules/swift-facet-comparison",
+     "repositoryID": 1348531383,
+     "commit": "3a98becc33d07b3a4d402d79f9d4385feaf602d9",
+     "seam": "Facet: Comparison.Protocol conformance (dep swift-comparison) as Facet Comparison"
+    },
+    {
+     "successor": "swift-molecules/swift-facet-finite",
+     "repositoryID": 1348531464,
+     "commit": "d4955597893ce2670b466cbf99e6c29fac097a9b",
+     "seam": "Facet: Finite.Enumerable conformance (deps swift-finite + swift-ordinal, plus axis/direction) as Facet Finite, with its seam test file moved in"
+    }
+   ],
+   "notes": "Adjudication: atom. Facet (a signed axis in N dimensions: Axis<N> + Direction) is a native semantic domain, not tooling, not an external standard; it is a composite primitive whose constituents (Axis, Direction) are irreducible stored properties, so those two package dependencies are kept \u2014 every other dependency left with a seam. Reshape: collapsed Facet Primitive into single Sources/Facet (git mv Facet.swift); deleted all four intra-package exports.swift umbrellas; rewrote Facet_Primitive imports to Facet in extracted seam files. Extracted 4 seams (Equation/Hash/Comparison/Enumerable targets) to the 4 molecules above; Enumerable seam named after its defining external dependency Finite (module Facet_Finite); the molecule also depends on swift-ordinal/axis/direction because the seam file imports them. All dependency coordinates verified live: all seven former deps now resolve at swift-atoms (checked via gh api); molecules reference the atom at swift-molecules/swift-facet, branch main, no tags/path deps. SLI target seeded with real content: the #if !hasFeature(Embedded) Codable conformance was moved out of Facet.swift into 'Sources/Facet Standard Library Integration/Facet+Codable.swift'. AFI target is a 3-line seed (no Foundation code existed). Products exactly three. Tests: 'Facet Tests' kept (deps [Facet]); added explicit import Axis/import Direction to Facet Tests.swift since the umbrella re-export is gone; trivial re-export target 'Facet Test Support' (Tests/Support) deleted; its import in the moved seam test rewritten to Facet_Finite (Ordinal_Test_Support re-export dropped \u2014 the moved tests do not use it beyond Ordinal literals). Residual red expected (structural pass, nothing built): (1) 'Facet Tests' uses Set<Facet> and sorted()/allCases \u2014 Hashable/Comparable/CaseIterable conformances now live in the hash/comparison/finite molecules, so those two Integration tests reference extracted domains; (2) Facet+Codable.swift may need Axis/Direction module visibility under MemberImportVisibility; (3) molecule stubs are minimal @Suite files. Atom push bypassed branch protection via direct-push authorization (remote reported bypassed PR + ci-ok rules; no force, single commit 'Adopt canonical atom shape'). git status clean in all five checkouts; molecule remote heads read back equal to local SHAs.",
+   "completedAt": "2026-08-27T13:42:22Z"
   }
  ],
  "successors": [],
