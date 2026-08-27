@@ -12971,10 +12971,13 @@
           "coordinator verified exact live main a77c98fe7c99c03eec8e848358cf041fe8afeb06 twice with unchanged repository ID 1132375341, exact coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, and a clean tracked checkout"
         ]
       },
-      "state": "published",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-rfc-8446-root institute package resolve --package-path /private/tmp/four-layer-swift-rfc-8446-root --argument=--disable-sandbox against the exact live molecule graph and allowed swift-crypto 4.5.1/swift-asn1 1.7.1; no build, test, compilation, raw SwiftPM, dump-package, or manifest evaluation was invoked",
+          "Package.resolved was absent twice before resolution and present afterward only as ignored untracked generated state, never edited/deleted/staged/committed, with stable twice-observed SHA-256 b0f215f8f5f1d862ea7d205e613b97703de24e845adac3be958dd4d13b79bd79; coordinator reverified exact live main a77c98fe7c99c03eec8e848358cf041fe8afeb06, stable repository ID 1132375341, public/non-archived state, and a clean tracked checkout"
+        ]
       },
       "githubRepositoryID": 1132375341
     },
