@@ -5602,6 +5602,51 @@
     "wave": "wave7e",
     "changes": "Canonicalized Carrier to its atom owner, removed the redundant Byte.Underlying declaration, and retained the real Byte Carrier.Protocol conformance and generic UInt8-backed conversion surface with strict imports and focused domain coverage. Fresh build green; 10 tests green.",
     "bookedAt": "2026-08-27T21:00:06Z"
+   },
+   {
+    "repo": "swift-molecules/swift-byte-ownership",
+    "headSHA": "ab2f5a17d48d53445d4bde6e28b5b61adc789897",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7f",
+    "changes": "Canonicalized Ownership to its atom owner and retained the genuine Byte Ownership.Borrow.Protocol conformance with Span<Byte> as Borrowed, adding focused generic/span contract coverage and explicit seam ownership documentation. Fresh build green; 2 tests green.",
+    "bookedAt": "2026-08-27T21:01:35Z"
+   },
+   {
+    "repo": "swift-molecules/swift-compass-equation",
+    "headSHA": "6e86f0b9879251b8a773285d9cb7ec3bee72d907",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7f",
+    "changes": "Canonicalized Compass to its atom owner, confirmed Compass.Cardinal already owns Equatable, removed duplicate conformance residue, and retained a narrow exported Equation compatibility surface with focused protocol/equality coverage. Fresh build green; 3 tests green.",
+    "bookedAt": "2026-08-27T21:05:00Z"
+   },
+   {
+    "repo": "swift-molecules/swift-byte-tagged",
+    "headSHA": "f77a529d77f99223881fd80ff9a601d613846e1a",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7f",
+    "changes": "Canonicalized Tagged to its atom owner and retained the genuine conditional Tagged Byte.Protocol conformance, mapping Domain to Tag and forwarding typed byte construction/errors, with strict imports and focused full-domain coverage. Fresh build green; 5 tests green.",
+    "bookedAt": "2026-08-27T21:05:00Z"
+   },
+   {
+    "repo": "swift-molecules/swift-coproduct-equation",
+    "headSHA": "aca9f0e54a41317d04e96a8d7e6176267698ad97",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7f",
+    "changes": "Canonicalized Coproduct to its atom owner and retained the genuine hasFeature(VariadicEnum)-gated conditional retroactive Equation.Protocol conformance, with future feature-active equality coverage and an explicit current-profile unavailable-feature proof. Fresh build green; current profile test green.",
+    "bookedAt": "2026-08-27T21:06:32Z"
+   },
+   {
+    "repo": "swift-molecules/swift-coproduct-comparison",
+    "headSHA": "1ec6aae34b5a881998c5653f1a6d84e54afe64f0",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7f",
+    "changes": "Canonicalized Coproduct to its atom owner and retained the genuine hasFeature(VariadicEnum)-gated conditional retroactive Comparison.Protocol conformance, with future feature-active comparison-law coverage and an explicit current-profile unavailable-feature proof. Fresh build green; current profile test green.",
+    "bookedAt": "2026-08-27T21:07:27Z"
    }
   ]
  }
