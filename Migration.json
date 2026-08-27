@@ -6847,23 +6847,32 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-compositions/swift-random",
       "futureLayer": "compositions",
-      "observedHead": "94cadfede86cf43e3ef86eeb2209c846fcfe43eb",
-      "observedRemote": "https://github.com/swift-foundations/swift-random.git",
+      "observedHead": "88c265e8317c045e77fd0fb3a7365a286e34cc9a",
+      "observedRemote": "https://github.com/swift-compositions/swift-random.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared exact direct-child cutover commit 88c265e8317c045e77fd0fb3a7365a286e34cc9a from expected base 94cadfede86cf43e3ef86eeb2209c846fcfe43eb in clean isolated worktree /private/tmp/random-composition-lane/swift-random",
+          "mechanical four-layer cutover changed five tracked paths with 19 insertions and 16 deletions across metadata, root and nested manifests, README, dependency coordinates, Random molecule identities, and layer prose while preserving Apple Foundation wording and platform product/module identities",
+          "all five live dependency products, including newly published swift-test-application, plus residual identity, active Actions-reference, public-payload, machine-path, credential, diff, attribution, and Package.resolved preservation checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "repository ID 1144636162 was verified before and after cutover at exact canonical coordinate swift-compositions/swift-random with unchanged public visibility, non-archived state, and default branch main",
+          "published exact prepared commit 88c265e8317c045e77fd0fb3a7365a286e34cc9a as an ordinary fast-forward from 94cadfede86cf43e3ef86eeb2209c846fcfe43eb to refs/heads/main through the authenticated administrative ruleset bypass; no force push or history rewrite occurred",
+          "coordinator independently reverified exact live main 88c265e8317c045e77fd0fb3a7365a286e34cc9a, repository ID 1144636162, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, active workflows, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is complete and Package.resolved remained absent twice before and after publication; the repository is queued behind the serialized Institute package-resolution slot"
+        ]
+      },
+      "githubRepositoryID": 1144636162
     },
     {
       "current": "swift-foundations/swift-records",
