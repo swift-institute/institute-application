@@ -5612,20 +5612,29 @@
       "observedHead": "0aafea602679c86c20e35d6890e50408d112a9f1",
       "observedRemote": "https://github.com/swift-foundations/swift-observations.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit 27cb977b50d1b4bae4afc9977fadd03ac66b532a from exact parent 0aafea602679c86c20e35d6890e50408d112a9f1 in clean isolated worktree /private/tmp/four-layer-swift-observations with subject Move observations to the four-layer graph",
+          "audited all 20 tracked paths and made the exact five-path, 15-insertion/15-deletion mechanical transformation across metadata, Package.swift, README, and two source files, mapping Kernel and four primitive dependencies to their canonical four-layer coordinates/products/modules while preserving Swift Syntax and Observations public semantics; residual, payload, staged-tree, ancestry, and identity checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-observations as canonical with stable GitHub repository ID 1236432608, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; no repository rename was needed",
+          "JIT verified all five Institute dependencies and external swiftlang/swift-syntax with their required products, then ordinary fast-forward published exact direct child 27cb977b50d1b4bae4afc9977fadd03ac66b532a without force or history rewrite",
+          "coordinator independently verified exact live main 27cb977b50d1b4bae4afc9977fadd03ac66b532a with unchanged repository ID 1236432608, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, and a clean tracked checkout"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-observations-publisher institute package resolve --package-path /private/tmp/four-layer-swift-observations --argument=--disable-sandbox against the canonical live graph, selecting allowed Swift Syntax 602.0.0; no build, test, compilation, raw SwiftPM, dump-package, or manifest evaluation was invoked",
+          "Package.resolved was absent before resolution and present afterward only as ignored untracked generated state, never edited/deleted/staged/committed, with stable twice-observed SHA-256 82a92b96893b37908d5351f77c6197d5e89f640075974a1b8c5d353b9ecb5983; final live identity/SHA and clean tracked checkout were reverified"
+        ]
+      },
+      "githubRepositoryID": 1236432608
     },
     {
       "current": "swift-foundations/swift-package-graph",
