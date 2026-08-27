@@ -10277,7 +10277,7 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-compositions/swift-xcode",
       "futureLayer": "compositions",
-      "observedHead": "452822276dcb44edf0d34463dbd5c69f6cc081cb",
+      "observedHead": "082d079f4d408366a964f95fba23338ddc7b43be",
       "observedRemote": "https://github.com/swift-foundations/swift-xcode.git",
       "preparation": {
         "status": "passed",
@@ -10294,11 +10294,13 @@
           "coordinator independently verified exact live main 082d079f4d408366a964f95fba23338ddc7b43be with unchanged repository ID 1308652154, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
         ]
       },
-      "state": "published",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "publication is complete and Package.resolved remained absent twice in the isolated worktree after publication; the pre-existing ignored source-checkout Package.resolved remained stable at SHA-256 29d915cd55997201ccfd3b80aa67c0c1a377639bfc77d30ef94d9168311043d8, and resolution is queued behind the serialized slot"
+          "publication completed before validation; isolated Package.resolved remained absent twice before resolution, and the pre-existing ignored source-checkout Package.resolved remained present at stable SHA-256 29d915cd55997201ccfd3b80aa67c0c1a377639bfc77d30ef94d9168311043d8",
+          "package resolution passed on the single approved attempt with exact exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-xcode-publisher institute package resolve --package-path /private/tmp/swift-xcode --argument=--disable-sandbox --argument=--disable-dependency-cache against the exact live graph; no build, test, compilation, raw SwiftPM, dump-package, or standalone manifest-evaluation command was invoked",
+          "isolated Package.resolved was present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 544f14a4921ae34eb530a856fc4bfd8c784380e8093368c3a5ada0cef097da8d; the source-checkout Package.resolved remained byte-stable at its pre-existing SHA-256, and coordinator reverified all three dependency gates/live products plus final repository identity/SHA, exact worktree HEAD, canonical origins, and clean tracked checkouts"
         ]
       },
       "githubRepositoryID": 1308652154
