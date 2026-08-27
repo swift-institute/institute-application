@@ -4054,23 +4054,32 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-compositions/swift-identities-types",
       "futureLayer": "compositions",
-      "observedHead": "aff85d655569b9fa63257e804af4f7ce04a23720",
-      "observedRemote": "https://github.com/swift-foundations/swift-identities-types.git",
+      "observedHead": "e6ad392484ee877fe291f62ed7572be6feacc629",
+      "observedRemote": "https://github.com/swift-compositions/swift-identities-types.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared exact direct-child cutover commit e6ad392484ee877fe291f62ed7572be6feacc629 from expected base aff85d655569b9fa63257e804af4f7ce04a23720 in clean isolated worktree /private/tmp/identities-types-composition-lane/swift-identities-types",
+          "mechanical four-layer cutover changed seven tracked paths with 21 insertions and 21 deletions across dependency URLs, Tagged identities/modules/imports, README and DocC links, metadata, a package comment, and a parity-corpus owner header while preserving URL Routing Foundation Integration and public package semantics",
+          "all nine manifest dependency URLs byte-matched canonical ledger futures; live dependency products plus residual identity, active Actions-reference, public-payload, machine-path, credential, diff, attribution, and Package.resolved preservation checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "repository ID 923805865 was verified before and after cutover at exact canonical coordinate swift-compositions/swift-identities-types with unchanged public visibility, non-archived state, default branch main, and enabled Actions",
+          "published exact prepared commit e6ad392484ee877fe291f62ed7572be6feacc629 as an ordinary fast-forward from aff85d655569b9fa63257e804af4f7ce04a23720 to refs/heads/main through the authenticated administrative ruleset bypass; no force push or history rewrite occurred",
+          "coordinator independently reverified exact live main e6ad392484ee877fe291f62ed7572be6feacc629, repository ID 923805865, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is complete and Package.resolved remained absent twice before and after publication; resolution is queued until swift-compositions/swift-url-routing validation is passed and the serialized Institute package-resolution slot is available"
+        ]
+      },
+      "githubRepositoryID": 923805865
     },
     {
       "current": "swift-foundations/swift-institute-linter-rules",
