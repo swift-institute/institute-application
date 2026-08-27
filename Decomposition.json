@@ -4364,7 +4364,71 @@
    },
    "orgCensusAfterDemotions": {
     "swift-atoms": 104
-   }
+   },
+   "memoryRepresentation": {
+    "status": "complete",
+    "absorptions": {
+     "swift-bit-index": {
+      "atom": "swift-atoms/swift-bit",
+      "atomHeadSHA": "f3354f573df121dd8741fe9ac0e7f85c912494e2",
+      "donorTombstoneSHA": "dcf0ea3a3a99b22e6e2ef564791ee95d887aab45"
+     },
+     "swift-memory-heap": {
+      "atom": "swift-atoms/swift-memory",
+      "atomHeadSHA": "5c9bcf3d7e25f30668a9cb299647e9d49c519a6c",
+      "donorTombstoneSHA": "bb27f72e148b70ea7e8e5f049f9a95e713d82fba"
+     },
+     "swift-affine-geometry": {
+      "atom": "swift-atoms/swift-affine",
+      "atomHeadSHA": "6c657044d141c8addc5876aaa5a194e3045b8fcc",
+      "donorTombstoneSHA": "daf8180f8d06bd92342bdf4ae8ea561ed38db207",
+      "consumer": "swift-atoms/swift-geometry",
+      "consumerHeadSHA": "d86d07e40b1e762b9d1e849d975a289c9d46b251"
+     }
+    },
+    "evaluations": {
+     "swift-memory-cursor": "remains a molecule; its consumer swift-lexer was demoted, so no atom-to-molecule edge remains",
+     "swift-buffer-linear": "remains a molecule; the concrete buffer integration is not constitutive atom content and no atom production edge requires absorption"
+    },
+    "closedEdges": [
+     "swift-memory -> swift-bit-index",
+     "swift-string -> swift-memory-heap",
+     "swift-path -> swift-memory-heap",
+     "swift-geometry -> swift-affine-geometry",
+     "swift-lexer -> swift-memory-cursor (closed by lexer demotion)"
+    ]
+   },
+   "frontendReadjudication": {
+    "status": "complete",
+    "nativeCore": "swift-atoms/swift-text",
+    "ruling": "Text retains only its native position, offset, count, range, and line-map domain; source, token, diagnostic, lexer, test, range, layout, and cursor are molecules",
+    "demotionsRecordedAbove": 8
+   },
+   "dependencySurgery": {
+    "status": "complete",
+    "swift-parser": {
+     "headSHA": "a7a98a20ce8c75a4b29c54e275f1b518d72ad85f",
+     "result": "incidental swift-text edge removed; fresh build and 167 tests green"
+    },
+    "swift-pool": {
+     "headSHA": "f06b822b80035047a4c6910faf70ad3974bc1985",
+     "result": "swift-dimension replaced by swift-tagged; build and tests green"
+    },
+    "swift-storage": {
+     "headSHA": "62802e2d4e647b8a47531ce5f0744da49e13fcfd",
+     "result": "atom-SLI dependencies removed; build and tests green"
+    }
+   },
+   "stalePinSweep": {
+    "status": "complete",
+    "declarationsAudited": 13,
+    "swift-complexHeadSHA": "c8b2ed0b45f82a66e1d7da4789158bf729a45cf6",
+    "swift-cursorHeadSHA": "98683059d199e9c0d9c8d2ff49fa8185e766601e",
+    "swift-testHeadSHA": "fac6baf5e0f777352e2fe4c0a54ae8d3c488e0e8",
+    "note": "All declarations use final live homes; swift-source correctly remains in swift-molecules. swift-test convergence is deferred to the molecule loop and is not booked green by this repair."
+   },
+   "status": "complete",
+   "completedAt": "2026-08-27T19:05:37Z"
   },
   "packages": [
    {
@@ -5042,6 +5106,24 @@
     "wave": "tranche0-geometry",
     "changes": "Removed the swift-molecules/swift-affine-geometry production edge and adopted the absorbed Affine atom surface; canonicalized dependencies to atom homes and repaired Tagged, Numeric, explicit Codable, and dimension-safe Scale uses. Canonical atom shape preserved. Fresh build green; fresh tests green (382 tests in 116 suites).",
     "bookedAt": "2026-08-27T18:55:19Z"
+   },
+   {
+    "repo": "swift-atoms/swift-parser",
+    "headSHA": "a7a98a20ce8c75a4b29c54e275f1b518d72ad85f",
+    "build": "green",
+    "test": "green",
+    "wave": "tranche0-close+main",
+    "changes": "Removed incidental swift-text plus obsolete swift-index/swift-product edges; added parser-owned Int positions and typed OneOf errors; adapted to current Input/Collection/Iterator APIs with explicit imports and rebuilt local test fixtures. Canonical atom shape preserved. Fresh build green; fresh tests green (167 tests in 82 suites).",
+    "bookedAt": "2026-08-27T19:06:42Z"
+   },
+   {
+    "repo": "swift-atoms/swift-sequence",
+    "headSHA": "cf8136c0739de180a513d424689e39f2de0eb931",
+    "build": "green",
+    "test": "green",
+    "wave": "tranche0-close+main",
+    "changes": "Replaced stale granular Iterator and Index seams with consolidated Iterator plus native Cardinal/Ordinal APIs; repaired difference/hunk behavior, explicit Swift 6 imports, SLI Span iterators, and tests. Exact atom products preserved; Foundation only in AFI. Fresh build green; fresh tests green (124 tests).",
+    "bookedAt": "2026-08-27T19:06:42Z"
    }
   ]
  }
