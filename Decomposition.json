@@ -5160,6 +5160,87 @@
     "wave": "wave5a-recovered",
     "changes": "Dependency URLs verified canonical (swift-atoms/swift-axis, swift-atoms/swift-direction; no changes needed). Sources/Facet/Facet.swift: import Axis/Direction -> public import (types in public API + @inlinable bodies under InternalImportsByDefault); restored ': Equatable, Hashable, Comparable' conformance clause on the existing operator extension (declarations were lost when the Equation/Hash/Comparison protocol-seam files were deleted in the Phase 2 canonical-shape commit 5cc79c1; matches sibling atom Axis pattern). Sources/Facet Standard Library Integration/Facet+Codable.swift: replaced bare ",
     "bookedAt": "2026-08-27T19:07:32Z"
+   },
+   {
+    "repo": "swift-molecules/swift-memory-lock",
+    "headSHA": "9e72abcd4477ee1cd2dbfa7f5b403e119de0f9ee",
+    "build": "green",
+    "test": "green",
+    "wave": "wave5b-recovered",
+    "changes": "Canonicalized both dependency URLs swift-molecules/swift-memory and swift-molecules/swift-error to swift-atoms (verified via gh api redirect). Removed stale 'Memory Test Support' product dependency from the 'Memory Lock Test Support' target and its @_exported line in Tests/Support/exports.swift (product no longer exists in swift-atoms/swift-memory; test-support target is now a pure re-export of Memory Lock). Fixed Sources/Memory Lock/exports.swift stale module name Memory_Primitive -> Memory. Added per-file 'public import Memory' to all four source files and 'import Memory' to the test file (M",
+    "bookedAt": "2026-08-27T19:07:55Z"
+   },
+   {
+    "repo": "swift-molecules/swift-effect-equation",
+    "headSHA": "3bd8e45277534652d969396e615b35af5027c3b1",
+    "build": "green",
+    "test": "green",
+    "wave": "wave5b-recovered",
+    "changes": "Package.swift only: canonicalized swift-effect dependency URL from swift-molecules/swift-effect to swift-atoms/swift-effect (verified via gh api; swift-atoms/swift-equation already canonical). No source or test changes needed. swift build green (4.5s), swift test green (4/4 tests in suite 'Effect.Outcome Equation Tests'). Pushed directly to main; working tree clean at head.",
+    "bookedAt": "2026-08-27T19:07:55Z"
+   },
+   {
+    "repo": "swift-molecules/swift-cardinal-carrier",
+    "headSHA": "c8e54ea5adca016bb3fb528371c3897939449370",
+    "build": "green",
+    "test": "green",
+    "wave": "wave5b-recovered",
+    "changes": "Two-line convergence, pushed direct to main. (1) Package.swift: canonicalized swift-cardinal dependency URL swift-molecules -> swift-atoms (verified via gh api repos/swift-molecules/swift-cardinal --jq .full_name => swift-atoms/swift-cardinal; swift-carrier already canonical at swift-atoms/swift-carrier). (2) Sources/Cardinal Carrier/Int+Cardinal.Carrier.swift: Int.init(bitPattern: some Carrier.Protocol<Cardinal>) called Int(bitPattern: carrier.underlying) where underlying is Cardinal, which itself conforms to Carrier.Protocol<Cardinal> (self-carrying via Cardinal+Carrier.swift), so the init r",
+    "bookedAt": "2026-08-27T19:07:55Z"
+   },
+   {
+    "repo": "swift-molecules/swift-order-comparison",
+    "headSHA": "07d5fab8536bc9616dd8c3544424662e4f3859a5",
+    "build": "green",
+    "test": "green",
+    "wave": "wave5b-recovered",
+    "changes": "Canonicalized swift-order dependency URL from swift-molecules/swift-order to its verified live home swift-atoms/swift-order (gh api confirmed; swift-atoms/swift-comparison already canonical). Updated 6 test call sites from stale Comparison(comparing:to:) to the current Comparison(_:_:) initializer. swift build and swift test (19 tests, 13 suites) fully green on Swift 6.4. Committed with explicit pathspecs (Package.swift, Tests/Order Comparison Tests/Order Comparison Tests.swift) and pushed directly to main.",
+    "bookedAt": "2026-08-27T19:07:55Z"
+   },
+   {
+    "repo": "swift-molecules/swift-finite-cardinal",
+    "headSHA": "ffdae475aeb36a57593e6c230eb24bd7e9f0d183",
+    "build": "green",
+    "test": "green",
+    "wave": "wave5b-recovered",
+    "changes": "Canonicalized dependency URL swift-molecules/swift-finite -> swift-atoms/swift-finite (verified via gh api; swift-atoms/swift-cardinal already canonical). Changed 'import Cardinal' to 'public import Cardinal' in Sources/Finite Cardinal/Finite.Capacity.swift: Cardinal appears in public protocol requirement and an @inlinable body, and under InternalImportsByDefault the internal import made those hard errors. No product/target/test changes. swift build and swift test fully green (1 test, 1 suite, passed). Pushed direct to main; SHA read back via git rev-parse HEAD.",
+    "bookedAt": "2026-08-27T19:07:55Z"
+   },
+   {
+    "repo": "swift-molecules/swift-system-cardinal",
+    "headSHA": "55835bc1fbb0371f1724eeb7f8a55763f436ec86",
+    "build": "green",
+    "test": "green",
+    "wave": "wave5b-recovered",
+    "changes": "Canonicalized swift-system dependency URL from swift-molecules to swift-atoms (verified via gh api; swift-cardinal and swift-tagged already canonical at swift-atoms). Fixed 5 compile errors: Int(bitPattern:) was being called on Tagged<_, Cardinal> values (System.Memory.Capacity, System.Page.Size, System.Path.Length, System.Processor.Count) which requires _Pointer conformance; rewrote as Int(bitPattern: x.underlying.rawValue) using Tagged.underlying (public) and Cardinal.rawValue (public UInt). Test suite is an empty placeholder suite; passes with 0 tests. Pushed directly to main; SHA read back",
+    "bookedAt": "2026-08-27T19:07:55Z"
+   },
+   {
+    "repo": "swift-molecules/swift-dimension-direction",
+    "headSHA": "7d102526aad08ffc1ae304987551549f33315e11",
+    "build": "green",
+    "test": "green",
+    "wave": "wave5b-recovered",
+    "changes": "Canonicalized swift-dimension dependency URL from swift-molecules to swift-atoms (verified via gh api transfer redirect; swift-atoms/swift-direction already canonical). Added 'Dimension Standard Library Integration' product to the test target and explicit 'import Dimension_Standard_Library_Integration' in Depth/Horizontal/Temporal/Vertical Tests.swift \u2014 the description property tests hit MemberImportVisibility hard errors because CustomStringConvertible conformances live in that module. swift build green (retroactive-conformance warnings only), swift test green: 134 tests in 27 suites passed. ",
+    "bookedAt": "2026-08-27T19:07:55Z"
+   },
+   {
+    "repo": "swift-molecules/swift-symmetry-algebra",
+    "headSHA": "e7a79b9eb77e339f12228067292634d641cbb641",
+    "build": "green",
+    "test": "green",
+    "wave": "wave5b-recovered",
+    "changes": "Canonicalized swift-symmetry dependency URL to swift-atoms/swift-symmetry (verified via gh api; swift-atoms/swift-algebra already canonical). Replaced stale product 'Algebra Group' with 'Algebra' in Package.swift and rewrote 'public import Algebra_Group' to 'public import Algebra' in Phase+Algebra.swift, Rotation+Algebra.swift, Shear+Algebra.swift. swift build and swift test fully green at head; pushed directly to main (bypass notice as expected).",
+    "bookedAt": "2026-08-27T19:07:55Z"
+   },
+   {
+    "repo": "swift-molecules/swift-symmetry-linear",
+    "headSHA": "c32ee967e79ef0dcd35b8d2e3367cfe2273e0ddd",
+    "build": "green",
+    "test": "green",
+    "wave": "wave5b-recovered",
+    "changes": "Package.swift: canonicalized swift-symmetry dependency URL from swift-molecules/swift-symmetry to swift-atoms/swift-symmetry (verified via gh api redirect; swift-linear and swift-dimension already canonical at swift-atoms). Tests/Symmetry Linear Tests/Scale Tests.swift: adapted `Uniform scale creates equal factors` to upstream Dimension.Scale.uniform(_: Scale<1, Scalar>) signature (was bare Scalar); deleted `1D scale from float literal` and `1D scale from integer literal` \u2014 the ExpressibleByFloatLiteral/IntegerLiteral conformances no longer exist on upstream Dimension.Scale, so their subject i",
+    "bookedAt": "2026-08-27T19:07:55Z"
    }
   ]
  }
