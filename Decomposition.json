@@ -5750,6 +5750,51 @@
     "wave": "wave7h",
     "changes": "Canonicalized Either to its atom owner and retained the genuine conditional retroactive Equation.Protocol conformance for Equatable payloads, re-exporting both owners with matching-arm, cross-arm, and generic protocol coverage. Fresh build green; 3 tests green.",
     "bookedAt": "2026-08-27T21:18:55Z"
+   },
+   {
+    "repo": "swift-molecules/swift-format-tagged",
+    "headSHA": "bff9c278e65ac1c54c25eae11c34821f969c6c86",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7i",
+    "changes": "Canonicalized Format to its atom owner and retained the genuine Tagged<_, BinaryFloatingPoint>.formatted(Format.Decimal) overload, re-exporting owners with number, exact precision/rounding, and percent coverage that preserves Format semantics. Fresh build green; 3 tests green.",
+    "bookedAt": "2026-08-27T21:23:09Z"
+   },
+   {
+    "repo": "swift-molecules/swift-formatter-pair",
+    "headSHA": "2a6e5efd1955749b88b2cdde8e7c04f1c4e2c70e",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7i",
+    "changes": "Canonicalized Formatter to its atom owner and retained the genuine Pair Formatter.Protocol conformance with Either-based left/right failure routing, documenting the ownership boundary against exact live Formatter, Either, and Pair heads. Fresh build green; 6 tests green.",
+    "bookedAt": "2026-08-27T21:23:09Z"
+   },
+   {
+    "repo": "swift-molecules/swift-format-formatter",
+    "headSHA": "90181c3b90abe15a27b98d9577975f0f4160b5af",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7i",
+    "changes": "Canonicalized Format to its atom owner, repaired Format module/type collisions with symbol-specific public imports, and retained the genuine Format.Case Formatter.Protocol seam plus nonduplicated generic string/integer/floating overloads with focused conversion coverage. Fresh build green; 27 tests green.",
+    "bookedAt": "2026-08-27T21:25:59Z"
+   },
+   {
+    "repo": "swift-molecules/swift-interval-pair",
+    "headSHA": "deed5c4361dd33c6e2c09823820663684e8ed414",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7i",
+    "changes": "Canonicalized Interval to its atom owner and retained genuine Bound, Boundary, and Endpoint payload Pair aliases, widening payload generics to Pair's noncopyable/nonescapable surface with focused descriptor and noncopyable coverage. Fresh build green; 4 tests green.",
+    "bookedAt": "2026-08-27T21:25:59Z"
+   },
+   {
+    "repo": "swift-molecules/swift-numeric-pair",
+    "headSHA": "3b0ce685e6800ad2fc0c5ac181f8d8e53aa78207",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7i",
+    "changes": "Canonicalized Numeric and Pair to their atom owners and retained genuine Numeric.Sign.Value and Numeric.Ternary.Value Pair aliases, adding missing Ternary coverage and the explicit Pair import required by member-import visibility. Fresh build green; 2 tests green.",
+    "bookedAt": "2026-08-27T21:25:59Z"
    }
   ]
  }
