@@ -1592,6 +1592,25 @@
    "splits": [],
    "notes": "Adjudication: Cursor is a native semantic domain \u2014 a positioned cursor over borrowed storage (Cursor<DomainTag: Ownership.Borrow.Protocol & ~Copyable>: ~Copyable, ~Escapable with a Tagged<DomainTag, Ordinal> position). Its single source file is the domain itself, not an integration, so atom. The three kept dependencies are irreducible: they appear in the type's own generic signature and stored properties, so no seam extraction is possible without emptying the atom. Reshape: collapsed \"Cursor Primitive\" into the single Cursor module (git mv of Cursor.swift); deleted the intra-package umbrella exports.swift in both Cursor Primitive (which @_exported Cardinal/Ordinal/Ownership_Borrow/Tagged) and Cursor (which @_exported Cursor_Primitive); dropped swift-cardinal (referenced only by the deleted umbrella) and swift-index (referenced only by the deleted trivial re-export \"Cursor Test Support\" target at Tests/Support, which no test file imported). Added seed \"Cursor Standard Library Integration\" (deps [\"Cursor\"], file containing exactly \"public import Cursor\") and seed \"Cursor Apple Foundation Integration\" (deps [\"Cursor\", \"Cursor Standard Library Integration\"], three public imports incl. Foundation) since no stdlib-extension or Foundation-importing code existed. Products now exactly Cursor / Cursor Standard Library Integration / Cursor Apple Foundation Integration; test target \"Cursor Tests\" (deps [\"Cursor\"]) kept unchanged; manifest idiom (tools 6.4, .v27 platforms, .v6 language mode, ecosystem SwiftSetting loop) preserved verbatim. Not built or tested per commission. Residual: README.md's module table (lines 62-63 at /private/tmp/claude-501/-Users-coen-Developer-coenttb/20dff9a4-b817-42e7-bbc6-9081ab416a17/scratchpad/wave1/swift-cursor/README.md) still describes the old Cursor Primitive/umbrella layout \u2014 documentation only, left for a later pass to keep the reshape a single commit. Push note: remote reported \"Bypassed rule violations\" (PR requirement + required status check) \u2014 direct push to main was authorized by the commission; no gates were disabled.",
    "completedAt": "2026-08-27T13:21:52Z"
+  },
+  {
+   "package": "swift-list",
+   "repositoryID": 1138059990,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-list",
+   "to": "swift-atoms/swift-list",
+   "shapeCommit": "cae2ac616dbda618e10576a617027d7f866d2452",
+   "dependencies": [],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-list-index",
+     "repositoryID": 1348509848,
+     "commit": "6867572e4aef58956bbd3b84d6ea1d6352226fcf",
+     "seam": "List Index target integrating List with external swift-index (List.Index typealias over Index.Index<Element>)"
+    }
+   ],
+   "notes": "Adjudication: List is a native semantic domain (public enum List<Element: ~Copyable> namespace); default atom stands. Reshape: Sources/List Primitive/List.swift moved via git mv to Sources/List/List.swift; deleted intra-package umbrella exports.swift files in Sources/List, Sources/List Primitive, and the seam target; deleted trivial re-export target Tests/Support (List Test Support, which only @_exported Index_Test_Support and List \u2014 no test file imported it, so no rewrites needed). Seam: entire Sources/List Index target (List.Index.swift + exports.swift) extracted to swift-molecules/swift-list-index, module List_Index, product \"List Index\"; imports rewritten List_Primitive -> List; the seam's exports.swift (@_exported public import Index) was dropped rather than carried over, per ecosystem anti-umbrella discipline \u2014 noted as a deliberate omission. Molecule deps at live coordinates: swift-molecules/swift-list (branch main) and swift-atoms/swift-index (branch main; swift-molecules/swift-index redirects there). Atom now has three products (List, List Standard Library Integration, List Apple Foundation Integration) with seed files for SLI and AFI (no SLI/Foundation code existed), test target \"List Tests\" deps [\"List\"] unchanged and free of residual references to extracted domains. Manifest idiom preserved verbatim including the package-level RawLayout experimental feature in the atom's trailing loop (molecule uses empty package settings, matching the swift-bit exemplar). Not built or tested per brief. Push to main showed a remote bypass notice for the PR-required/ci-ok rules (direct push was authorized and OrganizationAdmin bypass applied); no gates were disabled.",
+   "completedAt": "2026-08-27T13:22:00Z"
   }
  ],
  "successors": [],
