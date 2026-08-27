@@ -12630,8 +12630,12 @@
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-incits-4-1986-root institute package resolve --package-path /private/tmp/four-layer-swift-incits-4-1986 --argument=--disable-sandbox against live ASCII, Standard Library Extensions, Binary, and Parser dependencies",
+          "prepared HEAD remained b540c6b0e2a5b7429c060b660b797b6e63d6287d and the isolated worktree remained clean",
+          "Package.resolved was absent before resolution and present afterward as untouched ignored generated state with stable SHA-256 1fd7185ebcbbd28a1d4a4fc20e9907e916d6f43821bb938999d8840aefa19265"
+        ]
       }
     },
     {
