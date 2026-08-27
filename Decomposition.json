@@ -4366,6 +4366,187 @@
     "swift-atoms": 104
    }
   },
-  "packages": []
+  "packages": [
+   {
+    "repo": "swift-atoms/swift-buffer",
+    "headSHA": "51d073dd51ec295f571e079cfc8817a447d60c6b",
+    "build": "green",
+    "test": "green",
+    "wave": "tranche0+wave1",
+    "changes": "No changes pushed; reported SHA is the pre-existing live head of main. Fresh clone at 51d073dd51ec295f571e079cfc8817a447d60c6b already meets the Phase 3 bar: zero dependencies (nothing to canonicalize), 'swift build' green (only UnusedImportAccess warnings in the AFI umbrella file), 'swift test' green (4 tests, 1 suite, all pass). Canonical atom shape verified: products exactly Buffer / Buffer Standard Library Integration / Buffer Apple Foundation Integration; only the AFI module imports Foundation.",
+    "bookedAt": "2026-08-27T17:52:57Z"
+   },
+   {
+    "repo": "swift-atoms/swift-byte",
+    "headSHA": "0658b521111ec4e6e623332c7ecfcf4ea48d3d85",
+    "build": "green",
+    "test": "green",
+    "wave": "tranche0+wave1",
+    "changes": "No dependencies in Package.swift, so no URL canonicalization needed. Build was already green. Test target 'Byte Tests' had two classes of red in 'Tests/Byte Tests/Byte Value Laws Tests.swift': (1) four Tagged<_, Byte> integration tests referencing the Tagged type, which lives in another package this package does not depend on \u2014 deleted per brief, along with the now-unused Checksum tag enum; (2) one description test exercising CustomStringConvertible, which is declared in the Byte Standard Library Integration module (not imported by 'Byte Tests') and is already covered by 'Decimal description m",
+    "bookedAt": "2026-08-27T17:52:57Z"
+   },
+   {
+    "repo": "swift-atoms/swift-tagged",
+    "headSHA": "fadc5f8892fb935f3e464c7c48273e54e7d2155e",
+    "build": "green",
+    "test": "green",
+    "wave": "tranche0+wave1",
+    "changes": "Added explicit 'public import Tagged' to all 8 files in Sources/Tagged Standard Library Integration (MemberImportVisibility hard errors after umbrella deletion); fixed Tagged+AtomicRepresentable.swift decodeAtomicRepresentation to call init(_unchecked:) \u2014 the only initializer Tagged declares (bare Self(...) was mis-resolving to the LosslessStringConvertible init and failing); added 'Tagged Standard Library Integration' to the 'Tagged Tests' test-target dependencies in Package.swift, which the test file already imports (link failure otherwise). No dependencies exist in the manifest, so no URL c",
+    "bookedAt": "2026-08-27T17:52:57Z"
+   },
+   {
+    "repo": "swift-atoms/swift-comparison",
+    "headSHA": "66384c0b3a359a2c02e5e7069a28f8822dc21635",
+    "build": "green",
+    "test": "green",
+    "wave": "tranche0+wave1",
+    "changes": "Manifest has zero external dependencies, so no URL canonicalization was needed. Two fixes: (1) MemberImportVisibility \u2014 tests used Comparison.allCases and Comparison(comparing:to:), both declared in the 'Comparison Standard Library Integration' module; added 'import Comparison_Standard_Library_Integration' to Tests/Comparison Tests/Comparison Tests.swift and the target dependency in Package.swift. (2) Extracted-seam tests \u2014 three suites (Fluent Compare API, Fluent Clamp API, Swift.Comparable Fluent API; 20 tests) exercised a fluent .compare/.clamp member API that no longer exists anywhere in t",
+    "bookedAt": "2026-08-27T17:52:57Z"
+   },
+   {
+    "repo": "swift-atoms/swift-finite",
+    "headSHA": "fe8b7ba16f1eb03cdcb815a68494244c87eaa352",
+    "build": "green",
+    "test": "green",
+    "wave": "tranche0+wave1",
+    "changes": "No changes pushed. Package was already at the Phase 3 bar at head fe8b7ba16f1eb03cdcb815a68494244c87eaa352 (== origin/main, tree clean): zero dependencies in Package.swift (nothing to canonicalize), canonical atom shape present (Finite / Finite Standard Library Integration / Finite Apple Foundation Integration; AFI is the only Foundation importer), swift build green (UnusedImportAccess warnings only), swift test green (2 tests, 1 suite, backticked names). Reported SHA is the current live head of main.",
+    "bookedAt": "2026-08-27T17:52:57Z"
+   },
+   {
+    "repo": "swift-atoms/swift-ordinal",
+    "headSHA": "c2e69fb9384509a0fca519494bfc6ce7bf58bdc1",
+    "build": "green",
+    "test": "green",
+    "wave": "tranche0+wave1",
+    "changes": "pushed by coordinator after restoring missing ruleset bypass; lane-verified green locally | NOTHING PUSHED \u2014 reported SHA is the current live head of origin/main (c643a69a2cf08f006d86fbf3c55bf15438d913c7), unchanged. Convergence work is complete and green LOCALLY as commit c2e69fb9384509a0fca519494bfc6ce7bf58bdc1 in /private/tmp/phase3-lanes/swift-ordinal/swift-ordinal (clean tree, committ",
+    "bookedAt": "2026-08-27T17:52:57Z"
+   },
+   {
+    "repo": "swift-atoms/swift-cardinal",
+    "headSHA": "54cfa5df21b00068217e9454a568b4533efc9624",
+    "build": "green",
+    "test": "green",
+    "wave": "tranche0+wave1",
+    "changes": "pushed by coordinator after restoring missing ruleset bypass; lane-verified green locally | PUSHED NOTHING \u2014 reported SHA is the current live head of main, unchanged. Convergence work is complete and green LOCALLY at unpushed commit 54cfa5df21b00068217e9454a568b4533efc9624 in /private/tmp/phase3-lanes/swift-cardinal/swift-cardinal (clone left in place with the commit on local main). Edits:",
+    "bookedAt": "2026-08-27T17:52:57Z"
+   },
+   {
+    "repo": "swift-atoms/swift-property",
+    "headSHA": "5cb9ce1c3bcade26c3695dd85501e081766044f1",
+    "build": "green",
+    "test": "green",
+    "wave": "tranche0+wave1",
+    "changes": "No external dependencies in Package.swift, so no URL canonicalization needed. Library targets built green at clone head (warnings only: unused public imports in the AFI umbrella file). Test target had one red file, Tests/Property Tests/Getting Started Final Step Tests.swift: the nested Stack.Property typealias shadowed the Property module/type inside its own declaration, making 'Property.Property<Tag, Stack<Element>>' unresolvable (plus a cascading inout-yield error). Fixed by adding a top-level generic typealias _GettingStartedProperty that binds the real Property<Tag, Base> type before the s",
+    "bookedAt": "2026-08-27T17:52:57Z"
+   },
+   {
+    "repo": "swift-atoms/swift-equation",
+    "headSHA": "931364b7292619a82348020fc7a7a4ad7ed3570c",
+    "build": "green",
+    "test": "green",
+    "wave": "tranche0+wave1",
+    "changes": "No changes pushed; reported SHA is the current live head of main (verified via git ls-remote). Package has zero external dependencies, so no URL canonicalization applied. Fresh clone built green with swift build (warnings only: 3x UnusedImportAccess in the AFI module) and swift test passed 5/5 tests in 4 suites. Manifest already matches atom canonical shape (Equation / Equation Standard Library Integration / Equation Apple Foundation Integration; AFI is the only Foundation importer).",
+    "bookedAt": "2026-08-27T17:52:57Z"
+   },
+   {
+    "repo": "swift-atoms/swift-pair",
+    "headSHA": "21af81519e4238f609b85303fab432ce8311b985",
+    "build": "green",
+    "test": "green",
+    "wave": "tranche0+wave1",
+    "changes": "Two fixes, both compiler-mandated cross-module conformance repairs from the Phase 2 umbrella/extraction pass. (1) Moved Pair+BitwiseCopyable.swift from 'Pair Standard Library Integration' into Sources/Pair \u2014 BitwiseCopyable conformance must be declared in the type's own module (hard error), and it is a core-language marker protocol, not an SLI seam; dropped the now-self import. (2) Pair+Codable.swift: replaced the empty synthesized conformance with an explicit init(from:)/encode(to:) using CodingKeys {first, second} \u2014 synthesis is unavailable in a retroactive extension outside the declaring fi",
+    "bookedAt": "2026-08-27T17:52:57Z"
+   },
+   {
+    "repo": "swift-atoms/swift-queue",
+    "headSHA": "a0583709eb1959441897440126f00e7c73560f51",
+    "build": "green",
+    "test": "green",
+    "wave": "tranche0+wave1",
+    "changes": "No changes pushed. Package was already green at head a0583709eb1959441897440126f00e7c73560f51 (current live main): swift build green (warnings only: UnusedImportAccess on the three public imports in 'Queue Apple Foundation Integration.swift'), swift test green (1 test, 1 suite, backticked natural-language names). Package.swift declares zero external dependencies, so no URL canonicalization applied. Canonical atom shape already satisfied: products exactly 'Queue', 'Queue Standard Library Integration', 'Queue Apple Foundation Integration'; AFI is the only module importing Foundation; test target",
+    "bookedAt": "2026-08-27T17:52:57Z"
+   },
+   {
+    "repo": "swift-atoms/swift-span",
+    "headSHA": "2788b8bb2a0312ab29fe503c47e3dbb79f5223bb",
+    "build": "green",
+    "test": "green",
+    "wave": "tranche0+wave1",
+    "changes": "PUSHED NOTHING \u2014 reported SHA is the current live head of origin/main. Package has zero external dependencies (nothing to canonicalize). Build was already green at head. Tests were red: Tests/Span Tests/Span.Protocol Tests.swift imported Index and conformed a fixture to Span.Mutable.Protocol, a seam HEAD (2788b8b 'Adopt canonical atom shape') deliberately extracted (__Span.Mutable.Protocol.swift deleted; it had depended on Index and Span_Primitive). Per brief, deleted the extracted-seam tests: removed 'import Index', the Mutable fixture + its extension, and 2 tests exercising mutableSpan (46 d",
+    "bookedAt": "2026-08-27T17:52:57Z"
+   },
+   {
+    "repo": "swift-atoms/swift-dimension",
+    "headSHA": "970c9f88baf8a9f9a5cc739c013fc314213e9f20",
+    "build": "green",
+    "test": "green",
+    "wave": "tranche0+wave1",
+    "changes": "No external dependencies in Package.swift, so no URL canonicalization needed. Two classes of red fixed: (1) six cross-module `extension X: Codable {}` declarations in 'Dimension Standard Library Integration' (Depth, Chirality, Horizontal, Vertical, Temporal, Winding) failed because automatic synthesis is unavailable outside the declaring file; replaced with explicit init(from:)/encode(to:) encoding the case name as a single string value. (2) 'Dimension Tests' used Winding.allCases/Chirality.allCases whose CaseIterable conformances live in the SLI module; added 'Dimension Standard Library Integ",
+    "bookedAt": "2026-08-27T17:52:57Z"
+   },
+   {
+    "repo": "swift-atoms/swift-carrier",
+    "headSHA": "f8d297a4dde9432e3a733139f298899605a78dc6",
+    "build": "green",
+    "test": "green",
+    "wave": "tranche0+wave1",
+    "changes": "One fix: Sources/Carrier Standard Library Integration/Carrier+Bitwise.swift lacked any import of the Carrier module (the only file in the target without it), producing MemberImportVisibility/lookup hard errors on Carrier.`Protocol`, .underlying, and init. Added `public import Carrier` (file is all @inlinable public operators). Package.swift has zero dependencies, so no URL canonicalization was needed. swift build clean; swift test: 146 tests in 140 suites, all passed. Committed with explicit pathspec, pushed direct to main under pre-release posture (bypass notice observed, expected). Tree clea",
+    "bookedAt": "2026-08-27T17:52:57Z"
+   },
+   {
+    "repo": "swift-atoms/swift-either",
+    "headSHA": "14baf122df4465054b388aced44b01079042d5e5",
+    "build": "green",
+    "test": "green",
+    "wave": "tranche0+wave1",
+    "changes": "coordinator fast-forwarded main to lane-verified green branch phase3/convergence (57/57 tests) after restoring missing ruleset bypass | NOTHING PUSHED TO MAIN; reported SHA is the current live head of main, which is red (Codable synthesis error in 'Either Standard Library Integration'). The full convergence fix IS complete and green locally (swift build clean; swift test 57/57 passed in 14 suites) at commit 14baf122df4465054b388aced",
+    "bookedAt": "2026-08-27T17:52:57Z"
+   },
+   {
+    "repo": "swift-atoms/swift-pool",
+    "headSHA": "f06b822b80035047a4c6910faf70ad3974bc1985",
+    "build": "green",
+    "test": "green",
+    "wave": "tranche0+wave1",
+    "changes": "Replaced swift-dimension package dependency with swift-atoms/swift-tagged (product Tagged, url https://github.com/swift-atoms/swift-tagged.git, branch main); switched `public import Dimension` to `public import Tagged` in Sources/Pool/Pool.ID.swift and Sources/Pool/Pool.Scope.swift. Inspection confirmed no Dimension types used \u2014 only Tagged<Self, UInt64>. Canonical atom shape intact (Pool / Pool Standard Library Integration / Pool Apple Foundation Integration); Foundation only in AFI. swift build and swift test green (1 test, backticked name). Remaining warnings only: UnusedImportAccess in the",
+    "bookedAt": "2026-08-27T17:52:57Z"
+   },
+   {
+    "repo": "swift-atoms/swift-complex",
+    "headSHA": "c8b2ed0b45f82a66e1d7da4789158bf729a45cf6",
+    "build": "green",
+    "test": "green",
+    "wave": "tranche0+wave1",
+    "changes": "Pins canonicalized (swift-molecules/swift-numeric and swift-molecules/swift-tagged -> swift-atoms, verified via gh api). Product 'Real' no longer exists in swift-numeric; adopted product/module 'Numeric' in manifest and 10 source files. Complex+String used internal _value; switched to public .value. Added Complex.Number.Phase (Tagged over Scalar via _atan2) that the properties tests exercise. Test target gained Complex Standard Library Integration, Numeric, Numeric Standard Library Integration, and Tagged deps with explicit imports (MemberImportVisibility). All suites/tests renamed to backtick",
+    "bookedAt": "2026-08-27T17:52:57Z"
+   },
+   {
+    "repo": "swift-molecules/swift-cursor",
+    "headSHA": "98683059d199e9c0d9c8d2ff49fa8185e766601e",
+    "build": "green",
+    "test": "green",
+    "wave": "tranche0+wave1",
+    "changes": "Pins canonicalized (tagged, ordinal, ownership -> swift-atoms; verified via gh api). Product 'Ownership Borrow' no longer exists; adopted product/module 'Ownership'. Fixed Tagged position construction to Tagged(_unchecked: Ordinal(0)). swift build and swift test green (1 test, 4 suites); pushed to main with expected bypass notice.",
+    "bookedAt": "2026-08-27T17:52:57Z"
+   },
+   {
+    "repo": "swift-atoms/swift-bit",
+    "headSHA": "f3354f573df121dd8741fe9ac0e7f85c912494e2",
+    "build": "green",
+    "test": "green",
+    "wave": "tranche0+wave1",
+    "changes": "Absorbed donor Bit Index module into Sources/Bit (Bit.Index.swift, Bit.Index+Byte.swift, Bit+Affine.Discrete.Ratio.swift); dropped exports.swift umbrella. Added branch:main deps swift-atoms/{swift-index,swift-affine,swift-ordinal,swift-byte} plus swift-atoms/swift-tagged (deviation, see followUps) with minimal products on Bit. Donor tests merged into existing 'Bit Tests' target; suite green: 97 tests / 30 suites, 0 failures. Products unchanged (Bit / Bit Standard Library Integration / Bit Apple Foundation Integration); no Foundation outside AFI. ADAPTATIONS forced by migrated heads: (1) Bit.In",
+    "bookedAt": "2026-08-27T17:52:57Z"
+   },
+   {
+    "repo": "swift-atoms/swift-numeric",
+    "headSHA": "568beeda0a300bfa2fa028da132fb293b7a9d541",
+    "build": "green",
+    "test": "green",
+    "wave": "tranche0+wave1",
+    "changes": "PR #11 (cross-module Codable + SLI visibility) squash-merged by coordinator at exact verified head; squash tree b9d1382d identical to lane-verified PR head 5be879fb \u2014 green verification applies bit-for-bit",
+    "bookedAt": "2026-08-27T17:52:57Z"
+   }
+  ]
  }
 }
