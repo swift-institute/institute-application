@@ -3279,23 +3279,32 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-compositions/swift-html-chart",
       "futureLayer": "compositions",
-      "observedHead": "1746be7a7e20e1dcd376e550166e6f099e3be519",
-      "observedRemote": "https://github.com/swift-foundations/swift-html-chart.git",
+      "observedHead": "7cec8b9610ee7738763c696b71326cfefbaa7658",
+      "observedRemote": "https://github.com/swift-compositions/swift-html-chart.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared exact direct-child cutover commit 7cec8b9610ee7738763c696b71326cfefbaa7658 from expected base 1746be7a7e20e1dcd376e550166e6f099e3be519 in clean isolated worktree /private/tmp/swift-html-chart",
+          "mechanical four-layer cutover changed only .github/metadata.yaml, Package.swift, and README.md with seven insertions and seven deletions across the HTML dependency, repository links, and layer metadata; package/product/target/module/path identities and public semantics remained unchanged",
+          "the live HTML dependency/product plus residual identity, active Actions-reference, public-payload, diff, attribution, and Package.resolved preservation checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "repository ID 1047996878 was verified before and after cutover at exact canonical coordinate swift-compositions/swift-html-chart with unchanged public visibility, non-archived and enabled state, default branch main, and enabled Actions",
+          "published exact prepared commit 7cec8b9610ee7738763c696b71326cfefbaa7658 as an ordinary fast-forward from 1746be7a7e20e1dcd376e550166e6f099e3be519 to refs/heads/main through the authenticated administrative ruleset bypass; no force push or history rewrite occurred",
+          "coordinator independently reverified exact live main 7cec8b9610ee7738763c696b71326cfefbaa7658, repository ID 1047996878, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is complete and Package.resolved remained absent twice before and after publication; the repository is queued behind swift-compositions/swift-html validation and the serialized Institute package-resolution slot"
+        ]
+      },
+      "githubRepositoryID": 1047996878
     },
     {
       "current": "swift-foundations/swift-html-fontawesome",
