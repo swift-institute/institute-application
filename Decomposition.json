@@ -2912,6 +2912,25 @@
    ],
    "notes": "Outer-loop adjudication (substrate rule): canonical internal shape adopted with 2 seam splits, but core traversal/storage protocols irreducibly bind molecules (storage-generational, stack); stays in swift-molecules. Lane notes: Adjudication: Tree is a native semantic data-structure domain (irreducible owner of tree positions, insert/remove/traversal semantics) \u2014 atom. Domain spelling \"Tree\" derived from existing product names. Reshape: collapsed Tree Primitive, Tree Index, Tree Operations, and the dependency-free remnants of Tree Storage (TreeStorage namespace enum) into the single Sources/Tree module; deleted umbrella S",
    "completedAt": "2026-08-27T16:33:32Z"
+  },
+  {
+   "package": "swift-glob",
+   "repositoryID": 1228912459,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-glob",
+   "to": "swift-atoms/swift-glob",
+   "shapeCommit": "488a7dfbb3fc8316cc3dc3ab85f9e2cdbd61337b",
+   "dependencies": [],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-glob-parser",
+     "repositoryID": 1348714329,
+     "commit": "a60941aa5cc207af298e412f443581131badb4ca",
+     "seam": "Parser-ecosystem integration: Glob.Pattern.Parser, Parseable conformance, string-parsing init, and ExpressibleByStringLiteral (which requires that init), plus the parsing tests"
+    }
+   ],
+   "notes": "Adjudication: glob pattern matching is a native semantic domain (Pattern/Segment/Atom/Scalar.Class/Options/Error vocabulary) \u2014 atom, no defer. Reshape: deleted umbrella exports.swift; moved Glob.Pattern.Parser.swift, Glob.Pattern+Parseable.swift (fixed pre-existing Glob.Glob.Pattern typo), the throws(Glob.Error) init(_ String) extension split out of Glob.Pattern.swift (as Glob.Pattern+Parsing.swift), and Glob.Pattern+ExpressibleByStringLiteral.swift into swift-glob-parser module Glob_Parser (the literal conformance calls the parsing init, so it cannot live in the SLI target whose deps are exactly [Glob]); each moved file gained public import Glob. Added a public memberwise init to Glob.Pattern so the external parser can construct it. Removed the atom's ASCII dependency by rewriting Glob.isPattern with hex byte literals (0x2A/0x3F/0x5B/0x5C) \u2014 isPattern is core domain logic, ASCII was incidental sugar; all other external imports (Array, Buffer Linear, Ownership Shared, Byte, Byte Parser, Parser, Collection) existed only in the moved parser files, so the atom's package dependencies are now empty. Created SLI seed file (no genuine stdlib-only integration code remains) and AFI seed file (no Foundation imports existed). Products exactly three. Tests: parsing tests moved to Glob Parser Tests (imports rewritten to plain import Glob + import Glob_Parser, @testable dropped); atom Glob Tests keeps the isPattern test plus a new memberwise-init test. Molecule deps pinned at current live coordinates (swift-atoms: byte, parser, collection; swift-molecules: glob, array, ownership-shared, buffer-linear, byte-parser); Collection added explicitly because Glob.Pattern.Parser.swift file-imports it. Residual red risk (unbuilt by mandate): moved files' verbatim import sets may include unused modules, and Byte.Input/Parseable resolution is unverified. README minimally corrected to the new three-product shape. Both working trees verified clean; atom push bypassed the repo's PR/status-check rules via authorized direct push (remote noted the bypass).",
+   "completedAt": "2026-08-27T16:46:12Z"
   }
  ],
  "successors": [],
