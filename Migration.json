@@ -11790,8 +11790,11 @@
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-rfc-7405-root institute package resolve --package-path /private/tmp/four-layer-swift-rfc-7405 --argument=--disable-sandbox against exact live Standard Library Extensions, ASCII, RFC 5234, and transitive dependencies",
+          "post-resolution verification found exact HEAD 0ddd812a64b109f6735050107197483f840a3e08, a clean checkout, and untouched generated Package.resolved with stable SHA-256 cf21c0e77a0e07ebf8310c1773321bd319c8754a74c910474f064d429a5a3ed3"
+        ]
       }
     },
     {
