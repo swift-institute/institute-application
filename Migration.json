@@ -3778,10 +3778,12 @@
       },
       "state": "published",
       "validation": {
-        "status": "pending",
         "records": [
-          "publication is complete and Package.resolved remained absent twice before and after publication; the repository is queued behind swift-compositions/swift-svg and swift-compositions/swift-test-application validation plus the serialized Institute package-resolution slot"
-        ]
+          "publication completed before validation; root and nested Package.resolved were absent twice before resolution",
+          "root package resolution passed with exact exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-html-publisher institute package resolve --package-path /private/tmp/swift-html --argument=--disable-sandbox --argument=--disable-dependency-cache against the exact live graph; no build, test, compilation, raw SwiftPM, dump-package, or standalone manifest-evaluation command was invoked",
+          "root Package.resolved was present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 3eb46a0693fdcac0cd07b308c0d5db34b2433fef3e08ed6bf5996e48f54eddc3; nested Package.resolved remained absent twice; coordinator reverified all ten internal dependency gates/products, final repository identity/SHA/state, exact worktree HEAD, canonical origins, clean tracked checkout, and that no archive restoration was required"
+        ],
+        "status": "passed"
       },
       "seal": {
         "archived": false,
