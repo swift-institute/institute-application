@@ -5448,6 +5448,15 @@
     "wave": "wave6j",
     "changes": "Rewired removed Buffer/Store products to current Buffer, Storage, and Index APIs; restored the generic Fixed front door and ledger-backed fullness invariant; repaired module/type shadowing and tests. Exact core/AFI/TestSupport products; Foundation only in AFI. Fresh build green; 4 tests green; local Embedded proof blocked upstream.",
     "bookedAt": "2026-08-27T20:07:42Z"
+   },
+   {
+    "repo": "swift-atoms/swift-set",
+    "headSHA": "e738cb29b976c12ea4e97154b7e17a7de47e8a81",
+    "build": "green",
+    "test": "green",
+    "wave": "wave6k",
+    "changes": "Replaced removed Index.Count with Cardinal, removed the now-unused Index edge, retained canonical Hash, and restored the Membership contract, exact core/AFI/TestSupport products, and focused coverage. Foundation only in AFI. Fresh build green; 3 tests green; local Embedded proof blocked upstream.",
+    "bookedAt": "2026-08-27T20:09:47Z"
    }
   ]
  }
