@@ -10859,19 +10859,27 @@
       "observedHead": "991c7e08d1e865474a3428cc49db7402891d9822",
       "observedRemote": "https://github.com/swift-ietf/swift-rfc-3987.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit ca07c6abad837078aa9add468b215f77a843dd7d from expected parent 991c7e08d1e865474a3428cc49db7402891d9822 in isolated worktree /private/tmp/four-layer-swift-rfc-3987",
+          "independently reconstructed full-tree audit verified all 19 tracked files byte-for-byte, exact five-path and 15-insertion/15-deletion mapping of three canonical dependency URLs/products/packages/modules/imports, preserved RFC 3987 and RFC 3987 Foundation package/product/target/path identities with README, metadata, and CI unchanged, zero mapped residuals, public payload, canonical one-hop Actions, human commit identity, clean checkout, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified unchanged canonical coordinate swift-ietf/swift-rfc-3987 at expected main 991c7e08d1e865474a3428cc49db7402891d9822 with GitHub repository ID 1093601431, public visibility, non-archived state, and default branch main; no repository rename was required",
+          "set fetch and push origins to https://github.com/swift-ietf/swift-rfc-3987.git and fast-forward published exact prepared commit ca07c6abad837078aa9add468b215f77a843dd7d without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main ca07c6abad837078aa9add468b215f77a843dd7d with unchanged repository ID 1093601431, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-rfc-3987-publisher institute package resolve --package-path /private/tmp/four-layer-swift-rfc-3987 --argument=--disable-sandbox against all three exact live declared dependencies and transitive graph",
+          "post-resolution verification found exact HEAD ca07c6abad837078aa9add468b215f77a843dd7d, a clean checkout, and untouched generated Package.resolved with stable SHA-256 5200101153da3ddab6252d24abf8f201a6b8106451a5b1ff87f89d263343089f"
+        ]
       }
     },
     {
