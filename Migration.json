@@ -7736,8 +7736,11 @@
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-synchronizers-root institute package resolve --package-path /private/tmp/four-layer-swift-synchronizers --argument=--disable-sandbox against exact live Kernel and its published transitive graph",
+          "post-resolution verification found exact HEAD 7c33761280ad96f88a5213aa6fb4fc2a0dd12dba, a clean checkout, and untouched generated Package.resolved with stable SHA-256 3365acbff72c34212ed1907933b9aa36b2b74240dda73f655f6a2f624280dd71"
+        ]
       }
     },
     {
