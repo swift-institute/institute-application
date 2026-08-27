@@ -24778,8 +24778,13 @@
       "observedHead": "228d683f1ae52e9e1d4aec678b2eaa46f65ecf7b",
       "observedRemote": "https://github.com/swift-primitives/swift-queue-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared migration commit e202739ad23acb529ef6ff29f0c46a11b7c1133e from expected base 228d683f1ae52e9e1d4aec678b2eaa46f65ecf7b and final metadata repair commit 2dc928a7540d67683961305905a4ea542862f530",
+          "isolated worktree /private/tmp/four-layer-swift-queue",
+          "mapped all thirteen dependency URLs, products, modules, imports, paths, README references, and repository metadata to their live molecule coordinates; stripped owned plural Queue Primitives identities while preserving legitimate singular Queue Primitive and Queue Small Primitive identities",
+          "independent audit identified and the ordinary follow-up commit repaired the sole stale metadata topic from primitives to molecules; two-commit ancestry, clean worktree, combined 17-path intended diff, dependency readiness, residual, public payload, workflow, and Package.resolved re-audits passed; exact future coordinate remains HTTP 404 and stable repository ID is 1138058582"
+        ]
       },
       "publication": {
         "status": "pending",
