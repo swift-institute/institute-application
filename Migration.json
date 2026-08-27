@@ -3510,23 +3510,32 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-compositions/swift-html-prism",
       "futureLayer": "compositions",
-      "observedHead": "1ff19b204ed6fd578e8066a2106ed29ca49cf97f",
-      "observedRemote": "https://github.com/swift-foundations/swift-html-prism.git",
+      "observedHead": "f8f23f903d59d87a498a3c99e6881481a918f8b1",
+      "observedRemote": "https://github.com/swift-compositions/swift-html-prism.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared exact direct-child cutover commit f8f23f903d59d87a498a3c99e6881481a918f8b1 from expected base 1ff19b204ed6fd578e8066a2106ed29ca49cf97f in clean isolated worktree /private/tmp/swift-html-prism",
+          "mechanical four-layer cutover changed only .github/metadata.yaml, Package.swift, and README.md with seven insertions and seven deletions across HTML, Dependencies, HTML Render, repository links, and layer metadata; package/product/target/module/path identities and public semantics remained unchanged",
+          "all three live dependency identities/products plus residual identity, active Actions-reference, public-payload, diff, attribution, and Package.resolved preservation checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "repository ID 1048504304 was verified before and after cutover at exact canonical coordinate swift-compositions/swift-html-prism with unchanged public visibility, non-archived and enabled state, default branch main, and enabled Actions",
+          "published exact prepared commit f8f23f903d59d87a498a3c99e6881481a918f8b1 as an ordinary fast-forward from 1ff19b204ed6fd578e8066a2106ed29ca49cf97f to refs/heads/main through the authenticated administrative ruleset bypass; no force push or history rewrite occurred",
+          "coordinator independently reverified exact live main f8f23f903d59d87a498a3c99e6881481a918f8b1, repository ID 1048504304, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is complete and Package.resolved remained absent twice before and after publication; the repository is queued behind HTML validation and the serialized Institute package-resolution slot"
+        ]
+      },
+      "githubRepositoryID": 1048504304
     },
     {
       "current": "swift-foundations/swift-html-render",
