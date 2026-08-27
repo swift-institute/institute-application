@@ -1851,20 +1851,32 @@
       "observedHead": "21b543cb2d7fe4de34e31deb133cd503c770297a",
       "observedRemote": "https://github.com/swift-foundations/swift-domain-name-system-kernel.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit c476a78b6830617ea948e386c1ae521030fc2903 from expected parent 21b543cb2d7fe4de34e31deb133cd503c770297a in isolated worktree /private/tmp/four-layer-swift-domain-name-system-kernel",
+          "the exact five-path mechanical transformation changed Package.swift, two source imports, README, and metadata with eleven insertions and eleven deletions: Domain Name System, IP Address, Kernel, and Threads owners now use compositions and Either repository/package/product/module uses exact suffix-free molecule identity",
+          "all five direct dependencies were ledger-passed and freshly exact-live with products verified, including both Thread Pool and Thread Gate; every Domain Name System Kernel package/product/target/module/source/test identity, path, public semantic, and dependency remained unchanged with no split or new dependency",
+          "full committed-tree residual, canonical Actions, explicit staging, human-identity, Package.resolved-absence, and clean-worktree gates passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled both old and new API paths to exact canonical coordinate swift-compositions/swift-domain-name-system-kernel with stable GitHub repository ID 1309711571, public visibility, non-archived state, default branch main, and expected live base 21b543cb2d7fe4de34e31deb133cd503c770297a; the organization cutover had already moved the repository so no repository rename was required",
+          "fast-forward published exact direct child c476a78b6830617ea948e386c1ae521030fc2903 to main through the configured administrator ruleset bypass without force or history rewrite",
+          "verified live main c476a78b6830617ea948e386c1ae521030fc2903 with unchanged repository ID 1309711571, exact canonical coordinate, public visibility, non-archived state, default branch main, and deliberate final origins"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-domain-name-system-kernel-publisher institute package resolve --package-path /private/tmp/four-layer-swift-domain-name-system-kernel --argument=--disable-sandbox against all five exact live direct dependencies",
+          "HEAD remained c476a78b6830617ea948e386c1ae521030fc2903 and the isolated worktree remained clean",
+          "Package.resolved was absent before resolution and present afterward only as ignored generated state with stable SHA-256 e0320b5918864938186fdc9504828c9ed8cb7017193ca5ac501536a2695d3934"
+        ]
+      },
+      "githubRepositoryID": 1309711571
     },
     {
       "current": "swift-foundations/swift-dual",
