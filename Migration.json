@@ -25611,20 +25611,30 @@
       "observedHead": "8f6e1d0e2a680e9de55624854fb167663df59146",
       "observedRemote": "https://github.com/swift-primitives/swift-primitives-linter-rules.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit b4beaf2aece1eaa038ca58a99a1335280ce32d06 from exact parent 8f6e1d0e2a680e9de55624854fb167663df59146 in clean isolated worktree /private/tmp/four-layer-swift-primitives-linter-rules; original and pre-existing source-enforcement worktrees were observed and not touched",
+          "audited all 14 tracked paths and made the exact ten-path, 33-insertion/32-deletion mechanical transformation across metadata, Package.swift, README, sources, and tests, mapping dependency owners and Linter dependency identity/module plus four-layer prose while preserving the explicit swift-primitives-linter-rules repository/package exception and its intentional Primitives products, targets, modules, bundle, and historical test citation",
+          "exception-aware residual, public-payload, staged-tree, direct-parent, human-identity, and canonical Actions checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-molecules/swift-primitives-linter-rules as canonical with stable GitHub repository ID 1235895505, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; the exceptional repository name remained unchanged and no repository rename was needed",
+          "JIT verified Institute Linter Rules, Linter Rules, Linter, and external swiftlang/swift-syntax at exact live identities and required products, then ordinary fast-forward published exact direct child b4beaf2aece1eaa038ca58a99a1335280ce32d06 without force or history rewrite",
+          "coordinator independently verified exact live main b4beaf2aece1eaa038ca58a99a1335280ce32d06 with unchanged repository ID 1235895505, exact exceptional future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, and a clean tracked checkout"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-primitives-linter-rules-publisher institute package resolve --package-path /private/tmp/four-layer-swift-primitives-linter-rules --argument=--disable-sandbox against the canonical live graph, selecting allowed Swift Syntax 602.0.0; no build, test, compilation, raw SwiftPM, dump-package, or manifest evaluation was invoked",
+          "Package.resolved was absent twice before resolution and present afterward only as ignored untracked generated state, never edited/deleted/staged/committed, with stable twice-observed SHA-256 123f87a2d931258bd4a2c4a447a2bc2d4a3be28001657fbe5afd1bc83b410b0d; final live identity/SHA and clean tracked checkout were reverified"
+        ]
+      },
+      "githubRepositoryID": 1235895505
     },
     {
       "current": "swift-primitives/swift-product-primitives",
