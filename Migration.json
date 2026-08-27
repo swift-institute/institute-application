@@ -9884,11 +9884,14 @@
           "coordinator independently reverified exact live main 4c241ff60b9e1b57a5a61dca70039f4c25418871, repository ID 906335974, exact future coordinate, public visibility, non-archived and enabled state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
         ]
       },
-      "state": "published",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "publication is complete and Package.resolved remained absent twice before and after publication; repository must remain unarchived until package resolution is passed and booked, then the principal-authorized final archive state must be restored and booked separately"
+          "publication completed while temporarily unarchived before validation and Package.resolved remained absent twice before resolution",
+          "package resolution passed on the single approved attempt with exact exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-url-routing-authentication-publisher institute package resolve --package-path /private/tmp/swift-url-routing-authentication --argument=--disable-sandbox --argument=--disable-dependency-cache against the exact live graph; no build, test, compilation, raw SwiftPM, dump-package, or standalone manifest-evaluation command was invoked",
+          "Package.resolved was present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 ee95523ef2617edb8ac5cba5cb5e5f8beb733badb7fdbfab1898ad0c67023d5b; coordinator reverified all five dependency gates/live products, final repository identity/SHA, exact worktree HEAD, canonical origins, clean tracked checkout, and the required temporary archived=false state",
+          "validation is fully booked; the principal-authorized restoration of archived=true remains a separately journaled final administrative step"
         ]
       },
       "githubRepositoryID": 906335974
