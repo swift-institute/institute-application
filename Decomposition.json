@@ -4495,6 +4495,32 @@
     "requiredAction": "Delete the manifest, reexport source, and tests, and replace the README with an explicit tombstone. This destructive edit requires principal approval before execution.",
     "status": "principal-approval-required",
     "recordedAt": "2026-08-27T21:19:27Z"
+   },
+   {
+    "repo": "swift-molecules/swift-product-comparison",
+    "currentHeadSHA": "fc2672fc738823c490a178173d1305e505366420",
+    "proposedDisposition": "duplicate-owned-by-product-atom",
+    "atoms": {
+     "swift-atoms/swift-product": "177d8df910b8b01a82c3f7f0b028ef2f33fda75a",
+     "swift-atoms/swift-comparison": "66384c0b3a359a2c02e5e7069a28f8822dc21635"
+    },
+    "evidence": "Product Standard Library Integration already owns Product's conditional Swift.Comparable conformance and lexicographic ordering, while Comparison.Protocol is only a Swift.Comparable alias; the molecule's sole source redeclares the identical conformance and adds no independent cross-domain behavior.",
+    "requiredAction": "Delete the manifest, duplicate source, and tests, and replace the README with an explicit tombstone. This destructive edit requires principal approval before execution.",
+    "status": "principal-approval-required",
+    "recordedAt": "2026-08-27T21:39:34Z"
+   },
+   {
+    "repo": "swift-molecules/swift-product-equation",
+    "currentHeadSHA": "65abcc1fa5f9911644ffe7d1bcff7b73de625b60",
+    "proposedDisposition": "duplicate-owned-by-product-atom",
+    "atoms": {
+     "swift-atoms/swift-product": "177d8df910b8b01a82c3f7f0b028ef2f33fda75a",
+     "swift-atoms/swift-equation": "931364b7292619a82348020fc7a7a4ad7ed3570c"
+    },
+    "evidence": "Product Standard Library Integration already owns Product's conditional Swift.Equatable conformance and packwise equality, while Equation.Protocol is only a Swift.Equatable alias; the molecule redeclares the identical conformance and adds no independent cross-domain behavior.",
+    "requiredAction": "Delete the manifest, duplicate source, and tests, and replace the README with an explicit tombstone. This destructive edit requires principal approval before execution.",
+    "status": "principal-approval-required",
+    "recordedAt": "2026-08-27T21:39:34Z"
    }
   ],
   "packages": [
@@ -5849,6 +5875,51 @@
     "wave": "wave7j",
     "changes": "Canonicalized Package to its atom owner and retained the genuine Package, Product, and Target Tagged string aliases, moving Tagged SLI to test-only scope, narrowing public imports, and covering the permissive alias contract. Fresh build green; 15 tests green.",
     "bookedAt": "2026-08-27T21:32:26Z"
+   },
+   {
+    "repo": "swift-molecules/swift-parity-pair",
+    "headSHA": "1026df4de9b16ff544c31f1299c71fe0e0d80916",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7k",
+    "changes": "Canonicalized Parity to its atom owner and retained the genuine Parity.Value Pair alias, widening payload support to Pair's noncopyable/nonescapable surface with explicit normal and noncopyable payload proofs. Fresh build green; 2 tests green.",
+    "bookedAt": "2026-08-27T21:34:00Z"
+   },
+   {
+    "repo": "swift-molecules/swift-pair-comparison",
+    "headSHA": "455909251490e85f4622d2df0326b613ba4baf7d",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7k",
+    "changes": "Canonicalized Pair to its atom owner and retained the genuine lexicographic Comparison.Protocol seam, adding the required same-bounds retroactive Equatable conformance that external Comparable cannot synthesize, with borrowing equality and noncopyable-aware protocol coverage. Fresh build green; 7 tests green.",
+    "bookedAt": "2026-08-27T21:34:55Z"
+   },
+   {
+    "repo": "swift-molecules/swift-pair-equation",
+    "headSHA": "987aaa81c99de580533b990d89d6613cf8c77855",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7k",
+    "changes": "Canonicalized Pair to its atom owner and retained the genuine conditional retroactive equality seam, removing the obsolete underscored overload attribute and adding generic and per-component equality coverage. Fresh build green; 5 tests across 5 suites green.",
+    "bookedAt": "2026-08-27T21:37:44Z"
+   },
+   {
+    "repo": "swift-molecules/swift-polarity-pair",
+    "headSHA": "3b4ad294960186275e6fbc2730cd654d2a92ea5c",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7k",
+    "changes": "Canonicalized Polarity and Pair to their atom owners and retained the genuine Polarity.Value Pair alias, widening payload support to Pair's noncopyable/nonescapable surface with explicit normal and noncopyable payload proofs. Fresh build green; 2 tests green.",
+    "bookedAt": "2026-08-27T21:37:44Z"
+   },
+   {
+    "repo": "swift-molecules/swift-predicate-logic",
+    "headSHA": "e08679836f0b51bc7eb08e97ec4020a5663ea2a4",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7k",
+    "changes": "Canonicalized Predicate to its atom owner and retained the genuine narrow Predicate-to-ternary-Logic seam, documenting its ownership and adding a custom ternary conformer proof of generic true, false, and unknown evaluation. Fresh build green; 28 tests across 8 suites green.",
+    "bookedAt": "2026-08-27T21:40:06Z"
    }
   ]
  }
