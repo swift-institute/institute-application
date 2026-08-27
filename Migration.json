@@ -18938,12 +18938,14 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified pre-rename main at expected commit 0987a0c68ba269055b8ddd2a690f4603bfcbb59b on exact live coordinate swift-molecules/swift-dictionary-ordered-primitives after the organization cutover",
           "verified exact future coordinate swift-molecules/swift-dictionary-ordered returned HTTP 404 before repository rename",
           "renamed repository swift-molecules/swift-dictionary-ordered-primitives to swift-molecules/swift-dictionary-ordered and verified stable GitHub repository ID 1250661956 with public visibility, non-archived state, default branch main, and unchanged main 0987a0c68ba269055b8ddd2a690f4603bfcbb59b",
-          "fast-forward publication remains in progress; resume from the exact final coordinate without repeating the rename"
+          "updated isolated worktree fetch and push origin to https://github.com/swift-molecules/swift-dictionary-ordered.git",
+          "fast-forward published prepared commit 1a65bff1704e47e41491e1680ca6c014588ceb0d without force or history rewrite",
+          "verified live main 1a65bff1704e47e41491e1680ca6c014588ceb0d with unchanged repository ID, public visibility, non-archived state, default branch main, suffix-free package identity, and clean isolated worktree"
         ]
       },
       "state": "ready",
