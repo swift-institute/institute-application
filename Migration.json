@@ -9016,20 +9016,29 @@
       "observedHead": "e7f15f298297e5ecc61f7db76d905c9aadc2851c",
       "observedRemote": "https://github.com/swift-foundations/swift-translating-dependencies.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit a82b28ec8b4ed950b004fdbd2e111292fd2befa1 from exact parent e7f15f298297e5ecc61f7db76d905c9aadc2851c in clean disjoint worktree /private/tmp/four-layer-swift-translating-dependencies-publisher with subject Prepare Translating Dependencies for composition",
+          "audited all 21 tracked paths and made the exact three-path, five-insertion/five-deletion mechanical transformation across Package.swift, README, and metadata, moving Translating, Dependencies, self links, and layer topic to compositions while preserving package/product/target/module identities, public semantics, and canonical Actions; residual, payload, staged-tree, ancestry, and identity checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-translating-dependencies as canonical with stable GitHub repository ID 1299567554, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; no repository rename was needed",
+          "JIT verified exact live Dependencies and Translating heads and required products, then ordinary fast-forward published exact direct child a82b28ec8b4ed950b004fdbd2e111292fd2befa1 without force or history rewrite",
+          "coordinator independently verified exact live main a82b28ec8b4ed950b004fdbd2e111292fd2befa1 with unchanged repository ID 1299567554, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, stable Package.resolved evidence, and clean tracked checkout"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-translating-dependencies-publisher institute package resolve --package-path /private/tmp/four-layer-swift-translating-dependencies-publisher --argument=--disable-sandbox against the exact live Translating, Dependencies, BCP 47, and canonical transitive graph; no build, test, compilation, raw SwiftPM, dump-package, or manifest evaluation was invoked",
+          "Package.resolved was absent twice before resolution and present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 642f2df8272e69fca055df82aaad6c45c43d3720dad27a0d53551d53065a3dea; final live identity/SHA and clean tracked checkout were reverified"
+        ]
+      },
+      "githubRepositoryID": 1299567554
     },
     {
       "current": "swift-foundations/swift-uri",
