@@ -6543,6 +6543,51 @@
     "wave": "wave7v",
     "changes": "Canonicalized Either to its atom owner and retained the genuine unabsorbed consuming conversion from distinct move-only-capable SLE.Result into Either; the Either atom's canonical SLI owns only Codable. Added direct SLE test-product visibility and clarified the ownership boundary while preserving current ~Copyable coverage. Fresh build green; 7 tests across 7 suites green.",
     "bookedAt": "2026-08-27T23:19:12Z"
+   },
+   {
+    "repo": "swift-molecules/swift-span-byte",
+    "headSHA": "344d9434cf860404bd46cfd658ce44b3162b180d",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7w",
+    "changes": "Canonicalized Span to its atom owner and retained genuine bounded raw-byte span and mutable-span behavior, adding direct Cardinal, Tagged, and Ordinal Cardinal ownership for Index<Byte>.Count, migrating stale count construction/conversion/comparison/hash APIs, and supplying explicit lifetime overrides for immutable/mutable Swift span bridges. Fresh build green; 8 tests across 10 suites green.",
+    "bookedAt": "2026-08-27T23:19:50Z"
+   },
+   {
+    "repo": "swift-molecules/swift-sequence-property",
+    "headSHA": "52c8f828398bfa8c5d556ec9d59091078dbc6d12",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7w",
+    "changes": "Canonicalized Sequence to its atom owner and retained the genuine fluent Property.Inout accessors/query/fold seam for contains, first, forEach/borrowing, reduce, satisfies, hint, drain, and borrowing-span operations; replaced stale Index and split Iterator surfaces with Cardinal/consolidated Iterator, wired current Property Ownership/Ownership, and focused Drain/Hint compatibility tests. Fresh build green; 33 tests across 7 suites green.",
+    "bookedAt": "2026-08-27T23:22:13Z"
+   },
+   {
+    "repo": "swift-molecules/swift-sequence-either",
+    "headSHA": "fa4292f19a3ee2e8a0f15a137fe4616804461fb1",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7w",
+    "changes": "Canonicalized Sequence and Iterator to their atom owners and retained the genuine fallible sequence terminal seam preserving body failures as Either.left and iterator failures as .right beyond the atom's Never-failure forEach/consume, adding required public Iterator visibility, direct test dependencies, and focused traversal/body/iterator/consume contracts. Fresh build green; 4 tests green.",
+    "bookedAt": "2026-08-27T23:24:10Z"
+   },
+   {
+    "repo": "swift-molecules/swift-bitset-iterator",
+    "headSHA": "c62c09ecd9967ff634370faa357a7b2eb87547f4",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7w",
+    "changes": "Canonicalized Bitset to its atom owner and retained the genuine retroactive Bitset.Iterator conformance to the current Institute Iterating protocol, updating Iterator product/module ownership and adding a focused generic conformance behavior proof plus ownership documentation. Fresh build green; 1 test green.",
+    "bookedAt": "2026-08-27T23:25:21Z"
+   },
+   {
+    "repo": "swift-molecules/swift-sequence-cardinal",
+    "headSHA": "1d34883ae8770e9bd3fbae55fca1d9251f6b6f83",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7w",
+    "changes": "Resumed against converged Sequence Property, canonicalized Sequence and consolidated Iterator ownership, and retained genuine Sequenceable.collect() cardinal-capacity hints plus Cardinal/Ordinal Span extraction/addressing; removed retired Cardinal SLI wiring, preserved clamping conversion, narrowed fixtures, and added focused Span contracts. Fresh build green; 6 tests across 2 suites green.",
+    "bookedAt": "2026-08-27T23:26:27Z"
    }
   ]
  }
