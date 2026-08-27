@@ -5403,6 +5403,24 @@
     "wave": "wave6f",
     "changes": "Enforced the documented set-once root state with a private setter, canonicalized atom metadata/documentation, and preserved dependency-free exact products with Foundation only in AFI. Fresh build green; 29 tests green.",
     "bookedAt": "2026-08-27T19:43:06Z"
+   },
+   {
+    "repo": "swift-atoms/swift-infinite",
+    "headSHA": "ddc17440ec490f38aeca195f2f3ec0c2ffc0e787",
+    "build": "green",
+    "test": "green",
+    "wave": "wave6g",
+    "changes": "Repaired six iterator conformances against the current Iterator API, restored the exact core/AFI/TestSupport product shape, and corrected atom documentation. Foundation only in AFI. Fresh build green; 48 tests green; local Embedded proof blocked upstream in Cardinal.",
+    "bookedAt": "2026-08-27T19:52:50Z"
+   },
+   {
+    "repo": "swift-atoms/swift-growth",
+    "headSHA": "29cca3af4e962d6a6a9fd9174b0a94295ff0394a",
+    "build": "green",
+    "test": "green",
+    "wave": "wave6g",
+    "changes": "Migrated the removed Index.Count surface to canonical Cardinal, restored the exact core/AFI/TestSupport product shape, and corrected atom documentation. Foundation only in AFI. Fresh build green; 2 tests green; local Embedded proof blocked upstream in Cardinal.",
+    "bookedAt": "2026-08-27T19:52:50Z"
    }
   ]
  }
