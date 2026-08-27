@@ -5277,6 +5277,33 @@
     "wave": "wave6b",
     "changes": "Declared existing Hashable/Comparable implementations, made Direction an explicit test dependency/import, and removed molecule-era documentation for nonexistent surfaces. Exact three-product atom shape preserved; Foundation only in AFI. Fresh build green; 7 tests green.",
     "bookedAt": "2026-08-27T19:23:43Z"
+   },
+   {
+    "repo": "swift-atoms/swift-clock",
+    "headSHA": "a50ccac6d0ab4b7730707f832490e986735b5b24",
+    "build": "green",
+    "test": "green",
+    "wave": "wave6c",
+    "changes": "Updated Tagged construction and restored the native Tagged InstantProtocol/Duration surface without Carrier; made cross-module imports explicit and corrected Sendable/documentation residue. Exact products preserved; Foundation only in AFI. Fresh build green; 99 tests green.",
+    "bookedAt": "2026-08-27T19:26:44Z"
+   },
+   {
+    "repo": "swift-atoms/swift-decimal",
+    "headSHA": "7cec825c80f7e4c2e1e3f9ff51091596d4f65192",
+    "build": "green",
+    "test": "green",
+    "wave": "wave6c",
+    "changes": "Source was already green with zero dependencies; corrected molecule-era repository documentation and metadata to the canonical atom home, three products, current floors, and AFI boundary. Fresh build green; 37 tests green; Foundation only in AFI.",
+    "bookedAt": "2026-08-27T19:26:44Z"
+   },
+   {
+    "repo": "swift-atoms/swift-version",
+    "headSHA": "33109e3f79afe3dbfb6775b2c576270354cb2c74",
+    "build": "green",
+    "test": "green",
+    "wave": "wave6c",
+    "changes": "Adapted Tagged APIs/imports; restored Foundation-free Semantic/Tools parsing, typed errors and descriptions in SLI; moved integration tests to the owning target and removed stale Calendar residue. Exact products preserved; Foundation only in AFI. Fresh build green; 112 tests green.",
+    "bookedAt": "2026-08-27T19:26:44Z"
    }
   ]
  }
