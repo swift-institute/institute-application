@@ -2227,23 +2227,32 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-compositions/swift-email-html",
       "futureLayer": "compositions",
-      "observedHead": "7d4339a636e37d4ca91963cc21ac1668edc4f686",
-      "observedRemote": "https://github.com/swift-foundations/swift-email-html.git",
+      "observedHead": "5587a60516cc962e4f79aab3f3a7d1087c1dc0e0",
+      "observedRemote": "https://github.com/swift-compositions/swift-email-html.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared exact direct-child cutover commit 5587a60516cc962e4f79aab3f3a7d1087c1dc0e0 from expected base 7d4339a636e37d4ca91963cc21ac1668edc4f686 in clean isolated worktree /private/tmp/swift-email-html while preserving a pre-existing prunable worktree record untouched",
+          "mechanical four-layer cutover changed only .github/metadata.yaml, Package.swift, and README.md with six insertions and six deletions across UUIDs, HTML, CSS, Email/repository links, and layer metadata; package/product/target/module/path and parked surfaces remained unchanged",
+          "all six declared live dependency identities/products plus the newly published Email README referent, residual identity, active Actions-reference, public-payload, diff, attribution, and Package.resolved preservation checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "repository ID 1298629490 was verified before and after cutover at exact canonical coordinate swift-compositions/swift-email-html with unchanged public visibility, non-archived and enabled state, default branch main, and enabled Actions",
+          "published exact prepared commit 5587a60516cc962e4f79aab3f3a7d1087c1dc0e0 as an ordinary fast-forward from 7d4339a636e37d4ca91963cc21ac1668edc4f686 to refs/heads/main through the authenticated administrative ruleset bypass; no force push or history rewrite occurred",
+          "coordinator independently reverified exact live main 5587a60516cc962e4f79aab3f3a7d1087c1dc0e0, repository ID 1298629490, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is complete and Package.resolved remained absent twice before and after publication; the repository is queued behind Email, HTML, and UUIDs validation plus the serialized Institute package-resolution slot"
+        ]
+      },
+      "githubRepositoryID": 1298629490
     },
     {
       "current": "swift-foundations/swift-emailaddress",
