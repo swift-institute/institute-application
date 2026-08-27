@@ -5327,20 +5327,29 @@
       "observedHead": "a66dae620565790f9c4cb102a8152072a3338b34",
       "observedRemote": "https://github.com/swift-foundations/swift-markdown-html-render.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit 4732ce31bb46bfe84feaca24869de9bdb0455900 from exact parent a66dae620565790f9c4cb102a8152072a3338b34 in clean isolated worktree /private/tmp/four-layer-swift-markdown-html-render",
+          "audited all 73 tracked paths and made the exact 12-path, 32-insertion/32-deletion mechanical transformation across metadata, Package.swift, README, sources, and performance-test sources, mapping foundation/primitive coordinates, Ownership Mutable product/module, and Render module to canonical futures while preserving Standard Library Extensions, external swift-markdown range/product, package public semantics, and canonical Actions; residual, payload, staged-tree, ancestry, and identity checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-markdown-html-render as canonical with stable GitHub repository ID 1117575332, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; no repository rename was needed",
+          "JIT verified five direct Institute dependencies, two transitive imported owners, and external swiftlang/swift-markdown at exact live identities/products, then ordinary fast-forward published exact direct child 4732ce31bb46bfe84feaca24869de9bdb0455900 without force or history rewrite",
+          "coordinator independently verified exact live main 4732ce31bb46bfe84feaca24869de9bdb0455900 with unchanged repository ID 1117575332, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, and a clean tracked checkout"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-markdown-html-render-publisher institute package resolve --package-path /private/tmp/four-layer-swift-markdown-html-render --argument=--disable-sandbox against the canonical live graph, selecting valid swift-markdown 0.8.0; no build, test, compilation, raw SwiftPM, dump-package, or manifest evaluation was invoked",
+          "Package.resolved was absent before resolution and present afterward only as ignored untracked generated state, never edited/deleted/staged/committed, with stable twice-observed SHA-256 a44725e695db6122b632add0eb74642000bdf788d301e668daa31bfd6ec9c208; final live identity/SHA and clean tracked checkout were reverified"
+        ]
+      },
+      "githubRepositoryID": 1117575332
     },
     {
       "current": "swift-foundations/swift-memory",
