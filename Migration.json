@@ -30185,20 +30185,31 @@
       "observedHead": "449d12dfa6cb671346d8f5f6e2660578cb1b88a8",
       "observedRemote": "https://github.com/swift-standards/swift-mailgun-standard.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared two ordinary human-authored direct-child commits in clean isolated worktree /private/tmp/four-layer-swift-mailgun-standard: 490da8dcc4e1655d1b2cde7fa0167558efe746f5 from expected parent 449d12dfa6cb671346d8f5f6e2660578cb1b88a8 for the mechanical cutover, followed by 4cbb7e4dba45c1026a66bd934db51cb7fdeac20a for the four-layer README description",
+          "audited all forty-seven tracked paths and made the exact combined two-path, six-insertion/six-deletion transformation: Package.swift moved the Time repository/package identity to swift-molecules/swift-time while preserving the legitimate singular Time Primitive product/module, and README mapped that identity, both Mailgun composition owner links, and the generic Standards/Primitives layer phrase to their canonical four-layer forms",
+          "preserved Mailgun Standard package/product/target/path/public semantics, all source/test Time_Primitive imports, all six dependency products, Foundation-free architectural prose, metadata, and active Actions; explicit staging, full-tree residual/public-payload/human-identity/ancestry checks passed with Package.resolved absent"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified unchanged coordinate swift-standards/swift-mailgun-standard, GitHub repository ID 1031129503, public visibility, non-archived state, default branch main, canonical clone URL, and exact expected live base 449d12dfa6cb671346d8f5f6e2660578cb1b88a8 immediately before publication; no rename was required",
+          "reverified exact live dependencies RFC 2046 93c89b3e7622c7ddc7f2c2cc3b53a933c3115421, RFC 3986 c84480207760aaf82beced49c102738760ebfc32, Time 578f830f95eb5f01ab67e7bf7e059d0aa7fd15bb, Domain Standard 4b2417b9839ec71b0f274139a94eb3b942ea3ed9, Email Standard 600dfcd4b5d945725b78dd026ae643e0d492097b, and EmailAddress Standard eda471455b43e0e0a0c4319906b8296b03700ade, then ordinary fast-forward published the exact two-commit chain through the configured administrator ruleset bypass without force or history rewrite",
+          "coordinator independently verified exact live main 4cbb7e4dba45c1026a66bd934db51cb7fdeac20a with unchanged repository ID 1031129503, exact coordinate, public visibility, non-archived state, default branch main, canonical origins, exact two-commit ancestry, and a clean isolated worktree"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-mailgun-standard-publisher institute package resolve --package-path /private/tmp/four-layer-swift-mailgun-standard --argument=--disable-sandbox against all six exact live dependency destinations; no build, test, compilation, raw SwiftPM, or manifest-only substitute was invoked",
+          "all six dependency heads remained exact after resolution and the coordinator reverified exact live main 4cbb7e4dba45c1026a66bd934db51cb7fdeac20a with GitHub repository ID 1031129503, public visibility, non-archived state, and default branch main",
+          "HEAD and both origins remained exact and canonical and the isolated checkout remained clean twice; Package.resolved was absent before resolution and present afterward only as ignored untracked generated state with stable SHA-256 b80bbadfbd1cda963868e7ba21eb54c92c9e7555be8531434b463cced36076a8"
+        ]
+      },
+      "githubRepositoryID": 1031129503
     },
     {
       "current": "swift-standards/swift-media-type-standard",
