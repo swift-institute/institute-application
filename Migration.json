@@ -15095,8 +15095,12 @@
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-binary-leb128-parser-root institute package resolve --package-path /private/tmp/four-layer-swift-binary-leb128-parser --argument=--disable-sandbox against live Binary LEB128, Parser, and Byte dependencies",
+          "prepared HEAD remained 1a4fe062a82f6e359c0034591085d0613b1769ac and the isolated worktree remained clean",
+          "Package.resolved was absent before resolution and present afterward as untouched ignored generated state with stable SHA-256 defb0b2ba6f182f921f09f6e9d5db7bf86889e5682ba0990fd08bacc2638fcaa"
+        ]
       }
     },
     {
