@@ -5358,6 +5358,51 @@
     "wave": "wave6e",
     "changes": "Verified canonical Witness dependency, corrected atom documentation, made async-overload coverage genuinely suspend, and removed a warning. Exact products preserved; Foundation only in AFI. Fresh build green; 20 tests green. Embedded dynamic-cast restriction documented honestly.",
     "bookedAt": "2026-08-27T19:34:46Z"
+   },
+   {
+    "repo": "swift-atoms/swift-reference",
+    "headSHA": "ce7379135661ddb12f7daf5469402916d2dfcb25",
+    "build": "green",
+    "test": "green",
+    "wave": "wave6f",
+    "changes": "Corrected stale documentation, added weak-zeroing and move-only unchecked-sendability coverage, and preserved dependency-free exact products with Foundation only in AFI. Fresh build green; 6 tests green.",
+    "bookedAt": "2026-08-27T19:43:06Z"
+   },
+   {
+    "repo": "swift-atoms/swift-io",
+    "headSHA": "91b7514e95e33f1409581906f791ecb71d82e2c9",
+    "build": "green",
+    "test": "green",
+    "wave": "wave6f",
+    "changes": "Fixed the Embedded Runner conditional, canonicalized metadata/documentation, and preserved dependency-free exact products with Foundation only in AFI. Fresh build green; 13 tests green.",
+    "bookedAt": "2026-08-27T19:43:06Z"
+   },
+   {
+    "repo": "swift-atoms/swift-observation",
+    "headSHA": "e9a567662a4220b2f565f5d38491595d95c78698",
+    "build": "green",
+    "test": "green",
+    "wave": "wave6f",
+    "changes": "Added the explicit Tagged test dependency, corrected canonical ownership and documentation, and preserved exact products with Foundation only in AFI. Fresh build green; 24 tests green; local Embedded proof remains blocked by host toolchain modules.",
+    "bookedAt": "2026-08-27T19:43:06Z"
+   },
+   {
+    "repo": "swift-atoms/swift-navigation",
+    "headSHA": "ab1c93899af3957e8e043b1bb0c76213a61c8b82",
+    "build": "green",
+    "test": "green",
+    "wave": "wave6f",
+    "changes": "Updated Navigation.Source to the current Tagged unchecked initializer, corrected atom documentation, and preserved exact products with Foundation only in AFI. Fresh build green; 28 tests green; local Embedded proof remains blocked upstream.",
+    "bookedAt": "2026-08-27T19:43:06Z"
+   },
+   {
+    "repo": "swift-atoms/swift-application",
+    "headSHA": "6052faaa4e76e85aa312d15db5dcbd5d419c8970",
+    "build": "green",
+    "test": "green",
+    "wave": "wave6f",
+    "changes": "Enforced the documented set-once root state with a private setter, canonicalized atom metadata/documentation, and preserved dependency-free exact products with Foundation only in AFI. Fresh build green; 29 tests green.",
+    "bookedAt": "2026-08-27T19:43:06Z"
    }
   ]
  }
