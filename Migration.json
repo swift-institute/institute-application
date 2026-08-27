@@ -29430,20 +29430,31 @@
       "observedHead": "eda471455b43e0e0a0c4319906b8296b03700ade",
       "observedRemote": "https://github.com/swift-standards/swift-emailaddress-standard.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified a deterministic no-change preparation at exact expected commit eda471455b43e0e0a0c4319906b8296b03700ade in isolated detached worktree /private/tmp/four-layer-swift-emailaddress-standard; no empty commit was created",
+          "audited all twenty-two tracked paths and confirmed Package.swift plus every source/test import already use canonical RFC 2822, repaired RFC 5321 and RFC 5322, newly booked RFC 6531, and Domain Standard coordinates/products/modules while preserving every Email Address Standard package/product/target/path/public semantic identity",
+          "the complete committed tree contains no swift-primitives or swift-foundations owner, reservation owner, -primitives repository/package, Primitives product, or _Primitives module residual; the transitive RFC 1123 identity is legitimate and unchanged, existing coenttb README recommendations are documentation rather than dependencies, and README/metadata/Actions/public-payload/Package.resolved-absence/clean-worktree gates passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified exact canonical coordinate swift-standards/swift-emailaddress-standard, GitHub repository ID 1025474121, public visibility, non-archived state, default branch main, exact final origin, and live main eda471455b43e0e0a0c4319906b8296b03700ade; no repository rename or publication push was required",
+          "verified all five direct dependencies were ledger-passed and freshly exact-live with products on public, non-archived, default-main repositories: RFC 2822 at 1dae07e50564e7d4f7bb96af354fb9601725f8d4, RFC 5321 at bad82271ada29e0bf753261f0d391084164e03b9, RFC 5322 at 6286c7a639e4ea1ffe37f0e12c34870330f78ad6, RFC 6531 at 2978e3ee4939e3a6e191f4f01124458c67887f92, and Domain Standard at 4b2417b9839ec71b0f274139a94eb3b942ea3ed9",
+          "coordinator reverified unchanged live main eda471455b43e0e0a0c4319906b8296b03700ade and stable repository ID 1025474121 after resolution"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-emailaddress-standard-publisher institute package resolve --package-path /private/tmp/four-layer-swift-emailaddress-standard --argument=--disable-sandbox and selected all five direct dependencies at their exact live heads",
+          "HEAD remained eda471455b43e0e0a0c4319906b8296b03700ade, both origins remained the canonical final URL, and the isolated worktree remained clean",
+          "Package.resolved was absent before resolution and present afterward only as ignored generated state with stable SHA-256 c5702b7dbea9a6a3049e1784698ece825a9bdfc94bb533c20f1327e616ae397c"
+        ]
+      },
+      "githubRepositoryID": 1025474121
     },
     {
       "current": "swift-standards/swift-epub-standard",
