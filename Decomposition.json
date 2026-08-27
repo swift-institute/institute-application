@@ -1692,6 +1692,37 @@
    "splits": [],
    "notes": "Adjudication: Token is a native semantic domain (lexical tokens: Token, Token.Kind, Token.Keyword) \u2014 atom. Already a single domain module; no strata targets to collapse. No file exists to integrate Token with an external package (Text.Range appears only inside the constitutive Token struct), so no seam molecules were extracted. Changes: deleted Sources/Token/exports.swift (umbrella @_exported of Text) and added explicit `public import Text` to Token.swift; deleted trivial re-export test-support target \"Token Test Support\" (Tests/Support/*, product removed) and rewrote test imports from Token_Test_Support to `import Token` (+ `import Text` in Token Tests.swift and Token.Kind Tests.swift, which use Text.Range); added seed targets/files \"Token Standard Library Integration\" (public import Token) and \"Token Apple Foundation Integration\" (three-line seed) \u2014 no stdlib-conformance or Foundation-importing files existed to move. Products now exactly Token / Token Standard Library Integration / Token Apple Foundation Integration; manifest idiom (tools 6.4, .v27 platforms, swiftLanguageModes [.v6], trailing ecosystem SwiftSetting loop) preserved verbatim. Residual red risk: \"Token Tests\" deps are exactly [\"Token\"] per recipe while two test files import Text directly (transitive product, may need explicit dep in the later build pass); nothing from Text_Test_Support was actually used, so it was dropped. Push to main succeeded via authorized direct-push (remote reported bypassed PR/ci-ok branch rules). Working trees verified clean.",
    "completedAt": "2026-08-27T13:22:29Z"
+  },
+  {
+   "package": "swift-finite",
+   "repositoryID": 1138063493,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-finite",
+   "to": "swift-atoms/swift-finite",
+   "shapeCommit": "fe8b7ba16f1eb03cdcb815a68494244c87eaa352",
+   "dependencies": [],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-finite-cardinal",
+     "repositoryID": 1348511936,
+     "commit": "4b77be86d38870fdccdf9cc9df035b8c5de9a64c",
+     "seam": "Finite.Capacity protocol and Finite.Bound conformance, whose signature is Cardinal (from target Finite Capacity)"
+    },
+    {
+     "successor": "swift-molecules/swift-finite-ordinal",
+     "repositoryID": 1348512912,
+     "commit": "f595e134fee9dab5ebf389d22444d6d83f91abe3",
+     "seam": "Ordinal.Finite<N> (Tagged<Finite.Bound<N>, Ordinal>), Finite.Enumerable/Enumeration and Tagged conformances (from targets Finite Enumerable + Finite Bounded), plus three seam test files"
+    },
+    {
+     "successor": "swift-molecules/swift-finite-index",
+     "repositoryID": 1348513376,
+     "commit": "c72d99d6fefc324b74642c5daa1aefb68ff7bb1d",
+     "seam": "Index<Element>.Bounded<N> narrowing of Index via Ordinal.Finite (file Index.Bounded.swift), plus Index.Bounded.Tests"
+    }
+   ],
+   "notes": "Adjudication: atom. Finite owns a native semantic domain (finiteness; Finite namespace + Finite.Bound<let N: Int>) whose primitive stratum has zero external dependencies. Only \"Finite Primitive\" was dependency-free, so it alone collapsed into Sources/Finite; every other former target (Finite Capacity, Finite Enumerable, Finite Bounded) existed to integrate Finite with external packages and left as seams. Atom now has exactly three products (Finite, Finite Standard Library Integration, Finite Apple Foundation Integration), zero package dependencies, SLI/AFI seed files (no stdlib- or Foundation-integration code existed; Finite.Bound's inline Hashable/Sendable stays in the type declaration), and a new minimal \"Finite Tests\" suite since all four original test files were seam tests. All exports.swift umbrellas, the Finite umbrella target, and the trivial re-export target Finite Test Support (Tests/Support) were deleted. Seam grouping judgment: Ordinal and Tagged are inseparable in this code (Ordinal.Finite IS a Tagged), so one swift-finite-ordinal molecule carries the Ordinal/Tagged/Enumerable material rather than fragmenting further; Iterator and Index usage inside Finite.Enumeration.swift stays there as residual (noted below); Index.Bounded got its own swift-finite-index molecule (deps on swift-finite-ordinal, acyclic). Import rewrites: Finite_Primitive->Finite (including qualified Finite.Finite.Bound<N>), Finite_Capacity->Finite_Cardinal, Iterator_Primitive/Iterator_Protocol->Iterator (products no longer exist on the reshaped swift-atoms/swift-iterator); the nested-struct shadowing of the module name made the inline `Iterator.`Protocol`` conformance unresolvable inside Finite.Enumeration, so that conformance moved to a file-scope extension at the end of Finite.Enumeration.swift. Dependency coordinates: swift-cardinal/-ordinal/-tagged/-index/-iterator all live at swift-atoms (verified) and are referenced there branch:\"main\"; swift-finite and the new molecules referenced at swift-molecules. Residual red risks (structural pass only, nothing built): (1) former test-support re-export Index_Test_Support has no product on reshaped swift-atoms/swift-index \u2014 its import was dropped from moved tests, so any helper usage from it will be red; (2) moved tests previously relied on the deleted umbrella re-exports, so member-import-visibility may demand more imports; explicit Cardinal/Ordinal/Tagged/Index/Finite/Finite_Cardinal imports were added and @testable now targets the owning molecule module; (3) `Iterator.`Protocol`` file-scope extension and `Finite.Finite.Bound<N>` module-anchored spellings are best-effort against the reshaped atoms. Atom README.md left as-is (now stale about products/architecture; not in the reshape mandate). Direct push to swift-molecules/swift-finite main succeeded via org-admin bypass (remote reported bypassed PR/status-check rules \u2014 informational, no gate was disabled). Paths: /private/tmp/claude-501/-Users-coen-Developer-coenttb/20dff9a4-b817-42e7-bbc6-9081ab416a17/scratchpad/wave1/{swift-finite,swift-finite-cardinal,swift-finite-ordinal,swift-finite-index}; all four git-status clean.",
+   "completedAt": "2026-08-27T13:22:37Z"
   }
  ],
  "successors": [],
