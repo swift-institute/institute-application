@@ -593,6 +593,31 @@
    "splits": [],
    "notes": "Adjudication: Witness is a native semantic domain (the protocol-witness namespace: Witness, Witness.Protocol marker, Witness.Composition, __WitnessProtocol typealias) \u2014 clear atom. Reshape: the single dependency on swift-standard-library-extensions existed only through umbrella re-exports (Sources/Witness/exports.swift and Tests/Support/Witness Test Support.swift); no source file actually integrates Witness with that package, so both umbrella files were deleted and the dependency dropped entirely \u2014 no seam molecule warranted, hence zero splits. The trivial re-export test-support target \"Witness Test Support\" (and its product) was deleted; the sole test file imports only Testing and @testable Witness, so no test import rewrites were needed. Domain module already unified (Sources/Witness: Witness.swift, Witness.Protocol.swift, Witness.Composition.swift \u2014 no strata targets to collapse, no Foundation imports, no stdlib-extension files to relocate; Sendable/Hashable conformances on Witness.Composition are declared at definition and stay in the atom). Created seed targets \"Witness Standard Library Integration\" (seed file: public import Witness) and \"Witness Apple Foundation Integration\" (seed file: public import Witness / public import Witness_Standard_Library_Integration / public import Foundation). Products now exactly the canonical three. Manifest idiom (tools 6.4, .v27 platforms, swiftLanguageModes [.v6], trailing ecosystem SwiftSetting loop) preserved verbatim. Committed as \"Adopt canonical atom shape\" and pushed to origin main (org-admin bypass of the PR/status-check rule reported by the remote, per authorized direct-push mandate). Working tree verified clean. No residual red references known; nothing was built per instructions.",
    "completedAt": "2026-08-27T12:15:01Z"
+  },
+  {
+   "package": "swift-ascii",
+   "repositoryID": 1139270854,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-ascii",
+   "to": "swift-atoms/swift-ascii",
+   "shapeCommit": "9dc39390f122e68d5cabc45bcebcf7066c0ead4e",
+   "dependencies": [],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-ascii-byte",
+     "repositoryID": 1348448809,
+     "commit": "34746253def6507632b099a9224bacb11cc1d7da",
+     "seam": "ASCII x Byte integration: Byte.Protocol conformance, Byte-carrying error, Byte-buffer decimal serialization, String case conversion via Byte, and UInt8 decimal forwarders implemented on Byte"
+    },
+    {
+     "successor": "swift-molecules/swift-ascii-carrier",
+     "repositoryID": 1348448899,
+     "commit": "ae2d56e5ab28382733bc2c84b00c46d6aa869e16",
+     "seam": "ASCII x Carrier integration: Carrier.Protocol conformance for ASCII.Code and the ASCII.Namespace constants exposed on Carrier.Protocol owners"
+    }
+   ],
+   "notes": "Adjudication: ASCII is an irreducible native semantic domain (character codes, classification, case conversion, digit/hex parsing) -> atom. Reshape: deleted Sources/ASCII/exports.swift (umbrella re-export of Byte and Byte_Standard_Library_Integration); removed a vestigial `internal import Byte` from ASCII.Code+Constants.swift (no Byte usage in body). Byte seam -> swift-ascii-byte (module ASCII_Byte): ASCII.Code+Byte.Protocol.swift, ASCII.Code.Error.swift (Error.notASCII carries Byte; used only by the Byte-based init), the two Byte-buffer serialize functions split out of ASCII.Decimal.swift (atom keeps the Decimal enum and code(_:)), the StringProtocol convert function split out of ASCII.Case.Conversion.swift (built on Code(unchecked: Byte)), and SLI file ASCII.Decimal+UInt8.swift (internally builds [Byte] and uses [Byte].underlying, so it cannot satisfy SLI deps [\"ASCII\"]); tests ASCII.Decimal Tests.swift and ASCII_Decimal_UInt8_Tests.swift moved with it. Carrier seam -> swift-ascii-carrier (module ASCII_Carrier): ASCII.Code+Carrier.swift and Carrier.Protocol+ASCII.swift (Carrier was consumed via Byte's umbrella export, never a declared dependency; its live coordinate is swift-atoms/swift-carrier). SLI reorganisation: Character+ASCII.swift and UInt8+ASCII.swift (extensions of stdlib types Character/UInt8) moved from the ASCII target into ASCII Standard Library Integration with `public import ASCII` added; SLI keeps ASCII.Classification+UInt8.swift and ASCII.Case.Conversion+UInt8.swift. Added seeded \"ASCII Apple Foundation Integration\" target (no Foundation-importing code existed). Atom now has zero package dependencies; products exactly ASCII / ASCII Standard Library Integration / ASCII Apple Foundation Integration; ecosystem SwiftSetting loop preserved verbatim. \"ASCII Tests\" retained with a stub @Suite (its only file was a Byte-seam test). Residual red risks (structural pass, unbuilt): ASCII.Code loses ExpressibleByIntegerLiteral, zero/max, and bitwise operators to the byte molecule, so any atom-internal literal use of Code constants would surface there (none found by grep); Character+ASCII.swift retains its pre-existing odd `ASCII.ASCII.Case` spelling which may resolve differently now that ASCII is an imported module rather than the current module; molecule ASCII.Decimal+UInt8.swift's `[Byte].underlying` may need Byte_Standard_Library_Integration member visibility (both imports added). Molecules depend on swift-molecules/swift-ascii and swift-atoms/{swift-byte,swift-carrier} at branch main, no path deps or tags. Push to main bypassed the PR-required/status-check rules via authorized direct push (remote reported the bypass). All three trees verified clean.",
+   "completedAt": "2026-08-27T12:15:07Z"
   }
  ],
  "successors": [],
