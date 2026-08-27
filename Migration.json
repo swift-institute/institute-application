@@ -8312,19 +8312,27 @@
       "observedHead": "5f2fe1e5c5d9f073b70865e8a3ac201675b68c32",
       "observedRemote": "https://github.com/swift-foundations/swift-threads.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit efe461665d330ba23774e0d1322ac3ff8e24d662 from expected parent 5f2fe1e5c5d9f073b70865e8a3ac201675b68c32 in isolated worktree /private/tmp/four-layer-swift-threads",
+          "deterministic full-tree equivalence audit verified all 38 tracked files with no path moves, eight changed paths and 33 insertions/33 deletions, the exact seven canonical dependency URLs/products/packages/modules/imports, four-layer README and metadata mappings, preserved legitimate Cardinal Primitive and external swift-kernel-primitives identities, zero mapped residuals, public payload, active Actions, human commit identity, clean checkout, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified canonical post-organization coordinate swift-compositions/swift-threads at expected main 5f2fe1e5c5d9f073b70865e8a3ac201675b68c32 with GitHub repository ID 1217845827, public visibility, non-archived state, and default branch main; no repository rename was required",
+          "set fetch and push origins to https://github.com/swift-compositions/swift-threads.git and fast-forward published exact prepared commit efe461665d330ba23774e0d1322ac3ff8e24d662 without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main efe461665d330ba23774e0d1322ac3ff8e24d662 with unchanged repository ID 1217845827, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-threads-publisher institute package resolve --package-path /private/tmp/four-layer-swift-threads --argument=--disable-sandbox against all seven exact live declared dependencies and transitive graph",
+          "post-resolution verification found exact HEAD efe461665d330ba23774e0d1322ac3ff8e24d662, a clean checkout, and Package.resolved absent both before and after resolution with absence checked twice"
+        ]
       }
     },
     {
