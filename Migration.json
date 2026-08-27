@@ -3367,20 +3367,28 @@
       "observedHead": "e9981c237ec17056d039785801db4c9b7a95e7c9",
       "observedRemote": "https://github.com/swift-foundations/swift-html-form-coder.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit 0043bc584b622dccc572fcbbb2dda8843c750965 from exact parent e9981c237ec17056d039785801db4c9b7a95e7c9 in clean identity-compatible isolated worktree /private/tmp/swift-html-form-coder",
+          "audited all 98 tracked paths and made the exact 7-path, 15-insertion/15-deletion mechanical cutover across Package.swift, README, metadata, and four nested-coder sources, mapping HTTP Body to compositions, Byte and Parser package identities to molecules, and Parser Primitives/Parser_Primitives to Parser while preserving the legitimate singular Byte Primitive product and all owned public semantics; dependency, residual, payload, staged-tree, ancestry, identity, and canonical Actions checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-html-form-coder as canonical with stable GitHub repository ID 1308953937, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; the completed organization rename had already established the coordinate, so no repository rename was needed",
+          "JIT verified all 12 declared dependency coordinates, exact heads, required products, and ledger gates, then ordinary fast-forward published exact direct child 0043bc584b622dccc572fcbbb2dda8843c750965 without force or history rewrite",
+          "coordinator independently verified exact live main 0043bc584b622dccc572fcbbb2dda8843c750965 with unchanged repository ID 1308953937, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is complete and Package.resolved was absent twice immediately before resolution; the repository is queued behind the serialized Institute package-resolution slot after measured shared SwiftPM-cache contention"
+        ]
+      },
+      "githubRepositoryID": 1308953937
     },
     {
       "current": "swift-foundations/swift-html-prism",
