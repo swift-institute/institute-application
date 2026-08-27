@@ -2274,7 +2274,11 @@
      "successor": "swift-molecules/swift-dimension-tagged",
      "repositoryID": 1348536843,
      "commit": "403a388ce902f71b6c886092907d9bd9a7152bb7",
-     "seam": "Tagged dimensional values: .Value typealiases, Radian/Degree angles, trigonometry, Tagged arithmetic and quantization (deps: swift-atoms/swift-tagged + swift-atoms/swift-numeric)"
+     "seam": "Tagged dimensional values: .Value typealiases, Radian/Degree angles, trigonometry, Tagged arithmetic and quantization (deps: swift-atoms/swift-tagged + swift-atoms/swift-numeric)",
+     "phase3Disposition": "absorbed-into-atom",
+     "absorbedInto": "swift-atoms/swift-dimension",
+     "atomHeadSHA": "c4799c31c0e6152cc23a5fb29b908279a0c94e97",
+     "tombstoneHeadSHA": "ac6c104fc73b6b0eeba4956078938d3353738c55"
     },
     {
      "successor": "swift-molecules/swift-dimension-pair",
@@ -4430,6 +4434,43 @@
    "status": "complete",
    "completedAt": "2026-08-27T19:05:37Z"
   },
+  "absorptions": [
+   {
+    "repo": "swift-molecules/swift-dimension-tagged",
+    "disposition": "absorbed-into-atom",
+    "absorbedInto": "swift-atoms/swift-dimension",
+    "atomHeadSHA": "c4799c31c0e6152cc23a5fb29b908279a0c94e97",
+    "tombstoneHeadSHA": "ac6c104fc73b6b0eeba4956078938d3353738c55",
+    "build": "inapplicable-no-package",
+    "test": "inapplicable-no-package",
+    "reason": "The atom absorbed all former Tagged dimensional sources and tests; the donor main is a deliberate tombstone with no Package.swift. Recreating an empty package would fabricate a seam.",
+    "adjudicatedAt": "2026-08-27T21:09:27Z"
+   }
+  ],
+  "pendingAdjudications": [
+   {
+    "repo": "swift-molecules/swift-direction-comparison",
+    "currentHeadSHA": "433e458393b2296c6489bd2d536de831f14ce08c",
+    "proposedDisposition": "duplicate-owned-by-atom",
+    "atom": "swift-atoms/swift-direction",
+    "atomHeadSHA": "5ad7eab527cc2e8fbe69126d5780e57131a64d1e",
+    "evidence": "Comparison.Protocol aliases Swift.Comparable and Direction already owns its full Comparable implementation; fresh compilation warns that the molecule redeclares the conformance and that its Comparison import is unused.",
+    "requiredAction": "Delete the manifest, duplicate source, and test, and replace the README with an explicit tombstone. This destructive edit requires principal approval before execution.",
+    "status": "principal-approval-required",
+    "recordedAt": "2026-08-27T21:12:15Z"
+   },
+   {
+    "repo": "swift-molecules/swift-direction-equation",
+    "currentHeadSHA": "4731b2b9970d1ff0585c5a026d9efa0c33158f2e",
+    "proposedDisposition": "duplicate-owned-by-atom",
+    "atom": "swift-atoms/swift-direction",
+    "atomHeadSHA": "5ad7eab527cc2e8fbe69126d5780e57131a64d1e",
+    "evidence": "Direction already owns equality through Comparable, Equation.Protocol aliases Swift.Equatable, and the seam contains only reexports; public repository searches found no Direction Equation product or module consumers.",
+    "requiredAction": "Delete the manifest, reexport source, and tests, and replace the README with an explicit tombstone. This destructive edit requires principal approval before execution.",
+    "status": "principal-approval-required",
+    "recordedAt": "2026-08-27T21:12:51Z"
+   }
+  ],
   "packages": [
    {
     "repo": "swift-atoms/swift-buffer",
@@ -5647,6 +5688,15 @@
     "wave": "wave7f",
     "changes": "Canonicalized Coproduct to its atom owner and retained the genuine hasFeature(VariadicEnum)-gated conditional retroactive Comparison.Protocol conformance, with future feature-active comparison-law coverage and an explicit current-profile unavailable-feature proof. Fresh build green; current profile test green.",
     "bookedAt": "2026-08-27T21:07:27Z"
+   },
+   {
+    "repo": "swift-molecules/swift-comparison-property",
+    "headSHA": "3809c9f596babd6dfb2510eddc9ff80017536819",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7g",
+    "changes": "Canonicalized Comparison and Property to atom owners, migrated removed Property.Inout/base.value APIs to current Property/base mutation, removed duplicate Swift.Comparable overloads and the unused Comparison SLI edge, and retained fluent compare/clamp behavior with focused coverage. Fresh build green; 6 tests green.",
+    "bookedAt": "2026-08-27T21:10:56Z"
    }
   ]
  }
