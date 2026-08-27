@@ -12340,19 +12340,27 @@
       "observedHead": "f8b85047694f12df1b9092ea798d2af6f6c6fba8",
       "observedRemote": "https://github.com/swift-ietf/swift-rfc-791.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared human-authored direct-child commit bdbf5d97db18e3927d54682ba13d792a55f6df59 from expected parent f8b85047694f12df1b9092ea798d2af6f6c6fba8 in isolated worktree /private/tmp/four-layer-swift-rfc-791 with subject Prepare RFC 791 for the four-layer cutover",
+          "deterministic whole-tree audit verified the exact nine-path 29-insertion/29-deletion canonical mapping of seven molecule dependency URLs/packages/products/modules/imports, preserved the exact swift-standard-library-extensions package/product identity while changing its owner and preserved every RFC 791 and RFC 791 Standard Library Integration identity, target, path, and semantic surface; no split/new dependency, mapped residual, README/metadata/CI/test change, public exposure, staged-set defect, or checkout dirt remained"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified unchanged canonical coordinate swift-ietf/swift-rfc-791 at expected main f8b85047694f12df1b9092ea798d2af6f6c6fba8 with GitHub repository ID 1105387147, public visibility, non-archived state, and default branch main; all seven future dependencies were exact live ledger-passed commits and no repository rename was required",
+          "fast-forward published exact prepared commit bdbf5d97db18e3927d54682ba13d792a55f6df59 without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main bdbf5d97db18e3927d54682ba13d792a55f6df59 with unchanged repository ID 1105387147, exact coordinate swift-ietf/swift-rfc-791, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-rfc-791-publisher institute package resolve --package-path /private/tmp/four-layer-swift-rfc-791 --argument=--disable-sandbox against the exact live declared dependencies and transitive graph",
+          "Package.resolved was absent before resolution and generated ignored/untracked afterward without editing or committing; two post-resolution checks produced stable SHA-256 feda0fcb913ab6e6b1a4e80c388526dca62fbdd20ebb8e1f6fc8b96851997b2c, exact HEAD bdbf5d97db18e3927d54682ba13d792a55f6df59, and a clean checkout"
+        ]
       }
     },
     {
