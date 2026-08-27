@@ -1782,20 +1782,32 @@
       "observedHead": "579f4259934ba87adb5706a3f039fe1487ed5fba",
       "observedRemote": "https://github.com/swift-foundations/swift-domain-name-system.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit db997c4d9ad8b64a21c392396492d4b1e66be092 from expected parent 579f4259934ba87adb5706a3f039fe1487ed5fba in isolated worktree /private/tmp/four-layer-swift-domain-name-system",
+          "the exact three-path mechanical foundation-to-composition transformation changed Package.swift, README, and metadata with five insertions and five deletions: IP Address dependency and self/related links now use canonical compositions owners and metadata topic foundations became compositions",
+          "the related domain-name-system-kernel README link was independently verified live at canonical swift-compositions/swift-domain-name-system-kernel; RFC 1035 and every Domain Name System package/product/target/module/source/test identity, path, public semantic, and dependency remained unchanged with no split or new dependency",
+          "both dependencies were ledger-passed and freshly exact-live with products verified; full committed-tree residual, canonical Actions, explicit staging, human-identity, Package.resolved-absence, and clean-worktree gates passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled both old and new API paths to exact canonical coordinate swift-compositions/swift-domain-name-system with stable GitHub repository ID 1144635218, public visibility, non-archived state, default branch main, and expected live base 579f4259934ba87adb5706a3f039fe1487ed5fba; the organization cutover had already moved the repository so no repository rename was required",
+          "fast-forward published exact direct child db997c4d9ad8b64a21c392396492d4b1e66be092 to main through the configured administrator ruleset bypass without force or history rewrite",
+          "verified live main db997c4d9ad8b64a21c392396492d4b1e66be092 with unchanged repository ID 1144635218, exact canonical coordinate, public visibility, non-archived state, default branch main, and deliberate final origins"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-domain-name-system-publisher institute package resolve --package-path /private/tmp/four-layer-swift-domain-name-system --argument=--disable-sandbox and resolved live IP Address and RFC 1035 at their exact published heads",
+          "HEAD remained db997c4d9ad8b64a21c392396492d4b1e66be092 and the isolated worktree remained clean",
+          "Package.resolved was absent before resolution and present afterward only as ignored generated state with stable SHA-256 24cfc259b3633813790c1f261655b893ee835833df8d048fca1d2db15de7f6cc"
+        ]
+      },
+      "githubRepositoryID": 1144635218
     },
     {
       "current": "swift-foundations/swift-domain-name-system-kernel",
