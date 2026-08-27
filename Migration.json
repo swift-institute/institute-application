@@ -11117,20 +11117,32 @@
       "observedHead": "ee3bd516985f9887ba0b8d023ac1b3075410acc8",
       "observedRemote": "https://github.com/swift-ietf/swift-rfc-4287.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "a full committed-tree audit disproved the initial no-change hypothesis by finding one stale canonical module identity in Tests/RFC 4287 Tests/DateFormattingTests.swift",
+          "prepared human-authored direct-child commit 897396c71fc3649eca8c6c0bb2e520d6a4f0190e from expected parent ee3bd516985f9887ba0b8d023ac1b3075410acc8 in isolated worktree /private/tmp/four-layer-swift-rfc-4287 with subject Migrate RFC 4287 dependency import",
+          "the exact one-file, one-insertion/one-deletion transformation changed only import Binary_Serializable_Primitives to import Binary_Serializable; all 35 tracked paths, manifest dependency coordinates/products, RFC 4287 package/product/target/path/public semantics, and authority identities remained unchanged with no split or new dependency",
+          "all four direct authority dependencies were ledger-passed and exact-live with products verified, including RFC 3339's canonical live Binary Serializable dependency; reconstructed-tree equivalence, residual, public-payload, README/metadata/Actions, staging, Package.resolved-absence, and clean-checkout audits passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified exact coordinate swift-ietf/swift-rfc-4287, GitHub repository ID 1095252154, public visibility, non-archived state, default branch main, and expected live base ee3bd516985f9887ba0b8d023ac1b3075410acc8 immediately before publication; no rename was required",
+          "fast-forward published exact direct child 897396c71fc3649eca8c6c0bb2e520d6a4f0190e to main through the configured administrator ruleset bypass without force or history rewrite",
+          "verified live main 897396c71fc3649eca8c6c0bb2e520d6a4f0190e with unchanged repository ID 1095252154, exact coordinate, public visibility, non-archived state, default branch main, and deliberate final origins"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-rfc-4287-publisher institute package resolve --package-path /private/tmp/four-layer-swift-rfc-4287 --argument=--disable-sandbox and selected the four direct authority dependencies at their exact live heads",
+          "HEAD remained 897396c71fc3649eca8c6c0bb2e520d6a4f0190e and the isolated worktree remained clean",
+          "Package.resolved was absent before resolution and present afterward only as ignored generated state with stable SHA-256 22d53bdb560d1a2e885a1c0dadfaf5edcaff8b34fdab0ccd9fbb91e9212346d8"
+        ]
+      },
+      "githubRepositoryID": 1095252154
     },
     {
       "current": "swift-ietf/swift-rfc-4291",
