@@ -4690,6 +4690,141 @@
     "wave": "wave2",
     "changes": "Pushed 2adfbec to main. Red cause: the canonical-atom-shape commit (fe7cf6e) deleted the Tagged-based Argument.Environment.Variable.Name typealias and all manifest dependencies, but Argument.Option.swift and Argument.Option.Tests.swift still referenced Environment.Variable.Name (cascading into a spurious Equatable-conformance error on Option). Fix: (1) Package.swift \u2014 added dependency https://github.com/swift-atoms/swift-tagged.git branch main (verified live home via gh api repos/swift-atoms/swift-tagged --jq .full_name -> swift-atoms/swift-tagged); Argument target now depends on product Tagge",
     "bookedAt": "2026-08-27T17:59:32Z"
+   },
+   {
+    "repo": "swift-atoms/swift-time",
+    "headSHA": "fcdaee6529b4634c54051950a5f62b6866a379ca",
+    "build": "green",
+    "test": "green",
+    "wave": "wave3",
+    "changes": "No changes pushed. Package was already at the Phase 3 bar at head fcdaee6529b4634c54051950a5f62b6866a379ca (current live main, confirmed via git ls-remote). Manifest has zero dependencies, so no URL canonicalization applied. swift build green (warnings only: three unused public imports in 'Time Apple Foundation Integration.swift'); swift test green, 57 tests / 10 suites passed.",
+    "bookedAt": "2026-08-27T18:03:47Z"
+   },
+   {
+    "repo": "swift-atoms/swift-witness",
+    "headSHA": "a628540894b7fb746cecc536165f978e680cf9f5",
+    "build": "green",
+    "test": "green",
+    "wave": "wave3",
+    "changes": "No changes needed; nothing pushed. Reported SHA is the current live head of main as cloned. Package has zero dependencies (no URLs to canonicalize), canonical atom shape already in place (Witness / Witness Standard Library Integration / Witness Apple Foundation Integration; AFI is the only Foundation importer). swift build green (only UnusedImportAccess warnings on public imports in the AFI file); swift test green: 3 tests in 4 suites passed. Working tree left clean at head.",
+    "bookedAt": "2026-08-27T18:03:47Z"
+   },
+   {
+    "repo": "swift-atoms/swift-format",
+    "headSHA": "1f431da6d7faceb0836abc2b65801f9bd2476153",
+    "build": "green",
+    "test": "green",
+    "wave": "wave3",
+    "changes": "No changes needed; nothing pushed. Package already at Phase 3 bar at existing head 1f431da6d7faceb0836abc2b65801f9bd2476153 (current live main). Manifest has zero external dependencies, so URL canonicalization is vacuously satisfied. swift build green (only UnusedImportAccess warnings in the AFI umbrella file); swift test green: 17 tests in 13 suites, all passed. Tree left clean.",
+    "bookedAt": "2026-08-27T18:03:47Z"
+   },
+   {
+    "repo": "swift-atoms/swift-executor",
+    "headSHA": "6bcd213b64fda8be6a2961b6534309d191ec80a4",
+    "build": "green",
+    "test": "green",
+    "wave": "wave3",
+    "changes": "No changes pushed; reported SHA is the current live head of main (identical local HEAD and origin/main). Package has dependencies: [] so there were no dependency URLs to canonicalize. Fresh clone built green with 'swift build' (Swift 6.4; only UnusedImportAccess warnings in the AFI umbrella file) and 'swift test' passed 3/3 tests (Executor.Shutdown.Flag suite). Tree left clean.",
+    "bookedAt": "2026-08-27T18:03:47Z"
+   },
+   {
+    "repo": "swift-atoms/swift-coproduct",
+    "headSHA": "9c51a0fbd269653bb3441f8314280f721dc0d11d",
+    "build": "green",
+    "test": "green",
+    "wave": "wave3",
+    "changes": "No changes pushed; package was already green at head. Fresh clone built (swift build) and tested (swift test, 1 test / 5 suites passed) with zero errors on Swift 6.4. Package.swift has an empty dependencies array, so there were no dependency URLs to canonicalize. Canonical atom shape already satisfied: three library products (Coproduct, Coproduct Standard Library Integration, Coproduct Apple Foundation Integration); only the AFI module imports Foundation. Reported SHA is the current live head of main, confirmed equal to origin/main via git ls-remote. Working tree left clean. Only warnings: unu",
+    "bookedAt": "2026-08-27T18:03:47Z"
+   },
+   {
+    "repo": "swift-atoms/swift-error",
+    "headSHA": "9e9e8b51e8b414970f1b470d80b12c46bc5e3fe4",
+    "build": "green",
+    "test": "green",
+    "wave": "wave3",
+    "changes": "Module-vs-type shadowing fix only. Package has zero external dependencies, so no URL canonicalization was needed. Manifest untouched (products/targets already canonical atom shape). Fixed 6 extension spellings across 5 files: 'extension Error.Error' -> 'extension Error' and 'extension Error.Error.File' -> 'extension Error.File' in Sources/Error/{Error,Error.Code,Error.Context,Error.File}.swift, and 'extension Error.Error: CustomStringConvertible' -> 'extension Error: CustomStringConvertible' in 'Sources/Error Standard Library Integration/Error+CustomStringConvertible.swift' \u2014 unqualified Error",
+    "bookedAt": "2026-08-27T18:03:47Z"
+   },
+   {
+    "repo": "swift-atoms/swift-optic",
+    "headSHA": "157cd7c43340215d04e76e01dbbe5683d2b89805",
+    "build": "green",
+    "test": "green",
+    "wave": "wave3",
+    "changes": "No changes needed and nothing pushed; reported SHA is the pre-existing live head of main. Package has zero external dependencies (no URLs to canonicalize). Fresh clone: swift build green (warnings only: UnusedImportAccess on the three public imports in the AFI placeholder file), swift test green \u2014 132 tests/30 suites (Optic Tests) + 14 tests/3 suites (SLI Tests), all passed. Canonical atom shape already satisfied: products exactly Optic / Optic Standard Library Integration / Optic Apple Foundation Integration; only the AFI module imports Foundation. Working tree left clean at /private/tmp/phas",
+    "bookedAt": "2026-08-27T18:03:47Z"
+   },
+   {
+    "repo": "swift-atoms/swift-sector",
+    "headSHA": "a3d72f136c0c4a6e15d2b24e132afcf495e70b57",
+    "build": "green",
+    "test": "green",
+    "wave": "wave3",
+    "changes": "No external dependencies in Package.swift, so no URL canonicalization needed. Two fixes: (1) test target 'Sector Tests' gained dependency on 'Sector Standard Library Integration' and the test file gained 'import Sector_Standard_Library_Integration' \u2014 allCases (CaseIterable) lives in the SLI module and MemberImportVisibility made every allCases reference a hard error; (2) deleted one expectation line '#expect(Sector.Octant.allCases.sorted() == Sector.Octant.allCases)' from test 'Comparison orders by sign triple' because Sector.Octant has static < operators but no Comparable conformance anywhere",
+    "bookedAt": "2026-08-27T18:03:47Z"
+   },
+   {
+    "repo": "swift-atoms/swift-product",
+    "headSHA": "177d8df910b8b01a82c3f7f0b028ef2f33fda75a",
+    "build": "green",
+    "test": "green",
+    "wave": "wave3",
+    "changes": "Zero external dependencies in Package.swift, so no URL canonicalization needed. Two build errors fixed: (1) BitwiseCopyable conformance sat in the Standard Library Integration module but the language requires it in the type's own module \u2014 moved Sources/Product Standard Library Integration/Product+BitwiseCopyable.swift to Sources/Product/ (import dropped). (2) Hashable conditional conformance failed because the Equatable conformance file was missing entirely (dropped in the Phase 2 pass; README documents Equatable and Comparable, and tests exercise ==, !=, <, >) \u2014 restored Product+Equatable.swi",
+    "bookedAt": "2026-08-27T18:03:47Z"
+   },
+   {
+    "repo": "swift-atoms/swift-interval",
+    "headSHA": "7b486ca5a84f548899137f6bc0d210ec6a52efce",
+    "build": "green",
+    "test": "green",
+    "wave": "wave3",
+    "changes": "No changes pushed; reported SHA is the pre-existing live head of main. Fresh clone was already at the Phase 3 bar: Package.swift has zero external dependencies (nothing to canonicalize), canonical atom shape already in place (Interval / Interval Standard Library Integration / Interval Apple Foundation Integration; AFI is the only Foundation importer). swift build green (warnings only: unused public imports in Sources/Interval Apple Foundation Integration/Interval Apple Foundation Integration.swift), swift test green: 7 tests in 12 suites passed. Working tree left clean.",
+    "bookedAt": "2026-08-27T18:03:47Z"
+   },
+   {
+    "repo": "swift-molecules/swift-standard-library-extensions",
+    "headSHA": "28a204ee2c6cf1476cd99dc95b81b59868681ebf",
+    "build": "green",
+    "test": "green",
+    "wave": "wave3",
+    "changes": "No changes needed and nothing pushed; reported SHA is the pre-existing live head of main. Fresh clone was already green: Package.swift declares zero external dependencies (nothing to canonicalize), swift build clean, swift test passed 557 tests in 169 suites. Working tree left clean.",
+    "bookedAt": "2026-08-27T18:03:47Z"
+   },
+   {
+    "repo": "swift-atoms/swift-list",
+    "headSHA": "cae2ac616dbda618e10576a617027d7f866d2452",
+    "build": "green",
+    "test": "green",
+    "wave": "wave3",
+    "changes": "No changes needed; nothing pushed. Package has zero external dependencies (nothing to canonicalize). swift build green (only UnusedImportAccess warnings in the AFI module for unused public imports of List, List_Standard_Library_Integration, Foundation). swift test green: 1 test in 4 suites passed. Reported SHA is the pre-existing live head of main.",
+    "bookedAt": "2026-08-27T18:03:47Z"
+   },
+   {
+    "repo": "swift-atoms/swift-parity",
+    "headSHA": "de197bdfacf1bf8c3f1b7bc0f6cad32f0a0a2f46",
+    "build": "green",
+    "test": "green",
+    "wave": "wave3",
+    "changes": "One fix: Sources/Parity Standard Library Integration/Parity+Codable.swift replaced the empty `extension Parity: Codable {}` (synthesis is illegal in an extension outside the declaring file, hard error) with a manual init(from:)/encode(to:) encoding the case name as a single string value. Manifest has zero dependencies, so no URL canonicalization was needed; products already match the atom canonical shape. swift build and swift test fully green (3 tests passed); pushed direct to main (bypass notice as expected), tree clean at head de197bdfacf1bf8c3f1b7bc0f6cad32f0a0a2f46 (prior head bf54e002ac9",
+    "bookedAt": "2026-08-27T18:03:47Z"
+   },
+   {
+    "repo": "swift-atoms/swift-polarity",
+    "headSHA": "7dff80c736e7227afd5ec99d52c66771f76184ab",
+    "build": "green",
+    "test": "green",
+    "wave": "wave3",
+    "changes": "Package.swift has zero external dependencies, so no URL canonicalization was needed. Red class encountered: cross-module automatic synthesis failure (not one of the listed classes) \u2014 'extension Polarity: Codable {}' and 'extension Polarity: CaseIterable {}' in the Standard Library Integration module cannot synthesize members outside the declaring file/module. Fixed by spelling the conformances out explicitly with behavior identical to the synthesized forms: init(from:)/encode(to:) via single-value String container using case names (positive/negative/neutral), and allCases = [.positive, .negati",
+    "bookedAt": "2026-08-27T18:03:47Z"
+   },
+   {
+    "repo": "swift-atoms/swift-system",
+    "headSHA": "d193ffd0e4ff7b7a20d74d6245a29812c61eedec",
+    "build": "green",
+    "test": "green",
+    "wave": "wave3",
+    "changes": "Dependencies: none declared, so nothing to canonicalize. Head e04675c already built green and passed tests under the native build system, but default 'swift test' (swiftbuild backend on Swift 6.4/Xcode-beta) failed at link: the System target's libSystem.a lands in the products directory and the linker's implicit -lSystem resolved to it instead of Darwin's C library (undefined _memcpy/_memset/_exit). Fix: one manifest edit adding linkerSettings unsafeFlags [-Xlinker -search_dylibs_first] to the 'System Tests' test target, conditioned on Apple platforms, so the SDK's libSystem stub wins; test-ta",
+    "bookedAt": "2026-08-27T18:03:47Z"
    }
   ]
  }
