@@ -5969,20 +5969,29 @@
       "observedHead": "38263e0d491df49af786860ec3a106e0ce1f86b1",
       "observedRemote": "https://github.com/swift-foundations/swift-password.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit c0626d164058ccd55fb8d84fa176a35de8c203b2 from exact parent 38263e0d491df49af786860ec3a106e0ce1f86b1 in clean disjoint worktree /private/tmp/swift-password with subject Prepare Password for composition; the original checkout and its pre-existing prunable worktree record were untouched",
+          "audited all 13 tracked paths and made the exact three-path, seven-insertion/seven-deletion mechanical cutover across Package.swift, README, and metadata, moving Dependencies, Translating, Translating Dependencies, self references, and layer topic to compositions while preserving package/product/target/module identities, public consumer/documentation links, semantics, and canonical Actions; residual, payload, staged-tree, ancestry, and identity checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-password as canonical with stable GitHub repository ID 1025491648, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; no repository rename was needed",
+          "JIT verified exact live Dependencies, Translating, and Translating Dependencies identities/products and ledger gates, then ordinary fast-forward published exact direct child c0626d164058ccd55fb8d84fa176a35de8c203b2 without force or history rewrite",
+          "coordinator independently verified exact live main c0626d164058ccd55fb8d84fa176a35de8c203b2 with unchanged repository ID 1025491648, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, stable Package.resolved evidence, and clean tracked checkout"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "the first sandboxed Institute resolution invocation exited 1 before graph resolution solely because github.com DNS was unavailable; the identical approved command was retried with network access and passed with exit 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-password-publisher institute package resolve --package-path /private/tmp/swift-password --argument=--disable-sandbox, with no build, test, compilation, raw SwiftPM, dump-package, or manifest evaluation",
+          "Package.resolved was absent twice before resolution and present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 52a2cc98e20b2ebed5b3b745af03b68815d314a5ae42aa8edf7c37c366286193; final live identity/SHA and clean tracked checkout were reverified"
+        ]
+      },
+      "githubRepositoryID": 1025491648
     },
     {
       "current": "swift-foundations/swift-paths",
