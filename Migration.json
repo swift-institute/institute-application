@@ -9788,11 +9788,13 @@
           "coordinator independently reverified exact live main 15b6e426c506233c03d004416bbca208fc5bc4d9, repository ID 1096056429, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
         ]
       },
-      "state": "published",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "publication is complete and Package.resolved remained absent twice before and after publication; the repository is queued behind the serialized Institute package-resolution slot after measured shared SwiftPM-cache contention"
+          "publication completed before validation and Package.resolved remained absent twice before resolution",
+          "package resolution passed on the single approved attempt with exact exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-url-routing-publisher institute package resolve --package-path /private/tmp/url-routing-composition-lane/swift-url-routing --argument=--disable-sandbox --argument=--disable-dependency-cache against the exact live graph; allowed swift-collections 1.6.0, swift-log 1.15.0, and swift-syntax 602.0.0 were selected, and no build, test, compilation, raw SwiftPM, dump-package, or standalone manifest-evaluation command was invoked",
+          "Package.resolved was present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 72950bb8c9b2892e793c44d4adabba3ce879c22f75754c842fbbe720868f7b98; coordinator reverified all 25 internal dependency gates/live products, two external requirements/products, final repository identity/SHA, exact worktree HEAD, canonical origins, and clean tracked checkout"
         ]
       },
       "githubRepositoryID": 1096056429
