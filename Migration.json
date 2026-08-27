@@ -4647,19 +4647,30 @@
       "observedHead": "04d9b732436e98e9553098d975674136ff2160ba",
       "observedRemote": "https://github.com/swift-foundations/swift-linux.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 60fa0efd258e2c53829df3b358bf0599cc45ffcf from expected parent 04d9b732436e98e9553098d975674136ff2160ba",
+          "isolated worktree /private/tmp/four-layer-swift-linux",
+          "deterministic audit verified the clean direct-child seven-path, 33-file-preserving transformation, all six exact live dependency coordinates and products plus the POSIX-to-Glob closure, foundation-to-composition and primitive-to-molecule mappings, deliberate external/generic identity preservation, zero mapped residuals, public payload, active Actions refs, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified the already-final post-organization-cutover coordinate swift-compositions/swift-linux at expected main 04d9b732436e98e9553098d975674136ff2160ba with GitHub repository ID 1129985727, public visibility, non-archived state, and default branch main; no repository rename was required",
+          "verified isolated worktree fetch and push origins at https://github.com/swift-compositions/swift-linux.git",
+          "fast-forward published exact prepared commit 60fa0efd258e2c53829df3b358bf0599cc45ffcf without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main 60fa0efd258e2c53829df3b358bf0599cc45ffcf with unchanged repository ID, public visibility, non-archived state, default branch main, and clean isolated worktree"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-linux-publisher institute package resolve --package-path /private/tmp/four-layer-swift-linux --argument=--disable-sandbox against all six direct dependencies and the live POSIX-to-Glob closure",
+          "prepared HEAD remained 60fa0efd258e2c53829df3b358bf0599cc45ffcf and the isolated worktree remained clean",
+          "Package.resolved was absent before resolution and present afterward as untouched ignored generated state with stable SHA-256 22379051a614cb7f9dc4294b021b3c21aeaf971e3d7039d6c27cc90662a012e2"
+        ]
       }
     },
     {
@@ -17616,13 +17627,21 @@
       "observedHead": "7371c2eaf12b6a59041b6a16d65fd660f15b6f70",
       "observedRemote": "https://github.com/swift-primitives/swift-coder-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit d7b1eb05f232cdc1e26e5bfb6b1e11e1b03a1ea5 from expected parent 7371c2eaf12b6a59041b6a16d65fd660f15b6f70",
+          "isolated worktree /private/tmp/four-layer-swift-coder",
+          "deterministic audit verified the clean direct-child 48-path, 49-file-preserving transformation, all six exact live dependency coordinates and products, suffix-free owned family with legitimate Coder Primitive preservation, zero mapped residuals, public payload, active Actions refs, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-rename main at expected commit 7371c2eaf12b6a59041b6a16d65fd660f15b6f70 on exact live coordinate swift-molecules/swift-coder-primitives and verified exact future coordinate returned HTTP 404",
+          "renamed repository to swift-molecules/swift-coder and verified stable GitHub repository ID 1139270920 with public visibility, non-archived state, and default branch main",
+          "updated isolated worktree fetch and push origins to https://github.com/swift-molecules/swift-coder.git",
+          "fast-forward published exact prepared commit d7b1eb05f232cdc1e26e5bfb6b1e11e1b03a1ea5 without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main d7b1eb05f232cdc1e26e5bfb6b1e11e1b03a1ea5 with unchanged repository ID, public visibility, non-archived state, default branch main, and clean isolated worktree"
         ]
       },
       "state": "ready",
