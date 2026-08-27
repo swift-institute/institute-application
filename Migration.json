@@ -8492,19 +8492,27 @@
       "observedHead": "7bccfc4adff597145d563425295fdf97480a1fd2",
       "observedRemote": "https://github.com/swift-foundations/swift-time-to-live.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit 897bc0d1a70f329f247a907c9045993a590994db from expected parent 7bccfc4adff597145d563425295fdf97480a1fd2 in isolated worktree /private/tmp/four-layer-swift-time-to-live",
+          "deterministic full-tree audit verified the exact four-path, nine-insertion/nine-deletion foundation-to-composition and dependency owner/suffix mapping, live swift-cache Cache and swift-time Time Primitive products, preserved legitimate singular Time Primitive identity, README owner/badge and metadata composition mapping, unchanged workflow, zero mapped residuals, public payload, human commit identity, clean checkout, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified canonical post-organization coordinate swift-compositions/swift-time-to-live at expected main 7bccfc4adff597145d563425295fdf97480a1fd2 with GitHub repository ID 1144636487, public visibility, non-archived state, and default branch main; no repository rename was required",
+          "set fetch and push origins to https://github.com/swift-compositions/swift-time-to-live.git and fast-forward published exact prepared commit 897bc0d1a70f329f247a907c9045993a590994db without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main 897bc0d1a70f329f247a907c9045993a590994db with unchanged repository ID 1144636487, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-time-to-live-publisher institute package resolve --package-path /private/tmp/four-layer-swift-time-to-live --argument=--disable-sandbox and resolved exact live swift-cache f1d3d9a39d975210fc456640d7822c278e7d8cc1 and swift-time 578f830f95eb5f01ab67e7bf7e059d0aa7fd15bb",
+          "post-resolution verification found exact HEAD 897bc0d1a70f329f247a907c9045993a590994db, a clean checkout, and untouched generated Package.resolved with stable SHA-256 9d0f42ff304a65de1fd374f691b503b5d491c88c1c91d7a1395a005aa6f1199d"
+        ]
       }
     },
     {
