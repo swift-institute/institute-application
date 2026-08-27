@@ -24381,10 +24381,12 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified old coordinate swift-molecules/swift-parser-machine-primitives at expected main abf7d6e0f22f7173034d0881e0cf759b2037528f with GitHub repository ID 1145453452, public visibility, non-archived state, default branch main, and absent exact destination",
-          "renamed the repository to exact destination swift-molecules/swift-parser-machine and verified the same GitHub repository ID 1145453452 at expected pre-publication main abf7d6e0f22f7173034d0881e0cf759b2037528f with unchanged visibility, archival state, and default branch; prepared commit publication remains pending"
+          "renamed the repository to exact destination swift-molecules/swift-parser-machine and verified the same GitHub repository ID 1145453452 at expected pre-publication main abf7d6e0f22f7173034d0881e0cf759b2037528f with unchanged visibility, archival state, and default branch",
+          "set fetch and push origins to https://github.com/swift-molecules/swift-parser-machine.git and fast-forward published exact prepared commit fcb05b4a9789dcbf832557f7991137ef64fe6470 without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified exact canonical coordinate swift-molecules/swift-parser-machine at live main fcb05b4a9789dcbf832557f7991137ef64fe6470 with unchanged repository ID 1145453452, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
