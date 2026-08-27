@@ -2962,6 +2962,49 @@
    ],
    "notes": "Adjudication: Executor is a native semantic domain (job-scheduling namespace: Executor, Executor.Job, Executor.Shutdown(.Flag), Executor.Wait(.Event)) \u2014 atom. Atom now holds one Executor module (collapsed Executor Primitive/Job/Shutdown/Wait strata plus umbrella; 5 exports.swift deleted), seed SLI target, seed AFI target, zero package dependencies; Executor.Shutdown.Flag keeps `public import Synchronization` (stdlib toolchain module, not a package dependency). Test target \"Executor Tests\" retains Executor.Shutdown.Flag Tests only. \"Executor Test Support\" target deleted; its UnownedJob.mock helper (an extension on stdlib UnownedJob, test-only) was duplicated as \"UnownedJob Mock.swift\" into the index and clock molecule test targets that need it; test imports of Executor_Test_Support rewritten. Import rewrites in molecules: Executor_Job -> Executor, and stale Executor_Core -> Executor (the \"Executor Job Priority\" directory was undeclared in the old manifest \u2014 never compiled; its `#if canImport(Executor_Job_Priority)` test guard removed and imports fixed to Executor_Clock). Molecule naming keyed by the dominant external dependency per the swift-bit-index precedent; multi-dep molecules keep their auxiliary deps (column/buffer-ring at swift-molecules, all others at swift-atoms live coordinates, branch main). Residual red risks (structural pass, nothing built): Comparison/Equation `Protocol` conformances in Executor.Job.Priority.Entry assume swift-comparison exposes Equation via the Comparison product; molecules assume product names read live from dependency manifests; atom README still documents the extracted Job.Queue/Job.Deque products (not updated \u2014 not in recipe scope). Pushes to main used org-admin bypass of the PR/status-check rule, as authorized by the brief.",
    "completedAt": "2026-08-27T16:46:20Z"
+  },
+  {
+   "package": "swift-argument",
+   "repositoryID": 1243130855,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-argument",
+   "to": "swift-atoms/swift-argument",
+   "shapeCommit": "fe7cf6e45c2bee1839d6a05224fec0d3478f3eaf",
+   "dependencies": [],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-argument-index",
+     "repositoryID": 1348715248,
+     "commit": "4df2d8ba37b8db14ec712706b6a646af19ea3885",
+     "seam": "Argument.Position expressed via swift-index/swift-byte (Index<String>, Index<Byte>.Offset)"
+    },
+    {
+     "successor": "swift-molecules/swift-argument-text",
+     "repositoryID": 1348715331,
+     "commit": "10784c263ea87b762247ec6e8800c2c3bc061161",
+     "seam": "Argument.Token (+ Token.Kind, which extends Token) with Text.Range from swift-text"
+    },
+    {
+     "successor": "swift-molecules/swift-argument-tagged",
+     "repositoryID": 1348715470,
+     "commit": "bfb70da36de22ee5d214d6b231184a005ca238f0",
+     "seam": "Argument.Environment.Variable.Name as Tagged<Argument.Environment.Variable, String> from swift-tagged"
+    },
+    {
+     "successor": "swift-molecules/swift-argument-finite",
+     "repositoryID": 1348715555,
+     "commit": "bf3e1fad8becae9289ea9b006ad22e33e3f3e8e0",
+     "seam": "Argument.Flag.Enumerable protocol refining Finite.Enumerable from swift-finite"
+    },
+    {
+     "successor": "swift-molecules/swift-argument-diagnostic",
+     "repositoryID": 1348715669,
+     "commit": "83a1ea94311b9c68c63e2173e3de566d29613972",
+     "seam": "Argument.Error with Diagnostic.Severity from swift-diagnostic (also depends on swift-argument-index because Error cases carry Argument.Position)"
+    }
+   ],
+   "notes": "Adjudication: Argument is an irreducible native domain (CLI argument vocabulary: names, arity, visibility, help, environment, flags/options/positionals/groups/subcommands, schema) \u2014 atom. Atom now has zero package dependencies. Notable: swift-parser was declared as a dependency of eight targets but never imported by any file \u2014 dropped entirely, no molecule created. Reshape: 11 strata targets collapsed into one Sources/Argument module; all 8 intra-package exports.swift umbrellas deleted; SLI and AFI targets created as seed files (no stdlib-extension or Foundation-importing code existed); products reduced to exactly Argument / Argument Standard Library Integration / Argument Apple Foundation Integration. Tests collapsed to one \"Argument Tests\" target (deps [\"Argument\"]); trivial re-export target \"Argument Test Support\" deleted, its @testable import rewritten to @testable import Argument in every kept test file; non-trivial support file Argument.Schema.Recording.swift moved into Argument Tests with an added import Argument. Seam test files moved to their molecules with imports rewritten (Argument_Primitive->Argument etc.). Molecule dependency coordinates verified live by repo-id redirect: swift-index/-byte/-text/-tagged/-finite/-diagnostic all resolve to swift-atoms; swift-argument referenced at swift-molecules; branch: \"main\" everywhere, no tags or path deps. Residual red references (expected, later pass): Sources/Argument/Argument.Option.swift and Tests/Argument Tests/Argument.Option.Tests.swift reference Argument.Environment.Variable.Name, which now lives in swift-argument-tagged; index-molecule Position tests rely on integer-literal initialization of Index (Index SLI conformance); tagged tests use .underlying and string literals from Tagged SLI. Push to main succeeded via authorized direct push (remote reported bypassed PR/status-check rules, per pre-release posture). All six working trees verified clean; molecule staging copies live only in the session scratchpad.",
+   "completedAt": "2026-08-27T16:46:30Z"
   }
  ],
  "successors": [],
