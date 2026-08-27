@@ -5914,23 +5914,32 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-compositions/swift-package-graph",
       "futureLayer": "compositions",
-      "observedHead": "61b12206157f2fddd4708cfe671b7ec2919b7c2f",
-      "observedRemote": "https://github.com/swift-foundations/swift-package-graph.git",
+      "observedHead": "84ddf73dc6dad7bf624ac7d684c11840e46bfe73",
+      "observedRemote": "https://github.com/swift-compositions/swift-package-graph.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared exact direct-child cutover commit 84ddf73dc6dad7bf624ac7d684c11840e46bfe73 from expected base 61b12206157f2fddd4708cfe671b7ec2919b7c2f in clean isolated worktree /private/tmp/swift-package-graph",
+          "mechanical four-layer cutover changed only .github/metadata.yaml, Package.swift, README.md, and Sources/Package Graph/Package.Graph.swift; owner URLs, graph product/module identities, examples, and layer metadata moved to canonical coordinates while the legitimate singular Graph Primitive identity remained unchanged",
+          "residual identity, active Actions-reference, public-payload, machine-path, credential, diff, attribution, dependency-product, and Package.resolved preservation checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "repository ID 1238730925 was verified before and after cutover at exact canonical coordinate swift-compositions/swift-package-graph with unchanged public visibility, non-archived state, and default branch main",
+          "published exact prepared commit 84ddf73dc6dad7bf624ac7d684c11840e46bfe73 as an ordinary fast-forward from 61b12206157f2fddd4708cfe671b7ec2919b7c2f to refs/heads/main through the authenticated administrative ruleset bypass; no force push or history rewrite occurred",
+          "coordinator independently reverified exact live main 84ddf73dc6dad7bf624ac7d684c11840e46bfe73, repository ID 1238730925, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is complete and Package.resolved remained absent twice before and after publication; resolution is queued until swift-compositions/swift-package-manager validation is passed and the serialized Institute package-resolution slot is available"
+        ]
+      },
+      "githubRepositoryID": 1238730925
     },
     {
       "current": "swift-foundations/swift-package-manager",
