@@ -11365,7 +11365,7 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-ietf/swift-rfc-2388",
       "futureLayer": "standards",
-      "observedHead": "9080de9a86816092428662b3ae9fc291bea020d6",
+      "observedHead": "0c0480ba41501f4563a2348c690d113a6a1f1ef8",
       "observedRemote": "https://github.com/swift-ietf/swift-rfc-2388.git",
       "preparation": {
         "status": "passed",
@@ -11382,11 +11382,13 @@
           "coordinator verified exact live main 0c0480ba41501f4563a2348c690d113a6a1f1ef8 with unchanged repository ID 1095215150, coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
         ]
       },
-      "state": "published",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "publication is complete and Package.resolved was absent twice immediately before preparation; the repository is queued behind the serialized Institute package-resolution slot after measured shared SwiftPM-cache contention"
+          "publication completed before validation and Package.resolved remained absent twice before resolution",
+          "package resolution passed on the single approved attempt with exact exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-rfc2388-root institute package resolve --package-path /private/tmp/rfc2388-cutover-root/swift-rfc-2388 --argument=--disable-sandbox --argument=--disable-dependency-cache against the exact live graph; no build, test, compilation, raw SwiftPM, dump-package, or standalone manifest-evaluation command was invoked",
+          "Package.resolved was present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 745487de7e69d47329340c1c654d0a9b8a951b196570bf45d85d782eed372d3c; coordinator reverified both dependency gates and live products plus final repository identity/SHA, exact worktree HEAD, canonical origins, and clean tracked checkout"
         ]
       },
       "githubRepositoryID": 1095215150
