@@ -24064,8 +24064,13 @@
       "observedHead": "17271b83c2d92ac727392169d16529720bfa6ef2",
       "observedRemote": "https://github.com/swift-primitives/swift-parser-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 86ddc5b0e1cad486f313da270a371a0383708cd8 from expected parent 17271b83c2d92ac727392169d16529720bfa6ef2",
+          "isolated worktree /private/tmp/four-layer-swift-parser",
+          "mapped all ten dependency URLs, products, modules, imports, paths, README references, and repository metadata to their live molecule coordinates; stripped all owned Parser Primitives family identities while preserving Parser Primitive and legitimate dependency singular Primitive identities",
+          "independent deterministic audit proved all 168 prepared paths and blobs equal the authorized transformation, with exact 187-path diff and 59 target/test directory moves; dependency readiness, all referenced live products and SHAs, residual, public payload, workflow, and Package.resolved gates passed; exact future coordinate remains HTTP 404 and stable repository ID is 1132373796"
+        ]
       },
       "publication": {
         "status": "pending",
