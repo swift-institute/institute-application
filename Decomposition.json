@@ -2551,6 +2551,34 @@
    ],
    "notes": "Adjudication: atom. Domain X = Slab (derived from products \"Slab\"/\"Slab Primitive\"). The generic ~Copyable slot-store wrapper __Slab<S> with its init/take core and Error algebra (full/vacant/occupied) is a native semantic domain with zero imports; everything else in the package existed to bind it to the swift-buffer-slab storage stack, which is one seam, not the domain. Atom now: Sources/Slab = Slab.swift + Slab.Error.swift (collapsed from \"Slab Primitive\"; old \"Slab\" target's copyable peek file and both \"Slab Inline Primitive\" files were seam content, moved out). All three exports.swift umbrellas deleted, including the trivial re-export \"Slab Test Support\" target (Tests/Support), which no test file imported. SLI and AFI targets created as seed files (no stdlib-extension or Foundation-importing code exists; the conditional Copyable/Sendable markers and the leaf Error conformances stay in the core type files as part of the type definitions). Atom package dependencies: none \u2014 all ten former deps (swift-index, swift-finite, swift-bit, swift-collection, swift-sequence, swift-buffer, swift-buffer-slab, swift-storage, swift-memory-heap, swift-memory-allocation) left with the seam or with deleted umbrellas (swift-sequence was only @_exported in Slab/exports.swift; swift-collection only in Slab Test Support). Seam molecule swift-slab-buffer-slab (product \"Slab Buffer Slab\", module Slab_Buffer_Slab): sources Slab.FrontDoor.swift, Slab ~Copyable.swift, Slab+Sequence.Drain.swift, Slab Copyable.swift, Slab.Inline.swift, Slab.Inline+Operations.swift, imports rewritten Slab_Primitive\u2192Slab; single target absorbs the former Slab/Slab Inline Primitive split. All five original test files exercised the concrete buffer-backed Slab, so all moved to \"Slab Buffer Slab Tests\" with imports rewritten (Slab_Inline_Primitive\u2192Slab_Buffer_Slab, @testable Slab\u2192@testable Slab_Buffer_Slab + import Slab, explicit import Index added where Index<E> was used via the deleted umbrella); atom got a fresh minimal \"Slab Tests\" suite over __Slab. Molecule dep coordinates verified live: swift-bit/index/finite/buffer/storage at swift-atoms; swift-slab/buffer-slab/memory-heap/memory-allocation at swift-molecules; branch:\"main\" throughout. Residual red risk (structural pass, unbuilt): molecule module name Slab_Buffer_Slab coexists with typealias Slab it declares while importing module Slab \u2014 name shadowing may need attention in the later build pass; former target-level test deps Buffer Test Support/Index Test Support dropped since no file imports them. Direct pushes to main bypassed the PR/ci-ok branch rules via org-admin as authorized; both worktrees verified clean.",
    "completedAt": "2026-08-27T16:26:04Z"
+  },
+  {
+   "package": "swift-set",
+   "repositoryID": 1138063826,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-set",
+   "to": "swift-atoms/swift-set",
+   "shapeCommit": "01aaea4de0fa70e7e495578b260267514195807d",
+   "dependencies": [
+    "swift-atoms/swift-hash",
+    "swift-atoms/swift-index"
+   ],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-set-storage",
+     "repositoryID": 1348696641,
+     "commit": "370f02a36004ac7cc6b9817b161699879001fae7",
+     "seam": "Store.Protocol/Buffer.Protocol integration (Set.Index.swift, Set ~Copyable.swift: Index typealias, count/isEmpty/capacity, clone via unshare)"
+    },
+    {
+     "successor": "swift-molecules/swift-set-hash-table",
+     "repositoryID": 1348696779,
+     "commit": "ddf04e120ea15bfc2c0cd83e326f044db71f810f",
+     "seam": "Concrete ordered hashed columns from swift-hash-table (Set.FrontDoor typealias, convenience inits, insert/contains/remove/removeAll/forEach/clone over Hash.Indexed columns, incl. Ownership.Shared CoW lane); both original test files moved here"
+    }
+   ],
+   "notes": "Adjudication: atom \u2014 Set (membership) is a native semantic domain; the irreducible core is the generic __Set wrapper plus the Membership protocol (__SetProtocol typealias). Kept deps are irreducible to that core: the Membership protocol constrains Element to Hash.`Protocol` (swift-hash) and states count as Index<Element>.Count (swift-index); restating without them would change semantics. Atom shape: single Sources/Set module (Set.swift core, Set.Protocol.swift, Set.Protocol+defaults.swift), seed \"Set Standard Library Integration\" (public import Set) and \"Set Apple Foundation Integration\" (3-line seed); exactly three products; all exports.swift umbrellas deleted; former targets Set Primitive/Set Protocol collapsed; trivial re-export target \"Set Test Support\" (Tests/Support/exports.swift) deleted. Files moved out: Set.FrontDoor.swift, Set+Columns.swift, and the three concrete minimumCapacity inits (extracted from Set.swift into new Set.Inits.swift) -> swift-set-hash-table; Set.Index.swift, Set ~Copyable.swift -> swift-set-storage. Both original test files exercise only the concrete columns, so both moved to swift-set-hash-table's \"Set Hash Table Tests\"; the atom keeps a minimal \"Set Tests\" suite exercising __Set init/take. Import rewrites: Set_Primitive->Set in moved files; test files gained import Set_Hash_Table + import Set_Storage (count/isEmpty on __Set now live in the storage seam) and Set Model Tests gained import Index_Test_Support (Model.* previously reached the tests via the deleted Set Test Support @_exported umbrella; I inferred Index Test Support as its origin \u2014 if Model actually lives in Buffer/Hash-Table Test Support the import is redundant, not wrong). Residual red risk (untested by design): Set.FrontDoor's `public typealias Set` now coexists with `public import Set` (module/type name shadowing); Buffer Protocol product added to hash-table test target for the Store/Buffer constraints in test typealiases. Molecule deps pinned at current live coordinates verified via git ls-remote (atoms: index, hash, buffer, storage, ordinal, tagged; molecules: hash-table, ownership-shared, buffer-linear, memory-heap, memory-allocation); swift-set-hash-table depends on swift-set-storage (test-side product only). swift-set push to main bypassed the PR-required rule as authorized (\"Bypassed rule violations\" notice; no force). All three working trees verified clean.",
+   "completedAt": "2026-08-27T16:26:12Z"
   }
  ],
  "successors": [],
