@@ -5249,14 +5249,16 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
           "verified canonical post-organization coordinate swift-compositions/swift-memory at expected main 6e10fb59a4a0ccd3c9ba00bf6e0e334d22441c36 with GitHub repository ID 1125519693, public visibility, non-archived state, and default branch main; no repository rename was required",
           "set fetch and push origins to https://github.com/swift-compositions/swift-memory.git and fast-forward published exact prepared commit 79c5e704a61acbd9fb3850ad4c59c3135133ca1c without force or history rewrite using the configured administrator ruleset bypass",
           "coordinator reverified live main 79c5e704a61acbd9fb3850ad4c59c3135133ca1c with unchanged repository ID 1125519693, public visibility, non-archived state, and default branch main",
           "renamed the colliding higher coordinate swift-compositions/swift-memory to canonical swift-compositions/swift-memory-mapping without transfer, deletion, archival, visibility change, force push, or history rewrite",
           "coordinator verified exact destination swift-compositions/swift-memory-mapping owns unchanged GitHub repository ID 1125519693 with public visibility, non-archived state, default branch main, clone URL https://github.com/swift-compositions/swift-memory-mapping.git, and unchanged live main 79c5e704a61acbd9fb3850ad4c59c3135133ca1c",
-          "publication of prepared identity repair commit 931c661856a975818595f4e61ec3b33984a4ecb9 remains pending"
+          "publication of prepared identity repair commit 931c661856a975818595f4e61ec3b33984a4ecb9 was pending at the rename checkpoint",
+          "updated both fetch and push origins deliberately to https://github.com/swift-compositions/swift-memory-mapping.git and fast-forward published exact direct-child repair commit 931c661856a975818595f4e61ec3b33984a4ecb9 without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified exact live main 931c661856a975818595f4e61ec3b33984a4ecb9 at canonical coordinate swift-compositions/swift-memory-mapping with unchanged GitHub repository ID 1125519693, public visibility, non-archived state, default branch main, and final clone URL"
         ]
       },
       "state": "ready",
