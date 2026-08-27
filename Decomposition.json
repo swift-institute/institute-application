@@ -4496,8 +4496,12 @@
     "blockingHeadSHA": "f595e134fee9dab5ebf389d22444d6d83f91abe3",
     "evidence": "Orthant Finite genuinely requires Finite.Enumerable and Enumeration, which are owned by Finite Ordinal rather than the Finite atom. The live Finite Ordinal manifest still depends on stale swift-molecules/swift-finite and the unconverged Finite Cardinal seam, so the Orthant consumer may not invent or rewrite that transitive ownership.",
     "resumeWhen": "Converge swift-finite-cardinal and swift-finite-ordinal, then resume Orthant Finite from its clean checkout and require fresh build/test before booking.",
-    "status": "dependency-convergence-required",
-    "recordedAt": "2026-08-27T22:44:06Z"
+    "resolvedByHeadSHA": "075c4b2696150e4aa10e0c682bd042e3d4909460",
+    "resumedPackageHeadSHA": "f31d4bf0f5566c4c5ab0cf3f86f02cdde171cce9",
+    "status": "resolved-and-booked",
+    "recordedAt": "2026-08-27T22:44:06Z",
+    "resumedAt": "2026-08-27T22:59:48Z",
+    "resolvedAt": "2026-08-27T23:05:49Z"
    },
    {
     "repo": "swift-molecules/swift-affine-tagged",
@@ -4507,9 +4511,11 @@
     "evidence": "Affine Tagged's genuine tagged integration is blocked before local compilation by Affine Carrier: that live seam still uses the moved swift-molecules/swift-affine identity, references Tagged without a declared/imported owner, and consumes Ordinal.Protocol without the Ordinal Cardinal product. The preserved Affine Tagged checkout contains only its canonical URL change and removal of two exact duplicates already owned byte-for-byte by the Affine atom.",
     "resumeWhen": "Converge swift-affine-carrier, then resume the preserved checkout, rerun fresh build/test, and book only a verified green Affine Tagged head.",
     "resolvedByHeadSHA": "79feb3ee7d61f4809ed45b16fd603bc41c1918fe",
-    "status": "blocking-dependency-converged-resumption-in-progress",
+    "resumedPackageHeadSHA": "c3f99b16436b3f1f0c3149047cb28f326aece6a7",
+    "status": "resolved-and-booked",
     "recordedAt": "2026-08-27T22:46:59Z",
-    "resumedAt": "2026-08-27T22:54:18Z"
+    "resumedAt": "2026-08-27T22:54:18Z",
+    "resolvedAt": "2026-08-27T23:05:49Z"
    }
   ],
   "pendingAdjudications": [
@@ -6382,6 +6388,51 @@
     "wave": "wave7t",
     "changes": "Converged the blocking Affine Carrier seam by canonicalizing Affine, explicitly composing Ordinal Cardinal and test-only Tagged/Tagged Carrier ownership, repairing Cardinal visibility/member ownership, replacing Carrier convenience access with generic underlying, and removing a redundant Tagged-specific Int conversion while focusing tests on genuine carrier, arithmetic, collection, and raw-pointer behavior. Fresh build green; 20 tests across 7 suites green.",
     "bookedAt": "2026-08-27T22:54:14Z"
+   },
+   {
+    "repo": "swift-molecules/swift-finite-ordinal",
+    "headSHA": "075c4b2696150e4aa10e0c682bd042e3d4909460",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7u",
+    "changes": "Converged the Finite Ordinal prerequisite against canonical Finite and live Finite Cardinal, Ordinal Comparison, and Ordinal Hash seams; removed obsolete Iterator ownership, migrated Ordinal.Finite, Finite.Enumerable, Finite.Enumeration, and Tagged bridges to current raw-value/Index APIs, and preserved the genuine Enumerable/Enumeration domain with current tests/docs. Fresh build green; 66 tests across 17 suites green.",
+    "bookedAt": "2026-08-27T22:59:41Z"
+   },
+   {
+    "repo": "swift-molecules/swift-list-index",
+    "headSHA": "fe8cc6420b45b588f2dcd1fd72fe0d35b8210c23",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7u",
+    "changes": "Canonicalized List to its atom owner and retained the genuine ListIndex<Element> and List<Element>.Index bridge to the consolidated atom API Index<Element>, replacing stale Index.Index spelling, documenting both aliases, and adding a compile-time type-identity proof. Fresh build green; 1 test green.",
+    "bookedAt": "2026-08-27T22:59:41Z"
+   },
+   {
+    "repo": "swift-molecules/swift-orthant-finite",
+    "headSHA": "f31d4bf0f5566c4c5ab0cf3f86f02cdde171cce9",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7u",
+    "changes": "Resumed against converged Finite Ordinal, canonicalized Orthant to its atom owner, and retained the genuine retroactive Orthant Finite.Enumerable bit-encoding seam, migrating Cardinal construction, repairing member-import visibility, and adding zero-dimensional count/allCases coverage plus shared enumeration ownership documentation. Fresh build green; 4 tests across 8 suites green.",
+    "bookedAt": "2026-08-27T23:04:07Z"
+   },
+   {
+    "repo": "swift-molecules/swift-cyclic-tagged",
+    "headSHA": "6652df2ba79771a04c9438ee54ceca0f448d60b8",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7u",
+    "changes": "Canonicalized Cyclic to its atom owner and retained genuine tag-preserving construction from static elements/Ordinal, wrapping modular arithmetic, compound assignment, and inverse; replaced the removed Cyclic SLI test product with Cyclic Test Support, declared current Ordinal test/source visibility, and updated raw-value contracts/docs. Fresh build green; 9 tests green.",
+    "bookedAt": "2026-08-27T23:05:01Z"
+   },
+   {
+    "repo": "swift-molecules/swift-affine-tagged",
+    "headSHA": "c3f99b16436b3f1f0c3149047cb28f326aece6a7",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7u",
+    "changes": "Resumed against converged Affine Carrier, canonicalized Affine to its atom owner, and retained genuine tagged offsets/conversions, collection/pointer operations, and tagged ratio scaling while removing only two exact ratio initializer/quotient implementations already owned by the Affine atom, with current imports/APIs and focused scaling ownership proofs. Fresh build green; 39 tests across 13 suites green.",
+    "bookedAt": "2026-08-27T23:05:45Z"
    }
   ]
  }
