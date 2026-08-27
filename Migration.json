@@ -8948,11 +8948,13 @@
           "coordinator independently reverified exact live main 95f12b95ec50217d813308a2326c1b205210f017, repository ID 1132378504, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, clean tracked checkout, and untouched root/nested Package.resolved state"
         ]
       },
-      "state": "published",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "publication is complete and root plus nested Tests/Package.resolved remained absent twice before and after publication; resolution is queued until the SCC partner swift-compositions/swift-test-application is published and the serialized Institute package-resolution slot is available"
+          "publication and SCC partner publication completed before validation; root and nested Tests/Package.resolved remained absent twice before resolution",
+          "root package resolution passed on the single approved attempt with exact exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-tests-publisher institute package resolve --package-path /private/tmp/swift-tests --argument=--disable-sandbox --argument=--disable-dependency-cache against the exact live graph; the nested Tests/Package.swift edge to swift-test-application was expressly excluded, swift-syntax 602.0.0 was selected, and no nested package resolution, build, test, compilation, raw SwiftPM, dump-package, or standalone manifest-evaluation command was invoked",
+          "root Package.resolved was present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 eb3ec67045130f656687e348ee8c9efba0fe55acab5663b83a2e85fb1f039973; nested Tests/Package.resolved remained absent, while coordinator reverified all 28 internal root dependency gates/live products, the external swift-syntax requirement/products, final repository identity/SHA, exact worktree HEAD, canonical origins, and clean tracked checkout"
         ]
       },
       "githubRepositoryID": 1132378504
