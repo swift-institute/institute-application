@@ -4478,8 +4478,10 @@
     "blockingHeadSHA": "d571416d2f12dc1055f09fda935d1458644af7b8",
     "evidence": "Byte Parser's direct Parser/Byte/Either/Input/Collection/Span graph and obsolete Array.Shared input buffer were modernized locally, but fresh resolution stops in Memory Cursor: it requests removed Cursor Test Support, Cursor Primitive, Byte Test Support, Iterator Protocol, and Span Protocol products and carries stale moved-atom coordinates. Byte Parser genuinely consumes Memory Cursor-owned peek/consume/count/isAtEnd behavior and cannot replace that substrate locally.",
     "resumeWhen": "Converge swift-memory-cursor, then resume the preserved checkout, rerun fresh build/test, push, and book only the verified green head.",
-    "status": "dependency-convergence-required",
-    "recordedAt": "2026-08-27T22:05:44Z"
+    "resolvedByHeadSHA": "6dd1be2fcbd330e6de9a195feb7fb672a5d33cea",
+    "status": "blocking-dependency-converged-resumption-in-progress",
+    "recordedAt": "2026-08-27T22:05:44Z",
+    "resumedAt": "2026-08-27T22:16:26Z"
    }
   ],
   "pendingAdjudications": [
@@ -6135,6 +6137,51 @@
     "wave": "wave7o",
     "changes": "Canonicalized Cardinal to its atom owner and retained the genuine retroactive Cardinal Hash.Protocol conformance beyond atom-owned equality, preserving the broad Cardinal import needed for the inherited Equatable witness and adding scoped Hash ownership plus focused domain-typed Hash.Value and native hashing proofs. Fresh build green; 2 tests green.",
     "bookedAt": "2026-08-27T22:14:29Z"
+   },
+   {
+    "repo": "swift-molecules/swift-memory-cursor",
+    "headSHA": "6dd1be2fcbd330e6de9a195feb7fb672a5d33cea",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7p",
+    "changes": "Converged the blocking Memory Cursor substrate against canonical Byte, Cardinal, Cursor, Iterator, Memory, Span, Ordinal, Tagged, and test-only Ownership surfaces; replaced removed split products/modules, modernized raw-value cursor transitions while preserving typed position/count and peek/advance/consume/seek APIs, and replaced obsolete storage test infrastructure with a local owned Span.Protocol fixture. Fresh build green; 16 tests across 9 suites green.",
+    "bookedAt": "2026-08-27T22:16:21Z"
+   },
+   {
+    "repo": "swift-molecules/swift-either-hash",
+    "headSHA": "84be04aada215df7a79a4a97dc2c2b35b2e60dcb",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7p",
+    "changes": "Canonicalized Either to its atom owner and retained the genuine arm-discriminated native Hashable and domain-typed Hash.Protocol seam, adding the explicit Either Equation equality prerequisite, retroactive ownership, and focused native Set plus typed Hash.Value contracts. Fresh build green; 2 tests green.",
+    "bookedAt": "2026-08-27T22:16:21Z"
+   },
+   {
+    "repo": "swift-molecules/swift-product-hash",
+    "headSHA": "7d81a488fcd872b4f73285d4d48cf80c55a9e959",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7p",
+    "changes": "Canonicalized Product to its atom owner and retained the genuine narrow retroactive Product Hash.Protocol/domain-typed Hash.Value bridge beyond Product Standard Library Integration's atom-owned element-wise Equatable and native Hashable conformances, with explicit SLI prerequisite and focused typed/native contracts. Fresh build green; 2 tests green.",
+    "bookedAt": "2026-08-27T22:18:44Z"
+   },
+   {
+    "repo": "swift-molecules/swift-cardinal-tagged",
+    "headSHA": "0e9fa4e1b85a40221037216caa4f90e5de2e2d27",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7p",
+    "changes": "Canonicalized Cardinal to its atom owner and retained the genuine Cardinal-specific Tagged UInt and validated Int construction, Int conversions, and tag-preserving exact/saturating arithmetic, adding current Cardinal SLI product edges, unchecked Tagged construction, scoped imports, and Swift 6.4 shadowing/test repairs. Fresh build green; 17 tests across 6 suites green.",
+    "bookedAt": "2026-08-27T22:19:28Z"
+   },
+   {
+    "repo": "swift-molecules/swift-pair-hash",
+    "headSHA": "93b46f9e3c4d77b45dbb33ba3e8ead1cb271c389",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7p",
+    "changes": "Canonicalized Pair to its atom owner and retained the genuine element-wise native Hashable plus typed Hash.Protocol seam, adding the explicit Pair Equation equality prerequisite, retroactive ownership, and focused native Set and noncopyable typed Hash.Value contracts. Fresh build green; 2 tests across 5 suites green.",
+    "bookedAt": "2026-08-27T22:21:35Z"
    }
   ]
  }
