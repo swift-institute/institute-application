@@ -31693,18 +31693,22 @@
       "observedHead": "640cb8a558a1f08683826a233a3a28845f3bdc37",
       "observedRemote": "https://github.com/swift-compositions/swift-byte-channel.git",
       "preparation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "prepare from an isolated exact-commit worktree without touching the main checkout or the pre-existing prunable source-enforcement worktree record"
+          "prepared human-authored direct-child commit f14463d9fca7d4e2227f67dfd2b390ef75c7a08d from exact live parent 640cb8a558a1f08683826a233a3a28845f3bdc37 in clean isolated worktree /private/tmp/four-layer-swift-byte-channel-root with subject Prepare Byte Channel for the four-layer cutover; the main checkout and pre-existing prunable source-enforcement record were observed and not touched",
+          "audited all 12 tracked paths and made the exact eight-path, 30-insertion/30-deletion mechanical transformation across Package.swift, README.md, and six source files, mapping dependency coordinates, product identities, modules, imports, and the owner URL to the four-layer destinations",
+          "preserved Byte Channel and Byte Chunk public semantics with no split/refactor/new dependency; full residual, public-payload, staged-path, direct-parent, human-identity, and committed-tree checks passed"
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify exact live main and stable GitHub repository ID 1330539694 immediately before publication"
+          "reconciled the already-canonical exact future coordinate swift-compositions/swift-byte-channel with GitHub repository ID 1330539694, public visibility, non-archived state, default branch main, canonical clone URL, and exact live parent 640cb8a558a1f08683826a233a3a28845f3bdc37; no repository rename was needed",
+          "JIT verified all five dependency futures at their exact passed live heads, then ordinary fast-forward published exact direct child f14463d9fca7d4e2227f67dfd2b390ef75c7a08d through the configured administrator ruleset bypass without force or history rewrite",
+          "coordinator verified exact live main f14463d9fca7d4e2227f67dfd2b390ef75c7a08d twice with unchanged repository ID 1330539694, exact future coordinate, public visibility, non-archived state, default branch main, canonical fetch/push origins, exact ancestry, and a clean tracked checkout"
         ]
       },
-      "state": "ready",
+      "state": "published",
       "validation": {
         "status": "pending",
         "records": []
