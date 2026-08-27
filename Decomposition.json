@@ -665,6 +665,25 @@
    ],
    "notes": "Adjudication: CPU is a native semantic domain (atomics, barriers, cache, spin, timestamp, CRC integrity) \u2014 atom. Atom shape: kept internal C target \"CPU Shims\" (no external package deps; C code cannot merge into the Swift CPU module; not a product), deleted Sources/CPU/exports.swift (umbrella @_exported Binary/Binary_Serializable), stripped the two Binary.Serializable conformance lines from CPU.Integrity.Cyclic.Checksum.swift and CPU.Timestamp.swift into the molecule, seeded \"CPU Standard Library Integration\" (public import CPU) and \"CPU Apple Foundation Integration\" (three-line seed; no Foundation imports existed anywhere). Products exactly three. All three external package dependencies removed: swift-binary and swift-binary-serializer moved to the molecule; swift-bit was only used by the deleted trivial re-export test-support target \"CPU Test Support\" (Tests/Support), which no test file actually used (tests import Testing + @testable CPU, one imports Synchronization \u2014 toolchain module, kept in atom). Stdlib conformances (Comparable, ExpressibleByIntegerLiteral, RawRepresentable) are declared on the type definitions themselves and stay in the atom rather than the SLI target; no standalone stdlib-extension files existed. Reserved/ files (CPU.Wait/Crypto/Vector) have no imports and stay in the atom. Molecule swift-cpu-binary-serializer depends on swift-molecules/swift-cpu, swift-atoms/swift-binary (already transferred), swift-molecules/swift-binary-serializer, all branch main; stub backticked @Suite test. No residual red references known in kept tests; nothing was built per commission. Both working trees verified clean. Note: push to swift-cpu main reported bypassed branch-protection rules (PR requirement + required check) under the authorized direct-push grant.",
    "completedAt": "2026-08-27T12:20:07Z"
+  },
+  {
+   "package": "swift-manifest",
+   "repositoryID": 1231810609,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-manifest",
+   "to": "swift-atoms/swift-manifest",
+   "shapeCommit": "5d2579762e11ad72444ca0519654f2daeeddcf62",
+   "dependencies": [],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-manifest-byte-parser",
+     "repositoryID": 1348452154,
+     "commit": "08dee31276cb5b257ba16c353c1b055bed081751",
+     "seam": "Manifest.Parent scan/parse of the '// parent:' directive, whose implementation exists to integrate Manifest with Byte Parser (ASCII riding along as a support dependency)"
+    }
+   ],
+   "notes": "Adjudication: Manifest is a native semantic domain (manifest configuration/dependency model plus the parent-directive namespace), so atom. The package was already single-module (Sources/Manifest, 4 files); no strata targets to collapse. Seam: Sources/Manifest/Manifest.Parent.swift held the only uses of the two external deps (internal import ASCII, internal import Byte_Parser) \u2014 its scan/parse implementation moved to the new molecule as Sources/Manifest Byte Parser/Manifest.Parent.scan.swift (module Manifest_Byte_Parser, product \"Manifest Byte Parser\"; deps swift-molecules/swift-manifest, swift-atoms/swift-ascii [live coordinate \u2014 swift-molecules/swift-ascii redirects there], swift-molecules/swift-byte-parser, all branch: \"main\"). The bare `public enum Parent: Swift.Sendable {}` namespace declaration stays in the atom so the molecule extends it. Atom now has zero package dependencies. No stdlib-extension or Foundation-importing code existed, so both \"Manifest Standard Library Integration\" and \"Manifest Apple Foundation Integration\" are seed files per the recipe. Trivial re-export test-support target (\"Manifest Test Support\": empty file + @_exported exports.swift) deleted; kept \"Manifest Tests\" (deps [\"Manifest\"]) with Manifest.Configuration.Tests.swift, which needed no import rewrite. Manifest.Parent.Tests.swift moved to \"Manifest Byte Parser Tests\" with `import Manifest_Byte_Parser` added. Residual red references: none known in kept atom files; the molecule source references Byte.Input / Input.Input.Stream.Error / Byte.Literal.Parser exactly as before (unverified \u2014 no build per commission), and the atom push bypassed the required-PR/ci-ok rule as authorized (direct push to main). LICENSE.md and .gitignore copied into the molecule; one-line README added.",
+   "completedAt": "2026-08-27T12:20:13Z"
   }
  ],
  "successors": [],
