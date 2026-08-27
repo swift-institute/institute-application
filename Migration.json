@@ -10397,20 +10397,32 @@
       "observedHead": "cbb8e420bc27e5bf79c92a05592c4ec67a9ca8dc",
       "observedRemote": "https://github.com/swift-ietf/swift-rfc-2046.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit 93c89b3e7622c7ddc7f2c2cc3b53a933c3115421 from expected parent cbb8e420bc27e5bf79c92a05592c4ec67a9ca8dc in isolated worktree /private/tmp/four-layer-swift-rfc-2046 with subject Prepare RFC 2046 for the four-layer cutover",
+          "deterministic audit verified the exact nine-path mechanical transformation with 29 insertions and 29 deletions across Package.swift and eight RFC 2046 source files, preserving all 38 tracked paths and every RFC 2046 package/product/target/path/public semantic identity",
+          "mapped Byte Collection, Parseable ASCII, Parser, Byte Parser, ASCII Serializer, and Binary Serializer product/module/import identities to exact live suffix-free molecule identities, including the Standard Library Integration module and qualified Parser protocol spelling; preserved all RFC authority identities and introduced no split or dependency",
+          "all eight future dependencies, including newly booked RFC 2183, were ledger-passed and exact-live with products verified; zero stale old-owner/plural residuals remained, README/metadata and canonical Actions required no change, Package.resolved was absent before preparation, and the worktree was clean at the exact prepared commit"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified exact coordinate swift-ietf/swift-rfc-2046, GitHub repository ID 1095071218, public visibility, non-archived state, default branch main, exact clone URL, and expected live base cbb8e420bc27e5bf79c92a05592c4ec67a9ca8dc immediately before publication; no rename was required",
+          "fast-forward published exact direct child 93c89b3e7622c7ddc7f2c2cc3b53a933c3115421 to main through the configured administrator ruleset bypass without force or history rewrite",
+          "verified live main 93c89b3e7622c7ddc7f2c2cc3b53a933c3115421 with unchanged repository ID 1095071218, exact coordinate, public visibility, non-archived state, default branch main, and deliberate final origins"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-rfc-2046-publisher institute package resolve --package-path /private/tmp/four-layer-swift-rfc-2046 --argument=--disable-sandbox against all direct dependencies at their exact live SHAs",
+          "HEAD remained 93c89b3e7622c7ddc7f2c2cc3b53a933c3115421 and the isolated worktree remained clean",
+          "Package.resolved was absent before resolution and present afterward only as ignored generated state with stable SHA-256 b91557d85ea771ec70a6be909c277d5c8b8eb8b7c867ac49e0e846a25c0e1d3e"
+        ]
+      },
+      "githubRepositoryID": 1095071218
     },
     {
       "current": "swift-ietf/swift-rfc-2183",
