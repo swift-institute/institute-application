@@ -4546,6 +4546,15 @@
     "wave": "tranche0+wave1",
     "changes": "PR #11 (cross-module Codable + SLI visibility) squash-merged by coordinator at exact verified head; squash tree b9d1382d identical to lane-verified PR head 5be879fb \u2014 green verification applies bit-for-bit",
     "bookedAt": "2026-08-27T17:52:57Z"
+   },
+   {
+    "repo": "swift-atoms/swift-storage",
+    "headSHA": "62802e2d4e647b8a47531ce5f0744da49e13fcfd",
+    "build": "green",
+    "test": "green",
+    "wave": "tranche0",
+    "changes": "PR #13 squash-merged by coordinator at exact verified head 4aff8736; squash tree 21e4c050 identical \u2014 lane-verified green applies bit-for-bit. Core SLI-product deps removed (Affine dropped entirely); storage-owned slot arithmetic (Index+Storage, Store.Span, UnsafePointer+Slot).",
+    "bookedAt": "2026-08-27T17:53:57Z"
    }
   ]
  }
