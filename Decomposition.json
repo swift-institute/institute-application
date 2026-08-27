@@ -5439,6 +5439,15 @@
     "wave": "wave6i",
     "changes": "Migrated removed Index count, equality, position, and offset assumptions to current Cardinal, Ordinal, Tagged, and Index APIs; restored public import visibility and the exact core/AFI/TestSupport product shape. Foundation only in AFI. Fresh build green; 37 tests green; local Embedded proof blocked upstream.",
     "bookedAt": "2026-08-27T20:06:00Z"
+   },
+   {
+    "repo": "swift-atoms/swift-fixed",
+    "headSHA": "620ee3b4b67ee1a83238d3e1ec2a363a681e8080",
+    "build": "green",
+    "test": "green",
+    "wave": "wave6j",
+    "changes": "Rewired removed Buffer/Store products to current Buffer, Storage, and Index APIs; restored the generic Fixed front door and ledger-backed fullness invariant; repaired module/type shadowing and tests. Exact core/AFI/TestSupport products; Foundation only in AFI. Fresh build green; 4 tests green; local Embedded proof blocked upstream.",
+    "bookedAt": "2026-08-27T20:07:42Z"
    }
   ]
  }
