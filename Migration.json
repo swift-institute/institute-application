@@ -12590,8 +12590,13 @@
       "observedHead": "f9ce2c26e373ec614e014f8525e6d74f31830dae",
       "observedRemote": "https://github.com/swift-incits/swift-incits-4-1986.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit b540c6b0e2a5b7429c060b660b797b6e63d6287d from expected parent f9ce2c26e373ec614e014f8525e6d74f31830dae",
+          "isolated worktree /private/tmp/four-layer-swift-incits-4-1986",
+          "mapped all four dependency URLs and the ASCII, ASCII Standard Library Integration, Binary, Parser, and Standard Library Extensions product/module references to their live molecule identities while preserving the standards-owned INCITS package identity",
+          "deterministic audit verified the clean direct-child 18-path, 36-file-preserving mechanical transformation, exact live dependency products, zero stale primitive identities, unchanged active one-hop workflow and public payload, and Package.resolved absence; canonical repository remains swift-incits/swift-incits-4-1986 with stable GitHub repository ID 1098791132"
+        ]
       },
       "publication": {
         "status": "pending",
