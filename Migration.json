@@ -30546,11 +30546,14 @@
           "deliberately set both origins to the canonical final URL and coordinator reverified live main 20d76221be6e12cb90112ce3886389fe73810982 with unchanged repository ID 1121371229, exact coordinate, public visibility, non-archived state, and default branch main"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "publication is durably booked before the sole package-resolution gate"
+          "publication was durably booked before the sole package-resolution gate",
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-time-standard-root institute package resolve --package-path /private/tmp/four-layer-swift-time-standard-root/swift-time-standard --argument=--disable-sandbox against all five exact live direct dependencies and their canonical transitive graph",
+          "coordinator reverified exact live main 20d76221be6e12cb90112ce3886389fe73810982 with unchanged GitHub repository ID 1121371229, public visibility, non-archived state, and default branch main",
+          "HEAD remained 20d76221be6e12cb90112ce3886389fe73810982, both origins remained the canonical final URL, and the isolated worktree remained clean; Package.resolved was absent before resolution and present afterward only as ignored generated state with stable SHA-256 8002b66a78f176ecfc1f1dc72b64e4e9fce9ad956b545e02e681430081a46e66"
         ]
       },
       "githubRepositoryID": 1121371229
