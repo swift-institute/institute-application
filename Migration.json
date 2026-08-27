@@ -8256,23 +8256,32 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-compositions/swift-svg",
       "futureLayer": "compositions",
-      "observedHead": "47710d4f267df1480f1c879b6f964181669e8420",
-      "observedRemote": "https://github.com/swift-foundations/swift-svg.git",
+      "observedHead": "60dc9704babb249f51ae61be6fc26d0e1567a84a",
+      "observedRemote": "https://github.com/swift-compositions/swift-svg.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared exact direct-child cutover commit 60dc9704babb249f51ae61be6fc26d0e1567a84a from expected base 47710d4f267df1480f1c879b6f964181669e8420 in clean isolated worktree /private/tmp/swift-svg",
+          "mechanical four-layer cutover changed fifteen tracked paths with 24 insertions and 24 deletions across svg-render, test-application, and Dimension dependency/package/product/module identities, README, and metadata while preserving legitimate Test_Snapshot_Primitives and public semantics",
+          "all three live dependency identities/products plus residual identity, active Actions-reference, public-payload, credential, diff, attribution, and Package.resolved preservation checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "repository ID 1064960692 was verified before and after cutover at exact canonical coordinate swift-compositions/swift-svg with unchanged public visibility, non-archived and enabled state, default branch main, and enabled Actions",
+          "the first local push invocation contained an unbraced shell refspec and made no remote mutation; the corrected explicit refspec published exact prepared commit 60dc9704babb249f51ae61be6fc26d0e1567a84a as an ordinary fast-forward from 47710d4f267df1480f1c879b6f964181669e8420 through the authenticated administrative ruleset bypass, with no force push or history rewrite",
+          "coordinator independently reverified exact live main 60dc9704babb249f51ae61be6fc26d0e1567a84a, repository ID 1064960692, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is complete and Package.resolved remained absent twice before and after publication; the repository is queued behind swift-compositions/swift-test-application validation and the serialized Institute package-resolution slot"
+        ]
+      },
+      "githubRepositoryID": 1064960692
     },
     {
       "current": "swift-foundations/swift-svg-render",
