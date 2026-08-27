@@ -27846,19 +27846,27 @@
       "observedHead": "1aa214326ab64bbcf55bcd8570a3b911a5de90e5",
       "observedRemote": "https://github.com/swift-primitives/swift-test.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit 6180114c3f2a96767a2a95012f8dc49762bd70d6 from expected parent 1aa214326ab64bbcf55bcd8570a3b911a5de90e5 in isolated worktree /private/tmp/four-layer-swift-test",
+          "deterministic full-tree equivalence audit verified all 85 tracked files, 78 path moves, 87 diff records with 185 insertions/185 deletions, alignment of the stale manifest identity swift-test-primitives to unchanged repository/package identity swift-test, all owned product/target/module/import/path/DocC/README mappings, nine exact future dependency URLs/products/modules, metadata molecules, preserved five legitimate semantic primitive prose occurrences, zero removed-identity residuals, public payload, active Actions, human commit identity, clean checkout, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified canonical coordinate swift-molecules/swift-test at expected main 1aa214326ab64bbcf55bcd8570a3b911a5de90e5 with GitHub repository ID 1132374017, public visibility, non-archived state, and default branch main; no repository rename was required",
+          "set fetch and push origins to https://github.com/swift-molecules/swift-test.git and fast-forward published exact prepared commit 6180114c3f2a96767a2a95012f8dc49762bd70d6 without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main 6180114c3f2a96767a2a95012f8dc49762bd70d6 with unchanged repository ID 1132374017, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-test-publisher institute package resolve --package-path /private/tmp/four-layer-swift-test --argument=--disable-sandbox against all nine exact live declared dependencies and transitive graph",
+          "post-resolution verification found exact HEAD 6180114c3f2a96767a2a95012f8dc49762bd70d6, a clean isolated checkout, and Package.resolved absent both before and after resolution with absence checked twice; the source checkout's pre-existing ignored Package.resolved remained untouched at SHA-256 385d8681c929c2751d99c18ba0dcf8d91aaa6c4a8c29f6988a75ca8491d26320"
+        ]
       }
     },
     {
