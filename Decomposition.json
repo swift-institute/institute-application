@@ -4516,6 +4516,52 @@
     "recordedAt": "2026-08-27T22:46:59Z",
     "resumedAt": "2026-08-27T22:54:18Z",
     "resolvedAt": "2026-08-27T23:05:49Z"
+   },
+   {
+    "repo": "swift-molecules/swift-growth-affine",
+    "currentHeadSHA": "a082b914afcec7feaa56c04192576cd439041a03",
+    "blockedBy": "swift-atoms/swift-growth",
+    "blockingHeadSHA": "29cca3af4e962d6a6a9fd9174b0a94295ff0394a",
+    "evidence": "Growth Affine's genuine factor policy cannot compile because Growth.Policy's only closure initializer is package-scoped, while the removed Index<Element>.Count and old typed Affine multiplication no longer exist. The seam can migrate its arithmetic to Cardinal, but needs a narrow public Growth policy-construction surface rather than duplicating the atom's policy type.",
+    "resumeWhen": "Add and converge the narrowest safe public Growth policy factory/initializer, amend the Growth atom ledger head, then resume the preserved Growth Affine checkout and require fresh build/test before booking.",
+    "resolvedByHeadSHA": "564002f099e11952811f727b90b581f221093453",
+    "resumedPackageHeadSHA": "8478eb12e6680c8deb1e65b0857e6198c99821f3",
+    "status": "resolved-and-booked",
+    "recordedAt": "2026-08-27T23:48:52Z",
+    "resumedAt": "2026-08-27T23:53:05Z",
+    "resolvedAt": "2026-08-27T23:57:19Z"
+   },
+   {
+    "repo": "swift-molecules/swift-growth-memory",
+    "currentHeadSHA": "830513e862b53b31f17a4eb4e7b5c3b5a5f855b1",
+    "blockedBy": "swift-atoms/swift-growth",
+    "blockingHeadSHA": "29cca3af4e962d6a6a9fd9174b0a94295ff0394a",
+    "evidence": "Growth Memory's genuine paged policy rounds Cardinal capacity through Memory.Alignment.alignUp, but external construction fails because Growth.Policy's only closure initializer is package-scoped. The preserved consumer diff already canonicalizes Growth/Memory and migrates removed Index.Count usage to Cardinal.",
+    "resumeWhen": "After the shared Growth atom policy-construction repair converges, resume this preserved checkout and require fresh build/test before booking.",
+    "resolvedByHeadSHA": "564002f099e11952811f727b90b581f221093453",
+    "status": "blocking-dependency-converged-resumption-in-progress",
+    "recordedAt": "2026-08-27T23:50:09Z",
+    "resumedAt": "2026-08-27T23:53:05Z"
+   },
+   {
+    "repo": "swift-molecules/swift-memory-allocation",
+    "currentHeadSHA": "e7e377301958af7e049c7cc2d7f37844baf431af",
+    "blockedBy": "swift-molecules/swift-bit-pack",
+    "blockingHeadSHA": "359bd4b5c1ca1427430bb4779a00e2cfbaa1bfbf",
+    "evidence": "Memory Allocation's genuine allocator/arena/pool seam is blocked during fresh resolution by the lower chain Memory Allocation -> Bit Vector (957691a2b187ddb2a2e679824d79aa47df131143) -> Bit Pack -> Bit Index. Live Bit Index at dcf0ea3a3a99b22e6e2ef564791ee95d887aab45 is an absorbed, manifest-less tombstone whose ownership moved to the Bit atom; Bit Pack and Bit Vector still request the retired package. Canonical Memory Allocation edits are preserved uncommitted.",
+    "resumeWhen": "Converge Bit Pack against the Bit atom, then Bit Vector, then resume the preserved Memory Allocation checkout and require fresh build/test before booking.",
+    "status": "dependency-convergence-required",
+    "recordedAt": "2026-08-27T23:57:19Z"
+   },
+   {
+    "repo": "swift-molecules/swift-memory-small",
+    "currentHeadSHA": "280ccbd9b9ad4c0fc7328b73aba7b059aaf227e0",
+    "blockedBy": "swift-molecules/swift-memory-allocation",
+    "blockingHeadSHA": "e7e377301958af7e049c7cc2d7f37844baf431af",
+    "evidence": "Memory Small is a genuine small-inline memory seam, but its lower allocation stack is unconverged: Memory Allocation and Memory Inline still request removed split Memory products, while the former Memory Heap repository is now a manifest-less tombstone because Heap was absorbed into the Memory atom. The consumer checkout is clean and no speculative edits were made.",
+    "resumeWhen": "Converge Memory Allocation, then Memory Inline against the Memory atom, remove the obsolete Heap repository dependency from Memory Small, and resume fresh build/test before booking.",
+    "status": "dependency-convergence-required",
+    "recordedAt": "2026-08-27T23:53:05Z"
    }
   ],
   "pendingAdjudications": [
@@ -4657,6 +4703,19 @@
     "requiredAction": "Delete the manifest, duplicate reexport source, and empty tests, and replace the README with an explicit tombstone. This destructive edit requires principal approval before execution.",
     "status": "principal-approval-required",
     "recordedAt": "2026-08-27T23:14:02Z"
+   },
+   {
+    "repo": "swift-molecules/swift-memory-span",
+    "currentHeadSHA": "2e09d78149d86c32c849ed897d04211f4d8b0461",
+    "proposedDisposition": "relocate-to-span-standard-library-integration-or-correct-owner",
+    "atoms": {
+     "swift-atoms/swift-memory": "5c9bcf3d7e25f30668a9cb299647e9d49c519a6c",
+     "swift-atoms/swift-span": "2788b8bb2a0312ab29fe503c47e3dbb79f5223bb"
+    },
+    "evidence": "The package's sole source only imports the retired Span_Protocol module and declares Swift.Array: Span.Protocol; it never imports or references Memory, whose manifest edge is unused. This is Swift.Array x Span standard-library integration, not a Memory x Span seam, and booking it here would preserve false ownership.",
+    "requiredAction": "Choose whether to move the conformance into Span Standard Library Integration or a newly named correct owner, then remove/tombstone the misnamed Memory Span package. Relocation/deletion is destructive and requires principal approval before execution.",
+    "status": "principal-approval-required",
+    "recordedAt": "2026-08-27T23:48:05Z"
    }
   ],
   "packages": [
@@ -5646,12 +5705,13 @@
    },
    {
     "repo": "swift-atoms/swift-growth",
-    "headSHA": "29cca3af4e962d6a6a9fd9174b0a94295ff0394a",
+    "headSHA": "564002f099e11952811f727b90b581f221093453",
     "build": "green",
     "test": "green",
-    "wave": "wave6g",
-    "changes": "Migrated the removed Index.Count surface to canonical Cardinal, restored the exact core/AFI/TestSupport product shape, and corrected atom documentation. Foundation only in AFI. Fresh build green; 2 tests green; local Embedded proof blocked upstream in Cardinal.",
-    "bookedAt": "2026-08-27T19:52:50Z"
+    "wave": "wave7y",
+    "changes": "Added the narrow named Growth.Policy.custom(capacity:) factory required by genuine cross-package growth policies while keeping the raw closure initializer package-scoped. Fresh build green; 3 tests across 4 suites green.",
+    "bookedAt": "2026-08-27T23:53:28Z",
+    "priorHeadSHA": "29cca3af4e962d6a6a9fd9174b0a94295ff0394a"
    },
    {
     "repo": "swift-atoms/swift-cyclic",
@@ -6633,6 +6693,42 @@
     "wave": "wave7x",
     "changes": "Canonicalized Memory and current Cardinal/Tagged/Ordinal/Property ownership, removed exact atom-owned Memory.Address/Error/Region duplicates and obsolete Address.Offset/Affine helpers, migrated Index.Count and Property.Property to Cardinal and Property<Tag, Base>, and retained genuine tagged count/address raw-pointer/buffer adapters plus Property-backed initialization/copy with focused tests. Fresh build green; 5 tests green and warning-free.",
     "bookedAt": "2026-08-27T23:45:03Z"
+   },
+   {
+    "repo": "swift-molecules/swift-memory-affine",
+    "headSHA": "52493fb59982a4a81531413fad9c9493df164ffb",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7y",
+    "changes": "Canonicalized Memory to its atom owner and retained the genuine typed Affine.Discrete.Ratio<From, Memory>.stride derived from MemoryLayout for allocation seams, adding direct test products, focused API/ownership documentation, and normal plus padded-layout contracts. Fresh build green; 2 tests green.",
+    "bookedAt": "2026-08-27T23:47:05Z"
+   },
+   {
+    "repo": "swift-molecules/swift-input-collection",
+    "headSHA": "550481b4631dd68eb88402a493ae9baab98a4991",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7y",
+    "changes": "Canonicalized Input and current atom/seam dependencies, migrated typed positions to Tagged+Ordinal with current Int count/offset APIs, repaired Iterator type shadowing via scalar/chunk iteration, restored explicit Swift.Hashable plus Hash.Protocol conformances, and added checked removeFirst overloads resolving the Input.Protocol/Swift.Collection ambiguity with refreshed traversal/slicing coverage. Fresh build green; 20 tests across 6 suites green.",
+    "bookedAt": "2026-08-27T23:47:59Z"
+   },
+   {
+    "repo": "swift-molecules/swift-vector-sequence",
+    "headSHA": "0838bfab61bb7e1a12928ba0f5db277d01118b18",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7y",
+    "changes": "Canonicalized Vector, Sequence, Iterator, and Cardinal dependencies; retained the genuine four forward/reversed Vector collection and iterator conformances; removed the exact count(where:) duplicate now owned by the Sequence atom with Cardinal; and refreshed focused tests and ownership documentation. Fresh build green; 4 tests across 1 suite green.",
+    "bookedAt": "2026-08-27T23:54:56Z"
+   },
+   {
+    "repo": "swift-molecules/swift-growth-affine",
+    "headSHA": "8478eb12e6680c8deb1e65b0857e6198c99821f3",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7y",
+    "changes": "Canonicalized Growth to its atom owner, removed obsolete Index ownership, and migrated factor policies to Growth.Policy.custom(capacity:) with current Cardinal arithmetic while preserving the nonnegative precondition and floor-at-one semantics; refreshed focused docs and scale/zero-floor tests. Fresh exact-head build green; 3 tests across 1 suite green.",
+    "bookedAt": "2026-08-27T23:57:15Z"
    }
   ]
  }
