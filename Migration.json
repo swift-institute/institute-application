@@ -24756,8 +24756,13 @@
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "initial package-resolution invocation was blocked before dependency resolution by the local network sandbox with Could not resolve host github.com; the identical approved Institute coordinator invocation was resumed with network access and exited 0",
+          "package resolution passed with CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-queue-linked-root institute package resolve --package-path /private/tmp/four-layer-swift-queue-linked --argument=--disable-sandbox against live molecule dependencies",
+          "prepared HEAD remained 982b7376d39963f8f0ebe410a485741c67258bce and the isolated worktree remained clean",
+          "Package.resolved was absent before resolution and present afterward with stable SHA-256 16ab14d5b868171bebd15a3b9ea5a7425daaec54d1e23beb3c7d254f41ec93d6"
+        ]
       }
     },
     {
