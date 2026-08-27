@@ -1228,6 +1228,25 @@
    ],
    "notes": "Adjudication: Formatter is a native semantic domain (typed-throws formatting algebra: Formatter namespace enum, Formatter.Protocol, Formattable, Format struct) \u2014 atom. Collapsed strata targets Formatter Primitive, Formatter Protocol, Formattable, and Format into the single Formatter module via git mv; deleted all six intra-package umbrella exports.swift files (including the Formatter umbrella target and the Tests/Support re-export). Deleted the Formatter Test Support target and product; its only test consumer moved to the molecule with imports rewritten to Formatter/Either/Pair/Formatter_Pair. Seam out: \"Formatter Pair\" target (deps Either + Pair) became swift-molecules/swift-formatter-pair with product/target \"Formatter Pair\", depending on swift-molecules/swift-formatter plus swift-atoms/swift-either and swift-atoms/swift-pair (verified live at swift-atoms), branch main, no path deps. Atom now has exactly three products (Formatter, Formatter Standard Library Integration seed, Formatter Apple Foundation Integration seed \u2014 no stdlib-extension or Foundation-importing code existed, so both are seed files) and a stub \"Formatter Tests\" @Suite since the only pre-existing test file was seam-specific. Package dependencies kept: none. Residual red risk (structural pass, not built): in Formattable.swift the associatedtype named Formatter shadowed the namespace enum; the old module-qualified Formatter_Primitive.Formatter.`Protocol` constraint was rewritten to the module-selector form Formatter::Formatter.`Protocol` \u2014 if the toolchain rejects module selectors here this line needs attention in the build pass. Atom push bypassed the repo's PR/required-check rules per the direct-push authorization (remote noted the bypass). Both working trees verified clean.",
    "completedAt": "2026-08-27T12:54:39Z"
+  },
+  {
+   "package": "swift-interval",
+   "repositoryID": 1257334939,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-interval",
+   "to": "swift-atoms/swift-interval",
+   "shapeCommit": "7b486ca5a84f548899137f6bc0d210ec6a52efce",
+   "dependencies": [],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-interval-pair",
+     "repositoryID": 1348484016,
+     "commit": "1a11b94071c1189a21d5f44e73281f9453ffbf06",
+     "seam": "Value<Payload> typealiases pairing each Interval descriptor with a payload via the external Pair package (swift-atoms/swift-pair)"
+    }
+   ],
+   "notes": "Adjudication: Interval is a native semantic domain (descriptor vocabulary Interval.Bound/Boundary/Endpoint, three Z2 two-case enums) \u2014 clear atom. Reshape: collapsed Interval Primitive/Bound/Boundary/Endpoint strata into single Sources/Interval module via git mv; deleted all five intra-package exports.swift umbrellas and the trivial Interval Test Support re-export target (its import in the test file replaced by the existing @testable import Interval). Seam: the only external dependency was swift-pair, used solely for the three Value<Payload> typealiases; those moved to new molecule swift-interval-pair (product/target \"Interval Pair\", module Interval_Pair, deps Interval @ swift-molecules + Pair @ swift-atoms live coordinates, branch main) with a real round-trip test; the atom now has zero package dependencies. SLI: the three \"extension Interval.X: Codable {}\" blocks moved to \"Interval Standard Library Integration\" as Interval.Bound/Boundary/Endpoint+Codable.swift with manual string-encoding init(from:)/encode(to:) implementations (matching the swift-bit exemplar, since Codable synthesis is unavailable cross-module) plus exports.swift \"@_exported import Interval\" per exemplar; Sendable/Hashable/CaseIterable stay inline on the declarations. AFI: seed file with the three-line public imports (no Foundation code existed). Products exactly three; tests \"Interval Tests\" deps [\"Interval\"] (no SLI test files existed, so no SLI test target). Manifest idiom (tools 6.4, .v27 platforms, v6 language mode, ecosystem SwiftSetting loop) preserved verbatim. README Architecture table and Pair example updated to the new shape. No residual red references known in kept test files; nothing built or tested per brief. Both working trees verified clean; push to main used the authorized direct-push path (remote reported org-admin rule bypass, expected).",
+   "completedAt": "2026-08-27T12:54:46Z"
   }
  ],
  "successors": [],
