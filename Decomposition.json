@@ -3005,6 +3005,55 @@
    ],
    "notes": "Adjudication: Argument is an irreducible native domain (CLI argument vocabulary: names, arity, visibility, help, environment, flags/options/positionals/groups/subcommands, schema) \u2014 atom. Atom now has zero package dependencies. Notable: swift-parser was declared as a dependency of eight targets but never imported by any file \u2014 dropped entirely, no molecule created. Reshape: 11 strata targets collapsed into one Sources/Argument module; all 8 intra-package exports.swift umbrellas deleted; SLI and AFI targets created as seed files (no stdlib-extension or Foundation-importing code existed); products reduced to exactly Argument / Argument Standard Library Integration / Argument Apple Foundation Integration. Tests collapsed to one \"Argument Tests\" target (deps [\"Argument\"]); trivial re-export target \"Argument Test Support\" deleted, its @testable import rewritten to @testable import Argument in every kept test file; non-trivial support file Argument.Schema.Recording.swift moved into Argument Tests with an added import Argument. Seam test files moved to their molecules with imports rewritten (Argument_Primitive->Argument etc.). Molecule dependency coordinates verified live by repo-id redirect: swift-index/-byte/-text/-tagged/-finite/-diagnostic all resolve to swift-atoms; swift-argument referenced at swift-molecules; branch: \"main\" everywhere, no tags or path deps. Residual red references (expected, later pass): Sources/Argument/Argument.Option.swift and Tests/Argument Tests/Argument.Option.Tests.swift reference Argument.Environment.Variable.Name, which now lives in swift-argument-tagged; index-molecule Position tests rely on integer-literal initialization of Index (Index SLI conformance); tagged tests use .underlying and string literals from Tagged SLI. Push to main succeeded via authorized direct push (remote reported bypassed PR/status-check rules, per pre-release posture). All six working trees verified clean; molecule staging copies live only in the session scratchpad.",
    "completedAt": "2026-08-27T16:46:30Z"
+  },
+  {
+   "package": "swift-async",
+   "repositoryID": 1132373255,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-async",
+   "to": "swift-atoms/swift-async",
+   "shapeCommit": "3a3bfa83659194c6b42a979af4c54cc36fb5aecb",
+   "dependencies": [],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-async-waiter",
+     "repositoryID": 1348716907,
+     "commit": "55877f7297157b5fccc1ba9f33b0f6c308d8c2a3",
+     "seam": "Async Waiter queue machinery built on buffer/buffer-ring/column/memory/queue/storage/tagged collections"
+    },
+    {
+     "successor": "swift-molecules/swift-async-barrier",
+     "repositoryID": 1348716992,
+     "commit": "38976d69428b263b0bc6f5152724a12c85b6f8ea",
+     "seam": "Async Barrier, extracted transitively because it imports Async_Waiter (Async.Waiter.Flag); no direct external deps"
+    },
+    {
+     "successor": "swift-molecules/swift-async-bridge",
+     "repositoryID": 1348717084,
+     "commit": "2bfa88cff0e3b3f913da62990bd0e85e9b59296f",
+     "seam": "Async Bridge callback-to-async buffering built on buffer/buffer-ring/column/deque/memory/queue/storage"
+    },
+    {
+     "successor": "swift-molecules/swift-async-channel",
+     "repositoryID": 1348717174,
+     "commit": "993bf3ab254641a7eb8d6f2299fcb8f6d30f866a",
+     "seam": "Async Channel (bounded/unbounded) built on Async Waiter plus buffer/deque/ownership/pair/queue/index/storage collections"
+    },
+    {
+     "successor": "swift-molecules/swift-async-broadcast",
+     "repositoryID": 1348717255,
+     "commit": "89e90b429d19c01094627f4c258a53f6988bff2e",
+     "seam": "Async Broadcast built on dictionary/dictionary-ordered/hash/hash-table plus buffer-linear/buffer-ring/deque/queue/storage collections"
+    },
+    {
+     "successor": "swift-molecules/swift-async-semaphore",
+     "repositoryID": 1348717335,
+     "commit": "3803c3f6586bae4b1f1678e99041ad17d6e9c38c",
+     "seam": "Async Semaphore built on Async Waiter plus Either and Queue"
+    }
+   ],
+   "notes": "Adjudication: Async is a native semantic domain (structured-concurrency primitives: Async namespace, Callback, Cancellation, Continuation, Demand, Lifecycle, Precedence, Mutex, Promise, Publication, Completion) -> atom. Eleven dependency-free strata targets collapsed into the single Async module; all 18 external package dependencies eliminated from the atom (dependenciesKept empty). Five dependency-bearing targets plus one transitively-bound target extracted as subdomain-named molecules (single external D does not exist here; each seam target weaves a mesh of collection/memory packages, so molecules are named by the seam target, keeping product \"Async <D>\"/module Async_<D> per the X D pattern). Atom shape: products exactly Async / Async Standard Library Integration / Async Apple Foundation Integration; both integration targets are seed files (no stdlib-extension or Foundation-importing code existed); manifest idiom (tools 6.4, .v27, .v6, ecosystem SwiftSetting loop incl. RawLayout, needed by Async.Mutex @_rawLayout) copied verbatim. Async.Mutex retains a canImport(Kernel_Thread)-guarded @_exported import Kernel_Thread branch \u2014 conditional, no manifest dep, left as-is. Tests: atom keeps \"Async Tests\" (Async/Core/Callback/Cancellation/Demand/Publication files, Async_Test_Support imports rewritten to Async); trivial re-export target \"Async Test Support\" and undeclared \"Tests/Testing/Async Performance Tests\" dir deleted from atom, perf files distributed to channel (Benchmark/Bounded/Unbounded) and broadcast (Broadcast.swift) molecules; barrier has a stub @Suite. Import rewrites in molecules: Async_<merged-stratum> -> Async, exports.swift rewritten to `@_exported public import Async`, and dependency modules re-pointed at current live products: Buffer_Primitive->Buffer (swift-atoms/swift-buffer), Storage_Contiguous->Storage, Queue_Primitive->Queue, Ownership_Slot->Ownership (those atoms collapsed their strata; old product names no longer exist). Molecule manifests reference current live coordinates: swift-atoms for buffer/storage/hash/index/queue/deque/tagged/ownership/either/pair, swift-molecules for buffer-ring/buffer-linear/memory-allocation/memory-heap/dictionary/dictionary-ordered/hash-table/column. Residual red (expected, later pass): atom's kept test files still reference extracted domains (Async Tests.swift touches Async.Channel; Async.Core Tests.swift has Barrier/Semaphore/Waiter suites); molecule test files may still use helpers formerly re-exported from Buffer/Queue/Tagged Test Support products (not re-added); duplicate `import Async` lines with mixed access levels may remain in a few semaphore files; broadcast perf test references Benchmark.iterations now living in the channel molecule (its own local Benchmark suite absent). Atom push to swift-molecules/swift-async main was a direct push (authorized) that bypassed the repo's PR/CI branch rule per remote notice; no CI gate was disabled. No build/resolve/test was run per commission.",
+   "completedAt": "2026-08-27T16:46:40Z"
   }
  ],
  "successors": [],
