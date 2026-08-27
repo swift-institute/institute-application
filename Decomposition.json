@@ -5331,6 +5331,33 @@
     "wave": "wave6d",
     "changes": "Canonicalized atom metadata/documentation, aligned generic platform error wording, and marked raw-buffer test operations explicitly unsafe for strict memory safety. Dependency-free exact products preserved; Foundation only in AFI. Fresh build green; 15 tests green.",
     "bookedAt": "2026-08-27T19:31:16Z"
+   },
+   {
+    "repo": "swift-atoms/swift-slab",
+    "headSHA": "072668f6ca23fd193290ff92369d4c84a8f1e2bb",
+    "build": "green",
+    "test": "green",
+    "wave": "wave6e",
+    "changes": "Corrected stale sparse-store documentation to the live low-level ownership carrier and added move-only column ownership-transfer coverage. Dependency-free exact products preserved; Foundation only in AFI. Fresh build green; 3 tests green.",
+    "bookedAt": "2026-08-27T19:34:46Z"
+   },
+   {
+    "repo": "swift-atoms/swift-single",
+    "headSHA": "ffeba6990ec51bfa133181ae9652fe17f47a3c1e",
+    "build": "green",
+    "test": "green",
+    "wave": "wave6e",
+    "changes": "Canonicalized atom metadata/documentation while preserving the dependency-free move-only/non-escaping core and exact products. Foundation only in AFI. Fresh build green; 3 tests green.",
+    "bookedAt": "2026-08-27T19:34:46Z"
+   },
+   {
+    "repo": "swift-atoms/swift-dependency",
+    "headSHA": "d7e9c1848e1776396f95146ee92480d15e08506b",
+    "build": "green",
+    "test": "green",
+    "wave": "wave6e",
+    "changes": "Verified canonical Witness dependency, corrected atom documentation, made async-overload coverage genuinely suspend, and removed a warning. Exact products preserved; Foundation only in AFI. Fresh build green; 20 tests green. Embedded dynamic-cast restriction documented honestly.",
+    "bookedAt": "2026-08-27T19:34:46Z"
    }
   ]
  }
