@@ -2432,6 +2432,37 @@
    ],
    "notes": "Adjudication: Heap is a native semantic domain \u2014 it owns the min-heap invariant and sift-up/sift-down algorithm \u2014 so atom, not defer. Reshape: collapsed \"Heap Primitive\" into single Sources/Heap module (Heap.swift); deleted all three umbrella exports.swift files and the trivial \"Heap Test Support\" target (Tests/Support/exports.swift); rewrote imports to reshaped atom modules (Buffer_Protocol/Buffer_Primitive\u2192Buffer, Storage_*/Store_Protocol\u2192Storage). Created seed \"Heap Standard Library Integration\" (public import Heap) and \"Heap Apple Foundation Integration\" (three-line seed) \u2014 no stdlib- or Foundation-extending code existed. Products exactly the canonical three. Seam out: Heap.FrontDoor.swift and the concrete-column extension (init/push) moved to swift-heap-buffer-linear (product/target \"Heap Buffer Linear\", module Heap_Buffer_Linear); atom lost swift-buffer-linear, swift-memory-allocation, swift-memory-heap, swift-collection, swift-input, swift-sequence entirely. Dependency coordinates use current live orgs (buffer/comparison/index/storage now in swift-atoms; buffer-linear/memory-* still swift-molecules). Expected red (structural pass, noted, not fixed): (1) kept atom tests (Heap Tests.swift, Heap Differential Tests.swift) construct the concrete `Heap<Int>` front door now living in the molecule \u2014 residual references to the extracted seam; (2) molecule extension calls `siftUp`/`slot`, which are package-visibility in the atom, so cross-package access will not compile as-is; (3) molecule test imports Buffer_Test_Support (Seam.Ledger), a product the reshaped swift-atoms/swift-buffer no longer ships, so no manifest dep could be declared for it; (4) `Ordinal` in the atom is reachable only transitively via swift-index. Pushes to swift-molecules/swift-heap main bypassed the PR/ci-ok rule via authorized direct push (remote reported the bypass).",
    "completedAt": "2026-08-27T16:12:28Z"
+  },
+  {
+   "package": "swift-geometry",
+   "repositoryID": 1132373446,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-geometry",
+   "to": "swift-atoms/swift-geometry",
+   "shapeCommit": "55abccd9892670dbbf63dd149f36de2cd3b4a9d4",
+   "dependencies": [
+    "swift-atoms/swift-linear \u2014 Geometry types are defined over Linear.Vector in nearly every source file",
+    "swift-atoms/swift-affine \u2014 Affine points/spaces are the substrate of the domain (imported in 7 core files)",
+    "swift-molecules/swift-affine-geometry \u2014 Affine_Geometry is publicly imported by 12 of 15 core files; Geometry.Point et al. are built on it",
+    "swift-atoms/swift-dimension \u2014 Dimension indexing (N) is used pervasively in type definitions",
+    "swift-atoms/swift-numeric (product Real) \u2014 Real constraints power trig/measure operations across Arc, Ball, Bezier, Ellipse, Ngon, Path, Arithmetic"
+   ],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-geometry-pair",
+     "repositoryID": 1348550296,
+     "commit": "3f165cc822b4a00a2ac032f18962a63dd4dc4375",
+     "seam": "Curvature.Value typealias (Pair<Curvature, Payload>) \u2014 the only Pair use, moved to module Geometry_Pair"
+    },
+    {
+     "successor": "swift-molecules/swift-geometry-boundary",
+     "repositoryID": 1348550387,
+     "commit": "e63521cefdeabf1f20db2d43b144b1c51f7d2f6b",
+     "seam": "Geometry.Orthotope.corner(Boundary.Corner) extension \u2014 the only Boundary use, moved to module Geometry_Boundary"
+    }
+   ],
+   "notes": "Adjudication: Geometry is a native semantic domain (Line, Polygon, Ball, Bezier, Ellipse, Arc, Ngon, Orthotope, Path, Ray, Size, Insets, Depth, Curvature, Area are original content, not mere relation of other domains) \u2014 atom, but one that irreducibly sits on the linear/affine substrate, so 5 package dependencies remain. Reshape: deleted Sources/Geometry/exports.swift (umbrella @_exported of 6 modules) and the trivial re-export target \"Geometry Test Support\" (Tests/Support/exports.swift); its product removed; test-file `import Geometry_Test_Support` rewritten to `import Affine_Test_Support` (the other module it re-exported; tests already import Geometry). Seams: swift-pair and swift-boundary each had exactly one use site; both extracted to molecules (imports rewritten to `public import Geometry`) and the dependencies dropped from the atom. No file imports Foundation and no whole file is dedicated to stdlib conformances (Codable/Hashable/etc. are conditional conformances interleaved inside each core type file, left in place, matching file-granularity of the recipe), so \"Geometry Standard Library Integration\" and \"Geometry Apple Foundation Integration\" were created as seed files with exactly the prescribed contents; products are exactly the canonical three. Manifest keeps tools-version 6.4, .v27 platforms, swiftLanguageModes [.v6], and the verbatim trailing ecosystem SwiftSetting loop; kept dependency URLs updated to their current live orgs (linear/affine/dimension/numeric now swift-atoms). Expected residual red (structural pass only, per brief): \"Geometry Tests\" target deps are exactly [\"Geometry\"], but test files still import Affine_Test_Support, Dimension, Real, and @testable Linear/Affine/Geometry (@testable of dependency modules was pre-existing); Geometry module files that previously leaned on the umbrella for Boundary no longer need it (the one Boundary use was extracted). No seam-specific tests existed; both molecules carry stub @Suite test targets. Pushes to main used the authorized direct-push path (server noted bypassed branch-protection rules \u2014 expected org-admin bypass, no gate disabled). Local checkouts: /private/tmp/claude-501/-Users-coen-Developer-coenttb/20dff9a4-b817-42e7-bbc6-9081ab416a17/scratchpad/wave1/{swift-geometry,swift-geometry-pair,swift-geometry-boundary}, all clean and in sync with origin/main.",
+   "completedAt": "2026-08-27T16:12:35Z"
   }
  ],
  "successors": [],
