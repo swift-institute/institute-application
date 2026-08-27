@@ -1,250 +1,268 @@
 {
-  "version": 1,
-  "phase": "sealed-post-cutover-swift-molecules-decomposition",
-  "createdAt": "2026-08-27T11:05:32Z",
-  "architecture": {
-    "layers": [
-      {
-        "rank": 1,
-        "name": "atoms",
-        "organization": "swift-atoms"
-      },
-      {
-        "rank": 2,
-        "name": "molecules",
-        "organization": "swift-molecules"
-      },
-      {
-        "rank": 3,
-        "name": "standards",
-        "organization": "swift-standards"
-      },
-      {
-        "rank": 4,
-        "name": "compositions",
-        "organization": "swift-compositions"
-      }
-    ],
-    "dependencyLaw": "Every production edge points to a lower layer or to a strictly earlier same-layer tier, and the complete graph is acyclic.",
-    "ownershipLaw": "Every capability has exactly one semantic owner; package, product, target, module, file, test, resource, and declaration boundaries are chosen independently.",
-    "developerToolException": "Institute governance and developer tooling may reside in swift-institute when their semantic owner is the control plane rather than a reusable four-layer library."
+ "version": 1,
+ "phase": "sealed-post-cutover-swift-molecules-decomposition",
+ "createdAt": "2026-08-27T11:05:32Z",
+ "architecture": {
+  "layers": [
+   {
+    "rank": 1,
+    "name": "atoms",
+    "organization": "swift-atoms"
+   },
+   {
+    "rank": 2,
+    "name": "molecules",
+    "organization": "swift-molecules"
+   },
+   {
+    "rank": 3,
+    "name": "standards",
+    "organization": "swift-standards"
+   },
+   {
+    "rank": 4,
+    "name": "compositions",
+    "organization": "swift-compositions"
+   }
+  ],
+  "dependencyLaw": "Every production edge points to a lower layer or to a strictly earlier same-layer tier, and the complete graph is acyclic.",
+  "ownershipLaw": "Every capability has exactly one semantic owner; package, product, target, module, file, test, resource, and declaration boundaries are chosen independently.",
+  "developerToolException": "Institute governance and developer tooling may reside in swift-institute when their semantic owner is the control plane rather than a reusable four-layer library."
+ },
+ "phaseOneSeal": {
+  "controlRepository": "swift-institute/institute-application",
+  "branch": "migration/four-layer-cutover",
+  "commit": "fa0062dde16df3368ea0e2d666d298ef8b51459b",
+  "migrationBlob": "20cfb687d9ec5e7c6e47ea97f9d65897995aff41",
+  "migrationSHA256": "eaa772bd696d4ae6d4a05cbae6aaf2326a77b0f46488afd980470b7576e92628",
+  "repositoryCount": 468,
+  "publication": {
+   "passed": 468,
+   "status": "sealed"
   },
-  "phaseOneSeal": {
-    "controlRepository": "swift-institute/institute-application",
-    "branch": "migration/four-layer-cutover",
-    "commit": "fa0062dde16df3368ea0e2d666d298ef8b51459b",
-    "migrationBlob": "20cfb687d9ec5e7c6e47ea97f9d65897995aff41",
-    "migrationSHA256": "eaa772bd696d4ae6d4a05cbae6aaf2326a77b0f46488afd980470b7576e92628",
-    "repositoryCount": 468,
-    "publication": {
-      "passed": 468,
-      "status": "sealed"
+  "resolution": {
+   "observedPassed": 444,
+   "acceptedBlockerCount": 24,
+   "repositoryCountAccounted": 468,
+   "status": "sealed-with-principal-accepted-blockers",
+   "acceptedBlockers": [
+    {
+     "migrationIndex": 4,
+     "coordinate": "swift-compositions/swift-application-server"
     },
-    "resolution": {
-      "observedPassed": 444,
-      "acceptedBlockerCount": 24,
-      "repositoryCountAccounted": 468,
-      "status": "sealed-with-principal-accepted-blockers",
-      "acceptedBlockers": [
-        {
-          "migrationIndex": 4,
-          "coordinate": "swift-compositions/swift-application-server"
-        },
-        {
-          "migrationIndex": 9,
-          "coordinate": "swift-compositions/swift-authentication"
-        },
-        {
-          "migrationIndex": 30,
-          "coordinate": "swift-compositions/swift-email"
-        },
-        {
-          "migrationIndex": 31,
-          "coordinate": "swift-compositions/swift-email-html"
-        },
-        {
-          "migrationIndex": 36,
-          "coordinate": "swift-compositions/swift-epub-render"
-        },
-        {
-          "migrationIndex": 39,
-          "coordinate": "swift-compositions/swift-favicon"
-        },
-        {
-          "migrationIndex": 44,
-          "coordinate": "swift-compositions/swift-github"
-        },
-        {
-          "migrationIndex": 46,
-          "coordinate": "swift-compositions/swift-github-http"
-        },
-        {
-          "migrationIndex": 48,
-          "coordinate": "swift-compositions/swift-html-chart"
-        },
-        {
-          "migrationIndex": 49,
-          "coordinate": "swift-compositions/swift-html-fontawesome"
-        },
-        {
-          "migrationIndex": 51,
-          "coordinate": "swift-compositions/swift-html-prism"
-        },
-        {
-          "migrationIndex": 58,
-          "coordinate": "swift-compositions/swift-identities"
-        },
-        {
-          "migrationIndex": 59,
-          "coordinate": "swift-compositions/swift-identities-mailgun"
-        },
-        {
-          "migrationIndex": 60,
-          "coordinate": "swift-compositions/swift-identities-types"
-        },
-        {
-          "migrationIndex": 75,
-          "coordinate": "swift-compositions/swift-mailgun-http"
-        },
-        {
-          "migrationIndex": 88,
-          "coordinate": "swift-compositions/swift-pdf"
-        },
-        {
-          "migrationIndex": 102,
-          "coordinate": "swift-compositions/swift-server-vapor"
-        },
-        {
-          "migrationIndex": 109,
-          "coordinate": "swift-compositions/swift-sql"
-        },
-        {
-          "migrationIndex": 110,
-          "coordinate": "swift-compositions/swift-sql-migrations"
-        },
-        {
-          "migrationIndex": 111,
-          "coordinate": "swift-compositions/swift-sql-postgres-provider"
-        },
-        {
-          "migrationIndex": 114,
-          "coordinate": "swift-compositions/swift-stripe"
-        },
-        {
-          "migrationIndex": 115,
-          "coordinate": "swift-compositions/swift-stripe-http"
-        },
-        {
-          "migrationIndex": 142,
-          "coordinate": "swift-compositions/swift-uuids"
-        },
-        {
-          "migrationIndex": 143,
-          "coordinate": "swift-compositions/swift-webpage"
-        }
-      ],
-      "acceptanceEvidence": {
-        "taskID": "01a03e82-3f3e-7b31-9939-f36ba90e55f5",
-        "principalDecision": "On 2026-08-27 the principal explicitly accepted the remaining unrun package resolutions as assumed. The sealed Migration.json entries retain their original pending statuses and exact blocker records."
-      }
+    {
+     "migrationIndex": 9,
+     "coordinate": "swift-compositions/swift-authentication"
     },
-    "liveRepositoryVerification": {
-      "verifiedAt": "2026-08-27T11:05:32Z",
-      "scope": 468,
-      "fields": [
-        "numeric repository ID",
-        "canonical coordinate",
-        "default-branch head",
-        "visibility",
-        "archived state",
-        "disabled state",
-        "default branch"
-      ],
-      "mismatches": 0
+    {
+     "migrationIndex": 30,
+     "coordinate": "swift-compositions/swift-email"
     },
-    "archiveRestoration": {
-      "originallyArchivedCount": 1,
-      "restoredCount": 1,
-      "coordinate": "swift-compositions/swift-url-routing-authentication",
-      "status": "verified-live"
+    {
+     "migrationIndex": 31,
+     "coordinate": "swift-compositions/swift-email-html"
     },
-    "controlWorktree": {
-      "cleanAtSealVerification": true
+    {
+     "migrationIndex": 36,
+     "coordinate": "swift-compositions/swift-epub-render"
+    },
+    {
+     "migrationIndex": 39,
+     "coordinate": "swift-compositions/swift-favicon"
+    },
+    {
+     "migrationIndex": 44,
+     "coordinate": "swift-compositions/swift-github"
+    },
+    {
+     "migrationIndex": 46,
+     "coordinate": "swift-compositions/swift-github-http"
+    },
+    {
+     "migrationIndex": 48,
+     "coordinate": "swift-compositions/swift-html-chart"
+    },
+    {
+     "migrationIndex": 49,
+     "coordinate": "swift-compositions/swift-html-fontawesome"
+    },
+    {
+     "migrationIndex": 51,
+     "coordinate": "swift-compositions/swift-html-prism"
+    },
+    {
+     "migrationIndex": 58,
+     "coordinate": "swift-compositions/swift-identities"
+    },
+    {
+     "migrationIndex": 59,
+     "coordinate": "swift-compositions/swift-identities-mailgun"
+    },
+    {
+     "migrationIndex": 60,
+     "coordinate": "swift-compositions/swift-identities-types"
+    },
+    {
+     "migrationIndex": 75,
+     "coordinate": "swift-compositions/swift-mailgun-http"
+    },
+    {
+     "migrationIndex": 88,
+     "coordinate": "swift-compositions/swift-pdf"
+    },
+    {
+     "migrationIndex": 102,
+     "coordinate": "swift-compositions/swift-server-vapor"
+    },
+    {
+     "migrationIndex": 109,
+     "coordinate": "swift-compositions/swift-sql"
+    },
+    {
+     "migrationIndex": 110,
+     "coordinate": "swift-compositions/swift-sql-migrations"
+    },
+    {
+     "migrationIndex": 111,
+     "coordinate": "swift-compositions/swift-sql-postgres-provider"
+    },
+    {
+     "migrationIndex": 114,
+     "coordinate": "swift-compositions/swift-stripe"
+    },
+    {
+     "migrationIndex": 115,
+     "coordinate": "swift-compositions/swift-stripe-http"
+    },
+    {
+     "migrationIndex": 142,
+     "coordinate": "swift-compositions/swift-uuids"
+    },
+    {
+     "migrationIndex": 143,
+     "coordinate": "swift-compositions/swift-webpage"
     }
+   ],
+   "acceptanceEvidence": {
+    "taskID": "01a03e82-3f3e-7b31-9939-f36ba90e55f5",
+    "principalDecision": "On 2026-08-27 the principal explicitly accepted the remaining unrun package resolutions as assumed. The sealed Migration.json entries retain their original pending statuses and exact blocker records."
+   }
   },
-  "planningEvidence": {
-    "status": "semantic-evidence-only",
-    "supersededAssumptions": [
-      "The bundle inventories 464 repositories rather than the sealed 468-repository cutover population.",
-      "Its dependency graph has 478 planned nodes but only 133 edges derived from 21 sampled manifests; it is not a complete live graph.",
-      "Its direct swift-primitives-to-swift-atoms flag day was superseded by the completed staged cutover through swift-molecules.",
-      "Its target tiers, waves, administrative operations, worker packets, and fourteen planned successors are provisional and non-executable in Phase 2."
-    ],
-    "preservedPrinciples": [
-      "Placement follows semantic essence rather than current residence, size, dependency count, or naming suffix.",
-      "The original repository becomes the coherent primary successor and retains complete history; additional successors are additive.",
-      "Moved sources carry predecessor repository, path, blob, and commit provenance and are allocated exactly once with tests and resources.",
-      "Search the ecosystem for an existing owner before creating or moving a capability.",
-      "Use bounded package and consumer semantic verification rather than one aggregate ecosystem build or test.",
-      "Stop for principal direction only when no coherent successor can preserve an existing repository's semantics and identity."
-    ],
-    "majorHypothesesToReconcile": [
-      "Async",
-      "Parser",
-      "Argument and Command",
-      "Clock",
-      "CPU",
-      "Standard Library Extensions",
-      "Foundation Extensions",
-      "ASCII convergence",
-      "PDF convergence and authoring",
-      "standard/convergence collisions",
-      "root-versus-plural collisions"
-    ],
-    "artifactDigests": {
-      "architecture.md": "752cbd23bf0743386636cd2c8880032cf2c587ec257ef777ea065b2eda53a127",
-      "current-inventory.json": "93ecd5c3adff6977213aac89df1314bf3c1dce3b214a450cee245dfb323be7fa",
-      "migration-map.json": "8bb2810a3e4f6e73aa479178aa2bd1af4d6ca5e7d874d557a925898c77818660",
-      "splits.md": "9a68845e9b4d0f24b0df04df675055c5542ed3b7f1e52b19989c728a082261c2",
-      "dependency-dag.json": "228bb29a1aaf62d63820be7309052d06560c68e511d9050108afa118063b3fb7",
-      "transformation-spec.md": "f894dad1aa0964b3b3f633d129dcbff22ff2edacf612f1bf083cfb59ef091fb3",
-      "github-operations.json": "2b49edff042f92a5e2f8127def5b66f0c2e279f27ddf426683ad4d1af32bce3d",
-      "permissions-and-capabilities.md": "ad7bff5d8f66b2d660f5c7b2edb1dc2160616d3dc95c2604c8588619f0d3466a",
-      "flag-day-runbook.md": "3659f677422a29376203b7e98427084f9eae2c38ce2bceb773317b9964a0e7be",
-      "worker-packets.json": "7d6e9b400cd0019e44c60f722663a94d1592760b2cb249f6193cafcc6b86ac50",
-      "semantic-verification.md": "7d47257a2f3468e252ac4f7dcaddca14a9bc3a3ea3b9c9664de6bf691f9671b9",
-      "executor-commission.md": "5b3ce6712d9ba6155ae052874f9eac4054bbdc77fbfee8b481991a742fda1dc3",
-      "principal-decisions.md": "4164b5907fbe13acf303cbed9d07ed9e3252e8a5b28e71bcdffe5757a8a0946d"
-    }
+  "liveRepositoryVerification": {
+   "verifiedAt": "2026-08-27T11:05:32Z",
+   "scope": 468,
+   "fields": [
+    "numeric repository ID",
+    "canonical coordinate",
+    "default-branch head",
+    "visibility",
+    "archived state",
+    "disabled state",
+    "default branch"
+   ],
+   "mismatches": 0
   },
-  "inventory": {
-    "organization": "swift-molecules",
-    "status": "pending-live-recomputation",
-    "observedAt": null,
-    "repositoryCount": null,
-    "packageCount": null,
-    "repositories": []
+  "archiveRestoration": {
+   "originallyArchivedCount": 1,
+   "restoredCount": 1,
+   "coordinate": "swift-compositions/swift-url-routing-authentication",
+   "status": "verified-live"
   },
-  "graph": {
-    "status": "pending-live-recomputation",
-    "observedAt": null,
-    "nodes": [],
-    "edges": [],
-    "cycles": [],
-    "unresolvedDependencies": [],
-    "unresolvedImports": []
-  },
-  "queue": {
-    "status": "pending-live-recomputation",
-    "algorithm": "Deterministic topological order of the complete live production graph; dependency roots first, then stable numeric repository ID and canonical coordinate tie-breaks.",
-    "activePackage": null,
-    "entries": []
-  },
-  "packages": [],
-  "successors": [],
-  "consumerMigrations": [],
-  "provenance": [],
-  "validations": [],
-  "archiveTransitions": [],
-  "state": "inventory-pending"
+  "controlWorktree": {
+   "cleanAtSealVerification": true
+  }
+ },
+ "planningEvidence": {
+  "status": "semantic-evidence-only",
+  "supersededAssumptions": [
+   "The bundle inventories 464 repositories rather than the sealed 468-repository cutover population.",
+   "Its dependency graph has 478 planned nodes but only 133 edges derived from 21 sampled manifests; it is not a complete live graph.",
+   "Its direct swift-primitives-to-swift-atoms flag day was superseded by the completed staged cutover through swift-molecules.",
+   "Its target tiers, waves, administrative operations, worker packets, and fourteen planned successors are provisional and non-executable in Phase 2."
+  ],
+  "preservedPrinciples": [
+   "Placement follows semantic essence rather than current residence, size, dependency count, or naming suffix.",
+   "The original repository becomes the coherent primary successor and retains complete history; additional successors are additive.",
+   "Moved sources carry predecessor repository, path, blob, and commit provenance and are allocated exactly once with tests and resources.",
+   "Search the ecosystem for an existing owner before creating or moving a capability.",
+   "Use bounded package and consumer semantic verification rather than one aggregate ecosystem build or test.",
+   "Stop for principal direction only when no coherent successor can preserve an existing repository's semantics and identity."
+  ],
+  "majorHypothesesToReconcile": [
+   "Async",
+   "Parser",
+   "Argument and Command",
+   "Clock",
+   "CPU",
+   "Standard Library Extensions",
+   "Foundation Extensions",
+   "ASCII convergence",
+   "PDF convergence and authoring",
+   "standard/convergence collisions",
+   "root-versus-plural collisions"
+  ],
+  "artifactDigests": {
+   "architecture.md": "752cbd23bf0743386636cd2c8880032cf2c587ec257ef777ea065b2eda53a127",
+   "current-inventory.json": "93ecd5c3adff6977213aac89df1314bf3c1dce3b214a450cee245dfb323be7fa",
+   "migration-map.json": "8bb2810a3e4f6e73aa479178aa2bd1af4d6ca5e7d874d557a925898c77818660",
+   "splits.md": "9a68845e9b4d0f24b0df04df675055c5542ed3b7f1e52b19989c728a082261c2",
+   "dependency-dag.json": "228bb29a1aaf62d63820be7309052d06560c68e511d9050108afa118063b3fb7",
+   "transformation-spec.md": "f894dad1aa0964b3b3f633d129dcbff22ff2edacf612f1bf083cfb59ef091fb3",
+   "github-operations.json": "2b49edff042f92a5e2f8127def5b66f0c2e279f27ddf426683ad4d1af32bce3d",
+   "permissions-and-capabilities.md": "ad7bff5d8f66b2d660f5c7b2edb1dc2160616d3dc95c2604c8588619f0d3466a",
+   "flag-day-runbook.md": "3659f677422a29376203b7e98427084f9eae2c38ce2bceb773317b9964a0e7be",
+   "worker-packets.json": "7d6e9b400cd0019e44c60f722663a94d1592760b2cb249f6193cafcc6b86ac50",
+   "semantic-verification.md": "7d47257a2f3468e252ac4f7dcaddca14a9bc3a3ea3b9c9664de6bf691f9671b9",
+   "executor-commission.md": "5b3ce6712d9ba6155ae052874f9eac4054bbdc77fbfee8b481991a742fda1dc3",
+   "principal-decisions.md": "4164b5907fbe13acf303cbed9d07ed9e3252e8a5b28e71bcdffe5757a8a0946d"
+  }
+ },
+ "inventory": {
+  "organization": "swift-molecules",
+  "status": "pending-live-recomputation",
+  "observedAt": null,
+  "repositoryCount": null,
+  "packageCount": null,
+  "repositories": []
+ },
+ "graph": {
+  "status": "pending-live-recomputation",
+  "observedAt": null,
+  "nodes": [],
+  "edges": [],
+  "cycles": [],
+  "unresolvedDependencies": [],
+  "unresolvedImports": []
+ },
+ "queue": {
+  "status": "pending-live-recomputation",
+  "algorithm": "Deterministic topological order of the complete live production graph; dependency roots first, then stable numeric repository ID and canonical coordinate tie-breaks.",
+  "activePackage": null,
+  "entries": []
+ },
+ "packages": [
+  {
+   "package": "swift-empty",
+   "repositoryID": 1250663372,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-empty",
+   "to": "swift-atoms/swift-empty",
+   "shapeCommit": "7c4615b8bcabbd0c79d5c44824f8608be08e08d8",
+   "dependencies": [],
+   "splits": [],
+   "completedAt": "2026-08-27T11:47:18Z"
+  }
+ ],
+ "successors": [],
+ "consumerMigrations": [],
+ "provenance": [],
+ "validations": [],
+ "archiveTransitions": [],
+ "state": "decomposing",
+ "process": {
+  "ratified": "2026-08-27",
+  "mode": "lean bottom-up; structural correctness only (placement, splits, Package.swift); no compile/test gate; upstream-only view",
+  "atomShape": "single domain module X + products X, X Standard Library Integration (deps: X), X Apple Foundation Integration (deps: X + SLI; sole Foundation module); 3 products per atom",
+  "order": "fewest upstream dependencies first; swift-x -> swift-atoms after reduction; swift-x-y stay in swift-molecules; dependency-bearing seams split out as additive molecules"
+ }
 }
