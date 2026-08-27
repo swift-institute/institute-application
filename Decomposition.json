@@ -4457,6 +4457,16 @@
     "resumeWhen": "Converge swift-byte-parser and its parser-family closure, then resume the preserved checkout, rerun fresh build/test, push, and book only the verified green head.",
     "status": "dependency-convergence-required",
     "recordedAt": "2026-08-27T21:48:42Z"
+   },
+   {
+    "repo": "swift-molecules/swift-cpu-binary-serializer",
+    "currentHeadSHA": "7b15052ec55614d8d5a080f0f160099b89bfd2a0",
+    "blockedBy": "swift-molecules/swift-binary-serializer",
+    "blockingHeadSHA": "29b9a86729f88a3be4a63e9dd22311afe2872e19",
+    "evidence": "The CPU seam is genuine and its direct CPU/Binary coordinates were modernized locally, but fresh resolution fails in Binary Serializer because its test-support target still requests the removed Binary Test Support product and its manifest still uses swift-molecules/swift-binary, creating a conflicting identity with canonical swift-atoms/swift-binary.",
+    "resumeWhen": "Converge swift-binary-serializer, then resume the preserved checkout, rerun fresh build/test, push, and book only the verified green head.",
+    "status": "dependency-convergence-required",
+    "recordedAt": "2026-08-27T21:54:27Z"
    }
   ],
   "pendingAdjudications": [
@@ -5977,6 +5987,51 @@
     "wave": "wave7l",
     "changes": "Canonicalized Property, Ownership, and Tagged to their atom owners and retained the genuine typed and value-generic Property.Inout/Borrow accessor families, replacing removed split Ownership products with unified Ownership, repairing exact public/member imports, and documenting the cross-domain ownership. Fresh build green; 25 tests across 28 suites green and diagnostic-free.",
     "bookedAt": "2026-08-27T21:48:22Z"
+   },
+   {
+    "repo": "swift-molecules/swift-tagged-carrier",
+    "headSHA": "726a0be4f7c3a67e899aaa633b1d5140e05835a1",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7m",
+    "changes": "Canonicalized Tagged to its atom owner and retained the genuine Tagged-to-Carrier immediate-underlying conformance, documenting the production ownership and test-only collection-conformance boundary and proving Array, ContiguousArray, Dictionary, and Set support remains confined to test support. Fresh build green; 12 tests across 5 suites green.",
+    "bookedAt": "2026-08-27T21:49:44Z"
+   },
+   {
+    "repo": "swift-molecules/swift-property-carrier",
+    "headSHA": "51e59f8ebc122025b9171acf5331a0c1e342aacf",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7m",
+    "changes": "Canonicalized Property and Carrier to their atom owners and retained the genuine retroactive Property Carrier.Protocol conformance mapping Base to Underlying and phantom Tag to Domain, adding explicit retroactive ownership, narrow public imports, direct test products, and underlying/domain/generic/init coverage. Fresh build green; 4 tests green.",
+    "bookedAt": "2026-08-27T21:51:09Z"
+   },
+   {
+    "repo": "swift-molecules/swift-bit-hash",
+    "headSHA": "62ad1fba7f2dbaa1916860000da6670923602f8e",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7m",
+    "changes": "Canonicalized Bit and Hash to their atom owners and retained the genuine retroactive Bit Hash.Protocol conformance providing domain-typed Hash.Value beyond Bit's native Swift.Hashable, adding explicit retroactive ownership plus a typed-hash contract test and ownership documentation. Fresh build green; 1 test green.",
+    "bookedAt": "2026-08-27T21:54:14Z"
+   },
+   {
+    "repo": "swift-molecules/swift-clock-carrier",
+    "headSHA": "e314e6100f123c471818cc9ad7011664f1653349",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7m",
+    "changes": "Canonicalized Clock to its atom owner and retained the genuine Clock.Nanoseconds and Clock.Offset self-Carrier conformances, removing only the conflicting Carrier-constrained Tagged InstantProtocol bridge already owned more generally by Clock and its now-unused Tagged dependency, with focused self-carrier and canonical bridge composition proofs. Fresh build green; 3 tests green.",
+    "bookedAt": "2026-08-27T21:54:14Z"
+   },
+   {
+    "repo": "swift-molecules/swift-hash-tagged",
+    "headSHA": "94aef00b994cacf7784da5c7839f66c69ea776eb",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7m",
+    "changes": "Canonicalized Hash to its atom owner and retained the genuine conditional Tagged Hash.Protocol conformance, correcting misleading ordinary-Hashable coverage with a generic protocol proof returning typed Hash.Value and documenting the seam's ownership/install boundary. Fresh build green; 1 test green.",
+    "bookedAt": "2026-08-27T21:56:23Z"
    }
   ]
  }
