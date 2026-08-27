@@ -31736,10 +31736,13 @@
           "coordinator verified exact live main f14463d9fca7d4e2227f67dfd2b390ef75c7a08d twice with unchanged repository ID 1330539694, exact future coordinate, public visibility, non-archived state, default branch main, canonical fetch/push origins, exact ancestry, and a clean tracked checkout"
         ]
       },
-      "state": "published",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-byte-channel-root institute package resolve --package-path /private/tmp/four-layer-swift-byte-channel-root --argument=--disable-sandbox against exact live Async 76b2165eb69722bc0721f3b7703314b15ba3c850, Buffer Linear 436fa2e8e1a309500d668abd6d0cc203bcba3628, Buffer 38b506198baee45cfe060d9fd716abd482bfb262, Byte 21d5194adee27b585f27e01c5c7669f74bb96710, Index ea265ffc2efe2c282e494f5e7309d0ea19f2b287, and their canonical transitive graph; no build, test, compilation, raw SwiftPM, dump-package, or manifest evaluation was invoked",
+          "Package.resolved was absent twice before resolution and present afterward only as ignored untracked generated state, never edited/deleted/staged/committed, with stable twice-observed SHA-256 2cc39cc7a048cfb5043af77e33794eb8ebb4a58fc83efccd8971eb09834c4e85; coordinator reverified exact live main f14463d9fca7d4e2227f67dfd2b390ef75c7a08d, stable repository ID 1330539694, public/non-archived state, and a clean tracked checkout"
+        ]
       },
       "githubRepositoryID": 1330539694
     }
