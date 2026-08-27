@@ -4265,20 +4265,31 @@
       "observedHead": "1d3c133cee3ac0c74e6321b85ef87e5731c57088",
       "observedRemote": "https://github.com/swift-foundations/swift-json-web-token.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit ed198f39000dbf9b41019bb07e37671bb668c012 from expected parent 1d3c133cee3ac0c74e6321b85ef87e5731c57088 in clean isolated worktree /private/tmp/four-layer-swift-json-web-token with subject Prepare JSON Web Token for the composition layer",
+          "audited all twenty-nine tracked paths and made the exact two-path, five-insertion/seven-deletion mechanical/documentation transformation: metadata topic foundations became compositions; README badge and installation owner moved to swift-compositions, the RFC link moved from its legacy redirect to swift-ietf, the public identities-types consumer link became canonical, and two stale archived downstream recommendations were removed after live API proof without exposing a private canonical destination",
+          "preserved the byte-for-byte external apple/swift-crypto dependency URL/identity/version range and Crypto product, exact RFC 7519 dependency/product, all JWT package/product/target/module/path/public semantics, and canonical active Actions with no split/refactor/new dependency; complete residual/public-payload/staging/direct-parent/human-identity/committed-tree checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled the completed organization cutover idempotently: exact future coordinate swift-compositions/swift-json-web-token was canonical with GitHub repository ID 1027566075, public visibility, non-archived state, default branch main, canonical clone URL, and exact live parent 1d3c133cee3ac0c74e6321b85ef87e5731c57088; the legacy owner route redirected and was not used as proof, and no repository rename was needed",
+          "JIT verified RFC 7519 at repository ID 1027558968 and exact live main 150398ea5c2b4013bd847a193844e2ea809efda2 with both referenced products, plus external apple/swift-crypto at repository ID 198488246 and exact live main 47d3869a7291f085c1fb9fb1e6d3b97a793f45c6 with Crypto product, then ordinary fast-forward published exact direct child ed198f39000dbf9b41019bb07e37671bb668c012 without force or history rewrite",
+          "coordinator independently verified exact live main ed198f39000dbf9b41019bb07e37671bb668c012 with unchanged repository ID 1027566075, exact future coordinate, public visibility, non-archived state, default branch main, canonical origins, exact direct-child ancestry, and a clean isolated checkout"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-json-web-token-publisher institute package resolve --package-path /private/tmp/four-layer-swift-json-web-token --argument=--disable-sandbox; RFC 7519 recovered from a nonblocking stale-cache warning by fetching exact live main 150398ea5c2b4013bd847a193844e2ea809efda2, while apple/swift-crypto resolved within its unchanged declared range at 4.5.1, and no build, test, compilation, raw SwiftPM, or manifest-only substitute was invoked",
+          "coordinator reverified exact live main ed198f39000dbf9b41019bb07e37671bb668c012 with GitHub repository ID 1027566075, public visibility, non-archived state, and default branch main",
+          "HEAD and both origins remained exact and canonical and the isolated checkout remained clean; Package.resolved was absent twice before resolution and present afterward only as ignored untracked generated state with stable twice-observed SHA-256 8077b1b8c507c059933af5b832e306b985bea19266bb3d69c2d82f07dc804389"
+        ]
+      },
+      "githubRepositoryID": 1027566075
     },
     {
       "current": "swift-foundations/swift-kernel",
