@@ -1357,6 +1357,33 @@
    ],
    "notes": "Adjudication: atom \u2014 Numeric (sign/ternary classification, rounding, integer division/gcd/shift/rotation/saturation, transcendentals, compensated arithmetic) is an irreducible native domain. Domain X = Numeric (from existing product names). Collapsed strata targets Numeric Core, Real, Numeric Relaxed, Integer, and the Numeric umbrella into one Sources/Numeric module; deleted all five Sources/*/exports.swift plus Tests/Support/exports.swift and the trivial \"Numeric Test Support\" re-export target. Kept the internal C target \"Numeric Shims\" (libm builtin wrappers) as a non-product dependency of Numeric \u2014 C code cannot merge into a Swift module and matches the ruled \"* Shims\" idiom; it was never a product so the three-product contract holds. Renames within the atom: Real/Numeric.Math.swift -> Numeric.Math.Shims.swift (filename collision with Core's Numeric.Math.swift); Integer/BinaryInteger+GCD.swift -> Numeric.Integer.GCD.swift (its content extends Numeric.Integer, not BinaryInteger). Top-level `protocol Transcendental` was nested inside `enum Numeric` and the module-qualified typealias `Numeric_Core.Transcendental` deleted \u2014 after the collapse the module and enum are both \"Numeric\", making the old qualification unresolvable; all call sites already spell Numeric.Transcendental. SLI target holds the ten stdlib-extension files (FloatingPoint+Rounding, SignedInteger+Division, BinaryInteger+Shift, FixedWidthInteger+{Rotation,Saturating,Optionator,Optionator.Assignment}, Comparable+Optionator.Range, Numeric.Transcendental+Conformances (Double/Float/Float16), Numeric.Math.Accessor (Double/Float/Float16 .math accessors)) plus a new Numeric.Codable.swift carrying the five Codable conformances extracted from Sign/Ternary/Rounding; each file got `public import Numeric`. AFI target is the three-line seed (no Foundation imports existed anywhere). Tests split: \"Numeric Tests\" (Relaxed, Augmented, GCD) deps [\"Numeric\"]; \"Numeric Standard Library Integration Tests\" (Division, Shift, Rotation, Optionator) deps [\"Numeric\", \"Numeric Standard Library Integration\"]. Dependencies dropped: swift-tagged entirely (its only use was an @_exported re-export of Tagged.Tagged in exports.swift \u2014 pure re-export, no code, nothing to extract); swift-pair extracted to the swift-numeric-pair molecule (deps at live coordinates swift-molecules/swift-numeric + swift-molecules/swift-pair, branch main). Atom keeps zero package dependencies. Residual red expected for the later pass: (1) SLI's Numeric.Transcendental+Conformances.swift and Numeric.Math.Accessor.swift call Numeric.Math.exp/sin/... which are `internal @usableFromInline` in the Numeric module (Numeric.Math.Shims.swift) \u2014 cross-module access needs those published (or package-scoped); (2) two `@testable import Numeric` in SLI tests are now redundant but harmless; (3) README.md still describes the old five-product layout; (4) Numeric.Integer is `typealias Integer = Int`, so its \"domain\" members are technically Int extensions \u2014 left in the atom by spelled intent. Push to main showed a bypassed branch-protection notice (direct push explicitly authorized); no PRs merged, no CI touched.",
    "completedAt": "2026-08-27T12:55:25Z"
+  },
+  {
+   "package": "swift-serializer",
+   "repositoryID": 1138063798,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-serializer",
+   "to": "swift-atoms/swift-serializer",
+   "shapeCommit": "ed30df2febb83665df37cd12a560ec90af9421a7",
+   "dependencies": [
+    "swift-atoms/swift-either"
+   ],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-serializer-tagged",
+     "repositoryID": 1348490266,
+     "commit": "5dbcddbcab6db1d32dd83b6b94dc7132f3bd4d6f",
+     "seam": "Tagged+Serializable.swift conformed swift-tagged's Tagged to Serializable; moved to product \"Serializer Tagged\" (module Serializer_Tagged), removing the swift-tagged dependency from the atom"
+    },
+    {
+     "successor": "swift-molecules/swift-serializer-byte",
+     "repositoryID": 1348490396,
+     "commit": "a7ac9235a552d27cd2df8e4fec2af5b250255fee",
+     "seam": "Serializer.Literal.swift (byte-literal serializer, Buffer.Element == Byte) plus its Serializer.Literal Tests moved to product \"Serializer Byte\" (module Serializer_Byte), removing the swift-byte dependency from the atom"
+    }
+   ],
+   "notes": "Adjudication: atom \u2014 Serializer is a native semantic domain (serializer protocol, builder, witness, and core combinators Map/Filter/Optional/Many/Sequence/Always/Fail/Lazy/Trace), matching the swift-bit/swift-byte exemplar shape. Reshape: collapsed 13 strata targets (Primitive, Witness, Core, Map, Filter, Optional, Many, Sequence, Literal-minus-seam, Always, Fail, Lazy, Trace) into one Sources/Serializer module of 25 files; deleted all 15 exports.swift umbrellas; merged 5 test targets into \"Tests/Serializer Tests\" (deps [\"Serializer\"]) with Serializer_* imports rewritten to Serializer. \"Serializer Standard Library Integration\" kept (deps exactly [\"Serializer\"]) holding Optional+Serializable.swift with Serializer_Optional qualifiers rewritten; \"Serializer Apple Foundation Integration\" created as the three-line seed (no Foundation imports existed). Products reduced from 16 to exactly the canonical three. Dependency kept: swift-either \u2014 Either is the sum-type failure algebra woven into public Failure typealiases of Serializer.Many, Many.Separated, Sequence.Two/Three, Filter, and Map.Throwing; there are no extensions or conformances of Either, so it is irreducible use by the domain, not an extractable integration seam (added missing `public import Either` to Filter and Sequence.Two/Three, which previously leaned on a deleted @_exported umbrella). Coordinates updated to swift-atoms/swift-either (live redirect). Deviation: two commits instead of one on the atom \u2014 ea288ea5 \"Adopt canonical atom shape\" plus follow-up ed30df2f \"Resolve module self-qualification in Serializable\" (the old Serializer_Primitive.Serializer.`Protocol` qualifier escaped associatedtype shadowing; replaced with a public typealias SerializerProtocol since force-push/history rewrite is forbidden). Residual red risk (unbuilt by mandate): Optional+Serializable.swift now conforms stdlib Optional using types from the Serializer product only; molecule packages reference swift-molecules/swift-serializer at branch main. No residual references to extracted Tagged/Literal domains remain in kept sources or tests (verified by grep). All three working trees verified clean; direct pushes to main used bot-bypass as authorized.",
+   "completedAt": "2026-08-27T12:55:33Z"
   }
  ],
  "successors": [],
