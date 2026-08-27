@@ -8615,23 +8615,33 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-compositions/swift-test-application",
       "futureLayer": "compositions",
-      "observedHead": "ce9a788bc0ab588ebc401dca7cea81388cbfb3d3",
-      "observedRemote": "https://github.com/swift-foundations/swift-test-application.git",
+      "observedHead": "f1e3780aa1ec03d6f0df42ab028275ad51ff6d16",
+      "observedRemote": "https://github.com/swift-compositions/swift-test-application.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared exact direct-child cutover commit f1e3780aa1ec03d6f0df42ab028275ad51ff6d16 from expected base ce9a788bc0ab588ebc401dca7cea81388cbfb3d3 in clean isolated worktree /private/tmp/test-application-composition-lane/swift-test-application",
+          "mechanical four-layer cutover changed 17 tracked paths with 39 insertions and 40 deletions across metadata, all eleven manifest URLs, repository links, and mapped package/product/module/import identities while preserving all Testing-owned and Tests product identities; a mechanically duplicated Loader import was collapsed",
+          "all live dependency products, including the four products from newly published swift-compositions/swift-tests, plus residual identity, active Actions-reference, public-payload, machine-path, credential, diff, attribution, and Package.resolved preservation checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "repository ID 1132378487 was verified before and after cutover at exact canonical coordinate swift-compositions/swift-test-application with unchanged public visibility, non-archived state, and default branch main",
+          "the SCC dependency swift-compositions/swift-tests was first verified live at booked commit 95f12b95ec50217d813308a2326c1b205210f017 with the required Tests products",
+          "published exact prepared commit f1e3780aa1ec03d6f0df42ab028275ad51ff6d16 as an ordinary fast-forward from ce9a788bc0ab588ebc401dca7cea81388cbfb3d3 to refs/heads/main through the authenticated administrative ruleset bypass; no force push or history rewrite occurred",
+          "coordinator independently reverified exact live main f1e3780aa1ec03d6f0df42ab028275ad51ff6d16, repository ID 1132378487, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is complete and Package.resolved remained absent twice before and after publication; the repository is queued behind swift-compositions/swift-tests root resolution in the serialized Institute package-resolution slot"
+        ]
+      },
+      "githubRepositoryID": 1132378487
     },
     {
       "current": "swift-foundations/swift-testing-performance",
