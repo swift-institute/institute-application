@@ -5931,20 +5931,29 @@
       "observedHead": "3346c68d49923514242057285c22d83bd149e28c",
       "observedRemote": "https://github.com/swift-foundations/swift-parsers.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit 8201e9bb4fe9ee93d88fc7e90ad37da466845370 from exact parent 3346c68d49923514242057285c22d83bd149e28c in clean disjoint worktree /private/tmp/swift-parsers with subject Prepare Parsers for composition",
+          "audited all 33 tracked paths and made the exact five-path, 31-insertion/31-deletion mechanical cutover across Package.swift, exports, diagnostic source, README, and metadata, mapping two composition and six molecule dependencies plus plural product/module/source references while preserving Parser-owned identities, legitimate singular Parser.Protocol semantics, public API, and canonical Actions; residual, payload, staged-tree, ancestry, and identity checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-parsers as canonical with stable GitHub repository ID 1144636007, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; no repository rename was needed",
+          "JIT verified all eight dependency coordinates, exact heads, required products, and ledger gates, then ordinary fast-forward published exact direct child 8201e9bb4fe9ee93d88fc7e90ad37da466845370 without force or history rewrite",
+          "coordinator independently verified exact live main 8201e9bb4fe9ee93d88fc7e90ad37da466845370 with unchanged repository ID 1144636007, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, stable Package.resolved evidence, and clean tracked checkout"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-parsers-publisher institute package resolve --package-path /private/tmp/swift-parsers --argument=--disable-sandbox against the exact live graph; no build, test, compilation, raw SwiftPM, dump-package, or standalone manifest-evaluation command was invoked",
+          "Package.resolved was absent twice before resolution and present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 e3048ac8611fa6b3d86092afa75bb182a5e481bbe2b648388d690d540456dc4e; final live identity/SHA and clean tracked checkout were reverified"
+        ]
+      },
+      "githubRepositoryID": 1144636007
     },
     {
       "current": "swift-foundations/swift-password",
