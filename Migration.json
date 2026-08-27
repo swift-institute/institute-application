@@ -15165,19 +15165,27 @@
       "observedHead": "39993b7cf73c798b396bb4c153a93db07b930951",
       "observedRemote": "https://github.com/swift-primitives/swift-binary-coder-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit 59cc07b7e42e31adda380539bd314bcd65d30963 from expected parent 39993b7cf73c798b396bb4c153a93db07b930951 in isolated worktree /private/tmp/four-layer-swift-binary-coder",
+          "independently reconstructed full-tree audit verified all 20 tracked files byte-for-byte, Binary Coder, Binary Integer Coder, and test directory moves, the exact seven canonical live dependency owner/product/package/module/import mappings, README and metadata cutover, preserved legitimate singular Ownership Shared Primitive and Buffer Linear Primitive identities, zero mapped residuals, public payload, canonical one-hop Actions, human commit identity, clean checkout, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified old coordinate swift-molecules/swift-binary-coder-primitives at expected main 39993b7cf73c798b396bb4c153a93db07b930951 with GitHub repository ID 1237543711, public visibility, non-archived state, default branch main, and absent exact destination, then renamed it to swift-molecules/swift-binary-coder",
+          "verified the same GitHub repository ID 1237543711 at swift-molecules/swift-binary-coder, set fetch and push origins to the final HTTPS URL, and fast-forward published exact prepared commit 59cc07b7e42e31adda380539bd314bcd65d30963 without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified exact canonical coordinate swift-molecules/swift-binary-coder at live main 59cc07b7e42e31adda380539bd314bcd65d30963 with unchanged repository ID 1237543711, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-binary-coder-publisher institute package resolve --package-path /private/tmp/four-layer-swift-binary-coder --argument=--disable-sandbox against all seven exact live declared dependencies and transitive graph",
+          "post-resolution verification found exact HEAD 59cc07b7e42e31adda380539bd314bcd65d30963, a clean checkout, and untouched generated Package.resolved with stable SHA-256 61fbc111f8ddcbedea9d33f3f85fe77781e3562a891af3ba056e6f5cbc3bea02"
+        ]
       }
     },
     {
