@@ -901,19 +901,27 @@
       "observedHead": "f104269a9978be67b74b6b72e8e83cf942fb0013",
       "observedRemote": "https://github.com/swift-foundations/swift-clocks.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit f39530dfabd36abc483d4380eef0dc2a29e4febb from expected parent f104269a9978be67b74b6b72e8e83cf942fb0013 in isolated worktree /private/tmp/four-layer-swift-clocks",
+          "deterministic audit verified the exact three-path, 8-file-preserving foundation-to-composition mapping of the Kernel dependency URL, README installation URL, and metadata topic; live Kernel Clock product, zero mapped residuals, public payload, active Actions reference, human commit identity, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified canonical post-organization coordinate swift-compositions/swift-clocks at expected main f104269a9978be67b74b6b72e8e83cf942fb0013 with GitHub repository ID 1171393428, public visibility, non-archived state, and default branch main; no repository rename was required",
+          "set fetch and push origins to https://github.com/swift-compositions/swift-clocks.git and fast-forward published exact prepared commit f39530dfabd36abc483d4380eef0dc2a29e4febb without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main f39530dfabd36abc483d4380eef0dc2a29e4febb with unchanged repository ID 1171393428, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-clocks-publisher institute package resolve --package-path /private/tmp/four-layer-swift-clocks --argument=--disable-sandbox against live Kernel at its exact booked head and transitive graph",
+          "post-resolution verification found exact HEAD f39530dfabd36abc483d4380eef0dc2a29e4febb, a clean checkout, and untouched generated Package.resolved with stable SHA-256 3c8f1bb255a1cbcce0636e065212d37878be52b97cf4c21055abeb9413bf98fb"
+        ]
       }
     },
     {
