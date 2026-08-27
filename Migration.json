@@ -7883,23 +7883,32 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-compositions/swift-sql-postgres-provider",
       "futureLayer": "compositions",
-      "observedHead": "2985884de83dfc8e71b1931b83ab8699332d7a1e",
-      "observedRemote": "https://github.com/swift-foundations/swift-sql-postgres-provider.git",
+      "observedHead": "ec90e7272c052ff9be40b986d0d74e9e6b35e670",
+      "observedRemote": "https://github.com/swift-compositions/swift-sql-postgres-provider.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared exact direct-child cutover commit ec90e7272c052ff9be40b986d0d74e9e6b35e670 from expected base 2985884de83dfc8e71b1931b83ab8699332d7a1e in clean isolated worktree /private/tmp/sql-postgres-provider-composition-lane/swift-sql-postgres-provider",
+          "mechanical four-layer cutover changed four tracked paths with ten insertions and ten deletions across metadata, README, all eight manifest URLs, Byte identities, and the Time package identity while preserving legitimate singular Time Primitive and external Apple/POSIX/ISO product identities",
+          "all eight live dependency refs/products plus residual identity, active Actions-reference, public-payload, machine-path, diff, attribution, and Package.resolved preservation checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "repository ID 1311125544 was verified before and after cutover at exact canonical coordinate swift-compositions/swift-sql-postgres-provider with unchanged public visibility, non-archived state, default branch main, and active CI",
+          "published exact prepared commit ec90e7272c052ff9be40b986d0d74e9e6b35e670 as an ordinary fast-forward from 2985884de83dfc8e71b1931b83ab8699332d7a1e to refs/heads/main through the authenticated administrative ruleset bypass; no force push or history rewrite occurred",
+          "coordinator independently reverified exact live main ec90e7272c052ff9be40b986d0d74e9e6b35e670, repository ID 1311125544, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is complete and Package.resolved remained absent twice before and after publication; the repository is queued behind swift-compositions/swift-sql validation and the serialized Institute package-resolution slot"
+        ]
+      },
+      "githubRepositoryID": 1311125544
     },
     {
       "current": "swift-foundations/swift-stores",
