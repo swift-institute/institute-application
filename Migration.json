@@ -13574,19 +13574,27 @@
       "observedHead": "473c9825c635fb53aaa84a3862e979f2cf1a1c0a",
       "observedRemote": "https://github.com/swift-iso/swift-iso-8601.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared human-authored direct-child commit aefb8ab2461bc56705c7d02fd51a232ad9ce6843 from expected parent 473c9825c635fb53aaa84a3862e979f2cf1a1c0a in isolated worktree /private/tmp/four-layer-swift-iso-8601 with subject Migrate ISO 8601 dependencies",
+          "fresh-base whole-tree reconstruction matched all 74 tracked files byte-for-byte and verified the exact 28-path 114-insertion/114-deletion mechanical mapping of five molecule dependency URLs/packages/products/modules plus the Standard Library Extensions owner; preserved its exact package/product identity and every ISO 8601 identity/semantic surface, introduced no split/new dependency, found zero mapped residuals, and verified unchanged README/metadata/CI, public payload, canonical one-hop Actions, explicit staging, and clean checkout"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified unchanged canonical coordinate swift-iso/swift-iso-8601 at expected main 473c9825c635fb53aaa84a3862e979f2cf1a1c0a with GitHub repository ID 1099361201, public visibility, non-archived state, and default branch main; all six future dependencies were exact live ledger-passed commits and no repository rename was required",
+          "fast-forward published exact prepared commit aefb8ab2461bc56705c7d02fd51a232ad9ce6843 without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main aefb8ab2461bc56705c7d02fd51a232ad9ce6843 with unchanged repository ID 1099361201, exact coordinate swift-iso/swift-iso-8601, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-iso-8601-publisher institute package resolve --package-path /private/tmp/four-layer-swift-iso-8601 --argument=--disable-sandbox against the exact live declared dependencies and transitive graph",
+          "Package.resolved was absent before resolution and generated ignored/untracked afterward without editing or committing; two post-resolution checks produced stable SHA-256 92dba37a87f2dcbae26a02f180a53c5889576b4b4bc15c4f092e49e981f861f1, exact HEAD aefb8ab2461bc56705c7d02fd51a232ad9ce6843, and a clean checkout"
+        ]
       }
     },
     {
