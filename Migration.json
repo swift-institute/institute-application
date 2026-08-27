@@ -30477,20 +30477,29 @@
       "observedHead": "ce281c5a312d73bf2e60b5506216f31dedff49c1",
       "observedRemote": "https://github.com/swift-standards/swift-spm-standard.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared human-authored direct-child commit a4236c428d69fc4d07ce30a89dde97c943aa2520 from expected parent ce281c5a312d73bf2e60b5506216f31dedff49c1 in clean isolated worktree /private/tmp/four-layer-swift-spm-standard-root with subject Prepare SPM Standard for the four-layer cutover",
+          "audited all eighty-eight tracked paths and made the exact sixteen-path, seventy-two-insertion/seventy-two-deletion mechanical transformation: Package.swift plus eight source/export files mapped Byte, Package, and Version repositories/packages/products/modules and standard-library integration modules to suffix-free molecules while preserving both URI Standard products",
+          "seven test-fixture files were kept semantically paired while canonicalizing swift-package, swift-parser, swift-graph, swift-json, swift-package-manager, and swift-package-graph coordinates and replacing embedded personal machine paths with stable /fixture paths; direct products and canonical composition fixture coordinates were independently verified, public SPM Standard semantics and active Actions were preserved, and residual/public-payload/staging/direct-parent/human-identity checks passed with Package.resolved absent"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified unchanged coordinate swift-standards/swift-spm-standard, GitHub repository ID 1238556616, public visibility, non-archived state, default branch main, canonical clone URL, and exact expected live parent ce281c5a312d73bf2e60b5506216f31dedff49c1 immediately before publication; no rename was required",
+          "reverified exact live Byte 21d5194adee27b585f27e01c5c7669f74bb96710, Package 9af0058c3b83a8395fbe4018e0f15913c82f5e1b, Version d7eaad9a7abb10b9eb8f0ebee0835bd1af46ac98, and URI Standard 2079289b10ce4052f1de55f82d894c21717f1f13 heads, then fast-forward published exact direct child a4236c428d69fc4d07ce30a89dde97c943aa2520 to main through the configured administrator ruleset bypass without force or history rewrite",
+          "coordinator verified exact live main a4236c428d69fc4d07ce30a89dde97c943aa2520 with unchanged repository ID 1238556616, exact coordinate, public visibility, non-archived state, default branch main, canonical origins, and a clean isolated worktree"
         ]
       },
       "state": "ready",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is durably booked before the sole package-resolution gate"
+        ]
+      },
+      "githubRepositoryID": 1238556616
     },
     {
       "current": "swift-standards/swift-standards-linter-rules",
