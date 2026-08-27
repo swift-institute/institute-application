@@ -1059,19 +1059,27 @@
       "observedHead": "49f660585cbfe0a1e4f8206ee857c0c08aa69d5a",
       "observedRemote": "https://github.com/swift-foundations/swift-console.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit b1ff0c898912a1fc55359ff2883deb2c31d2aaa1 from expected parent 49f660585cbfe0a1e4f8206ee857c0c08aa69d5a in isolated worktree /private/tmp/four-layer-swift-console",
+          "deterministic audit verified the exact five-path mechanical mapping of Kernel, Terminal Input, Standard Library Extensions, Byte, README owner, and metadata; all five dependencies/products/modules at live booked heads, preserved legitimate singular Byte Primitive identity, zero mapped residuals, public payload, active CI, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified canonical post-organization coordinate swift-compositions/swift-console at expected main 49f660585cbfe0a1e4f8206ee857c0c08aa69d5a with GitHub repository ID 1132378191, public visibility, non-archived state, and default branch main; no repository rename was required",
+          "set fetch and push origins to https://github.com/swift-compositions/swift-console.git and fast-forward published exact prepared commit b1ff0c898912a1fc55359ff2883deb2c31d2aaa1 without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main b1ff0c898912a1fc55359ff2883deb2c31d2aaa1 with unchanged repository ID 1132378191, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-console-publisher institute package resolve --package-path /private/tmp/four-layer-swift-console --argument=--disable-sandbox against all five exact live future dependencies and transitive graph",
+          "post-resolution verification found exact HEAD b1ff0c898912a1fc55359ff2883deb2c31d2aaa1, a clean checkout, and untouched generated Package.resolved with stable SHA-256 1d90ea486e5c4ef0fcb77e137e274d3334f6b773582ff1a7c98530414655d6f2"
+        ]
       }
     },
     {
