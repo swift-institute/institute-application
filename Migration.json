@@ -31079,20 +31079,29 @@
       "observedHead": "b0e4adfc7f6c5383016296b9539f54a13f2e92d1",
       "observedRemote": "https://github.com/swift-w3c/swift-w3c-epub.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared human-authored direct-child commit e166a33c39ef7b154ba526a6d20635003e4ea1aa from expected parent b0e4adfc7f6c5383016296b9539f54a13f2e92d1 in clean isolated worktree /private/tmp/four-layer-swift-w3c-epub-root with subject Prepare W3C EPUB for the four-layer cutover; the separate .lanes/fleet-green worktree was observed and never touched",
+          "audited all forty-six tracked paths and made the exact one-path, one-insertion/one-deletion mechanical transformation: Package.swift moved the identity-preserving swift-standard-library-extensions dependency owner from swift-primitives to swift-molecules while preserving its package, product, and module identity",
+          "all W3C EPUB package/product/target/path/public semantics, BCP 47, CSS Standard, HTML Standard, sources, tests, README, metadata, and active Actions were preserved; all four dependencies were ledger-passed and exact-live with products verified, and residual/public-payload/staging/direct-parent/human-identity checks passed with Package.resolved absent"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified unchanged coordinate swift-w3c/swift-w3c-epub, GitHub repository ID 1118185914, public visibility, non-archived state, default branch main, canonical clone URL, and exact expected live parent b0e4adfc7f6c5383016296b9539f54a13f2e92d1 immediately before publication; no rename was required",
+          "reverified exact live BCP 47 a2a8fa696d6eb66e78c9eac3daa4e41a69095818, Standard Library Extensions 28a204ee2c6cf1476cd99dc95b81b59868681ebf, CSS Standard 440ccfc24424c56aadccc7d35e0d6b7c50e9944c, and HTML Standard 255c367d3b8357bd681dedb56668a15123801139 heads, then fast-forward published exact direct child e166a33c39ef7b154ba526a6d20635003e4ea1aa to main through the configured administrator ruleset bypass without force or history rewrite",
+          "coordinator verified exact live main e166a33c39ef7b154ba526a6d20635003e4ea1aa with unchanged repository ID 1118185914, exact coordinate, public visibility, non-archived state, default branch main, canonical origins, and a clean isolated worktree"
         ]
       },
       "state": "ready",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is durably booked before the sole package-resolution gate"
+        ]
+      },
+      "githubRepositoryID": 1118185914
     },
     {
       "current": "swift-w3c/swift-w3c-png",
