@@ -1479,6 +1479,52 @@
    ],
    "notes": "Adjudication: atom \u2014 Format is a native semantic domain (Format.Case, Format.Case.Insensitive, Format.Decimal, Format.Numeric formatting descriptors), not tooling or a relater of other domains. Reshape: collapsed Format Primitive/Case/Decimal/Numeric into single Sources/Format module via git mv; deleted all five exports.swift umbrellas and the trivial Format Test Support re-export target. Format.Case.swift edited in the atom to drop the Formatter.Protocol conformance and import (struct, Input/Output/Failure typealiases, format(_:), and static styles stay native); the conformance moved to the formatter molecule as a retroactive empty extension. Format.Decimal.swift's `import Standard_Library_Extensions` was unused (only stdlib symbols) \u2014 deleted, so swift-standard-library-extensions dropped without a seam. StringProtocol+Format.swift split: concrete Format.Case overload + String.caseInsensitive stay in SLI; the generic Formatter overload moved to the molecule as StringProtocol+Formatter.swift. SLI keeps BinaryFloatingPoint+Format.Decimal.swift (import rewritten Format_Decimal\u2192Format). No Foundation-importing code existed, so Apple Foundation Integration is the three-line seed. Products exactly three; zero package dependencies kept. Tests: Format Tests keeps the (empty) Format Tests.swift; FloatingPoint+Format and Format.Case.Insensitive tests moved to new Format Standard Library Integration Tests (they exercise SLI formatted/caseInsensitive sugar) with imports updated; Format.Case Tests.swift moved to the formatter molecule (its @testable import Format replaced with plain imports \u2014 one custom-transform test previously relied only on public API, so no @testable loss expected). Molecule deps pinned at live coordinates: swift-molecules/swift-format plus swift-atoms/swift-formatter and swift-atoms/swift-tagged (both verified transferred; molecules org names redirect). Residual red risk (structural pass only, nothing built): in the molecule's Format.Case tests, `\"...\".formatted(.upper)` now resolves through either SLI's concrete overload or the generic Formatter overload \u2014 the generic path may fail leading-dot inference; the Substring suite depends on the generic overload with implicit member syntax and is the likeliest red spot. Direct push to swift-molecules/swift-format main used the pre-authorized bypass (remote noted bypassed PR/status-check rules).",
    "completedAt": "2026-08-27T13:03:02Z"
+  },
+  {
+   "package": "swift-affine",
+   "repositoryID": 1132373178,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-affine",
+   "to": "swift-atoms/swift-affine",
+   "shapeCommit": "1018d30e21d6a566ea6ed1d865bbd3f1aafe45c4",
+   "dependencies": [
+    "swift-atoms/swift-cardinal (Cardinal is constitutive: Affine.Discrete.Region stores a Cardinal count and Vector magnitude is Cardinal)",
+    "swift-atoms/swift-ordinal (Ordinal is constitutive: Region stores an Ordinal start; Ordinal+Affine init and Vector/Ordinal core semantics)"
+   ],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-affine-carrier",
+     "repositoryID": 1348498835,
+     "commit": "aa7a645c161a0dcc7e695871f507b3f0f2d55a69",
+     "seam": "Carrier-protocol conformance and Ordinal/Vector arithmetic operators expressed over Carrier.Protocol, plus the four Carrier-importing stdlib-extension files (Collection/Int/UnsafeRawPointer/UnsafeMutableRawPointer + Affine.Discrete.Vector)"
+    },
+    {
+     "successor": "swift-molecules/swift-affine-tagged",
+     "repositoryID": 1348498925,
+     "commit": "596d19d1dd85873218d793ab56cf8d087f4ba0b1",
+     "seam": "Tagged integration: Tagged+Affine, Ratio+Tagged, Tagged-typed Ratio quotientAndRemainder (former Affine Quotient), and three Tagged.Ordinal.Offset pointer/collection stdlib files; depends on swift-affine-carrier for the arithmetic operators"
+    },
+    {
+     "successor": "swift-molecules/swift-affine-equation",
+     "repositoryID": 1348499001,
+     "commit": "d54463ffc947eb877a209684cb25da2a9c517ee3",
+     "seam": "Equation.Protocol conformances for Affine.Discrete.Vector and .Region"
+    },
+    {
+     "successor": "swift-molecules/swift-affine-hash",
+     "repositoryID": 1348499070,
+     "commit": "ae948e5e7889c6f7993771feaaa8a3f1cba58aab",
+     "seam": "Hash.Protocol conformances for Affine.Discrete.Vector and .Region"
+    },
+    {
+     "successor": "swift-molecules/swift-affine-comparison",
+     "repositoryID": 1348499167,
+     "commit": "6499be3bcd3c4e41f8ebbb4d2b1007f4c6afe3ad",
+     "seam": "Comparison.Protocol conformance for Affine.Discrete.Vector"
+    }
+   ],
+   "notes": "Adjudication: atom. Affine is a native irreducible domain (discrete affine geometry: Vector displacement, Region, Ratio, point/translation algebra) with existing X=Affine product spellings. Reshaped 14 strata targets to canonical 3-product shape. Merged into the single Affine module: Affine Primitive, Affine Discrete, Affine Composition, and Affine Ordinal (Ordinal+Affine.swift kept in the atom rather than seamed out because Ordinal is an irreducibly kept dependency of the Discrete core, so extraction could not remove the dependency). All intra-package exports.swift umbrellas deleted; Affine_* imports rewritten to Affine in every moved file; files that had relied on umbrella re-exports (4 Carrier SLI files, 3 Tagged.Ordinal SLI files) were given explicit imports. SLI target now holds only Affine.Discrete.Vector+AtomicRepresentable.swift (Synchronization behind SYNCHRONIZATION_AVAILABLE; trailing SwiftSetting loop kept verbatim including that define, in atom and molecules). Apple Foundation Integration created as the 3-line seed (no Foundation imports existed anywhere). Deleted trivial re-export target Affine Test Support (Tests/Support) and its imports. Tests routed: Ordinal Arithmetic tests to swift-affine-carrier; Tagged Offset and Vector+Standard Library Integration tests to swift-affine-tagged (SLI test mixes Int(bitPattern:Vector) from carrier with Tagged offsets, so it lives where both deps are present); equation/hash/comparison molecules got stub @Suite files. Residual red expected: (1) kept test file \"Affine.Discrete+Ratio Tests.swift\" still references Tagged (quotientAndRemainder now in swift-affine-tagged) \u2014 11 occurrences; (2) kept tests previously received Cardinal/Ordinal Test Support helpers via the deleted support target and the test target deps are now exactly [\"Affine\"]; (3) molecule test/source code may need Tagged SLI for Int(bitPattern:) on Tagged \u2014 swift-affine-tagged declares the Tagged Standard Library Integration product for this. Five empty test files (Affine, +Format, Point, Point+Real, Transform, Translation, Operator Integration) kept as-is. Dep coordinates verified live: all seven former deps are at swift-atoms; molecules reference swift-molecules/swift-affine and swift-molecules/swift-affine-carrier, atoms at swift-atoms, all branch: \"main\". Direct push to main used remote rule bypass (authorized). All six working trees verified clean.",
+   "completedAt": "2026-08-27T13:03:12Z"
   }
  ],
  "successors": [],
