@@ -4767,7 +4767,7 @@
         {
           "manifest": "Package.swift",
           "current": "swift-primitives/swift-loader-primitives",
-          "future": "swift-molecules/swift-loader"
+          "future": "swift-molecules/swift-loader-vocabulary"
         }
       ],
       "dirtyPaths": [],
@@ -4782,28 +4782,31 @@
       "observedHead": "170a86b44c89b04e091fa0431f002b08ae809726",
       "observedRemote": "https://github.com/swift-foundations/swift-loader.git",
       "preparation": {
-        "status": "passed",
+        "status": "pending",
         "records": [
           "prepared direct-child commit d10aee65c547edbbf5b22653384fdb2e559440fc from expected parent 170a86b44c89b04e091fa0431f002b08ae809726 in isolated worktree /private/tmp/four-layer-swift-loader",
-          "deterministic audit verified the exact six-path, 15-file-preserving mechanical foundation-to-composition and Loader Primitives-to-Loader mapping, four live dependency coordinates and products, zero stale layer/plural/coenttb residuals, public payload, active Actions reference, human commit identity, and Package.resolved absence; no semantic change or split"
+          "deterministic audit verified the exact six-path, 15-file-preserving mechanical foundation-to-composition and Loader Primitives-to-Loader mapping, four live dependency coordinates and products, zero stale layer/plural/coenttb residuals, public payload, active Actions reference, human commit identity, and Package.resolved absence; no semantic change or split",
+          "follow-up preparation is required from published commit d10aee65c547edbbf5b22653384fdb2e559440fc to depend on package identity swift-loader-vocabulary and import module Loader_Vocabulary while preserving the composition package, product, target, and public module identity Loader"
         ]
       },
       "publication": {
-        "status": "passed",
+        "status": "pending",
         "records": [
           "verified canonical post-organization coordinate swift-compositions/swift-loader at expected main 170a86b44c89b04e091fa0431f002b08ae809726 with GitHub repository ID 1132378317, public visibility, non-archived state, and default branch main; no repository rename was required",
           "set fetch and push origins to https://github.com/swift-compositions/swift-loader.git and fast-forward published exact prepared commit d10aee65c547edbbf5b22653384fdb2e559440fc without force or history rewrite using the configured administrator ruleset bypass",
-          "coordinator reverified live main d10aee65c547edbbf5b22653384fdb2e559440fc with unchanged repository ID 1132378317, public visibility, non-archived state, and default branch main"
+          "coordinator reverified live main d10aee65c547edbbf5b22653384fdb2e559440fc with unchanged repository ID 1132378317, public visibility, non-archived state, and default branch main",
+          "the successful flag-day publication remains live and preserved, but final publication is pending the Loader vocabulary dependency follow-up"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "blocked",
+        "status": "pending",
         "records": [
           "package resolution exited 1 using the sole approved command CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-loader-publisher institute package resolve --package-path /private/tmp/four-layer-swift-loader --argument=--disable-sandbox after resolving the four live direct dependencies and transitive graph",
           "exact blocker: error: unable to override package 'swift-loader' because its identity 'swift-loader' doesn't match override's identity (directory name) 'four-layer-swift-loader'; error: fatalError",
           "the flag-day mapping causes the composition root package swift-loader and its molecule dependency formerly named swift-loader-primitives to share SwiftPM identity swift-loader; resolving this requires a distinct public package identity or semantic ownership consolidation and was not improvised during mechanical cutover",
-          "successful publication is preserved; post-resolution HEAD remains d10aee65c547edbbf5b22653384fdb2e559440fc with a clean checkout and untouched generated Package.resolved stable at SHA-256 acbbb9195b4f6f5329e96a6c1227dabc77b43aaee7c46d0c217c9388ef67765e"
+          "successful publication is preserved; post-resolution HEAD remains d10aee65c547edbbf5b22653384fdb2e559440fc with a clean checkout and untouched generated Package.resolved stable at SHA-256 acbbb9195b4f6f5329e96a6c1227dabc77b43aaee7c46d0c217c9388ef67765e",
+          "the exact blocker has an active repair through distinct lower package identity swift-loader-vocabulary; validation is pending follow-up publication and package resolution rather than remaining classified as blocked"
         ]
       }
     },
@@ -6142,7 +6145,7 @@
         {
           "manifest": "Package.swift",
           "current": "swift-primitives/swift-loader-primitives",
-          "future": "swift-molecules/swift-loader"
+          "future": "swift-molecules/swift-loader-vocabulary"
         },
         {
           "manifest": "Package.swift",
@@ -6162,29 +6165,32 @@
       "observedHead": "37d556abf84986b1bb85820894e3feece5ac285e",
       "observedRemote": "https://github.com/swift-foundations/swift-posix.git",
       "preparation": {
-        "status": "passed",
+        "status": "pending",
         "records": [
           "prepared commit b2944133f9bb2a7750b7fd88cdb39b8b0070f77a from expected parent 37d556abf84986b1bb85820894e3feece5ac285e",
           "isolated worktree /private/tmp/four-layer-swift-posix",
-          "deterministic audit verified the clean direct-child 24-path, 146-file-preserving transformation, all eight exact live dependency coordinates and products including Glob and ISO 9945, foundation-to-composition and primitive-to-molecule mappings, zero mapped residuals, public payload, active Actions refs, and Package.resolved absence"
+          "deterministic audit verified the clean direct-child 24-path, 146-file-preserving transformation, all eight exact live dependency coordinates and products including Glob and ISO 9945, foundation-to-composition and primitive-to-molecule mappings, zero mapped residuals, public payload, active Actions refs, and Package.resolved absence",
+          "follow-up preparation is required from published commit b2944133f9bb2a7750b7fd88cdb39b8b0070f77a to replace the lower Loader package identity and module with swift-loader-vocabulary and Loader_Vocabulary"
         ]
       },
       "publication": {
-        "status": "passed",
+        "status": "pending",
         "records": [
           "verified the already-final post-organization-cutover coordinate swift-compositions/swift-posix at expected main 37d556abf84986b1bb85820894e3feece5ac285e with GitHub repository ID 1129970266, public visibility, non-archived state, and default branch main; no repository rename was required",
           "updated isolated worktree fetch and push origins to https://github.com/swift-compositions/swift-posix.git",
           "fast-forward published exact prepared commit b2944133f9bb2a7750b7fd88cdb39b8b0070f77a without force or history rewrite using the configured administrator ruleset bypass",
-          "coordinator reverified live main b2944133f9bb2a7750b7fd88cdb39b8b0070f77a with unchanged repository ID, public visibility, non-archived state, default branch main, and clean isolated worktree"
+          "coordinator reverified live main b2944133f9bb2a7750b7fd88cdb39b8b0070f77a with unchanged repository ID, public visibility, non-archived state, default branch main, and clean isolated worktree",
+          "the successful flag-day publication remains live and preserved, but final publication is pending the Loader vocabulary dependency follow-up"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "passed",
+        "status": "pending",
         "records": [
           "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-posix-publisher institute package resolve --package-path /private/tmp/four-layer-swift-posix --argument=--disable-sandbox against all eight exact live dependencies and their graph",
           "prepared HEAD remained b2944133f9bb2a7750b7fd88cdb39b8b0070f77a and the isolated worktree remained clean",
-          "Package.resolved was absent before resolution and present afterward as untouched ignored generated state with stable SHA-256 e08683d7ae2175a1a91ba5532b51c3997ae4cfccbc5df4b1645ff95236a03992"
+          "Package.resolved was absent before resolution and present afterward as untouched ignored generated state with stable SHA-256 e08683d7ae2175a1a91ba5532b51c3997ae4cfccbc5df4b1645ff95236a03992",
+          "the prior resolution evidence is superseded by the Loader vocabulary identity repair; final package resolution is pending the consumer follow-up"
         ]
       }
     },
@@ -13734,7 +13740,7 @@
         {
           "manifest": "Package.swift",
           "current": "swift-primitives/swift-loader-primitives",
-          "future": "swift-molecules/swift-loader"
+          "future": "swift-molecules/swift-loader-vocabulary"
         },
         {
           "manifest": "Package.swift",
@@ -13814,31 +13820,34 @@
       "observedHead": "907578dbc0143384ba223326263801b5eb2bb5ba",
       "observedRemote": "https://github.com/swift-iso/swift-iso-9945.git",
       "preparation": {
-        "status": "passed",
+        "status": "pending",
         "records": [
           "prepared commit af5d6339142bbd169017eca7022e5634486da790 from expected parent 907578dbc0143384ba223326263801b5eb2bb5ba",
           "isolated worktree /private/tmp/swift-iso-9945-live-907578dbc0143384ba223326263801b5eb2bb5ba",
-          "canonical dependency identities, products, modules, imports, and paths applied across 297 changed paths; unchanged repository coordinate preserved"
+          "canonical dependency identities, products, modules, imports, and paths applied across 297 changed paths; unchanged repository coordinate preserved",
+          "follow-up preparation is required from published commit af5d6339142bbd169017eca7022e5634486da790 to replace the lower Loader package identity and module with swift-loader-vocabulary and Loader_Vocabulary"
         ]
       },
       "publication": {
-        "status": "passed",
+        "status": "pending",
         "records": [
           "verified pre-publication main at expected commit 907578dbc0143384ba223326263801b5eb2bb5ba",
           "verified stable GitHub repository ID 1217888724 with public visibility and non-archived state",
           "fast-forward published prepared commit af5d6339142bbd169017eca7022e5634486da790",
           "verified live main af5d6339142bbd169017eca7022e5634486da790 with unchanged public visibility",
-          "verified final origin https://github.com/swift-iso/swift-iso-9945.git"
+          "verified final origin https://github.com/swift-iso/swift-iso-9945.git",
+          "the successful flag-day publication remains live and preserved, but final publication is pending the Loader vocabulary dependency follow-up"
         ]
       },
-      "state": "passed",
+      "state": "ready",
       "validation": {
-        "status": "passed",
+        "status": "pending",
         "records": [
           "package resolution passed for swift-iso-9945 at live published commit af5d6339142bbd169017eca7022e5634486da790",
           "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-iso-9945-live institute package resolve --package-path /private/tmp/swift-iso-9945-live-907578dbc0143384ba223326263801b5eb2bb5ba --argument=--disable-sandbox",
           "exit 0; live future-coordinate dependencies resolved successfully",
-          "HEAD unchanged; tracked worktree clean; Package.resolved generated from absent to SHA-256 7b9323d6975dcc05afe14f159e334239b541991dae2a97a7c4fb07e130d8af7b and remained ignored/uncommitted"
+          "HEAD unchanged; tracked worktree clean; Package.resolved generated from absent to SHA-256 7b9323d6975dcc05afe14f159e334239b541991dae2a97a7c4fb07e130d8af7b and remained ignored/uncommitted",
+          "the prior resolution evidence is superseded by the Loader vocabulary identity repair; final package resolution is pending the consumer follow-up"
         ]
       },
       "githubRepositoryID": 1217888724
@@ -13875,7 +13884,7 @@
         {
           "manifest": "Package.swift",
           "current": "swift-primitives/swift-loader-primitives",
-          "future": "swift-molecules/swift-loader"
+          "future": "swift-molecules/swift-loader-vocabulary"
         },
         {
           "manifest": "Package.swift",
@@ -13925,32 +13934,35 @@
       "observedHead": "4d9daa0cc53a3e155e5be9eecf266e85dd663fbf",
       "observedRemote": "https://github.com/swift-linux-foundation/swift-linux-standard.git",
       "preparation": {
-        "status": "passed",
+        "status": "pending",
         "records": [
           "prepared commit 8bc8075ca84dd067ebb8ab30fe2adaff046d6f75 from expected parent 4d9daa0cc53a3e155e5be9eecf266e85dd663fbf",
           "isolated worktree /private/tmp/four-layer-swift-linux-standard",
           "mapped all twelve inventoried primitive dependencies to live molecule coordinates and added the required direct swift-molecules/swift-binary product dependency for two pre-existing direct Binary imports; preserved unchanged ISO 9945 and suffix-free Linux Standard identities",
-          "ancestry, clean worktree, 89-path intended diff, dependency readiness, import/product coverage, residual, public payload, workflow absence, and Package.resolved audits passed independently; live destination retains stable repository ID 1206909850"
+          "ancestry, clean worktree, 89-path intended diff, dependency readiness, import/product coverage, residual, public payload, workflow absence, and Package.resolved audits passed independently; live destination retains stable repository ID 1206909850",
+          "follow-up preparation is required from published commit 8bc8075ca84dd067ebb8ab30fe2adaff046d6f75 to replace the lower Loader package identity and module with swift-loader-vocabulary and Loader_Vocabulary"
         ]
       },
       "publication": {
-        "status": "passed",
+        "status": "pending",
         "records": [
           "verified pre-publication main at expected commit 4d9daa0cc53a3e155e5be9eecf266e85dd663fbf",
           "repository retained exact live coordinate swift-linux-foundation/swift-linux-standard; no repository rename or origin change was required",
           "verified exact coordinate owns stable GitHub repository ID 1206909850 with public visibility, non-archived state, and default branch main",
           "fast-forward published prepared commit 8bc8075ca84dd067ebb8ab30fe2adaff046d6f75 without force or history rewrite",
-          "verified live main 8bc8075ca84dd067ebb8ab30fe2adaff046d6f75 with unchanged repository ID, public visibility, non-archived state, default branch main, and clean isolated worktree"
+          "verified live main 8bc8075ca84dd067ebb8ab30fe2adaff046d6f75 with unchanged repository ID, public visibility, non-archived state, default branch main, and clean isolated worktree",
+          "the successful flag-day publication remains live and preserved, but final publication is pending the Loader vocabulary dependency follow-up"
         ]
       },
-      "state": "passed",
+      "state": "ready",
       "validation": {
-        "status": "passed",
+        "status": "pending",
         "records": [
           "package resolution passed for swift-linux-standard at live published commit 8bc8075ca84dd067ebb8ab30fe2adaff046d6f75",
           "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-linux-standard-root institute package resolve --package-path /private/tmp/four-layer-swift-linux-standard --argument=--disable-sandbox",
           "resolution exited 0 against live ISO 9945, all twelve inventoried molecule dependencies, the added direct Binary dependency, and their transitive graph",
-          "HEAD unchanged; tracked worktree clean; Package.resolved changed from absent to ignored uncommitted generated state and stabilized at SHA-256 7c164d379b871c0dea3bc263108e310a4cbb64caf1d52ea67de75331768272b3"
+          "HEAD unchanged; tracked worktree clean; Package.resolved changed from absent to ignored uncommitted generated state and stabilized at SHA-256 7c164d379b871c0dea3bc263108e310a4cbb64caf1d52ea67de75331768272b3",
+          "the prior resolution evidence is superseded by the Loader vocabulary identity repair; final package resolution is pending the consumer follow-up"
         ]
       }
     },
@@ -14001,7 +14013,7 @@
         {
           "manifest": "Package.swift",
           "current": "swift-primitives/swift-loader-primitives",
-          "future": "swift-molecules/swift-loader"
+          "future": "swift-molecules/swift-loader-vocabulary"
         },
         {
           "manifest": "Package.swift",
@@ -14091,31 +14103,34 @@
       "observedHead": "f1d13af14b8474bf1df42e931c36b9f41d0682db",
       "observedRemote": "https://github.com/swift-microsoft/swift-windows-32.git",
       "preparation": {
-        "status": "passed",
+        "status": "pending",
         "records": [
           "prepared commit 7a555f122346568fa9080dd836ad6445cae27ec3 from expected parent f1d13af14b8474bf1df42e931c36b9f41d0682db",
           "isolated worktree /private/tmp/swift-windows-32-publish",
-          "canonical molecule dependency identities, products, modules, imports, and paths applied across 202 changed paths; unchanged repository coordinate preserved"
+          "canonical molecule dependency identities, products, modules, imports, and paths applied across 202 changed paths; unchanged repository coordinate preserved",
+          "follow-up preparation is required from published commit 7a555f122346568fa9080dd836ad6445cae27ec3 to replace the lower Loader package identity and module with swift-loader-vocabulary and Loader_Vocabulary"
         ]
       },
       "publication": {
-        "status": "passed",
+        "status": "pending",
         "records": [
           "verified pre-publication main at expected commit f1d13af14b8474bf1df42e931c36b9f41d0682db",
           "verified stable GitHub repository ID 1206918715 with public visibility and non-archived state",
           "fast-forward published prepared commit 7a555f122346568fa9080dd836ad6445cae27ec3",
           "verified live main 7a555f122346568fa9080dd836ad6445cae27ec3 with unchanged public visibility",
-          "verified final origin https://github.com/swift-microsoft/swift-windows-32.git"
+          "verified final origin https://github.com/swift-microsoft/swift-windows-32.git",
+          "the successful flag-day publication remains live and preserved, but final publication is pending the Loader vocabulary dependency follow-up"
         ]
       },
-      "state": "passed",
+      "state": "ready",
       "validation": {
-        "status": "passed",
+        "status": "pending",
         "records": [
           "package resolution passed for swift-windows-32 at live published commit 7a555f122346568fa9080dd836ad6445cae27ec3",
           "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-windows-32-postpublish-2 institute package resolve --package-path /private/tmp/swift-windows-32-publish --argument=--disable-sandbox",
           "exit 0; all 24 live future-coordinate dependencies resolved successfully",
-          "HEAD unchanged; tracked worktree clean; Package.resolved generated and ignored at SHA-256 cd41176599272ae0ab4c39e763ebe562d678d43e88c75119656f7d4bb1748766"
+          "HEAD unchanged; tracked worktree clean; Package.resolved generated and ignored at SHA-256 cd41176599272ae0ab4c39e763ebe562d678d43e88c75119656f7d4bb1748766",
+          "the prior resolution evidence is superseded by the Loader vocabulary identity repair; final package resolution is pending the consumer follow-up"
         ]
       },
       "githubRepositoryID": 1206918715
@@ -22217,7 +22232,7 @@
       },
       "expectedCommit": "b58974e8a939f73b7cff1fae9be53815b39b6b56",
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
-      "future": "swift-molecules/swift-loader",
+      "future": "swift-molecules/swift-loader-vocabulary",
       "futureLayer": "molecules",
       "observedHead": "b58974e8a939f73b7cff1fae9be53815b39b6b56",
       "observedRemote": "https://github.com/swift-primitives/swift-loader-primitives.git",
@@ -22226,27 +22241,33 @@
         "records": [
           "prepared commit a385a2b5f3c6da09668b3e02fad10e7ca794a069 from expected parent b58974e8a939f73b7cff1fae9be53815b39b6b56",
           "isolated worktree /private/tmp/four-layer-swift-loader-primitives",
-          "canonical package, product, target, module, import, path, README, metadata, and exact ASCII, ownership, and string future-coordinate dependency mappings applied across 14 changed paths"
+          "canonical package, product, target, module, import, path, README, metadata, and exact ASCII, ownership, and string future-coordinate dependency mappings applied across 14 changed paths",
+          "prepared semantic identity repair commit 94c4d92fdfe55886fae51f41531c402baf1fffd7 as an exact direct child of published commit a385a2b5f3c6da09668b3e02fad10e7ca794a069 in isolated worktree /private/tmp/four-layer-swift-loader-primitives",
+          "identity repair changes package identity to swift-loader-vocabulary and target/module/path to Loader Vocabulary, Loader_Vocabulary, and Sources/Loader Vocabulary while preserving public product Loader, Loader namespace and types, all ten source blobs byte-for-byte, dependency declarations, semantics, repository history, README intent, public payload, canonical Actions, human commit identity, clean checkout, and untouched generated Package.resolved SHA-256 61e104a8fb580360c4830d049b09f11642125fb1e59129909da3b985358822bf"
         ]
       },
       "publication": {
-        "status": "passed",
+        "status": "pending",
         "records": [
           "verified pre-publication main at expected commit b58974e8a939f73b7cff1fae9be53815b39b6b56",
           "renamed swift-molecules/swift-loader-primitives to swift-molecules/swift-loader",
           "verified exact destination owns stable GitHub repository ID 1132373528 with public visibility and non-archived state",
           "fast-forward published prepared commit a385a2b5f3c6da09668b3e02fad10e7ca794a069",
-          "verified live main a385a2b5f3c6da09668b3e02fad10e7ca794a069 and final origin https://github.com/swift-molecules/swift-loader.git"
+          "verified live main a385a2b5f3c6da09668b3e02fad10e7ca794a069 and final origin https://github.com/swift-molecules/swift-loader.git",
+          "renamed the colliding molecule coordinate swift-molecules/swift-loader to canonical swift-molecules/swift-loader-vocabulary without transfer, deletion, archival, visibility change, force push, or history rewrite",
+          "coordinator verified exact destination swift-molecules/swift-loader-vocabulary owns unchanged GitHub repository ID 1132373528 with public visibility, non-archived state, default branch main, clone URL https://github.com/swift-molecules/swift-loader-vocabulary.git, and unchanged live main a385a2b5f3c6da09668b3e02fad10e7ca794a069",
+          "publication of prepared identity repair commit 94c4d92fdfe55886fae51f41531c402baf1fffd7 remains pending"
         ]
       },
-      "state": "passed",
+      "state": "ready",
       "validation": {
-        "status": "passed",
+        "status": "pending",
         "records": [
           "package resolution passed for swift-loader at live published commit a385a2b5f3c6da09668b3e02fad10e7ca794a069",
           "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-loader-live institute package resolve --package-path /private/tmp/four-layer-swift-loader-primitives --argument=--disable-sandbox",
           "resolved direct live dependencies swift-ascii at c85e522199612936e683a522b367e20b68a6c881, swift-ownership at 8cbad8f0ae82ba45ee77f00515973426bd6aeb5f, and swift-string at 2e3ec71fb41c145b164348c17b673a690e2c3b42",
-          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent and left uncommitted at sha256 61e104a8fb580360c4830d049b09f11642125fb1e59129909da3b985358822bf"
+          "exit 0; HEAD unchanged; worktree clean; Package.resolved generated from absent and left uncommitted at sha256 61e104a8fb580360c4830d049b09f11642125fb1e59129909da3b985358822bf",
+          "the prior resolution evidence is superseded by the distinct swift-loader-vocabulary package identity; package resolution remains pending until exact prepared repair commit 94c4d92fdfe55886fae51f41531c402baf1fffd7 is published"
         ]
       },
       "githubRepositoryID": 1132373528
@@ -28902,7 +28923,7 @@
         {
           "manifest": "Package.swift",
           "current": "swift-primitives/swift-loader-primitives",
-          "future": "swift-molecules/swift-loader"
+          "future": "swift-molecules/swift-loader-vocabulary"
         },
         {
           "manifest": "Package.swift",
@@ -28942,32 +28963,35 @@
       "observedHead": "7a5da4f069fd270b7b7a0d87aec107f4293d8441",
       "observedRemote": "https://github.com/swift-standards/swift-darwin-standard.git",
       "preparation": {
-        "status": "passed",
+        "status": "pending",
         "records": [
           "prepared commit 467dfbfd68a040e1f363e574e1577d81bb7f1448 from expected parent 7a5da4f069fd270b7b7a0d87aec107f4293d8441",
           "isolated worktree /private/tmp/four-layer-swift-darwin-standard",
           "mapped eight primitive dependency URLs, products, modules, and imports to their live molecule coordinates while preserving the unchanged ISO 9945 dependency and suffix-free Darwin Standard identities",
-          "ancestry, clean worktree, intended diff, dependency readiness, residual, public payload, workflow, and Package.resolved audits passed independently; live destination retains stable repository ID 1206918613"
+          "ancestry, clean worktree, intended diff, dependency readiness, residual, public payload, workflow, and Package.resolved audits passed independently; live destination retains stable repository ID 1206918613",
+          "follow-up preparation is required from published commit 467dfbfd68a040e1f363e574e1577d81bb7f1448 to replace the lower Loader package identity and module with swift-loader-vocabulary and Loader_Vocabulary"
         ]
       },
       "publication": {
-        "status": "passed",
+        "status": "pending",
         "records": [
           "verified pre-publication main at expected commit 7a5da4f069fd270b7b7a0d87aec107f4293d8441",
           "repository retained exact live coordinate swift-standards/swift-darwin-standard; no repository rename was required",
           "verified exact coordinate owns stable GitHub repository ID 1206918613 with public visibility, non-archived state, and default branch main",
           "fast-forward published prepared commit 467dfbfd68a040e1f363e574e1577d81bb7f1448 without force or history rewrite",
-          "verified live main 467dfbfd68a040e1f363e574e1577d81bb7f1448 with unchanged repository ID, public visibility, non-archived state, and clean isolated worktree"
+          "verified live main 467dfbfd68a040e1f363e574e1577d81bb7f1448 with unchanged repository ID, public visibility, non-archived state, and clean isolated worktree",
+          "the successful flag-day publication remains live and preserved, but final publication is pending the Loader vocabulary dependency follow-up"
         ]
       },
-      "state": "passed",
+      "state": "ready",
       "validation": {
-        "status": "passed",
+        "status": "pending",
         "records": [
           "package resolution passed for swift-darwin-standard at live published commit 467dfbfd68a040e1f363e574e1577d81bb7f1448",
           "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-darwin-standard-root institute package resolve --package-path /private/tmp/four-layer-swift-darwin-standard --argument=--disable-sandbox",
           "resolution exited 0 against live ISO 9945 and all eight molecule dependencies and their transitive graph",
-          "HEAD unchanged; tracked worktree clean; Package.resolved changed from absent to ignored uncommitted generated state and stabilized at SHA-256 188f4e914ef134ebcb7938580fa599837eed2a32d71a8b0d24c81b1282bf8677"
+          "HEAD unchanged; tracked worktree clean; Package.resolved changed from absent to ignored uncommitted generated state and stabilized at SHA-256 188f4e914ef134ebcb7938580fa599837eed2a32d71a8b0d24c81b1282bf8677",
+          "the prior resolution evidence is superseded by the Loader vocabulary identity repair; final package resolution is pending the consumer follow-up"
         ]
       }
     },
@@ -31030,7 +31054,7 @@
     "swift-molecules/swift-linter",
     "swift-molecules/swift-list",
     "swift-molecules/swift-list-linked",
-    "swift-molecules/swift-loader",
+    "swift-molecules/swift-loader-vocabulary",
     "swift-molecules/swift-logic",
     "swift-molecules/swift-machine",
     "swift-molecules/swift-manifest",
