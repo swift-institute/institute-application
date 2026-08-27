@@ -2711,13 +2711,18 @@
       "observedHead": "85a73344c79bd070dba3e24156d0b6322efcdd88",
       "observedRemote": "https://github.com/swift-foundations/swift-git.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit 2eb60d348f80891a9e33ae4aa3080dcb4175c791 from expected parent 85a73344c79bd070dba3e24156d0b6322efcdd88 in isolated worktree /private/tmp/four-layer-swift-git",
+          "deterministic audit verified the exact three-path foundation-to-composition mapping of Process, Git self coordinate, related Process link, and metadata; both dependencies were ledger-published/resolution-passed, package/product/module identities remained valid, zero stale owner mappings, public payload, active Actions, human commit identity, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified canonical post-organization coordinate swift-compositions/swift-git at expected main 85a73344c79bd070dba3e24156d0b6322efcdd88 with GitHub repository ID 1308652072, public visibility, non-archived state, and default branch main; no repository rename was required",
+          "set fetch and push origins to https://github.com/swift-compositions/swift-git.git and fast-forward published exact prepared commit 2eb60d348f80891a9e33ae4aa3080dcb4175c791 without force or history rewrite using the configured administrator ruleset bypass",
+          "verified live main 2eb60d348f80891a9e33ae4aa3080dcb4175c791 with unchanged repository ID 1308652072, public visibility, non-archived state, default branch main, final origins, and clean isolated worktree"
         ]
       },
       "state": "ready",
