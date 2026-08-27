@@ -5013,20 +5013,31 @@
       "observedHead": "6698f0626c3dcfccdc8f6fb16b1683629765e383",
       "observedRemote": "https://github.com/swift-foundations/swift-mailgun.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit cf92ce29d3e12800db751f23d0333e35d809794e from expected parent 6698f0626c3dcfccdc8f6fb16b1683629765e383 in clean isolated worktree /private/tmp/four-layer-swift-mailgun with subject Move Mailgun references to compositions",
+          "audited all forty-four tracked paths and made the exact two-path, six-insertion/six-deletion mechanical transformation: metadata topic foundations became compositions and seven README owner references across the CI badge, installation URL, and swift-mailgun-http links moved from swift-foundations to swift-compositions",
+          "preserved the local Mailgun three-tier domain topology, descriptive Foundational types wording, all package/product/target/path/public semantics, already canonical standards dependencies/modules, active Actions, and coenttb links; complete residual/public-payload/staging/direct-parent/human-identity checks passed with no split, refactor, or new dependency"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled the completed organization cutover idempotently: exact future coordinate swift-compositions/swift-mailgun was canonical with GitHub repository ID 1048321326, public visibility, non-archived state, default branch main, canonical clone URL, and exact live parent 6698f0626c3dcfccdc8f6fb16b1683629765e383; the legacy owner route redirected and was not used as proof, and no repository rename was needed",
+          "reverified exact live dependencies Domain Standard 4b2417b9839ec71b0f274139a94eb3b942ea3ed9, EmailAddress Standard eda471455b43e0e0a0c4319906b8296b03700ade, and Mailgun Standard 4cbb7e4dba45c1026a66bd934db51cb7fdeac20a, then ordinary fast-forward published exact direct child cf92ce29d3e12800db751f23d0333e35d809794e through the configured administrator ruleset bypass without force or history rewrite",
+          "coordinator independently verified exact live main cf92ce29d3e12800db751f23d0333e35d809794e with unchanged repository ID 1048321326 and node ID R_kgDOPnwdLg, exact future coordinate, public visibility, non-archived state, default branch main, canonical origins, exact direct-child ancestry, and a clean isolated checkout"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-mailgun-composition-publisher institute package resolve --package-path /private/tmp/four-layer-swift-mailgun --argument=--disable-sandbox against the exact live canonical dependency graph including Mailgun Standard 4cbb7e4dba45c1026a66bd934db51cb7fdeac20a; an earlier sandbox-only DNS/cache-permission failure was not treated as validation evidence, and no build, test, compilation, raw SwiftPM, or manifest-only substitute was invoked",
+          "coordinator reverified exact live main cf92ce29d3e12800db751f23d0333e35d809794e with GitHub repository ID 1048321326, public visibility, non-archived state, and default branch main",
+          "HEAD and both origins remained exact and canonical and the isolated checkout remained clean twice; Package.resolved was absent before resolution and present afterward only as ignored untracked generated state with stable twice-observed SHA-256 302fc2174b9e4ecaa1583e98e3b43a3bdf72d5cb227b19b98859a60594c2c4b0"
+        ]
+      },
+      "githubRepositoryID": 1048321326
     },
     {
       "current": "swift-foundations/swift-mailgun-http",
