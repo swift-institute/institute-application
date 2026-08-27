@@ -30838,19 +30838,27 @@
       "observedHead": "707d0ef004f14cd048e26994e60878bf73223abd",
       "observedRemote": "https://github.com/swift-w3c/swift-w3c-xml.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared human-authored direct-child commit f166a46c82f1e132532190e113a6c1f5464312ef from expected parent 707d0ef004f14cd048e26994e60878bf73223abd in isolated worktree /private/tmp/four-layer-swift-w3c-xml with subject Prepare W3C XML for the four-layer cutover",
+          "deterministic whole-tree audit verified the exact 11-path 88-insertion/88-deletion canonical mapping of seven molecule dependency URLs/packages/products/modules/namespaces plus transitive Input and Buffer Linear module mappings; preserved exact Standard Library Extensions identity, legitimate singular Buffer_Linear_Primitive, owned W3C_XML.Parse.Primitives source name, and all W3C XML identities/semantics, with no split/new dependency, mapped residual, README/metadata/CI/test change, public exposure, staged-set defect, or checkout dirt"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified unchanged canonical coordinate swift-w3c/swift-w3c-xml at expected main 707d0ef004f14cd048e26994e60878bf73223abd with GitHub repository ID 1164798477, public visibility, non-archived state, and default branch main; all seven future dependencies were exact live ledger-passed commits and no repository rename was required",
+          "fast-forward published exact prepared commit f166a46c82f1e132532190e113a6c1f5464312ef without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main f166a46c82f1e132532190e113a6c1f5464312ef with unchanged repository ID 1164798477, exact coordinate swift-w3c/swift-w3c-xml, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-w3c-xml-publisher institute package resolve --package-path /private/tmp/four-layer-swift-w3c-xml --argument=--disable-sandbox against the exact live declared dependencies and transitive graph",
+          "Package.resolved was absent before resolution and generated ignored/untracked afterward without editing or committing; two post-resolution checks produced stable SHA-256 edac5f0670a99219bf1d87ee58e5b882a50862cb0f8311cd1edcf1a486f7e38b, exact HEAD f166a46c82f1e132532190e113a6c1f5464312ef, and a clean checkout"
+        ]
       }
     },
     {
