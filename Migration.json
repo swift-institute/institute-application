@@ -14347,10 +14347,15 @@
           "verified live main 740a954920e4915e1f4604c00f6fb81c76e8d0ce with unchanged repository ID, public visibility, non-archived state, default branch main, and clean isolated worktree"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-array at live published commit 740a954920e4915e1f4604c00f6fb81c76e8d0ce",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-array-root institute package resolve --package-path /private/tmp/four-layer-swift-array --argument=--disable-sandbox",
+          "resolution exited 0 against all seventeen live molecule dependencies and their transitive graph",
+          "HEAD unchanged; tracked worktree clean; Package.resolved changed from absent to ignored uncommitted generated state and stabilized at SHA-256 b74bf5c08dea9fce1b5e6656f11ea3718f87999e6f8a2600e5491964e2853695"
+        ]
       }
     },
     {
