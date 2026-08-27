@@ -5566,6 +5566,42 @@
     "wave": "wave7d",
     "changes": "Canonicalized Boundary to its atom owner, removed redundant duplicate-conformance residue, and preserved the real narrow Boundary/Equation compatibility umbrella with focused generic-constraint/equality coverage and canonical generated-state ignores. Fresh build green; 2 tests green.",
     "bookedAt": "2026-08-27T20:54:21Z"
+   },
+   {
+    "repo": "swift-molecules/swift-cardinal-equation",
+    "headSHA": "75343259fd0cd32532ec50c5727d03cabf8d8126",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7e",
+    "changes": "Canonicalized Cardinal to its atom owner and retained the genuine retroactive Equation.Protocol/Equatable conformance absent from the atom, re-exporting both owners with focused protocol/equality/inequality coverage and ownership documentation. Fresh build green; 3 tests green.",
+    "bookedAt": "2026-08-27T20:57:03Z"
+   },
+   {
+    "repo": "swift-molecules/swift-byte-bit",
+    "headSHA": "6489519ea1a91f439e482964db24cd9bbd81d840",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7e",
+    "changes": "Updated the genuine Byte/Bit projections to current Bit.Pattern<UInt8>.Mask and explicit Bit.one/zero, retained bounded LSB-first access, and documented the nonduplicated seam contract against canonical live atoms. Fresh build green; 11 tests green.",
+    "bookedAt": "2026-08-27T20:58:25Z"
+   },
+   {
+    "repo": "swift-molecules/swift-compass-comparison",
+    "headSHA": "f237d2d85a99f0677478b4ef88d740b4a0449ee3",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7e",
+    "changes": "Canonicalized Compass to its atom owner and retained the genuine retroactive Comparison.Protocol/Comparable conformance for Compass.Cardinal absent from the atom, with exported owners and focused protocol/order API coverage. Fresh build green; 3 tests green.",
+    "bookedAt": "2026-08-27T21:00:06Z"
+   },
+   {
+    "repo": "swift-molecules/swift-byte-carrier",
+    "headSHA": "405eee94e34cebcec512c44850f9f1cd6b1294d8",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7e",
+    "changes": "Canonicalized Carrier to its atom owner, removed the redundant Byte.Underlying declaration, and retained the real Byte Carrier.Protocol conformance and generic UInt8-backed conversion surface with strict imports and focused domain coverage. Fresh build green; 10 tests green.",
+    "bookedAt": "2026-08-27T21:00:06Z"
    }
   ]
  }
