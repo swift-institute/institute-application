@@ -5945,20 +5945,28 @@
       "observedHead": "c538155320cb15095c1753790170d6a1eeaef75b",
       "observedRemote": "https://github.com/swift-foundations/swift-package-manager.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit db6d75ca941fd3afa991b20df60e3a923e6b9640 from exact parent c538155320cb15095c1753790170d6a1eeaef75b in clean identity-compatible isolated worktree /private/tmp/package-manager-composition-lane/swift-package-manager",
+          "audited all 52 tracked paths and made the exact 6-path, 18-insertion/18-deletion mechanical cutover across Package.swift, README, metadata, and tracked fixtures, mapping three dependency owners, self/related links, and synthetic primitive fixture coordinates while preserving fixture semantics, deliberate Foundation-free prose, a generic /Users/someone fixture, all public semantics, and canonical Actions; residual, payload, staged-tree, ancestry, and identity checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-package-manager as canonical with stable GitHub repository ID 1308652195, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; the completed organization rename had already established the coordinate, so no repository rename was needed",
+          "JIT verified all five declared dependency coordinates, exact heads, required products, and publication gates, then ordinary fast-forward published exact direct child db6d75ca941fd3afa991b20df60e3a923e6b9640 without force or history rewrite",
+          "coordinator independently verified exact live main db6d75ca941fd3afa991b20df60e3a923e6b9640 with unchanged repository ID 1308652195, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is complete and Package.resolved remained absent twice after publication; the repository is queued behind the serialized Institute package-resolution slot"
+        ]
+      },
+      "githubRepositoryID": 1308652195
     },
     {
       "current": "swift-foundations/swift-parsers",
