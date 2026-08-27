@@ -9823,23 +9823,32 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-compositions/swift-url-routing-vapor",
       "futureLayer": "compositions",
-      "observedHead": "b1e5742ce69fc4067167c4ed335c5ff459fbefbd",
-      "observedRemote": "https://github.com/swift-foundations/swift-url-routing-vapor.git",
+      "observedHead": "f52c3b92ed6c41f38d5679c5e1597149da409f89",
+      "observedRemote": "https://github.com/swift-compositions/swift-url-routing-vapor.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared exact direct-child cutover commit f52c3b92ed6c41f38d5679c5e1597149da409f89 from expected base b1e5742ce69fc4067167c4ed335c5ff459fbefbd in clean isolated worktree /private/tmp/swift-url-routing-vapor",
+          "mechanical four-layer cutover changed only .github/metadata.yaml, Package.swift, and README.md with four insertions and four deletions across layer metadata, the URL Routing dependency owner, and repository links; owned identities and public semantics remained unchanged",
+          "URL Routing, HTTP Standard, Apple Collections, and Vapor live products plus residual identity, active Actions-reference, public-payload, credential, diff, attribution, and Package.resolved preservation checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "repository ID 1298597906 was verified before and after cutover at exact canonical coordinate swift-compositions/swift-url-routing-vapor with unchanged public visibility, non-archived state, and default branch main",
+          "published exact prepared commit f52c3b92ed6c41f38d5679c5e1597149da409f89 as an ordinary fast-forward from b1e5742ce69fc4067167c4ed335c5ff459fbefbd to refs/heads/main through the authenticated administrative ruleset bypass; no force push or history rewrite occurred",
+          "coordinator independently reverified exact live main f52c3b92ed6c41f38d5679c5e1597149da409f89, repository ID 1298597906, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is complete and Package.resolved remained absent twice before and after publication; resolution is queued until swift-compositions/swift-url-routing validation is passed and the serialized Institute package-resolution slot is available"
+        ]
+      },
+      "githubRepositoryID": 1298597906
     },
     {
       "current": "swift-foundations/swift-urlrequest-handler",
