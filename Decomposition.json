@@ -307,6 +307,18 @@
    ],
    "notes": "Byte Primitive + Byte Protocol core collapsed into Byte; Codable/CustomStringConvertible moved to SLI; Byte Test Support removed (empty re-export, dropped test-only swift-ownership dep); residual Tagged/Carrier references in atom test files left for the compile pass",
    "completedAt": "2026-08-27T11:57:17Z"
+  },
+  {
+   "package": "swift-application",
+   "repositoryID": 1318251954,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-application",
+   "to": "swift-atoms/swift-application",
+   "shapeCommit": "9341b58d230f75d0c2fbe187c25cf3c37e1441c8",
+   "dependencies": [],
+   "splits": [],
+   "notes": "Adjudication: atom. Application is a native semantic domain (application root, boot phases/plan, boundaries, resolution) with a single Sources/Application module, zero import statements in Sources, no Foundation usage, no external package dependencies, and no integration targets \u2014 irreducible native owner, no defer criteria apply. Reshape: no strata targets to collapse and no seams to extract; work was manifest canonicalization plus seed targets. Added products/targets \"Application Standard Library Integration\" (deps [\"Application\"]) and \"Application Apple Foundation Integration\" (deps [\"Application\", \"Application Standard Library Integration\"]) as seed files with the exact prescribed contents, since no file's reason to exist is stdlib or Foundation integration. Files moved: none. Residuals: stdlib conformances (Hashable/Equatable/CaseIterable/Comparable) are inline on type declarations or conditional extensions co-located with their type definitions (Application.Resolution.swift, Application.Root.swift, Application.Root.State.swift, Application.Boot.Phase.swift, etc.) \u2014 left in the atom because they are file-inseparable from the definitions; splitting them into SLI extension files (as swift-bit does) would be a refactor beyond file moves. Tests: kept \"Application Tests\" (deps [\"Application\"]); Application.Boot.Tests.swift imports Synchronization, a Swift toolchain module, not a package dependency. No SLI test files exist. Working tree verified clean after push.",
+   "completedAt": "2026-08-27T12:02:45Z"
   }
  ],
  "successors": [],
