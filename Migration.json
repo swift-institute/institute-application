@@ -4769,20 +4769,30 @@
       "observedHead": "2729be3a05945c601893922cb83b4bd3a4cd06a2",
       "observedRemote": "https://github.com/swift-foundations/swift-linter-rules.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit e5f9c480ee5b884d501656e1f7f87ab03d35277b from exact parent 2729be3a05945c601893922cb83b4bd3a4cd06a2 in clean disjoint worktree /private/tmp/four-layer-swift-linter-rules-publisher with subject Prepare Linter Rules for the composition layer; an incomplete inherited worktree was inspected read-only and left untouched",
+          "audited all 50 tracked paths and made the complete exact 36-path, 62-insertion/62-deletion mechanical transformation across manifests, documentation, metadata, sources, tests, and active regeneration scripts, mapping primitive dependencies to molecules and foundation coordinates to compositions while preserving legitimate singular identities and external Swift Syntax",
+          "preserved Linter Rules public semantics, package/product/target/path structure, canonical Actions, and external dependency ranges with no split/refactor/new dependency; full residual, public-payload, staged-tree, direct-parent, and identity checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-linter-rules as canonical with stable GitHub repository ID 1231810717, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; no repository rename was needed",
+          "JIT verified Byte, Cardinal, Linter, external swiftlang/swift-syntax, and active documentation/script destinations at their exact live identities and required products, then ordinary fast-forward published exact direct child e5f9c480ee5b884d501656e1f7f87ab03d35277b without force or history rewrite",
+          "coordinator independently verified exact live main e5f9c480ee5b884d501656e1f7f87ab03d35277b with unchanged repository ID 1231810717, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and a clean tracked checkout"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-linter-rules-publisher institute package resolve --package-path /private/tmp/four-layer-swift-linter-rules-publisher --argument=--disable-sandbox against the canonical live graph, selecting allowed Swift Syntax 602.0.0; no build, test, compilation, raw SwiftPM, dump-package, or manifest evaluation was invoked",
+          "Package.resolved was absent twice before resolution and present afterward only as ignored untracked generated state, never edited/deleted/staged/committed, with stable twice-observed SHA-256 8af728c6c8e9e6ab957ce2b9afcf3608ac6cc4402f28430f0ff9bcf8cb475458; final live identity/SHA and clean tracked checkout were reverified"
+        ]
+      },
+      "githubRepositoryID": 1231810717
     },
     {
       "current": "swift-foundations/swift-linux",
