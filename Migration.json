@@ -16979,8 +16979,13 @@
       "observedHead": "a337e2a5afcc91efe02097695ce919ab58e51784",
       "observedRemote": "https://github.com/swift-primitives/swift-byte-parser-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 8843cdabcbfc3809ab016c4c7f8cd7a1bcb231fc from expected parent a337e2a5afcc91efe02097695ce919ab58e51784",
+          "isolated worktree /private/tmp/four-layer-swift-byte-parser",
+          "mapped package, products, modules, paths, metadata, README, and all sixteen dependency coordinates to the four-layer molecule identities while preserving legitimate singular Primitive identities",
+          "independent deterministic audit proved the clean direct-child 19-path transformation, all sixteen live dependency SHAs and twenty-five referenced products, residual, public-payload, workflow, and Package.resolved gates passed; stable repository ID is 1239824701 and exact future coordinate returned HTTP 404"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -25739,8 +25744,13 @@
       "observedHead": "46578e084392d2029432d11bfc58b4dc015fbfe4",
       "observedRemote": "https://github.com/swift-primitives/swift-set-ordered-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 39943f5f2108e64c2adc8d9f1e98d1a1c1adf1ab from expected parent 46578e084392d2029432d11bfc58b4dc015fbfe4",
+          "isolated worktree /private/tmp/four-layer-swift-set-ordered",
+          "mapped package, product, module, path, README, metadata, and all twelve dependency coordinates to molecule identities while preserving legitimate singular Primitive identities",
+          "independent deterministic audit proved the clean direct-child nine-path mechanical transformation, all twelve live dependency SHAs and required products, residual, public-payload, workflow, and Package.resolved gates passed; stable repository ID is 1250662008 and exact future coordinate returned HTTP 404"
+        ]
       },
       "publication": {
         "status": "pending",
@@ -27892,8 +27902,13 @@
       "observedHead": "8068fade9cc56e109faef38e590eed20ffd764bd",
       "observedRemote": "https://github.com/swift-primitives/swift-tree-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 7277d8c945c3cfa1542edfc28d3edfbea1117b5c from expected parent 8068fade9cc56e109faef38e590eed20ffd764bd",
+          "isolated worktree /private/tmp/four-layer-swift-tree",
+          "mapped Tree package-family identities, paths, README, metadata, and all nine dependency coordinates to molecules while preserving legitimate singular Primitive identities and correcting the stale swift-shared-primitives alias to swift-ownership-shared",
+          "independent deterministic audit proved the clean direct-child 24-path transformation and 25-file path/blob bijection, all nine live dependency SHAs and products, residual, public-payload, workflow, and Package.resolved gates passed; stable repository ID is 1139270620 and exact future coordinate returned HTTP 404"
+        ]
       },
       "publication": {
         "status": "pending",
