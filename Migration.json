@@ -29649,11 +29649,14 @@
           "coordinator verified unchanged live main 0ddc65777a8f825b603d95e8e62cb2fb42ec3668 with stable repository ID 1132375200, exact coordinate, public visibility, non-archived state, default branch main, canonical origins, and a clean isolated worktree"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "publication is durably booked before the sole package-resolution gate"
+          "publication was durably booked before the sole package-resolution gate",
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-epub-standard-root institute package resolve --package-path /private/tmp/four-layer-swift-epub-standard-root --argument=--disable-sandbox against live W3C EPUB e166a33c39ef7b154ba526a6d20635003e4ea1aa and its canonical live transitive graph; no build, test, compilation, raw SwiftPM, or manifest-only substitute was invoked",
+          "coordinator reverified unchanged exact live main 0ddc65777a8f825b603d95e8e62cb2fb42ec3668 with GitHub repository ID 1132375200, public visibility, non-archived state, default branch main, and unchanged exact dependency head e166a33c39ef7b154ba526a6d20635003e4ea1aa",
+          "HEAD and both origins remained exact and canonical and the isolated checkout remained clean; Package.resolved was absent before resolution and present afterward only as ignored untracked generated state with stable twice-observed SHA-256 2fd1628aaca6afd5fde7d9b06147acd6f86e9e30420d6d1b7de0da14cf94e4a5"
         ]
       },
       "githubRepositoryID": 1132375200
