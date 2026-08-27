@@ -1,6 +1,6 @@
 public import Institute_Model
 import struct Swift.String
-import Byte_Primitives
+import Byte
 import Environment
 import GitHub_App
 public import Institute_Repository_Policy

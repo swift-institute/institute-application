@@ -29,19 +29,18 @@ and local-source composition for cross-package work (`institute compose` / `rest
 
 ## What Swift Institute is
 
-Swift Institute builds a layered ecosystem of independent Swift packages. Three layers are
+Swift Institute builds a layered ecosystem of independent Swift packages. Four layers are
 realised:
 
 | Layer | Family | GitHub org |
 | ---: | --- | --- |
-| 1 | Primitives — atomic, dependency-light identity and value types | [swift-primitives](https://github.com/swift-primitives) |
-| 2 | Standards — models of externally defined formats, protocols, and specifications | [swift-standards](https://github.com/swift-standards) |
-| 3 | Foundations — operational capabilities composed from the lower layers | [swift-foundations](https://github.com/swift-foundations) |
+| 1 | Atoms — irreducible semantic identities and operations | [swift-atoms](https://github.com/swift-atoms) |
+| 2 | Molecules — dependency-light capabilities composed from atoms | [swift-molecules](https://github.com/swift-molecules) |
+| 3 | Standards — models of externally defined formats, protocols, and specifications | [swift-standards](https://github.com/swift-standards) |
+| 4 | Compositions — operational capabilities integrating lower-layer domains | [swift-compositions](https://github.com/swift-compositions) |
 
 Dependencies flow downward; same-layer edges are permitted only when they express a genuine
-semantic prerequisite and the graph stays acyclic. Names above Layer 3 — components,
-applications — are reservations recording intent. Never read such a name as evidence that the
-thing exists.
+semantic prerequisite and the graph stays acyclic.
 
 Specification packages live in orgs named for the issuing authority:
 [swift-ietf](https://github.com/swift-ietf) (the `swift-rfc-*` family),
@@ -53,7 +52,8 @@ authority specification packages.
 
 Every package is one repository; there is no monorepo. This repository clones selected
 packages as independent checkouts materialized in the org hierarchy — one root per layer
-organization (`swift-primitives/`, `swift-standards/`, `swift-foundations/`), with packages
+organization (`swift-atoms/`, `swift-molecules/`, `swift-standards/`,
+`swift-compositions/`), with packages
 owned by a specification-authority, vendor, or jurisdiction organization nested one level
 deeper under their layer root (for example `swift-standards/swift-ietf/<package>`) — and
 composes them into a single Xcode workspace. `Selection.json` contains only canonical
@@ -205,7 +205,7 @@ that cohort for one machine, use `Selection.local.json` below.
 ```json
 {
   "version": 1,
-  "add": ["swift-primitives/swift-affine-primitives"],
+  "add": ["swift-molecules/swift-affine-algebra"],
   "remove": []
 }
 ```
@@ -230,7 +230,7 @@ where you expect it names its own cause:
 
 ```text
 selection: Selection.json — 5 selected; Selection.local.json — 1 added, 1 removed; 5 in effect
-  Selection.local.json withholds: swift-foundations/swift-http-body
+  Selection.local.json withholds: swift-compositions/swift-http-body
 ```
 
 `institute.xcworkspace` is **generated, not committed** — `sync` writes it from the
@@ -409,9 +409,10 @@ X/
 │                            Institute.json, Selection.json, your ignored
 │                            Selection.local.json if you have one, and the
 │                            generated, untracked institute.xcworkspace
-├── swift-primitives/       ┐
+├── swift-atoms/            ┐
+├── swift-molecules/        │
 ├── swift-standards/        ├ materialization roots: independent repositories,
-└── swift-foundations/      ┘ none part of this repository
+└── swift-compositions/     ┘ none part of this repository
 ```
 
 Each package under those roots is an **independent repository** with its own history, remote,
@@ -603,7 +604,7 @@ institute compose \
 
 ```text
 Composed swift-color → swift-color-standard (local development source).
-  manifest: <checkout-parent>/swift-foundations/swift-color/Package.swift
+  manifest: <checkout-parent>/swift-compositions/swift-color/Package.swift
   now: .package(path: "<checkout-parent>/swift-standards/swift-color-standard")
   was: .package(url: "https://github.com/swift-standards/swift-color-standard.git", branch: "main")
 
@@ -721,7 +722,7 @@ If you have no write access to the package — which is the normal case — fork
 there. Run this **inside the package's own repository**, not inside this one:
 
 ```sh
-cd ../swift-foundations/<package>        # the package you changed
+cd ../swift-compositions/<package>       # the package you changed
 gh repo fork --remote --remote-name fork
 git switch -c <branch>
 git commit -am "<message>"
@@ -746,7 +747,7 @@ line that `sync` and `doctor` print are the authorities; this document does not 
 changing counts.
 
 The Xcode workspace uses only relative sibling-layout references
-(`../swift-foundations/swift-color`, …). Third-party dependencies remain SwiftPM dependencies
+(`../swift-compositions/swift-color`, …). Third-party dependencies remain SwiftPM dependencies
 and resolve from the URLs declared by package manifests.
 
 ## License

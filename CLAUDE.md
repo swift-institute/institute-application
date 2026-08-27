@@ -46,8 +46,8 @@ authenticated `gh` never changes what a plain `doctor` does.
 
 ## Gotchas
 
-- **The materialized org roots (`swift-primitives/`, `swift-standards/`, `swift-foundations/`,
-  …) hold independent repositories, not part of this one.** Each has its own history, remote,
+- **The materialized org roots (`swift-atoms/`, `swift-molecules/`, `swift-standards/`,
+  `swift-compositions/`, …) hold independent repositories, not part of this one.** Each has its own history, remote,
   CI, and license. Work on a package inside its own repository and open the pull request there.
   The active layout resolves the checkout physically and places the roots beside it (see
   the generated Architecture Index, "Materialization layout"); invoking through a symlink does not redirect the

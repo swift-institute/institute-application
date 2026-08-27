@@ -1,7 +1,7 @@
 public import Institute_Model
 import struct Swift.String
-import Byte_Primitives
-import Byte_Primitives_Standard_Library_Integration
+import Byte
+import Byte_Standard_Library_Integration
 import FIPS_180_4
 import File_System
 public import Institute_Repository_Policy
@@ -369,7 +369,7 @@ extension Institute.Repository.Policy.Command.Census.Generator {
             ),
             (
                 "swift-linter-repo-automation",
-                "swift-foundations/swift-linter repository automation not enumerated in this census pass",
+                "swift-compositions/swift-linter repository automation not enumerated in this census pass",
                 "F9 owns linter parity"
             ),
         ]

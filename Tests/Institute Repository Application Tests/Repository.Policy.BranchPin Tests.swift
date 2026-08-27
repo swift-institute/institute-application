@@ -1,7 +1,7 @@
 public import Institute_Model
 import Institute_Repository_Policy
-import Byte_Primitives
-import Byte_Primitives_Standard_Library_Integration
+import Byte
+import Byte_Standard_Library_Integration
 import Foundation
 import Package_Manager
 import Institute_Repository_Application
