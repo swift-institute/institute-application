@@ -7666,20 +7666,29 @@
       "observedHead": "c416bf3125cc38cf523a8c05d73cfb05f5bacad4",
       "observedRemote": "https://github.com/swift-foundations/swift-stores.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit a207d2e2ec2b621fd1adefe53c68a72e90962733 from exact parent c416bf3125cc38cf523a8c05d73cfb05f5bacad4 in clean identity-compatible isolated worktree /private/tmp/swift-stores",
+          "audited all 49 tracked paths and made the exact 39-path, 63-insertion/63-deletion mechanical transformation across Package.swift, README, metadata, 35 Stores sources, and one test import, mapping four composition and eight molecule dependencies plus plural product/module identities while deliberately preserving legitimate singular Queue and Dictionary Primitive identities, public semantics, and canonical Actions; residual, payload, staged-tree, ancestry, and identity checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-stores as canonical with stable GitHub repository ID 1318322774, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; no repository rename was needed",
+          "JIT verified all 12 declared dependency coordinates, exact heads, required products, and ledger gates, then ordinary fast-forward published exact direct child a207d2e2ec2b621fd1adefe53c68a72e90962733 without force or history rewrite",
+          "coordinator independently verified exact live main a207d2e2ec2b621fd1adefe53c68a72e90962733 with unchanged repository ID 1318322774, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, stable Package.resolved evidence, and clean tracked checkout"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-stores-publisher institute package resolve --package-path /private/tmp/swift-stores --argument=--disable-sandbox against the exact live graph; a cached confirmation also exited 0, and no build, test, compilation, raw SwiftPM, dump-package, or standalone manifest-evaluation command was invoked",
+          "Package.resolved was absent twice before resolution and present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 3f31ad60da323219d0a23cacd63ef0a95d0872832830e47fbe5b184468febdd7; final live identity/SHA and clean tracked checkout were reverified"
+        ]
+      },
+      "githubRepositoryID": 1318322774
     },
     {
       "current": "swift-foundations/swift-strings",
