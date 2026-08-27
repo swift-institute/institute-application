@@ -7297,20 +7297,29 @@
       "observedHead": "dba0c9d991efc04d8d7af4dd981d0d18222b3334",
       "observedRemote": "https://github.com/swift-foundations/swift-sockets.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit 2cb73dfaa62ac12864d087652801b362dd498777 from exact parent dba0c9d991efc04d8d7af4dd981d0d18222b3334 in clean identity-compatible isolated worktree /private/tmp/swift-sockets; the original checkout remained clean and untouched",
+          "audited all 45 tracked paths and made the exact 23-path, 39-insertion/39-deletion mechanical cutover across Package.swift, README, metadata, nine sources, and 11 tests, mapping five composition owners, Span to swift-molecules/swift-span with Span Raw/Span_Raw, and transitive Error_Primitives qualifiers to Error while preserving public semantics and canonical Actions; residual, payload, staged-tree, ancestry, and identity checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-sockets as canonical with stable GitHub repository ID 1144636269, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; the completed organization rename had already established the coordinate, so no redundant repository rename was performed",
+          "JIT verified all six declared dependency coordinates, exact heads, required products, and ledger gates twice, then ordinary fast-forward published exact direct child 2cb73dfaa62ac12864d087652801b362dd498777 without force or history rewrite",
+          "coordinator independently verified exact live main 2cb73dfaa62ac12864d087652801b362dd498777 with unchanged repository ID 1144636269, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, and clean tracked checkout"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-sockets-publisher institute package resolve --package-path /private/tmp/swift-sockets --argument=--disable-sandbox against the exact live graph; no build, test, compilation, raw SwiftPM, dump-package, or standalone manifest-evaluation command was invoked",
+          "Package.resolved was absent twice before resolution and present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 9fa3e7292515df03f1c832486ea074c6218098735f43809b50d0f5640bab7dd4; final live identity/SHA and clean tracked checkout were reverified"
+        ]
+      },
+      "githubRepositoryID": 1144636269
     },
     {
       "current": "swift-foundations/swift-sockets-ip-address",
