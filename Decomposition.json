@@ -1525,6 +1525,42 @@
    ],
    "notes": "Adjudication: atom. Affine is a native irreducible domain (discrete affine geometry: Vector displacement, Region, Ratio, point/translation algebra) with existing X=Affine product spellings. Reshaped 14 strata targets to canonical 3-product shape. Merged into the single Affine module: Affine Primitive, Affine Discrete, Affine Composition, and Affine Ordinal (Ordinal+Affine.swift kept in the atom rather than seamed out because Ordinal is an irreducibly kept dependency of the Discrete core, so extraction could not remove the dependency). All intra-package exports.swift umbrellas deleted; Affine_* imports rewritten to Affine in every moved file; files that had relied on umbrella re-exports (4 Carrier SLI files, 3 Tagged.Ordinal SLI files) were given explicit imports. SLI target now holds only Affine.Discrete.Vector+AtomicRepresentable.swift (Synchronization behind SYNCHRONIZATION_AVAILABLE; trailing SwiftSetting loop kept verbatim including that define, in atom and molecules). Apple Foundation Integration created as the 3-line seed (no Foundation imports existed anywhere). Deleted trivial re-export target Affine Test Support (Tests/Support) and its imports. Tests routed: Ordinal Arithmetic tests to swift-affine-carrier; Tagged Offset and Vector+Standard Library Integration tests to swift-affine-tagged (SLI test mixes Int(bitPattern:Vector) from carrier with Tagged offsets, so it lives where both deps are present); equation/hash/comparison molecules got stub @Suite files. Residual red expected: (1) kept test file \"Affine.Discrete+Ratio Tests.swift\" still references Tagged (quotientAndRemainder now in swift-affine-tagged) \u2014 11 occurrences; (2) kept tests previously received Cardinal/Ordinal Test Support helpers via the deleted support target and the test target deps are now exactly [\"Affine\"]; (3) molecule test/source code may need Tagged SLI for Int(bitPattern:) on Tagged \u2014 swift-affine-tagged declares the Tagged Standard Library Integration product for this. Five empty test files (Affine, +Format, Point, Point+Real, Transform, Translation, Operator Integration) kept as-is. Dep coordinates verified live: all seven former deps are at swift-atoms; molecules reference swift-molecules/swift-affine and swift-molecules/swift-affine-carrier, atoms at swift-atoms, all branch: \"main\". Direct push to main used remote rule bypass (authorized). All six working trees verified clean.",
    "completedAt": "2026-08-27T13:03:12Z"
+  },
+  {
+   "package": "swift-text",
+   "repositoryID": 1138063967,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-text",
+   "to": "swift-atoms/swift-text",
+   "shapeCommit": "3f9fd429d17200689c9bf7f4269bab0b640655ba",
+   "dependencies": [
+    "swift-atoms/swift-tagged \u2014 Text.Position/Offset/Count are Tagged<Text, _> typealiases; the domain's phantom-typing substrate",
+    "swift-atoms/swift-cardinal \u2014 Cardinal is the underlying of Text.Count/Text.Line.Column and is constructed in Line.Map/Tracker",
+    "swift-atoms/swift-ordinal \u2014 Ordinal is the underlying of Text.Position",
+    "swift-atoms/swift-affine \u2014 Affine.Discrete.Vector is the underlying of Text.Offset and provides the point/vector affine arithmetic the whole domain is built on"
+   ],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-text-byte",
+     "repositoryID": 1348507057,
+     "commit": "7ad1426a05c779f9dd2cdc8a4e7b0da1a638d7db",
+     "seam": "Byte-scanning constructor Text.Line.Map.init(scanning: [Byte]) plus the Line Map test suite (module Text_Byte)"
+    },
+    {
+     "successor": "swift-molecules/swift-text-carrier",
+     "repositoryID": 1348507157,
+     "commit": "0f6f1e9851bd1c3880767cf3a9c47f57dbaa6b30",
+     "seam": "Carrier.Protocol conformance for Text.Line.Number plus the three Carrier conformance tests (module Text_Carrier)"
+    },
+    {
+     "successor": "swift-molecules/swift-text-ownership",
+     "repositoryID": 1348507237,
+     "commit": "95713606408ed6108b99398471b2e30b38f10f68",
+     "seam": "Ownership.Borrow.Protocol conformance for Text with Borrowed = Span<Byte> (module Text_Ownership); stub test suite"
+    }
+   ],
+   "notes": "Adjudication: Text is a native semantic domain (typed byte positions, offsets, counts, ranges, line/column locations, line maps, streaming trackers) with real native logic, not tooling or a mere relator \u2014 atom. Its four kept deps are its substrate (all now live at swift-atoms; old swift-molecules coordinates for affine/byte/carrier/ownership redirect there). Reshape: collapsed nothing (single Text target already); deleted Sources/Text/exports.swift (@_exported Affine umbrella) and the trivial \"Text Test Support\" target (Tests/Support, pure re-exports) \u2014 test imports rewritten to `import Text`. Ownership product was renamed upstream (\"Ownership Borrow\" -> \"Ownership\", module Ownership_Borrow -> Ownership); molecule imports rewritten accordingly. SLI target created with real code moved from atom files: Codable/Comparable/CustomStringConvertible/ExpressibleByIntegerLiteral for Text.Line.Number, Codable/Comparable/CustomStringConvertible for Text.Location, CustomStringConvertible for Text.Range, plus exports.swift (@_exported Text, matching the swift-byte exemplar). AFI target has the three-line seed file (no Foundation code existed). Deviations on proven necessity: (1) Codable conformances were previously synthesized `{}` in-module; cross-module synthesis is impossible, so explicit memberwise implementations preserving the synthesized wire format were written. (2) SLI target deps are [\"Text\", Cardinal, Tagged] rather than exactly [\"Text\"]: Text.Location+Codable.swift must construct Text.Line.Column(_unchecked: Cardinal(_)) \u2014 Cardinal and Tagged's _unchecked init are irreducibly referenced. (3) Added public Text.Line.Map.init(lineStarts:) so the extracted Byte molecule can construct Map (lineStarts was internal); Tracker's `self.line = 1` rewritten to Text.Line.Number(1) since integer-literal conformance moved to SLI. Residual red (structural pass, unbuilt by mandate): kept \"Text Tests\" (deps [\"Text\"]) still uses Cardinal(_)/.one/_unchecked, integer literals, description, and Comparable on Number/Location \u2014 these now live in SLI/Tagged and are not visible to the test target; later pass decides target deps vs test moves. Files may also need import adjustments under MemberImportVisibility for operator/member lookups (best-effort public imports added to Count/Position/Offset/Line.Map/Tracker/Range). swift-text-byte's tests depend on \"Text Standard Library Integration\" for literals/description; Position literals additionally rely on Tagged-side conformances not declared as a dep there. Scratch residue: wave1/seam-staging-text (scratchpad-only staging dir) could not be removed (rm denied); all four repositories verified clean and heads read back from origin.",
+   "completedAt": "2026-08-27T13:11:36Z"
   }
  ],
  "successors": [],
