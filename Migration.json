@@ -30356,20 +30356,31 @@
       "observedHead": "6026abe267253fec06ea88d6a6da462c25f576a1",
       "observedRemote": "https://github.com/swift-standards/swift-rss-standard.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit 14fda08bd7f2c15239b7cf06c34511c04c53ca55 from expected parent 6026abe267253fec06ea88d6a6da462c25f576a1 in isolated worktree /private/tmp/four-layer-swift-rss-standard",
+          "audited all forty-two tracked paths and made the exact five-path, eleven-insertion/eighteen-deletion mechanical change: Package.swift and three source files mapped Binary, Parser, and Radix Formatter repositories/packages/products/modules to suffix-free molecules while standard-library-extensions changed only owner and preserved identity",
+          "removed stale README recommendations/comments for private swift-rss and swift-json-feed composition repositories without exposing their canonical coordinates; preserved RFC 5322, URI Standard, RSS/iTunes/Dublin Core package/product/target/path/public semantics, the unrelated public coenttb syndication link, and all six exact-live ledger-passed dependencies, with residual/public-payload/Actions/staging/direct-parent/human-identity checks passing and Package.resolved absent before preparation"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified unchanged coordinate swift-standards/swift-rss-standard, GitHub repository ID 1099557459, public visibility, non-archived state, default branch main, canonical clone URL, and exact expected live base 6026abe267253fec06ea88d6a6da462c25f576a1 immediately before publication; no rename was required",
+          "fast-forward published exact direct child 14fda08bd7f2c15239b7cf06c34511c04c53ca55 to main through the configured administrator ruleset bypass without force or history rewrite",
+          "coordinator independently reverified exact live main 14fda08bd7f2c15239b7cf06c34511c04c53ca55 with unchanged repository ID 1099557459, exact coordinate, public visibility, non-archived state, default branch main, and canonical URL"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-rss-standard-publisher institute package resolve --package-path /private/tmp/four-layer-swift-rss-standard --argument=--disable-sandbox against the exact live six-dependency graph",
+          "coordinator reverified exact live main 14fda08bd7f2c15239b7cf06c34511c04c53ca55 with unchanged GitHub repository ID 1099557459, public visibility, non-archived state, and default branch main",
+          "HEAD and both origins remained exact and canonical and the isolated checkout remained clean; Package.resolved was absent before resolution and present afterward only as ignored untracked generated state with stable SHA-256 63ef9531da8b94567c764745dfccbb5a6f5e6ba4f54a7d628dc107426c06f38c"
+        ]
+      },
+      "githubRepositoryID": 1099557459
     },
     {
       "current": "swift-standards/swift-sockets-standard",
