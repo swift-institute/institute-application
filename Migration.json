@@ -13006,20 +13006,31 @@
       "observedHead": "64cda2a14d4d1c87a814a8c5ce309c85b2b420d8",
       "observedRemote": "https://github.com/swift-ietf/swift-rfc-9112.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit dec767827c469987cccd685061c5f1d281d16d2b from expected parent 64cda2a14d4d1c87a814a8c5ce309c85b2b420d8 in isolated worktree /private/tmp/four-layer-swift-rfc-9112 with subject Prepare RFC 9112 for four-layer dependencies",
+          "audited all eighty-three tracked paths and made the exact twenty-two-path, twenty-five-insertion/twenty-five-deletion mechanical transformation across Package.swift, seventeen source files, and four tests: Byte repository/package/product/module and its standard-library integration module became suffix-free molecule identities, while standard-library-extensions changed only owner and preserved package/product/module identity",
+          "all RFC 9112 package/product/target/path/public semantics, README, metadata, CI, and active Actions were preserved; RFC 9110, Byte, and Standard Library Extensions were ledger-passed and freshly exact-live with products verified, and residual/public-payload/staging/direct-parent/human-identity checks passed with Package.resolved absent before preparation"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified unchanged coordinate swift-ietf/swift-rfc-9112, GitHub repository ID 1099557356, public visibility, non-archived state, default branch main, canonical clone URL, and exact expected live parent 64cda2a14d4d1c87a814a8c5ce309c85b2b420d8 immediately before publication; no rename was required",
+          "fast-forward published exact direct child dec767827c469987cccd685061c5f1d281d16d2b to main through the configured administrator ruleset bypass without force or history rewrite",
+          "coordinator independently reverified exact live main dec767827c469987cccd685061c5f1d281d16d2b with unchanged repository ID 1099557356, exact coordinate, public visibility, non-archived state, default branch main, and canonical URL"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-rfc-9112-publisher institute package resolve --package-path /private/tmp/four-layer-swift-rfc-9112 --argument=--disable-sandbox against exact live RFC 9110, Byte, and Standard Library Extensions heads",
+          "coordinator reverified exact live main dec767827c469987cccd685061c5f1d281d16d2b with unchanged GitHub repository ID 1099557356, public visibility, non-archived state, and default branch main",
+          "HEAD and both origins remained exact and canonical and the isolated checkout remained clean; Package.resolved was absent before resolution and present afterward only as ignored untracked generated state with stable SHA-256 4284d7e24e9e9780e0d1c9e835249f13b551cc92f0997d99c0ee4ac41e805b40"
+        ]
+      },
+      "githubRepositoryID": 1099557356
     },
     {
       "current": "swift-ietf/swift-rfc-9293",
