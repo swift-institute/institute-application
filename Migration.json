@@ -12599,9 +12599,11 @@
         ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified canonical live coordinate swift-incits/swift-incits-4-1986 at expected main f9ce2c26e373ec614e014f8525e6d74f31830dae with GitHub repository ID 1098791132, public visibility, non-archived state, and default branch main; no repository rename was required",
+          "fast-forward published exact prepared commit b540c6b0e2a5b7429c060b660b797b6e63d6287d without force or history rewrite using the configured administrator ruleset bypass",
+          "verified live main b540c6b0e2a5b7429c060b660b797b6e63d6287d with unchanged repository ID, public visibility, non-archived state, default branch main, final origins, and clean isolated worktree"
         ]
       },
       "state": "ready",
