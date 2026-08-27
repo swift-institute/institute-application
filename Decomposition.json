@@ -2378,6 +2378,24 @@
    ],
    "notes": "Adjudication: Buffer is a native semantic domain (owner of buffer/slice/capacity/storage semantics over ~Copyable elements), so atom by default and on the merits. Atom now has zero package dependencies. Reshape: collapsed 'Buffer Primitive', 'Buffer Protocol', and umbrella 'Buffer' targets into one Sources/Buffer module holding Buffer.swift, Buffer.Slice.swift, and 'Buffer.Slice where Element ~Copyable.swift' (Slice uses only Swift.Span, a stdlib type it defines its own type around, so it stays in the domain module). Deleted three intra-package exports.swift umbrellas plus Tests/Support/exports.swift and the empty 'Buffer Primitives Test Support.swift'. Seed targets created: 'Buffer Standard Library Integration' (public import Buffer) and 'Buffer Apple Foundation Integration' (three-line seed) \u2014 no existing stdlib-extension or Foundation-importing source files were found (Capacity's Comparable conformance moved to the index molecule because Capacity itself is index-seam code). Dropped package deps: swift-index and swift-storage (moved to seam molecules) and swift-memory (its only use was the deleted test-support @_exported umbrella of Memory_Test_Support; nothing else referenced it, so no swift-buffer-memory molecule was needed). Tests: atom keeps 'Buffer Tests' with the four pure Slice tests split into 'Buffer Slice Tests.swift' and the (import-only, effectively empty) 'Buffer Primitives Tests.swift' rewritten to import Buffer + Testing. The former combined 'Buffer Storage Slice Capacity Tests.swift' was split three ways: Slice tests to the atom, the two pure Capacity tests to swift-buffer-index ('Buffer Capacity Tests.swift'), Storage tests plus FixedColumn/GrowingColumn to swift-buffer-storage ('Buffer Storage Tests.swift'). 'Seam.Ledger Closure Tests.swift' and the non-trivial test-support files (Seam.swift, Seam.Ledger.swift, Model.swift, Model.Element.swift, Model.Census.swift) live in the swift-buffer-storage test target; the 'Buffer Test Support' product/target is gone. Import rewrites: Buffer_Primitive/Buffer_Protocol -> Buffer / Buffer_Index; Buffer_Test_Support -> Buffer_Storage in the ledger closure tests; Seam.Ledger.swift now imports Buffer + Buffer_Index. Residual notes: Model.* support files are currently unreferenced by any test but preserved in the storage molecule tests; Seam.Ledger Closure Tests imports Buffer_Storage without strictly needing it; the Integration storage test uses Ordinal via Index's umbrella (may need an explicit import under MemberImportVisibility on a later green pass); code was not built per commission. Direct push to swift-molecules/swift-buffer main used the authorized bypass (remote reported bypassed PR/status rules). Paths: /private/tmp/claude-501/-Users-coen-Developer-coenttb/20dff9a4-b817-42e7-bbc6-9081ab416a17/scratchpad/wave1/{swift-buffer,swift-buffer-index,swift-buffer-storage}; all three git-clean at the reported SHAs.",
    "completedAt": "2026-08-27T13:50:51Z"
+  },
+  {
+   "package": "swift-builder",
+   "repositoryID": null,
+   "disposition": "molecule",
+   "from": "swift-molecules/swift-builder",
+   "to": "swift-molecules/swift-builder",
+   "shapeCommit": "009b6cd94357ac090c4040f5c2a4f907b0b92bbb",
+   "dependencies": [
+    "swift-molecules/swift-buffer-linear \u2014 the domain's accumulator type Buffer<...>.Linear is the return type of every Builder build method",
+    "swift-molecules/swift-initialization \u2014 Buildable refines Initiable and uses its Failure/init() contract",
+    "swift-molecules/swift-storage (Storage Contiguous) \u2014 the accumulator is generic over Storage<...>.Contiguous, spelled in the public API",
+    "swift-molecules/swift-memory-heap \u2014 Memory.Heap is part of the concrete accumulator type in the public API",
+    "swift-molecules/swift-memory-allocation (Memory Allocator Primitive) \u2014 Memory.Allocator is part of the concrete accumulator type in the public API"
+   ],
+   "splits": [],
+   "notes": "Outer-loop adjudication overriding lane atom call: canonical internal shape adopted, but the public API is irreducibly expressed in molecule-level machinery (Buffer.Linear accumulator, Storage.Contiguous, Memory.Heap/Allocator) \u2014 an atom may not depend on molecules, so Builder is certified as a molecule in place. Lane notes: Adjudication: Builder is a native semantic domain (the declarative result-builder construction grammar: @resultBuilder Builder<Component: ~Copyable> plus the Buildable protocol), so the default atom disposition holds. There are no seam files: both source files (Sources/Builder/Builder.swift, Buildable.swift) ARE the domain, and every kept dependency appears in the domain module's own public API surface (accumulator type Buffer<Storage<Memory.Allocator<Memory.Heap>>.Contiguous<Component>>.Linear; Initiable superprotocol), hence irreducible \u2014 zero molecule repos created. No stdlib-extension file",
+   "completedAt": "2026-08-27T13:51:05Z"
   }
  ],
  "successors": [],
@@ -2391,5 +2409,18 @@
   "mode": "lean bottom-up; structural correctness only (placement, splits, Package.swift); no compile/test gate; upstream-only view",
   "atomShape": "single domain module X + products X, X Standard Library Integration (deps: X), X Apple Foundation Integration (deps: X + SLI; sole Foundation module); 3 products per atom",
   "order": "fewest upstream dependencies first; swift-x -> swift-atoms after reduction; swift-x-y stay in swift-molecules; dependency-bearing seams split out as additive molecules"
- }
+ },
+ "concerns": [
+  {
+   "id": "atom-to-molecule-edges",
+   "recordedAt": "2026-08-27T13:51:05Z",
+   "concern": "Already-transferred atoms retain production edges to molecules, which the dependency law forbids in the end state. Reconcile in the compile/certification pass by promoting the target molecule to atom, absorbing the seam, or re-tiering the package.",
+   "edges": [
+    "swift-atoms/swift-memory -> swift-molecules/swift-bit-index (Memory.Shift stores Bit.Index.Count)",
+    "swift-atoms/swift-path -> swift-molecules/swift-memory-heap (Path storage)",
+    "swift-atoms/swift-string -> swift-molecules/swift-memory-heap (String storage)",
+    "swift-atoms/swift-lexer -> swift-molecules/swift-memory-cursor (Scanner.init)"
+   ]
+  }
+ ]
 }
