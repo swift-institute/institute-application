@@ -29612,20 +29612,29 @@
       "observedHead": "0ddc65777a8f825b603d95e8e62cb2fb42ec3668",
       "observedRemote": "https://github.com/swift-standards/swift-epub-standard.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "verified no-change preparation at exact existing commit 0ddc65777a8f825b603d95e8e62cb2fb42ec3668 in clean isolated worktree /private/tmp/four-layer-swift-epub-standard-root; no empty or invented commit was created",
+          "audited all nine committed paths and proved Package.swift, source export, test, README, metadata, workflow, SPI configuration, ignore policy, and complete payload already used the exact canonical swift-w3c/swift-w3c-epub URL, swift-w3c-epub package identity, W3C EPUB product, W3C_EPUB module, canonical active Actions, and unchanged EPUB Standard package/product/target/path/public identities",
+          "the full-tree residual scan for old owners, reservation owners, -primitives, Primitives product suffixes, and _Primitives module suffixes found no migration residual; tree path-list hash 24bf6bc0f2a0c01b15d415f92d78107d9bcf8988a78ad4227a761ff90b30436c and tree-listing hash c359320565c86b3c04466ffbe585a748c15839a164402efe2d2fbb817a325ebd were recorded, the checkout had no diff or staged changes, and Package.resolved was absent"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified unchanged coordinate swift-standards/swift-epub-standard at exact live main 0ddc65777a8f825b603d95e8e62cb2fb42ec3668 with GitHub repository ID 1132375200, public visibility, non-archived state, default branch main, and canonical clone URL; no repository rename, content commit, or push was required",
+          "verified the sole dependency at exact live coordinate swift-w3c/swift-w3c-epub, GitHub repository ID 1118185914, main e166a33c39ef7b154ba526a6d20635003e4ea1aa, public visibility, non-archived state, default branch main, and exact W3C EPUB product before booking publication",
+          "coordinator verified unchanged live main 0ddc65777a8f825b603d95e8e62cb2fb42ec3668 with stable repository ID 1132375200, exact coordinate, public visibility, non-archived state, default branch main, canonical origins, and a clean isolated worktree"
         ]
       },
       "state": "ready",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is durably booked before the sole package-resolution gate"
+        ]
+      },
+      "githubRepositoryID": 1132375200
     },
     {
       "current": "swift-standards/swift-fips-180-4",
