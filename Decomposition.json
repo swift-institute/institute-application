@@ -2298,6 +2298,34 @@
    ],
    "notes": "Adjudication: Time is an irreducible native semantic domain (calendar/timeline value types, zero platform deps in its core) \u2014 clear atom. Reshape: collapsed 'Time Primitive' (no external deps) into single Sources/Time module via git mv; deleted umbrella exports.swift in Time, Time Primitive, Time Format, Time Julian, and Tests/Support; deleted trivial re-export target 'Time Test Support' (no test file imported it). SLI target holds Duration+Conversions.swift (pure extension Swift.Duration), prepended 'public import Time'; other Comparable/Codable/ExpressibleBy conformances sit inline in type-declaration files and stay in Time. No source file imported Foundation, so 'Time Apple Foundation Integration' is the three-line seed. Products exactly Time / Time Standard Library Integration / Time Apple Foundation Integration; atom package dependencies now empty (swift-dimension, swift-format, swift-formatter all left with their seams). Import rewrites: Time_Primitive -> Time everywhere (including @testable in atom tests); molecule sources gained 'public import Time' where the deleted umbrella had supplied it. Molecule deps pinned at live coordinates: swift-atoms/swift-dimension, swift-atoms/swift-format, swift-atoms/swift-formatter (all transferred), swift-molecules/swift-time; branch: main throughout. Residuals (expected red, later pass): (1) swift-time-format molecule carries two external deps (Format + Formatter) \u2014 the single seam file imports both, so one molecule holds both rather than an artificial split; (2) molecule test files dropped '@testable import Time_Primitive' in favor of plain 'import Time' \u2014 any internal-symbol use there will be red; (3) atom test files TimeFoundationTests, TimePropertyTests, Time.Epoch.Conversion Tests still 'import Foundation' inside 'Time Tests'; (4) Sources/Time Dimension module name is Time_Dimension though content is Julian-named types (seam named per external dependency as commissioned). Push to swift-time main used the authorized direct push (server noted org-admin bypass of PR/CI rules, expected under the ruling). git status clean in all three checkouts.",
    "completedAt": "2026-08-27T13:50:27Z"
+  },
+  {
+   "package": "swift-complex",
+   "repositoryID": 1132373571,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-complex",
+   "to": "swift-atoms/swift-complex",
+   "shapeCommit": "890996ebfc1fbd6a015c9dec8fed9414c296a111",
+   "dependencies": [
+    "swift-numeric (product Real): Numeric.Transcendental and Scalar._hypot/_exp/_log/_sin/_cos/_atan2 underpin the atom's core math surface (Math.Exp/Log/Power/Inverse/Hyperbolic/Trigonometric, Magnitude, Equals, Polar length) \u2014 complex elementary functions are the domain itself, not integration",
+    "swift-tagged (product Tagged): Complex.Number.Modulus.Value is a Tagged typealias with operator extensions in Complex.Modulus.swift; modulus is core Complex domain (previously leaked in via Dimension's umbrella re-export, now declared directly)"
+   ],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-complex-dimension",
+     "repositoryID": 1348543285,
+     "commit": "4092f1e4ef39b6a685d4b573a984aaa885603023",
+     "seam": "Polar phase/init(length:phase:) returning Radian \u2014 integrates Complex with Dimension"
+    },
+    {
+     "successor": "swift-molecules/swift-complex-numeric-relaxed",
+     "repositoryID": 1348543430,
+     "commit": "886742276147a0f260e6b3691586df8bd9ab5f9a",
+     "seam": "Complex.Relaxed.swift extending Numeric.Relaxed with Complex sum/product/multiplyAdd overloads"
+    }
+   ],
+   "notes": "Adjudication: Complex numbers are an irreducible native semantic domain -> atom. Reshape: deleted Sources/Complex/exports.swift umbrella (@_exported Dimension/Numeric_Relaxed/Real); no strata targets existed, single Complex module retained. SLI target created with moved files Complex+Equatable.swift, Complex+Hashable.swift, Complex+String.swift (each gains public import Complex); AFI target seeded (no Foundation usage anywhere). Products now exactly Complex / Complex Standard Library Integration / Complex Apple Foundation Integration. Seams: (1) swift-dimension dependency removed by splitting Complex+Polar.swift \u2014 atom keeps polar/length/squared, molecule swift-complex-dimension takes phase(of:)/phase/init(length:phase:) plus the moved Complex.Polar.Tests.swift; (2) Numeric Relaxed product dependency removed by moving Complex.Relaxed.swift to swift-complex-numeric-relaxed (stub @Suite tests). Trivial re-export target \"Complex Test Support\" (Tests/Support) and its product deleted; kept test files (Arithmetic/Division/Math/Properties) gained import Complex; test target \"Complex Tests\" deps now exactly [\"Complex\"]; no SLI-specific test files existed. Explicit public import Real added to 10 atom files and public import Tagged to Complex.Modulus.swift/Complex+Polar.swift since the umbrella is gone. Residual red (structural pass, expected): molecule sources reference @usableFromInline internal members of Complex (._value, .complex, Modulus.Value(_unchecked:)) which are package-internal, so both molecules will not compile until swift-complex exposes public API for these; moved Complex.Polar.Tests.swift retains length/Modulus assertions against atom API (acceptable residual); kept atom test files may use == on Complex.Number whose Equatable conformance now lives in the SLI module they do not import; Complex.Properties.swift's ExpressibleBy/isFinite usages rely on stdlib only. Atom working tree, both molecule trees verified clean. Push to main used the org-admin bypass (remote reported bypassed PR/status-check rules); direct pushes were authorized by the commission.",
+   "completedAt": "2026-08-27T13:50:35Z"
   }
  ],
  "successors": [],
