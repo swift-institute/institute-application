@@ -1247,6 +1247,28 @@
    ],
    "notes": "Adjudication: Interval is a native semantic domain (descriptor vocabulary Interval.Bound/Boundary/Endpoint, three Z2 two-case enums) \u2014 clear atom. Reshape: collapsed Interval Primitive/Bound/Boundary/Endpoint strata into single Sources/Interval module via git mv; deleted all five intra-package exports.swift umbrellas and the trivial Interval Test Support re-export target (its import in the test file replaced by the existing @testable import Interval). Seam: the only external dependency was swift-pair, used solely for the three Value<Payload> typealiases; those moved to new molecule swift-interval-pair (product/target \"Interval Pair\", module Interval_Pair, deps Interval @ swift-molecules + Pair @ swift-atoms live coordinates, branch main) with a real round-trip test; the atom now has zero package dependencies. SLI: the three \"extension Interval.X: Codable {}\" blocks moved to \"Interval Standard Library Integration\" as Interval.Bound/Boundary/Endpoint+Codable.swift with manual string-encoding init(from:)/encode(to:) implementations (matching the swift-bit exemplar, since Codable synthesis is unavailable cross-module) plus exports.swift \"@_exported import Interval\" per exemplar; Sendable/Hashable/CaseIterable stay inline on the declarations. AFI: seed file with the three-line public imports (no Foundation code existed). Products exactly three; tests \"Interval Tests\" deps [\"Interval\"] (no SLI test files existed, so no SLI test target). Manifest idiom (tools 6.4, .v27 platforms, v6 language mode, ecosystem SwiftSetting loop) preserved verbatim. README Architecture table and Pair example updated to the new shape. No residual red references known in kept test files; nothing built or tested per brief. Both working trees verified clean; push to main used the authorized direct-push path (remote reported org-admin rule bypass, expected).",
    "completedAt": "2026-08-27T12:54:46Z"
+  },
+  {
+   "package": "swift-iterator",
+   "repositoryID": 1250663734,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-iterator",
+   "to": "swift-atoms/swift-iterator",
+   "shapeCommit": "b12777e6ca29da8580154a3f8fa1a2b7e541fcf4",
+   "dependencies": [
+    "swift-carrier (Carrier) \u2014 Carrier.`Protocol`<Cardinal> is the parameter type of the core chunk-protocol requirement next(maximumCount:); inextricable from the atom's central protocol signature",
+    "swift-cardinal (Cardinal + Cardinal Standard Library Integration products) \u2014 Cardinal is the count type baked into __IteratorChunkProtocol.next(maximumCount:) and all chunk/terminal implementations; the SLI product supplies the Cardinal(UInt) conversions used by Iterator.Chunk"
+   ],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-iterator-either",
+     "repositoryID": 1348485918,
+     "commit": "5bc79a26f7a1a0cf6b892204bcbd5fd5756024cb",
+     "seam": "Either-typed fallible overloads of Iterable terminals (forEach/first/contains/reduce throwing Either<E, Iterator.Failure>) plus their fallible test file"
+    }
+   ],
+   "notes": "Adjudication: iterator/iteration is a native semantic domain (move-only, typed-throws iteration protocol, witness, chunk protocol, Iterable capability) \u2014 clearly atom. Reshape: collapsed 7 strata targets (Iterator Primitive/Protocol/Witness/Once/Chunk/Iterable/Iterator umbrella) into single Sources/Iterator module; deleted all 7 exports.swift umbrellas including Tests/Support. Either seam: each of Iterable+ForEach/First/Contains/Reduce.swift contained a Never-failure overload and an Either-failure overload in one file; split at extension granularity \u2014 Never overloads stay in the atom, Either overloads moved to swift-iterator-either (module Iterator_Either); atom lost swift-either entirely. SLI and AFI targets created as seed files (no stdlib-extension or Foundation-importing code exists). Added explicit `public import Carrier` to __IteratorChunkProtocol.swift, Iterator.Chunk.swift, Iterator.Materializing.swift (previously leaked via the deleted @_exported Carrier umbrella). Tests consolidated into one \"Tests/Iterator Tests\"; Iterator Test Support deleted, imports replaced with Iterator+Testing (plus Cardinal/Carrier in the chunk test). Deviation from the deps-[\"X\"]-only test shape: the atom test target also depends on Carrier and Cardinal products because kept-dependency types appear verbatim in test conformer signatures. Possible red spots (structural pass only, nothing built): module-qualified `Iterator_Chunk.Iterator.Chunk<Int>` in two test files rewritten as `Iterator.Iterator.Chunk<Int>` (module name shadows the enum inside Iterable conformers \u2014 may need module-selector spelling); Cardinal(UInt.max)/Cardinal(UInt(...)) initializers in atom files that import only Cardinal may additionally need Cardinal_Standard_Library_Integration (preserved as in the original files); molecule test file conforms to __IteratorChunkProtocol via the Iterator product. Dependency URLs recut to live coordinates: swift-cardinal/swift-carrier/swift-either all redirect to swift-atoms, so manifests reference swift-atoms; the molecule references swift-molecules/swift-iterator (its current home). Push to main bypassed the PR/status-check rule via existing org-admin bypass (reported by remote; no gate was disabled). Working trees verified clean in both repos.",
+   "completedAt": "2026-08-27T12:54:54Z"
   }
  ],
  "successors": [],
