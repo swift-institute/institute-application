@@ -678,7 +678,7 @@
         {
           "manifest": "Package.swift",
           "current": "swift-foundations/swift-foundation-extensions",
-          "future": "swift-compositions/swift-foundation-extensions"
+          "future": "swift-molecules/swift-foundation-extensions"
         },
         {
           "manifest": "Package.swift",

@@ -43,6 +43,18 @@ struct `Institute Architecture Migration Mapping Tests` {
   }
 
   @Test
+  func `maps the identity preserving extension exceptions to molecules`() {
+    #expect(
+      mapping.coordinate("swift-foundations/swift-foundation-extensions")
+        == "swift-molecules/swift-foundation-extensions"
+    )
+    #expect(
+      mapping.coordinate("swift-foundations/swift-standard-library-extensions")
+        == "swift-molecules/swift-standard-library-extensions"
+    )
+  }
+
+  @Test
   func `removes plural product and module tokens but preserves singular primitive`() {
     #expect(
       mapping.product("Byte Primitives Standard Library Integration")
