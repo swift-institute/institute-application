@@ -11006,8 +11006,11 @@
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-rfc-5234-root institute package resolve --package-path /private/tmp/four-layer-swift-rfc-5234 --argument=--disable-sandbox against exact live Standard Library Extensions, ASCII, INCITS 4-1986, and transitive dependencies",
+          "post-resolution verification found exact HEAD 7bfc24502a3f6a6daecf814ad313e0866d4282a7, a clean checkout, and untouched generated Package.resolved with stable SHA-256 6343cf20129bd2bc2f8a570e720f9b86ab22bb16a5adf5409d83aaa3f5ab84c8"
+        ]
       }
     },
     {
