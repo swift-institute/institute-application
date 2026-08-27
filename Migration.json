@@ -23953,13 +23953,21 @@
       "observedHead": "eb1c4af609e25242a21652ec702dfaa8195a08e9",
       "observedRemote": "https://github.com/swift-primitives/swift-parser-effect-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit d2267837285cc558d09d358326a84c778641d694 from expected parent eb1c4af609e25242a21652ec702dfaa8195a08e9",
+          "isolated worktree /private/tmp/four-layer-swift-parser-effect",
+          "deterministic ten-file committed-tree equivalence and nine-path cutover transformation passed dependency/product, residual, public-payload, active Actions-reference, clean-worktree, and Package.resolved-absent gates"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified pre-rename main at expected commit eb1c4af609e25242a21652ec702dfaa8195a08e9 on exact live coordinate swift-molecules/swift-parser-effect-primitives and verified exact future coordinate returned HTTP 404",
+          "renamed repository to swift-molecules/swift-parser-effect and verified stable GitHub repository ID 1254205897 with public visibility, non-archived state, default branch main, and unchanged pre-push main",
+          "updated isolated worktree fetch and push origins to https://github.com/swift-molecules/swift-parser-effect.git",
+          "fast-forward published exact prepared commit d2267837285cc558d09d358326a84c778641d694 without force or history rewrite using the configured administrator ruleset bypass",
+          "verified live main d2267837285cc558d09d358326a84c778641d694 with unchanged repository ID, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
