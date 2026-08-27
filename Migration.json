@@ -836,23 +836,32 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-compositions/swift-authentication",
       "futureLayer": "compositions",
-      "observedHead": "3cb345d439b0b467bf806695259bf449c3b1e255",
-      "observedRemote": "https://github.com/swift-foundations/swift-authentication.git",
+      "observedHead": "d4fad5e2341f05048b9ce98a7629d7a221c2e9d7",
+      "observedRemote": "https://github.com/swift-compositions/swift-authentication.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared exact human-authored direct-child cutover commit d4fad5e2341f05048b9ce98a7629d7a221c2e9d7 from expected base 3cb345d439b0b467bf806695259bf449c3b1e255 in clean isolated worktree /private/tmp/swift-authentication",
+          "mechanical four-layer cutover changed nine tracked paths with 46 insertions and 44 deletions across dependency coordinates, products/modules/imports, repository links, metadata, and render-reference comments; the swift-foundation-extensions identity was preserved at its molecules owner, Tagged was canonicalized, and the legitimate singular Render Primitive source path was preserved",
+          "all twenty-six dependency coordinates and twenty-eight consumed products plus residual identity, active Actions-reference, public-payload, diff, attribution, and Package.resolved preservation checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "repository ID 1048332318 was verified before and after cutover at exact canonical coordinate swift-compositions/swift-authentication with unchanged public visibility, non-archived and enabled state, default branch main, and enabled Actions; no repository-name rename or archive-state change was required",
+          "published exact prepared commit d4fad5e2341f05048b9ce98a7629d7a221c2e9d7 as an ordinary fast-forward from 3cb345d439b0b467bf806695259bf449c3b1e255 to refs/heads/main through the authenticated administrative ruleset bypass; no force push or history rewrite occurred",
+          "coordinator independently reverified exact live main d4fad5e2341f05048b9ce98a7629d7a221c2e9d7, repository ID 1048332318, exact future coordinate, public visibility, non-archived and enabled state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
-      }
+        "records": [
+          "publication is complete and Package.resolved remained absent twice before preparation, publication, and afterward; package resolution is queued until every internal dependency is validation-passed and the serialized Institute slot is available"
+        ]
+      },
+      "githubRepositoryID": 1048332318
     },
     {
       "current": "swift-foundations/swift-certificate-verification",
