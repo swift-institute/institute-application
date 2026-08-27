@@ -6961,20 +6961,30 @@
       "observedHead": "8da0177db99c89d2084b1568eaef8ddbeac75a01",
       "observedRemote": "https://github.com/swift-foundations/swift-server.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit fab8d4d9b1da57fef66e77bee26f517e2b8bd949 from exact parent 8da0177db99c89d2084b1568eaef8ddbeac75a01 in clean identity-compatible isolated worktree /private/tmp/server-composition-root/swift-server; the original checkout and pre-existing fleet-style-server worktree remained clean and untouched",
+          "audited all 32 tracked paths and made the exact 3-path, 10-insertion/10-deletion mechanical cutover across Package.swift, README, and metadata, mapping five dependency owners to compositions and Byte to swift-molecules/swift-byte while preserving the legitimate singular Byte Primitive product and all owned Server public semantics; residual, payload, staged-tree, ancestry, identity, and canonical Actions checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-server as canonical with stable GitHub repository ID 1290903488, public visibility, non-archived state, default branch main, and exact live parent; the completed organization rename had already established the coordinate, so no repository rename was needed",
+          "JIT verified all seven declared dependency coordinates, exact heads, required products, and ledger gates, then ordinary fast-forward published exact direct child fab8d4d9b1da57fef66e77bee26f517e2b8bd949 without force or history rewrite; a pre-existing old-owner pushurl followed GitHub's redirect for this push and was then deliberately corrected so both fetch and push origins are the exact canonical URL",
+          "coordinator verified exact live main fab8d4d9b1da57fef66e77bee26f517e2b8bd949 with unchanged repository ID 1290903488, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "blocked",
+        "records": [
+          "the first Institute package-resolution invocation traversed and materialized the full live dependency graph but its final exit status was lost at the terminal-session handoff, so it is not accepted as passing evidence",
+          "an identical evidence-capture retry exited 1 during concurrent SwiftPM cache activity with transient unable-to-read-tree failures for already-published swift-ascii and swift-async revisions; this is a package-resolution failure to repair, not a compile/test failure, and the successful publication remains booked",
+          "Package.resolved was absent twice before the first resolution and is now present only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 359e921069e0eda5ae1d4a940ee54fa170d412b5f5f60801d45ae29868a958b2; resolution retries are serialized until an exact exit-0 result is captured"
+        ]
+      },
+      "githubRepositoryID": 1290903488
     },
     {
       "current": "swift-foundations/swift-server-dependencies",
