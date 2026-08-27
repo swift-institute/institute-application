@@ -341,21 +341,30 @@
       "futureLayer": "compositions",
       "observedHead": "b69157aa15fb23af91ff734cf40ebfe5693ace1f",
       "observedRemote": "https://github.com/swift-foundations/swift-application-server.git",
-      "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
-        "records": [
-          "verify expected old commit with the publishing identity immediately before push"
-        ]
-      },
-      "state": "ready",
-      "validation": {
-        "status": "pending",
-        "records": []
-      }
+    "preparation": {
+      "status": "passed",
+      "records": [
+        "prepared human-authored direct-child commit d854050f24f1ba4dc6545e2c73580c60635718c4 from exact parent 21e02e88baaeb150542c5e471a741679a6aec8fb in clean identity-compatible isolated worktree /private/tmp/plist-composition-lane/swift-plist; the original checkout and pre-existing fleet lane remained clean and untouched",
+        "audited all 40 tracked paths and made the exact 3-path, 6-insertion/6-deletion mechanical cutover across Package.swift, README, and metadata, mapping Async and XML to swift-compositions and Byte to swift-molecules/swift-byte while preserving legitimate singular Byte Primitive and Byte_Primitive identities, external RFC/ISO identities, public semantics, and canonical Actions; residual, payload, staged-tree, ancestry, and identity checks passed"
+      ]
+    },
+    "publication": {
+      "status": "passed",
+      "records": [
+        "reconciled exact future coordinate swift-compositions/swift-plist as canonical with stable GitHub repository ID 1144636058, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; no repository rename was needed",
+        "JIT verified all five declared dependency coordinates, exact heads, required products, and ledger gates, then ordinary fast-forward published exact direct child d854050f24f1ba4dc6545e2c73580c60635718c4 without force or history rewrite",
+        "coordinator independently verified exact live main d854050f24f1ba4dc6545e2c73580c60635718c4 with unchanged repository ID 1144636058, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, and clean tracked checkout"
+      ]
+    },
+    "state": "passed",
+    "validation": {
+      "status": "passed",
+      "records": [
+        "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-plist-composition-publisher institute package resolve --package-path /private/tmp/plist-composition-lane/swift-plist --argument=--disable-sandbox against the exact live graph; no build, test, compilation, raw SwiftPM, dump-package, or standalone manifest-evaluation command was invoked",
+        "Package.resolved was absent twice before resolution and present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 96c7e63f8f0a27fb7c54dc5dff1ec350e24e1adda0b7e87c185420589ab86cb0; final live identity/SHA and clean tracked checkout were reverified"
+      ]
+    },
+    "githubRepositoryID": 1144636058
     },
     {
       "current": "swift-foundations/swift-application-swiftui",
