@@ -1958,6 +1958,45 @@
    ],
    "notes": "Adjudication: Orthant<let N: Int> (sign orthant of N-dimensional space) is an irreducible native semantic domain; default atom disposition applies. Kept dependency: swift-atoms/swift-direction \u2014 the core type is literally InlineArray<N, Direction>; Direction appears in the public API of every initializer and property, so the atom irreducibly needs the Direction product (mirrors how swift-direction itself remained the substrate for orthant pre-reshape). Atom reshape at /private/tmp/claude-501/-Users-coen-Developer-coenttb/20dff9a4-b817-42e7-bbc6-9081ab416a17/scratchpad/wave1/swift-orthant: \"Orthant Primitive/Orthant.swift\" git-mv'd to Sources/Orthant/Orthant.swift (import Direction_Primitive rewritten to public import Direction; == < <= > >= operators and hash(into:) kept in the atom, matching the swift-direction exemplar); all three exports.swift umbrella files deleted; the #if !hasFeature(Embedded) Codable conformance moved to new \"Sources/Orthant Standard Library Integration/Orthant+Codable.swift\"; \"Orthant Apple Foundation Integration\" created as the three-line seed. Deviation from brief (necessity): the SLI target's deps are [\"Orthant\", \"Direction\", \"Direction Standard Library Integration\"] rather than exactly [\"Orthant\"], because the moved Codable code decodes/encodes Direction values and needs Direction's Codable conformance (declared in Direction Standard Library Integration); no new package dependency was introduced. Trivial re-export target \"Orthant Test Support\" (@_exported Ordinal_Test_Support) deleted; product \"Ordinal Test Support\" no longer exists at swift-atoms/swift-ordinal. Seam coordinates verified live: swift-direction/finite/ordinal/equation/hash/comparison/cardinal are all transferred atoms in swift-atoms with bare-domain products; Finite.Enumerable now lives in swift-molecules/swift-finite-ordinal (product \"Finite Ordinal\"), so swift-orthant-finite depends on it plus Cardinal/Ordinal/Direction/Finite; molecule naming follows the swift-bit-finite and swift-direction-hash precedents. Molecule imports rewritten Orthant_Primitive->Orthant; the Enumerable file's plain imports became public imports (public API positions under InternalImportsByDefault). Residual red references in kept files: Tests/Orthant Tests/Orthant Tests.swift uses Set<Orthant<2>> (Hashable now arrives via the swift-orthant-hash molecule, not the atom) and the moved enumerable test relies on allCases from Finite.Enumerable's CaseIterable bridge in swift-finite-ordinal \u2014 acceptable per brief; no builds were run by instruction. Direct push to main bypassed the PR/CI rule via org-admin (expected, reported by remote). All five working trees verified clean.",
    "completedAt": "2026-08-27T13:32:27Z"
+  },
+  {
+   "package": "swift-memory",
+   "repositoryID": 1132373559,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-memory",
+   "to": "swift-atoms/swift-memory",
+   "shapeCommit": "dd9f2bc4a137cdd8ebb7bc859650d479c9c72cc9",
+   "dependencies": [
+    "swift-molecules/swift-bit-index \u2014 Memory.Shift's stored representation is Bit.Index.Count; Shift underlies Alignment, so the atom's core types are unrepresentable without it in a structural-only pass"
+   ],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-memory-tagged",
+     "repositoryID": 1348526612,
+     "commit": "b3d2aaa873f8464ce711f9f80dbcddbabef66d4e",
+     "seam": "Memory.Address = Tagged<Memory, Ordinal> plus Region protocol and the pointer-vocabulary stdlib extensions built on Address (11 source files + arithmetic test suite)"
+    },
+    {
+     "successor": "swift-molecules/swift-memory-carrier",
+     "repositoryID": 1348526691,
+     "commit": "018b7142478af71d0b018bb43faccf45e80c8ab5",
+     "seam": "Carrier.Protocol conformance of Memory.Shift, Carrier-generic align up/down overloads, and Property-based Alignment.Align namespace"
+    },
+    {
+     "successor": "swift-molecules/swift-memory-affine",
+     "repositoryID": 1348526779,
+     "commit": "077bbedc1f151c66595dca9cbedd1e00b5245d77",
+     "seam": "Affine.Discrete.Ratio.stride extension mapping type strides into the Memory domain"
+    },
+    {
+     "successor": "swift-molecules/swift-memory-span",
+     "repositoryID": 1348526839,
+     "commit": "2e09d78149d86c32c849ed897d04211f4d8b0461",
+     "seam": "retroactive Array: Span.Protocol conformance (sole Span_Protocol-importing file)"
+    }
+   ],
+   "notes": "Adjudication: Memory (addresses, alignment, shifts, regions) is a native semantic domain; default atom stands. Atom module Sources/Memory now holds Memory.swift (from Memory Primitive), Memory.Shift(.Error), Memory.Alignment(.Error), Memory.Alignable; all six strata targets and every intra-package exports.swift umbrella deleted; products are exactly Memory / Memory Standard Library Integration / Memory Apple Foundation Integration. SLI target (deps exactly [\"Memory\"]) holds Comparable/CustomStringConvertible conformance blocks split out of the core files plus an exports.swift re-exporting Memory (exemplar swift-bit idiom); AFI is the three-line seed (no Foundation imports existed). Manifest keeps tools-version 6.4, .v27 platforms, v6 language mode, and the verbatim ecosystem loop incl. RawLayout. File splits (justified necessity to make the atom lose seam deps, since integrations were inline blocks): Carrier-generic overloads split out of Memory.Alignment.swift into swift-memory-carrier as Memory.Alignment+Carrier.Protocol.swift. swift-memory-tagged carries supporting deps swift-affine/swift-index/swift-property (all live in swift-atoms) because every pointer file speaks Address vocabulary plus Index/Property; it is the narrowest owner. Residual red expected (structural pass): (1) Tests/Memory Tests/Memory.Alignment Performance Tests.swift uses .timed from the deleted Memory Test Support umbrella; (2) Memory.Shift's magnitude/mask use \"Carrier(1) << self\" whose shift operator lives outside the atom; (3) swift-memory-span's file never mentions Memory \u2014 candidate for relocation into swift-span's own tree (kept a nominal swift-memory dep for the X-D shape); (4) trivial Memory Test Support target deleted, its import rewritten to Affine/Cardinal/Index/Memory in the molecule's arithmetic tests. Deleted as stale: Tests/Testing/* Memory Pool performance test referencing nonexistent module Memory_Pool (Pool is not defined anywhere in this package). Original live coordinates confirmed: tagged/ordinal/cardinal/affine/index/property/carrier/span resolve to swift-atoms; swift-bit-index remains swift-molecules. All five working trees verified clean.",
+   "completedAt": "2026-08-27T13:32:36Z"
   }
  ],
  "successors": [],
