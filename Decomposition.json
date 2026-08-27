@@ -5466,6 +5466,15 @@
     "wave": "wave6l",
     "changes": "Migrated obsolete Buffer.Protocol and count seams to Store.Ledgered.Protocol, restored the storage-generic heap and current Index/Storage push-pop surface, and added bounded move-only and differential coverage. Exact core/AFI/TestSupport products; Foundation only in AFI. Fresh build green; 9 tests green; local Embedded proof blocked upstream.",
     "bookedAt": "2026-08-27T20:13:55Z"
+   },
+   {
+    "repo": "swift-atoms/swift-vector",
+    "headSHA": "f385254d3fc80e5a5e747cff68ab1dea8050333d",
+    "build": "green",
+    "test": "green",
+    "wave": "wave6m",
+    "changes": "Removed obsolete Sequence-derived and SLI seams, repaired Vector.Index shadowing and lost count/offset and Property APIs, retained typed index/prefix/drop/reversed/drain behavior, and restored exact core/AFI/TestSupport products. Foundation only in AFI. Fresh build green; 18 tests green; local Embedded proof blocked upstream.",
+    "bookedAt": "2026-08-27T20:31:35Z"
    }
   ]
  }
