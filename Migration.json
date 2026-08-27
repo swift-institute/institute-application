@@ -25628,8 +25628,13 @@
       "observedHead": "23b3a99358531588c3e3323c1dae455080e32f56",
       "observedRemote": "https://github.com/swift-primitives/swift-set-algebra-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared commit 38c7af444ace1857eadfa4d8c9aab3de3fcbc546 from expected parent 23b3a99358531588c3e3323c1dae455080e32f56",
+          "isolated worktree /private/tmp/four-layer-swift-set-algebra",
+          "mapped all four dependency URLs, products, modules, imports, paths, README references, and repository metadata to live molecule coordinates; stripped owned Set Algebra plural identities",
+          "independent audit proved the 14-file tree is reproduced by the authorized mechanical transformation with exact 12-path diff, all required live products and SHAs, dependency readiness, suffix-free identities, residual, public payload, workflow, and Package.resolved gates; exact future coordinate remains HTTP 404 and stable repository ID is 1253222898"
+        ]
       },
       "publication": {
         "status": "pending",
