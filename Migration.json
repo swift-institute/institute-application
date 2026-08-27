@@ -30212,20 +30212,31 @@
       "observedHead": "c4f0ca34a9501487380d2e1f7ef9c5d526c4129d",
       "observedRemote": "https://github.com/swift-standards/swift-sockets-standard.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified a deterministic no-change preparation at exact expected commit c4f0ca34a9501487380d2e1f7ef9c5d526c4129d in isolated detached worktree /private/tmp/four-layer-swift-sockets-standard; no empty commit was created",
+          "audited all thirteen tracked paths and confirmed Package.swift and all source/test imports already use only canonical RFC 768, RFC 791, and RFC 9293 coordinates/products/modules while preserving every Sockets Standard package/product/target/path/public semantic identity",
+          "the complete committed tree outside LICENSE contains no swift-primitives or swift-foundations owner, reservation owner, -primitives repository/package, Primitives product, or _Primitives module residual; README/metadata, canonical Actions, public-payload, exact-tree, Package.resolved-absence, and clean-worktree gates passed; an unrelated pre-existing prunable .fleet-sockets worktree record was observed and left untouched"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified exact canonical coordinate swift-standards/swift-sockets-standard, GitHub repository ID 1126765747, public visibility, non-archived state, default branch main, exact final origin, and live main c4f0ca34a9501487380d2e1f7ef9c5d526c4129d; no repository rename or publication push was required",
+          "verified all three direct dependencies were ledger-passed and freshly exact-live with products on public, non-archived, default-main repositories: RFC 768 at 32460abd8287b2c15cebbf485b541872c7cb3aec, RFC 791 at bdbf5d97db18e3927d54682ba13d792a55f6df59, and RFC 9293 at 125d9f2c236c60ce91e11618388c6fe51aa974d4",
+          "coordinator reverified unchanged live main c4f0ca34a9501487380d2e1f7ef9c5d526c4129d and stable repository ID 1126765747 after resolution"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-sockets-standard-publisher institute package resolve --package-path /private/tmp/four-layer-swift-sockets-standard --argument=--disable-sandbox and selected all three direct dependencies at their newly booked live heads",
+          "HEAD remained c4f0ca34a9501487380d2e1f7ef9c5d526c4129d, both origins remained the canonical final URL, and the isolated worktree remained clean",
+          "Package.resolved was absent before resolution and present afterward only as ignored generated state with stable SHA-256 23280726db010dfcc672aaeb9c227d59b0998bb40433695b392c9c23b4d3aa4c"
+        ]
+      },
+      "githubRepositoryID": 1126765747
     },
     {
       "current": "swift-standards/swift-spm-standard",
