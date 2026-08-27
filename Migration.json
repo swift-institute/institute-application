@@ -9778,23 +9778,31 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-compositions/swift-url-routing-authentication",
       "futureLayer": "compositions",
-      "observedHead": "ff29fa22f948ca1de99a3694308e98c38f658399",
-      "observedRemote": "https://github.com/swift-foundations/swift-url-routing-authentication.git",
+      "observedHead": "4c241ff60b9e1b57a5a61dca70039f4c25418871",
+      "observedRemote": "https://github.com/swift-compositions/swift-url-routing-authentication.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "the exact future repository swift-compositions/swift-url-routing-authentication was discovered archived at expected base ff29fa22f948ca1de99a3694308e98c38f658399; the principal explicitly unarchived it to permit the migration and instructed that it be archived again only after publication and package resolution are fully booked",
-          "coordinator independently verified the completed unarchive at exact repository ID 906335974 with archived=false, public visibility, enabled state, default branch main, unchanged main SHA ff29fa22f948ca1de99a3694308e98c38f658399, and unchanged repository settings; publication remains pending as a separately journaled phase"
+          "prepared exact direct-child cutover commit 4c241ff60b9e1b57a5a61dca70039f4c25418871 from expected base ff29fa22f948ca1de99a3694308e98c38f658399 in clean isolated worktree /private/tmp/swift-url-routing-authentication",
+          "mechanical four-layer cutover changed exactly .github/metadata.yaml, Package.swift, README.md, and TOMBSTONE.md with seven insertions and seven deletions across two dependency owners, URL Routing links, and layer metadata while preserving Authentication Foundation Integration, URL Routing Foundation Integration, and all public semantics",
+          "all five future dependency coordinates/products plus residual identity, active Actions-reference, public-payload, diff, attribution, and Package.resolved preservation checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "the exact future repository swift-compositions/swift-url-routing-authentication was discovered archived at expected base ff29fa22f948ca1de99a3694308e98c38f658399; the principal explicitly unarchived it to permit the migration and instructed that it be archived again only after publication and package resolution are fully booked",
+          "coordinator independently verified the completed unarchive at exact repository ID 906335974 with archived=false, public visibility, enabled state, default branch main, unchanged main SHA ff29fa22f948ca1de99a3694308e98c38f658399, and unchanged repository settings before publication",
+          "published exact prepared commit 4c241ff60b9e1b57a5a61dca70039f4c25418871 as an ordinary fast-forward from ff29fa22f948ca1de99a3694308e98c38f658399 to refs/heads/main through the authenticated administrative ruleset bypass; no force push or history rewrite occurred",
+          "coordinator independently reverified exact live main 4c241ff60b9e1b57a5a61dca70039f4c25418871, repository ID 906335974, exact future coordinate, public visibility, non-archived and enabled state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
+        ]
+      },
+      "state": "published",
       "validation": {
         "status": "pending",
-        "records": []
+        "records": [
+          "publication is complete and Package.resolved remained absent twice before and after publication; repository must remain unarchived until package resolution is passed and booked, then the principal-authorized final archive state must be restored and booked separately"
+        ]
       },
       "githubRepositoryID": 906335974
     },
