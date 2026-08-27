@@ -6561,20 +6561,29 @@
       "observedHead": "93dab576a0c62cc7f2cf47b0abb94b6723febdf3",
       "observedRemote": "https://github.com/swift-foundations/swift-products.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit 9d7be5169821cdf89fdd17687f21f673d107bcf2 from exact parent 93dab576a0c62cc7f2cf47b0abb94b6723febdf3 in clean isolated worktree /private/tmp/four-layer-swift-products with subject Prepare Products for the four-layer cutover",
+          "audited all 21 tracked paths and made the exact nine-path, 17-insertion/17-deletion mechanical cutover across Package.swift, README, metadata, and Products sources, moving three composition dependencies and Tagged package/product/module coordinates while preserving Products identities, public API, semantics, and canonical Actions; residual, payload, staged-tree, ancestry, and identity checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-products as canonical with stable GitHub repository ID 1311413542, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; no repository rename was needed",
+          "JIT verified exact live Dependencies, Entitlement, Witnesses, and swift-molecules/swift-tagged dependencies, then ordinary fast-forward published exact direct child 9d7be5169821cdf89fdd17687f21f673d107bcf2 without force or history rewrite",
+          "coordinator independently verified exact live main 9d7be5169821cdf89fdd17687f21f673d107bcf2 with unchanged repository ID 1311413542, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, stable Package.resolved evidence, and a clean tracked checkout"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-products-publisher institute package resolve --package-path /private/tmp/four-layer-swift-products --argument=--disable-sandbox against the exact live dependency graph; no build, test, compilation, raw SwiftPM, dump-package, or manifest evaluation was invoked",
+          "Package.resolved was absent twice before resolution and present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 543ed349a21aef9c45128a04e439e66abcf9d4095858092e69673cbee6b18a1f; final live identity/SHA and clean tracked checkout were reverified"
+        ]
+      },
+      "githubRepositoryID": 1311413542
     },
     {
       "current": "swift-foundations/swift-random",
