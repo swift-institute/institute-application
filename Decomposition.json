@@ -4447,6 +4447,18 @@
     "adjudicatedAt": "2026-08-27T21:09:27Z"
    }
   ],
+  "deferredDependencies": [
+   {
+    "repo": "swift-molecules/swift-manifest-byte-parser",
+    "currentHeadSHA": "08dee31276cb5b257ba16c353c1b055bed081751",
+    "blockedBy": "swift-molecules/swift-byte-parser",
+    "blockingHeadSHA": "8843cdabcbfc3809ab016c4c7f8cd7a1bcb231fc",
+    "evidence": "The seam's direct Manifest, ASCII, and Byte Parser coordinates were modernized locally, but fresh resolution stops in Byte Parser's live dependency closure at its stale swift-molecules/swift-parser URL before this package can compile. The consumer lane may not rewrite an unconverged substrate's transitive graph.",
+    "resumeWhen": "Converge swift-byte-parser and its parser-family closure, then resume the preserved checkout, rerun fresh build/test, push, and book only the verified green head.",
+    "status": "dependency-convergence-required",
+    "recordedAt": "2026-08-27T21:48:42Z"
+   }
+  ],
   "pendingAdjudications": [
    {
     "repo": "swift-molecules/swift-direction-comparison",
@@ -5920,6 +5932,51 @@
     "wave": "wave7k",
     "changes": "Canonicalized Predicate to its atom owner and retained the genuine narrow Predicate-to-ternary-Logic seam, documenting its ownership and adding a custom ternary conformer proof of generic true, false, and unknown evaluation. Fresh build green; 28 tests across 8 suites green.",
     "bookedAt": "2026-08-27T21:40:06Z"
+   },
+   {
+    "repo": "swift-molecules/swift-store-optic",
+    "headSHA": "a30a0cd488b6ad5452ea551ab2d098de9d2b2b29",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7l",
+    "changes": "Canonicalized Store and Optic to their atom owners and retained the genuine Store.Update.lift seam composing Store transition/effect behavior with Lens and Prism scoping, making direct test dependencies explicit and strengthening action embedding, rejection, write-back, none, and unchanged run-operation proofs. Fresh build green; 5 tests green.",
+    "bookedAt": "2026-08-27T21:42:48Z"
+   },
+   {
+    "repo": "swift-molecules/swift-serializer-byte",
+    "headSHA": "474baac9b509300245a1b79f98e5bffbe597b2d7",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7l",
+    "changes": "Canonicalized Serializer to its atom owner and retained the genuine Serializer.Literal seam combining Serializer.Protocol with Byte.Protocol and byte buffers, adding a direct Serializer test dependency, narrowing imports, documenting ownership, and covering a custom Byte.Protocol type plus ContiguousArray buffers. Fresh build green; 10 tests across 5 suites green.",
+    "bookedAt": "2026-08-27T21:43:34Z"
+   },
+   {
+    "repo": "swift-molecules/swift-store-algebra",
+    "headSHA": "1a48872ed8a2ee187ae0a0b9a5f5a66b1bcc326b",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7l",
+    "changes": "Canonicalized Store and Algebra to their atom owners and retained the genuine Effect merging/sequencing monoids, Update combining monoid, and Store.Key.Aggregate identity/aggregation seam, replacing the removed Algebra Monoid product/module with unified Algebra and making test dependencies/imports explicit. Fresh build green; 9 tests green.",
+    "bookedAt": "2026-08-27T21:45:17Z"
+   },
+   {
+    "repo": "swift-molecules/swift-terminal-error",
+    "headSHA": "8740442f60d9a08152f127cec8046969ac8ea93c",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7l",
+    "changes": "Canonicalized Terminal to its atom owner and retained the genuine Terminal typed-error operation/cause seam, repairing Error module/type shadowing with the established public Terminal.Error alias pattern, correcting payload spelling, narrowing imports, and covering kernel/platform preservation plus unsupported-operation descriptions. Fresh build green; 3 tests green.",
+    "bookedAt": "2026-08-27T21:46:31Z"
+   },
+   {
+    "repo": "swift-molecules/swift-property-ownership",
+    "headSHA": "1a8cf9841f9dd31372acda61dddc623c84b83709",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7l",
+    "changes": "Canonicalized Property, Ownership, and Tagged to their atom owners and retained the genuine typed and value-generic Property.Inout/Borrow accessor families, replacing removed split Ownership products with unified Ownership, repairing exact public/member imports, and documenting the cross-domain ownership. Fresh build green; 25 tests across 28 suites green and diagnostic-free.",
+    "bookedAt": "2026-08-27T21:48:22Z"
    }
   ]
  }
