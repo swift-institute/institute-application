@@ -1886,6 +1886,39 @@
    ],
    "notes": "Adjudication: Input (consumable, checkpointable cursor protocol hierarchy Stream -> Protocol -> Access.Random with Buffer conformer) is a native semantic domain, not tooling or an external standard \u2014 atom. Reshape: collapsed Input Namespace/Stream/Protocol/Access/Remove/Restore/Buffer targets into single Sources/Input via git mv; deleted all intra-package exports.swift umbrellas; added explicit `public import Index`/`public import Property` per file. Products now exactly Input / Input Standard Library Integration / Input Apple Foundation Integration. SLI holds Optional+Input.Restorable.swift (Swift.Optional conformance) with `public import Input`; AFI is the three-line seed (no Foundation imports existed). Input Buffer kept in the atom: it is the domain's owned-storage conformer generic over stdlib RandomAccessCollection (constraint use, not stdlib extension). Tests: \"Input Test Support\" product/target deleted; its non-trivial fixture (Input.Fixture.Source) moved into Tests/Input Tests as a plain test file; Input.Buffer Tests rewritten from [Byte] to [UInt8] to drop the swift-byte test dep; test target deps are [\"Input\", Index] \u2014 Index added beyond the brief's [\"Input\"] out of necessity (tests express counts/offsets as Index<Int>.Count/Offset and the moved fixture imports Index). Seam molecule swift-input-collection carries the whole former Input Slice target plus Input.Slice Tests; deps at live coordinates (all former swift-molecules deps now redirect to swift-atoms; only swift-input itself referenced at swift-molecules). Import rewrites there: Iterable/Iterator_Chunk/Iterator_Primitive -> single `Iterator` product (swift-iterator is already atom-shaped), Iterator_Primitive.Iterator.* -> Iterator.Iterator.*; test file now imports Collection/Index/Input/Iterator/Sequence and @testable Input_Collection. Residual red risks for the later build pass: (1) Ordinal/Cardinal are used in atom and molecule files but come from swift-ordinal via swift-index \u2014 under InternalImportsByDefault/MemberImportVisibility explicit imports or a dep may be needed; (2) `Iterator.Iterator.Materializing`/`.Protocol` qualification may collide with the nested Input.Slice.Iterator type; (3) molecule test file's Carrier/Cardinal/Span references (Iterator.Chunk protocol requirement) have no explicit module import; (4) atom's Input.Stream.Error CustomStringConvertible conformance left in the atom (same-file with the error's definition); (5) README.md and .github/metadata.yaml left untouched and now describe the pre-reshape nine-product layout. Direct push to swift-molecules/swift-input main succeeded via org-admin bypass (remote noted bypassed PR/status-check rules; direct pushes were authorized by the brief). No merges, no force-pushes, no other repos touched.",
    "completedAt": "2026-08-27T13:32:09Z"
+  },
+  {
+   "package": "swift-string",
+   "repositoryID": 1138063892,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-string",
+   "to": "swift-atoms/swift-string",
+   "shapeCommit": "0ee1a99250aeb5e8beeed48ec165e5af918954ed",
+   "dependencies": [
+    "swift-molecules/swift-memory-heap"
+   ],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-string-tagged",
+     "repositoryID": 1348524538,
+     "commit": "d810ef9ece4a1f06c3d207a3d4ce724fd62dbebc",
+     "seam": "Tagged phantom-type integration (Tagged+String.swift, Tagged+String.Borrowed.swift; also carries the Tagged: Span.Protocol retroactive conformance, so it depends on swift-span as well)"
+    },
+    {
+     "successor": "swift-molecules/swift-string-span",
+     "repositoryID": 1348524645,
+     "commit": "8a10e50c6e651a1b7d5ef796d87d188143d79fca",
+     "seam": "String: Span.Protocol conformance extracted from Sources/String/String.swift"
+    },
+    {
+     "successor": "swift-molecules/swift-string-ownership",
+     "repositoryID": 1348524716,
+     "commit": "69bd1a414caa8bf051c129745d051702113b65df",
+     "seam": "String: Ownership.Borrow.Protocol conformance extracted from Sources/String/String.Borrowed.swift"
+    }
+   ],
+   "notes": "Adjudication: atom \u2014 swift-string is the irreducible native owner of the platform-string domain (owned ~Copyable null-terminated storage, borrowed view, platform code units); not tooling, not an external standard, not a pure relater. Kept dependency: Memory Heap is irreducible \u2014 String's stored property _storage is Memory.Heap, the type cannot exist without it. Reshape: single String module retained (no strata targets existed); seam integrations removed so the atom lost Span_Protocol, Tagged, and Ownership entirely. New seed targets: 'String Standard Library Integration' (seed file, no stdlib-conformance code existed in the package) and 'String Apple Foundation Integration' (seed file; no Foundation imports existed anywhere). Products exactly three. Tests: 'String Tests' kept with deps [\"String\"]; trivial re-export target 'String Test Support' (Tests/Support) deleted \u2014 its product and Tagged_Test_Support re-export dropped; the test file already imported Testing + @testable String, uses no Tagged symbols, so no rewrites were needed and no residual red references remain in kept tests. No SLI test files existed. Molecule imports rewritten by adding 'public import String' to the moved Tagged files; each molecule mirrors the atom's STRING_AVAILABLE define so the platform-gated bodies still compile. Dependency coordinates use current live homes: swift-atoms for swift-tagged/swift-span/swift-ownership, swift-molecules for swift-string and swift-memory-heap; branch: \"main\" throughout. Atom README.md/.github/metadata.yaml left untouched and now stale (they still describe the old two-product shape with Tagged integration) \u2014 flagged for a later docs pass. Push to main reported a bypassed branch-protection notice (org-admin bypass, expected under the pre-release posture); direct push was authorized by the commission. Remote heads read back and verified equal to local SHAs; git status clean in swift-string and all three molecule directories. Structural pass only: nothing was built, resolved, or tested. Paths: /private/tmp/claude-501/-Users-coen-Developer-coenttb/20dff9a4-b817-42e7-bbc6-9081ab416a17/scratchpad/wave1/{swift-string,swift-string-tagged,swift-string-span,swift-string-ownership}.",
+   "completedAt": "2026-08-27T13:32:18Z"
   }
  ],
  "successors": [],
