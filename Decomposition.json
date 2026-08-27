@@ -5457,6 +5457,15 @@
     "wave": "wave6k",
     "changes": "Replaced removed Index.Count with Cardinal, removed the now-unused Index edge, retained canonical Hash, and restored the Membership contract, exact core/AFI/TestSupport products, and focused coverage. Foundation only in AFI. Fresh build green; 3 tests green; local Embedded proof blocked upstream.",
     "bookedAt": "2026-08-27T20:09:47Z"
+   },
+   {
+    "repo": "swift-atoms/swift-heap",
+    "headSHA": "0f761d7592fd35526034f2d3da380c1e513646da",
+    "build": "green",
+    "test": "green",
+    "wave": "wave6l",
+    "changes": "Migrated obsolete Buffer.Protocol and count seams to Store.Ledgered.Protocol, restored the storage-generic heap and current Index/Storage push-pop surface, and added bounded move-only and differential coverage. Exact core/AFI/TestSupport products; Foundation only in AFI. Fresh build green; 9 tests green; local Embedded proof blocked upstream.",
+    "bookedAt": "2026-08-27T20:13:55Z"
    }
   ]
  }
