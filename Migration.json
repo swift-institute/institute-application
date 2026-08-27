@@ -10059,19 +10059,27 @@
       "observedHead": "4ed8e1f7c8ab2e27c4796b01eca052165faf096d",
       "observedRemote": "https://github.com/swift-ietf/swift-rfc-1123.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit 8b155b021e394d6e1fddf7c7de206bf9543b5ca1 from expected parent 4ed8e1f7c8ab2e27c4796b01eca052165faf096d in isolated worktree /private/tmp/four-layer-swift-rfc-1123",
+          "deterministic full-tree audit verified all 20 tracked files with no moves, exact four-path and 12-insertion/12-deletion mapping of Standard Library Extensions, ASCII Serializer, ASCII Parser, and RFC 1035 dependency surfaces, preserved RFC 1123 package/product/target/path identity with README and metadata unchanged, zero mapped residuals, public payload, canonical one-hop Actions, human commit identity, clean checkout, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified unchanged canonical coordinate swift-ietf/swift-rfc-1123 at expected main 4ed8e1f7c8ab2e27c4796b01eca052165faf096d with GitHub repository ID 1026769929, public visibility, non-archived state, and default branch main; no repository rename was required",
+          "set fetch and push origins to https://github.com/swift-ietf/swift-rfc-1123.git and fast-forward published exact prepared commit 8b155b021e394d6e1fddf7c7de206bf9543b5ca1 without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main 8b155b021e394d6e1fddf7c7de206bf9543b5ca1 with unchanged repository ID 1026769929, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-rfc-1123-publisher institute package resolve --package-path /private/tmp/four-layer-swift-rfc-1123 --argument=--disable-sandbox against exact live RFC 1035, ASCII Parser, ASCII Serializer, and Standard Library Extensions dependencies and transitive graph",
+          "post-resolution verification found exact HEAD 8b155b021e394d6e1fddf7c7de206bf9543b5ca1, a clean checkout, and Package.resolved absent both before and after resolution with absence checked twice"
+        ]
       }
     },
     {
@@ -10702,8 +10710,11 @@
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-rfc-3339-root institute package resolve --package-path /private/tmp/four-layer-swift-rfc-3339 --argument=--disable-sandbox against the exact live declared dependency graph including freshly published swift-ascii-parser 5b3695bb756b90e095d13001282af12ec35a9cd7",
+          "post-resolution verification found exact HEAD edf200147cc62ad1f41f2f8bb36c09458f6cc62a, a clean checkout, and untouched generated Package.resolved with stable SHA-256 50a9ccfc19344382696a6e2bc969d9a04d0b0f5ee6225ebaba0388fcc9c8a57f"
+        ]
       }
     },
     {
