@@ -1951,19 +1951,27 @@
       "observedHead": "4676e29a35b0c37c99a037676941a44e72d6f853",
       "observedRemote": "https://github.com/swift-foundations/swift-effects.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit 96ae91a0e727f49c8435c6a303fc9740d5bc7bbf from expected parent 4676e29a35b0c37c99a037676941a44e72d6f853 in isolated worktree /private/tmp/four-layer-swift-effects",
+          "deterministic audit verified the exact 15-path, 30-insertion/30-deletion four-layer mapping of five dependency coordinates/products/packages/modules/imports, README self URL/import/vocabulary, and metadata; preserved owned Effects identities, found no semantic changes, splits, new dependencies, or path changes, verified all dependencies at booked live heads, public payload, active Actions, human commit identity, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified canonical post-organization coordinate swift-compositions/swift-effects at expected main 4676e29a35b0c37c99a037676941a44e72d6f853 with GitHub repository ID 1144635254, public visibility, non-archived state, and default branch main; no repository rename was required",
+          "set fetch and push origins to https://github.com/swift-compositions/swift-effects.git and fast-forward published exact prepared commit 96ae91a0e727f49c8435c6a303fc9740d5bc7bbf without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main 96ae91a0e727f49c8435c6a303fc9740d5bc7bbf with unchanged repository ID 1144635254, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-effects-publisher institute package resolve --package-path /private/tmp/four-layer-swift-effects --argument=--disable-sandbox against the exact live declared dependency graph; a nonfatal manifest-cache truncation warning did not prevent resolution",
+          "post-resolution verification found exact HEAD 96ae91a0e727f49c8435c6a303fc9740d5bc7bbf, a clean checkout, and untouched generated Package.resolved with stable SHA-256 0733b0e0fd0d28687e8d0236d20fdad732cc59220a3f0bb82f2dbd18907e0349"
+        ]
       }
     },
     {
@@ -28071,19 +28079,27 @@
       "observedHead": "86270ca8ef54765c1368c5763ee854c3975672ca",
       "observedRemote": "https://github.com/swift-primitives/swift-tree-keyed-primitives.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared direct-child commit 5f73dc2ff9ec01dc03ebd06acbde5b77daeffbea from expected parent 86270ca8ef54765c1368c5763ee854c3975672ca in isolated worktree /private/tmp/four-layer-swift-tree-keyed",
+          "deterministic full-tree audit verified all 43 tracked files with 36 mechanical moves, the exact 17 future dependency URLs, stripped plural Primitives package/product/target/module/import identities, preserved legitimate singular Primitive identities, zero mapped residuals, public payload, active Actions, human commit identity, clean checkout, and Package.resolved absence"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified old coordinate swift-molecules/swift-tree-keyed-primitives at expected main 86270ca8ef54765c1368c5763ee854c3975672ca with GitHub repository ID 1250662058, public visibility, non-archived state, and default branch main, then renamed it to exact destination swift-molecules/swift-tree-keyed",
+          "verified the same GitHub repository ID 1250662058 at swift-molecules/swift-tree-keyed, set the final remote URL deliberately, and fast-forward published exact prepared commit 5f73dc2ff9ec01dc03ebd06acbde5b77daeffbea without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified exact canonical coordinate swift-molecules/swift-tree-keyed at live main 5f73dc2ff9ec01dc03ebd06acbde5b77daeffbea with unchanged repository ID 1250662058, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-tree-keyed-publisher institute package resolve --package-path /private/tmp/four-layer-swift-tree-keyed --argument=--disable-sandbox against the exact live declared dependency graph",
+          "post-resolution verification found exact HEAD 5f73dc2ff9ec01dc03ebd06acbde5b77daeffbea, a clean checkout, and Package.resolved absent both before and after resolution"
+        ]
       }
     },
     {
