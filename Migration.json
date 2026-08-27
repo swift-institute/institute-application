@@ -24810,10 +24810,15 @@
           "verified live main 2dc928a7540d67683961305905a4ea542862f530 with unchanged repository ID, public visibility, non-archived state, default branch main, repaired molecules metadata topic, and clean isolated worktree"
         ]
       },
-      "state": "ready",
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed for swift-queue at live published commit 2dc928a7540d67683961305905a4ea542862f530",
+          "invocation: CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-queue-root institute package resolve --package-path /private/tmp/four-layer-swift-queue --argument=--disable-sandbox",
+          "resolution exited 0 against all thirteen live molecule dependencies and their transitive graph",
+          "HEAD unchanged; tracked worktree clean; Package.resolved changed from absent to ignored uncommitted generated state and stabilized at SHA-256 fa771295496352b6ac63fb5e8f9e735f55d55e4ee88a4d98d0a27d3c13ac5877"
+        ]
       }
     },
     {
