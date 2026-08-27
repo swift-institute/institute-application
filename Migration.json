@@ -5989,7 +5989,7 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-compositions/swift-package-manager",
       "futureLayer": "compositions",
-      "observedHead": "c538155320cb15095c1753790170d6a1eeaef75b",
+      "observedHead": "db6d75ca941fd3afa991b20df60e3a923e6b9640",
       "observedRemote": "https://github.com/swift-foundations/swift-package-manager.git",
       "preparation": {
         "status": "passed",
@@ -6006,11 +6006,13 @@
           "coordinator independently verified exact live main db6d75ca941fd3afa991b20df60e3a923e6b9640 with unchanged repository ID 1308652195, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
         ]
       },
-      "state": "published",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "publication is complete and Package.resolved remained absent twice after publication; the repository is queued behind the serialized Institute package-resolution slot"
+          "publication completed before validation and Package.resolved remained absent twice before resolution",
+          "package resolution passed on the single approved attempt with exact exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-package-manager-publisher institute package resolve --package-path /private/tmp/package-manager-composition-lane/swift-package-manager --argument=--disable-sandbox --argument=--disable-dependency-cache against the exact live graph; no build, test, compilation, raw SwiftPM, dump-package, or standalone manifest-evaluation command was invoked",
+          "Package.resolved was present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 ac6b491fc638ae8fc637a9f7e2b07d05b698da67054add335a73d2484a834bff; coordinator reverified all five dependency gates and live products plus final repository identity/SHA, exact worktree HEAD, canonical origins, and clean tracked checkout"
         ]
       },
       "githubRepositoryID": 1308652195
