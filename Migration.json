@@ -31615,6 +31615,68 @@
         ]
       },
       "githubRepositoryID": 1095108073
+    },
+    {
+      "current": "swift-foundations/swift-byte-channel",
+      "currentLayer": "foundations",
+      "dependencies": [
+        {
+          "manifest": "Package.swift",
+          "current": "swift-primitives/swift-async-primitives",
+          "future": "swift-molecules/swift-async"
+        },
+        {
+          "manifest": "Package.swift",
+          "current": "swift-primitives/swift-buffer-linear-primitives",
+          "future": "swift-molecules/swift-buffer-linear"
+        },
+        {
+          "manifest": "Package.swift",
+          "current": "swift-primitives/swift-buffer-primitives",
+          "future": "swift-molecules/swift-buffer"
+        },
+        {
+          "manifest": "Package.swift",
+          "current": "swift-primitives/swift-byte-primitives",
+          "future": "swift-molecules/swift-byte"
+        },
+        {
+          "manifest": "Package.swift",
+          "current": "swift-primitives/swift-index-primitives",
+          "future": "swift-molecules/swift-index"
+        }
+      ],
+      "dirtyPaths": [],
+      "disposition": {
+        "status": "pending",
+        "records": [
+          "repository was absent from the original 467-row Institute inventory and was appended without reindexing existing rows after live dependency-graph reconciliation proved it is an Institute package required by swift-http-body"
+        ]
+      },
+      "expectedCommit": "640cb8a558a1f08683826a233a3a28845f3bdc37",
+      "expectedCommitSource": "exact live GitHub main verified after inventory omission discovery",
+      "future": "swift-compositions/swift-byte-channel",
+      "futureLayer": "compositions",
+      "observedHead": "640cb8a558a1f08683826a233a3a28845f3bdc37",
+      "observedRemote": "https://github.com/swift-compositions/swift-byte-channel.git",
+      "preparation": {
+        "status": "pending",
+        "records": [
+          "prepare from an isolated exact-commit worktree without touching the main checkout or the pre-existing prunable source-enforcement worktree record"
+        ]
+      },
+      "publication": {
+        "status": "pending",
+        "records": [
+          "verify exact live main and stable GitHub repository ID 1330539694 immediately before publication"
+        ]
+      },
+      "state": "ready",
+      "validation": {
+        "status": "pending",
+        "records": []
+      },
+      "githubRepositoryID": 1330539694
     }
   ],
   "decompositionQueue": [
