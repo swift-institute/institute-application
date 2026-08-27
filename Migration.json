@@ -7177,7 +7177,7 @@
       "expectedCommitSource": "local refs/remotes/origin/main; live verification pending",
       "future": "swift-compositions/swift-server-dependencies",
       "futureLayer": "compositions",
-      "observedHead": "88354b9b2426683cfa8765a17b70e26dc4d612f3",
+      "observedHead": "f630c459511d17d1c041dd0dae8f7e6fdf8ac672",
       "observedRemote": "https://github.com/swift-foundations/swift-server-dependencies.git",
       "preparation": {
         "status": "passed",
@@ -7194,11 +7194,13 @@
           "coordinator independently verified exact live main f630c459511d17d1c041dd0dae8f7e6fdf8ac672 with unchanged repository ID 1304398262, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
         ]
       },
-      "state": "published",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "publication is complete and Package.resolved remained absent twice after publication; the repository is queued behind the serialized Institute package-resolution slot after measured shared SwiftPM-cache contention"
+          "publication completed before validation and Package.resolved remained absent twice before resolution",
+          "package resolution passed on the single approved attempt with exact exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-server-dependencies-publisher institute package resolve --package-path /private/tmp/swift-server-dependencies --argument=--disable-sandbox --argument=--disable-dependency-cache against the exact live graph; the resolver selected permitted swift-log 1.15.0, and no build, test, compilation, raw SwiftPM, dump-package, or standalone manifest-evaluation command was invoked",
+          "Package.resolved was present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 914165658e5aba4bc796416f5064eeac62035ca576deb2a8417bc06da1050b8b; coordinator reverified the four internal dependency gates/live products and external swift-log requirement/product plus final repository identity/SHA, exact worktree HEAD, canonical origins, and clean tracked checkout"
         ]
       },
       "githubRepositoryID": 1304398262
