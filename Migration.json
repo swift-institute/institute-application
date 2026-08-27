@@ -2803,20 +2803,29 @@
       "observedHead": "897c47ef7aa01bac520aa86b7bfc5e1ee6276e07",
       "observedRemote": "https://github.com/swift-foundations/swift-foundation-dependencies.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit 18c94ec4e1fb35235e00df75fce01935e34ca1aa from exact parent 897c47ef7aa01bac520aa86b7bfc5e1ee6276e07 in clean isolated worktree /private/tmp/four-layer-swift-foundation-dependencies; original checkout was observed and not touched",
+          "audited all 17 tracked paths and made the exact three-path, six-insertion/six-deletion mechanical transformation across metadata, Package.swift, and README, moving Dependencies/self coordinates plus the identity-preserving swift-foundation-extensions owner to canonical layers while preserving all Foundation Extensions and package public identities, modules, targets, paths, and canonical Actions; exception-aware residual, payload, staged-tree, ancestry, and identity checks passed"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "reconciled exact future coordinate swift-compositions/swift-foundation-dependencies as canonical with stable GitHub repository ID 1340537681, public visibility, non-archived state, default branch main, canonical origins, and exact live parent; no repository rename was needed",
+          "JIT verified exact live Dependencies and identity-preserving swift-molecules/swift-foundation-extensions with required products, then ordinary fast-forward published exact direct child 18c94ec4e1fb35235e00df75fce01935e34ca1aa without force or history rewrite",
+          "coordinator independently verified exact live main 18c94ec4e1fb35235e00df75fce01935e34ca1aa with unchanged repository ID 1340537681, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, and a clean tracked checkout"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-foundation-dependencies-publisher institute package resolve --package-path /private/tmp/four-layer-swift-foundation-dependencies --argument=--disable-sandbox against the exact live graph; no build, test, compilation, raw SwiftPM, dump-package, or manifest evaluation was invoked",
+          "Package.resolved was absent twice before resolution and present afterward only as ignored untracked generated state, never edited/deleted/staged/committed, with stable twice-observed SHA-256 f650c375e97e28bc40e9b65a33f2bfab023da64e5a6c003c3f4e0c29bd4e520c; final live identity/SHA and clean tracked checkout were reverified"
+        ]
+      },
+      "githubRepositoryID": 1340537681
     },
     {
       "current": "swift-foundations/swift-git",
