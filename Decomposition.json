@@ -4477,12 +4477,13 @@
    },
    {
     "repo": "swift-atoms/swift-dimension",
-    "headSHA": "970c9f88baf8a9f9a5cc739c013fc314213e9f20",
+    "headSHA": "c4799c31c0e6152cc23a5fb29b908279a0c94e97",
     "build": "green",
     "test": "green",
-    "wave": "tranche0+wave1",
-    "changes": "No external dependencies in Package.swift, so no URL canonicalization needed. Two classes of red fixed: (1) six cross-module `extension X: Codable {}` declarations in 'Dimension Standard Library Integration' (Depth, Chirality, Horizontal, Vertical, Temporal, Winding) failed because automatic synthesis is unavailable outside the declaring file; replaced with explicit init(from:)/encode(to:) encoding the case name as a single string value. (2) 'Dimension Tests' used Winding.allCases/Chirality.allCases whose CaseIterable conformances live in the SLI module; added 'Dimension Standard Library Integ",
-    "bookedAt": "2026-08-27T17:52:57Z"
+    "wave": "wave4+chains",
+    "changes": "Absorbed the Tagged-value layer from swift-molecules/swift-dimension-tagged into Sources/Dimension/ (11 source files: Angle/Coordinate/Displacement/Extent/Measure .Value typealiases, Radian, Radian+Trigonometry, Degree, Tagged+Arithmetic, Tagged+Dimension, Tagged+Quantized; donor had no exports.swift umbrella; names kept exact). Manifest: added deps swift-atoms/swift-tagged and swift-atoms/swift-numeric (branch main); Dimension target gained products Tagged, Numeric, and Numeric Standard Library Integration (Float/Double Transcendental conformances live in Numeric SLI, needed by Degree.swift t",
+    "bookedAt": "2026-08-27T18:10:41Z",
+    "priorHeadSHA": "970c9f88baf8a9f9a5cc739c013fc314213e9f20"
    },
    {
     "repo": "swift-atoms/swift-carrier",
@@ -4825,6 +4826,177 @@
     "wave": "wave3",
     "changes": "Dependencies: none declared, so nothing to canonicalize. Head e04675c already built green and passed tests under the native build system, but default 'swift test' (swiftbuild backend on Swift 6.4/Xcode-beta) failed at link: the System target's libSystem.a lands in the products directory and the linker's implicit -lSystem resolved to it instead of Darwin's C library (undefined _memcpy/_memset/_exit). Fix: one manifest edit adding linkerSettings unsafeFlags [-Xlinker -search_dylibs_first] to the 'System Tests' test target, conditioned on Apple platforms, so the SDK's libSystem stub wins; test-ta",
     "bookedAt": "2026-08-27T18:03:47Z"
+   },
+   {
+    "repo": "swift-atoms/swift-radix",
+    "headSHA": "608e48a0d0e2f11df327230d978b3e8ff14ce8d5",
+    "build": "green",
+    "test": "green",
+    "wave": "wave4+chains",
+    "changes": "No changes needed; nothing pushed. Reported SHA is the current live head of main (verified identical local HEAD and git ls-remote origin main). Package has zero dependencies so no URL canonicalization applied. Canonical atom shape already satisfied. swift build green with only UnusedImportAccess warnings on the two integration umbrella files; swift test green: 18 tests in 6 suites passed.",
+    "bookedAt": "2026-08-27T18:10:41Z"
+   },
+   {
+    "repo": "swift-atoms/swift-terminal",
+    "headSHA": "dd0af40a4507ec7d43fa7551c733ff380e75050b",
+    "build": "green",
+    "test": "green",
+    "wave": "wave4+chains",
+    "changes": "No changes required. Package has zero external dependencies (no URLs to canonicalize). swift build green (only UnusedImportAccess warnings in the SLI/AFI umbrella files); swift test green: 39 tests in 34 suites passed. Nothing committed or pushed; reported SHA is the current live head of main, verified identical to origin/main via git ls-remote.",
+    "bookedAt": "2026-08-27T18:10:41Z"
+   },
+   {
+    "repo": "swift-atoms/swift-cpu",
+    "headSHA": "dd3389ec2ee1e54d529be7e7fced9d6fdfa8de79",
+    "build": "green",
+    "test": "green",
+    "wave": "wave4+chains",
+    "changes": "No changes pushed; reported SHA is the current live head of main. Package was already at the Phase 3 bar: manifest has zero dependencies (nothing to canonicalize), 'swift build' green, 'swift test' green (60 tests in 47 suites passed) on Swift 6.4. Working tree left clean.",
+    "bookedAt": "2026-08-27T18:10:41Z"
+   },
+   {
+    "repo": "swift-atoms/swift-store",
+    "headSHA": "a76b9e80af205355d03714beaa28d34aba99d1c7",
+    "build": "green",
+    "test": "green",
+    "wave": "wave4+chains",
+    "changes": "No changes needed; nothing pushed. Package was already at the Phase 3 bar at existing head a76b9e80af205355d03714beaa28d34aba99d1c7 (reported SHA is the current live head of main, verified equal to git ls-remote origin main). Package.swift has zero external dependencies, so no URL canonicalization applied. swift build green (only UnusedImportAccess warnings in the AFI module for public imports of Store, Store_Standard_Library_Integration, Foundation \u2014 warnings acceptable per brief). swift test green: 29 tests in 12 suites, all passed. Canonical atom shape confirmed: products exactly Store / St",
+    "bookedAt": "2026-08-27T18:10:41Z"
+   },
+   {
+    "repo": "swift-molecules/swift-declaration-derivation",
+    "headSHA": "bdc9e927ea3f15dc6be27bb271bded5880e9776b",
+    "build": "green",
+    "test": "green",
+    "wave": "wave4+chains",
+    "changes": "No changes needed; nothing pushed. Fresh clone of main at bdc9e927ea3f15dc6be27bb271bded5880e9776b was already green: 'swift build' clean (34.7s) and 'swift test' passed all suites (7 tests across the Consumer/Derivation/Macros test targets, 0 failures). Sole dependency swiftlang/swift-syntax verified canonical via gh api (full_name = swiftlang/swift-syntax). Reported SHA is the current live head of main, read back with git rev-parse HEAD.",
+    "bookedAt": "2026-08-27T18:10:41Z"
+   },
+   {
+    "repo": "swift-atoms/swift-glob",
+    "headSHA": "488a7dfbb3fc8316cc3dc3ab85f9e2cdbd61337b",
+    "build": "green",
+    "test": "green",
+    "wave": "wave4+chains",
+    "changes": "No changes required and nothing pushed. Package has zero external dependencies (nothing to canonicalize). Fresh clone at live head 488a7dfbb3fc8316cc3dc3ab85f9e2cdbd61337b: swift build green (only UnusedImportAccess warnings in the AFI umbrella file), swift test green (2 tests, 0 failures). Working tree left clean; reported SHA is the current live head of main.",
+    "bookedAt": "2026-08-27T18:10:41Z"
+   },
+   {
+    "repo": "swift-atoms/swift-empty",
+    "headSHA": "7c4615b8bcabbd0c79d5c44824f8608be08e08d8",
+    "build": "green",
+    "test": "green",
+    "wave": "wave4+chains",
+    "changes": "No changes needed and nothing pushed. Package has zero dependencies (no URLs to canonicalize). swift build green at head (warnings only: UnusedImportAccess on the AFI umbrella imports). swift test green: 3 tests in 4 suites passed. Reported SHA is the current live head of main, verified equal to origin/main after fetch.",
+    "bookedAt": "2026-08-27T18:10:41Z"
+   },
+   {
+    "repo": "swift-atoms/swift-initialization",
+    "headSHA": "9871cb6bb43952f3f75dfc0d413f538201e9414c",
+    "build": "green",
+    "test": "green",
+    "wave": "wave4+chains",
+    "changes": "No changes needed and nothing pushed; reported SHA is the current live head of main. Package has zero external dependencies (nothing to canonicalize). swift build green (warnings only: unused public imports in the Apple Foundation Integration umbrella file). swift test green: 18 tests/13 suites in 'Initialization Tests' and 2 tests/4 suites in 'Initialization Standard Library Integration Tests', all passed. Canonical atom shape already satisfied (products Initialization, Initialization Standard Library Integration, Initialization Apple Foundation Integration; only AFI imports Foundation).",
+    "bookedAt": "2026-08-27T18:10:41Z"
+   },
+   {
+    "repo": "swift-atoms/swift-bitset",
+    "headSHA": "799eb6b4f91be5cee3e0b013da5dfa6883d026fb",
+    "build": "green",
+    "test": "green",
+    "wave": "wave4+chains",
+    "changes": "Pushed 799eb6b4f91be5cee3e0b013da5dfa6883d026fb to main (parent 1c06cd6375a4110efd5bd2166a3a6989573e6472). Three fixes: (1) Bitset.description in Sources/Bitset/Bitset.swift used self.prefix(10), which requires the Sequence conformance that Phase 2 extracted to the 'Bitset Standard Library Integration' target; rewrote description to enumerate set bits directly from storage words (same output, no Sequence dependency). (2) Bitset.storage changed from @usableFromInline internal to @usableFromInline package: the SLI target's inlinable Iterator/makeIterator code reads it cross-module within the sam",
+    "bookedAt": "2026-08-27T18:10:41Z"
+   },
+   {
+    "repo": "swift-atoms/swift-manifest",
+    "headSHA": "5d2579762e11ad72444ca0519654f2daeeddcf62",
+    "build": "green",
+    "test": "green",
+    "wave": "wave4+chains",
+    "changes": "No changes pushed; reported SHA is the current live head of main as cloned. Package.swift has zero external dependencies (nothing to canonicalize). Fresh clone: 'swift build' green (only UnusedImportAccess warnings on umbrella public imports in the Standard Library Integration and Apple Foundation Integration modules), 'swift test' green (2 tests, 4 suites, all passing, backticked natural-language names). Canonical atom shape already satisfied: products exactly 'Manifest', 'Manifest Standard Library Integration', 'Manifest Apple Foundation Integration'; only the AFI module imports Foundation. ",
+    "bookedAt": "2026-08-27T18:10:41Z"
+   },
+   {
+    "repo": "swift-atoms/swift-matrix",
+    "headSHA": "71a6f7b0ca502320663e5543b7c2fc951a801251",
+    "build": "green",
+    "test": "green",
+    "wave": "wave4+chains",
+    "changes": "No changes pushed; reported SHA is the pre-existing live head of main. Package was already at the Phase 3 bar on arrival: zero dependencies (nothing to canonicalize), canonical atom shape (Matrix / Matrix Standard Library Integration / Matrix Apple Foundation Integration, AFI is the only Foundation importer), swift build green (warnings only: unused public imports in the AFI module), swift test green (1 test, 5 suites, backticked names). Working tree left clean.",
+    "bookedAt": "2026-08-27T18:10:41Z"
+   },
+   {
+    "repo": "swift-atoms/swift-package",
+    "headSHA": "cb8db0efd9b2a0157142be4ca86aa9ffb43711b6",
+    "build": "green",
+    "test": "green",
+    "wave": "wave4+chains",
+    "changes": "No changes needed; nothing pushed. Package has zero dependencies (no URLs to canonicalize). Fresh clone at head cb8db0efd9b2a0157142be4ca86aa9ffb43711b6 builds green (warnings only: three UnusedImportAccess warnings in 'Sources/Package Apple Foundation Integration/Package Apple Foundation Integration.swift' for unused public imports of Package, Package_Standard_Library_Integration, Foundation) and tests green (1 test passed in suite 'Package Tests'). Reported SHA is the current live head of main, verified identical local and remote.",
+    "bookedAt": "2026-08-27T18:10:41Z"
+   },
+   {
+    "repo": "swift-atoms/swift-logic",
+    "headSHA": "7d19666bd9e726a8bb77f0aea27715601c109483",
+    "build": "green",
+    "test": "green",
+    "wave": "wave4+chains",
+    "changes": "Package.swift has zero external dependencies, so no URL canonicalization was needed. Only red: 'Tests/Logic Tests/Logic.Ternary.Builder Tests.swift' suite 'Comparison with Bool.Builder' referenced Bool.all (the non-ternary Bool.Builder), which is not defined anywhere in this package \u2014 subject extracted elsewhere in Phase 2. Deleted that suite (40 lines, 2 tests). After deletion: swift build green (only unused-public-import warnings in the AFI stub file), swift test green with 83 tests in 25 suites (Logic Tests) + 4 tests in 4 suites (Logic Standard Library Integration Tests), all passing. Comm",
+    "bookedAt": "2026-08-27T18:10:41Z"
+   },
+   {
+    "repo": "swift-atoms/swift-predicate",
+    "headSHA": "26bab1a35f8645ea21e8c463107e83b757777fe0",
+    "build": "green",
+    "test": "green",
+    "wave": "wave4+chains",
+    "changes": "No changes needed; nothing pushed. Reported SHA is the pre-existing live head of main. Package has zero dependencies (nothing to canonicalize), already in atom canonical shape (Predicate / Predicate Standard Library Integration / Predicate Apple Foundation Integration; only the AFI module imports Foundation). swift build succeeded (warnings only: three unused public imports in 'Sources/Predicate Apple Foundation Integration/Predicate Apple Foundation Integration.swift'). swift test passed 126 tests in 22 suites. Working tree clean at head.",
+    "bookedAt": "2026-08-27T18:10:41Z"
+   },
+   {
+    "repo": "swift-atoms/swift-render",
+    "headSHA": "db085bb75eabe8e2f00b592084318a232d9dd619",
+    "build": "green",
+    "test": "green",
+    "wave": "wave4+chains",
+    "changes": "Zero external dependencies in Package.swift, so no URL canonicalization applied. Fixes: (1) promoted internal @usableFromInline seam in Render to package visibility (Context._stack/_stackDepth/_reverseAbove, Thunk + inits, Work, Machine.Frame) so 'Render Standard Library Integration' Array._render compiles cross-target within the package; (2) 'public import Render' in Tests/Render Tests/Render Test Support.swift (InternalImportsByDefault broke its public decls); (3) added 'Render Standard Library Integration' to the test target deps and imported it (as Render_Standard_Library_Integration) in P",
+    "bookedAt": "2026-08-27T18:10:41Z"
+   },
+   {
+    "repo": "swift-atoms/swift-memory",
+    "headSHA": "5c9bcf3d7e25f30668a9cb299647e9d49c519a6c",
+    "build": "green",
+    "test": "green",
+    "wave": "wave4+chains",
+    "changes": "Absorbed Memory.Heap (core struct, allocating init, Memory.Region conformance, raw escape hatches) into Sources/Memory; umbrella exports dropped. Dep swapped swift-molecules/swift-bit-index -> swift-atoms/swift-bit, plus swift-tagged/swift-cardinal/swift-ordinal (all swift-atoms URLs, branch main). Necessity deviations from the brief's premises, all verified before deviating: (1) the atom's head had DELETED Memory.Address/Memory.Region in its shape commit, so they were restored from this repo's own pre-cutover history (already Tagged/Ordinal-based) with Memory.Address.Count spelled Tagged<Memo",
+    "bookedAt": "2026-08-27T18:10:41Z"
+   },
+   {
+    "repo": "swift-atoms/swift-string",
+    "headSHA": "7ff248e8e98e1001ef00cf94b4cd81fff07fc3fc",
+    "build": "green",
+    "test": "green",
+    "wave": "wave4+chains",
+    "changes": "Package.swift: swift-molecules/swift-memory-heap dependency replaced with swift-atoms/swift-memory (product Memory); added swift-atoms/swift-tagged (Tagged) and swift-atoms/swift-cardinal (Cardinal) as direct dependencies of target String because Memory.Address.Count is now Tagged<Memory, Cardinal> and MemberImportVisibility requires declaring-module imports. Sources/String/String.swift: import Memory_Heap -> Memory plus Cardinal and Tagged imports; Int(bitPattern: capacity) rewritten to Int(bitPattern: capacity.underlying.rawValue) (2 sites); Memory.Address.Count(UInt(...)) rewritten to Memor",
+    "bookedAt": "2026-08-27T18:10:41Z"
+   },
+   {
+    "repo": "swift-atoms/swift-path",
+    "headSHA": "ccff80392a4919d517a98203f1ba07818540e751",
+    "build": "green",
+    "test": "green",
+    "wave": "wave4+chains",
+    "changes": "Package.swift: swift-molecules/swift-memory-heap -> swift-atoms/swift-memory (product Memory); added swift-atoms/swift-tagged and swift-atoms/swift-cardinal deps (needed by the new typed Memory.Address.Count API). Sources/Path/Path.swift: import Memory_Heap -> Memory, added Cardinal/Tagged imports (MemberImportVisibility); Memory.Address.Count(UInt(...)) -> Memory.Address.Count(_unchecked: Cardinal(UInt(...))); Int(bitPattern: capacity) -> Int(bitPattern: capacity.underlying.rawValue); added file-scope 'public typealias _CString = String' because nested Path.String shadows the String module's ",
+    "bookedAt": "2026-08-27T18:10:41Z"
+   },
+   {
+    "repo": "swift-atoms/swift-linear",
+    "headSHA": "8aa9dab5fe0f800b1eb09767abd1d203c68dd105",
+    "build": "green",
+    "test": "green",
+    "wave": "wave4+chains",
+    "changes": "Converged red main: head b8262e2 failed under MemberImportVisibility because Tagged members (init(_unchecked:), underlying) were used without importing Tagged; added public import Tagged to Sources/Linear/Linear+Arithmetic.swift and Linear.Vector.swift and added swift-atoms/swift-tagged as a dependency. Restored the Phase 2 angle/polar/rotation surface from swift-molecules/swift-linear-numeric into Sources/Linear/Linear.Vector+Angle.swift (Vector angle/unit(at:)/polar/angle(to:)/signedAngle/rotated over Radian and Degree) and Sources/Linear/Linear.Matrix+Rotation.swift (2x2 Matrix rotation(Rad",
+    "bookedAt": "2026-08-27T18:10:41Z"
    }
   ]
  }
