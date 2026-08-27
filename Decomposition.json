@@ -1147,6 +1147,37 @@
    ],
    "notes": "Adjudication: atom. Product is the irreducible native owner of the n-ary product (variadic tuple wrapper) domain; its core (Product.swift, Append, Fold, Map, Swap, Zip) has zero external needs \u2014 all three prior package dependencies (swift-comparison, swift-equation, swift-hash) existed only for one conformance file each, extracted as seams; dependencies list is now empty. Atom checkout: /private/tmp/claude-501/-Users-coen-Developer-coenttb/20dff9a4-b817-42e7-bbc6-9081ab416a17/scratchpad/wave1/swift-product. Reshape: single Product module (no strata targets existed); deleted the three @_exported umbrella imports from Product.swift. Moved to new \"Product Standard Library Integration\" target (deps exactly [\"Product\"], `public import Product` prefixed): Product+BitwiseCopyable, +CustomStringConvertible, +Decodable, +Encodable, +Error, +Hashable. \"Product Apple Foundation Integration\" created as the 3-line seed (no Foundation-importing code existed). Exactly three products; manifest idiom (tools 6.4, .v27, .v6, ecosystem SwiftSetting loop) preserved verbatim. Seam molecule coordinates: swift-comparison/equation/hash live at swift-atoms (transfer redirect verified via gh repo view), so molecules depend on swift-atoms/swift-{d} + swift-molecules/swift-product, all branch: \"main\". swift-product-hash's target additionally depends on product \"Product Standard Library Integration\" because its conformance is `where repeat each Element: Swift.Hashable` and Product's own Hashable lives in SLI. Tests: kept \"Product Tests\" (deps [\"Product\"]); removed seam imports and moved the three Unit.Institute seam tests into the respective molecule test targets. Residual red references in kept test file: Conformances suite tests for ==/!=, <, >, hashValue, and description, plus the Codable and Bitwise suites, exercise conformances now provided by the SLI target (not a test dependency) \u2014 expected red until the later build pass; the empty `@Suite struct Institute {}` declaration was also removed. No SLI test target created (no dedicated SLI test files existed). All four working trees verified clean; molecule repos created public under swift-molecules with ids/heads as listed.",
    "completedAt": "2026-08-27T12:43:42Z"
+  },
+  {
+   "package": "swift-pair",
+   "repositoryID": 1232914016,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-pair",
+   "to": "swift-atoms/swift-pair",
+   "shapeCommit": "8ba8fc7d07e297e8c585fe281d646d961f271fae",
+   "dependencies": [],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-pair-equation",
+     "repositoryID": 1348478512,
+     "commit": "e0191ef0b53a5d276e9a4be22691d69e6559aa37",
+     "seam": "Pair conformance to Equation.Protocol (dep swift-atoms/swift-equation): Pair+Equation.Protocol.swift plus equality tests"
+    },
+    {
+     "successor": "swift-molecules/swift-pair-hash",
+     "repositoryID": 1348478583,
+     "commit": "22383c818ea88bd62f364e6a1f1f4e9c94064ee9",
+     "seam": "Pair conformance to Hash.Protocol and the Hash-constrained Swift.Hashable extension (dep swift-atoms/swift-hash): Pair+Hash.Protocol.swift plus hashing tests"
+    },
+    {
+     "successor": "swift-molecules/swift-pair-comparison",
+     "repositoryID": 1348478651,
+     "commit": "5cd6ab9ea3d4a45d3df492e9e498fd0d7a03e4b6",
+     "seam": "Pair conformance to Comparison.Protocol, lexicographic ordering (dep swift-atoms/swift-comparison): Pair+Comparison.Protocol.swift plus comparable tests"
+    }
+   ],
+   "notes": "Adjudication: Pair<First, Second> is the irreducible native owner of the binary-product domain \u2014 a single generic struct with map/swapped/apply/tuple operations and no strata targets; clearly an atom. Reshape: (1) Domain module Sources/Pair kept as-is minus seams; deleted the three @_exported public import Comparison/Equation/Hash lines from Pair.swift \u2014 the atom now has zero package dependencies (dependenciesKept empty; nothing the core type irreducibly needs). (2) Seams out: Pair+{Equation,Hash,Comparison}.Protocol.swift each existed solely to integrate Pair with an external package; moved to swift-pair-{equation,hash,comparison} molecules (products \"Pair Equation\"/\"Pair Hash\"/\"Pair Comparison\", modules Pair_Equation etc.) with \"public import <D>\" + \"public import Pair\" prepended. Molecule deps pinned at current live coordinates: swift-atoms/swift-{equation,hash,comparison} (already transferred; swift-molecules names redirect there) and swift-molecules/swift-pair, all branch \"main\". (3) SLI target holds moved Pair+BitwiseCopyable.swift and Pair+Codable.swift (Codable extension extracted out of Pair.swift, incl. its !hasFeature(Embedded) guard), each with \"public import Pair\"; no umbrella exports.swift. (4) AFI target is the three-line seed (package was Foundation-free). (5) Products exactly three. (6) Tests: \"Pair Tests\" (deps [Pair]) keeps core map/swap/apply/tuple/Sendable/lifetime tests; Ranked helper and all Equation/Hash/Comparison-dependent test extensions (including the copyable equatable/hashable/comparable tests, whose conformances now live in the seams) moved to the respective molecule test targets with the needed helper conformance each; Span kept in atom without its now-seam conformances (its remaining tests use only plain members). \"Pair Standard Library Integration Tests\" holds Pair+BitwiseCopyable Tests.swift with import Pair_Standard_Library_Integration added. Residual red: none grep-detectable in atom sources/tests; README.md still describes the old three-dependency architecture and re-exports (left stale \u2014 structural pass only, no build/test run per brief). Push to swift-molecules/swift-pair main was direct as authorized; remote reported bypassed branch-protection rules (PR requirement + expected ci-ok check) via admin rights \u2014 no gate was disabled or altered. Local dirs under .../scratchpad/wave1/: swift-pair, swift-pair-equation, swift-pair-hash, swift-pair-comparison \u2014 all git-clean (exemplar clone exemplar-bit untouched).",
+   "completedAt": "2026-08-27T12:43:51Z"
   }
  ],
  "successors": [],
