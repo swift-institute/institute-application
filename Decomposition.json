@@ -1030,6 +1030,55 @@
    ],
    "notes": "Adjudication: Effect is a native semantic domain (algebraic-effect primitives \u2014 Effect.Protocol, one-shot/multi-shot ~Copyable continuations, handlers, outcomes) with no external governance; clear atom. Domain spelling Effect derived from existing product/target \"Effect\". Reshape: single Sources/Effect module already existed (no strata to collapse, no exports.swift). Seams: Effect.Context.swift was a pure Dependency integration (whole file moved, `public import Effect` added); Effect.Outcome.swift was split \u2014 native enum, Copyable/Sendable conditionals, Result init/property, value/error/isAborted stay in the atom; Equation and Hash conformance extensions moved to their molecules verbatim. Result-conversion helpers kept in the atom (they extend the domain type, not a stdlib type), so \"Effect Standard Library Integration\" and \"Effect Apple Foundation Integration\" are seed files (exact prescribed content). Products now exactly the three canonical ones; package dependencies emptied \u2014 the Effect module needs nothing. Tests: \"Effect Tests\" kept with deps [\"Effect\"]; Effect.Outcome.Tests.swift split (native tests stay; 4 equality tests to equation molecule, hashable test to hash molecule); Effect.Context.Tests.swift moved to dependency molecule with imports rewritten (import Effect + @testable import Effect_Dependency); trivial re-export target \"Effect Test Support\" (unused by any test import) deleted along with its product. No residual references to extracted domains remain in kept sources or tests (grep-verified zero). README minimally updated to the three-product shape. Molecule coordinates: swift-dependency/swift-equation/swift-hash resolved live to swift-atoms (molecules URLs now redirect); swift-effect itself referenced at swift-molecules. swift-effect-hash additionally depends on swift-effect-equation because Hash.Protocol refines Swift.Hashable (requires Equatable), whose Effect.Outcome conformance lives in the equation molecule; import Effect_Equation added in the hash seam source and test. Structural pass only \u2014 nothing built or resolved; atom push to main bypassed branch-protection rules via authorized direct push (remote reported the bypass). All four working trees verified clean.",
    "completedAt": "2026-08-27T12:43:15Z"
+  },
+  {
+   "package": "swift-cardinal",
+   "repositoryID": 1142827391,
+   "disposition": "atom",
+   "from": "swift-molecules/swift-cardinal",
+   "to": "swift-atoms/swift-cardinal",
+   "shapeCommit": "4bea1a6500c9487488c3b537fa70c675dc94e077",
+   "dependencies": [],
+   "splits": [
+    {
+     "successor": "swift-molecules/swift-cardinal-carrier",
+     "repositoryID": 1348476928,
+     "commit": "d6011953fa93f5b3ec9794085e4c01a1c068b74a",
+     "seam": "Carrier.Protocol conformance plus 21 Carrier-typed stdlib convenience files (Span/pointer/collection/shift operators) and the Int(bitPattern: some Carrier.Protocol<Cardinal>) init split out of Int+Cardinal.swift; Span+Cardinal tests moved here"
+    },
+    {
+     "successor": "swift-molecules/swift-cardinal-property",
+     "repositoryID": 1348477012,
+     "commit": "717ffc996f8968ba54800298be2eb99f08e4ab17",
+     "seam": "Property-namespaced Cardinal.Add and Cardinal.Subtract operations (former Cardinal Add / Cardinal Subtract targets) integrating with swift-property"
+    },
+    {
+     "successor": "swift-molecules/swift-cardinal-equation",
+     "repositoryID": 1348477088,
+     "commit": "11ff74de27d447b62e03fec885d90fab018eaf9c",
+     "seam": "Equation.Protocol conformance integrating with swift-equation"
+    },
+    {
+     "successor": "swift-molecules/swift-cardinal-hash",
+     "repositoryID": 1348477162,
+     "commit": "4c0e24b4070b661cd218f07c4938bfb00f6fa60c",
+     "seam": "Hash.Protocol conformance integrating with swift-hash"
+    },
+    {
+     "successor": "swift-molecules/swift-cardinal-comparison",
+     "repositoryID": 1348477245,
+     "commit": "55cf90d6580f2665a39367f1bc83afca9ad80b8b",
+     "seam": "Comparison.Protocol conformance integrating with swift-comparison"
+    },
+    {
+     "successor": "swift-molecules/swift-cardinal-tagged",
+     "repositoryID": 1348477328,
+     "commit": "e4f440824b9b829bd320b55b92fbbcdbf0640372",
+     "seam": "Tagged<Tag, Cardinal> conveniences (former Cardinal Tagged target plus SLI's Tagged+Int+Cardinal.swift) integrating with swift-tagged; Cardinal+Tagged tests moved here"
+    }
+   ],
+   "notes": "Adjudication: Cardinal (typed non-negative count over UInt with overflow-safe arithmetic) is an irreducible native semantic domain \u2014 clear atom. Atom shape: Sources/Cardinal = Cardinal.swift (ex Cardinal Primitive) + Cardinal.Error.swift (ex Cardinal Error); all 10 intra-package exports.swift umbrellas deleted; every X_Primitive/X_Error import rewritten to Cardinal. SLI target retains only dependency-free stdlib files (CustomStringConvertible, ExpressibleByIntegerLiteral, UnsignedInteger, AtomicRepresentable behind SYNCHRONIZATION_AVAILABLE [Synchronization is a toolchain stdlib module, not Foundation], Int<->Cardinal conversions). Int+Cardinal.swift was split: the one Carrier-based init moved to swift-cardinal-carrier as Int+Cardinal.Carrier.swift. No Foundation imports existed anywhere, so AFI is the three-line seed file. Products exactly Cardinal / Cardinal Standard Library Integration / Cardinal Apple Foundation Integration; zero package dependencies; ecosystem SwiftSetting loop kept verbatim including the SYNCHRONIZATION_AVAILABLE define. Cardinal Test Support (trivial re-export of Cardinal + Tagged_Test_Support) deleted; its import removed from kept tests. All six former external deps (tagged, carrier, property, equation, hash, comparison) have transferred to swift-atoms \u2014 swift-molecules URLs redirect \u2014 so molecules pin swift-atoms coordinates for them, swift-molecules for swift-cardinal and cross-molecule deps, all branch: main. Cross-molecule deps: swift-cardinal-property depends on swift-cardinal-carrier (Cardinal.Subtract uses .zero/one and >= defined via Carrier.Protocol); swift-cardinal-tagged depends on swift-cardinal-property (Tagged+Cardinal.Add/Subtract import the former Cardinal_Add/Cardinal_Subtract, rewritten to Cardinal_Property) and on swift-property/swift-tagged. Residual red expected (structural pass, nothing built): kept Tests/Cardinal Tests/Cardinal Tests.swift still references extracted .add/.subtract properties, Carrier-provided .zero/.one, and integer-literal construction now living in SLI while the test target depends only on Cardinal; molecule test files dropped @testable (cross-package) and may need further import repair; SLI files that previously leaned on the deleted @_exported umbrellas may need additional public import Cardinal lines. Direct pushes to main used remote bypass of the PR/ci-ok rules as authorized. All seven working trees verified clean; remote heads read back and match.",
+   "completedAt": "2026-08-27T12:43:25Z"
   }
  ],
  "successors": [],
