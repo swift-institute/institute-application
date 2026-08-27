@@ -10106,11 +10106,13 @@
           "coordinator independently reverified exact live main f52c3b92ed6c41f38d5679c5e1597149da409f89, repository ID 1298597906, exact future coordinate, public visibility, non-archived state, default branch main, direct-child ancestry, canonical origins, and clean tracked checkout"
         ]
       },
-      "state": "published",
+      "state": "passed",
       "validation": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "publication is complete and Package.resolved remained absent twice before and after publication; resolution is queued until swift-compositions/swift-url-routing validation is passed and the serialized Institute package-resolution slot is available"
+          "publication completed before validation and Package.resolved remained absent twice before resolution",
+          "package resolution passed with exact exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-url-routing-vapor-publisher institute package resolve --package-path /private/tmp/swift-url-routing-vapor --argument=--disable-sandbox --argument=--disable-dependency-cache against the exact live graph; swift-collections 1.6.0 and Vapor 4.122.1 were selected within declared ranges, and no build, test, compilation, raw SwiftPM, dump-package, or standalone manifest-evaluation command was invoked",
+          "Package.resolved was present afterward only as ignored untracked generated state, never edited, deleted, staged, or committed, with stable twice-observed SHA-256 7198b7c8e58b51c5887143447bcf924b94d40696f13ec675b902efc4d1686767; coordinator reverified both internal dependency gates, both external requirements/products, final repository identity/SHA/state, exact worktree HEAD, canonical origins, clean tracked checkout, and that no archive restoration was required"
         ]
       },
       "githubRepositoryID": 1298597906
