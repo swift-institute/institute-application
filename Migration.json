@@ -11790,20 +11790,31 @@
       "observedHead": "cb27af26f35504a26a1551cb63290987da75bde5",
       "observedRemote": "https://github.com/swift-ietf/swift-rfc-6068.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "prepared human-authored direct-child commit 6440f3cd0ab97eb01f58835c812d7ad9f85d0344 from expected parent cb27af26f35504a26a1551cb63290987da75bde5 in isolated worktree /private/tmp/four-layer-swift-rfc-6068",
+          "the exact seven-path mechanical transformation made sixteen insertions and sixteen deletions: ASCII Serializer and Parser dependency repository/package/product/module identities moved from -primitives and _Primitives forms to exact suffix-free molecules, including transitive Binary Serializable and Parseable ASCII module imports",
+          "all RFC 6068 and RFC 6068 Foundation package/product/target/module/path/public semantics were preserved; all four future dependencies were ledger-passed and exact-live with declared products verified, the full committed-tree residual/public-payload/Actions/staging/direct-ancestry/human-identity audits passed, and Package.resolved was absent before preparation"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified unchanged coordinate swift-ietf/swift-rfc-6068, GitHub repository ID 1105579040, public visibility, non-archived state, default branch main, canonical clone URL, and exact expected live base cb27af26f35504a26a1551cb63290987da75bde5 immediately before publication; no rename was required",
+          "fast-forward published exact direct child 6440f3cd0ab97eb01f58835c812d7ad9f85d0344 to main through the configured administrator ruleset bypass without force or history rewrite",
+          "coordinator independently reverified exact live main 6440f3cd0ab97eb01f58835c812d7ad9f85d0344 with unchanged repository ID 1105579040, exact coordinate, public visibility, non-archived state, default branch main, and canonical URL"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-rfc-6068-publisher institute package resolve --package-path /private/tmp/four-layer-swift-rfc-6068 --argument=--disable-sandbox against exact live RFC 3986, RFC 5322, ASCII Serializer, and Parser dependency heads",
+          "coordinator reverified exact live main 6440f3cd0ab97eb01f58835c812d7ad9f85d0344 with unchanged GitHub repository ID 1105579040, public visibility, non-archived state, and default branch main",
+          "HEAD and both origins remained exact and canonical and the isolated checkout remained clean; Package.resolved was absent before resolution and present afterward only as ignored untracked generated state with stable SHA-256 f2ade4ba6d1459faa6bff2566ef94382855266e81f9f280560f8c681a74507ba"
+        ]
+      },
+      "githubRepositoryID": 1105579040
     },
     {
       "current": "swift-ietf/swift-rfc-6238",
