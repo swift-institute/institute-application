@@ -11392,19 +11392,27 @@
       "observedHead": "acc85f6705924e0805c46726dce6298e80fc3e38",
       "observedRemote": "https://github.com/swift-ietf/swift-rfc-5322.git",
       "preparation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "prepared human-authored direct-child commit 6286c7a639e4ea1ffe37f0e12c34870330f78ad6 from expected parent acc85f6705924e0805c46726dce6298e80fc3e38 in isolated worktree /private/tmp/four-layer-swift-rfc-5322 with subject Prepare RFC 5322 for the four-layer cutover",
+          "deterministic whole-tree audit verified the exact 24-path 63-insertion/63-deletion canonical mapping of eight molecule dependency URLs/products/modules/imports, preserved RFC 1123 and INCITS 4-1986, preserved exact swift-standard-library-extensions package/product identity while moving its owner, and preserved all RFC 5322 and RFC 5322 Foundation names, targets, paths, and semantics; no split/new dependency, mapped residual, README/metadata/CI change, public exposure, staged-set defect, or checkout dirt remained"
+        ]
       },
       "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified unchanged canonical coordinate swift-ietf/swift-rfc-5322 at expected main acc85f6705924e0805c46726dce6298e80fc3e38 with GitHub repository ID 1026770014, public visibility, non-archived state, and default branch main; all ten future dependencies were exact live ledger-passed commits and no repository rename was required",
+          "fast-forward published exact prepared commit 6286c7a639e4ea1ffe37f0e12c34870330f78ad6 without force or history rewrite using the configured administrator ruleset bypass",
+          "coordinator reverified live main 6286c7a639e4ea1ffe37f0e12c34870330f78ad6 with unchanged repository ID 1026770014, exact coordinate swift-ietf/swift-rfc-5322, public visibility, non-archived state, and default branch main"
         ]
       },
       "state": "ready",
       "validation": {
-        "status": "pending",
-        "records": []
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit status 0 using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-rfc-5322-publisher institute package resolve --package-path /private/tmp/four-layer-swift-rfc-5322 --argument=--disable-sandbox against the exact live declared dependencies and transitive graph",
+          "Package.resolved was absent before resolution and generated ignored/untracked afterward without editing or committing; two post-resolution checks produced stable SHA-256 d1cdf7a5bb5fef3724abb55745bbeae66fbc98a079afcafdb4653561beab18c4, exact HEAD 6286c7a639e4ea1ffe37f0e12c34870330f78ad6, and a clean checkout"
+        ]
       }
     },
     {
