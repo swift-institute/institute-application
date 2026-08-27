@@ -29883,20 +29883,31 @@
       "observedHead": "f7182aea0fba6c658a3ae221c1c46a38617e5600",
       "observedRemote": "https://github.com/swift-standards/swift-http-standard.git",
       "preparation": {
-        "status": "pending",
-        "records": []
-      },
-      "publication": {
-        "status": "pending",
+        "status": "passed",
         "records": [
-          "verify expected old commit with the publishing identity immediately before push"
+          "verified no-change preparation at exact existing commit f7182aea0fba6c658a3ae221c1c46a38617e5600 in clean isolated worktree /private/tmp/four-layer-swift-http-standard; no empty or invented commit was created",
+          "audited all nine committed paths and proved Package.swift, sources, test, README, metadata, workflow, and complete payload already used exact canonical RFC 9110, RFC 9111, and RFC 9112 URLs, package identities, products, modules, exports, and active Actions while preserving HTTP Standard package/product/target/path/public semantics",
+          "the full-tree residual scan for swift-primitives, swift-foundations, -primitives, Primitives product suffixes, and _Primitives module suffixes was empty; tree path-list and listing hashes were recorded, the checkout had no diff or staged changes, and Package.resolved was absent before resolution"
         ]
       },
-      "state": "ready",
+      "publication": {
+        "status": "passed",
+        "records": [
+          "verified unchanged coordinate swift-standards/swift-http-standard at exact live main f7182aea0fba6c658a3ae221c1c46a38617e5600 with GitHub repository ID 1291361072, public visibility, non-archived state, default branch main, and canonical clone URL",
+          "verified exact live dependencies RFC 9110 e3300b59e0735755c403ee4cfeaf4877eacedbea, RFC 9111 3ee215a51e208b08141876683dfd893f9a2c5aca, and RFC 9112 dec767827c469987cccd685061c5f1d281d16d2b; no repository rename, content commit, or push was required because the complete committed tree already matched the canonical four-layer mapping",
+          "coordinator independently reverified unchanged live main f7182aea0fba6c658a3ae221c1c46a38617e5600 with stable repository ID 1291361072, exact coordinate, public visibility, non-archived state, default branch main, canonical origins, and a clean isolated worktree"
+        ]
+      },
+      "state": "passed",
       "validation": {
-        "status": "pending",
-        "records": []
-      }
+        "status": "passed",
+        "records": [
+          "package resolution passed with exit 0 through the Institute coordinator using CLANG_MODULE_CACHE_PATH=/private/tmp/swift-migration-clang-module-cache-http-standard-publisher institute package resolve --package-path /private/tmp/four-layer-swift-http-standard --argument=--disable-sandbox against exact live RFC 9110, RFC 9111, and RFC 9112 destinations; no build, test, compilation, raw SwiftPM, or manifest-only substitute was invoked",
+          "coordinator reverified unchanged exact live main f7182aea0fba6c658a3ae221c1c46a38617e5600 with GitHub repository ID 1291361072, public visibility, non-archived state, and default branch main",
+          "HEAD and both origins remained exact and canonical and the isolated checkout remained clean; Package.resolved was absent before resolution and present afterward only as ignored untracked generated state with stable SHA-256 2ea3969ae83a465ebfcdf1e16a52155fb96c400a1f45c28c74c9483063be56c7"
+        ]
+      },
+      "githubRepositoryID": 1291361072
     },
     {
       "current": "swift-standards/swift-ipv4-standard",
