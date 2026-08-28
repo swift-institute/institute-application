@@ -1,10 +1,652 @@
 {
   "repositories": [
     {
+      "layer": "atoms",
+      "name": "swift-affine",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-affine.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-algebra",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-algebra.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-application",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-application.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-argument",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-argument.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-ascii",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-ascii.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-async",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-async.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-axis",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-axis.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-binary",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-binary.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-bit",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-bit.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-bitset",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-bitset.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-boundary",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-boundary.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-buffer",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-buffer.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-byte",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-byte.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-cardinal",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-cardinal.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-carrier",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-carrier.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-clock",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-clock.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-collection",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-collection.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-comparison",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-comparison.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-compass",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-compass.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-complex",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-complex.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-coproduct",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-coproduct.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-cpu",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-cpu.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-cyclic",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-cyclic.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-decimal",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-decimal.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-dependency",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-dependency.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-deque",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-deque.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-dimension",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-dimension.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-direction",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-direction.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-effect",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-effect.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-either",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-either.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-empty",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-empty.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-equation",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-equation.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-error",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-error.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-executor",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-executor.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-facet",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-facet.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-finite",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-finite.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-fixed",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-fixed.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-format",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-format.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-formatter",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-formatter.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-geometry",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-geometry.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-glob",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-glob.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-growth",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-growth.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-hash",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-hash.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-heap",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-heap.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-index",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-index.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-infinite",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-infinite.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-initialization",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-initialization.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-input",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-input.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-interval",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-interval.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-io",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-io.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-iterator",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-iterator.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-linear",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-linear.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-link",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-link.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-list",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-list.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-logic",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-logic.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-manifest",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-manifest.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-matrix",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-matrix.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-memory",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-memory.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-module",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-module.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-navigation",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-navigation.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-numeric",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-numeric.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-observation",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-observation.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-optic",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-optic.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-order",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-order.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-ordinal",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-ordinal.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-orthant",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-orthant.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-ownership",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-ownership.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-package",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-package.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-pair",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-pair.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-parity",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-parity.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-parser",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-parser.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-path",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-path.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-percent",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-percent.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-polarity",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-polarity.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-pool",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-pool.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-position",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-position.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-predicate",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-predicate.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-product",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-product.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-property",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-property.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-queue",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-queue.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-radix",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-radix.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-random",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-random.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-reference",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-reference.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-render",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-render.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-sample",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-sample.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-sector",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-sector.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-sequence",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-sequence.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-serializer",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-serializer.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-set",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-set.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-single",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-single.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-slab",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-slab.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-span",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-span.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-storage",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-storage.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-store",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-store.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-string",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-string.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-symmetry",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-symmetry.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-system",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-system.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-tagged",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-tagged.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-terminal",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-terminal.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-text",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-text.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-time",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-time.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-vector",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-vector.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-version",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-version.git"
+    },
+    {
+      "layer": "atoms",
+      "name": "swift-witness",
+      "organization": "swift-atoms",
+      "url": "https://github.com/swift-atoms/swift-witness.git"
+    },
+    {
       "layer": "molecules",
       "name": "swift-affine-algebra",
       "organization": "swift-molecules",
       "url": "https://github.com/swift-molecules/swift-affine-algebra.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-affine-carrier",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-affine-carrier.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-affine-comparison",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-affine-comparison.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-affine-equation",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-affine-equation.git"
     },
     {
       "layer": "molecules",
@@ -14,9 +656,15 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-affine",
+      "name": "swift-affine-hash",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-affine.git"
+      "url": "https://github.com/swift-molecules/swift-affine-hash.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-affine-tagged",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-affine-tagged.git"
     },
     {
       "layer": "molecules",
@@ -26,21 +674,33 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-algebra",
+      "name": "swift-argument-diagnostic",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-algebra.git"
+      "url": "https://github.com/swift-molecules/swift-argument-diagnostic.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-application",
+      "name": "swift-argument-finite",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-application.git"
+      "url": "https://github.com/swift-molecules/swift-argument-finite.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-argument",
+      "name": "swift-argument-index",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-argument.git"
+      "url": "https://github.com/swift-molecules/swift-argument-index.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-argument-tagged",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-argument-tagged.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-argument-text",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-argument-text.git"
     },
     {
       "layer": "molecules",
@@ -50,15 +710,21 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-ascii-parser",
+      "name": "swift-ascii-byte",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-ascii-parser.git"
+      "url": "https://github.com/swift-molecules/swift-ascii-byte.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-ascii",
+      "name": "swift-ascii-carrier",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-ascii.git"
+      "url": "https://github.com/swift-molecules/swift-ascii-carrier.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-ascii-parser",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-ascii-parser.git"
     },
     {
       "layer": "molecules",
@@ -68,15 +734,63 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-async",
+      "name": "swift-async-barrier",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-async.git"
+      "url": "https://github.com/swift-molecules/swift-async-barrier.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-axis",
+      "name": "swift-async-bridge",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-axis.git"
+      "url": "https://github.com/swift-molecules/swift-async-bridge.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-async-broadcast",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-async-broadcast.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-async-channel",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-async-channel.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-async-semaphore",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-async-semaphore.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-async-waiter",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-async-waiter.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-axis-comparison",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-axis-comparison.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-axis-equation",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-axis-equation.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-axis-finite",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-axis-finite.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-axis-hash",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-axis-hash.git"
     },
     {
       "layer": "molecules",
@@ -89,6 +803,12 @@
       "name": "swift-binary-base",
       "organization": "swift-molecules",
       "url": "https://github.com/swift-molecules/swift-binary-base.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-binary-byte",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-binary-byte.git"
     },
     {
       "layer": "molecules",
@@ -110,27 +830,21 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-binary-leb128-parser",
-      "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-binary-leb128-parser.git"
-    },
-    {
-      "layer": "molecules",
       "name": "swift-binary-leb128",
       "organization": "swift-molecules",
       "url": "https://github.com/swift-molecules/swift-binary-leb128.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-binary-parser",
+      "name": "swift-binary-leb128-parser",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-binary-parser.git"
+      "url": "https://github.com/swift-molecules/swift-binary-leb128-parser.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-binary",
+      "name": "swift-binary-parser",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-binary.git"
+      "url": "https://github.com/swift-molecules/swift-binary-parser.git"
     },
     {
       "layer": "molecules",
@@ -158,6 +872,12 @@
     },
     {
       "layer": "molecules",
+      "name": "swift-bit-hash",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-bit-hash.git"
+    },
+    {
+      "layer": "molecules",
       "name": "swift-bit-index",
       "organization": "swift-molecules",
       "url": "https://github.com/swift-molecules/swift-bit-index.git"
@@ -170,21 +890,15 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-bit",
-      "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-bit.git"
-    },
-    {
-      "layer": "molecules",
       "name": "swift-bit-vector",
       "organization": "swift-molecules",
       "url": "https://github.com/swift-molecules/swift-bit-vector.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-bitset",
+      "name": "swift-bitset-iterator",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-bitset.git"
+      "url": "https://github.com/swift-molecules/swift-bitset-iterator.git"
     },
     {
       "layer": "molecules",
@@ -194,9 +908,27 @@
     },
     {
       "layer": "molecules",
+      "name": "swift-boundary-comparison",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-boundary-comparison.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-boundary-equation",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-boundary-equation.git"
+    },
+    {
+      "layer": "molecules",
       "name": "swift-boundary-facet",
       "organization": "swift-molecules",
       "url": "https://github.com/swift-molecules/swift-boundary-facet.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-boundary-hash",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-boundary-hash.git"
     },
     {
       "layer": "molecules",
@@ -206,9 +938,9 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-boundary",
+      "name": "swift-buffer-index",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-boundary.git"
+      "url": "https://github.com/swift-molecules/swift-buffer-index.git"
     },
     {
       "layer": "molecules",
@@ -221,12 +953,6 @@
       "name": "swift-buffer-linked",
       "organization": "swift-molecules",
       "url": "https://github.com/swift-molecules/swift-buffer-linked.git"
-    },
-    {
-      "layer": "molecules",
-      "name": "swift-buffer",
-      "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-buffer.git"
     },
     {
       "layer": "molecules",
@@ -248,9 +974,27 @@
     },
     {
       "layer": "molecules",
+      "name": "swift-buffer-storage",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-buffer-storage.git"
+    },
+    {
+      "layer": "molecules",
       "name": "swift-builder",
       "organization": "swift-molecules",
       "url": "https://github.com/swift-molecules/swift-builder.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-byte-bit",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-byte-bit.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-byte-carrier",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-byte-carrier.git"
     },
     {
       "layer": "molecules",
@@ -266,15 +1010,15 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-byte-parser",
+      "name": "swift-byte-ownership",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-byte-parser.git"
+      "url": "https://github.com/swift-molecules/swift-byte-ownership.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-byte",
+      "name": "swift-byte-parser",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-byte.git"
+      "url": "https://github.com/swift-molecules/swift-byte-parser.git"
     },
     {
       "layer": "molecules",
@@ -284,9 +1028,21 @@
     },
     {
       "layer": "molecules",
+      "name": "swift-byte-tagged",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-byte-tagged.git"
+    },
+    {
+      "layer": "molecules",
       "name": "swift-cache",
       "organization": "swift-molecules",
       "url": "https://github.com/swift-molecules/swift-cache.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-cache-effect",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-cache-effect.git"
     },
     {
       "layer": "molecules",
@@ -296,21 +1052,45 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-cardinal",
+      "name": "swift-cardinal-carrier",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-cardinal.git"
+      "url": "https://github.com/swift-molecules/swift-cardinal-carrier.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-carrier",
+      "name": "swift-cardinal-comparison",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-carrier.git"
+      "url": "https://github.com/swift-molecules/swift-cardinal-comparison.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-clock",
+      "name": "swift-cardinal-equation",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-clock.git"
+      "url": "https://github.com/swift-molecules/swift-cardinal-equation.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-cardinal-hash",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-cardinal-hash.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-cardinal-property",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-cardinal-property.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-cardinal-tagged",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-cardinal-tagged.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-clock-carrier",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-clock-carrier.git"
     },
     {
       "layer": "molecules",
@@ -320,9 +1100,9 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-collection",
+      "name": "swift-collection-property",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-collection.git"
+      "url": "https://github.com/swift-molecules/swift-collection-property.git"
     },
     {
       "layer": "molecules",
@@ -338,9 +1118,15 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-comparison",
+      "name": "swift-comparison-property",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-comparison.git"
+      "url": "https://github.com/swift-molecules/swift-comparison-property.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-compass-comparison",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-compass-comparison.git"
     },
     {
       "layer": "molecules",
@@ -350,21 +1136,39 @@
     },
     {
       "layer": "molecules",
+      "name": "swift-compass-equation",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-compass-equation.git"
+    },
+    {
+      "layer": "molecules",
       "name": "swift-compass-facet",
       "organization": "swift-molecules",
       "url": "https://github.com/swift-molecules/swift-compass-facet.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-compass",
+      "name": "swift-compass-hash",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-compass.git"
+      "url": "https://github.com/swift-molecules/swift-compass-hash.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-complex",
+      "name": "swift-complex-dimension",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-complex.git"
+      "url": "https://github.com/swift-molecules/swift-complex-dimension.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-complex-numeric-relaxed",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-complex-numeric-relaxed.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-coproduct-comparison",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-coproduct-comparison.git"
     },
     {
       "layer": "molecules",
@@ -374,21 +1178,33 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-coproduct",
+      "name": "swift-coproduct-equation",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-coproduct.git"
+      "url": "https://github.com/swift-molecules/swift-coproduct-equation.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-cpu",
+      "name": "swift-coproduct-hash",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-cpu.git"
+      "url": "https://github.com/swift-molecules/swift-coproduct-hash.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-cpu-binary-serializer",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-cpu-binary-serializer.git"
     },
     {
       "layer": "molecules",
       "name": "swift-cursor",
       "organization": "swift-molecules",
       "url": "https://github.com/swift-molecules/swift-cursor.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-cyclic-hash",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-cyclic-hash.git"
     },
     {
       "layer": "molecules",
@@ -404,15 +1220,9 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-cyclic",
+      "name": "swift-cyclic-tagged",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-cyclic.git"
-    },
-    {
-      "layer": "molecules",
-      "name": "swift-decimal",
-      "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-decimal.git"
+      "url": "https://github.com/swift-molecules/swift-cyclic-tagged.git"
     },
     {
       "layer": "molecules",
@@ -422,15 +1232,21 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-dependency",
+      "name": "swift-deque-buffer-ring",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-dependency.git"
+      "url": "https://github.com/swift-molecules/swift-deque-buffer-ring.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-deque",
+      "name": "swift-deque-memory-small",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-deque.git"
+      "url": "https://github.com/swift-molecules/swift-deque-memory-small.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-deque-storage",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-deque-storage.git"
     },
     {
       "layer": "molecules",
@@ -440,39 +1256,99 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-dictionary-ordered",
-      "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-dictionary-ordered.git"
-    },
-    {
-      "layer": "molecules",
       "name": "swift-dictionary",
       "organization": "swift-molecules",
       "url": "https://github.com/swift-molecules/swift-dictionary.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-dimension",
+      "name": "swift-dictionary-ordered",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-dimension.git"
+      "url": "https://github.com/swift-molecules/swift-dictionary-ordered.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-direction",
+      "name": "swift-dimension-axis",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-direction.git"
+      "url": "https://github.com/swift-molecules/swift-dimension-axis.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-effect",
+      "name": "swift-dimension-direction",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-effect.git"
+      "url": "https://github.com/swift-molecules/swift-dimension-direction.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-either",
+      "name": "swift-dimension-pair",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-either.git"
+      "url": "https://github.com/swift-molecules/swift-dimension-pair.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-dimension-tagged",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-dimension-tagged.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-direction-comparison",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-direction-comparison.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-direction-equation",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-direction-equation.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-direction-hash",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-direction-hash.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-effect-dependency",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-effect-dependency.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-effect-equation",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-effect-equation.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-effect-hash",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-effect-hash.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-either-comparison",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-either-comparison.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-either-equation",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-either-equation.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-either-hash",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-either-hash.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-either-standard-library-extensions",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-either-standard-library-extensions.git"
     },
     {
       "layer": "molecules",
@@ -482,33 +1358,51 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-empty",
+      "name": "swift-equation-tagged",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-empty.git"
+      "url": "https://github.com/swift-molecules/swift-equation-tagged.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-equation",
+      "name": "swift-executor-clock",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-equation.git"
+      "url": "https://github.com/swift-molecules/swift-executor-clock.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-error",
+      "name": "swift-executor-deque",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-error.git"
+      "url": "https://github.com/swift-molecules/swift-executor-deque.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-executor",
+      "name": "swift-executor-index",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-executor.git"
+      "url": "https://github.com/swift-molecules/swift-executor-index.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-facet",
+      "name": "swift-facet-comparison",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-facet.git"
+      "url": "https://github.com/swift-molecules/swift-facet-comparison.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-facet-equation",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-facet-equation.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-facet-finite",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-facet-finite.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-facet-hash",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-facet-hash.git"
     },
     {
       "layer": "molecules",
@@ -518,27 +1412,45 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-finite",
+      "name": "swift-finite-cardinal",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-finite.git"
+      "url": "https://github.com/swift-molecules/swift-finite-cardinal.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-fixed",
+      "name": "swift-finite-index",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-fixed.git"
+      "url": "https://github.com/swift-molecules/swift-finite-index.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-format",
+      "name": "swift-finite-ordinal",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-format.git"
+      "url": "https://github.com/swift-molecules/swift-finite-ordinal.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-formatter",
+      "name": "swift-fixed-buffer-linear",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-formatter.git"
+      "url": "https://github.com/swift-molecules/swift-fixed-buffer-linear.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-format-formatter",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-format-formatter.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-format-tagged",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-format-tagged.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-formatter-pair",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-formatter-pair.git"
     },
     {
       "layer": "molecules",
@@ -548,15 +1460,21 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-geometry",
+      "name": "swift-geometry-boundary",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-geometry.git"
+      "url": "https://github.com/swift-molecules/swift-geometry-boundary.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-glob",
+      "name": "swift-geometry-pair",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-glob.git"
+      "url": "https://github.com/swift-molecules/swift-geometry-pair.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-glob-parser",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-glob-parser.git"
     },
     {
       "layer": "molecules",
@@ -566,15 +1484,15 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-growth",
+      "name": "swift-growth-affine",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-growth.git"
+      "url": "https://github.com/swift-molecules/swift-growth-affine.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-hash",
+      "name": "swift-growth-memory",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-hash.git"
+      "url": "https://github.com/swift-molecules/swift-growth-memory.git"
     },
     {
       "layer": "molecules",
@@ -584,33 +1502,27 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-heap",
+      "name": "swift-hash-tagged",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-heap.git"
+      "url": "https://github.com/swift-molecules/swift-hash-tagged.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-index",
+      "name": "swift-heap-buffer-linear",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-index.git"
+      "url": "https://github.com/swift-molecules/swift-heap-buffer-linear.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-infinite",
+      "name": "swift-infinite-collection",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-infinite.git"
+      "url": "https://github.com/swift-molecules/swift-infinite-collection.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-initialization",
+      "name": "swift-input-collection",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-initialization.git"
-    },
-    {
-      "layer": "molecules",
-      "name": "swift-input",
-      "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-input.git"
+      "url": "https://github.com/swift-molecules/swift-input-collection.git"
     },
     {
       "layer": "molecules",
@@ -620,21 +1532,15 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-interval",
+      "name": "swift-interval-pair",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-interval.git"
+      "url": "https://github.com/swift-molecules/swift-interval-pair.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-io",
+      "name": "swift-iterator-either",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-io.git"
-    },
-    {
-      "layer": "molecules",
-      "name": "swift-iterator",
-      "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-iterator.git"
+      "url": "https://github.com/swift-molecules/swift-iterator-either.git"
     },
     {
       "layer": "molecules",
@@ -644,27 +1550,33 @@
     },
     {
       "layer": "molecules",
+      "name": "swift-layout-boundary",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-layout-boundary.git"
+    },
+    {
+      "layer": "molecules",
       "name": "swift-lexer",
       "organization": "swift-molecules",
       "url": "https://github.com/swift-molecules/swift-lexer.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-linear",
+      "name": "swift-linear-format",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-linear.git"
+      "url": "https://github.com/swift-molecules/swift-linear-format.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-link",
+      "name": "swift-linear-numeric",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-link.git"
+      "url": "https://github.com/swift-molecules/swift-linear-numeric.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-linter",
+      "name": "swift-list-index",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-linter.git"
+      "url": "https://github.com/swift-molecules/swift-list-index.git"
     },
     {
       "layer": "molecules",
@@ -674,21 +1586,9 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-list",
-      "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-list.git"
-    },
-    {
-      "layer": "molecules",
       "name": "swift-loader-vocabulary",
       "organization": "swift-molecules",
       "url": "https://github.com/swift-molecules/swift-loader-vocabulary.git"
-    },
-    {
-      "layer": "molecules",
-      "name": "swift-logic",
-      "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-logic.git"
     },
     {
       "layer": "molecules",
@@ -698,15 +1598,15 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-manifest",
+      "name": "swift-manifest-byte-parser",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-manifest.git"
+      "url": "https://github.com/swift-molecules/swift-manifest-byte-parser.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-matrix",
+      "name": "swift-memory-affine",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-matrix.git"
+      "url": "https://github.com/swift-molecules/swift-memory-affine.git"
     },
     {
       "layer": "molecules",
@@ -719,6 +1619,12 @@
       "name": "swift-memory-allocation",
       "organization": "swift-molecules",
       "url": "https://github.com/swift-molecules/swift-memory-allocation.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-memory-carrier",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-memory-carrier.git"
     },
     {
       "layer": "molecules",
@@ -764,12 +1670,6 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-memory",
-      "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-memory.git"
-    },
-    {
-      "layer": "molecules",
       "name": "swift-memory-sequence",
       "organization": "swift-molecules",
       "url": "https://github.com/swift-molecules/swift-memory-sequence.git"
@@ -788,15 +1688,15 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-module",
+      "name": "swift-memory-span",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-module.git"
+      "url": "https://github.com/swift-molecules/swift-memory-span.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-navigation",
+      "name": "swift-memory-tagged",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-navigation.git"
+      "url": "https://github.com/swift-molecules/swift-memory-tagged.git"
     },
     {
       "layer": "molecules",
@@ -806,21 +1706,15 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-numeric",
+      "name": "swift-numeric-pair",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-numeric.git"
+      "url": "https://github.com/swift-molecules/swift-numeric-pair.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-observation",
+      "name": "swift-order-comparison",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-observation.git"
-    },
-    {
-      "layer": "molecules",
-      "name": "swift-optic",
-      "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-optic.git"
+      "url": "https://github.com/swift-molecules/swift-order-comparison.git"
     },
     {
       "layer": "molecules",
@@ -830,27 +1724,81 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-order",
+      "name": "swift-order-pair",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-order.git"
+      "url": "https://github.com/swift-molecules/swift-order-pair.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-ordinal",
+      "name": "swift-order-property",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-ordinal.git"
+      "url": "https://github.com/swift-molecules/swift-order-property.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-orthant",
+      "name": "swift-ordinal-cardinal",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-orthant.git"
+      "url": "https://github.com/swift-molecules/swift-ordinal-cardinal.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-ownership",
+      "name": "swift-ordinal-carrier",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-ownership.git"
+      "url": "https://github.com/swift-molecules/swift-ordinal-carrier.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-ordinal-comparison",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-ordinal-comparison.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-ordinal-equation",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-ordinal-equation.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-ordinal-hash",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-ordinal-hash.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-ordinal-property",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-ordinal-property.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-ordinal-tagged",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-ordinal-tagged.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-orthant-comparison",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-orthant-comparison.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-orthant-equation",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-orthant-equation.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-orthant-finite",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-orthant-finite.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-orthant-hash",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-orthant-hash.git"
     },
     {
       "layer": "molecules",
@@ -860,15 +1808,33 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-package",
+      "name": "swift-ownership-tagged",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-package.git"
+      "url": "https://github.com/swift-molecules/swift-ownership-tagged.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-pair",
+      "name": "swift-package-tagged",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-pair.git"
+      "url": "https://github.com/swift-molecules/swift-package-tagged.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-pair-comparison",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-pair-comparison.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-pair-equation",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-pair-equation.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-pair-hash",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-pair-hash.git"
     },
     {
       "layer": "molecules",
@@ -878,9 +1844,9 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-parity",
+      "name": "swift-parity-pair",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-parity.git"
+      "url": "https://github.com/swift-molecules/swift-parity-pair.git"
     },
     {
       "layer": "molecules",
@@ -896,45 +1862,57 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-parser",
+      "name": "swift-parser-pair",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-parser.git"
+      "url": "https://github.com/swift-molecules/swift-parser-pair.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-path",
+      "name": "swift-parser-tagged",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-path.git"
+      "url": "https://github.com/swift-molecules/swift-parser-tagged.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-percent",
+      "name": "swift-path-error",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-percent.git"
+      "url": "https://github.com/swift-molecules/swift-path-error.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-polarity",
+      "name": "swift-path-ownership",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-polarity.git"
+      "url": "https://github.com/swift-molecules/swift-path-ownership.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-pool",
+      "name": "swift-path-tagged",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-pool.git"
+      "url": "https://github.com/swift-molecules/swift-path-tagged.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-position",
+      "name": "swift-polarity-pair",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-position.git"
+      "url": "https://github.com/swift-molecules/swift-polarity-pair.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-predicate",
+      "name": "swift-pool-async",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-predicate.git"
+      "url": "https://github.com/swift-molecules/swift-pool-async.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-pool-effect",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-pool-effect.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-predicate-logic",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-predicate-logic.git"
     },
     {
       "layer": "molecules",
@@ -944,15 +1922,39 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-product",
+      "name": "swift-product-comparison",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-product.git"
+      "url": "https://github.com/swift-molecules/swift-product-comparison.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-property",
+      "name": "swift-product-equation",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-property.git"
+      "url": "https://github.com/swift-molecules/swift-product-equation.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-product-hash",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-product-hash.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-property-carrier",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-property-carrier.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-property-ownership",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-property-ownership.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-queue-buffer-ring",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-queue-buffer-ring.git"
     },
     {
       "layer": "molecules",
@@ -962,9 +1964,9 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-queue",
+      "name": "swift-queue-storage",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-queue.git"
+      "url": "https://github.com/swift-molecules/swift-queue-storage.git"
     },
     {
       "layer": "molecules",
@@ -974,27 +1976,9 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-radix",
-      "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-radix.git"
-    },
-    {
-      "layer": "molecules",
-      "name": "swift-random",
-      "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-random.git"
-    },
-    {
-      "layer": "molecules",
       "name": "swift-range",
       "organization": "swift-molecules",
       "url": "https://github.com/swift-molecules/swift-range.git"
-    },
-    {
-      "layer": "molecules",
-      "name": "swift-reference",
-      "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-reference.git"
     },
     {
       "layer": "molecules",
@@ -1004,15 +1988,33 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-render",
+      "name": "swift-sample-algebra",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-render.git"
+      "url": "https://github.com/swift-molecules/swift-sample-algebra.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-sample",
+      "name": "swift-sample-comparison",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-sample.git"
+      "url": "https://github.com/swift-molecules/swift-sample-comparison.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-sample-order",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-sample-order.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-sample-time",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-sample-time.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-sector-comparison",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-sector-comparison.git"
     },
     {
       "layer": "molecules",
@@ -1022,27 +2024,51 @@
     },
     {
       "layer": "molecules",
+      "name": "swift-sector-equation",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-sector-equation.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-sector-hash",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-sector-hash.git"
+    },
+    {
+      "layer": "molecules",
       "name": "swift-sector-orthant",
       "organization": "swift-molecules",
       "url": "https://github.com/swift-molecules/swift-sector-orthant.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-sector",
+      "name": "swift-sequence-cardinal",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-sector.git"
+      "url": "https://github.com/swift-molecules/swift-sequence-cardinal.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-sequence",
+      "name": "swift-sequence-either",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-sequence.git"
+      "url": "https://github.com/swift-molecules/swift-sequence-either.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-serializer",
+      "name": "swift-sequence-property",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-serializer.git"
+      "url": "https://github.com/swift-molecules/swift-sequence-property.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-serializer-byte",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-serializer-byte.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-serializer-tagged",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-serializer-tagged.git"
     },
     {
       "layer": "molecules",
@@ -1052,15 +2078,21 @@
     },
     {
       "layer": "molecules",
+      "name": "swift-set-hash-table",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-set-hash-table.git"
+    },
+    {
+      "layer": "molecules",
       "name": "swift-set-ordered",
       "organization": "swift-molecules",
       "url": "https://github.com/swift-molecules/swift-set-ordered.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-set",
+      "name": "swift-set-storage",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-set.git"
+      "url": "https://github.com/swift-molecules/swift-set-storage.git"
     },
     {
       "layer": "molecules",
@@ -1070,15 +2102,9 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-single",
+      "name": "swift-slab-buffer-slab",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-single.git"
-    },
-    {
-      "layer": "molecules",
-      "name": "swift-slab",
-      "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-slab.git"
+      "url": "https://github.com/swift-molecules/swift-slab-buffer-slab.git"
     },
     {
       "layer": "molecules",
@@ -1094,9 +2120,15 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-span",
+      "name": "swift-span-byte",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-span.git"
+      "url": "https://github.com/swift-molecules/swift-span-byte.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-span-index",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-span-index.git"
     },
     {
       "layer": "molecules",
@@ -1118,9 +2150,9 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-storage",
+      "name": "swift-storage-memory",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-storage.git"
+      "url": "https://github.com/swift-molecules/swift-storage-memory.git"
     },
     {
       "layer": "molecules",
@@ -1130,15 +2162,33 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-store",
+      "name": "swift-store-algebra",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-store.git"
+      "url": "https://github.com/swift-molecules/swift-store-algebra.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-string",
+      "name": "swift-store-optic",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-string.git"
+      "url": "https://github.com/swift-molecules/swift-store-optic.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-string-ownership",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-string-ownership.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-string-span",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-string-span.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-string-tagged",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-string-tagged.git"
     },
     {
       "layer": "molecules",
@@ -1148,15 +2198,63 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-symmetry",
+      "name": "swift-symmetry-affine-geometry",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-symmetry.git"
+      "url": "https://github.com/swift-molecules/swift-symmetry-affine-geometry.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-system",
+      "name": "swift-symmetry-algebra",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-system.git"
+      "url": "https://github.com/swift-molecules/swift-symmetry-algebra.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-symmetry-dimension",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-symmetry-dimension.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-symmetry-finite",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-symmetry-finite.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-symmetry-linear",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-symmetry-linear.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-symmetry-pair",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-symmetry-pair.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-system-cardinal",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-system-cardinal.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-system-memory",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-system-memory.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-system-ordinal",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-system-ordinal.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-tagged-carrier",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-tagged-carrier.git"
     },
     {
       "layer": "molecules",
@@ -1166,15 +2264,15 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-tagged",
-      "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-tagged.git"
-    },
-    {
-      "layer": "molecules",
       "name": "swift-tensor",
       "organization": "swift-molecules",
       "url": "https://github.com/swift-molecules/swift-tensor.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-terminal-error",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-terminal-error.git"
     },
     {
       "layer": "molecules",
@@ -1184,33 +2282,57 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-terminal",
-      "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-terminal.git"
-    },
-    {
-      "layer": "molecules",
       "name": "swift-test",
       "organization": "swift-molecules",
       "url": "https://github.com/swift-molecules/swift-test.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-text",
+      "name": "swift-text-byte",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-text.git"
+      "url": "https://github.com/swift-molecules/swift-text-byte.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-time",
+      "name": "swift-text-carrier",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-time.git"
+      "url": "https://github.com/swift-molecules/swift-text-carrier.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-text-ownership",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-text-ownership.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-time-dimension",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-time-dimension.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-time-format",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-time-format.git"
     },
     {
       "layer": "molecules",
       "name": "swift-token",
       "organization": "swift-molecules",
       "url": "https://github.com/swift-molecules/swift-token.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-tree",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-tree.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-tree-column",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-tree-column.git"
     },
     {
       "layer": "molecules",
@@ -1226,33 +2348,45 @@
     },
     {
       "layer": "molecules",
-      "name": "swift-tree",
+      "name": "swift-tree-property",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-tree.git"
+      "url": "https://github.com/swift-molecules/swift-tree-property.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-vector",
+      "name": "swift-vector-iterator",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-vector.git"
+      "url": "https://github.com/swift-molecules/swift-vector-iterator.git"
     },
     {
       "layer": "molecules",
-      "name": "swift-version",
+      "name": "swift-vector-sequence",
       "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-version.git"
+      "url": "https://github.com/swift-molecules/swift-vector-sequence.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-version-carrier",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-version-carrier.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-version-parser",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-version-parser.git"
+    },
+    {
+      "layer": "molecules",
+      "name": "swift-version-time",
+      "organization": "swift-molecules",
+      "url": "https://github.com/swift-molecules/swift-version-time.git"
     },
     {
       "layer": "molecules",
       "name": "swift-witness-derivation",
       "organization": "swift-molecules",
       "url": "https://github.com/swift-molecules/swift-witness-derivation.git"
-    },
-    {
-      "layer": "molecules",
-      "name": "swift-witness",
-      "organization": "swift-molecules",
-      "url": "https://github.com/swift-molecules/swift-witness.git"
     },
     {
       "layer": "standards",
@@ -1967,6 +3101,12 @@
       "name": "swift-authentication",
       "organization": "swift-compositions",
       "url": "https://github.com/swift-compositions/swift-authentication.git"
+    },
+    {
+      "layer": "compositions",
+      "name": "swift-byte-channel",
+      "organization": "swift-compositions",
+      "url": "https://github.com/swift-compositions/swift-byte-channel.git"
     },
     {
       "layer": "compositions",
@@ -2801,12 +3941,6 @@
       "name": "swift-yaml",
       "organization": "swift-compositions",
       "url": "https://github.com/swift-compositions/swift-yaml.git"
-    },
-    {
-      "layer": "compositions",
-      "name": "swift-byte-channel",
-      "organization": "swift-compositions",
-      "url": "https://github.com/swift-compositions/swift-byte-channel.git"
     }
   ],
   "scope": "proof",

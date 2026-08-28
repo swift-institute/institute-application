@@ -14,7 +14,7 @@ requires them.
 - Swift Institute libraries form four realized layers:
   **L1 atoms → L2 molecules → L3 standards → L4 compositions**. Dependencies
   point downward and remain acyclic.
-- Package families live below `swift-institute/` (`swift-atoms`,
+- Package families live below `swift-institute/` (`atoms`,
   `swift-molecules`, `swift-standards`, `swift-compositions`, and
   authority-specific roots).
   Rule and legal work lives in the sibling Rule Institute trees.

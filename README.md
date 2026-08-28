@@ -52,7 +52,7 @@ authority specification packages.
 
 Every package is one repository; there is no monorepo. This repository clones selected
 packages as independent checkouts materialized in the org hierarchy — one root per layer
-organization (`swift-atoms/`, `swift-molecules/`, `swift-standards/`,
+(`atoms/`, `swift-molecules/`, `swift-standards/`,
 `swift-compositions/`), with packages
 owned by a specification-authority, vendor, or jurisdiction organization nested one level
 deeper under their layer root (for example `swift-standards/swift-ietf/<package>`) — and
@@ -409,7 +409,7 @@ X/
 │                            Institute.json, Selection.json, your ignored
 │                            Selection.local.json if you have one, and the
 │                            generated, untracked institute.xcworkspace
-├── swift-atoms/            ┐
+├── atoms/                  ┐
 ├── swift-molecules/        │
 ├── swift-standards/        ├ materialization roots: independent repositories,
 └── swift-compositions/     ┘ none part of this repository

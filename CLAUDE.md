@@ -46,7 +46,7 @@ authenticated `gh` never changes what a plain `doctor` does.
 
 ## Gotchas
 
-- **The materialized org roots (`swift-atoms/`, `swift-molecules/`, `swift-standards/`,
+- **The materialized roots (`atoms/`, `swift-molecules/`, `swift-standards/`,
   `swift-compositions/`, …) hold independent repositories, not part of this one.** Each has its own history, remote,
   CI, and license. Work on a package inside its own repository and open the pull request there.
   The active layout resolves the checkout physically and places the roots beside it (see
