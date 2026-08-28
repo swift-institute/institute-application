@@ -6857,6 +6857,51 @@
     "wave": "wave8a",
     "changes": "Canonicalized Path to its atom owner and retained the genuine Path.Canonical.Error composite of Path.Resolution.Error with Error-atom platform values; resolved the Error module/type versus nested error collision with public PathPlatformError and added focused identity, description, platform-value, and cross-domain inequality tests plus ownership docs. Fresh build green; 3 tests across 1 suite green.",
     "bookedAt": "2026-08-28T00:28:46Z"
+   },
+   {
+    "repo": "swift-molecules/swift-dimension-pair",
+    "headSHA": "bc03bd803bca8e49c63ea0a05231e8b64b49f26f",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8b",
+    "changes": "Canonicalized Dimension to its atom owner and retained the genuine Chirality.Value, Winding.Value, generic Orientation.Value, and Oriented Pair aliases; aligned payload generics with current Pair ~Copyable and ~Escapable support and added direct Dimension Direction tests for orientation plus noncopyable payload behavior. Fresh build green; 6 tests across 3 suites green.",
+    "bookedAt": "2026-08-28T00:33:48Z"
+   },
+   {
+    "repo": "swift-molecules/swift-system-memory",
+    "headSHA": "90e618a9ecc43f5cabe730ea03ef308dbc693aab",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8b",
+    "changes": "Canonicalized System to its atom owner and retained the genuine bidirectional conversion between System Cardinal-owned System.Page.Size and Memory.Alignment; migrated to current System Cardinal integer conversion and added focused public tests/docs with exact test-only owner imports. Fresh build green; 2 tests across 1 suite green.",
+    "bookedAt": "2026-08-28T00:34:36Z"
+   },
+   {
+    "repo": "swift-molecules/swift-time-format",
+    "headSHA": "3104d73f2b9d20f0846cd16ab79458bbe810f602",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8b",
+    "changes": "Canonicalized Time to its atom owner and retained the genuine Time.Format: Formatter.Protocol bridge plus Swift.Duration.formatted(_:) through Time Standard Library Integration and Format.Decimal; narrowed Formatter namespace imports to avoid type collision and refreshed current products, tests, and ownership docs. Fresh build green; 6 tests across 4 suites green.",
+    "bookedAt": "2026-08-28T00:40:33Z"
+   },
+   {
+    "repo": "swift-molecules/swift-time-dimension",
+    "headSHA": "4a592552f69efcd332359c30c519168ff50a5b0e",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8b",
+    "changes": "Canonicalized Time to its atom owner, added the direct Tagged owner required by current APIs, corrected Dimension/Tagged test imports and obsolete throwing markers, and retained the genuine Julian coordinate, arithmetic, constant, and Time/Instant conversion seam with focused coverage. Fresh build green; 23 tests across 6 suites green.",
+    "bookedAt": "2026-08-28T00:43:00Z"
+   },
+   {
+    "repo": "swift-molecules/swift-complex-dimension",
+    "headSHA": "6d639b4758054298a3ad3bcf0231abb1bdceeba4",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8b",
+    "changes": "Re-adjudicated ownership and removed duplicate phase atan2 plus atom-owned length/modulus tests, retaining only the genuine Complex.Number.Phase.Value-to-Radian conversion and dimensional polar construction seam; canonicalized all atom owners and current Numeric/Tagged products and unchecked construction. Fresh build green; 4 tests across 1 suite green.",
+    "bookedAt": "2026-08-28T00:45:08Z"
    }
   ]
  }
