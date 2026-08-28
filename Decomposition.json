@@ -7715,6 +7715,8 @@
   "requestedAt": "2026-08-28T06:13:09Z",
   "status": "in-progress",
   "policy": "Restore each atom repository's complete tracked tree to the commit immediately preceding its Phase 2 source/target collapse as a new forward commit (normally the first parent of shapeCommit; step past later administrative repins or canonical-shape commits when they already contain the collapse), while retaining the swift-atoms organization and suffix-free repository identity. Prior convergence evidence is superseded for each restored repository at its restoration commit.",
+  "executionMode": "rollback-first",
+  "verificationPolicy": "Publish exact source-tree restorations without waiting for builds or tests; record verification as pending and perform compiler compatibility plus bottom-up convergence only after the rollback is complete.",
   "packages": [
    {
     "repo": "swift-atoms/swift-algebra",
@@ -8018,6 +8020,22 @@
       "restorationSHA": "c117c4e44d1782de17cc0114461d5cf91962da17",
       "treeSHA": "45a8a319d96d85a53791e2f2655bdbb53d9de86a",
       "test": "green: 7 tests in 12 suites",
+      "restoredAt": "2026-08-28T06:55:29Z"
+    },
+    {
+      "repo": "swift-atoms/swift-parity",
+      "baselineSHA": "61128dca3f08f0675e16187e086c64ed8e7c42d3",
+      "restorationSHA": "4601bcbda4afb65b6b45ced3f7df9a86dfdbc9d3",
+      "treeSHA": "2b081083122a7453367c80ac9f80a95e26269b14",
+      "test": "green: 1 test in 4 suites",
+      "restoredAt": "2026-08-28T06:55:29Z"
+    },
+    {
+      "repo": "swift-atoms/swift-polarity",
+      "baselineSHA": "b52bbdf22d5a54541c2dbd29b54bd015cf22f2b3",
+      "restorationSHA": "8e02b7467341b505425690f2fc14755e8cf6e42b",
+      "treeSHA": "3cf1175390fe4517686b7eff7e11df24ef747694",
+      "test": "green: 1 test in 4 suites",
       "restoredAt": "2026-08-28T06:55:29Z"
     }
   ]
