@@ -7710,5 +7710,20 @@
     "bookedAt": "2026-08-28T05:24:27Z"
    }
   ]
+ },
+ "sourceRestoration": {
+  "requestedAt": "2026-08-28T06:13:09Z",
+  "status": "in-progress",
+  "policy": "Restore each atom repository's complete tracked tree to the first parent of its Phase 2 shapeCommit as a new forward commit, while retaining the swift-atoms organization and suffix-free repository identity. Prior convergence evidence is superseded for each restored repository at its restoration commit.",
+  "packages": [
+   {
+    "repo": "swift-atoms/swift-algebra",
+    "baselineSHA": "b28bbbb72d5f3ffd681960356d44b1cc461e8881",
+    "restorationSHA": "a1a59b377eebb2ff45705a06e804cfe1688544f3",
+    "treeSHA": "ed440706a5a7aba391b0a9900d4a370874bb1ded",
+    "test": "green: 122 tests in 49 suites",
+    "restoredAt": "2026-08-28T06:13:09Z"
+   }
+  ]
  }
 }
