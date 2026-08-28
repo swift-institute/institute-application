@@ -7827,6 +7827,38 @@
       "treeSHA": "5181e0018d55cccd01f764c43bacb00691b217e1",
       "test": "green: build and test command; 0 tests in 0 suites",
       "restoredAt": "2026-08-28T06:30:25Z"
+    },
+    {
+      "repo": "swift-atoms/swift-single",
+      "baselineSHA": "e7039022699ac0543a7fc897e075c0f797fdbaa6",
+      "restorationSHA": "dd1f4df349c4f94ebaa0f60364e6fbb318c7619d",
+      "treeSHA": "15ecb33fa2e1deff676b21de5838bb82cee92ea3",
+      "test": "green: 3 tests in 4 suites",
+      "restoredAt": "2026-08-28T06:30:25Z"
+    },
+    {
+      "repo": "swift-atoms/swift-percent",
+      "baselineSHA": "b1a8d6cd1b2d7abb960221fe8fb00b838895eccf",
+      "restorationSHA": "47dcb28fe15e693c002ec7be4e39817d135dd535",
+      "treeSHA": "bc7f31c00eb1c620d1e2c0630d21b27ba30af2e7",
+      "test": "green: 19 tests in 1 suite",
+      "restoredAt": "2026-08-28T06:30:25Z"
+    },
+    {
+      "repo": "swift-atoms/swift-render",
+      "baselineSHA": "103e3c1b98f8442b5c7116aec8a4a06e3102f83c",
+      "restorationSHA": "8d7bea1a673edef05225973238a6d5a2ab112049",
+      "treeSHA": "b4ff18e191a072f3116e3eb5098ad94657a2fdce",
+      "test": "green: 105 tests in 23 suites",
+      "restoredAt": "2026-08-28T06:34:03Z"
+    },
+    {
+      "repo": "swift-atoms/swift-reference",
+      "baselineSHA": "6d3c38ee478c6310bbb37c5d5d3c25797021cb1b",
+      "restorationSHA": "122dd1dda731c4bc6e34e373e6d5b14402fca52a",
+      "treeSHA": "2d7f06b549ea0f823923c5e6733c3db05075128f",
+      "test": "green: 4 tests in 5 suites",
+      "restoredAt": "2026-08-28T06:34:03Z"
     }
   ]
  }
