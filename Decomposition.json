@@ -4628,8 +4628,94 @@
     "blockingHeadSHA": "436fa2e8e1a309500d668abd6d0cc203bcba3628",
     "evidence": "Heap Buffer Linear's front-door alias/initializer is genuine, but fresh resolution fails below the seam because Buffer Linear still depends on manifest-less Memory Heap at bb27f72e148b70ea7e8e5f049f9a95e713d82fba and retired Buffer/Storage/Memory/Span products. Removing Heap Buffer Linear's direct tombstone edge alone cannot repair that transitive substrate. Its local push extension is an exact Heap atom duplicate and also reaches package-scoped siftUp, so it should be removed when the consumer resumes.",
     "resumeWhen": "Converge Buffer Linear against current atom/seam owners, then resume this clean checkout, remove its duplicate push and obsolete tombstone edges, and require fresh build/test before booking.",
+    "status": "resolved-and-booked",
+    "recordedAt": "2026-08-28T01:48:18Z",
+    "resolvedByHeadSHA": "bb0ba363cd93dce59dd16a36f6dac4a4ceb2d7a7",
+    "resumedAt": "2026-08-28T02:24:08Z",
+    "resolvedHeadSHA": "2a21534b77604cd527963add7be148a720859b55",
+    "resolvedAt": "2026-08-28T02:55:55Z"
+   },
+   {
+    "repo": "swift-molecules/swift-fixed-buffer-linear",
+    "currentHeadSHA": "efb9e64a992f62eaeb6809c46faf96d26b37c51d",
+    "blockedBy": "swift-molecules/swift-buffer-linear",
+    "blockingHeadSHA": "436fa2e8e1a309500d668abd6d0cc203bcba3628",
+    "evidence": "Fixed Buffer Linear's concrete Fixed<E> front-door over Buffer.Linear.Bounded is genuine, but both parent and lower-owner fresh builds stop during resolution because Buffer Linear still depends on manifest-less Memory Heap at bb27f72e148b70ea7e8e5f049f9a95e713d82fba plus retired split products and moved coordinates. Canonical Memory.Heap now lives in the Memory atom; the clean consumer cannot bypass Buffer Linear's ownership.",
+    "resumeWhen": "Converge Buffer Linear against current Memory, Buffer, Storage, and allocation owners, then resume this clean front-door checkout and require fresh build/test before booking.",
+    "status": "resolved-and-booked",
+    "recordedAt": "2026-08-28T01:50:47Z",
+    "resolvedByHeadSHA": "bb0ba363cd93dce59dd16a36f6dac4a4ceb2d7a7",
+    "resumedAt": "2026-08-28T02:24:08Z",
+    "resolvedHeadSHA": "f90cfbd0f9a41a730a6a974b2734607eb5d85eab",
+    "resolvedAt": "2026-08-28T02:52:07Z"
+   },
+   {
+    "repo": "swift-molecules/swift-executor-deque",
+    "currentHeadSHA": "c886fdb814e58243119be228812f7b74428276fe",
+    "blockedBy": "swift-molecules/swift-column",
+    "blockingHeadSHA": "71623b0d81027078d4ac90066d6bfc9ed945e299",
+    "evidence": "Executor Deque is a genuine mutable dynamically growing FIFO owner queue with whole-queue drain(into:), distinct from Executor Index's bounded lock-free work-stealing deque. Fresh resolution fails first because Column still requests the removed Memory Primitive product; Buffer Ring at f0af0266b66c7f2cde18d6b7c75d70b804c94915 also retains moved identities. Current Deque exposes only core storage/take/position, so the consumer cannot recreate old count/reserve/push/take(from:) behavior without converged lower Deque integration; replacing it with Array would erase ownership.",
+    "resumeWhen": "Converge Column, then Buffer Ring and the owning Deque storage/buffer-ring seams as required, before resuming this clean Executor FIFO checkout for canonicalization and fresh build/test.",
     "status": "dependency-convergence-required",
-    "recordedAt": "2026-08-28T01:48:18Z"
+    "recordedAt": "2026-08-28T01:56:20Z"
+   },
+   {
+    "repo": "swift-molecules/swift-column",
+    "currentHeadSHA": "71623b0d81027078d4ac90066d6bfc9ed945e299",
+    "blockedBy": "swift-molecules/swift-buffer-linear",
+    "blockingHeadSHA": "436fa2e8e1a309500d668abd6d0cc203bcba3628",
+    "evidence": "Column's direct Buffer/Storage/Memory integration is genuine and its canonical owner/import/count rewrite is preserved uncommitted. Fresh resolution remains below Column because Buffer Linear still requests removed Buffer/Storage protocol products and stale molecule coordinates, ultimately descending into retired primitive repositories. The consumer lane stopped at the first lower blocker instead of duplicating the active Buffer Linear repair.",
+    "resumeWhen": "After Buffer Linear converges, resume the preserved Column checkout, rehydrate the current graph, address any later Storage Generational or Memory substrate blocker in ownership order, and require fresh build/test before booking.",
+    "status": "dependency-convergence-required",
+    "recordedAt": "2026-08-28T02:07:28Z",
+    "resolvedByHeadSHA": "bb0ba363cd93dce59dd16a36f6dac4a4ceb2d7a7",
+    "resumedAt": "2026-08-28T02:24:08Z",
+    "nextBlockedBy": "swift-molecules/swift-buffer-ring",
+    "nextBlockingHeadSHA": "f0af0266b66c7f2cde18d6b7c75d70b804c94915",
+    "nextLowerBlocker": "swift-molecules/swift-cyclic-index@9b67b94730b6ab53d459930e057cd89d805f3ea5",
+    "resumptionBlockedAt": "2026-08-28T02:35:50Z"
+   },
+   {
+    "repo": "swift-molecules/swift-version-time",
+    "currentHeadSHA": "02575ec73dec54534ca2f54ef6adfe99954383d6",
+    "blockedBy": "swift-molecules/swift-ascii-parser",
+    "blockingHeadSHA": "5b3695bb756b90e095d13001282af12ec35a9cd7",
+    "evidence": "Version Time is a genuine Version \u00d7 Time seam, but ASCII Parser's authoritative live main still exposes retired primitives-era decimal parser products/coordinates and descends into the unconverged Buffer Linear graph. The consumer's canonical Version URL and ownership documentation are preserved uncommitted; binding it back to old primitives would reverse convergence.",
+    "resumeWhen": "Converge ASCII Parser and any Buffer Linear prerequisite, then resume this preserved checkout against the current decimal parser surface and require fresh build/test before booking.",
+    "status": "dependency-convergence-required",
+    "recordedAt": "2026-08-28T02:13:35Z"
+   },
+   {
+    "repo": "swift-molecules/swift-version-carrier",
+    "currentHeadSHA": "560dd3ffe9af87c6e25c761ea95cdde28413d519",
+    "blockedBy": "swift-molecules/swift-version-time",
+    "blockingHeadSHA": "02575ec73dec54534ca2f54ef6adfe99954383d6",
+    "evidence": "Version Carrier genuinely supplies identity Carrier conformances for Version.Semantic, Version.Tools, and Version.Calendar; neither Version nor Carrier owns them. Fresh resolution stops in Version Time's ASCII Parser/Buffer Linear chain before the seam can compile, so the clean consumer cannot rewrite or bypass its lower owner's parser substrate.",
+    "resumeWhen": "After Version Time converges, resume this clean checkout, canonicalize Version ownership, and require fresh build/test before booking.",
+    "status": "dependency-convergence-required",
+    "recordedAt": "2026-08-28T02:13:35Z"
+   },
+   {
+    "repo": "swift-molecules/swift-buffer-ring",
+    "currentHeadSHA": "f0af0266b66c7f2cde18d6b7c75d70b804c94915",
+    "blockedBy": "swift-molecules/swift-cyclic-index",
+    "blockingHeadSHA": "9b67b94730b6ab53d459930e057cd89d805f3ea5",
+    "evidence": "Buffer Ring's canonical Memory Small/Storage Memory/Cardinal rewrite is preserved uncommitted after fresh resolution reached its genuine Cyclic Index dependency. Cyclic Index still declares the redirected swift-molecules/swift-index coordinate and its test-support target requests the removed Index Test Support product from current Index, producing a conflicting identity warning and then a missing-product error before Buffer Ring can compile.",
+    "resumeWhen": "Converge Cyclic Index against current Index ownership and focused test fixtures, then resume the preserved Buffer Ring checkout and require fresh build/test before booking.",
+    "status": "blocking-dependency-converged-resumption-in-progress",
+    "recordedAt": "2026-08-28T02:35:50Z",
+    "resolvedByHeadSHA": "85780be47283159326fac415037cf08121629158",
+    "resumedAt": "2026-08-28T02:56:47Z"
+   },
+   {
+    "repo": "swift-molecules/swift-ascii-parser",
+    "currentHeadSHA": "5b3695bb756b90e095d13001282af12ec35a9cd7",
+    "blockedBy": "swift-molecules/swift-binary-parser",
+    "blockingHeadSHA": "008185de12644cf62037caee9987a6c74821f432",
+    "evidence": "ASCII Parser's canonical Input.Access.Random migration and removal of incidental Buffer Linear/Ownership Shared coupling are preserved uncommitted. After an Institute package update resolves live Memory Cursor 6dd1be2fcbd330e6de9a195feb7fb672a5d33cea, its retained Binary Machine integration reaches Binary Parser, whose test-support target still requests the removed Index Test Support product from current Index e9ae3efa42fb474ac58df54551b572c6dbe70917.",
+    "resumeWhen": "Converge Binary Parser's current test-support and parser graph, then resume the preserved ASCII Parser checkout and require fresh build/test before booking.",
+    "status": "dependency-convergence-required",
+    "recordedAt": "2026-08-28T02:35:50Z"
    }
   ],
   "pendingAdjudications": [
@@ -4866,6 +4952,19 @@
     "requiredAction": "If the four Duration comparison conveniences remain desired, relocate them into the Sample atom, then remove/tombstone Sample Time and update the inventory. Relocation and tombstoning require principal approval before execution.",
     "status": "principal-approval-required",
     "recordedAt": "2026-08-28T01:13:11Z"
+   },
+   {
+    "repo": "swift-molecules/swift-executor-index",
+    "currentHeadSHA": "17f4f480f7a1b59a24fc7e1179886b26536c95b7",
+    "proposedDisposition": "false-index-seam-rehome-deque-under-executor-or-tombstone",
+    "owners": {
+     "swift-atoms/swift-executor": "6bcd213b64fda8be6a2961b6534309d191ec80a4",
+     "swift-atoms/swift-index": "e9ae3efa42fb474ac58df54551b572c6dbe70917"
+    },
+    "evidence": "The package's sole Index use is Index<UnownedJob>.Count, which does not exist on current Index main: Index is exactly Tagged<Element, Ordinal>. That Count vocabulary exists only on an unmerged divergent branch. All deque storage, push, take, and steal behavior otherwise integrates Executor only with Swift Synchronization, so replacing Count with Int/Cardinal erases the Index seam while recreating Count would fabricate rejected vocabulary. Fresh compilation fails exactly at the removed member type.",
+    "requiredAction": "Rehome any unique deque implementation under the correct Executor-owned package (after comparing the existing Executor Deque seam), then remove/tombstone Executor Index and update the inventory. Rehoming and tombstoning require principal approval before execution.",
+    "status": "principal-approval-required",
+    "recordedAt": "2026-08-28T01:51:31Z"
    }
   ],
   "packages": [
@@ -7186,6 +7285,61 @@
     "wave": "wave8f",
     "changes": "Canonicalized Glob to its atom and narrowed the direct graph to Glob, Byte, Byte Parser, Parser, and Input; removed obsolete Array/Ownership Shared/Buffer Linear/Collection/Byte SLI bridges; adapted compilation to current Input.Access.Random/Byte.Input with transactional consumption, added retroactive markers and parser disambiguation plus a named throwing parse entry point, and covered successful consumption and rollback on failure. Fresh build green; 9 tests across 6 suites green.",
     "bookedAt": "2026-08-28T01:47:41Z"
+   },
+   {
+    "repo": "swift-molecules/swift-version-parser",
+    "headSHA": "b1b02f278a0caa33e31c32910ce3c664d87b2069",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8g",
+    "changes": "Canonicalized Version to its atom, removed the obsolete ASCII Parser chain, migrated semantic/tools parsing to current random-access Byte.Input, retained genuine Parser/Serializer/Parseable integration, removed atom-owned string parsing/descriptions and moved seam failures to ParserError, and added focused Semantic/Tools parser, serializer, and Parseable coverage. Fresh build green; 17 tests across 7 suites green.",
+    "bookedAt": "2026-08-28T02:09:58Z"
+   },
+   {
+    "repo": "swift-molecules/swift-buffer-linear",
+    "headSHA": "bb0ba363cd93dce59dd16a36f6dac4a4ceb2d7a7",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8g",
+    "changes": "Canonicalized atom and molecule homes, removed tombstoned Memory Heap/Memory Iterator and retired split products, moved the growable concrete backing to Memory.Small<0>, migrated count/index/arithmetic and Store APIs to current Cardinal/Index ownership, adopted current Iterable/Sequenceable witnesses, removed exact atom-owned Buffer/Store-initialization/SIL-probe duplicates, and exposed truthful prefix-shaped Store.Ledgered state required by generic Heap consumers. Fresh warning-free build green; 131 tests across 44 suites green.",
+    "bookedAt": "2026-08-28T02:24:00Z",
+    "updatedAt": "2026-08-28T02:43:29Z"
+   },
+   {
+    "repo": "swift-molecules/swift-argument-index",
+    "headSHA": "f4d54cd74b139f672a588e34ffe016bbbe559766",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8g",
+    "changes": "Retained the genuine Argument.Position seam, canonicalized Argument to its atom, wired Index<Byte>.Offset through its current Affine Tagged owner and Hashable/Equatable support through Ordinal Hash, added explicit test integrations for current literal APIs, and documented that this package neither owns nor recreates retired Index.Count vocabulary. Fresh build green; 2 tests across 6 suites green.",
+    "bookedAt": "2026-08-28T02:25:48Z"
+   },
+   {
+    "repo": "swift-molecules/swift-fixed-buffer-linear",
+    "headSHA": "f90cfbd0f9a41a730a6a974b2734607eb5d85eab",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8g",
+    "changes": "Retained the genuine Fixed<E> front door over Buffer.Linear.Bounded, canonicalized Fixed/Memory/Cardinal/Storage owners, removed tombstoned Memory Heap plus obsolete split and test-support products, adopted the current Buffer<Storage<Memory.Allocator<Memory.Small<0>>>.Contiguous<E>>.Linear.Bounded representation, supplied the narrow seam-owned ledgered adapter Fixed requires, migrated count/capacity/index APIs to Tagged<E, Cardinal>/Index<E>, and removed invalid package-only store/mutable-span access. Fresh build green; 4 tests across 4 suites green.",
+    "bookedAt": "2026-08-28T02:52:02Z"
+   },
+   {
+    "repo": "swift-molecules/swift-heap-buffer-linear",
+    "headSHA": "2a21534b77604cd527963add7be148a720859b55",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8g",
+    "changes": "Retained the genuine Heap front door over the growable linear column, canonicalized Heap to its atom, replaced tombstoned Memory Heap with Memory.Small<0>/Storage Memory, migrated the capacity surface from retired Index.Count to Tagged<E, Cardinal>, removed the duplicate push that illegally reached Heap package internals, and proved the atom-owned push/pop behavior through Buffer Linear's truthful Store.Ledgered conformance. Fresh build green; 1 test across 4 suites green.",
+    "bookedAt": "2026-08-28T02:55:51Z"
+   },
+   {
+    "repo": "swift-molecules/swift-cyclic-index",
+    "headSHA": "85780be47283159326fac415037cf08121629158",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8g",
+    "changes": "Canonicalized Index to its atom, removed vanished Index Test Support, added the exact Cardinal/Ordinal/Tagged/Affine/Affine Tagged owners, migrated retired Index.Count vocabulary to Tagged<Tag, Cardinal> and current Index representation, retained the Offset-to-Cyclic Int bridge plus static cyclic aliases/arithmetic and modular wrap behavior, and updated focused tests. Fresh build green; 40 tests across 11 suites green.",
+    "bookedAt": "2026-08-28T02:56:36Z"
    }
   ]
  }
