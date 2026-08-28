@@ -7455,6 +7455,96 @@
     "wave": "wave8i",
     "changes": "Preserved the genuine Set membership \u00d7 Iterator algebra defaults, constructive Buildable operations, and Algebra.Lattice powerset witness. Canonicalized Set, Iterator, and Algebra atom owners/products/modules; resolved Builder at its converged head; imported the defining Initialization surface; migrated Membership.count fixtures to Cardinal; replaced removed Iterator test support with current Iterator plus Set Test Support; and disambiguated the Iterator namespace for the fixture chunk. Fresh build green; 32 tests across 12 suites green.",
     "bookedAt": "2026-08-28T03:51:08Z"
+   },
+   {
+    "repo": "swift-molecules/swift-storage-split",
+    "headSHA": "f4ad2953a46b6d487e80c09b48a0b3454ab3f7f2",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8j",
+    "changes": "Preserved the genuine split-storage seam. Canonicalized Index and Storage atom owners, collapsed retired Store Primitive/Protocol and Storage Contiguous products/modules to Storage, replaced the obsolete heap-backed Contiguous fixture with atom-owned Store.Inline, and migrated integer positions to typed Index<Element>; no Memory or molecule dependency remains. Fresh build green; 2 tests across 4 suites green.",
+    "bookedAt": "2026-08-28T03:54:28Z"
+   },
+   {
+    "repo": "swift-molecules/swift-bit-algebra",
+    "headSHA": "497d83fb40fb39b257ddbe6623d1f4ef7b6eb229",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8j",
+    "changes": "Preserved Bit.z2 as the GF(2) field plus the distinct Bit-owned Boolean monoid, commutative-semiring, semilattice, and lattice witnesses. Canonicalized Bit and Algebra atom owners, collapsed six retired split products/modules to their consolidated products, updated reexports, and refreshed Swift 6.4/platform 27 ownership documentation. Fresh build green; 20 tests across 12 suites green.",
+    "bookedAt": "2026-08-28T03:56:46Z"
+   },
+   {
+    "repo": "swift-molecules/swift-affine-algebra",
+    "headSHA": "46fd9027f164c5c06c07186129980bfd89d6fbaa",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8j",
+    "changes": "Preserved the genuine Affine.Discrete.Vector.group seam joining Affine vector arithmetic to Algebra.Group.Abelian. Canonicalized Affine and Algebra atom owners plus the consolidated Algebra product/module, colocated defining imports while retaining the advertised single-import reexport, refreshed Swift 6.4/platform 27 ownership documentation, and removed the empty warning-only Test Support product/target. Fresh build green; 8 tests across 5 suites green.",
+    "bookedAt": "2026-08-28T03:57:40Z"
+   },
+   {
+    "repo": "swift-molecules/swift-finite-algebra",
+    "headSHA": "816527b7c458211782cc29bdeb5c21a30645d8f1",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8j",
+    "changes": "Preserved the genuine cyclic Algebra.Group witness over Finite.Enumerable plus the Parity and Polarity enumerable conformances. Canonicalized Finite, Algebra, Parity, Polarity, Cardinal, and Ordinal atom owners; composed the Finite Ordinal owner of Enumerable; collapsed the retired Algebra Group module/product; supplied explicit CaseIterable witnesses required for retroactive conformances; migrated removed integer literal surfaces to explicit Cardinal/Ordinal construction; and removed the retired Algebra Test Support edge. Fresh build green; 4 tests across 8 suites green.",
+    "bookedAt": "2026-08-28T04:05:48Z"
+   },
+   {
+    "repo": "swift-molecules/swift-buffer-slots",
+    "headSHA": "b40aa7d9ec6165f133e5ba766304eb36c63f7593",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8j",
+    "changes": "Preserved the genuine slots buffer over Store.Split and replaced tombstoned Memory Heap backing with Storage<Memory.Allocator<Memory.Small<0>>>.Contiguous through the converged Storage Memory, Memory Small, and Memory Allocation owners. Canonicalized Buffer, Storage, Index, Affine, Ordinal, Memory, Cardinal, and Tagged surfaces; removed vanished Memory Test Support; migrated ambiguous Index.Count to Tagged<Element, Cardinal>, updated Cardinal-to-Ordinal mapping, and refreshed typed tests/docs. Fresh build green; 20 tests across 4 suites green.",
+    "bookedAt": "2026-08-28T04:06:55Z"
+   },
+   {
+    "repo": "swift-molecules/swift-bit-finite",
+    "headSHA": "3cdab30df3f2de00a1b1dff451e13a5ffa63b62f",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8j",
+    "changes": "Preserved the genuine Finite.Enumerable conformances for Bit and Bit.Order. Canonicalized Bit, Finite, Cardinal, and Ordinal atom owners plus the Finite Ordinal owner of Enumerable; retained Bit Standard Library Integration for CaseIterable; replaced retired Bit Primitive/Finite Enumerable products and modules; migrated Ordinal subscripting and removed integer literal conformances to explicit typed construction; and refreshed Swift 6.4/platform 27 ownership documentation. Fresh build green; 6 tests across 6 suites green.",
+    "bookedAt": "2026-08-28T04:11:13Z"
+   },
+   {
+    "repo": "swift-molecules/swift-comparison-finite",
+    "headSHA": "23bd212a6c48ac6aaf66ca2cbacb9dd8d5601b0d",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8j",
+    "changes": "Preserved Comparison's genuine Finite.Enumerable conformance. Canonicalized Comparison, Finite, Pair, Cardinal, and Ordinal atom owners plus the Finite Ordinal owner of Enumerable; replaced the retired Finite Enumerable product/module; restored the Comparison standard-library surface; migrated removed integer literal and Ordinal-subscripting conveniences to explicit typed construction and a direct ordinal switch; and refreshed Swift 6.4/platform 27 ownership documentation. Fresh build green; 4 tests across 3 suites green.",
+    "bookedAt": "2026-08-28T04:17:34Z"
+   },
+   {
+    "repo": "swift-molecules/swift-algebra-modular",
+    "headSHA": "fb146d6ff2b856726013a7c093791fc31c4b26ff",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8j",
+    "changes": "Removed the nonexistent Finite.Capacity/Finite edge and made seam-owned Algebra.Residual carry a static Cardinal capacity. Consolidated the Algebra product/module, added explicit per-file imports, composed the current Cardinal carrier/property/hash and Ordinal cardinal/hash owners, removed stale ordinal and implicit zero/one assumptions, and restored modular zero/one identities. Added focused runtime, typed-residue, bounds, ring, and field coverage. Fresh build green without warnings; 7 tests across 4 suites green.",
+    "bookedAt": "2026-08-28T04:17:40Z"
+   },
+   {
+    "repo": "swift-molecules/swift-stack",
+    "headSHA": "4c970ac0a9d67504815495c17a54b9a507834610",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8j",
+    "changes": "Canonicalized Stack's Cardinal, Index, Tagged, Buffer, and Storage atom owners plus Buffer Linear, Memory Allocation, and Memory Small molecules; replaced retired Memory.Heap with Memory.Small<0>; introduced a narrow Stack-owned column protocol over current Buffer.Linear and Bounded count/isEmpty/store surfaces after Buffer.Protocol removal; migrated typed counts, noncopyable take constraints, and slot pop/init paths; and replaced the retired Buffer Test Support fixture with focused dynamic/bounded seam round trips. Fresh build green; 11 tests across 16 suites green.",
+    "bookedAt": "2026-08-28T04:19:40Z"
+   },
+   {
+    "repo": "swift-molecules/swift-order-finite",
+    "headSHA": "8bfb5a9d98bfe1c60943b23120ca38b5f9016251",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8j",
+    "changes": "Preserved Order.Monotonicity's genuine Finite.Enumerable conformance. Canonicalized the Finite, Order, Cardinal, and Ordinal atom owners plus the Finite Ordinal owner of Enumerable; replaced retired Finite Enumerable and Order Monotonicity products/modules; migrated removed integer literal and Ordinal-subscripting conveniences to explicit typed construction and a direct ordinal switch; added explicit test dependencies/imports; and refreshed Swift 6.4/platform 27 ownership documentation. Fresh build green; 7 tests across 6 suites green.",
+    "bookedAt": "2026-08-28T04:23:15Z"
    }
   ]
  }
