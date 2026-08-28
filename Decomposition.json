@@ -4606,6 +4606,16 @@
     "recordedAt": "2026-08-27T23:53:05Z",
     "resumedAt": "2026-08-28T01:11:55Z",
     "resolvedAt": "2026-08-28T01:18:43Z"
+   },
+   {
+    "repo": "swift-molecules/swift-layout-boundary",
+    "currentHeadSHA": "1e4429a530b016a4336d732821b332a9dce44114",
+    "blockedBy": "swift-atoms/swift-layout",
+    "blockingHeadSHA": "acb64140bed897f92556c4eefd64b9cd9c991e08",
+    "evidence": "Layout Boundary is a genuine direction-aware conversion between Layout-owned logical Corner/Direction and Boundary.Corner. Fresh compilation fails below the seam because Layout core declares Layout.Stack: Codable while Axis<2>: Codable is owned by Axis Standard Library Integration and unavailable to Layout core; Layout's SLI target currently lacks that product. Canonical consumer URL and focused LTR/RTL mapping tests are preserved uncommitted.",
+    "resumeWhen": "Move Layout.Stack Codable into Layout Standard Library Integration with Axis Standard Library Integration ownership, converge and amend the Layout atom head, then resume this preserved checkout for fresh build/test.",
+    "status": "dependency-convergence-required",
+    "recordedAt": "2026-08-28T01:26:50Z"
    }
   ],
   "pendingAdjudications": [
@@ -7072,6 +7082,51 @@
     "wave": "wave8d",
     "changes": "Removed the tombstoned Memory Heap repository/product and canonicalized Memory to its atom; replaced removed split Memory products/imports with current Memory, retained the genuine Small inline-or-heap representation using Memory.Inline and atom-owned Memory.Heap, wired current Cardinal/Tagged typed byte-count owners, and added default-inline, exact-boundary-inline, and oversized-spill behavior tests. Fresh build green; 3 tests across 2 suites green.",
     "bookedAt": "2026-08-28T01:19:07Z"
+   },
+   {
+    "repo": "swift-molecules/swift-symmetry-finite",
+    "headSHA": "00e304a6b04e9389198fcefcf0081e717978cbe0",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8e",
+    "changes": "Canonicalized Symmetry to its atom owner, added current Finite Ordinal ownership, retained the genuine retroactive Phase: Finite.Enumerable conformance, migrated cardinality to Cardinal(UInt(4)), exported member-visible imports, and added cardinality, ordinal mapping, reconstruction, and out-of-range coverage. Fresh build green; 4 tests across 1 suite green.",
+    "bookedAt": "2026-08-28T01:19:51Z"
+   },
+   {
+    "repo": "swift-molecules/swift-symmetry-dimension",
+    "headSHA": "e19aa58df8c463add55de5e862a9e2f025caf1c9",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8e",
+    "changes": "Canonicalized Symmetry to its atom owner, replaced retired Real with current Numeric and Numeric SLI test ownership, added direct Tagged ownership for public inlinable Radian construction, migrated current Tagged angle assertions and explicit Scale<1, Double> shear tests, removed @testable coupling, and retained genuine rotation/dimensional shear contracts. Fresh build green; 22 tests across 5 suites green.",
+    "bookedAt": "2026-08-28T01:21:22Z"
+   },
+   {
+    "repo": "swift-molecules/swift-symmetry-pair",
+    "headSHA": "c8b025f438ddbb48434151d3b2a28b7c77455d47",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8e",
+    "changes": "Canonicalized Symmetry to its atom owner and retained the genuine Phase.Value<Payload> = Pair<Phase, Payload> cross-domain alias, adding direct Pair test ownership and focused alias-payload and Pair-transformation coverage in place of the empty suite. Fresh build green; 2 tests across 1 suite green.",
+    "bookedAt": "2026-08-28T01:23:20Z"
+   },
+   {
+    "repo": "swift-molecules/swift-symmetry-affine-geometry",
+    "headSHA": "bc77160dc0824a7202de92a00e9239f04cf9cdee",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8e",
+    "changes": "Removed the tombstoned Affine Geometry dependency/product/import, canonicalized Symmetry to its atom and consumed the Affine atom directly, adopted current Linear/Numeric test products and explicit Scale<1, Double> inputs, removed @testable coupling, and retained genuine rotation/scale/shear affine-transform conversions with ownership docs. Fresh build green; 12 tests across 4 suites green.",
+    "bookedAt": "2026-08-28T01:26:09Z"
+   },
+   {
+    "repo": "swift-molecules/swift-parser-tagged",
+    "headSHA": "976eb3ba324560ac06315597c1c80c3f96059d05",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8e",
+    "changes": "Canonicalized Parser to its atom owner and retained the genuine retroactive Tagged: Parseable lift while keeping generic parse/map behavior in Parser; marked the foreign conformance retroactive, declared explicit test owners, documented the seam, and added a focused typed-output plus input-consumption contract. Fresh build green; 1 test across 1 suite green.",
+    "bookedAt": "2026-08-28T01:33:40Z"
    }
   ]
  }
