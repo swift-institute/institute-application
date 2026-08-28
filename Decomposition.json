@@ -4436,6 +4436,17 @@
   },
   "absorptions": [
    {
+    "repo": "swift-molecules/swift-linear-numeric",
+    "disposition": "absorbed-into-atom",
+    "absorbedInto": "swift-atoms/swift-linear",
+    "atomHeadSHA": "8aa9dab5fe0f800b1eb09767abd1d203c68dd105",
+    "tombstoneHeadSHA": "4c543481e1fbaeeea504e88a4b086189baf0ad70",
+    "build": "inapplicable-no-package",
+    "test": "inapplicable-no-package",
+    "reason": "The Linear atom deliberately absorbed the former matrix rotation and vector angle, unit, polar, signed-angle, and rotated surfaces from this donor. Live donor main is an explicit tombstone containing no Package.swift, Sources, or Tests; fabricating a package would recreate a false seam.",
+    "adjudicatedAt": "2026-08-28T00:48:02Z"
+   },
+   {
     "repo": "swift-molecules/swift-dimension-tagged",
     "disposition": "absorbed-into-atom",
     "absorbedInto": "swift-atoms/swift-dimension",
@@ -4553,11 +4564,16 @@
     "evidence": "Memory Allocation's genuine allocator/arena/pool seam is blocked during fresh resolution by the lower chain Memory Allocation -> Bit Vector (957691a2b187ddb2a2e679824d79aa47df131143) -> Bit Pack -> Bit Index. Live Bit Index at dcf0ea3a3a99b22e6e2ef564791ee95d887aab45 is an absorbed, manifest-less tombstone whose ownership moved to the Bit atom; Bit Pack and Bit Vector still request the retired package. Canonical Memory Allocation edits are preserved uncommitted.",
     "resumeWhen": "Converge Bit Pack against the Bit atom, then Bit Vector, then resume the preserved Memory Allocation checkout and require fresh build/test before booking.",
     "resolvedPrerequisiteHeads": {
-     "swift-molecules/swift-bit-pack": "9682bfb510fb45088a6482eb6b79551a8bdd5ede"
+     "swift-molecules/swift-bit-pack": "9682bfb510fb45088a6482eb6b79551a8bdd5ede",
+     "swift-molecules/swift-bit-vector": "dcc1313ec8a8f7b1d26316a2fc4445e25c349d49"
     },
-    "status": "dependency-convergence-required",
+    "resolvedByHeadSHA": "dcc1313ec8a8f7b1d26316a2fc4445e25c349d49",
+    "resumedPackageHeadSHA": "afcc99e955cfaa97d9ea14e87cf8e1a508cd6d88",
+    "status": "resolved-and-booked",
     "recordedAt": "2026-08-27T23:57:19Z",
-    "progressedAt": "2026-08-28T00:10:19Z"
+    "progressedAt": "2026-08-28T00:10:19Z",
+    "resumedAt": "2026-08-28T00:48:46Z",
+    "resolvedAt": "2026-08-28T01:04:11Z"
    },
    {
     "repo": "swift-molecules/swift-infinite-collection",
@@ -4762,6 +4778,33 @@
     "requiredAction": "Remove/tombstone the redundant package and product and update the inventory. This destructive disposition requires principal approval before execution; no replacement seam is warranted.",
     "status": "principal-approval-required",
     "recordedAt": "2026-08-28T00:12:58Z"
+   },
+   {
+    "repo": "swift-molecules/swift-linear-format",
+    "currentHeadSHA": "7c02335c52942bc704576bc1909764656dff76b3",
+    "proposedDisposition": "false-owner-duplicate-owned-by-format-tagged",
+    "owners": {
+     "swift-atoms/swift-linear": "8aa9dab5fe0f800b1eb09767abd1d203c68dd105",
+     "swift-molecules/swift-format-tagged": "bff9c278e65ac1c54c25eae11c34821f969c6c86"
+    },
+    "evidence": "The package's sole declaration extends Tagged where its underlying value is BinaryFloatingPoint and formats it through Formatter; neither the signature nor implementation uses Linear, whose public import and stale repository dependency are behaviorally unused. The already converged Format Tagged seam owns and tests this exact Tagged floating-point formatting behavior using canonical Format and Tagged atoms.",
+    "requiredAction": "Remove/tombstone the false-owner Linear Format package and product and update the inventory to retain Format Tagged as the sole owner. This destructive disposition requires principal approval before execution.",
+    "status": "principal-approval-required",
+    "recordedAt": "2026-08-28T00:51:14Z"
+   },
+   {
+    "repo": "swift-molecules/swift-buffer-index",
+    "currentHeadSHA": "39377425b95dc22989d887f03a2517fe09e739ec",
+    "proposedDisposition": "retarget-to-buffer-cardinal-or-tombstone-false-index-seam",
+    "owners": {
+     "swift-atoms/swift-buffer": "51d073dd51ec295f571e079cfc8817a447d60c6b",
+     "swift-atoms/swift-index": "e9ae3efa42fb474ac58df54551b572c6dbe70917",
+     "swift-atoms/swift-cardinal": "54cfa5df21b00068217e9454a568b4533efc9624"
+    },
+    "evidence": "The live Index atom is exactly Tagged<Element, Ordinal> and has no Count. Buffer Index's capacity and protocol declarations use only the removed Index<Element>.Count, while its comparison file only compares or zeroes that count; fresh compilation fails at those removed member types. Migrating Count to native Cardinal removes every Index reference and proves this is not a Buffer \u00d7 Index seam.",
+    "requiredAction": "Choose and create the correct Buffer \u00d7 Cardinal owner for the capacity declarations, then remove/tombstone the false Buffer Index package, or approve direct retargeting/renaming if this repository should become that owner. Relocation/retargeting and tombstoning require principal approval before execution.",
+    "status": "principal-approval-required",
+    "recordedAt": "2026-08-28T00:52:26Z"
    }
   ],
   "packages": [
@@ -6902,6 +6945,51 @@
     "wave": "wave8b",
     "changes": "Re-adjudicated ownership and removed duplicate phase atan2 plus atom-owned length/modulus tests, retaining only the genuine Complex.Number.Phase.Value-to-Radian conversion and dimensional polar construction seam; canonicalized all atom owners and current Numeric/Tagged products and unchecked construction. Fresh build green; 4 tests across 1 suite green.",
     "bookedAt": "2026-08-28T00:45:08Z"
+   },
+   {
+    "repo": "swift-molecules/swift-complex-numeric-relaxed",
+    "headSHA": "4d83d575d5f4ebc2fd7163e87cc0c9511a0bdc91",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8c",
+    "changes": "Canonicalized Complex and Numeric to their atom owners, migrated the removed Numeric Relaxed product/module to consolidated Numeric, replaced cross-package _value access with public value, and retained genuine Complex relaxed sum/product/multiply-add/scalar multiplication behavior with focused Double and Float coverage. Fresh build green; 2 tests across 1 suite green.",
+    "bookedAt": "2026-08-28T00:48:33Z"
+   },
+   {
+    "repo": "swift-molecules/swift-bit-vector",
+    "headSHA": "dcc1313ec8a8f7b1d26316a2fc4445e25c349d49",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8c",
+    "changes": "Canonicalized Bit, Iterator, Property, Ownership, and lower seam owners; removed obsolete Index and Iterator product wiring; migrated Index.Count/Index APIs to Tagged Cardinal/Ordinal types; repaired current Property Ownership, typed arithmetic/imports, and Iterator namespace shadowing with materializing/native iteration; refreshed focused tests and docs. Fresh build green; 76 tests across 16 suites green.",
+    "bookedAt": "2026-08-28T00:49:09Z"
+   },
+   {
+    "repo": "swift-molecules/swift-buffer-storage",
+    "headSHA": "78643cb3026dd37b3a15266f0315fb2006506567",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8c",
+    "changes": "Canonicalized Buffer, Index, and Storage atom owners; removed the false Buffer Index dependency; retained genuine Buffer.Storage<Base> ownership; migrated capacity snapshots from invalid Buffer.Capacity to Storage-owned Index<Element>.Count; removed test-only ledger files whose contract depended entirely on the false Buffer.Protocol and updated test stores to current Index behavior. Fresh build green; 4 tests across 4 suites green.",
+    "bookedAt": "2026-08-28T00:59:15Z"
+   },
+   {
+    "repo": "swift-molecules/swift-geometry-pair",
+    "headSHA": "554e8dd5402edb4ad33dbcc7656a56fe1c3953ec",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8c",
+    "changes": "Canonicalized Geometry to its atom owner and retained the genuine Curvature.Value Pair alias seam, adding explicit Geometry/Pair test products, a focused public discriminator-and-payload contract, and ownership documentation. Fresh build green; 1 test across 1 suite green.",
+    "bookedAt": "2026-08-28T01:00:48Z"
+   },
+   {
+    "repo": "swift-molecules/swift-memory-allocation",
+    "headSHA": "afcc99e955cfaa97d9ea14e87cf8e1a508cd6d88",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8c",
+    "changes": "Canonicalized Memory, Tagged, Index, and Affine atoms; replaced removed split Memory products with current Memory; composed live Memory Carrier, Cardinal Carrier/Comparison/Tagged, Tagged Carrier, and Affine Carrier/Tagged seams for alignment, arithmetic, and offsets; removed obsolete SLI wiring; replaced ambiguous Index<Slot>.Count with Tagged<Slot, Cardinal>; retained allocator/arena/pool behavior with aligned-arena and pool-recycling tests. Fresh build green; 4 tests across 4 suites green.",
+    "bookedAt": "2026-08-28T01:04:34Z"
    }
   ]
  }
