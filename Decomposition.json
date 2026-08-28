@@ -4539,19 +4539,37 @@
     "evidence": "Growth Memory's genuine paged policy rounds Cardinal capacity through Memory.Alignment.alignUp, but external construction fails because Growth.Policy's only closure initializer is package-scoped. The preserved consumer diff already canonicalizes Growth/Memory and migrates removed Index.Count usage to Cardinal.",
     "resumeWhen": "After the shared Growth atom policy-construction repair converges, resume this preserved checkout and require fresh build/test before booking.",
     "resolvedByHeadSHA": "564002f099e11952811f727b90b581f221093453",
-    "status": "blocking-dependency-converged-resumption-in-progress",
+    "resumedPackageHeadSHA": "f02e786cd68ceb2ae9d03a36559d45c11b895e26",
+    "status": "resolved-and-booked",
     "recordedAt": "2026-08-27T23:50:09Z",
-    "resumedAt": "2026-08-27T23:53:05Z"
+    "resumedAt": "2026-08-27T23:53:05Z",
+    "resolvedAt": "2026-08-27T23:59:11Z"
    },
    {
     "repo": "swift-molecules/swift-memory-allocation",
     "currentHeadSHA": "e7e377301958af7e049c7cc2d7f37844baf431af",
-    "blockedBy": "swift-molecules/swift-bit-pack",
-    "blockingHeadSHA": "359bd4b5c1ca1427430bb4779a00e2cfbaa1bfbf",
+    "blockedBy": "swift-molecules/swift-bit-vector",
+    "blockingHeadSHA": "957691a2b187ddb2a2e679824d79aa47df131143",
     "evidence": "Memory Allocation's genuine allocator/arena/pool seam is blocked during fresh resolution by the lower chain Memory Allocation -> Bit Vector (957691a2b187ddb2a2e679824d79aa47df131143) -> Bit Pack -> Bit Index. Live Bit Index at dcf0ea3a3a99b22e6e2ef564791ee95d887aab45 is an absorbed, manifest-less tombstone whose ownership moved to the Bit atom; Bit Pack and Bit Vector still request the retired package. Canonical Memory Allocation edits are preserved uncommitted.",
     "resumeWhen": "Converge Bit Pack against the Bit atom, then Bit Vector, then resume the preserved Memory Allocation checkout and require fresh build/test before booking.",
+    "resolvedPrerequisiteHeads": {
+     "swift-molecules/swift-bit-pack": "9682bfb510fb45088a6482eb6b79551a8bdd5ede"
+    },
     "status": "dependency-convergence-required",
-    "recordedAt": "2026-08-27T23:57:19Z"
+    "recordedAt": "2026-08-27T23:57:19Z",
+    "progressedAt": "2026-08-28T00:10:19Z"
+   },
+   {
+    "repo": "swift-molecules/swift-infinite-collection",
+    "currentHeadSHA": "de83ff51610dacf69c5c33391fb0d271d001e236",
+    "blockedBy": "swift-atoms/swift-infinite",
+    "blockingHeadSHA": "ddc17440ec490f38aeca195f2f3ec0c2ffc0e787",
+    "evidence": "Infinite Collection is a genuine seam: it exposes an Infinite.Cycle head and a Collection.Rotated tail. Fresh compilation reaches the seam but fails because Infinite.Cycle.base is internal, so the Collection-owned rotated tail cannot be constructed through any current public Infinite API. Replacing that tail with an iterator wrapper would erase Collection ownership and fabricate a different seam; canonical consumer edits are preserved uncommitted.",
+    "resumeWhen": "Add and converge the narrowest read-only Cycle base accessor (or equivalent rotation surface) in the Infinite atom, amend its booked head, then resume the preserved Infinite Collection checkout for fresh build/test.",
+    "resolvedByHeadSHA": "7e2d10e46731047523fba297d72b67ab30029c6a",
+    "status": "blocking-dependency-converged-resumption-in-progress",
+    "recordedAt": "2026-08-28T00:10:19Z",
+    "resumedAt": "2026-08-28T00:12:58Z"
    },
    {
     "repo": "swift-molecules/swift-memory-small",
@@ -4716,6 +4734,32 @@
     "requiredAction": "Choose whether to move the conformance into Span Standard Library Integration or a newly named correct owner, then remove/tombstone the misnamed Memory Span package. Relocation/deletion is destructive and requires principal approval before execution.",
     "status": "principal-approval-required",
     "recordedAt": "2026-08-27T23:48:05Z"
+   },
+   {
+    "repo": "swift-molecules/swift-facet-equation",
+    "currentHeadSHA": "5eabc56a8bdeeb88a41315b0ce5ad266ae050d0d",
+    "proposedDisposition": "duplicate-owned-by-facet-atom",
+    "atoms": {
+     "swift-atoms/swift-facet": "8c31d971a62826fefd2e65886ce2005e67e8e017",
+     "swift-atoms/swift-equation": "931364b7292619a82348020fc7a7a4ad7ed3570c"
+    },
+    "evidence": "The molecule's sole declaration is extension Facet: Equation.Protocol, while Equation.Protocol is exactly Swift.Equatable and the Facet atom already owns Facet's Equatable conformance and equality implementation. A fresh untouched build resolves the verified atom heads and reports that the Equatable conformance was already stated in Facet's module; Equation is otherwise an unused public import.",
+    "requiredAction": "Remove/tombstone the empty redundant package and product and update the inventory. This destructive disposition requires principal approval before execution; no replacement seam is warranted.",
+    "status": "principal-approval-required",
+    "recordedAt": "2026-08-28T00:10:19Z"
+   },
+   {
+    "repo": "swift-molecules/swift-facet-comparison",
+    "currentHeadSHA": "3a98becc33d07b3a4d402d79f9d4385feaf602d9",
+    "proposedDisposition": "duplicate-owned-by-facet-atom",
+    "atoms": {
+     "swift-atoms/swift-facet": "8c31d971a62826fefd2e65886ce2005e67e8e017",
+     "swift-atoms/swift-comparison": "66384c0b3a359a2c02e5e7069a28f8822dc21635"
+    },
+    "evidence": "The molecule's only source declares Facet: Comparison.Protocol, while Comparison.Protocol is exactly Swift.Comparable and the Facet atom already owns Facet's Comparable conformance plus all ordering witnesses. A fresh untouched build resolves the verified heads and reports that the Comparable conformance was already stated in Facet's module; Comparison is otherwise an unused public import.",
+    "requiredAction": "Remove/tombstone the redundant package and product and update the inventory. This destructive disposition requires principal approval before execution; no replacement seam is warranted.",
+    "status": "principal-approval-required",
+    "recordedAt": "2026-08-28T00:12:58Z"
    }
   ],
   "packages": [
@@ -5696,12 +5740,13 @@
    },
    {
     "repo": "swift-atoms/swift-infinite",
-    "headSHA": "ddc17440ec490f38aeca195f2f3ec0c2ffc0e787",
+    "headSHA": "7e2d10e46731047523fba297d72b67ab30029c6a",
     "build": "green",
     "test": "green",
-    "wave": "wave6g",
-    "changes": "Repaired six iterator conformances against the current Iterator API, restored the exact core/AFI/TestSupport product shape, and corrected atom documentation. Foundation only in AFI. Fresh build green; 48 tests green; local Embedded proof blocked upstream in Cardinal.",
-    "bookedAt": "2026-08-27T19:52:50Z"
+    "wave": "wave7z",
+    "changes": "Added the narrow read-only Infinite.Cycle.base integration surface backed by immutable internal storage, without exposing mutation or adding Collection behavior; added a public-import contract test and ownership documentation. Fresh build green; 49 tests across 28 suites green.",
+    "bookedAt": "2026-08-28T00:12:55Z",
+    "priorHeadSHA": "ddc17440ec490f38aeca195f2f3ec0c2ffc0e787"
    },
    {
     "repo": "swift-atoms/swift-growth",
@@ -6729,6 +6774,42 @@
     "wave": "wave7y",
     "changes": "Canonicalized Growth to its atom owner, removed obsolete Index ownership, and migrated factor policies to Growth.Policy.custom(capacity:) with current Cardinal arithmetic while preserving the nonnegative precondition and floor-at-one semantics; refreshed focused docs and scale/zero-floor tests. Fresh exact-head build green; 3 tests across 1 suite green.",
     "bookedAt": "2026-08-27T23:57:15Z"
+   },
+   {
+    "repo": "swift-molecules/swift-growth-memory",
+    "headSHA": "f02e786cd68ceb2ae9d03a36559d45c11b895e26",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7z",
+    "changes": "Canonicalized Growth to its atom owner, replaced stale Index and Memory Alignment surfaces with native Cardinal and Memory, and implemented Growth.Policy.paged through public custom(capacity:) plus Memory.Alignment.alignUp; added focused rounding, zero, byte-alignment tests and ownership documentation. Fresh build green; 3 tests across 1 suite green.",
+    "bookedAt": "2026-08-27T23:59:24Z"
+   },
+   {
+    "repo": "swift-molecules/swift-vector-iterator",
+    "headSHA": "0df3b85599a4aa557990f8d9be9f6a57d6d3187e",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7z",
+    "changes": "Canonicalized Vector and added the converged Vector Sequence owner; retained the genuine chunk-materializing Iterable bridge and Swift.IteratorProtocol/Sequence compatibility; removed the exact Vector Sequence-owned Iterator.Protocol duplicate, package-only borrowing hooks, and unrelated removeAll residue; modernized namespaces, lifetimes, focused tests, and ownership docs. Fresh build green; 3 tests across 1 suite green.",
+    "bookedAt": "2026-08-28T00:05:41Z"
+   },
+   {
+    "repo": "swift-molecules/swift-facet-finite",
+    "headSHA": "a15a023284c07b45945929de4e37e62d982929b5",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7z",
+    "changes": "Confirmed the genuine Facet \u00d7 Finite.Enumerable seam, canonicalized Facet to its atom and the current Finite Ordinal/Cardinal graph, marked the foreign conformance retroactive, migrated current Cardinal/Ordinal raw APIs and member visibility, collapsed empty legacy suites, and clarified ownership documentation. Fresh build green; 4 tests across 1 suite green.",
+    "bookedAt": "2026-08-28T00:07:06Z"
+   },
+   {
+    "repo": "swift-molecules/swift-bit-pack",
+    "headSHA": "9682bfb510fb45088a6482eb6b79551a8bdd5ede",
+    "build": "green",
+    "test": "green",
+    "wave": "wave7z",
+    "changes": "Replaced the tombstoned Bit Index dependency with canonical atom owners/products, migrated removed Bit.Index.Count and Index.Offset to Tagged<Bit, Cardinal> and Tagged<Bit, Affine.Discrete.Vector> while retaining typed bit positions, added checked pack/location arithmetic, and repaired imports, umbrella/test-support exports, focused tests, and docs. Fresh build green; 24 tests across 10 suites green.",
+    "bookedAt": "2026-08-28T00:09:34Z"
    }
   ]
  }
