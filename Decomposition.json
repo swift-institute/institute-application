@@ -7618,6 +7618,96 @@
     "wave": "wave8k",
     "changes": "Preserved Cyclic.Group.Static's genuine institute Iterable and Swift.Sequence conformances plus its scalar iterator. Canonicalized Cyclic, Cardinal, Ordinal, Sequence, and Iterator atom owners; collapsed retired split products/modules; introduced seam-owned aliases to resolve Iterator module/type/associated-type shadowing; migrated Cardinal/Ordinal construction and iteration bounds to current raw-value APIs; and refreshed Swift 6.4/platform 27 docs. Fresh build green; 3 tests across 4 suites green.",
     "bookedAt": "2026-08-28T04:48:22Z"
+   },
+   {
+    "repo": "swift-molecules/swift-loader-vocabulary",
+    "headSHA": "5f1a0458c4811d5ffdd1b83a014264ebdc697595",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8l",
+    "changes": "Canonicalized String, Ownership, and ASCII dependency URLs from molecule to atom owners; migrated the retired String.String umbrella qualification to current String and String.Borrowed APIs; and refreshed Swift 6.4/platform 27 ownership documentation. Fresh build green; 5 tests across 5 suites green.",
+    "bookedAt": "2026-08-28T04:54:17Z"
+   },
+   {
+    "repo": "swift-molecules/swift-hash-table",
+    "headSHA": "56c93ab01e0d2a9eb953ed8f4e1ee61e7ffb0478",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8l",
+    "changes": "Canonicalized atom owners/products; replaced tombstoned Memory Heap with Memory.Small<0> through Storage Memory/current allocation; removed retired split Buffer/Storage products; migrated Index.Count to typed Index positions and Tagged Cardinal counts; renamed self-shadowing Bucket.Index to Position; wired Property Ownership; made Hash.Indexed own hashed lookup and back-draining removeAll, fixing inherited Store overload traps; and replaced removed Buffer Test Support with a focused local model. Fresh build green; 23 tests across 8 suites green.",
+    "bookedAt": "2026-08-28T04:57:24Z"
+   },
+   {
+    "repo": "swift-molecules/swift-structured-queries",
+    "headSHA": "7efe68833ecdd310f9b09a8b19a5b5652283e5fc",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8l",
+    "changes": "Canonicalized Tagged, Byte, and Time atom owners; replaced the retired Time Primitive product/module with Time; removed retired Tagged Test Support usage; narrowed internal Time/Byte imports while retaining the test-support reexport; and refreshed Tagged links plus Swift 6.4/platform 27 documentation. Fresh build green; 11 tests across 4 suites green.",
+    "bookedAt": "2026-08-28T04:58:57Z"
+   },
+   {
+    "repo": "swift-molecules/swift-tagged-collection",
+    "headSHA": "75abc067036d41dae18f9b2d9e8105a010f899be",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8l",
+    "changes": "Canonicalized Tagged, Collection, and Index atom owners and retained the genuine Ordinal Comparison seam required by the institute collection protocol; replaced the retired Collection Protocol and Collection Test Support surfaces; preserved the narrow test-support product; migrated count to Int and consolidated Index types without module shadowing; added a focused local Index-position fixture; and refreshed Swift 6.4/platform 27 ownership documentation. Fresh build green; 1 test across 4 suites green.",
+    "bookedAt": "2026-08-28T05:04:06Z"
+   },
+   {
+    "repo": "swift-molecules/swift-terminal-input",
+    "headSHA": "f99ec8458ef64187ec8c2950149fe0b5a3f0a3a9",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8l",
+    "changes": "Canonicalized the Terminal, Input, and ASCII atom owners; added the direct Byte atom and ASCII Byte seam products required by parser operations and reexports; removed the retired Input Test Support edge; migrated Byte numeric and Unicode operations to current underlying APIs; and refreshed Swift 6.4/platform 27 architecture documentation. Fresh build green; 92 tests across 19 suites green.",
+    "bookedAt": "2026-08-28T05:12:45Z"
+   },
+   {
+    "repo": "swift-molecules/swift-byte-collection",
+    "headSHA": "c6dd6b17ce853798a2f3b463fb462cec7c45aff8",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8l",
+    "changes": "Canonicalized Byte and Collection atom owners; replaced the retired Collection Protocol module/product with the consolidated Collection surface; removed retired Byte and Collection test-support edges while preserving the narrow Byte Collection Test Support product; added the direct Iterator atom for a focused local institute-collection fixture; and refreshed platform 27 architecture documentation. Fresh build green; 16 tests across 8 suites green.",
+    "bookedAt": "2026-08-28T05:15:36Z"
+   },
+   {
+    "repo": "swift-molecules/swift-byte-formatter",
+    "headSHA": "6cbc2a737efc01670adfdcb71d29e6df78889f34",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8l",
+    "changes": "Confirmed the package already resolves through the canonical Byte, Radix, and Formatter atom owners and current consolidated products without source changes. Removed stale Layer 1 and split-product claims from the documentation and aligned Swift 6.4/platform 27 requirements. Fresh build green; 27 tests across 36 suites green.",
+    "bookedAt": "2026-08-28T05:19:46Z"
+   },
+   {
+    "repo": "swift-molecules/swift-bit-formatter",
+    "headSHA": "9a148fe5eeb7c479f4df69dd18ad6a9a6576af84",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8l",
+    "changes": "Canonicalized the Bit and Formatter atom owners; replaced the retired Bit Pattern product/module with the consolidated Bit surface; migrated protocol qualification to current Formatter.Protocol and moved the conformance outside Bit.Formatter's declaration to avoid namespace shadowing; and aligned Swift 6.4/platform 27 product documentation. Fresh build green; 16 tests across 16 suites green.",
+    "bookedAt": "2026-08-28T05:20:19Z"
+   },
+   {
+    "repo": "swift-molecules/swift-boundary-facet",
+    "headSHA": "ea8bfa087d401a997be02165f73fe309c9427e81",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8l",
+    "changes": "Canonicalized the Boundary and Facet atom owners; added the direct Axis and Direction products/imports required by member import visibility; and preserved the genuine boundary-edge to facet mapping, round-trip, and opposite-edge behavior. Fresh build green; 3 tests across 4 suites green.",
+    "bookedAt": "2026-08-28T05:24:27Z"
+   },
+   {
+    "repo": "swift-molecules/swift-byte-serializer",
+    "headSHA": "3aeab0a83781d8010192d3b00a23bd9b81f933bc",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8l",
+    "changes": "Canonicalized the Serializer and Byte atom owners; replaced the retired Serializer Primitive product/module with the consolidated Serializer surface; removed the retired Byte Test Support product/reexport; consolidated source imports and reexports; and aligned owner links, test-support documentation, and Swift 6.4/platform 27 requirements. Fresh build green; 18 tests across 10 suites green, including all 256 parameterized byte values.",
+    "bookedAt": "2026-08-28T05:24:27Z"
    }
   ]
  }
