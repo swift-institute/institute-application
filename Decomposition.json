@@ -4596,8 +4596,16 @@
     "blockingHeadSHA": "e7e377301958af7e049c7cc2d7f37844baf431af",
     "evidence": "Memory Small is a genuine small-inline memory seam, but its lower allocation stack is unconverged: Memory Allocation and Memory Inline still request removed split Memory products, while the former Memory Heap repository is now a manifest-less tombstone because Heap was absorbed into the Memory atom. The consumer checkout is clean and no speculative edits were made.",
     "resumeWhen": "Converge Memory Allocation, then Memory Inline against the Memory atom, remove the obsolete Heap repository dependency from Memory Small, and resume fresh build/test before booking.",
-    "status": "dependency-convergence-required",
-    "recordedAt": "2026-08-27T23:53:05Z"
+    "resolvedPrerequisiteHeads": {
+     "swift-molecules/swift-memory-allocation": "afcc99e955cfaa97d9ea14e87cf8e1a508cd6d88",
+     "swift-molecules/swift-memory-inline": "6e8fbeab157bebe1ea599e9050a0109f9fbeb340"
+    },
+    "resolvedByHeadSHA": "6e8fbeab157bebe1ea599e9050a0109f9fbeb340",
+    "resumedPackageHeadSHA": "0aca2efb89e79bd93bd1dad81dc4f60c067ba675",
+    "status": "resolved-and-booked",
+    "recordedAt": "2026-08-27T23:53:05Z",
+    "resumedAt": "2026-08-28T01:11:55Z",
+    "resolvedAt": "2026-08-28T01:18:43Z"
    }
   ],
   "pendingAdjudications": [
@@ -4805,6 +4813,35 @@
     "requiredAction": "Choose and create the correct Buffer \u00d7 Cardinal owner for the capacity declarations, then remove/tombstone the false Buffer Index package, or approve direct retargeting/renaming if this repository should become that owner. Relocation/retargeting and tombstoning require principal approval before execution.",
     "status": "principal-approval-required",
     "recordedAt": "2026-08-28T00:52:26Z"
+   },
+   {
+    "repo": "swift-molecules/swift-sample-comparison",
+    "currentHeadSHA": "5451a2c13811db94f4e0dcd64528f0dec73273b6",
+    "proposedDisposition": "duplicate-default-and-relocate-comparator-convenience-to-sample-order",
+    "owners": {
+     "swift-atoms/swift-sample": "0ec14ebd359e36333017ef5579d7e7223d5f77dd",
+     "swift-atoms/swift-comparison": "66384c0b3a359a2c02e5e7069a28f8822dc21635",
+     "swift-atoms/swift-order": "55718a72afc043d3aef26d7da9ec1187600d1d9c",
+     "swift-molecules/swift-sample-order": "bef42fc2a04575d8c8326f8618e372aaaff9dae6",
+     "swift-molecules/swift-order-comparison": "07d5fab8536bc9616dd8c3544424662e4f3859a5"
+    },
+    "evidence": "Comparison.Protocol is exactly Swift.Comparable, so this package's default Sample.Batch initializer duplicates the Sample atom's public Comparable initializer. Order.Comparator is owned by Order Comparison rather than the Order atom, and comparator-based Sample construction belongs in the existing Sample Order seam; the current package additionally relies on inaccessible package-internal Sample storage. Fresh compilation confirms both stale ownership failures.",
+    "requiredAction": "If the array-plus-Order.Comparator convenience remains desired, relocate it to Sample Order using the Order Comparison owner, then remove/tombstone Sample Comparison and update the inventory. Relocation and tombstoning require principal approval before execution.",
+    "status": "principal-approval-required",
+    "recordedAt": "2026-08-28T01:10:02Z"
+   },
+   {
+    "repo": "swift-molecules/swift-sample-time",
+    "currentHeadSHA": "ef71f0473835922c53e13a2aae1ce39c292dc102",
+    "proposedDisposition": "duplicate-duration-statistics-owned-by-sample-atom",
+    "owners": {
+     "swift-atoms/swift-sample": "0ec14ebd359e36333017ef5579d7e7223d5f77dd",
+     "swift-atoms/swift-time": "fcdaee6529b4634c54051950a5f62b6866a379ca"
+    },
+    "evidence": "Time.Duration is only a Swift.Duration alias, while the Sample atom already owns Sample.Averaging.duration and Duration-specialized mean, sum, standard deviation, median absolute deviation, outlier count, and coefficient-of-variation APIs. The remaining four comparison conveniences use only Sample's generic comparison functions and Sample-owned averaging witness, introducing no Time behavior. Fresh compilation also exposes stale reliance on Time Standard Library Integration APIs from a core Time dependency.",
+    "requiredAction": "If the four Duration comparison conveniences remain desired, relocate them into the Sample atom, then remove/tombstone Sample Time and update the inventory. Relocation and tombstoning require principal approval before execution.",
+    "status": "principal-approval-required",
+    "recordedAt": "2026-08-28T01:13:11Z"
    }
   ],
   "packages": [
@@ -6990,6 +7027,51 @@
     "wave": "wave8c",
     "changes": "Canonicalized Memory, Tagged, Index, and Affine atoms; replaced removed split Memory products with current Memory; composed live Memory Carrier, Cardinal Carrier/Comparison/Tagged, Tagged Carrier, and Affine Carrier/Tagged seams for alignment, arithmetic, and offsets; removed obsolete SLI wiring; replaced ambiguous Index<Slot>.Count with Tagged<Slot, Cardinal>; retained allocator/arena/pool behavior with aligned-arena and pool-recycling tests. Fresh build green; 4 tests across 4 suites green.",
     "bookedAt": "2026-08-28T01:04:34Z"
+   },
+   {
+    "repo": "swift-molecules/swift-geometry-boundary",
+    "headSHA": "a24711e289fba4968d9f01cdad8fdf78c96fee5b",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8d",
+    "changes": "Canonicalized Geometry to its atom owner, declared current Affine ownership for Point construction, and retained the genuine Orthotope \u00d7 Boundary.Corner mapping with focused coverage of all four corners and only test-local Tagged ownership for current coordinate construction/equality. Fresh build green; 2 tests across 1 suite green.",
+    "bookedAt": "2026-08-28T01:06:23Z"
+   },
+   {
+    "repo": "swift-molecules/swift-sample-algebra",
+    "headSHA": "33840756c2d2b2bac84e7858455a038f562be4e6",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8d",
+    "changes": "Canonicalized Sample to its atom owner and retained genuine Algebra integration as Sample.Accumulator.commutativeMonoid, renamed to avoid collision with Sample's native monoid and delegating identity/combining to that atom-owned witness instead of duplicating merge semantics; added focused identity/delegation/commutativity coverage and docs. Fresh build green; 1 test across 1 suite green.",
+    "bookedAt": "2026-08-28T01:06:23Z"
+   },
+   {
+    "repo": "swift-molecules/swift-memory-inline",
+    "headSHA": "6e8fbeab157bebe1ea599e9050a0109f9fbeb340",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8d",
+    "changes": "Preserved genuine value-generic inline storage plus Memory.Region and Memory.Allocatable ownership; canonicalized Memory to its atom, replaced removed split products with current Memory, migrated stale Index test APIs to the live Cardinal Tagged seam with explicit visibility, updated raw Cardinal assertions/imports, and removed tautological tests. Fresh build green; 7 tests across 8 suites green.",
+    "bookedAt": "2026-08-28T01:12:20Z"
+   },
+   {
+    "repo": "swift-molecules/swift-sample-order",
+    "headSHA": "62bec9fe21e3a5f239aafc8a1c724f892651e0c4",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8d",
+    "changes": "Canonicalized Sample to its atom owner, added canonical Order Comparison ownership for Order.Comparator, retained only the genuine comparator-to-Sample-native-Batch constructor adapter, and removed exact Sample-owned raw storage/insertion-sort plus percentile/min/median/max duplicates; added focused ascending-comparator coverage and ownership docs. Fresh build green; 1 test across 1 suite green.",
+    "bookedAt": "2026-08-28T01:13:46Z"
+   },
+   {
+    "repo": "swift-molecules/swift-memory-small",
+    "headSHA": "0aca2efb89e79bd93bd1dad81dc4f60c067ba675",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8d",
+    "changes": "Removed the tombstoned Memory Heap repository/product and canonicalized Memory to its atom; replaced removed split Memory products/imports with current Memory, retained the genuine Small inline-or-heap representation using Memory.Inline and atom-owned Memory.Heap, wired current Cardinal/Tagged typed byte-count owners, and added default-inline, exact-boundary-inline, and oversized-spill behavior tests. Fresh build green; 3 tests across 2 suites green.",
+    "bookedAt": "2026-08-28T01:19:07Z"
    }
   ]
  }
