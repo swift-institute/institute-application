@@ -4610,12 +4610,26 @@
    {
     "repo": "swift-molecules/swift-layout-boundary",
     "currentHeadSHA": "1e4429a530b016a4336d732821b332a9dce44114",
-    "blockedBy": "swift-atoms/swift-layout",
+    "blockedBy": "swift-molecules/swift-layout",
     "blockingHeadSHA": "acb64140bed897f92556c4eefd64b9cd9c991e08",
     "evidence": "Layout Boundary is a genuine direction-aware conversion between Layout-owned logical Corner/Direction and Boundary.Corner. Fresh compilation fails below the seam because Layout core declares Layout.Stack: Codable while Axis<2>: Codable is owned by Axis Standard Library Integration and unavailable to Layout core; Layout's SLI target currently lacks that product. Canonical consumer URL and focused LTR/RTL mapping tests are preserved uncommitted.",
     "resumeWhen": "Move Layout.Stack Codable into Layout Standard Library Integration with Axis Standard Library Integration ownership, converge and amend the Layout atom head, then resume this preserved checkout for fresh build/test.",
+    "resolvedByHeadSHA": "8bc5cab98dc8742d8f573a0eb11db5c8ed2e6e77",
+    "resumedPackageHeadSHA": "1fcf4215aacc554b3f59cde1160e9f51b7038924",
+    "status": "resolved-and-booked",
+    "recordedAt": "2026-08-28T01:26:50Z",
+    "resumedAt": "2026-08-28T01:41:29Z",
+    "resolvedAt": "2026-08-28T01:45:44Z"
+   },
+   {
+    "repo": "swift-molecules/swift-heap-buffer-linear",
+    "currentHeadSHA": "26fce692d97a66175cdf43ac718bbdf6c74f9c9f",
+    "blockedBy": "swift-molecules/swift-buffer-linear",
+    "blockingHeadSHA": "436fa2e8e1a309500d668abd6d0cc203bcba3628",
+    "evidence": "Heap Buffer Linear's front-door alias/initializer is genuine, but fresh resolution fails below the seam because Buffer Linear still depends on manifest-less Memory Heap at bb27f72e148b70ea7e8e5f049f9a95e713d82fba and retired Buffer/Storage/Memory/Span products. Removing Heap Buffer Linear's direct tombstone edge alone cannot repair that transitive substrate. Its local push extension is an exact Heap atom duplicate and also reaches package-scoped siftUp, so it should be removed when the consumer resumes.",
+    "resumeWhen": "Converge Buffer Linear against current atom/seam owners, then resume this clean checkout, remove its duplicate push and obsolete tombstone edges, and require fresh build/test before booking.",
     "status": "dependency-convergence-required",
-    "recordedAt": "2026-08-28T01:26:50Z"
+    "recordedAt": "2026-08-28T01:48:18Z"
    }
   ],
   "pendingAdjudications": [
@@ -7127,6 +7141,51 @@
     "wave": "wave8e",
     "changes": "Canonicalized Parser to its atom owner and retained the genuine retroactive Tagged: Parseable lift while keeping generic parse/map behavior in Parser; marked the foreign conformance retroactive, declared explicit test owners, documented the seam, and added a focused typed-output plus input-consumption contract. Fresh build green; 1 test across 1 suite green.",
     "bookedAt": "2026-08-28T01:33:40Z"
+   },
+   {
+    "repo": "swift-molecules/swift-parser-pair",
+    "headSHA": "85e1ebf50d43d0d81aa4b7cfbe581b06b097e815",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8f",
+    "changes": "Canonicalized Parser to its atom owner and retained the genuine retroactive sequential Pair: Parser.Protocol conformance with typed Either failure attribution; adopted current Body == Never requirements and replaced stale Parser.Test.Input coupling with public Substring leaf-parser tests covering success/input consumption and left/right failures. Fresh build green; 3 tests across 1 suite green.",
+    "bookedAt": "2026-08-28T01:39:13Z"
+   },
+   {
+    "repo": "swift-molecules/swift-layout",
+    "headSHA": "8bc5cab98dc8742d8f573a0eb11db5c8ed2e6e77",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8f",
+    "changes": "Moved Stack, Flow.Gaps/Flow, Grid.Gaps/Grid, and Grid.Lazy Codable conformances from Layout core into Layout Standard Library Integration with Axis/Tagged standard-integration ownership and manual keyed witnesses preserving synthesized keys; added current test imports and focused Stack Codable coverage; repaired Layout.Line.Box tagged-height division through underlying FloatingPoint/re-wrapping. Exact three-product shape preserved and Foundation remains AFI-only. Fresh build green; 66 tests across 19 suites green.",
+    "bookedAt": "2026-08-28T01:41:54Z"
+   },
+   {
+    "repo": "swift-molecules/swift-storage-memory",
+    "headSHA": "65f17281c39e8b9f30f0cd9ac36246972f762d6f",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8f",
+    "changes": "Canonicalized Storage to its atom, removed tombstoned Memory Heap and retired split Memory/Span products, wired current Memory/Cardinal/Tagged/Ordinal Comparison/Span owners, replaced Index<T>.Count with Tagged<T, Cardinal>, removed stale offsets/Affine arithmetic, updated current store/span/index/pointer/OutputSpan APIs, retained immutable and mutable span behavior without the vanished mutable protocol, and generalized deep copy to any Memory.Growable resource. Fresh build green; 16 tests across 2 suites green.",
+    "bookedAt": "2026-08-28T01:42:43Z"
+   },
+   {
+    "repo": "swift-molecules/swift-layout-boundary",
+    "headSHA": "1fcf4215aacc554b3f59cde1160e9f51b7038924",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8f",
+    "changes": "Retained the canonical demoted Layout molecule owner and genuine direction-aware Layout.Corner-to-Boundary.Corner initializer, declared direct Layout/Boundary test products, and added focused all-four-corner mapping coverage in both left-to-right and right-to-left directions against repaired Layout 8bc5cab. Fresh build green; 2 tests across 1 suite green.",
+    "bookedAt": "2026-08-28T01:46:05Z"
+   },
+   {
+    "repo": "swift-molecules/swift-glob-parser",
+    "headSHA": "2f8677bd918d87b327aa6bb6537dc958d86c9911",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8f",
+    "changes": "Canonicalized Glob to its atom and narrowed the direct graph to Glob, Byte, Byte Parser, Parser, and Input; removed obsolete Array/Ownership Shared/Buffer Linear/Collection/Byte SLI bridges; adapted compilation to current Input.Access.Random/Byte.Input with transactional consumption, added retroactive markers and parser disambiguation plus a named throwing parse entry point, and covered successful consumption and rollback on failure. Fresh build green; 9 tests across 6 suites green.",
+    "bookedAt": "2026-08-28T01:47:41Z"
    }
   ]
  }
