@@ -7739,6 +7739,14 @@
     "treeSHA": "79fe4e16bb26e6f2b85b9e1066cede2ebf960cf5",
     "test": "green: 3 tests in 4 suites",
     "restoredAt": "2026-08-28T06:18:14Z"
+   },
+   {
+    "repo": "swift-atoms/swift-random",
+    "baselineSHA": "46f35afbf38a4894af976039678e8e99c2efc664",
+    "restorationSHA": "68f69bfe6e5f3fbed7b28f3a8863305a14c93003",
+    "treeSHA": "f211f06d83ec1184a154930aaca1a845ad400727",
+    "test": "green: 15 tests in 12 suites",
+    "restoredAt": "2026-08-28T06:21:47Z"
    }
   ]
  }
