@@ -7350,12 +7350,13 @@
    },
    {
     "repo": "swift-molecules/swift-cyclic-index",
-    "headSHA": "85780be47283159326fac415037cf08121629158",
+    "headSHA": "53dcfba04e16b6ff0e5c7e4530c4c3fffa3a319d",
     "build": "green",
     "test": "green",
-    "wave": "wave8g",
-    "changes": "Canonicalized Index to its atom, removed vanished Index Test Support, added the exact Cardinal/Ordinal/Tagged/Affine/Affine Tagged owners, migrated retired Index.Count vocabulary to Tagged<Tag, Cardinal> and current Index representation, retained the Offset-to-Cyclic Int bridge plus static cyclic aliases/arithmetic and modular wrap behavior, and updated focused tests. Fresh build green; 40 tests across 11 suites green.",
-    "bookedAt": "2026-08-28T02:56:36Z"
+    "wave": "wave8k",
+    "changes": "Reconciled the lane's verified dependency reduction atop a concurrent live convergence commit. Canonicalized Cyclic, Index, Cardinal, Ordinal, and Tagged atom owners; removed the vanished Index Test Support and unnecessary Affine/Affine Tagged edges; represented runtime capacity as Tagged<Tag, Cardinal> and offsets as Int; migrated current unchecked Index/Ordinal conversions; and refreshed imports, reexports, tests, and docs. Re-ran fresh proof on the reconciled head: build green; 40 tests across 11 suites green.",
+    "bookedAt": "2026-08-28T04:43:42Z",
+    "priorHeadSHA": "85780be47283159326fac415037cf08121629158"
    },
    {
     "repo": "swift-molecules/swift-buffer-slab",
@@ -7545,6 +7546,78 @@
     "wave": "wave8j",
     "changes": "Preserved Order.Monotonicity's genuine Finite.Enumerable conformance. Canonicalized the Finite, Order, Cardinal, and Ordinal atom owners plus the Finite Ordinal owner of Enumerable; replaced retired Finite Enumerable and Order Monotonicity products/modules; migrated removed integer literal and Ordinal-subscripting conveniences to explicit typed construction and a direct ordinal switch; added explicit test dependencies/imports; and refreshed Swift 6.4/platform 27 ownership documentation. Fresh build green; 7 tests across 6 suites green.",
     "bookedAt": "2026-08-28T04:23:15Z"
+   },
+   {
+    "repo": "swift-molecules/swift-numeric-finite",
+    "headSHA": "31906c54b011a7fa33cb9ea6246d7613686f5d2a",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8k",
+    "changes": "Preserved the genuine Numeric.Sign and Numeric.Ternary Finite.Enumerable conformances. Canonicalized the Numeric and Finite atom owners plus the Finite Ordinal owner of Enumerable; replaced the retired Finite Enumerable product/module; migrated cardinality and ordinal mappings to current typed APIs; added enumeration and out-of-range coverage; removed the obsolete exports umbrella; and refreshed Swift 6.4/platform 27 ownership documentation. Fresh build green; 10 tests across 4 suites green.",
+    "bookedAt": "2026-08-28T04:26:22Z"
+   },
+   {
+    "repo": "swift-molecules/swift-interval-finite",
+    "headSHA": "44019a97ce654431d3abbf49e424f0ade8c748ab",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8k",
+    "changes": "Preserved the genuine Finite.Enumerable conformances for Interval.Bound, Boundary, and Endpoint. Canonicalized the Finite, Interval, Cardinal, and Ordinal atom owners plus the Finite Ordinal owner of Enumerable; replaced the retired Finite Enumerable product/module; migrated removed integer literal and Ordinal-subscripting conveniences to explicit typed construction and direct ordinal switches; added explicit test dependencies; and refreshed Swift 6.4/platform 27 ownership documentation. Fresh build green; 9 tests across 4 suites green.",
+    "bookedAt": "2026-08-28T04:29:05Z"
+   },
+   {
+    "repo": "swift-molecules/swift-empty-iterator",
+    "headSHA": "f42e3b645af9cc0ea4f826391cf7e020fae24f95",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8k",
+    "changes": "Preserved Empty<Element>'s genuine Iterator.Protocol conformance over the full noncopyable/non-escapable element domain. Canonicalized the Empty and Iterator atom owners, replaced the retired Iterator Protocol product/module with the consolidated Iterator surface, colocated explicit defining imports while retaining the advertised single-import reexports, and refreshed Swift 6.4/platform 27 ownership documentation. Fresh build green; 2 tests across 4 suites green.",
+    "bookedAt": "2026-08-28T04:32:13Z"
+   },
+   {
+    "repo": "swift-molecules/swift-bifunctor",
+    "headSHA": "2d3015d92582711c5cb4739b8a5b206248e414ca",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8k",
+    "changes": "Preserved the genuine Pair and Either bifunctor distributivity seam. Canonicalized the Pair and Either atom owners, replaced the underscored exports umbrella with file-local public imports, wired law tests to the Pair Equation and Either Equation owners over the shared Equation atom, and refreshed Swift 6.4/platform 27 ownership documentation. Fresh build green; 18 tests across 6 suites green.",
+    "bookedAt": "2026-08-28T04:34:30Z"
+   },
+   {
+    "repo": "swift-molecules/swift-single-iterator",
+    "headSHA": "4f3bbe8153758a75abc0edfed8c0f3e0913b90f8",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8k",
+    "changes": "Preserved Single<Element>'s genuine Iterable conformance and its one-shot materializing iterator. Canonicalized the Single and Iterator atom owners, collapsed retired Iterable/Iterator Once/Iterator Chunk products and modules to the consolidated Iterator surface, introduced explicit seam-owned aliases to avoid module-versus-associated-type shadowing, removed the stale test import, and refreshed Swift 6.4/platform 27 documentation. Fresh build green; 2 tests across 4 suites green.",
+    "bookedAt": "2026-08-28T04:37:08Z"
+   },
+   {
+    "repo": "swift-molecules/swift-coproduct-derivation",
+    "headSHA": "b16ae15093f0e080457f2dde595547d7bc975a34",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8k",
+    "changes": "Confirmed the existing Declaration Derivation and swift-syntax graph was already canonical and did not fabricate a Bifunctor/Pair/Either edge. Removed unused Diagnostics imports from both emitters and narrowed Declaration Model imports from public to internal, satisfying member visibility without leaking dependency surface. Fresh build green; 25 tests across 13 suites green.",
+    "bookedAt": "2026-08-28T04:42:21Z"
+   },
+   {
+    "repo": "swift-molecules/swift-witness-derivation",
+    "headSHA": "b9eebec29aee70c75f73caea3b26f71ca2e4763b",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8k",
+    "changes": "No source change required. Verified that Declaration Derivation and swift-syntax coordinates/products, source import access, and ownership were already current. Fresh build green without warnings; 17 tests across 9 suites green; worktree clean.",
+    "bookedAt": "2026-08-28T04:46:48Z"
+   },
+   {
+    "repo": "swift-molecules/swift-cyclic-iterator",
+    "headSHA": "520e9be906e8cdf8df870c45be33adeb3354c075",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8k",
+    "changes": "Preserved Cyclic.Group.Static's genuine institute Iterable and Swift.Sequence conformances plus its scalar iterator. Canonicalized Cyclic, Cardinal, Ordinal, Sequence, and Iterator atom owners; collapsed retired split products/modules; introduced seam-owned aliases to resolve Iterator module/type/associated-type shadowing; migrated Cardinal/Ordinal construction and iteration bounds to current raw-value APIs; and refreshed Swift 6.4/platform 27 docs. Fresh build green; 3 tests across 4 suites green.",
+    "bookedAt": "2026-08-28T04:48:22Z"
    }
   ]
  }
