@@ -4665,7 +4665,7 @@
     "blockedBy": "swift-molecules/swift-buffer-linear",
     "blockingHeadSHA": "436fa2e8e1a309500d668abd6d0cc203bcba3628",
     "evidence": "Column's direct Buffer/Storage/Memory integration is genuine and its canonical owner/import/count rewrite is preserved uncommitted. Fresh resolution remains below Column because Buffer Linear still requests removed Buffer/Storage protocol products and stale molecule coordinates, ultimately descending into retired primitive repositories. The consumer lane stopped at the first lower blocker instead of duplicating the active Buffer Linear repair.",
-    "resumeWhen": "After Buffer Linear converges, resume the preserved Column checkout, rehydrate the current graph, address any later Storage Generational or Memory substrate blocker in ownership order, and require fresh build/test before booking.",
+    "resumeWhen": "Converge Storage Generational against current Memory/allocator ownership, then Ownership Shared if its independent stale heap edge remains, and resume the preserved Column checkout for fresh build/test before booking.",
     "status": "dependency-convergence-required",
     "recordedAt": "2026-08-28T02:07:28Z",
     "resolvedByHeadSHA": "bb0ba363cd93dce59dd16a36f6dac4a4ceb2d7a7",
@@ -4673,7 +4673,13 @@
     "nextBlockedBy": "swift-molecules/swift-buffer-ring",
     "nextBlockingHeadSHA": "f0af0266b66c7f2cde18d6b7c75d70b804c94915",
     "nextLowerBlocker": "swift-molecules/swift-cyclic-index@9b67b94730b6ab53d459930e057cd89d805f3ea5",
-    "resumptionBlockedAt": "2026-08-28T02:35:50Z"
+    "resumptionBlockedAt": "2026-08-28T02:35:50Z",
+    "nextResolvedByHeadSHA": "26e919c186b84f7ee50099c39b7708a814608ef8",
+    "resumedAfterBufferRingAt": "2026-08-28T03:22:37Z",
+    "postBufferRingBlockedBy": "swift-molecules/swift-storage-generational",
+    "postBufferRingBlockingHeadSHA": "5f223a53c52adc562c5080185f9ae50c2c636f89",
+    "postBufferRingEvidence": "Fresh update resolves booked Buffer Linear and Buffer Ring, then fails because Storage Generational still requests tombstoned swift-memory-heap and the removed Memory Heap product. Column.Generational genuinely consumes Storage Generational, so the consumer cannot bypass that lower owner.",
+    "postBufferRingBlockedAt": "2026-08-28T03:26:48Z"
    },
    {
     "repo": "swift-molecules/swift-version-time",
@@ -4702,10 +4708,12 @@
     "blockingHeadSHA": "9b67b94730b6ab53d459930e057cd89d805f3ea5",
     "evidence": "Buffer Ring's canonical Memory Small/Storage Memory/Cardinal rewrite is preserved uncommitted after fresh resolution reached its genuine Cyclic Index dependency. Cyclic Index still declares the redirected swift-molecules/swift-index coordinate and its test-support target requests the removed Index Test Support product from current Index, producing a conflicting identity warning and then a missing-product error before Buffer Ring can compile.",
     "resumeWhen": "Converge Cyclic Index against current Index ownership and focused test fixtures, then resume the preserved Buffer Ring checkout and require fresh build/test before booking.",
-    "status": "blocking-dependency-converged-resumption-in-progress",
+    "status": "resolved-and-booked",
     "recordedAt": "2026-08-28T02:35:50Z",
     "resolvedByHeadSHA": "85780be47283159326fac415037cf08121629158",
-    "resumedAt": "2026-08-28T02:56:47Z"
+    "resumedAt": "2026-08-28T02:56:47Z",
+    "resolvedHeadSHA": "26e919c186b84f7ee50099c39b7708a814608ef8",
+    "resolvedAt": "2026-08-28T03:22:37Z"
    },
    {
     "repo": "swift-molecules/swift-ascii-parser",
@@ -5992,12 +6000,13 @@
    },
    {
     "repo": "swift-atoms/swift-set",
-    "headSHA": "e738cb29b976c12ea4e97154b7e17a7de47e8a81",
+    "headSHA": "bc65ec5ae670dfc436eb9d8e8fb9a55506478a51",
     "build": "green",
     "test": "green",
-    "wave": "wave6k",
-    "changes": "Replaced removed Index.Count with Cardinal, removed the now-unused Index edge, retained canonical Hash, and restored the Membership contract, exact core/AFI/TestSupport products, and focused coverage. Foundation only in AFI. Fresh build green; 3 tests green; local Embedded proof blocked upstream.",
-    "bookedAt": "2026-08-27T20:09:47Z"
+    "wave": "wave8h",
+    "changes": "Added narrow borrowing and mutating closure access to the wrapped store so external integration molecules can implement behavior without exposing Set's stored representation. Fresh build green; 4 tests across 1 suite green, including read/mutation boundary coverage.",
+    "bookedAt": "2026-08-28T03:19:50Z",
+    "priorHeadSHA": "e738cb29b976c12ea4e97154b7e17a7de47e8a81"
    },
    {
     "repo": "swift-atoms/swift-heap",
@@ -7340,6 +7349,51 @@
     "wave": "wave8g",
     "changes": "Canonicalized Index to its atom, removed vanished Index Test Support, added the exact Cardinal/Ordinal/Tagged/Affine/Affine Tagged owners, migrated retired Index.Count vocabulary to Tagged<Tag, Cardinal> and current Index representation, retained the Offset-to-Cyclic Int bridge plus static cyclic aliases/arithmetic and modular wrap behavior, and updated focused tests. Fresh build green; 40 tests across 11 suites green.",
     "bookedAt": "2026-08-28T02:56:36Z"
+   },
+   {
+    "repo": "swift-molecules/swift-buffer-slab",
+    "headSHA": "f63e110d39f2576705908b0c9c926705720f805e",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8h",
+    "changes": "Replaced retired Memory Heap with Memory.Small<0>, canonicalized current atom/molecule owners and products, migrated counts to Tagged<_, Cardinal>, consolidated Iterator usage, removed obsolete Buffer protocol conformances, and preserved slab, bounded, inline, small-buffer spill, release-safety, and teardown semantics with focused bounds coverage. Fresh build green; 85 tests across 17 suites green.",
+    "bookedAt": "2026-08-28T03:15:43Z"
+   },
+   {
+    "repo": "swift-molecules/swift-set-storage",
+    "headSHA": "cc020fb7d8cb8479fb84250772e28fc1786d9251",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8h",
+    "changes": "Canonicalized Set to its atom, replaced retired Store Protocol/Buffer Protocol products with Storage, removed the false Buffer edge, preserved Set.Index through the current Index atom, derived metrics from Store.Ledgered initialization, routed clone unsharing through Set's public access boundary, and added focused move-only ledger and copy-unshare coverage. Fresh build green; 2 tests across 1 suite green.",
+    "bookedAt": "2026-08-28T03:19:50Z"
+   },
+   {
+    "repo": "swift-molecules/swift-range",
+    "headSHA": "ebafb19fd8613fa6ffe109ff7a6da125b58ec3a6",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8h",
+    "changes": "Implementation and manifest were already current against the Property atom at 5cb9ce1c3bcade26c3695dd85501e081766044f1. Corrected the public package contract to describe Swift.Range rather than ClosedRange, remove a false allocation claim, document Property<Tag, Base>, the canonical atom owner, Swift 6.4/platform 27, and exact core/SLI/AFI Foundation isolation. Fresh build green; 7 tests across 4 suites green.",
+    "bookedAt": "2026-08-28T03:20:37Z"
+   },
+   {
+    "repo": "swift-molecules/swift-buffer-ring",
+    "headSHA": "26e919c186b84f7ee50099c39b7708a814608ef8",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8h",
+    "changes": "Canonicalized atom/molecule owners, removed tombstoned Memory Heap and exact atom-owned Buffer protocol duplicates, adopted Memory.Small<0> and current Storage representation, migrated counts/arithmetic to Tagged<_, Cardinal> and typed Index/Affine Tagged, repaired Store spans plus Property/Iterator/Sequence/drain seams, replaced vanished test-support assertions with focused local laws, and updated documentation. Fresh build green; 105 tests across 29 suites green.",
+    "bookedAt": "2026-08-28T03:22:53Z"
+   },
+   {
+    "repo": "swift-molecules/swift-bool-algebra",
+    "headSHA": "b0c9a9e00a505193541a3179a4865e16146b3867",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8h",
+    "changes": "Preserved the genuine Bool-owned conjunction/disjunction Monoid and Semilattice, commutative Semiring, and Lattice witnesses. Canonicalized swift-algebra to the atom at 149cfa088e2fa96ab2fa5671f70d332bbaefd48c, collapsed four retired split products/modules to Algebra, updated the reexport, and refreshed current ownership/platform documentation. Fresh build green; 13 tests across 8 suites green.",
+    "bookedAt": "2026-08-28T03:24:47Z"
    }
   ]
  }
