@@ -4655,7 +4655,7 @@
     "blockedBy": "swift-molecules/swift-column",
     "blockingHeadSHA": "71623b0d81027078d4ac90066d6bfc9ed945e299",
     "evidence": "Executor Deque is a genuine mutable dynamically growing FIFO owner queue with whole-queue drain(into:), distinct from Executor Index's bounded lock-free work-stealing deque. Fresh resolution fails first because Column still requests the removed Memory Primitive product; Buffer Ring at f0af0266b66c7f2cde18d6b7c75d70b804c94915 also retains moved identities. Current Deque exposes only core storage/take/position, so the consumer cannot recreate old count/reserve/push/take(from:) behavior without converged lower Deque integration; replacing it with Array would erase ownership.",
-    "resumeWhen": "Converge Column, then Buffer Ring and the owning Deque storage/buffer-ring seams as required, before resuming this clean Executor FIFO checkout for canonicalization and fresh build/test.",
+    "resumeWhen": "Converge Column after its remaining storage/ownership chain; Buffer Ring is already green at 26e919c186b84f7ee50099c39b7708a814608ef8. Then resume this clean Executor FIFO checkout for canonicalization and fresh build/test.",
     "status": "dependency-convergence-required",
     "recordedAt": "2026-08-28T01:56:20Z"
    },
@@ -4679,7 +4679,13 @@
     "postBufferRingBlockedBy": "swift-molecules/swift-storage-generational",
     "postBufferRingBlockingHeadSHA": "5f223a53c52adc562c5080185f9ae50c2c636f89",
     "postBufferRingEvidence": "Fresh update resolves booked Buffer Linear and Buffer Ring, then fails because Storage Generational still requests tombstoned swift-memory-heap and the removed Memory Heap product. Column.Generational genuinely consumes Storage Generational, so the consumer cannot bypass that lower owner.",
-    "postBufferRingBlockedAt": "2026-08-28T03:26:48Z"
+    "postBufferRingBlockedAt": "2026-08-28T03:26:48Z",
+    "postStorageGenerationalResolvedByHeadSHA": "e99dd3f150a02168597f9fc5afda20ba321a68a6",
+    "resumedAfterStorageGenerationalAt": "2026-08-28T03:51:29Z",
+    "postStorageGenerationalBlockedBy": "swift-molecules/swift-ownership-shared",
+    "postStorageGenerationalBlockingHeadSHA": "87fcb40a93b9db9f63bcb6fbef37a4ca878c2081",
+    "postStorageGenerationalEvidence": "The Storage Generational owner is now green and booked. Independent lower-graph audit confirms Ownership Shared still resolves through Hash Table -> Buffer Slots -> Storage Split and reaches tombstoned swift-memory-heap before Column can be resumed. The lower lane is converging that chain in dependency order rather than bypassing it in Column.",
+    "postStorageGenerationalBlockedAt": "2026-08-28T03:51:29Z"
    },
    {
     "repo": "swift-molecules/swift-version-time",
@@ -5881,12 +5887,13 @@
    },
    {
     "repo": "swift-atoms/swift-slab",
-    "headSHA": "072668f6ca23fd193290ff92369d4c84a8f1e2bb",
+    "headSHA": "d95e86432c6fb42695a0f315b160d27a6db7d891",
     "build": "green",
     "test": "green",
-    "wave": "wave6e",
-    "changes": "Corrected stale sparse-store documentation to the live low-level ownership carrier and added move-only column ownership-transfer coverage. Dependency-free exact products preserved; Foundation only in AFI. Fresh build green; 3 tests green.",
-    "bookedAt": "2026-08-27T19:34:46Z"
+    "wave": "wave8i",
+    "changes": "Preserved the Slab atom representation and added narrow scoped borrowing and mutating column accessors, including ownership-safe move-only payload and result transfer, so higher-layer conformances no longer reach through package-private storage. Fresh build green; 7 tests across 4 suites green.",
+    "bookedAt": "2026-08-28T03:49:48Z",
+    "priorHeadSHA": "072668f6ca23fd193290ff92369d4c84a8f1e2bb"
    },
    {
     "repo": "swift-atoms/swift-single",
@@ -7394,6 +7401,60 @@
     "wave": "wave8h",
     "changes": "Preserved the genuine Bool-owned conjunction/disjunction Monoid and Semilattice, commutative Semiring, and Lattice witnesses. Canonicalized swift-algebra to the atom at 149cfa088e2fa96ab2fa5671f70d332bbaefd48c, collapsed four retired split products/modules to Algebra, updated the reexport, and refreshed current ownership/platform documentation. Fresh build green; 13 tests across 8 suites green.",
     "bookedAt": "2026-08-28T03:24:47Z"
+   },
+   {
+    "repo": "swift-molecules/swift-cardinal-algebra",
+    "headSHA": "9ac60e8b762e5ff4d43e4996e71c96f6fb82a2da",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8i",
+    "changes": "Preserved the genuine additive commutative-monoid witness. Canonicalized Algebra and Cardinal atom owners, collapsed retired Algebra Semiring/Algebra_Semiring to Algebra, migrated removed Cardinal.zero spelling to Cardinal(0) in source and tests, and corrected documentation examples plus Swift 6.4/platform 27 ownership. Fresh build green; 5 tests across 5 suites green.",
+    "bookedAt": "2026-08-28T03:29:51Z"
+   },
+   {
+    "repo": "swift-molecules/swift-builder",
+    "headSHA": "b82a671edce7dca9d4050517847e18483a3460f1",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8i",
+    "changes": "Preserved the generic result-builder grammar and Buildable capability. Replaced the tombstoned Memory Heap and retired Storage coordinates with the canonical Memory Small and Storage Memory owners, moved Initialization to its atom owner, migrated the accumulator and test fixtures to Memory.Small<0>, and refreshed Swift 6.4/platform 27 ownership documentation. Fresh build green; 14 tests across 9 suites green.",
+    "bookedAt": "2026-08-28T03:36:55Z"
+   },
+   {
+    "repo": "swift-molecules/swift-parity-algebra",
+    "headSHA": "334c82058f80518faa81430505412a8ef800c130",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8i",
+    "changes": "Preserved the genuine GF(2) Parity field, additive-group, and Optic.Iso witness transport. Canonicalized Parity, Algebra, and Optic atom owners, collapsed retired Algebra Group/Field/Module products and modules to the current Algebra surface, and refreshed Swift 6.4/platform 27 ownership documentation. Fresh build green; 6 tests across 8 suites green.",
+    "bookedAt": "2026-08-28T03:37:02Z"
+   },
+   {
+    "repo": "swift-molecules/swift-storage-generational",
+    "headSHA": "e99dd3f150a02168597f9fc5afda20ba321a68a6",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8i",
+    "changes": "Preserved the genuine Store.Protocol generational-storage behavior and lifecycle/model coverage. Canonicalized Storage, Index, Ordinal, Memory, Cardinal, and Tagged atom owners plus Ordinal Comparison and Memory Allocation; removed the tombstoned Memory Heap dependency by carving the atom-owned heap through Memory.Allocator<Memory.Heap>.Pool; migrated retired count surfaces to Tagged<_, Cardinal> and positions to Index; removed the false stale Buffer.Protocol seam and localized the package's model helpers. Fresh build green; 20 tests across 20 suites green.",
+    "bookedAt": "2026-08-28T03:44:25Z"
+   },
+   {
+    "repo": "swift-molecules/swift-slab-buffer-slab",
+    "headSHA": "4131d4af2cc670c450403bd22feab7baa29380d2",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8i",
+    "changes": "Preserved the genuine Buffer Slab behavior and routed its operations through the Slab atom's scoped accessors. Canonicalized atom and molecule owners/products, removed tombstoned Memory Heap and retired Finite/Buffer/Storage splits, migrated to Memory.Small, Storage Memory, and native Index/Cardinal/Tagged surfaces, and refreshed focused move-only/copyable coverage plus documentation. Fresh build green; 26 tests across 20 suites green.",
+    "bookedAt": "2026-08-28T03:49:48Z"
+   },
+   {
+    "repo": "swift-molecules/swift-set-algebra",
+    "headSHA": "e25f15b7bd1084fa8e087599cf5eb8c408728d0e",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8i",
+    "changes": "Preserved the genuine Set membership \u00d7 Iterator algebra defaults, constructive Buildable operations, and Algebra.Lattice powerset witness. Canonicalized Set, Iterator, and Algebra atom owners/products/modules; resolved Builder at its converged head; imported the defining Initialization surface; migrated Membership.count fixtures to Cardinal; replaced removed Iterator test support with current Iterator plus Set Test Support; and disambiguated the Iterator namespace for the fixture chunk. Fresh build green; 32 tests across 12 suites green.",
+    "bookedAt": "2026-08-28T03:51:08Z"
    }
   ]
  }
