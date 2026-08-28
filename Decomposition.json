@@ -7713,7 +7713,9 @@
  },
  "sourceRestoration": {
   "requestedAt": "2026-08-28T06:13:09Z",
-  "status": "in-progress",
+  "status": "atoms-restored-verification-pending",
+  "atomsRestoredAt": "2026-08-28T07:09:54Z",
+  "atomRepositoryCount": 104,
   "policy": "Restore each atom repository's complete tracked tree to the commit immediately preceding its Phase 2 source/target collapse as a new forward commit (normally the first parent of shapeCommit; step past later administrative repins or canonical-shape commits when they already contain the collapse), while retaining the swift-atoms organization and suffix-free repository identity. Prior convergence evidence is superseded for each restored repository at its restoration commit.",
   "executionMode": "rollback-first",
   "verificationPolicy": "Publish exact source-tree restorations without waiting for builds or tests; record verification as pending and perform compiler compatibility plus bottom-up convergence only after the rollback is complete.",
@@ -8037,6 +8039,518 @@
       "treeSHA": "3cf1175390fe4517686b7eff7e11df24ef747694",
       "test": "green: 1 test in 4 suites",
       "restoredAt": "2026-08-28T06:55:29Z"
+    },
+    {
+      "repo": "swift-atoms/swift-format",
+      "baselineSHA": "20f59f07802b82beba085303cd2534432ab55c19",
+      "restorationSHA": "0fdc7fb706fc5652d8336a8893f98f8fc495aa70",
+      "treeSHA": "228418b378b0ada4326a268f301bb8613d96d21f",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-text",
+      "baselineSHA": "c90ce2f1bae69bc5e36db21d5c8a04ad802baaef",
+      "restorationSHA": "7f2d7c92769d79579c7e33ce78ba72cf32a95b9b",
+      "treeSHA": "d8fe9951a91cb32a2dbcc2cf5b7d87ff2a17fdcb",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-cyclic",
+      "baselineSHA": "cd82d1b748090aef0fec201023e0b7b5d1f0ec16",
+      "restorationSHA": "370e5294fcda604425437c8c3bc57274d8e0cb10",
+      "treeSHA": "ff79e159f66ad8fdcc655b2a8bc6b7ba5240e392",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-span",
+      "baselineSHA": "8c76670f76b7982f128e3e7b7fc80f43f05200ff",
+      "restorationSHA": "3ebfa0e9a67993d23ea4070ebeb4fb43f67aa811",
+      "treeSHA": "1f2f4ab9cbafb6f0ce8ff6b44aa91ebf4d94a526",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-bitset",
+      "baselineSHA": "2da93c06156e1f19785f23761bcc518c44744f9c",
+      "restorationSHA": "f638cffd990952ef7115d12405db32add6bd8e95",
+      "treeSHA": "2d233297ccc5911d59ab7a950b6cbb82274926d6",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-string",
+      "baselineSHA": "2e3ec71fb41c145b164348c17b673a690e2c3b42",
+      "restorationSHA": "050218f5160b9240d5e705f086cf6a89d9b7e408",
+      "treeSHA": "ddc7f38f0401148e528f5332d2c999d5dd9722aa",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-vector",
+      "baselineSHA": "873798b99a45080d68664b8a81253d50a08fa4d2",
+      "restorationSHA": "2ee676a6c2b37a5ba1cfe601ede2f3ac34458177",
+      "treeSHA": "ccb5dce276f4a49046b1c167295930a6c34728f4",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-infinite",
+      "baselineSHA": "6e103738ff3cad8eb61400cbc11d70560da4311b",
+      "restorationSHA": "40d63768e9ac55897fb56a74f042e28b4acffa5f",
+      "treeSHA": "cd9fdf47859a4dfaf1b86e36c38bee811c86b997",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-storage",
+      "baselineSHA": "31b816f046554d8ba45b8be2a84b9eb478b2545d",
+      "restorationSHA": "f6ea054d73a6ee40a859cb5a61de4e1cee17c180",
+      "treeSHA": "f2c874c6b846d4c71fe0cffc01d1997551330aaa",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-complex",
+      "baselineSHA": "422e7691ada1d6c732e7fc71cea99738a9a1500b",
+      "restorationSHA": "1269104450c402a20a7a724bfd8b8daddc863062",
+      "treeSHA": "a02cd685618ae70d6f31745e9961eb1c13ad48df",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-matrix",
+      "baselineSHA": "8ea2a2bc7e21a70fc4a180b1eb2efe0382380625",
+      "restorationSHA": "88a61b9d11fe82ba309adeb275ba405f8344389f",
+      "treeSHA": "a7b13715b88753146b5b3ddeb37c8e22dd57a889",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-fixed",
+      "baselineSHA": "3e2667cc647f79ab382ceaabc40b2d6cc6e9661f",
+      "restorationSHA": "0c42b8a899b89e2781b4dd81e34850cc6c968c6f",
+      "treeSHA": "968d8463f1c2eeaca8916297b903e2d39b17da72",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-queue",
+      "baselineSHA": "2dc928a7540d67683961305905a4ea542862f530",
+      "restorationSHA": "282f344be377a5c927c250be39e6d60c9feae2da",
+      "treeSHA": "f613c884bdd301e2f35ea4634bf250c6b857f3e0",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-parser",
+      "baselineSHA": "86ddc5b0e1cad486f313da270a371a0383708cd8",
+      "restorationSHA": "36723cc21b3b038f63258a147978bc132db042ec",
+      "treeSHA": "18225adc703acf98b37c33e8114180e9c442d6e3",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-argument",
+      "baselineSHA": "e5f9293f7ca42c80ac5f60244c2d22a07a7e9443",
+      "restorationSHA": "80578bcee8241752d8f896a5edd150d2a45588ea",
+      "treeSHA": "fdc95d6f1ed1d1b37f95456faec8285dd0472b9e",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-radix",
+      "baselineSHA": "079804f166ef5a5cae05d8208060ee96889e1e6f",
+      "restorationSHA": "39f11c4b9aafabff6475dd72365a7278769313eb",
+      "treeSHA": "51c6c589969f1cbf150be9c50498ecfab34b0a41",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-ascii",
+      "baselineSHA": "c85e57796aa0a6f05144980d7ff30fee57051d82",
+      "restorationSHA": "ba71654e8dabada3590ebf42f3ac1da6d3b430ac",
+      "treeSHA": "7523a24d84304039deca422ab146a73718c9122a",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-property",
+      "baselineSHA": "766700fb5f44026c2f8f1d4c33b49ce934487802",
+      "restorationSHA": "4dd901215fd099688843be9c6f70313ceb92968c",
+      "treeSHA": "f8af4d33f021c4818575bc06ac1d0bd46071f8aa",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-effect",
+      "baselineSHA": "d873ca7ddfd7e61df6b3b558d44e5183cf0f97ae",
+      "restorationSHA": "99a94c0e26a6f000e964850ca25eec3792bc8174",
+      "treeSHA": "9b9b3d91d0cfa1784c34ba68506f1e03d9c302ac",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-pair",
+      "baselineSHA": "626bcabc76913ab71b3467d89ac3849163c38d4b",
+      "restorationSHA": "611c64162481452b0d1c1bb5d3af78ef61904291",
+      "treeSHA": "6bff52a484b1b580b8c3999d513d19a67423d61b",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-serializer",
+      "baselineSHA": "583cc9aad850e07906dbc29aaff4a86e59deb48b",
+      "restorationSHA": "cca490d8e1647827d00a3302a663c5beccdd3469",
+      "treeSHA": "d29e465abae0a130a70c1372a7108d873519e692",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-affine",
+      "baselineSHA": "fffed9e57683fd4973f2ebf414f106fa88ba2354",
+      "restorationSHA": "12156b357a532087beb852aa8e04dc9ca33b9cc3",
+      "treeSHA": "a3dbcd5b3706377666f7d01ead2d122a0a9e1851",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-index",
+      "baselineSHA": "ea265ffc2efe2c282e494f5e7309d0ea19f2b287",
+      "restorationSHA": "2c476d2cf111bcfd48da8dad09f8e66c0106d1b0",
+      "treeSHA": "c1f31cafea93c9a0c7f2d695ab9f45e4c3e62e43",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-collection",
+      "baselineSHA": "98d65bf4438dd7f19a1590e759fae1fe0481c029",
+      "restorationSHA": "a3a82c4c097a0e501d6d2f7a468ce5115b2d580b",
+      "treeSHA": "9dcf9a1cf010118ef3b4b280668daf7ab28c3ec6",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-sequence",
+      "baselineSHA": "f8eb1593305debb7f2f96ef5e65eadd24c267af5",
+      "restorationSHA": "fd25d79c2808520889faafc61420a2dd42789a32",
+      "treeSHA": "2f1b7e4dc58e7ac2ba420ef2d9afc2d91ef2e948",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-axis",
+      "baselineSHA": "007acacc21d146981cab7129c7aeefe3313bdc3a",
+      "restorationSHA": "a67a5140a082afbaf5c658515b9dadb4f4d3dffe",
+      "treeSHA": "610a1c366052cddbc8f769dc75938b1304a9aff2",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-orthant",
+      "baselineSHA": "6998ca6fa8ea270b27b217b42744ee27ed1bf462",
+      "restorationSHA": "f5209e14cbe8cc5ab5e2c75b4c14b8f0d41caa8e",
+      "treeSHA": "0de55e641c2a9b23184b30a36d9a9a31d9303dca",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-link",
+      "baselineSHA": "360a0678866aca739ca79af65722c9a6dfc9a0b1",
+      "restorationSHA": "2acb3dc77fba385cab8d357de31a9938032632ea",
+      "treeSHA": "cbf7c6616e3afe647342ae42bf60478ac781feea",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-path",
+      "baselineSHA": "d48bdad0dab00fab1dba86d4ad76eb8abc4f4582",
+      "restorationSHA": "d029d1c5d0ec89f3205f94ca7e3b9cf7a738b8f7",
+      "treeSHA": "90c45fe9d84fc3855ae085023ea907f8db9ed33b",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-dimension",
+      "baselineSHA": "4b7cdaba8f0fa64bbe19d1bd349456704065ab90",
+      "restorationSHA": "e167d79f81b5cf2e0ff7b5bb52e83d14b705d6dd",
+      "treeSHA": "af2c90fae0cd548a3bf2e8a59108b20124e07ca0",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-linear",
+      "baselineSHA": "8af9f58bfcf4e4fbb757b2c3ddd9fe358e81bc56",
+      "restorationSHA": "0c2f4b632a74f85ce0a6b6347899cb9b68a37079",
+      "treeSHA": "0389a3e0b769ad2a428abbd88393f60357addc81",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-heap",
+      "baselineSHA": "4d2006ca82234cacd3e4e988a7e5a3461923db61",
+      "restorationSHA": "15fc0c44f1258af06107bef3b1cf6e1c082dac0a",
+      "treeSHA": "1cf2b03fe3ced343ef84d1bebaeb310688638400",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-slab",
+      "baselineSHA": "8276b72641edcdf7a0980bcb30c39464bc936759",
+      "restorationSHA": "784ea00a60af444c719f0ddf1416952fd185a71e",
+      "treeSHA": "1c141bca6391f38bcd426728e2a7b77afec56724",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-sample",
+      "baselineSHA": "ad611533fd2b166d950017afc9ace24deb2fcfa1",
+      "restorationSHA": "cb5a9b3d1397481bc4101412c3fe67410e191df8",
+      "treeSHA": "5cee3115b0a0f935c085ad1ccf693c7f649529d3",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-deque",
+      "baselineSHA": "da0c4fff6ddda0e3bb020f4badc6ff0dd36f82d5",
+      "restorationSHA": "068278279bd1c5a7cb247eaf3d10e85e4f1be587",
+      "treeSHA": "42838df523607627d4d746377aa28b534566e949",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-async",
+      "baselineSHA": "76b2165eb69722bc0721f3b7703314b15ba3c850",
+      "restorationSHA": "c2ca6135c1b9e2976cb3bc9c7b681d4a876f8b01",
+      "treeSHA": "aa64b1ffe22d2d744acd13b75a3bdd04d27a2b75",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-hash",
+      "baselineSHA": "addfe7191c52beb9a91a9fbf1157d5e922cd8b01",
+      "restorationSHA": "8efe1c460a97160b270b94d56a44b4dbd0e17fe8",
+      "treeSHA": "314bb81ce954eec6522b95da2b22af5ccd97f4f1",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-iterator",
+      "baselineSHA": "ce7c77a6fdd9c2a1a3aeacf390786225f33d6a67",
+      "restorationSHA": "f797d6b14b15958134255b46b19717435468575a",
+      "treeSHA": "b36add138babd4dcddb2dda6d48089cb3e8df0c1",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-cardinal",
+      "baselineSHA": "e932d328deff46ef801bab10520354b0da779398",
+      "restorationSHA": "d5d2026498d24992d14db61f2a65654d867dea11",
+      "treeSHA": "4cc0ea3f7c0605ec7803fa3476448c309b355020",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-error",
+      "baselineSHA": "f34a757c463682fbbf3f7201244a5201f96ce760",
+      "restorationSHA": "5d7881ebc1f69c068898ea4e71066fb1bd05efba",
+      "treeSHA": "c03197c55331196c9ca11b0aed94ab201d707928",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-terminal",
+      "baselineSHA": "6c76ad734a7ee9b4c59ffd8327a3f642cd31ff5c",
+      "restorationSHA": "24ca99f75866c0a5e2597e4a5425655cdda6578f",
+      "treeSHA": "07528c12d867b803b7e6beb41861a915a2e17759",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-manifest",
+      "baselineSHA": "af4678e04ec01203f83c73d3ee044aae5955a8c5",
+      "restorationSHA": "609c8d4d6136cf738c1f86577b5fd9f8641194f2",
+      "treeSHA": "f880a722d15af154893f84bb0605274dc6536b58",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-comparison",
+      "baselineSHA": "094fd624bd55948a2fdfbcc76e53e75ea0ae80a5",
+      "restorationSHA": "578320b271a368a7ae383451e989870edc51dc35",
+      "treeSHA": "5bc4d288272ff82be33699510fa6b181e5fc8449",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-either",
+      "baselineSHA": "b4ce5035ed21a3cfcd7d70a51495c62277c0a0a0",
+      "restorationSHA": "dac3ad49ef4e0a882f68631aacce1506889c295c",
+      "treeSHA": "91f3d41060a966a0f7c42facae05abe81b290ab5",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-numeric",
+      "baselineSHA": "c81428e32f6074e63f8325584a2966a6ed99d73e",
+      "restorationSHA": "1d50a80b2690f6c197822af60702c32fbb5f83fc",
+      "treeSHA": "6cc8701006a41b1ebc30e0f6305f4f0b346b5fb5",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-order",
+      "baselineSHA": "1e15226f884a5ce3d1edf54cdab0f30e2f58dfd6",
+      "restorationSHA": "3f91e4c6273746a1c29c5dca19e1d103fcca26ec",
+      "treeSHA": "8ad6b842939865d947ef8c249ced50bfc7522b6f",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-ordinal",
+      "baselineSHA": "92f2aef190ba01b10d606c4991c48c44039e4a69",
+      "restorationSHA": "7e9046d5ece6b279608ad84f995629cfdeb8f053",
+      "treeSHA": "77e301a7ba31db987f88b55c2eafe9b8a950bcfd",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-list",
+      "baselineSHA": "f7364ec84a92a919c1ac3113c14968e55aefd26c",
+      "restorationSHA": "dc790187f5b70bb233d027e31e91d67e083e662d",
+      "treeSHA": "b5af22b56620f39c827541780b455b036efcc44e",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-finite",
+      "baselineSHA": "4493866be8f59c3b2e7a78440d60341493bf254c",
+      "restorationSHA": "ffbdddd5e6471f6f626e8094241173765fe199b3",
+      "treeSHA": "4957b317929c3f242d31d0273ec4c3cc35218803",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-module",
+      "baselineSHA": "2c54f8b4b1f310072cb71c03d1dad300957ffbb2",
+      "restorationSHA": "ccef303ffce8030c5b38233727d3b767eaa45981",
+      "treeSHA": "9e3ce514d51699483c0aafce02c88f9720b970fa",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-input",
+      "baselineSHA": "d6d4ae19ab48b1a36c757b9a54bbc690dce89095",
+      "restorationSHA": "370aa9a3d96bd28750bbf5fcd562e07d51e59ced",
+      "treeSHA": "be9c1bdbe489716807af7fd327360313a295e569",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-memory",
+      "baselineSHA": "4e875ebe3c6de287b3ed00410c2d77b27c20172b",
+      "restorationSHA": "926cae08b16799a84121b150ffe6e48e57b8f4dc",
+      "treeSHA": "5acdcb6bd2077c68d5a55ddfa88efca28e4b5e7f",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-growth",
+      "baselineSHA": "7d673904d84416046c34061ca4ab046b5d3e16ee",
+      "restorationSHA": "9cf6fe15b5f1cd14f57f9f849995534d451f330b",
+      "treeSHA": "091c85fc394468e7dbdbd0c595e0c083d9c8428e",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-facet",
+      "baselineSHA": "eb3dfc4514fe25b22fc3f78820b96e7cbe1e0a05",
+      "restorationSHA": "52a519c8dc3a15521f6c0966ade4070b0abe6b86",
+      "treeSHA": "e2076ed5740bb97d8e753e5a5d5520544e7eb27c",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-system",
+      "baselineSHA": "aea004b315cd78bf37faf144dd8c5e4c0900cd20",
+      "restorationSHA": "02c4511bbbebf0c60bdde5207980835ca9c987e4",
+      "treeSHA": "7b7cb247cce17eb9650ec963e1efd61dc65c002d",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-time",
+      "baselineSHA": "578f830f95eb5f01ab67e7bf7e059d0aa7fd15bb",
+      "restorationSHA": "4bfd9b84645718ae4efe6edd976f161cdf1c7250",
+      "treeSHA": "8bb63de20a6d8f1833f15fe7d17760e7d2f0b9fa",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-buffer",
+      "baselineSHA": "38b506198baee45cfe060d9fd716abd482bfb262",
+      "restorationSHA": "42453747b0dd4df623e67705ef340e72cb6a68cd",
+      "treeSHA": "5854fdd0b6793c1ce77f95930b2f3d17492072ef",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-geometry",
+      "baselineSHA": "267c767f5da69a6b0b6b8fc99d527a517a21f16d",
+      "restorationSHA": "1a804bff8ad63ef7ed9a23bbc2f35d7b3bc64887",
+      "treeSHA": "6e6580e703e20e434dbd5a5dbe0f0d50dd550e47",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-set",
+      "baselineSHA": "cba020f673ff3412f87ffb14f12edda7e9f01c94",
+      "restorationSHA": "26dcb4843c88a46eaa93ab9dded5f372db24deb9",
+      "treeSHA": "2d269b4f26c6075ea58cbed916645797f2069843",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-symmetry",
+      "baselineSHA": "bb50f40b9a90fd13b36fa24e2c3eff99d95e0303",
+      "restorationSHA": "0d3b039107227a7e4a181db83bbed2c329fcf5ff",
+      "treeSHA": "37277d1de731c20419a9a30d66b321be3cac2309",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-glob",
+      "baselineSHA": "08ed80e44e2122a8f825c80efd93a8711b4cae12",
+      "restorationSHA": "ab03346866bc3ad1e5328aeef15a1001cb8a8c5c",
+      "treeSHA": "3385e2736fa74ca61867fecd3dec85896ef25bb0",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-executor",
+      "baselineSHA": "9d45529a92500ffc35540c1e77f066147c48f769",
+      "restorationSHA": "af701e2ecb1ed41b5bdc12eb648343a02a056a02",
+      "treeSHA": "e58d16032546e6e63e9d1a2a59c2f2365f6740a4",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-version",
+      "baselineSHA": "d7eaad9a7abb10b9eb8f0ebee0835bd1af46ac98",
+      "restorationSHA": "e4c6031c154d92ccef6c48622a07fecde344c641",
+      "treeSHA": "f2328c40217f3663119d1c4b0e5668a760f2dea1",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
+    },
+    {
+      "repo": "swift-atoms/swift-pool",
+      "baselineSHA": "b7031cf9973eb0f5bfbe874c65d5badd9324c333",
+      "restorationSHA": "009271dc531d48c6f8c532e0d575016fc49364e2",
+      "treeSHA": "ae5f45955db26f8e5ddf8a8f9da29d912d83405b",
+      "test": "pending: exact rollback published before verification",
+      "restoredAt": "2026-08-28T07:09:54Z"
     }
   ]
  }
