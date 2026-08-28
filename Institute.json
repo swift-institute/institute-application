@@ -1970,6 +1970,12 @@
     },
     {
       "layer": "foundations",
+      "name": "swift-byte-channel",
+      "organization": "swift-foundations",
+      "url": "https://github.com/swift-foundations/swift-byte-channel.git"
+    },
+    {
+      "layer": "foundations",
       "name": "swift-certificate-verification",
       "organization": "swift-foundations",
       "url": "https://github.com/swift-foundations/swift-certificate-verification.git"
