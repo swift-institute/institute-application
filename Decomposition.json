@@ -4567,9 +4567,11 @@
     "evidence": "Infinite Collection is a genuine seam: it exposes an Infinite.Cycle head and a Collection.Rotated tail. Fresh compilation reaches the seam but fails because Infinite.Cycle.base is internal, so the Collection-owned rotated tail cannot be constructed through any current public Infinite API. Replacing that tail with an iterator wrapper would erase Collection ownership and fabricate a different seam; canonical consumer edits are preserved uncommitted.",
     "resumeWhen": "Add and converge the narrowest read-only Cycle base accessor (or equivalent rotation surface) in the Infinite atom, amend its booked head, then resume the preserved Infinite Collection checkout for fresh build/test.",
     "resolvedByHeadSHA": "7e2d10e46731047523fba297d72b67ab30029c6a",
-    "status": "blocking-dependency-converged-resumption-in-progress",
+    "resumedPackageHeadSHA": "b8206d0c8fa46c3a9a62faa0440cc1f05d415e1b",
+    "status": "resolved-and-booked",
     "recordedAt": "2026-08-28T00:10:19Z",
-    "resumedAt": "2026-08-28T00:12:58Z"
+    "resumedAt": "2026-08-28T00:12:58Z",
+    "resolvedAt": "2026-08-28T00:16:49Z"
    },
    {
     "repo": "swift-molecules/swift-memory-small",
@@ -6810,6 +6812,51 @@
     "wave": "wave7z",
     "changes": "Replaced the tombstoned Bit Index dependency with canonical atom owners/products, migrated removed Bit.Index.Count and Index.Offset to Tagged<Bit, Cardinal> and Tagged<Bit, Affine.Discrete.Vector> while retaining typed bit positions, added checked pack/location arithmetic, and repaired imports, umbrella/test-support exports, focused tests, and docs. Fresh build green; 24 tests across 10 suites green.",
     "bookedAt": "2026-08-28T00:09:34Z"
+   },
+   {
+    "repo": "swift-molecules/swift-infinite-collection",
+    "headSHA": "b8206d0c8fa46c3a9a62faa0440cc1f05d415e1b",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8a",
+    "changes": "Canonicalized Infinite to its atom owner and retained the genuine Infinite.Cycle: Infinite.Observable seam with Collection.Rotated<Base> tail through the narrow read-only Cycle.base surface; replaced stale .one usage and made tests exercise the public contract. Fresh exact-head build green; 4 tests across 2 suites green.",
+    "bookedAt": "2026-08-28T00:18:47Z"
+   },
+   {
+    "repo": "swift-molecules/swift-path-tagged",
+    "headSHA": "a555db24f5ec6d09f346858c9d35b4276a670cf1",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8a",
+    "changes": "Canonicalized Path to its atom owner and retained the genuine Tagged<Path> namespace aliases, ownership-preserving copied/adopting/span construction, count/scope forwarding, and consuming take; repaired String shadowing through Path's public _CString.Borrowed and added focused construction, namespace, and buffer-transfer tests. Fresh build green; 3 tests across 1 suite green without warnings.",
+    "bookedAt": "2026-08-28T00:21:32Z"
+   },
+   {
+    "repo": "swift-molecules/swift-path-ownership",
+    "headSHA": "a0810092120b2623320265167ba3bff91964db53",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8a",
+    "changes": "Canonicalized Path to its atom owner and retained the genuine retroactive Path: Ownership.Borrow.Protocol conformance whose associated type resolves to atom-owned Path.Borrowed, without duplicating borrowing storage or lifetime behavior; added direct test products, focused public-contract tests, and ownership docs. Fresh build green; 2 tests across 1 suite green.",
+    "bookedAt": "2026-08-28T00:24:37Z"
+   },
+   {
+    "repo": "swift-molecules/swift-system-ordinal",
+    "headSHA": "9c92e639beb2beea9232e6c15d83b519b158d835",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8a",
+    "changes": "Canonicalized System to its atom owner and retained the genuine System.Processor.ID = Tagged<System.Processor, Ordinal> cross-domain identity, with exact direct test products, API/ownership documentation, and a public-contract payload test. Fresh build green; 1 test across 1 suite green.",
+    "bookedAt": "2026-08-28T00:27:34Z"
+   },
+   {
+    "repo": "swift-molecules/swift-path-error",
+    "headSHA": "2678bb50b05c7c3baba8fdbec6bd5f598fe38894",
+    "build": "green",
+    "test": "green",
+    "wave": "wave8a",
+    "changes": "Canonicalized Path to its atom owner and retained the genuine Path.Canonical.Error composite of Path.Resolution.Error with Error-atom platform values; resolved the Error module/type versus nested error collision with public PathPlatformError and added focused identity, description, platform-value, and cross-domain inequality tests plus ownership docs. Fresh build green; 3 tests across 1 suite green.",
+    "bookedAt": "2026-08-28T00:28:46Z"
    }
   ]
  }
