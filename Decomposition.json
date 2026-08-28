@@ -7714,7 +7714,7 @@
  "sourceRestoration": {
   "requestedAt": "2026-08-28T06:13:09Z",
   "status": "in-progress",
-  "policy": "Restore each atom repository's complete tracked tree to the first parent of its Phase 2 shapeCommit as a new forward commit, while retaining the swift-atoms organization and suffix-free repository identity. Prior convergence evidence is superseded for each restored repository at its restoration commit.",
+  "policy": "Restore each atom repository's complete tracked tree to the commit immediately preceding its Phase 2 source/target collapse as a new forward commit (normally the first parent of shapeCommit; step past later administrative repins or canonical-shape commits when they already contain the collapse), while retaining the swift-atoms organization and suffix-free repository identity. Prior convergence evidence is superseded for each restored repository at its restoration commit.",
   "packages": [
    {
     "repo": "swift-atoms/swift-algebra",
@@ -7931,6 +7931,30 @@
       "treeSHA": "b7edfa358cc2ac6d5abc9a3cd54c8dbc65b3f5ee",
       "test": "green: 99 tests in 36 suites",
       "restoredAt": "2026-08-28T06:41:18Z"
+    },
+    {
+      "repo": "swift-atoms/swift-predicate",
+      "baselineSHA": "4d8d1cd473c1176e1d45f95eee4ada7358b04804",
+      "restorationSHA": "7b2fb794783649febbf723ca5aec475ed8b7c7da",
+      "treeSHA": "809ed3a2187863ad9a91fc29f98e5031cf2136ee",
+      "test": "green: 153 tests in 30 suites",
+      "restoredAt": "2026-08-28T06:41:18Z"
+    },
+    {
+      "repo": "swift-atoms/swift-observation",
+      "baselineSHA": "81eb1f7254dbbb17f66d175759b678f3e80f30b2",
+      "restorationSHA": "c8be98755bd559a8265468293bf87d5fbd5d590b",
+      "treeSHA": "c82a9a2e6790088f482854f1731f466d118ff7e8",
+      "test": "green: 24 tests in 13 suites",
+      "restoredAt": "2026-08-28T06:44:40Z"
+    },
+    {
+      "repo": "swift-atoms/swift-equation",
+      "baselineSHA": "711d6efbd7a6a4041e033dd3daf385828047b878",
+      "restorationSHA": "1bf0dac51cbeb5f417a72adacb19038eff84019b",
+      "treeSHA": "8104558ab9fc977be9dafc1fae6bb7bc0ab84efb",
+      "test": "green: 6 tests in 5 suites",
+      "restoredAt": "2026-08-28T06:44:40Z"
     }
   ]
  }
