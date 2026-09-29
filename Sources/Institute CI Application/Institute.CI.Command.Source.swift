@@ -18,6 +18,7 @@ extension Institute.CI.Command {
         public var bundle: Swift.String
         public var xcodeApplication: Swift.String
         public var jobs: Swift.Int?
+        public var exitPolicy: Swift.String
 
         public init(
             repository: Swift.String = "",
@@ -25,7 +26,8 @@ extension Institute.CI.Command {
             root: Swift.String = "",
             bundle: Swift.String = "",
             xcodeApplication: Swift.String = "",
-            jobs: Swift.Int? = nil
+            jobs: Swift.Int? = nil,
+            exitPolicy: Swift.String = Policy.advisory.rawValue
         ) {
             self.repository = repository
             self.revision = revision
@@ -33,6 +35,7 @@ extension Institute.CI.Command {
             self.bundle = bundle
             self.xcodeApplication = xcodeApplication
             self.jobs = jobs
+            self.exitPolicy = exitPolicy
         }
 
         public static var configuration: Command_Schema.Command.Configuration {
@@ -70,6 +73,11 @@ extension Institute.CI.Command {
                     \.jobs,
                     name: .long(.literal("jobs")),
                     placeholder: "positive-count"
+                )
+                Command_Schema.Command.Option(
+                    \.exitPolicy,
+                    name: .long(.literal("exit-policy")),
+                    placeholder: "advisory|strict"
                 )
             }
         }
@@ -111,6 +119,9 @@ extension Institute.CI.Command {
             guard jobs.map({ $0 > 0 }) ?? true else {
                 throw .validationFailed(reason: "--jobs must be positive")
             }
+            guard Policy(rawValue: exitPolicy) != nil else {
+                throw .validationFailed(reason: "--exit-policy must be advisory or strict")
+            }
         }
 
         public mutating func run() async throws(Institute.Error) {
@@ -140,7 +151,10 @@ extension Institute.CI.Command {
             }
             print(bytes)
             Process.Exit.normal(
-                Source_Report.Source.Report.Status(report, expected: report.commitment).code
+                (Policy(rawValue: exitPolicy) ?? .advisory).code(
+                    status: Source_Report.Source.Report.Status(report, expected: report.commitment),
+                    errors: Policy.errors(in: report)
+                )
             )
         }
     }

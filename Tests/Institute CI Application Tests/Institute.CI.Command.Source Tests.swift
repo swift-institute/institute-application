@@ -65,3 +65,44 @@ func `CI source refuses inexact policy inputs`(_ arguments: [String]) {
         )
     }
 }
+
+@Test
+func `CI source exit policy defaults to advisory and parses strict`() throws {
+    let base = [
+        "--repository", "swift-standards/swift-iso-639",
+        "--revision", String(repeating: "a", count: 40),
+        "--root", "/work/swift-iso-639",
+        "--bundle", "standards",
+        "--xcode-application", "/Applications/Xcode_27.0.app",
+    ]
+    let advisory = try Command.parse(Institute.CI.Command.Source.self, from: base, initial: .init())
+    let strict = try Command.parse(
+        Institute.CI.Command.Source.self,
+        from: base + ["--exit-policy", "strict"],
+        initial: .init()
+    )
+
+    #expect(advisory.exitPolicy == "advisory")
+    #expect(strict.exitPolicy == "strict")
+    #expect(throws: Command.Error.self) {
+        _ = try Command.parse(
+            Institute.CI.Command.Source.self,
+            from: base + ["--exit-policy", "lenient"],
+            initial: .init()
+        )
+    }
+}
+
+@Test
+func `CI source exit policy fails only strict runs with error findings`() {
+    let advisory = Institute.CI.Command.Source.Policy.advisory
+    let strict = Institute.CI.Command.Source.Policy.strict
+
+    #expect(advisory.code(status: .clean, errors: false) == 0)
+    #expect(advisory.code(status: .findings, errors: true) == 0)
+    #expect(advisory.code(status: .unmeasured, errors: false) == 2)
+    #expect(strict.code(status: .clean, errors: false) == 0)
+    #expect(strict.code(status: .findings, errors: false) == 0)
+    #expect(strict.code(status: .findings, errors: true) == 1)
+    #expect(strict.code(status: .unmeasured, errors: true) == 2)
+}
