@@ -1,7 +1,7 @@
 public import Command
 public import Command_Schema
 public import Institute_Model
-import Byte_Primitives
+import Byte
 import Console
 import Environment
 import File_System

@@ -1,11 +1,11 @@
 public import Institute_Model
 import struct Swift.String
-import Byte_Primitives
+import Byte
 import Environment
 import GitHub_App
 public import Institute_Repository_Policy
 import RFC_3339
-import Time_Primitive
+import Time
 
 extension Institute.Repository.Policy.Command {
     static func callerWave(_ arguments: [Swift.String]) async throws(Error) {

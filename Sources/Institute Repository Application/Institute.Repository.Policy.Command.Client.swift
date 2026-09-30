@@ -1,8 +1,7 @@
 public import Institute_Model
 import struct Swift.String
 public import Institute_Repository_Policy
-public import Byte_Primitives
-import Byte_Primitives_Standard_Library_Integration
+public import Byte
 public import Institute_GitHub
 import JSON
 import RFC_4648

@@ -1,6 +1,6 @@
 public import Institute_Model
 public import Institute_Instruments
-import Byte_Primitives
+import Byte
 import Environment
 import File_System
 import JSON
