@@ -107,7 +107,7 @@ extension Institute.Repository.Policy.Command {
         _ value: T,
         to path: Swift.String
     ) throws(Error) {
-        var bytes = [Byte](value.jsonString(sortKeys: true).utf8)
+        var bytes = [Byte](utf8: value.jsonString(sortKeys: true))
         bytes.append(Byte(0x0A))
         guard let filePath = try? File.Path(path) else {
             throw .io("could not append \(path): invalid path")

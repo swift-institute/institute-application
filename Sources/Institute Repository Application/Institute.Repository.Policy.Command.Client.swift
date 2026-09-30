@@ -435,7 +435,7 @@ extension Institute.Repository.Policy.Command.Client: Institute.Repository.Polic
         let response = try await request(
             method: "POST",
             path: path,
-            body: [Byte](body.serialize(sortKeys: true).utf8)
+            body: [Byte](utf8: body.serialize(sortKeys: true))
         )
         guard response.status == 201 else {
             throw error(method: "POST", path: path, response: response)
@@ -476,7 +476,7 @@ extension Institute.Repository.Policy.Command.Client: Institute.Repository.Polic
         let response = try await request(
             method: "PATCH",
             path: path,
-            body: [Byte](body.serialize(sortKeys: true).utf8)
+            body: [Byte](utf8: body.serialize(sortKeys: true))
         )
         guard response.status == 200 else {
             throw error(method: "PATCH", path: path, response: response)
@@ -582,7 +582,7 @@ extension Institute.Repository.Policy.Command.Client {
         let treeResponse = try await request(
             method: "POST",
             path: treePath,
-            body: [Byte](treeBody.serialize(sortKeys: true).utf8)
+            body: [Byte](utf8: treeBody.serialize(sortKeys: true))
         )
         guard treeResponse.status == 201 else {
             throw error(method: "POST", path: treePath, response: treeResponse)
@@ -610,7 +610,7 @@ extension Institute.Repository.Policy.Command.Client {
         let createResponse = try await request(
             method: "POST",
             path: createPath,
-            body: [Byte](createBody.serialize(sortKeys: true).utf8)
+            body: [Byte](utf8: createBody.serialize(sortKeys: true))
         )
         guard createResponse.status == 201 else {
             throw error(method: "POST", path: createPath, response: createResponse)

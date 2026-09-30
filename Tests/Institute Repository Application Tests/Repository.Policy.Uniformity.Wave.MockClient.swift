@@ -63,13 +63,13 @@ actor UniformityWaveMockClient: Institute.Repository.Policy.Uniformity.Wave.Clie
             switch path {
             case Institute.Repository.Policy.Uniformity.Wave.Shape.gitignorePath:
                 if brokenBytesAfterMove {
-                    return .init(blob: newBlob, bytes: [Byte]("broken\n".utf8))
+                    return .init(blob: newBlob, bytes: [Byte](utf8: "broken\n"))
                 }
                 return .init(blob: newBlob, bytes: committedPayload)
 
             case Institute.Repository.Policy.Uniformity.Wave.Shape.swiftlintPath:
                 return survivingDeletionAfterMove
-                    ? .init(blob: "lint-blob", bytes: [Byte]("lint\n".utf8)) : nil
+                    ? .init(blob: "lint-blob", bytes: [Byte](utf8: "lint\n")) : nil
 
             default:
                 return nil
@@ -80,13 +80,13 @@ actor UniformityWaveMockClient: Institute.Repository.Policy.Uniformity.Wave.Clie
             return oldShape.gitignore
 
         case Institute.Repository.Policy.Uniformity.Wave.Shape.swiftlintPath:
-            return oldShape.swiftlint.map { .init(blob: $0, bytes: [Byte]("lint\n".utf8)) }
+            return oldShape.swiftlint.map { .init(blob: $0, bytes: [Byte](utf8: "lint\n")) }
 
         case Institute.Repository.Policy.Uniformity.Wave.Shape.swiftFormatPath:
-            return oldShape.swiftFormat.map { .init(blob: $0, bytes: [Byte]("format\n".utf8)) }
+            return oldShape.swiftFormat.map { .init(blob: $0, bytes: [Byte](utf8: "format\n")) }
 
         case Institute.Repository.Policy.Uniformity.Wave.Shape.dependabotPath:
-            return oldShape.dependabot.map { .init(blob: $0, bytes: [Byte]("dependabot\n".utf8)) }
+            return oldShape.dependabot.map { .init(blob: $0, bytes: [Byte](utf8: "dependabot\n")) }
 
         default:
             return nil
@@ -184,7 +184,7 @@ actor UniformityWaveMockClient: Institute.Repository.Policy.Uniformity.Wave.Clie
     ) async throws(Institute.Repository.Policy.Client.Error)
         -> Institute.Repository.Policy.Caller.Wave.CallerSource?
     {
-        .init(blob: "caller-blob", bytes: [Byte]("caller\n".utf8))
+        .init(blob: "caller-blob", bytes: [Byte](utf8: "caller\n"))
     }
 
     func rulesets(

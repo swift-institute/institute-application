@@ -185,7 +185,7 @@ struct `Repository Policy Uniformity Wave Tests` {
             ruleset: canonical,
             shape: nonterminalShape
         )
-        let request = request(canonical: canonical, payload: [Byte]("drifted\n".utf8))
+        let request = request(canonical: canonical, payload: [Byte](utf8: "drifted\n"))
         let evidence = try attestation(fixture: "uniformity-attestation-positive")
 
         await #expect(throws: Institute.Repository.Policy.Uniformity.Wave.Error.self) {
@@ -346,7 +346,7 @@ struct `Repository Policy Uniformity Wave Tests` {
         let recovery = try await preflight(client: client, request: request)
         await client.setShape(
             .init(
-                gitignore: .init(blob: "moved-gitignore", bytes: [Byte]("moved\n".utf8)),
+                gitignore: .init(blob: "moved-gitignore", bytes: [Byte](utf8: "moved\n")),
                 swiftlint: "lint-blob",
                 swiftFormat: "format-blob",
                 dependabot: "dependabot-blob"
@@ -522,7 +522,7 @@ struct `Repository Policy Uniformity Wave Tests` {
             shape: .init(
                 gitignore: .init(
                     blob: subjects[subjects.count - 1].shape.gitignore?.blob ?? "blob",
-                    bytes: [Byte]("drifted\n".utf8)
+                    bytes: [Byte](utf8: "drifted\n")
                 ),
                 swiftlint: nil,
                 swiftFormat: nil,
@@ -551,7 +551,7 @@ struct `Repository Policy Uniformity Wave Tests` {
 
     private var nonterminalShape: Institute.Repository.Policy.Uniformity.Wave.Shape {
         .init(
-            gitignore: .init(blob: "old-gitignore", bytes: [Byte]("old\n".utf8)),
+            gitignore: .init(blob: "old-gitignore", bytes: [Byte](utf8: "old\n")),
             swiftlint: "lint-blob",
             swiftFormat: "format-blob",
             dependabot: "dependabot-blob"
@@ -623,7 +623,7 @@ struct `Repository Policy Uniformity Wave Tests` {
                 head: "old-head-\(offset)",
                 manifest: .init(kind: "file", blob: "manifest-\(offset)"),
                 shape: .init(
-                    gitignore: .init(blob: "old-blob-\(offset)", bytes: [Byte]("old\n".utf8)),
+                    gitignore: .init(blob: "old-blob-\(offset)", bytes: [Byte](utf8: "old\n")),
                     swiftlint: "lint-\(offset)",
                     swiftFormat: nil,
                     dependabot: nil

@@ -45,7 +45,7 @@ extension Institute.Repository.Policy.Command {
         } catch {
             throw .census(error)
         }
-        try write([Byte](census.normalized.csv.utf8), to: output)
+        try write([Byte](utf8: census.normalized.csv), to: output)
         var byKind: [Swift.String: Int] = [:]
         for row in census.rows {
             byKind[row.coordinateKind.rawValue, default: 0] += 1
@@ -62,7 +62,7 @@ extension Institute.Repository.Policy.Command {
             throw configuration("capability-records requires --output <path>")
         }
         let records = Institute.Repository.Policy.Capability.records
-        var bytes = [Byte](records.jsonString(pretty: true, sortKeys: true).utf8)
+        var bytes = [Byte](utf8: records.jsonString(pretty: true, sortKeys: true))
         bytes.append(Byte(0x0A))
         try write(bytes, to: arguments[1])
         print(

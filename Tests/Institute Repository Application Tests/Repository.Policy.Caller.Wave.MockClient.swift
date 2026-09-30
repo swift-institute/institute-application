@@ -14,8 +14,8 @@ actor CallerWaveMockClient: Institute.Repository.Policy.Caller.Wave.Client {
         defaultBranch: "main"
     )
     var currentHead = "old-head"
-    var oldCaller = [Byte]("old\n".utf8)
-    var newCaller = [Byte]("new\n".utf8)
+    var oldCaller = [Byte](utf8: "old\n")
+    var newCaller = [Byte](utf8: "new\n")
     var oldBlob = "old-blob"
     var newBlob = "new-blob"
     var rulesetData: [Byte]

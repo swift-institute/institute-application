@@ -78,7 +78,7 @@ struct `Repository Policy Caller Wave Tests` {
             repositoryID: 1,
             head: "head",
             manifest: .init(kind: "file", blob: "manifest"),
-            caller: .init(blob: "blob", bytes: [Byte]("caller\n".utf8))
+            caller: .init(blob: "blob", bytes: [Byte](utf8: "caller\n"))
         )
         let population = Institute.Repository.Policy.Caller.Wave.Population(
             organizations: ["swift-empty", "swift-primitives"],
@@ -255,7 +255,7 @@ struct `Repository Policy Caller Wave Tests` {
         #expect(receipt.oldHead == "old-head")
         #expect(receipt.newHead == "new-head")
         #expect(receipt.bypassClosed)
-        #expect(recovery.caller.bytes == [Byte]("old\n".utf8))
+        #expect(recovery.caller.bytes == [Byte](utf8: "old\n"))
         #expect(recovery.rollbackHead == "old-head")
         #expect(recovery.ruleset?.id == 7)
         #expect(events.map(\.phase) == ["window-opening", "applied"])
@@ -323,7 +323,7 @@ struct `Repository Policy Caller Wave Tests` {
             ruleset: canonical,
             rulesetAbsent: true
         )
-        await client.setCaller(bytes: [Byte]("new\n".utf8), blob: "new-blob")
+        await client.setCaller(bytes: [Byte](utf8: "new\n"), blob: "new-blob")
         let request = request(canonical: canonical, expectedBlob: "new-blob")
         let recovery = try await preflight(client: client, request: request)
         var events: [Institute.Repository.Policy.Caller.Wave.Event] = []
@@ -863,7 +863,7 @@ struct `Repository Policy Caller Wave Tests` {
             expectedHead: "old-head",
             expectedManifest: .init(kind: "file", blob: "manifest-blob"),
             expectedBlob: expectedBlob,
-            caller: [Byte]("new\n".utf8),
+            caller: [Byte](utf8: "new\n"),
             canonicalRuleset: canonical,
             integrationID: 3_543_256,
             population: .init(
@@ -914,7 +914,7 @@ struct `Repository Policy Caller Wave Tests` {
                 repositoryID: Int64(offset + 1),
                 head: "old-head-\(offset)",
                 manifest: .init(kind: "file", blob: "manifest-\(offset)"),
-                caller: .init(blob: "old-blob-\(offset)", bytes: [Byte]("old\n".utf8))
+                caller: .init(blob: "old-blob-\(offset)", bytes: [Byte](utf8: "old\n"))
             )
         }
         let currentSubjects = repositories.enumerated().map { offset, repository in
@@ -1012,7 +1012,7 @@ struct `Repository Policy Caller Wave Tests` {
         )
     }
 
-    private var terminalCaller: [Byte] { [Byte]("terminal\n".utf8) }
+    private var terminalCaller: [Byte] { [Byte](utf8: "terminal\n") }
     private var terminalCallerDigest: String {
         "770b1fadc4019d4de6b2fd32561beaa2c8cffa7837f43c85cbeff1e211c60702"
     }

@@ -321,7 +321,7 @@ extension Institute.Repository.Policy.Command.Census.Generator {
     }
 
     static func digest(_ text: Swift.String) -> Swift.String {
-        digest([Byte](text.utf8))
+        digest([Byte](utf8: text))
     }
 
     // MARK: frozen family and sentinel rows

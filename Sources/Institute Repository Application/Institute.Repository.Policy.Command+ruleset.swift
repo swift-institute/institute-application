@@ -39,7 +39,7 @@ extension Institute.Repository.Policy.Command {
             rulesetExists: arguments.rulesetExists,
             mode: arguments.mode
         )
-        var bytes = [Byte](decision.jsonString(pretty: true, sortKeys: true).utf8)
+        var bytes = [Byte](utf8: decision.jsonString(pretty: true, sortKeys: true))
         bytes.append(Byte(0x0A))
         print(Swift.String(bytes), terminator: "")
     }

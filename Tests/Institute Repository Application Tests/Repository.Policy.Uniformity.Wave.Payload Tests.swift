@@ -47,12 +47,12 @@ struct `Repository Policy Uniformity Wave Payload Tests` {
             to: ".gitignore"
         )
         for probe in probes {
-            try repository.write([Byte]("probe\n".utf8), to: probe)
+            try repository.write([Byte](utf8: "probe\n"), to: probe)
         }
         // A Swift source under an ordinary target is the positive control:
         // if it is missing from the tracked set the harness, not the
         // policy, is what failed.
-        try repository.write([Byte]("// probe\n".utf8), to: "Sources/Foo/Foo.swift")
+        try repository.write([Byte](utf8: "// probe\n"), to: "Sources/Foo/Foo.swift")
 
         try repository.run(["add", "-A"])
         let tracked = Set(try repository.trackedPaths())

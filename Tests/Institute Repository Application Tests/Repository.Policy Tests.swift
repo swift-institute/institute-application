@@ -97,7 +97,7 @@ struct `Repository Policy Tests` {
                 with: "\"context\": \"ci / ci-ok\""
             )
         #expect(throws: Institute.Repository.Policy.Ruleset.Error.self) {
-            try Institute.Repository.Policy.Ruleset.protectedMainPayload(from: [Byte](legacy.utf8))
+            try Institute.Repository.Policy.Ruleset.protectedMainPayload(from: [Byte](utf8: legacy))
         }
     }
 
@@ -113,7 +113,7 @@ struct `Repository Policy Tests` {
                 with: "\"context\": \"ci-ok\""
             )
         #expect(throws: Institute.Repository.Policy.Ruleset.Error.self) {
-            try Institute.Repository.Policy.Ruleset.protectedMainPayload(from: [Byte](legacy.utf8))
+            try Institute.Repository.Policy.Ruleset.protectedMainPayload(from: [Byte](utf8: legacy))
         }
     }
 
@@ -264,7 +264,7 @@ struct `Repository Policy Tests` {
                 with: "\"allowed_merge_methods\": [\"merge\", \"squash\", \"rebase\"]"
             )
         #expect(allMethods.contains("\"merge\", \"squash\", \"rebase\""))
-        let url = [Byte](allMethods.utf8)
+        let url = [Byte](utf8: allMethods)
 
         #expect(throws: Institute.Repository.Policy.Ruleset.Error.self) {
             try Institute.Repository.Policy.Ruleset.protectedMainPayload(from: url)
@@ -292,7 +292,7 @@ struct `Repository Policy Tests` {
         #expect(!unpinned.contains("allowed_merge_methods"))
         #expect(!unpinned.contains("dismissal_restriction"))
         #expect(!unpinned.contains("required_reviewers"))
-        let url = [Byte](unpinned.utf8)
+        let url = [Byte](utf8: unpinned)
 
         #expect(throws: Institute.Repository.Policy.Ruleset.Error.self) {
             try Institute.Repository.Policy.Ruleset.protectedMainPayload(from: url)
