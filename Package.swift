@@ -137,7 +137,6 @@ let package = Package(
     .package(url: "https://github.com/swift-ietf/swift-rfc-3339.git", branch: "main"),
     .package(url: "https://github.com/swift-atoms/swift-time.git", branch: "main"),
     .package(url: "https://github.com/swift-compositions/swift-process.git", branch: "main"),
-    .package(url: "https://github.com/swift-foundations/swift-source.git", branch: "main"),
     .package(url: "https://github.com/swift-atoms/swift-byte.git", branch: "main"),
     .package(url: "https://github.com/swift-standards/swift-fips-180-4.git", branch: "main"),
     .package(url: "https://github.com/swift-standards/swift-spm-standard.git", branch: "main"),
@@ -250,7 +249,6 @@ let package = Package(
         .product(name: "JSON", package: "swift-json"),
         .product(name: "Package Manager", package: "swift-package-manager"),
         .product(name: "Process", package: "swift-process"),
-        .product(name: "Source Report", package: "swift-source"),
       ]
     ),
     .target(
@@ -289,9 +287,6 @@ let package = Package(
         .product(name: "File System", package: "swift-file-system"),
         .product(name: "JSON", package: "swift-json"),
         .product(name: "Process", package: "swift-process"),
-        .product(name: "Source Measurement", package: "swift-source"),
-        .product(name: "Source Repair", package: "swift-source"),
-        .product(name: "Source Report", package: "swift-source"),
       ]
     ),
     .target(
@@ -531,7 +526,6 @@ let package = Package(
         "Institute Source Application",
         .product(name: "Institute Model", package: "institute"),
         .product(name: "Institute Source", package: "institute"),
-        .product(name: "Source Repair", package: "swift-source"),
       ]
     ),
     .testTarget(
