@@ -19,7 +19,7 @@ extension Institute.CI {
                 discussion: """
                     Measure one checked-out package:
 
-                      institute ci source --repository <owner/name> --revision <commit>
+                      institute ci -- source --repository <owner/name> --revision <commit>
                         --root <package-root> --bundle <primitives|standards|institute>
                         --xcode-application </Applications/Xcode.app>
                         [--jobs <positive-count>] [--exit-policy <advisory|strict>]
