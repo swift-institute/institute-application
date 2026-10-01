@@ -11,15 +11,15 @@ enum RepositoryPolicyFoundation {
     }
 
     static func bytes(contentsOf url: URL) throws -> [Byte] {
-        [Byte](try Data(contentsOf: url))
+        try Data(contentsOf: url).map { Byte(bitPattern: $0) }
     }
 
-    static func jsonObject<Bytes: Sequence>(with bytes: Bytes) throws -> Any where Bytes.Element == UInt8 {
-        try JSONSerialization.jsonObject(with: Data(bytes))
+    static func jsonObject(with bytes: [Byte]) throws -> Any {
+        try JSONSerialization.jsonObject(with: Data(bytes.map { $0.underlying }))
     }
 
     static func data(withJSONObject object: [String: Any]) throws -> [Byte] {
-        [Byte](try JSONSerialization.data(withJSONObject: object))
+        try JSONSerialization.data(withJSONObject: object).map { Byte(bitPattern: $0) }
     }
 
     static func substitute(of target: String, with replacement: String, in text: String) -> String {

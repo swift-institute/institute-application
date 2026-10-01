@@ -207,7 +207,7 @@ actor UniformityWaveMockClient: Institute.Repository.Policy.Uniformity.Wave.Clie
         id _: Int64,
         payload: [Byte]
     ) async throws(Institute.Repository.Policy.Client.Error) {
-        let object = try? JSONSerialization.jsonObject(with: Data(payload.underlying)) as? [String: Any]
+        let object = try? JSONSerialization.jsonObject(with: Data(payload.map { $0.underlying })) as? [String: Any]
         let bypass = object?["bypass_actors"] as? [Any] ?? []
         if bypass.isEmpty, convergenceFailure {
             if !persistentConvergenceFailure { convergenceFailure = false }
@@ -308,7 +308,7 @@ actor UniformityWaveMockClient: Institute.Repository.Policy.Uniformity.Wave.Clie
     }
 
     func openBypass(integrationID: Int64) throws {
-        guard var object = try JSONSerialization.jsonObject(with: Data(rulesetData.underlying)) as? [String: Any]
+        guard var object = try JSONSerialization.jsonObject(with: Data(rulesetData.map { $0.underlying })) as? [String: Any]
         else {
             throw Institute.Repository.Policy.Client.Error.precondition("ruleset is not an object")
         }

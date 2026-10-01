@@ -160,9 +160,9 @@ actor CallerWaveMockClient: Institute.Repository.Policy.Caller.Wave.Client {
         id _: Int64,
         payload: [Byte]
     ) async throws(Institute.Repository.Policy.Client.Error) {
-        let object = try? JSONSerialization.jsonObject(with: Data(payload.underlying)) as? [String: Any]
+        let object = try? JSONSerialization.jsonObject(with: Data(payload.map { $0.underlying })) as? [String: Any]
         let bypass = object?["bypass_actors"] as? [Any] ?? []
-        let prior = try? JSONSerialization.jsonObject(with: Data(rulesetData.underlying)) as? [String: Any]
+        let prior = try? JSONSerialization.jsonObject(with: Data(rulesetData.map { $0.underlying })) as? [String: Any]
         let priorBypass = prior?["bypass_actors"] as? [Any] ?? []
         if bypass.isEmpty, convergenceFailure {
             if !persistentConvergenceFailure { convergenceFailure = false }
@@ -304,7 +304,7 @@ actor CallerWaveMockClient: Institute.Repository.Policy.Caller.Wave.Client {
     }
 
     func openBypass(integrationID: Int64) throws {
-        guard var object = try JSONSerialization.jsonObject(with: Data(rulesetData.underlying)) as? [String: Any]
+        guard var object = try JSONSerialization.jsonObject(with: Data(rulesetData.map { $0.underlying })) as? [String: Any]
         else {
             throw Institute.Repository.Policy.Client.Error.precondition("ruleset is not an object")
         }

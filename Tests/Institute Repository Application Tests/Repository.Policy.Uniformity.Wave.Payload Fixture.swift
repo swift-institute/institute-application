@@ -35,7 +35,7 @@ struct GitProbeRepository: ~Copyable {
             at: location.deletingLastPathComponent(),
             withIntermediateDirectories: true
         )
-        try Data(contents.underlying).write(to: location)
+        try Data(contents.map { $0.underlying }).write(to: location)
     }
 
     /// Stage-0 pathnames, NUL-delimited so a path containing a space or a
