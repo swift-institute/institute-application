@@ -1,4 +1,3 @@
-import Foundation
 import Institute_Architecture_Facts
 import Institute_Architecture_Graph
 import Institute_Architecture_Index
@@ -200,7 +199,8 @@ struct `Institute Architecture Index Artifact Tests` {
     @Test
     func `refuses a tampered digest binding`() throws {
         let artifact = try Artifact.fixture()
-        let tampered = artifact.rendered.replacingOccurrences(
+        let tampered = ArtifactFoundation.replacingOccurrences(
+            in: artifact.rendered,
             of: "validation\tvalid",
             with: "validation\tinvalid"
         )
@@ -213,7 +213,8 @@ struct `Institute Architecture Index Artifact Tests` {
     @Test
     func `refuses an incompatible schema`() throws {
         let artifact = try Artifact.fixture()
-        let incompatible = artifact.rendered.replacingOccurrences(
+        let incompatible = ArtifactFoundation.replacingOccurrences(
+            in: artifact.rendered,
             of: "version\t1",
             with: "version\t2"
         )
@@ -251,7 +252,8 @@ struct `Institute Architecture Index Artifact Tests` {
     func `refuses recomputed digests with tampered coverage`() throws {
         let artifact = try Artifact.fixture()
         let tampered = Artifact.recomputingDigest(
-            artifact.rendered.replacingOccurrences(
+            ArtifactFoundation.replacingOccurrences(
+                in: artifact.rendered,
                 of: "measurement\tcomplete\t2/2",
                 with: "measurement\tcomplete\t1/1"
             )
@@ -266,7 +268,8 @@ struct `Institute Architecture Index Artifact Tests` {
     func `refuses recomputed digests with an entry index mismatch`() throws {
         let artifact = try Artifact.fixture()
         let tampered = Artifact.recomputingDigest(
-            artifact.rendered.replacingOccurrences(
+            ArtifactFoundation.replacingOccurrences(
+                in: artifact.rendered,
                 of: "products=1",
                 with: "products=9"
             )
@@ -281,7 +284,8 @@ struct `Institute Architecture Index Artifact Tests` {
     func `refuses recomputed digests with a rewritten edge`() throws {
         let artifact = try Artifact.fixture()
         let tampered = Artifact.recomputingDigest(
-            artifact.rendered.replacingOccurrences(
+            ArtifactFoundation.replacingOccurrences(
+                in: artifact.rendered,
                 of:
                     "edge\truntime\tswift-foundations/swift-console\tswift-primitives/swift-byte-primitives",
                 with:
@@ -298,7 +302,8 @@ struct `Institute Architecture Index Artifact Tests` {
     func `refuses recomputed digests with a removed edge`() throws {
         let artifact = try Artifact.fixture()
         let tampered = Artifact.recomputingDigest(
-            artifact.rendered.replacingOccurrences(
+            ArtifactFoundation.replacingOccurrences(
+                in: artifact.rendered,
                 of:
                     "\nedge\truntime\tswift-foundations/swift-console\tswift-primitives/swift-byte-primitives",
                 with: ""
@@ -314,7 +319,8 @@ struct `Institute Architecture Index Artifact Tests` {
     func `refuses recomputed digests with an added edge`() throws {
         let artifact = try Artifact.fixture()
         let tampered = Artifact.recomputingDigest(
-            artifact.rendered.replacingOccurrences(
+            ArtifactFoundation.replacingOccurrences(
+                in: artifact.rendered,
                 of:
                     "edge\truntime\tswift-foundations/swift-console\tswift-primitives/swift-byte-primitives",
                 with:

@@ -1,14 +1,9 @@
 public import Institute_Model
 import Institute_Repository_Policy
 import Byte
-import Foundation
 import Institute_Repository_Application
 import Institute_GitHub
 import Testing
-
-#if canImport(FoundationNetworking)
-    import FoundationNetworking
-#endif
 
 @Suite
 struct `Repository Policy Caller Wave Tests` {
@@ -638,12 +633,12 @@ struct `Repository Policy Caller Wave Tests` {
 
     @Test
     func preflightRefusesAMalformedAttestationBeforeMeasurement() async throws {
-        let url = try #require(
-            Bundle.module.url(forResource: "attestation-malformed", withExtension: "json")
+        let path = try #require(
+            CallerWaveFoundation.fixturePath(forResource: "attestation-malformed", withExtension: "json")
         )
 
         #expect(throws: Institute.Repository.Policy.Caller.Wave.Error.self) {
-            _ = try Institute.Repository.Policy.Caller.Wave.Attestation.read(at: url.path)
+            _ = try Institute.Repository.Policy.Caller.Wave.Attestation.read(at: path)
         }
     }
 
@@ -896,8 +891,8 @@ struct `Repository Policy Caller Wave Tests` {
     private func attestation(
         fixture: String
     ) throws -> (attestation: Institute.Repository.Policy.Caller.Wave.Attestation, digest: String) {
-        let url = try #require(Bundle.module.url(forResource: fixture, withExtension: "json"))
-        return try Institute.Repository.Policy.Caller.Wave.Attestation.read(at: url.path)
+        let path = try #require(CallerWaveFoundation.fixturePath(forResource: fixture, withExtension: "json"))
+        return try Institute.Repository.Policy.Caller.Wave.Attestation.read(at: path)
     }
 
     private func recensusEvidence() throws -> (
@@ -1037,14 +1032,14 @@ struct `Repository Policy Caller Wave Tests` {
         status: Int = 200,
         headers: [String: String] = [:]
     ) -> Institute.GitHub.Transport.Response {
-        guard let data = try? JSONSerialization.data(withJSONObject: json) else {
+        guard let data = try? CallerWaveFoundation.jsonBytes(withJSONObject: json) else {
             preconditionFailure("literal test payload failed to encode")
         }
-        return .init(status: status, headers: headers, body: [Byte](data))
+        return .init(status: status, headers: headers, body: data)
     }
 
     private func ruleset(enforcement: String = "active") throws -> [Byte] {
-        try [Byte](JSONSerialization.data(
+        try CallerWaveFoundation.sortedKeysJSONBytes(
             withJSONObject: [
                 "name": "Institute protected main",
                 "target": "branch",
@@ -1064,20 +1059,17 @@ struct `Repository Policy Caller Wave Tests` {
                         ],
                     ],
                 ],
-            ],
-            options: [.sortedKeys]
-        ))
+            ]
+        )
     }
 
     private func fleet(organizations: [String]) throws -> Institute.Repository.Policy.Fleet {
         let values = organizations.map {
             ["name": $0, "layer": "L1", "status": "active"]
         }
-        return try JSONDecoder().decode(
+        return try CallerWaveFoundation.decode(
             Institute.Repository.Policy.Fleet.self,
-            from: JSONSerialization.data(
-                withJSONObject: ["schemaVersion": 1, "organizations": values]
-            )
+            fromJSONObject: ["schemaVersion": 1, "organizations": values]
         )
     }
 }

@@ -1,7 +1,6 @@
 public import Institute_Model
 import Institute_Repository_Policy
 import Byte
-import Foundation
 import Institute_CI_Application
 import Testing
 
@@ -9,21 +8,13 @@ import Testing
 struct `Repository Policy BrokenSymlink Tests` {
     @Test
     func `only missing targets are findings`() throws {
-        let root = FileManager.default.temporaryDirectory
-            .appending(path: UUID().uuidString)
-        try FileManager.default.createDirectory(at: root, withIntermediateDirectories: true)
-        defer { try? FileManager.default.removeItem(at: root) }
+        let root = BrokenSymlinkFixture()
+        try root.createDirectory()
+        defer { root.remove() }
 
-        let target = root.appending(path: "target")
-        #expect(FileManager.default.createFile(atPath: target.path, contents: Data()))
-        try FileManager.default.createSymbolicLink(
-            at: root.appending(path: "live"),
-            withDestinationURL: target
-        )
-        try FileManager.default.createSymbolicLink(
-            atPath: root.appending(path: "broken").path,
-            withDestinationPath: "missing"
-        )
+        #expect(root.createEmptyTarget())
+        try root.linkLiveToTarget()
+        try root.linkBrokenToMissing()
 
         let findings = try Institute.Repository.Policy.BrokenSymlink.findings(at: root.path)
 

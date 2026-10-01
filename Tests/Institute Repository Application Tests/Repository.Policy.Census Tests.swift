@@ -1,7 +1,6 @@
 public import Institute_Model
 import Institute_Repository_Policy
 import Byte
-import Foundation
 import Institute_Repository_Application
 import JSON
 import Testing
@@ -18,14 +17,10 @@ struct `Repository Policy Census Tests` {
 
     @Test
     func generatorScansWorkflowCoordinates() throws {
-        let root = FileManager.default.temporaryDirectory
-            .appendingPathComponent("census-fixture-\(UUID().uuidString)").path
-        defer { try? FileManager.default.removeItem(atPath: root) }
+        let root = CensusFoundation.temporaryRoot(name: CensusFoundation.uuidString())
+        defer { CensusFoundation.removeItem(atPath: root) }
         let workflows = root + "/.github/workflows"
-        try FileManager.default.createDirectory(
-            atPath: workflows,
-            withIntermediateDirectories: true
-        )
+        try CensusFoundation.createDirectory(atPath: workflows)
         let yaml = """
             on: push
             jobs:
@@ -40,9 +35,7 @@ struct `Repository Policy Census Tests` {
                   - name: inline
                     run: gh api /rate_limit
             """
-        try Data(yaml.utf8).write(
-            to: URL(fileURLWithPath: workflows + "/demo.yml")
-        )
+        try CensusFoundation.write(yaml, toPath: workflows + "/demo.yml")
         let census = try Institute.Repository.Policy.Command.Census.Generator(
             repos: [
                 .init(name: "fixture/repo", root: root, headSha: String(repeating: "a", count: 40))

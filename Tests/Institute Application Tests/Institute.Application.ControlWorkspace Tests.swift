@@ -1,4 +1,3 @@
-import Foundation
 import Testing
 
 /// The committed two-member control workspace is a build instrument: it opens
@@ -10,15 +9,7 @@ import Testing
 struct `Institute Control Workspace Membership` {
     @Test
     func `control workspace declares exactly the application and domain members`() throws {
-        let root = URL(fileURLWithPath: #filePath)
-            .deletingLastPathComponent()  // Institute Application Tests
-            .deletingLastPathComponent()  // Tests
-            .deletingLastPathComponent()  // repository root
-        let workspace =
-            root
-            .appendingPathComponent("institute control.xcworkspace")
-            .appendingPathComponent("contents.xcworkspacedata")
-        let content = try String(contentsOf: workspace, encoding: .utf8)
+        let content = try ControlWorkspaceFoundation.contents(besideTestFile: #filePath)
         let expected = """
             <?xml version="1.0" encoding="UTF-8"?>
             <Workspace

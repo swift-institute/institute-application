@@ -1,7 +1,6 @@
 public import Institute_Model
 import Institute_Repository_Policy
 import Byte
-import Foundation
 import Institute_Repository_Application
 import Testing
 
@@ -58,7 +57,8 @@ struct `Repository Policy Caller Tests` {
         var dropped = canonical
         dropped.removeLast()
         #expect(dropped != canonical)
-        let substituted = canonical.replacingOccurrences(
+        let substituted = CallerFoundation.replacingOccurrences(
+            in: canonical,
             of: "merge_group:",
             with: "merge_groUp:"
         )
@@ -83,7 +83,7 @@ struct `Repository Policy Caller Tests` {
             )
         )
         // Exactly one declaration, and no other merge_group surface.
-        #expect(expected.components(separatedBy: "merge_group").count == 2)
+        #expect(CallerFoundation.components(of: expected, separatedBy: "merge_group").count == 2)
     }
 
     /// A direct-form caller carrying the merge_group trigger parses: the
@@ -96,7 +96,8 @@ struct `Repository Policy Caller Tests` {
             layer: .primitives
         )
         let rendered = Institute.Repository.Policy.Caller.Render.direct(caller)
-        let withTrigger = rendered.replacingOccurrences(
+        let withTrigger = CallerFoundation.replacingOccurrences(
+            in: rendered,
             of: "  workflow_dispatch:",
             with: "  merge_group:\n    types:\n      - checks_requested\n  workflow_dispatch:"
         )
@@ -176,8 +177,8 @@ struct `Repository Policy Caller Tests` {
             ]
         )
         let text = Institute.Repository.Policy.Caller.Render.current(caller)
-        let swiftVersion = try #require(text.range(of: "swift-version: 6.2"))
-        let docs = try #require(text.range(of: "docs-umbrella-module: Demo"))
+        let swiftVersion = try #require(CallerFoundation.range(of: "swift-version: 6.2", in: text))
+        let docs = try #require(CallerFoundation.range(of: "docs-umbrella-module: Demo", in: text))
         #expect(swiftVersion.lowerBound < docs.lowerBound)
     }
 

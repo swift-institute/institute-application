@@ -1,13 +1,8 @@
 public import Institute_Model
 import Institute_Repository_Policy
 import Byte
-import Foundation
 import Institute_Repository_Application
 import Testing
-
-#if canImport(FoundationNetworking)
-    import FoundationNetworking
-#endif
 
 @Suite
 struct `Repository Policy Uniformity Wave Tests` {
@@ -602,8 +597,8 @@ struct `Repository Policy Uniformity Wave Tests` {
     private func attestation(
         fixture: String
     ) throws -> (attestation: Institute.Repository.Policy.Uniformity.Wave.Attestation, digest: String) {
-        let url = try #require(Bundle.module.url(forResource: fixture, withExtension: "json"))
-        return try Institute.Repository.Policy.Uniformity.Wave.Attestation.read(at: url.path)
+        let path = try #require(UniformityWaveFoundation.fixturePath(forResource: fixture, withExtension: "json"))
+        return try Institute.Repository.Policy.Uniformity.Wave.Attestation.read(at: path)
     }
 
     private func recensusEvidence() throws -> (
@@ -736,7 +731,7 @@ struct `Repository Policy Uniformity Wave Tests` {
     private var policySource: String { String(repeating: "a", count: 40) }
 
     private func ruleset(enforcement: String = "active") throws -> [Byte] {
-        try [Byte](JSONSerialization.data(
+        try UniformityWaveFoundation.sortedKeysJSONBytes(
             withJSONObject: [
                 "name": "Institute protected main",
                 "target": "branch",
@@ -756,20 +751,17 @@ struct `Repository Policy Uniformity Wave Tests` {
                         ],
                     ],
                 ],
-            ],
-            options: [.sortedKeys]
-        ))
+            ]
+        )
     }
 
     private func fleet(organizations: [String]) throws -> Institute.Repository.Policy.Fleet {
         let values = organizations.map {
             ["name": $0, "layer": "L1", "status": "active"]
         }
-        return try JSONDecoder().decode(
+        return try UniformityWaveFoundation.decode(
             Institute.Repository.Policy.Fleet.self,
-            from: JSONSerialization.data(
-                withJSONObject: ["schemaVersion": 1, "organizations": values]
-            )
+            fromJSONObject: ["schemaVersion": 1, "organizations": values]
         )
     }
 }

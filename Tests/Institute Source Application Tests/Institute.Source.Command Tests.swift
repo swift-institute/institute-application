@@ -1,5 +1,4 @@
 import Command
-import Foundation
 import Institute_Model
 import Institute_Source
 import Source_Repair
@@ -131,10 +130,10 @@ func `source rule selection requires exact engine and rule identity`() throws {
 
 @Test
 func `repair artifact replacement is bound to the same workspace cohort and subjects`() throws {
-    let directory = FileManager.default.temporaryDirectory.appending(path: UUID().uuidString)
-    try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
-    defer { try? FileManager.default.removeItem(at: directory) }
-    let path = directory.appending(path: "repair.json").path
+    let directory = SourceCommandDirectory()
+    try directory.create()
+    defer { directory.remove() }
+    let path = directory.path(of: "repair.json")
     let first = repairPlan(subject: "swift-primitives/swift-one")
     let other = repairPlan(subject: "swift-primitives/swift-two")
 

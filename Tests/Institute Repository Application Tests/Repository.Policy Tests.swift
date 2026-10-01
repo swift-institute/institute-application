@@ -1,7 +1,6 @@
 public import Institute_Model
 import Institute_Repository_Policy
 import Byte
-import Foundation
 import Institute_Repository_Application
 import Testing
 
@@ -9,8 +8,8 @@ import Testing
 struct `Repository Policy Tests` {
     @Test
     func eligibilityFixtures() throws {
-        let url = try #require(Bundle.module.url(forResource: "eligibility", withExtension: "json"))
-        let fixtures = try JSONDecoder().decode([Fixture].self, from: Data(contentsOf: url))
+        let url = try #require(RepositoryPolicyFoundation.url(forResource: "eligibility", withExtension: "json"))
+        let fixtures = try RepositoryPolicyFoundation.decode([Fixture].self, contentsOf: url)
 
         #expect(fixtures.count == 9)
         for fixture in fixtures {
@@ -27,8 +26,8 @@ struct `Repository Policy Tests` {
     // The canonical policy contracts ride along as test fixtures; the
     // live documents are supplied by the control-plane workflows.
     private func policy(_ name: String) throws -> [Byte] {
-        let url = try #require(Bundle.module.url(forResource: name, withExtension: "json"))
-        return [Byte](try Data(contentsOf: url))
+        let url = try #require(RepositoryPolicyFoundation.url(forResource: name, withExtension: "json"))
+        return try RepositoryPolicyFoundation.bytes(contentsOf: url)
     }
 
     private func policyText(_ name: String) throws -> String {
@@ -40,7 +39,7 @@ struct `Repository Policy Tests` {
         let payload = try Institute.Repository.Policy.Ruleset.protectedMainPayload(
             from: try policy("protected-main-ruleset")
         )
-        let object = try #require(try JSONSerialization.jsonObject(with: Data(payload.underlying)) as? [String: Any])
+        let object = try #require(try RepositoryPolicyFoundation.jsonObject(with: payload.underlying) as? [String: Any])
         #expect((object["bypass_actors"] as? [Any])?.isEmpty == true)
         #expect((object["enforcement"] as? String) == "active")
         let rules = try #require(object["rules"] as? [[String: Any]])
@@ -91,11 +90,11 @@ struct `Repository Policy Tests` {
     // bare-legacy-name positive control this replaces).
     @Test
     func protectedMainPayloadRejectsTheRetiredCompatibilityContextAlone() throws {
-        let legacy = try policyText("protected-main-ruleset")
-            .replacingOccurrences(
-                of: "\"context\": \"ci / matrix / ci-ok\"",
-                with: "\"context\": \"ci / ci-ok\""
-            )
+        let legacy = try RepositoryPolicyFoundation.substitute(
+            of: "\"context\": \"ci / matrix / ci-ok\"",
+            with: "\"context\": \"ci / ci-ok\"",
+            in: policyText("protected-main-ruleset")
+        )
         #expect(throws: Institute.Repository.Policy.Ruleset.Error.self) {
             try Institute.Repository.Policy.Ruleset.protectedMainPayload(from: [Byte](utf8: legacy))
         }
@@ -107,11 +106,11 @@ struct `Repository Policy Tests` {
     // report. The validator must refuse it.
     @Test
     func protectedMainPayloadRejectsTheBareUnprefixedContext() throws {
-        let legacy = try policyText("protected-main-ruleset")
-            .replacingOccurrences(
-                of: "\"context\": \"ci / matrix / ci-ok\"",
-                with: "\"context\": \"ci-ok\""
-            )
+        let legacy = try RepositoryPolicyFoundation.substitute(
+            of: "\"context\": \"ci / matrix / ci-ok\"",
+            with: "\"context\": \"ci-ok\"",
+            in: policyText("protected-main-ruleset")
+        )
         #expect(throws: Institute.Repository.Policy.Ruleset.Error.self) {
             try Institute.Repository.Policy.Ruleset.protectedMainPayload(from: [Byte](utf8: legacy))
         }
@@ -123,7 +122,7 @@ struct `Repository Policy Tests` {
     // controls below, which need a payload that differs from a shipped
     // fixture in exactly one field.
     private func scratchFixture(_ object: [String: Any]) throws -> [Byte] {
-        [Byte](try JSONSerialization.data(withJSONObject: object))
+        try RepositoryPolicyFoundation.data(withJSONObject: object)
     }
 
     // Discriminating negative: no payload class admits a bypass actor. The
@@ -142,7 +141,7 @@ struct `Repository Policy Tests` {
         ] {
             let source = try policy(fixture)
             var object = try #require(
-                try JSONSerialization.jsonObject(with: Data(source.underlying)) as? [String: Any]
+                try RepositoryPolicyFoundation.jsonObject(with: source.underlying) as? [String: Any]
             )
             object["bypass_actors"] = authorized
             let url = try scratchFixture(object)
@@ -167,7 +166,7 @@ struct `Repository Policy Tests` {
     func protectedMainPrivatePayloadFixtureRequiresWorkspaceVerification() throws {
         let url = try policy("protected-main-private-ruleset")
         let payload = try Institute.Repository.Policy.Ruleset.protectedMainPrivatePayload(from: url)
-        let object = try #require(try JSONSerialization.jsonObject(with: Data(payload.underlying)) as? [String: Any])
+        let object = try #require(try RepositoryPolicyFoundation.jsonObject(with: payload.underlying) as? [String: Any])
         let rules = try #require(object["rules"] as? [[String: Any]])
         let checks = try #require(
             rules.first(where: { $0["type"] as? String == "required_status_checks" })?[
@@ -203,7 +202,7 @@ struct `Repository Policy Tests` {
     func everyPackageVariantRejectsAPayloadMissingTheRequiredStatusChecksRule() throws {
         let canonical = try policy("protected-main-ruleset")
         var object = try #require(
-            try JSONSerialization.jsonObject(with: Data(canonical.underlying)) as? [String: Any]
+            try RepositoryPolicyFoundation.jsonObject(with: canonical.underlying) as? [String: Any]
         )
         var rules = try #require(object["rules"] as? [[String: Any]])
         rules.removeAll { $0["type"] as? String == "required_status_checks" }
@@ -229,7 +228,7 @@ struct `Repository Policy Tests` {
     func protectedMainPayloadAcceptsACanonicalReadbackAroundThePinnedContract() throws {
         let canonical = try policy("protected-main-ruleset")
         var object = try #require(
-            try JSONSerialization.jsonObject(with: Data(canonical.underlying)) as? [String: Any]
+            try RepositoryPolicyFoundation.jsonObject(with: canonical.underlying) as? [String: Any]
         )
         object["id"] = 20_244_631
         object["node_id"] = "RUL_lADummyReadback"
@@ -240,7 +239,7 @@ struct `Repository Policy Tests` {
 
         let payload = try Institute.Repository.Policy.Ruleset.protectedMainPayload(from: url)
         let decoded = try #require(
-            try JSONSerialization.jsonObject(with: Data(payload.underlying)) as? [String: Any]
+            try RepositoryPolicyFoundation.jsonObject(with: payload.underlying) as? [String: Any]
         )
         let rules = try #require(decoded["rules"] as? [[String: Any]])
         let review = try #require(
@@ -258,11 +257,11 @@ struct `Repository Policy Tests` {
     @Test
     func protectedMainPayloadRejectsAllMergeMethods() throws {
         let canonical = try policy("protected-main-ruleset")
-        let allMethods = String(decoding: canonical, as: UTF8.self)
-            .replacingOccurrences(
-                of: "\"allowed_merge_methods\": [\"squash\"]",
-                with: "\"allowed_merge_methods\": [\"merge\", \"squash\", \"rebase\"]"
-            )
+        let allMethods = RepositoryPolicyFoundation.substitute(
+            of: "\"allowed_merge_methods\": [\"squash\"]",
+            with: "\"allowed_merge_methods\": [\"merge\", \"squash\", \"rebase\"]",
+            in: String(decoding: canonical, as: UTF8.self)
+        )
         #expect(allMethods.contains("\"merge\", \"squash\", \"rebase\""))
         let url = [Byte](utf8: allMethods)
 
@@ -279,14 +278,19 @@ struct `Repository Policy Tests` {
     @Test
     func protectedMainPayloadRejectsAnUnpinnedMergeMethodContract() throws {
         let canonical = try policy("protected-main-ruleset")
-        let unpinned =
-            String(decoding: canonical, as: UTF8.self)
-            .replacingOccurrences(of: "\"allowed_merge_methods\": [\"squash\"], ", with: "")
-            .replacingOccurrences(
+        let unpinned = RepositoryPolicyFoundation.substitute(
+            of: ", \"required_reviewers\": []",
+            with: "",
+            in: RepositoryPolicyFoundation.substitute(
                 of: "\"dismissal_restriction\": { \"allowed_actors\": [], \"enabled\": false }, ",
-                with: ""
+                with: "",
+                in: RepositoryPolicyFoundation.substitute(
+                    of: "\"allowed_merge_methods\": [\"squash\"], ",
+                    with: "",
+                    in: String(decoding: canonical, as: UTF8.self)
+                )
             )
-            .replacingOccurrences(of: ", \"required_reviewers\": []", with: "")
+        )
         // Confirm the substitution actually reproduces the pre-fix shape
         // before asserting on the validator's behavior against it.
         #expect(!unpinned.contains("allowed_merge_methods"))
@@ -309,7 +313,7 @@ struct `Repository Policy Tests` {
     func protectedMainControlPayloadFixtureDefinesTheControlPlaneTransaction() throws {
         let url = try policy("protected-main-control-ruleset")
         let payload = try Institute.Repository.Policy.Ruleset.protectedMainControlPayload(from: url)
-        let object = try #require(try JSONSerialization.jsonObject(with: Data(payload.underlying)) as? [String: Any])
+        let object = try #require(try RepositoryPolicyFoundation.jsonObject(with: payload.underlying) as? [String: Any])
         #expect((object["name"] as? String) == "Institute protected main (control)")
         #expect((object["bypass_actors"] as? [Any])?.isEmpty == true)
         #expect((object["enforcement"] as? String) == "active")
@@ -338,7 +342,7 @@ struct `Repository Policy Tests` {
     func protectedMainPayloadRejectsAPayloadMissingTheRequiredStatusChecksRule() throws {
         let canonical = try policy("protected-main-ruleset")
         var object = try #require(
-            try JSONSerialization.jsonObject(with: Data(canonical.underlying)) as? [String: Any]
+            try RepositoryPolicyFoundation.jsonObject(with: canonical.underlying) as? [String: Any]
         )
         var rules = try #require(object["rules"] as? [[String: Any]])
         rules.removeAll { $0["type"] as? String == "required_status_checks" }
@@ -357,7 +361,7 @@ struct `Repository Policy Tests` {
     func protectedMainControlPayloadRejectsASmuggledRequiredStatusChecksRule() throws {
         let canonical = try policy("protected-main-control-ruleset")
         var object = try #require(
-            try JSONSerialization.jsonObject(with: Data(canonical.underlying)) as? [String: Any]
+            try RepositoryPolicyFoundation.jsonObject(with: canonical.underlying) as? [String: Any]
         )
         var rules = try #require(object["rules"] as? [[String: Any]])
         rules.append([

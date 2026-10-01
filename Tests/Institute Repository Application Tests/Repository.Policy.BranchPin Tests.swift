@@ -1,7 +1,6 @@
 public import Institute_Model
 import Institute_Repository_Policy
 import Byte
-import Foundation
 import Package_Manager
 import Institute_Repository_Application
 import Testing
@@ -11,7 +10,7 @@ struct `Repository Policy BranchPin Tests` {
     @Test
     func `fleet policy decodes active organizations`() throws {
         let path = try #require(
-            Bundle.module.url(forResource: "fleet-minimal", withExtension: "json")?.path
+            BranchPinFoundation.resourcePath(forResource: "fleet-minimal", withExtension: "json")
         )
         let fleet = try Institute.Repository.Policy.Fleet.read(at: path)
 
@@ -22,7 +21,7 @@ struct `Repository Policy BranchPin Tests` {
 
     @Test
     func `fleet policy resolves layer defaults and repository exceptions`() throws {
-        let data = Data(
+        let path = try BranchPinFoundation.writeTemporaryFleetPolicy(
             """
             {
               "schemaVersion": 1,
@@ -39,13 +38,10 @@ struct `Repository Policy BranchPin Tests` {
                 }
               ]
             }
-            """.utf8
+            """
         )
-        let path = FileManager.default.temporaryDirectory
-            .appending(path: "fleet-policy-\(UUID().uuidString).json")
-        try data.write(to: path)
 
-        let fleet = try Institute.Repository.Policy.Fleet.read(at: path.path)
+        let fleet = try Institute.Repository.Policy.Fleet.read(at: path)
         #expect(
             try fleet.configuration(for: "swift-primitives/swift-bool-primitives")
                 == .init(lintBundle: "primitives", platforms: "", embeddedTarget: "")
@@ -124,14 +120,10 @@ struct `Repository Policy BranchPin Tests` {
         repositories: String? = nil
     ) throws -> Institute.Repository.Policy.Fleet {
         let repositoryField = repositories.map { ",\"repositories\":[\($0)]" } ?? ""
-        let data = Data(
+        let path = try BranchPinFoundation.writeTemporaryFleetPolicy(
             "{\"schemaVersion\":1,\"organizations\":[\(organizations)]\(repositoryField)}"
-                .utf8
         )
-        let path = FileManager.default.temporaryDirectory
-            .appending(path: "fleet-policy-\(UUID().uuidString).json")
-        try data.write(to: path)
-        return try Institute.Repository.Policy.Fleet.read(at: path.path)
+        return try Institute.Repository.Policy.Fleet.read(at: path)
     }
 
     @Test
