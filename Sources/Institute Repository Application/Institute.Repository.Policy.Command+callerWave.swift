@@ -1,6 +1,7 @@
 public import Institute_Model
 import struct Swift.String
 import Byte
+import Calendar_Gregorian
 import Environment
 import GitHub_App
 public import Institute_Repository_Policy
@@ -63,7 +64,7 @@ extension Institute.Repository.Policy.Command {
     /// Now in UTC, `YYYY-MM-DDTHH:MM:SSZ` — the issuance stamp recorded
     /// on wave attestations.
     static var issuedAt: Swift.String {
-        Time(Instant(secondsSinceUnixEpoch: GitHub.App.Clock.now()))
+        Gregorian.DateTime(Time.Instant(secondsSinceUnixEpoch: GitHub.App.Clock.now()))
             .rfc3339.format(offset: .utc, precision: 0)
     }
 

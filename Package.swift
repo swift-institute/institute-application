@@ -136,6 +136,7 @@ let package = Package(
     .package(url: "https://github.com/swift-ietf/swift-rfc-4648.git", branch: "main"),
     .package(url: "https://github.com/swift-ietf/swift-rfc-3339.git", branch: "main"),
     .package(url: "https://github.com/swift-atoms/swift-time.git", branch: "main"),
+    .package(url: "https://github.com/swift-molecules/swift-calendar-gregorian.git", branch: "main"),
     .package(url: "https://github.com/swift-compositions/swift-process.git", branch: "main"),
     .package(url: "https://github.com/swift-atoms/swift-byte.git", branch: "main"),
     .package(url: "https://github.com/swift-standards/swift-fips-180-4.git", branch: "main"),
@@ -273,6 +274,7 @@ let package = Package(
         .product(name: "JSON", package: "swift-json"),
         .product(name: "Package Manager", package: "swift-package-manager"),
         .product(name: "Process", package: "swift-process"),
+        .product(name: "Calendar Gregorian", package: "swift-calendar-gregorian"),
       ]
     ),
     .target(
