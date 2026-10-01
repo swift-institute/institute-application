@@ -315,7 +315,7 @@ actor CallerWaveMockClient: Institute.Repository.Policy.Caller.Wave.Client {
                 "bypass_mode": "always",
             ]
         ]
-        rulesetData = try [Byte](JSONSerialization.data(withJSONObject: object, options: [.sortedKeys]))
+        rulesetData = try JSONSerialization.data(withJSONObject: object, options: [.sortedKeys]).map { Byte(bitPattern: $0) }
     }
 
     func bypassOpen(integrationID: Int64) -> Bool {

@@ -39,7 +39,7 @@ struct `Repository Policy Tests` {
         let payload = try Institute.Repository.Policy.Ruleset.protectedMainPayload(
             from: try policy("protected-main-ruleset")
         )
-        let object = try #require(try RepositoryPolicyFoundation.jsonObject(with: payload) as? [String: Any])
+        let object = try #require(try RepositoryPolicyFoundation.jsonObject(with: payload.map { $0.underlying }) as? [String: Any])
         #expect((object["bypass_actors"] as? [Any])?.isEmpty == true)
         #expect((object["enforcement"] as? String) == "active")
         let rules = try #require(object["rules"] as? [[String: Any]])
@@ -141,7 +141,7 @@ struct `Repository Policy Tests` {
         ] {
             let source = try policy(fixture)
             var object = try #require(
-                try RepositoryPolicyFoundation.jsonObject(with: source) as? [String: Any]
+                try RepositoryPolicyFoundation.jsonObject(with: source.map { $0.underlying }) as? [String: Any]
             )
             object["bypass_actors"] = authorized
             let url = try scratchFixture(object)
@@ -166,7 +166,7 @@ struct `Repository Policy Tests` {
     func protectedMainPrivatePayloadFixtureRequiresWorkspaceVerification() throws {
         let url = try policy("protected-main-private-ruleset")
         let payload = try Institute.Repository.Policy.Ruleset.protectedMainPrivatePayload(from: url)
-        let object = try #require(try RepositoryPolicyFoundation.jsonObject(with: payload) as? [String: Any])
+        let object = try #require(try RepositoryPolicyFoundation.jsonObject(with: payload.map { $0.underlying }) as? [String: Any])
         let rules = try #require(object["rules"] as? [[String: Any]])
         let checks = try #require(
             rules.first(where: { $0["type"] as? String == "required_status_checks" })?[
@@ -202,7 +202,7 @@ struct `Repository Policy Tests` {
     func everyPackageVariantRejectsAPayloadMissingTheRequiredStatusChecksRule() throws {
         let canonical = try policy("protected-main-ruleset")
         var object = try #require(
-            try RepositoryPolicyFoundation.jsonObject(with: canonical) as? [String: Any]
+            try RepositoryPolicyFoundation.jsonObject(with: canonical.map { $0.underlying }) as? [String: Any]
         )
         var rules = try #require(object["rules"] as? [[String: Any]])
         rules.removeAll { $0["type"] as? String == "required_status_checks" }
@@ -228,7 +228,7 @@ struct `Repository Policy Tests` {
     func protectedMainPayloadAcceptsACanonicalReadbackAroundThePinnedContract() throws {
         let canonical = try policy("protected-main-ruleset")
         var object = try #require(
-            try RepositoryPolicyFoundation.jsonObject(with: canonical) as? [String: Any]
+            try RepositoryPolicyFoundation.jsonObject(with: canonical.map { $0.underlying }) as? [String: Any]
         )
         object["id"] = 20_244_631
         object["node_id"] = "RUL_lADummyReadback"
@@ -239,7 +239,7 @@ struct `Repository Policy Tests` {
 
         let payload = try Institute.Repository.Policy.Ruleset.protectedMainPayload(from: url)
         let decoded = try #require(
-            try RepositoryPolicyFoundation.jsonObject(with: payload) as? [String: Any]
+            try RepositoryPolicyFoundation.jsonObject(with: payload.map { $0.underlying }) as? [String: Any]
         )
         let rules = try #require(decoded["rules"] as? [[String: Any]])
         let review = try #require(
@@ -313,7 +313,7 @@ struct `Repository Policy Tests` {
     func protectedMainControlPayloadFixtureDefinesTheControlPlaneTransaction() throws {
         let url = try policy("protected-main-control-ruleset")
         let payload = try Institute.Repository.Policy.Ruleset.protectedMainControlPayload(from: url)
-        let object = try #require(try RepositoryPolicyFoundation.jsonObject(with: payload) as? [String: Any])
+        let object = try #require(try RepositoryPolicyFoundation.jsonObject(with: payload.map { $0.underlying }) as? [String: Any])
         #expect((object["name"] as? String) == "Institute protected main (control)")
         #expect((object["bypass_actors"] as? [Any])?.isEmpty == true)
         #expect((object["enforcement"] as? String) == "active")
@@ -342,7 +342,7 @@ struct `Repository Policy Tests` {
     func protectedMainPayloadRejectsAPayloadMissingTheRequiredStatusChecksRule() throws {
         let canonical = try policy("protected-main-ruleset")
         var object = try #require(
-            try RepositoryPolicyFoundation.jsonObject(with: canonical) as? [String: Any]
+            try RepositoryPolicyFoundation.jsonObject(with: canonical.map { $0.underlying }) as? [String: Any]
         )
         var rules = try #require(object["rules"] as? [[String: Any]])
         rules.removeAll { $0["type"] as? String == "required_status_checks" }
@@ -361,7 +361,7 @@ struct `Repository Policy Tests` {
     func protectedMainControlPayloadRejectsASmuggledRequiredStatusChecksRule() throws {
         let canonical = try policy("protected-main-control-ruleset")
         var object = try #require(
-            try RepositoryPolicyFoundation.jsonObject(with: canonical) as? [String: Any]
+            try RepositoryPolicyFoundation.jsonObject(with: canonical.map { $0.underlying }) as? [String: Any]
         )
         var rules = try #require(object["rules"] as? [[String: Any]])
         rules.append([
