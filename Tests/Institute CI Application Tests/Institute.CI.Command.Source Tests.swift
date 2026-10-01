@@ -1,4 +1,5 @@
 import Command
+import Source_Report
 import Testing
 
 @testable import Institute_CI_Application
@@ -106,3 +107,127 @@ func `CI source exit policy fails only strict runs with error findings`() {
     #expect(strict.code(status: .findings, errors: true) == 1)
     #expect(strict.code(status: .unmeasured, errors: true) == 2)
 }
+
+/// Real `Source.Report` values for the exit policy's error classification:
+/// one report per evidence channel, built through the report's own
+/// initializers and classified by the production `errors(in:)` and
+/// `Status(_:expected:)`. These reports carry an empty commitment, so
+/// production classification reads them as unmeasured; that precedence is
+/// asserted for both policies. A measured-status outcome needs a report
+/// that `Source.Report.Complete` accepts, which these do not construct.
+private enum PolicyReport {
+    static let digest = String(repeating: "0", count: 64)
+    static let engine = Source.Engine.ID("swift-format")
+    static let rule = Source.Rule.ID(engine: engine, token: "AlwaysUseLowerCamelCase")
+    static let subject = Source.Subject(
+        identity: "swift-standards/swift-iso-639",
+        root: "/work/swift-iso-639",
+        artifacts: []
+    )
+    static let artifact = Source.Artifact(
+        path: ".swift-format",
+        kind: .configuration,
+        purpose: .generatedPolicy,
+        provenance: .authored,
+        digest: .init(digest)
+    )
+    static let identity = Source.Artifact.Identity(
+        digest: .init(digest),
+        schema: .init("swift-format")
+    )
+    static let commitment = Source.Report.Commitment(
+        subjects: [],
+        engines: [],
+        rules: [],
+        requirements: [],
+        predicates: [],
+        predicateRequirements: []
+    )
+
+    static func finding(_ severity: Diagnostic.Severity) -> Source.Finding {
+        .init(
+            rule: rule,
+            diagnostic: .init(
+                location: .init(fileID: "ISO639.swift", line: 1, column: 1),
+                severity: severity,
+                identifier: rule.token,
+                message: "fixture finding"
+            ),
+            repair: .automatic
+        )
+    }
+
+    static func report(
+        measurement: Source.Measurement.Verdict = .clean,
+        artifact: Source.Artifact.Verdict? = nil,
+        control: Source.Artifact.Verdict? = nil
+    ) -> Source.Report {
+        .init(
+            scope: .workspace,
+            profile: .init(digest),
+            commitment: commitment,
+            subjects: [subject],
+            references: [],
+            measurements: [
+                .init(
+                    engine: engine,
+                    subject: subject,
+                    activeRules: [rule],
+                    applicableRules: [rule],
+                    files: ["ISO639.swift"],
+                    verdict: measurement
+                )
+            ],
+            artifactEvidence: artifact.map {
+                [
+                    .init(
+                        subject: subject.identity,
+                        artifact: PolicyReport.artifact,
+                        predicate: rule,
+                        actual: identity,
+                        expected: identity,
+                        verdict: $0
+                    )
+                ]
+            } ?? [],
+            controlEvidence: control.map {
+                [
+                    .init(
+                        identity: "fixture-control",
+                        rule: rule,
+                        expectation: .clean,
+                        actualFindings: 1,
+                        verdict: $0
+                    )
+                ]
+            } ?? []
+        )
+    }
+}
+
+@Test
+func `CI source exit policy classifies errors from each real report channel`() {
+    typealias Policy = Institute.CI.Command.Source.Policy
+    let reason = Source.Reason(code: "fixture", detail: "fixture finding")
+
+    #expect(!Policy.errors(in: PolicyReport.report()))
+    #expect(Policy.errors(in: PolicyReport.report(measurement: .findings([PolicyReport.finding(.error)]))))
+    #expect(!Policy.errors(in: PolicyReport.report(measurement: .findings([PolicyReport.finding(.warning)]))))
+    #expect(Policy.errors(in: PolicyReport.report(artifact: .findings([reason]))))
+    #expect(!Policy.errors(in: PolicyReport.report(artifact: .clean)))
+    #expect(Policy.errors(in: PolicyReport.report(control: .findings([reason]))))
+    #expect(!Policy.errors(in: PolicyReport.report(control: .clean)))
+}
+
+@Test
+func `CI source exit policy keeps an unmeasured real report at two under both policies`() {
+    typealias Policy = Institute.CI.Command.Source.Policy
+    let report = PolicyReport.report(measurement: .findings([PolicyReport.finding(.error)]))
+    let status = Source.Report.Status(report, expected: report.commitment)
+
+    #expect(status == .unmeasured)
+    #expect(Policy.errors(in: report))
+    #expect(Policy.advisory.code(status: status, errors: Policy.errors(in: report)) == 2)
+    #expect(Policy.strict.code(status: status, errors: Policy.errors(in: report)) == 2)
+}
+
