@@ -108,47 +108,51 @@ func `CI source exit policy fails only strict runs with error findings`() {
     #expect(strict.code(status: .unmeasured, errors: true) == 2)
 }
 
-/// Real `Source.Report` values for the exit policy's error classification:
-/// one report per evidence channel, built through the report's own
-/// initializers and classified by the production `errors(in:)` and
-/// `Status(_:expected:)`. These reports carry an empty commitment, so
-/// production classification reads them as unmeasured; that precedence is
-/// asserted for both policies. A measured-status outcome needs a report
-/// that `Source.Report.Complete` accepts, which these do not construct.
+/// Real `Source.Report` values that `Source.Report.Complete` accepts: one
+/// subject with one governed Swift file, one engine with one measured rule
+/// and its transported control, and one artifact predicate on the same file.
+/// Each case varies exactly one evidence channel; production `Status` and
+/// `errors(in:)` classify it.
 private enum PolicyReport {
     static let digest = String(repeating: "0", count: 64)
     static let engine = Source.Engine.ID("swift-format")
     static let rule = Source.Rule.ID(engine: engine, token: "AlwaysUseLowerCamelCase")
-    static let subject = Source.Subject(
-        identity: "swift-standards/swift-iso-639",
-        root: "/work/swift-iso-639",
-        artifacts: []
-    )
+    static let predicate = Source.Rule.ID(engine: engine, token: "PolicyIdentity")
+    static let root = "/work/swift-iso-639"
+    static let path = "Sources/ISO639.swift"
+    static let file = root + "/" + path
+    static let control = "fixture-control"
+    static let reason = Source.Reason(code: "fixture", detail: "fixture finding")
     static let artifact = Source.Artifact(
-        path: ".swift-format",
-        kind: .configuration,
-        purpose: .generatedPolicy,
+        path: path,
+        kind: .swift,
+        purpose: .governedSource,
         provenance: .authored,
         digest: .init(digest)
+    )
+    static let subject = Source.Subject(
+        identity: "swift-standards/swift-iso-639",
+        root: root,
+        artifacts: [artifact]
     )
     static let identity = Source.Artifact.Identity(
         digest: .init(digest),
         schema: .init("swift-format")
     )
     static let commitment = Source.Report.Commitment(
-        subjects: [],
-        engines: [],
-        rules: [],
-        requirements: [],
-        predicates: [],
-        predicateRequirements: []
+        subjects: [subject],
+        engines: [.init(id: engine, artifactKinds: [.swift])],
+        rules: [.init(id: rule, controls: [control]), .init(id: predicate, controls: [])],
+        requirements: [.init(subject: subject.identity, engine: engine, artifacts: [path], rules: [rule])],
+        predicates: [.init(id: predicate, artifactKinds: [.swift])],
+        predicateRequirements: [.init(subject: subject.identity, artifacts: [path], predicates: [predicate])]
     )
 
     static func finding(_ severity: Diagnostic.Severity) -> Source.Finding {
         .init(
             rule: rule,
             diagnostic: .init(
-                location: .init(fileID: "ISO639.swift", line: 1, column: 1),
+                location: .init(fileID: "ISO639.swift", filePath: file, line: 1, column: 1),
                 severity: severity,
                 identifier: rule.token,
                 message: "fixture finding"
@@ -158,11 +162,20 @@ private enum PolicyReport {
     }
 
     static func report(
-        measurement: Source.Measurement.Verdict = .clean,
-        artifact: Source.Artifact.Verdict? = nil,
-        control: Source.Artifact.Verdict? = nil
+        findings: [Source.Finding] = [],
+        artifactFinding: Bool = false,
+        controlFinding: Bool = false,
+        transportsControl: Bool = true
     ) -> Source.Report {
-        .init(
+        let controlEvidence = Source.Rule.Control.Evidence(
+            identity: control,
+            rule: rule,
+            expectation: .clean,
+            actualFindings: controlFinding ? 1 : 0,
+            verdict: controlFinding ? .findings([reason]) : .clean
+        )
+        let controls = transportsControl ? [controlEvidence] : []
+        return .init(
             scope: .workspace,
             profile: .init(digest),
             commitment: commitment,
@@ -174,60 +187,67 @@ private enum PolicyReport {
                     subject: subject,
                     activeRules: [rule],
                     applicableRules: [rule],
-                    files: ["ISO639.swift"],
-                    verdict: measurement
+                    files: [file],
+                    observations: [.init(file: file, rule: rule, applicable: true, coverage: .measured)],
+                    repairs: findings.isEmpty ? [] : [.init(file: file, rule: rule, disposition: .unchanged)],
+                    controls: controls,
+                    verdict: findings.isEmpty ? .clean : .findings(findings)
                 )
             ],
-            artifactEvidence: artifact.map {
-                [
-                    .init(
-                        subject: subject.identity,
-                        artifact: PolicyReport.artifact,
-                        predicate: rule,
-                        actual: identity,
-                        expected: identity,
-                        verdict: $0
-                    )
-                ]
-            } ?? [],
-            controlEvidence: control.map {
-                [
-                    .init(
-                        identity: "fixture-control",
-                        rule: rule,
-                        expectation: .clean,
-                        actualFindings: 1,
-                        verdict: $0
-                    )
-                ]
-            } ?? []
+            artifactEvidence: [
+                .init(
+                    subject: subject.identity,
+                    artifact: artifact,
+                    predicate: predicate,
+                    actual: artifactFinding
+                        ? .init(digest: .init(String(repeating: "1", count: 64)), schema: .init("swift-format"))
+                        : identity,
+                    expected: identity,
+                    verdict: artifactFinding ? .findings([reason]) : .clean
+                )
+            ],
+            controlEvidence: controls
         )
     }
 }
 
 @Test
-func `CI source exit policy classifies errors from each real report channel`() {
+func `CI source exit policy classifies complete real reports per evidence channel`() throws {
     typealias Policy = Institute.CI.Command.Source.Policy
-    let reason = Source.Reason(code: "fixture", detail: "fixture finding")
+    let cases: [(report: Source.Report, status: Source.Report.Status, strict: Int32)] = [
+        (PolicyReport.report(), .clean, 0),
+        (PolicyReport.report(findings: [PolicyReport.finding(.warning)]), .findings, 0),
+        (PolicyReport.report(findings: [PolicyReport.finding(.error)]), .findings, 1),
+        (PolicyReport.report(artifactFinding: true), .findings, 1),
+        (PolicyReport.report(controlFinding: true), .findings, 1),
+    ]
 
-    #expect(!Policy.errors(in: PolicyReport.report()))
-    #expect(Policy.errors(in: PolicyReport.report(measurement: .findings([PolicyReport.finding(.error)]))))
-    #expect(!Policy.errors(in: PolicyReport.report(measurement: .findings([PolicyReport.finding(.warning)]))))
-    #expect(Policy.errors(in: PolicyReport.report(artifact: .findings([reason]))))
-    #expect(!Policy.errors(in: PolicyReport.report(artifact: .clean)))
-    #expect(Policy.errors(in: PolicyReport.report(control: .findings([reason]))))
-    #expect(!Policy.errors(in: PolicyReport.report(control: .clean)))
+    for (report, expected, strict) in cases {
+        _ = try Source.Report.Complete(report, expected: report.commitment)
+        let status = Source.Report.Status(report, expected: report.commitment)
+        let errors = Policy.errors(in: report)
+
+        #expect(status == expected)
+        #expect(errors == (strict == 1))
+        #expect(Policy.advisory.code(status: status, errors: errors) == 0)
+        #expect(Policy.strict.code(status: status, errors: errors) == strict)
+    }
 }
 
+/// The measurement-error report without its transported control evidence:
+/// the committed `fixture-control` has no evidence row, so the report is
+/// incomplete and both policies exit 2 despite the error finding.
 @Test
-func `CI source exit policy keeps an unmeasured real report at two under both policies`() {
+func `CI source exit policy keeps an incomplete real report at two under both policies`() {
     typealias Policy = Institute.CI.Command.Source.Policy
-    let report = PolicyReport.report(measurement: .findings([PolicyReport.finding(.error)]))
+    let report = PolicyReport.report(findings: [PolicyReport.finding(.error)], transportsControl: false)
     let status = Source.Report.Status(report, expected: report.commitment)
 
+    #expect(throws: Source.Report.Complete.Error.self) {
+        _ = try Source.Report.Complete(report, expected: report.commitment)
+    }
     #expect(status == .unmeasured)
     #expect(Policy.errors(in: report))
     #expect(Policy.advisory.code(status: status, errors: Policy.errors(in: report)) == 2)
     #expect(Policy.strict.code(status: status, errors: Policy.errors(in: report)) == 2)
 }
-
