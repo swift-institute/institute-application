@@ -42,6 +42,30 @@ extension Institute.CI.Command {
             .init(name: "source", abstract: "Measure one checked-out package source subject.")
         }
 
+        static let usage = """
+            Measure one checked-out package:
+
+              institute ci -- source --repository <owner/name> --revision <commit>
+                --root <package-root> --bundle <primitives|standards|institute>
+                --xcode-application </Applications/Xcode.app>
+                [--jobs <positive-count>] [--exit-policy <advisory|strict>]
+
+            --revision is an exact lowercase 40-character commit, --root an
+            absolute path, and --xcode-application an application under
+            /Applications. --exit-policy defaults to advisory.
+
+            The JSON report goes to standard output. A bounded summary goes to
+            standard error: the outcome, every reason a report is unmeasured, and
+            each finding as location, severity, rule and message.
+
+            Once the report is produced, the exit policy decides the status:
+              advisory  0 when the report is complete, with or without findings.
+              strict    0 when the report is complete with no error-severity
+                        finding and no artifact or control finding; 1 otherwise.
+              both      2 when the report is incomplete (unmeasured).
+            Invalid arguments exit 64 before measurement; other failures exit 2.
+            """
+
         public static var schema: Command_Schema.Command.Schema.Definition<Self> {
             .init {
                 Command_Schema.Command.Option(
@@ -149,13 +173,15 @@ extension Institute.CI.Command {
             } catch {
                 throw .configuration("source report serialization did not parse: \(error)")
             }
-            print(bytes)
-            Process.Exit.normal(
-                (Policy(rawValue: exitPolicy) ?? .advisory).code(
-                    status: Source_Report.Source.Report.Status(report, expected: report.commitment),
-                    errors: Policy.errors(in: report)
-                )
+            let code = (Policy(rawValue: exitPolicy) ?? .advisory).code(
+                status: Source_Report.Source.Report.Status(report, expected: report.commitment),
+                errors: Policy.errors(in: report)
             )
+            print(bytes)
+            for line in Self.summary(report, exitCode: code) {
+                Console.Output.error(line + "\n")
+            }
+            Process.Exit.normal(code)
         }
     }
 
@@ -168,14 +194,97 @@ extension Institute.CI.Command {
                 initial: .init()
             )
         } catch {
-            Console.Output.error("institute ci source: \(error)")
+            if case .helpRequested = error {
+                print(Source.usage)
+                terminate(0)
+            }
+            Console.Output.error("institute ci source: \(error)\n")
             terminate(64)
         }
         do throws(Institute.Error) {
             try await command.run()
         } catch {
-            Console.Output.error("institute ci source: \(error)")
+            Console.Output.error("institute ci source: \(error)\n")
             terminate(2)
         }
+    }
+}
+
+extension Institute.CI.Command.Source {
+    static func summary(
+        _ report: Source_Report::Source.Report,
+        exitCode: Swift::Int32,
+        limit: Swift::Int = 50
+    ) -> [Swift::String] {
+        var lines: [Swift::String] = []
+        switch Source_Report::Source.Report.Status(report, expected: report.commitment) {
+        case .clean:
+            lines.append("institute ci source: clean (exit \(exitCode))")
+
+        case .findings:
+            lines.append("institute ci source: findings (exit \(exitCode))")
+
+        case .unmeasured:
+            lines.append("institute ci source: UNMEASURED, the report is incomplete (exit \(exitCode))")
+            do throws(Source_Report::Source.Report.Complete.Error) {
+                _ = try Source_Report::Source.Report.Complete(report, expected: report.commitment)
+            } catch {
+                lines.append("unmeasured: incomplete report: \(error)")
+            }
+            for measurement in report.measurements {
+                guard case .unmeasured(let reasons) = measurement.verdict else { continue }
+                for reason in reasons {
+                    lines.append("unmeasured: \(measurement.engine.token): \(reason.code): \(reason.detail)")
+                }
+            }
+            for evidence in report.artifactEvidence {
+                guard case .unmeasured(let reasons) = evidence.verdict else { continue }
+                for reason in reasons {
+                    lines.append("unmeasured: \(evidence.artifact.path): \(reason.code): \(reason.detail)")
+                }
+            }
+            for evidence in report.controlEvidence {
+                guard case .unmeasured(let reasons) = evidence.verdict else { continue }
+                for reason in reasons {
+                    lines.append("unmeasured: control \(evidence.identity): \(reason.code): \(reason.detail)")
+                }
+            }
+        }
+
+        var findings: [Swift::String] = []
+        for measurement in report.measurements {
+            guard case .findings(let found) = measurement.verdict else { continue }
+            for finding in found {
+                let diagnostic = finding.diagnostic
+                let location = diagnostic.location
+                findings.append(
+                    "\(location.filePath ?? location.fileID):\(location.line):\(location.column): "
+                        + "\(diagnostic.severity): [\(measurement.engine.token) \(finding.rule.token)] "
+                        + diagnostic.message
+                )
+            }
+        }
+        for evidence in report.artifactEvidence {
+            guard case .findings(let reasons) = evidence.verdict else { continue }
+            for reason in reasons {
+                findings.append(
+                    "\(evidence.artifact.path): [\(evidence.predicate.token)] \(reason.code): \(reason.detail)"
+                )
+            }
+        }
+        for evidence in report.controlEvidence {
+            guard case .findings(let reasons) = evidence.verdict else { continue }
+            for reason in reasons {
+                findings.append("control \(evidence.identity): \(reason.code): \(reason.detail)")
+            }
+        }
+
+        lines.append(contentsOf: findings.prefix(limit))
+        if findings.count > limit {
+            lines.append(
+                "\(findings.count - limit) more findings omitted; the JSON report on standard output has all \(findings.count)"
+            )
+        }
+        return lines
     }
 }
