@@ -42,6 +42,31 @@ extension Institute.CI.Command {
             .init(name: "source", abstract: "Measure one checked-out package source subject.")
         }
 
+        /// The one documented source command, its output streams and its exit statuses.
+        public static let usage = """
+            Measure one checked-out package:
+
+              institute ci -- source --repository <owner/name> --revision <commit>
+                --root <package-root> --bundle <primitives|standards|institute>
+                --xcode-application </Applications/Xcode.app>
+                [--jobs <positive-count>] [--exit-policy <advisory|strict>]
+
+            --revision is an exact lowercase 40-character commit, --root an
+            absolute path, and --xcode-application an application under
+            /Applications. --exit-policy defaults to advisory.
+
+            The JSON report goes to standard output. A bounded summary goes to
+            standard error: the outcome, every reason a report is unmeasured, and
+            each finding as location, severity, rule and message.
+
+            Once the report is produced, the exit policy decides the status:
+              advisory  0 when the report is complete, with or without findings.
+              strict    0 when the report is complete with no error-severity
+                        finding and no artifact or control finding; 1 otherwise.
+              both      2 when the report is incomplete (unmeasured).
+            Invalid arguments exit 64 before measurement; other failures exit 2.
+            """
+
         public static var schema: Command_Schema.Command.Schema.Definition<Self> {
             .init {
                 Command_Schema.Command.Option(
@@ -149,13 +174,15 @@ extension Institute.CI.Command {
             } catch {
                 throw .configuration("source report serialization did not parse: \(error)")
             }
-            print(bytes)
-            Process.Exit.normal(
-                (Policy(rawValue: exitPolicy) ?? .advisory).code(
-                    status: Source_Report.Source.Report.Status(report, expected: report.commitment),
-                    errors: Policy.errors(in: report)
-                )
+            let code = (Policy(rawValue: exitPolicy) ?? .advisory).code(
+                status: Source_Report.Source.Report.Status(report, expected: report.commitment),
+                errors: Policy.errors(in: report)
             )
+            print(bytes)
+            for line in Self.summary(report, exitCode: code) {
+                Console.Output.error(line + "\n")
+            }
+            Process.Exit.normal(code)
         }
     }
 
@@ -168,13 +195,17 @@ extension Institute.CI.Command {
                 initial: .init()
             )
         } catch {
-            Console.Output.error("institute ci source: \(error)")
+            if case .helpRequested = error {
+                print(Source.usage)
+                terminate(0)
+            }
+            Console.Output.error("institute ci source: \(error)\n")
             terminate(64)
         }
         do throws(Institute.Error) {
             try await command.run()
         } catch {
-            Console.Output.error("institute ci source: \(error)")
+            Console.Output.error("institute ci source: \(error)\n")
             terminate(2)
         }
     }

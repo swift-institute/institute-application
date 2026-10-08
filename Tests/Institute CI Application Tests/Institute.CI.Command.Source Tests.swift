@@ -150,11 +150,11 @@ private enum PolicyReport {
         predicateRequirements: [.init(subject: subject.identity, artifacts: [path], predicates: [predicate])]
     )
 
-    static func finding(_ severity: Diagnostic.Severity) -> Source.Finding {
+    static func finding(_ severity: Diagnostic.Severity, line: Int = 1) -> Source.Finding {
         .init(
             rule: rule,
             diagnostic: .init(
-                location: .init(fileID: "ISO639.swift", filePath: file, line: 1, column: 1),
+                location: .init(fileID: "ISO639.swift", filePath: file, line: line, column: 1),
                 severity: severity,
                 identifier: rule.token,
                 message: "fixture finding"
@@ -167,7 +167,8 @@ private enum PolicyReport {
         findings: [Source.Finding] = [],
         artifactFinding: Bool = false,
         controlFinding: Bool = false,
-        transportsControl: Bool = true
+        transportsControl: Bool = true,
+        unmeasured: [Source.Reason]? = nil
     ) -> Source.Report {
         let controlEvidence = Source.Rule.Control.Evidence(
             identity: control,
@@ -193,7 +194,8 @@ private enum PolicyReport {
                     observations: [.init(file: file, rule: rule, applicable: true, coverage: .measured)],
                     repairs: findings.isEmpty ? [] : [.init(file: file, rule: rule, disposition: .unchanged)],
                     controls: controls,
-                    verdict: findings.isEmpty ? .clean : .findings(findings)
+                    verdict: unmeasured.map { .unmeasured($0) }
+                        ?? (findings.isEmpty ? .clean : .findings(findings))
                 )
             ],
             artifactEvidence: [
@@ -252,4 +254,74 @@ func `CI source exit policy keeps an incomplete real report at two under both po
     #expect(Policy.errors(in: report))
     #expect(Policy.advisory.code(status: status, errors: Policy.errors(in: report)) == 2)
     #expect(Policy.strict.code(status: status, errors: Policy.errors(in: report)) == 2)
+}
+
+@Test
+func `CI source summary names a clean report in one line`() {
+    let lines = Institute.CI.Command.Source.summary(PolicyReport.report(), exitCode: 0)
+
+    #expect(lines == ["institute ci source: clean (exit 0)"])
+}
+
+@Test
+func `CI source summary lists each finding by location, rule and message`() {
+    let report = PolicyReport.report(findings: [PolicyReport.finding(.error)])
+    let lines = Institute.CI.Command.Source.summary(report, exitCode: 1)
+
+    #expect(lines.first == "institute ci source: findings (exit 1)")
+    #expect(lines.count == 2)
+    #expect(lines[1] == PolicyReport.file + ":1:1: error: [swift-format AlwaysUseLowerCamelCase] fixture finding")
+}
+
+@Test
+func `CI source summary keeps an incomplete report unmeasured with its reason`() {
+    let report = PolicyReport.report(findings: [PolicyReport.finding(.error)], transportsControl: false)
+    let lines = Institute.CI.Command.Source.summary(report, exitCode: 2)
+
+    #expect(lines.first == "institute ci source: UNMEASURED, the report is incomplete (exit 2)")
+    #expect(lines.contains { $0.hasPrefix("unmeasured: incomplete report: ") })
+    #expect(!lines.contains { $0.contains("clean") })
+}
+
+@Test
+func `CI source summary names an unmeasured engine and its reason`() {
+    let report = PolicyReport.report(
+        unmeasured: [Source.Reason(code: "malformed-output", detail: "Package.swift:83:23: expected value")]
+    )
+    let lines = Institute.CI.Command.Source.summary(report, exitCode: 2)
+
+    #expect(lines.first?.contains("UNMEASURED") == true)
+    #expect(lines.contains("unmeasured: swift-format: malformed-output: Package.swift:83:23: expected value"))
+    #expect(!lines.contains { $0.contains("clean") })
+}
+
+@Test
+func `CI source summary caps its findings and counts what it omitted`() {
+    let report = PolicyReport.report(findings: [
+        PolicyReport.finding(.error, line: 1),
+        PolicyReport.finding(.warning, line: 2),
+        PolicyReport.finding(.note, line: 3),
+    ])
+    let lines = Institute.CI.Command.Source.summary(report, exitCode: 1, limit: 1)
+
+    #expect(lines.count == 3)
+    #expect(lines.last == "2 more findings omitted; the JSON report on standard output has all 3")
+}
+
+@Test
+func `CI source help documents the one command and its exit statuses`() {
+    let error = #expect(throws: Command.Error.self) {
+        _ = try Command.parse(Institute.CI.Command.Source.self, from: ["--help"], initial: .init())
+    }
+    if case .helpRequested? = error {
+    } else {
+        Issue.record("expected --help to request help, got \(String(describing: error))")
+    }
+    let usage = Institute.CI.Command.Source.usage
+
+    #expect(usage.contains("institute ci -- source --repository <owner/name> --revision <commit>"))
+    #expect(usage.contains("--exit-policy <advisory|strict>"))
+    #expect(usage.contains("2 when the report is incomplete (unmeasured)"))
+    #expect(usage.contains("Invalid arguments exit 64"))
+    #expect(usage.contains("standard error"))
 }
